@@ -63,3 +63,5 @@ src/areadline/GNUmakefile
 src/areadline/rl
 src/testsuite/junit_result.xml
 src/testsuite/third_party/btree_test/
+/obj/
+b~*

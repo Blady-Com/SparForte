@@ -807,6 +807,7 @@ if [ -z "$TMP" ] ; then
       echo "no"
       echo -n "checking for libSDL (locate, Darwin)... "
       TMP=`"$LOCATE" libSDL`
+      TMP=true
       if [ ! -z "$TMP" ] ; then
           echo "yes"
       else
@@ -915,6 +916,7 @@ else
       TMP=`./a.out`
       rm ./a.out
    fi
+   TMP=64
    cd ../src
    if [ "$TMP" = "32" ] ; then
       cp spar_os-sdl-32bit.ads spar_os-sdl.ads
