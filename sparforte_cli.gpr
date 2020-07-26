@@ -11,7 +11,7 @@ project SparForte_CLI is
    package Compiler is
        for Default_Switches ("ada") use ("-gnatVaep", "-gnatw.eDH.Y", "-Wall", "-g", "-gnato",
                                          "-fstack-check", "-gnatU", "-gnatf", "-gnatW8", "-gnateE",
-                                         "-gnata", "-gnateA", "-gnateE", "-gnateF",
+                                         "-gnata", "-gnateE", "-gnateF",
                                          "-gnatec=" & SparForte_CLI'Project_Dir & "pragma_debug.adc");
        for Default_Switches ("c") use ("-I/Users/blady/Documents/Programmation/SVNGIT/build/include",
                                        "-I/Users/blady/Library/Frameworks/SDL.framework/headers",
