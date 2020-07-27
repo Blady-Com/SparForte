@@ -16,6 +16,7 @@ with Gnoga.Gui.Plugin.Ace_Editor;
 with Gnoga.Gui.Navigator;
 with Gnoga.Server.Connection;
 --  with ZanyBlue.Text.Locales;
+with world, spar;
 
 with SparGUI.View;
 --  with SparGUI.Parser;
@@ -52,6 +53,12 @@ package body SparGUI.Controller is
       end loop;
    end Interpreter;
 
+   procedure Launch_Interpreteur (View : SparGUI.View.Default_View_Access) is
+   begin
+      world.GUI_View := View;
+      Spar;
+   end;
+
    procedure Default
      (Main_Window : in out Gnoga.Gui.Window.Window_Type'Class;
       Connection  :        access Gnoga.Application.Multi_Connect
@@ -60,7 +67,7 @@ package body SparGUI.Controller is
       pragma Unreferenced (Connection);
       View : constant SparGUI.View.Default_View_Access :=
         new SparGUI.View.Default_View_Type;
-      Worker : Interpreter (View);
+--        Worker : Interpreter (View);
    begin
       View.Dynamic;
       Gnoga.Gui.Plugin.Pixi.Load_PIXI (Main_Window);
@@ -80,8 +87,9 @@ package body SparGUI.Controller is
 --        SparGUI.Parser.Fill (View.Primitives, View.Locale);
       View.Create (Main_Window, Gnoga.Gui.View.Grid.Horizontal_Split);
       --        View.Click_Button.On_Click_Handler (On_Click'Access);
-      Gnoga.Activate_Exception_Handler (Worker'Identity);
-      Worker.Start;
+--        Gnoga.Activate_Exception_Handler (Worker'Identity);
+--        Worker.Start;
+      Launch_Interpreteur (View);
    end Default;
 
 begin

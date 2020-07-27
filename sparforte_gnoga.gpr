@@ -59,6 +59,7 @@ project SparForte_Gnoga is
             for Spec ("spar_os.sdl") use "spar_os_nosdl.ads";
             for Body ("spar_os.sdl") use "spar_os_nosdl.adb";
       end case;
+      for Body ("user_io.getline") use "user_io-gui_getline.adb";
    end Naming;
 
 end SparForte_Gnoga;
