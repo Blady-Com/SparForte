@@ -21,8 +21,7 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with ada.text_io,
-     ada.strings.unbounded.text_io,
+with sf_text_io,
      ada.strings.fixed,
      gnat.source_info,
 #if POSTGRES
@@ -39,8 +38,7 @@ with ada.text_io,
      jobs,
      parser_db,
      parser_mysql;
-use  ada.text_io,
-     ada.strings.unbounded.text_io,
+use  sf_text_io,
      ada.strings.fixed,
 #if POSTGRES
      APQ,

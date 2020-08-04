@@ -22,10 +22,10 @@
 ------------------------------------------------------------------------------
 
 with unchecked_deallocation,
-     ada.text_io,
+     sf_text_io,
      ada.strings.unbounded;
 
-use ada.text_io,
+use sf_text_io,
     ada.strings.unbounded;
 
 with gen_list;

@@ -27,7 +27,7 @@ pragma warnings( off ); -- suppress Gnat-specific package warning
 with ada.command_line.environment;
 pragma warnings( on );
 
-with ada.text_io,
+with sf_text_io,
     ada.integer_text_io,
     ada.strings.unbounded.text_io,
     ada.characters.handling,
@@ -39,11 +39,10 @@ with ada.text_io,
     string_util,
     scanner_res,
     performance_monitoring;
-use ada.text_io,
+use sf_text_io,
     ada.integer_text_io,
     ada.command_line,
     ada.command_line.environment,
-    ada.strings.unbounded.text_io,
     ada.characters.handling,
     spar_os,
     spar_os.tty,

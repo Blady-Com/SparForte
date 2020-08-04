@@ -8,12 +8,12 @@
 -- Ken O. Burtch, April 2010
 -----------------------------------------------------------------------------
 
-with ada.text_io,
+with sf_text_io,
      ada.strings.unbounded,
      Ada.IO_Exceptions,
      fileutils.memcache;
 
-use  ada.text_io,
+use  sf_text_io,
      ada.strings.unbounded,
      fileutils,
      fileutils.memcache;

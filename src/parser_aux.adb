@@ -22,7 +22,7 @@
 ------------------------------------------------------------------------------
 -- TODO: break this up into more specific packages
 
-with ada.text_io,
+with sf_text_io,
      Interfaces.C,
      gnat.source_info,
      string_util,
@@ -32,7 +32,7 @@ with ada.text_io,
      scanner,
      parser_params,
      parser.decl.as;
-use  ada.text_io,
+use  sf_text_io,
      Interfaces.C,
      string_util,
      script_io,
@@ -42,7 +42,8 @@ use  ada.text_io,
      scanner,
      parser_params,
      parser.decl.as;
-
+use all type Sf_Text_Io.File_Mode;
+use type Sf_Text_Io.Count;
 
 package body parser_aux is
 

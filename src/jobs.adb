@@ -22,8 +22,7 @@
 ------------------------------------------------------------------------------
 
 with interfaces.c,
-    ada.text_io,
-    ada.strings.unbounded.text_io,
+    sf_text_io,
     gnat.source_info,
     compiler,
     scanner,
@@ -34,8 +33,7 @@ with interfaces.c,
     gen_list,
     world;
 use interfaces.c,
-    ada.text_io,
-    ada.strings.unbounded.text_io,
+    sf_text_io,
     user_io,
     string_util,
     builtins,

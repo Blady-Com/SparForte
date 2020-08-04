@@ -24,8 +24,8 @@
 pragma warnings( off ); -- suppress Gnat-specific package warning
 with ada.command_line.environment;
 pragma warnings( on );
-with  ada.text_io,
-    ada.strings.unbounded.text_io,
+with  sf_text_io,
+    ada.strings.unbounded,
     gnat.source_info,
     cgi,
     pegasock.memcache,
@@ -40,11 +40,10 @@ with  ada.text_io,
     jobs, -- for clearCommandHash
     parser.decl.as,
     parser_teams;
-use ada.text_io,
+use sf_text_io,
     ada.command_line,
     ada.command_line.environment,
     ada.strings.unbounded,
-    ada.strings.unbounded.text_io,
     pegasock.memcache,
     user_io,
     script_io,

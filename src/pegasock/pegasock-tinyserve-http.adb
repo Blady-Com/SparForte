@@ -1,8 +1,8 @@
 -- A Simple, non-threading, insecure Web Server built on Tinyserve.
 -- Ken O. Burtch, May 2010
 -----------------------------------------------------------------------------
-with ada.text_io;
-use ada.text_io;
+with sf_text_io;
+use sf_text_io;
 
 package body pegasock.tinyserve.http is
 

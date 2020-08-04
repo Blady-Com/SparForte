@@ -22,18 +22,19 @@
 ------------------------------------------------------------------------------
 with Ada.Characters.Latin_1,
      Ada.Strings.Fixed,
-     Ada.Strings.Unbounded.Text_IO,
+     SF_Text_IO,
      Ada.Calendar.Arithmetic,
      string_util,
      world,
      compiler; -- Circular dependency...
 use  Ada.Strings,
      Ada.Strings.Fixed,
-     Ada.Strings.Unbounded.Text_IO,
+     SF_Text_IO,
      Ada.Calendar.Arithmetic,
      string_util,
      world,
      compiler;
+use all type Sf_Text_Io.File_Mode;
 
 package body reports.test is
 
@@ -558,7 +559,7 @@ package body reports.test is
     if is_open( test_case_file ) then
        reset( test_case_file, in_file );
        while not end_of_file( test_case_file ) loop
-         s := get_line( test_case_file );
+         s := To_Unbounded_String (get_line( test_case_file ));
          put_line( test_result_file, s );
        end loop;
        delete( test_case_file );

@@ -28,9 +28,8 @@ with ada.command_line.environment;
 pragma warnings( on );
 
 with system,
-    ada.text_io,
+    Sf_Text_Io,
     ada.strings.fixed,
-    ada.strings.unbounded.text_io,
     ada.characters.handling,
     gnat.source_info,
     spar_os.tty,
@@ -83,11 +82,10 @@ with system,
     parser_templates,
     parser_tinyserve,
     parser_logs;
-use ada.text_io,
+use Sf_Text_Io,
     ada.command_line,
     ada.command_line.environment,
     ada.strings.fixed,
-    ada.strings.unbounded.text_io,
     ada.characters.handling,
     spar_os,
     spar_os.tty,
@@ -139,6 +137,7 @@ use ada.text_io,
     parser_templates,
     parser_tinyserve,
     parser_logs;
+use all type Sf_Text_Io.File_Mode;
 
 package body scanner is
 
@@ -6164,7 +6163,7 @@ procedure loadIncludeFile( includeName : unbounded_string; fileLocation : out So
        put_trace( "Including " & to_string( toEscaped( to_unbounded_string( path ) ) ) );
     end if;
     while not end_of_file( include_file ) loop
-       includeText := includeText & ada.strings.unbounded.text_io.get_line( include_file ) & ASCII.LF;
+       includeText := includeText & get_line( include_file ) & ASCII.LF;
     end loop;
     return includeText;
   end load_include_file;

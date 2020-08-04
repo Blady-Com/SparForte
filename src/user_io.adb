@@ -21,15 +21,13 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with ada.text_io,
-    ada.strings.unbounded.text_io,
+with sf_text_io,
     ada.calendar,
     spar_os,
     spar_os.tty,
     world,
     string_util;
-use ada.text_io,
-    ada.strings.unbounded.text_io,
+use sf_text_io,
     ada.calendar,
     spar_os,
     spar_os.tty,

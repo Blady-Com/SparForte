@@ -21,10 +21,10 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with ada.text_io,
+with sf_text_io,
      ada.strings.unbounded;
 
-use ada.text_io,
+use sf_text_io,
     ada.strings.unbounded;
 
 with gen_list;

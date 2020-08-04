@@ -28,13 +28,12 @@ with ada.command_line.environment;
 pragma warnings( on );
 
 with system,
-    ada.text_io,
+    sf_text_io,
     ada.strings.unbounded.text_io,
     gnat.source_info;
-use ada.text_io,
+use sf_text_io,
     ada.command_line,
-    ada.command_line.environment,
-    ada.strings.unbounded.text_io;
+    ada.command_line.environment;
 
 package body world is
 

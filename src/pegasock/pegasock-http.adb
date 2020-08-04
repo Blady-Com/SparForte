@@ -3,8 +3,8 @@ with Ada.Characters,
 use  Ada.Strings.Maps,
      Ada.Strings.Maps.Constants;
 
---with ada.text_io;
---use  ada.text_io;
+--with sf_text_io;
+--use  sf_text_io;
 
 package body pegasock.http is
 

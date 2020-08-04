@@ -25,7 +25,7 @@ with
     gnat.os_lib,
     interfaces.c,
     ada.exceptions,
-    ada.text_io,
+    sf_text_io,
     ada.strings.unbounded,
     ada.calendar,
     gnat.lock_files,
@@ -44,7 +44,7 @@ use
     gnat.os_lib,
     interfaces.c,
     ada.exceptions,
-    ada.text_io,
+    sf_text_io,
     ada.strings,
     ada.strings.unbounded,
     ada.calendar,
@@ -59,6 +59,7 @@ use
     parser_aux,
     parser_params,
     parser_tio;
+use all type Sf_Text_Io.File_Mode;
 
 package body parser_logs is
 

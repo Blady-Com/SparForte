@@ -8,12 +8,12 @@
 -- Ken O. Burtch, April 2010
 -----------------------------------------------------------------------------
 
-with ada.text_io,
+with sf_text_io,
      ada.strings.unbounded,
      Ada.IO_Exceptions,
      pegasock.memcache;
 
-use  ada.text_io,
+use  sf_text_io,
      ada.strings.unbounded,
      pegasock,
      pegasock.memcache;

@@ -21,7 +21,7 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with ada.text_io,
+with sf_text_io,
      ada.strings.unbounded,
      ada.command_line,
      world,
@@ -32,7 +32,7 @@ with ada.text_io,
      interpreter,
      signal_flags;
 
-use ada.text_io,
+use sf_text_io,
     ada.strings.unbounded,
     ada.command_line,
     world,

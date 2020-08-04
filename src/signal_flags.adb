@@ -22,8 +22,8 @@
 ------------------------------------------------------------------------------
 -- CVS: $Id: signal_flags.adb,v 1.2 2005/02/11 02:59:31 ken Exp $
 
-with Ada.Text_IO, Gnat.Source_Info, spar_os;
-use Ada.Text_IO,  Gnat.Source_Info, spar_os;
+with Sf_Text_Io, Gnat.Source_Info, spar_os;
+use Sf_Text_Io,  Gnat.Source_Info, spar_os;
 
 package body signal_flags is
 

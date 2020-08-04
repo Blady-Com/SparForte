@@ -3,13 +3,13 @@
 -- Protected under the GNU GPL License
 -- Modified by K Burtch
 
-with Ada.Text_IO,
+with Sf_Text_Io,
 Ada.Command_Line,
 GNAT.Command_Line;
 -- with Ada.IO_Exceptions;
 -- with Gnat.Command_Line;
 
--- use Ada.Text_IO;
+-- use Sf_Text_Io;
 
 --with BC.Containers;
 --with BC.Containers.Lists;
@@ -85,7 +85,7 @@ package body spar_os.sound is
    -- REALTIME SCHEDULING (IF ANY)
    --------------------------------------------------
    --procedure Real_Time_Scheduling(Priority : Integer) is
-   --   use WC.Host, WC.Host.Glue, Ada.Text_IO;
+   --   use WC.Host, WC.Host.Glue, Sf_Text_Io;
    --   Z : Errno_Type := ENOERR;
    --begin
 --
@@ -127,7 +127,7 @@ package body spar_os.sound is
    --------------------------------------------------
 
    procedure Play( soundFile : unbounded_string; priority : integer := 0) is
-      use Ada.Text_IO;
+      use Sf_Text_Io;
       use Ada.Command_Line;
       use GNAT.Command_Line;
 

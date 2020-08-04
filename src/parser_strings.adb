@@ -24,9 +24,9 @@
 --with text_io;
 
 with interfaces.c,
-    ada.strings.unbounded.text_io,
+    ada.strings.unbounded,
     ada.streams.stream_io,
-    ada.text_io,
+    sf_text_io,
     gnat.regexp,
     gnat.regpat,
     base64,
@@ -41,7 +41,6 @@ with interfaces.c,
     parser_strings_pcre;
 use interfaces.c,
     ada.strings.unbounded,
-    ada.strings.unbounded.text_io,
     ada.streams.stream_io,
     gnat.regexp,
     gnat.regpat,
@@ -54,6 +53,7 @@ use interfaces.c,
     parser_params,
     parser_aux,
     parser;
+use all type Sf_Text_Io.File_Mode;
 
 package body parser_strings is
 
@@ -828,16 +828,16 @@ procedure ParseStringsToString( result : out unbounded_string; kind : out identi
 
   procedure DoBase64ToString( result : out unbounded_string; expr_val : unbounded_string ) is
     rawFile : ada.streams.stream_io.file_type;
-    base64file : ada.text_io.file_type;
+    base64file : sf_text_io.file_type;
   begin
     -- The AdaPower base64 package requires streams and/or files.  It
     -- doesn't do strings.
     --
     -- Barnes' documentation is a bit sketchy.  I am faking this.  There may
     -- be a cleaner and more efficient way to do this.
-    ada.text_io.create( base64File );
-    ada.text_io.put( base64File, to_string( expr_val ) );
-    ada.text_io.reset( base64File, ada.text_io.in_file );
+    sf_text_io.create( base64File );
+    sf_text_io.put( base64File, to_string( expr_val ) );
+    sf_text_io.reset( base64File, in_file );
     ada.streams.stream_io.create( rawFile );
     Decode_Stream( From => base64File, To => rawFile  );
     ada.streams.stream_io.reset( rawFile, ada.streams.stream_io.in_file );
@@ -852,7 +852,7 @@ procedure ParseStringsToString( result : out unbounded_string; kind : out identi
        end loop;
      end;
      ada.streams.stream_io.delete( rawFile );
-     ada.text_io.delete( base64File );
+     sf_text_io.delete( base64File );
    exception when MODE_ERROR =>
      err( "internal_error: file mode error" );
    when status_error =>
@@ -1358,7 +1358,7 @@ procedure ParseStringsToBase64( result : out unbounded_string; kind : out identi
   -- Syntax: strings.to_base64( s )
   -- Source: base64.encode_stream
   rawFile : ada.streams.stream_io.file_type;
-  base64file : ada.text_io.file_type;
+  base64file : sf_text_io.file_type;
   expr_val : unbounded_string;
   expr_type : identifier;
 begin
@@ -1381,15 +1381,15 @@ begin
           string'write( rawStream, s );
        end;
        ada.streams.stream_io.reset( rawFile, ada.streams.stream_io.in_file );
-       ada.text_io.create( base64File );
+       sf_text_io.create( base64File );
        Encode_Stream( From => rawFile, To => base64File  );
-       ada.text_io.reset( base64File, ada.text_io.in_file );
+       sf_text_io.reset( base64File, in_file );
        -- TODO: loop
-       while not ada.text_io.end_of_file( base64File ) loop
-          result := result & get_line( base64File );
+       while not sf_text_io.end_of_file( base64File ) loop
+          result := result & sf_text_io.get_line( base64File );
        end loop;
        ada.streams.stream_io.delete( rawFile );
-       ada.text_io.delete( base64file );
+       sf_text_io.delete( base64file );
     end if;
   exception when MODE_ERROR =>
     err( "internal_error: file mode error" );

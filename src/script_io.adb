@@ -22,10 +22,10 @@
 ------------------------------------------------------------------------------
 
 with interfaces.c,
-     ada.text_io,
+     sf_text_io,
      Gnat.Source_Info;
 use  interfaces.c,
-     ada.text_io;
+     sf_text_io;
 
 package body script_io is
 

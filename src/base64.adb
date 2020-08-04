@@ -180,7 +180,7 @@ package body Base64 is
     end Decode_Length;
 
   procedure Encode_Stream(From  : in out Ada.Streams.Stream_Io.File_Type;
-                          To    : in out Ada.Text_Io.File_Type) is
+                          To    : in out Sf_Text_Io.File_Type) is
     Octet_Buffer : Ada.Streams.Stream_Element_Array(1..Base64.Octets_Per_Line);
     Octet_Buffer_Last : Ada.Streams.Stream_Element_Count;
     String_Buffer : String(1..Base64.Characters_Per_Line);
@@ -192,11 +192,11 @@ package body Base64 is
           -- You never get short reads from Stream_Io.Read
         Base64.Encode(Octet_Buffer(1..Octet_Buffer_Last), String_Buffer,
               String_Buffer_Last);
-        Ada.Text_Io.Put_Line(To, String_Buffer(1..String_Buffer_Last));
+        Sf_Text_Io.Put_Line(To, String_Buffer(1..String_Buffer_Last));
     end loop;
   end Encode_Stream;
 
-  procedure Decode_Stream(From  : in out Ada.Text_Io.File_Type;
+  procedure Decode_Stream(From  : in out Sf_Text_Io.File_Type;
                           To    : in out Ada.Streams.Stream_Io.File_Type) is
     First_Char : Character;
     End_Line   : Boolean;
@@ -207,10 +207,10 @@ package body Base64 is
     use type Ada.Streams.Stream_Element_Offset;
   begin
     loop -- Loop over lines
-        exit when Ada.Text_Io.End_Of_File(From);
-        Ada.Text_Io.Look_Ahead(From, First_Char, End_Line);
+        exit when Sf_Text_Io.End_Of_File(From);
+        Sf_Text_Io.Look_Ahead(From, First_Char, End_Line);
         exit when not End_Line and then First_Char = '-';
-        Ada.Text_Io.Get_Line(From, In_Line, Line_Last);
+        Sf_Text_Io.Get_Line(From, In_Line, Line_Last);
         if 0 < Line_Last then
             Decode(In_Line(1..Line_Last), Octets, Octets_Last);
             if 0 < Octets_Last then

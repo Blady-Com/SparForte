@@ -116,7 +116,7 @@ procedure setReadBufferSize( fd : in out aBufferedSocket; size : short_integer )
 -----------------------------------------------------------------------------
 -- FILES
 --
--- The basic functionality is already found in Ada.Text_IO.  Provided here
+-- The basic functionality is already found in Sf_Text_Io.  Provided here
 -- primarily to match up with socket functionality.
 -----------------------------------------------------------------------------
 

@@ -21,8 +21,8 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with ada.text_io;
-use  ada.text_io;
+with sf_text_io;
+use  sf_text_io;
 
 package body performance_monitoring is
 

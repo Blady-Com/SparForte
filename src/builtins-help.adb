@@ -23,7 +23,7 @@
 
 with interfaces.c,
      ada.characters.Latin_1,
-     ada.text_io,
+     sf_text_io,
      ada.strings.unbounded.text_io,
      ada.strings.fixed,
      ada.calendar,
@@ -41,7 +41,7 @@ with interfaces.c,
      parser_teams,
      parser;  -- for pragma annotate
 use  interfaces.c,
-     ada.text_io,
+     sf_text_io,
      ada.strings.unbounded.text_io,
      ada.strings.fixed,
      ada.calendar,

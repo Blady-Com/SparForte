@@ -20,16 +20,16 @@
 -- This is maintained at http://www.sparforte.com                           --
 --                                                                          --
 ------------------------------------------------------------------------------
-with ada.strings.unbounded.text_io,
+with Sf_Text_Io,
      spar_os.tty,
      cgi,
      string_util,
      user_io;
-use  ada.strings.unbounded.text_io,
-     spar_os.tty,
+use  spar_os.tty,
      cgi,
      string_util,
      user_io;
+use all type Sf_Text_Io.File_Mode;
 
 package body reports is
 
@@ -116,7 +116,7 @@ package body reports is
   begin
     reset( r.outputfile, in_file );
     while not end_of_file( r.outputFile ) loop
-       s := get_line( r.outputfile );
+       s := To_Unbounded_String (get_line( r.outputfile ));
        put_line( to_string( s ) );
     end loop;
     delete( r.outputfile );

@@ -20,7 +20,7 @@
 -- This is maintained at http://www.pegasoft.ca                             --
 --                                                                          --
 ------------------------------------------------------------------------------
-with ada.text_io; use ada.text_io; -- DEBUG
+with sf_text_io; use sf_text_io; -- DEBUG
 
 with gnat.bubble_sort_a,
      gnat.heap_sort_a,
@@ -39,7 +39,7 @@ use  ada.numerics.long_elementary_functions,
      parser,
      parser_aux;
 
---with ada.text_io; use ada.text_io;
+--with sf_text_io; use sf_text_io;
 
 package body parser_stats is
 

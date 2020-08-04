@@ -23,8 +23,7 @@
 
 with interfaces.c,
     ada.exceptions,
-    ada.text_io,
-    ada.strings.unbounded.text_io,
+    sf_text_io,
     gnat.source_info,
     string_util,
     user_io,
@@ -37,8 +36,7 @@ with interfaces.c,
     parser_params;
 use interfaces.c,
     ada.exceptions,
-    ada.text_io,
-    ada.strings.unbounded.text_io,
+    sf_text_io,
     user_io,
     string_util,
     signal_flags,
@@ -53,7 +51,7 @@ package body parser_tio is
 
 procedure ParseIsOpen( b : out identifier ) is
   -- is_open( file )
-  -- Ada.Text_IO.Is_Open
+  -- Sf_Text_Io.Is_Open
   file : identifier;
 begin
   b := false_t;
@@ -74,7 +72,7 @@ end ParseIsOpen;
 
 procedure ParseEndOfFile( result : out unbounded_string; kind : out identifier ) is
   -- Syntax: End_of_file( f )
-  -- Source: Ada.Text_IO.End_Of_File
+  -- Source: Sf_Text_Io.End_Of_File
   file_ref : reference;
   file_kind : identifier;
 begin
@@ -98,7 +96,7 @@ end ParseEndOfFile;
 
 procedure ParseEndOfLine( result : out unbounded_string; kind : out identifier ) is
   -- Syntax: end_of_line( open-file )
-  -- Source: Ada.Text_IO.End_Of_Line
+  -- Source: Sf_Text_Io.End_Of_Line
   file_ref : reference;
 begin
   kind := boolean_t;
@@ -114,7 +112,7 @@ end ParseEndOfLine;
 
 procedure ParseLine( result : out unbounded_string; kind : out identifier ) is
   -- Syntax: line( open-file )
-  -- Source: Ada.Text_IO.Line
+  -- Source: Sf_Text_Io.Line
   file_ref : reference;
 begin
   kind := integer_t;   -- TODO: probably should be something more specific
@@ -130,7 +128,7 @@ end ParseLine;
 
 procedure ParseName( result : out unbounded_string; kind : out identifier ) is
   -- Syntax: name( open-file )
-  -- Source: Ada.Text_IO.Name
+  -- Source: Sf_Text_Io.Name
   file_ref : reference;
 begin
   kind := uni_string_t;
@@ -146,7 +144,7 @@ end ParseName;
 
 procedure ParseMode( result : out unbounded_string; kind : out identifier ) is
   -- Syntax: mode( open-file )
-  -- Source: Ada.Text_IO.Mode
+  -- Source: Sf_Text_Io.Mode
   file_ref : reference;
 begin
   kind := file_mode_t;
@@ -171,7 +169,7 @@ end ParseMode;
 
 procedure ParseInkey( str : out unbounded_string; kind : out identifier ) is
   -- Syntax: inkey
-  -- Source: Ada.Text_IO.Inkey
+  -- Source: Sf_Text_Io.Inkey
   ch : character;
 begin
   kind := character_t;
@@ -187,7 +185,7 @@ end ParseInkey;
 
 procedure ParseGetLine( str : out unbounded_string; kind : out identifier ) is
   -- Syntax: get_line [ (open-file) ]
-  -- Source: Ada.Text_IO.Get_Line
+  -- Source: Sf_Text_Io.Get_Line
   -- Note: Gnat get_line can't be used here because it does something
   -- odd with file descriptor 0
   file_ref : reference;
@@ -722,8 +720,8 @@ end DoSocketOpen;
 procedure ParseOpen( create : boolean := false ) is
   -- Syntax: open( closed-file, mode, name );
   -- Syntax: create( closed-file [,mode] [,name] );
-  -- Source: Ada.Text_IO.Open
-  -- Source: Ada.Text_IO.Create
+  -- Source: Sf_Text_Io.Open
+  -- Source: Sf_Text_Io.Create
   file_ref : reference;
   mode : identifier;
   name : unbounded_string;
@@ -823,7 +821,7 @@ end ParseOpen;
 
 procedure ParseReset is
   -- Syntax: reset( open-file [,mode] )
-  -- Source: Ada.Text_IO.Reset
+  -- Source: Sf_Text_Io.Reset
   file_ref: reference;
   mode    : identifier := eof_t;
   name    : unbounded_string;
@@ -873,7 +871,7 @@ end ParseReset;
 
 procedure ParseClose is
   -- Syntax: close( open-file )
-  -- Source: Ada.Text_IO.Close
+  -- Source: Sf_Text_Io.Close
   file_ref : reference;
   fd   : aFileDescriptor;
   kind : identifier;
@@ -909,7 +907,7 @@ end ParseClose;
 
 procedure ParseDelete is
   -- Syntax: delete( open-file )
-  -- Source: Ada.Text_IO.Delete
+  -- Source: Sf_Text_Io.Delete
   file_ref : reference;
   name : unbounded_string;
   fd   : aFileDescriptor;
@@ -953,7 +951,7 @@ end ParseDelete;
 
 procedure ParseSkipLine is
   -- Syntax: skip_line [ (open-file) ]
-  -- Source: Ada.Text_IO.Skip_Line
+  -- Source: Sf_Text_Io.Skip_Line
   file_ref : reference;
   --fd     : aFileDescriptor;
   ch     : character;
@@ -1022,7 +1020,7 @@ end ParseSkipLine;
 
 procedure ParseGet is
   -- Syntax: get [ (open-file), ch ]
-  -- Source: Ada.Text_IO.Get
+  -- Source: Sf_Text_Io.Get
   -- Note: Gnat get can't be used here because it does something
   -- odd with file descriptor 0
   file_ref  : reference;
@@ -1095,7 +1093,7 @@ end ParseGet;
 
 procedure ParsePutLine is
   -- Syntax: put_line( [file,] expression )
-  -- Source: Ada.Text_IO.Put_Line
+  -- Source: Sf_Text_Io.Put_Line
   target_ref: reference;
   kind      : identifier := file_type_t;
   expr_val  : unbounded_string;
@@ -1358,7 +1356,7 @@ end ParseQuestion;
 
 procedure ParsePut is
   -- Syntax: put( [open-file,] expression [, picture] )
-  -- Source: Ada.Text_IO.Editing.Put
+  -- Source: Sf_Text_Io.Editing.Put
   target_ref: reference;
   kind      : identifier;
   expr_val  : unbounded_string;
@@ -1477,7 +1475,7 @@ end ParsePut;
 
 procedure ParseNewLine is
   -- Syntax: new_line
-  -- Source: Ada.Text_IO.New_Line
+  -- Source: Sf_Text_Io.New_Line
   target_ref : reference;
   kind   : identifier;
   fd     : aFileDescriptor;         -- Linux file descriptor of output file
@@ -1513,7 +1511,7 @@ end ParseNewLine;
 
 procedure ParseSetInput is
   -- Syntax: set_input( open-file )
-  -- Source: Ada.Text_IO.Set_Input
+  -- Source: Sf_Text_Io.Set_Input
   file_ref: reference;              -- open file to assign output to
   fd     : aFileDescriptor;         -- Linux file descriptor of output file
   result : aFileDescriptor := 0;    -- result of dup2
@@ -1552,7 +1550,7 @@ end ParseSetInput;
 
 procedure ParseSetOutput is
   -- Syntax: set_output( open-file )
-  -- Source: Ada.Text_IO.Set_Output
+  -- Source: Sf_Text_Io.Set_Output
   file_ref : reference;             -- open file to assign output to
   fd       : aFileDescriptor;         -- Linux file descriptor of output file
   result   : aFileDescriptor := 0;    -- result of dup2
@@ -1588,7 +1586,7 @@ end ParseSetOutput;
 
 procedure ParseSetError is
   -- Syntax: set_error( open-file )
-  -- Source: Ada.Text_IO.Set_Error
+  -- Source: Sf_Text_Io.Set_Error
   file_ref:reference;
   result : aFileDescriptor := 0;
   fd     : aFileDescriptor;
@@ -1624,7 +1622,7 @@ end ParseSetError;
 
 procedure ParseGetImmediate is
   -- Syntax: get_immediate( [file,] ch [, bool] )
-  -- Source: Ada.Text_IO.Get_Immediate
+  -- Source: Sf_Text_Io.Get_Immediate
   file_ref  : reference;
   kind      : identifier;
   fd        : aFileDescriptor;
@@ -1695,7 +1693,7 @@ end ParseGetImmediate;
 
 procedure ParseLookAhead is
   -- Syntax: look_ahead( [file,] ch [, eol] )
-  -- Source: Ada.Text_IO.Look_Ahead
+  -- Source: Sf_Text_Io.Look_Ahead
   -- This is the equivalent of a Get that does not get the next character.
 --   procedure Look_Ahead
 --     (Item        : out Character;

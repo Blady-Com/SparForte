@@ -6,7 +6,7 @@
   --  declared after encode_length.
 
 with Ada.Streams;
-with Ada.Text_Io;
+with Sf_Text_Io;
 with Ada.Streams.Stream_Io;
 
 package Base64 is
@@ -96,13 +96,13 @@ package Base64 is
   -- Then iterate if Complete is false.
 
   procedure Encode_Stream(From  : in out Ada.Streams.Stream_Io.File_Type;
-                          To    : in out Ada.Text_Io.File_Type);
+                          To    : in out Sf_Text_Io.File_Type);
   -- This takes a Stream_Io file open for reading and a Text_Io open for
   -- writing, and encodes what's on the stream file into the text file.
   -- The text is encoded a line at a time, so whatever line terminator
   -- the Text_Io package uses is output.
 
-  procedure Decode_Stream(From  : in out Ada.Text_Io.File_Type;
+  procedure Decode_Stream(From  : in out Sf_Text_Io.File_Type;
                           To    : in out Ada.Streams.Stream_Io.File_Type);
   -- This takes a Text_Io file open for reading and a Stream open for
   -- writing, and decodes what's on the text file into the stream.

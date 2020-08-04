@@ -1,10 +1,10 @@
 -- telnet localhost 11215
 
-with ada.text_io,
+with sf_text_io,
      ada.strings.unbounded,
      pegasock.tinyserve,
      pegasock.tinyserve.http;
-use  ada.text_io,
+use  sf_text_io,
      ada.strings.unbounded,
      pegasock,
      pegasock.tinyserve,

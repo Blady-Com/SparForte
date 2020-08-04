@@ -57,7 +57,7 @@ doget_field : constant natural := 6; -- sockets only
 eof_field   : constant natural := 7;
 
 type decimal_output_type is delta 0.0001 digits 18;
-package decimal_io is new Ada.Text_IO.Editing.Decimal_Output( decimal_output_type );
+package decimal_io is new ada.text_io.Editing.Decimal_Output( decimal_output_type );
 use decimal_io;
 -- the decimal output type is arbitrarily chosen
 

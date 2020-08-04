@@ -25,13 +25,14 @@
 
 -- with system;
 with system.address_to_access_conversions;
-with ada.text_io; use ada.text_io;
+with sf_text_io; use sf_text_io;
 -- with ada.strings.unbounded; use ada.strings.unbounded;
 with spar_os.sdl; use spar_os.sdl;
 with interfaces; use interfaces;
 with interfaces.c; use interfaces.c;
 use spar_os.sdl.SDL_Surface_Conv;
 -- with gen_list;
+use all type Sf_Text_Io.File_Mode;
 
 package body pen is
 

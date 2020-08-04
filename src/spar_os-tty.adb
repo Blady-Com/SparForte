@@ -24,12 +24,12 @@
 pragma ada_2005;
 
 with unchecked_deallocation,
-     ada.text_io,
+     sf_text_io,
      gnat.source_info,
      spar_os.exec,
      signal_flags,
      world;
-use  ada.text_io,
+use  sf_text_io,
      spar_os.exec,
      signal_flags,
      world;
