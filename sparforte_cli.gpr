@@ -53,6 +53,8 @@ project SparForte_CLI is
             for Spec ("spar_os.sdl") use "spar_os_nosdl.ads";
             for Body ("spar_os.sdl") use "spar_os_nosdl.adb";
       end case;
+      for Body ("user_io.getline") use "user_io-getline.adb";
+      for Spec ("sf_text_io") use "sf_text_io.ads";
    end Naming;
 
 end SparForte_CLI;

@@ -96,11 +96,6 @@ package Input_Output.Text_IO.GUI_Text_IO is
 
    procedure Put_Line (Item : in String) renames Input_Output.Text_IO.Put_Line;
 
-   procedure Put (S : Unbounded_String);
-   procedure Put_Line (S : Unbounded_String);
-   procedure Put (F : Console_Type; S : Unbounded_String);
-   procedure Put_Line (F : Console_Type; S : Unbounded_String);
-
 private
    type Console_Type is new Text_IO_Type with record
       Text_IO_Console : Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Pointer_To_Console_IO_Class;

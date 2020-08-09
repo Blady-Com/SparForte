@@ -126,11 +126,6 @@ package Input_Output.Text_IO.File_Text_IO is
 
    procedure Put_Line (Item : in String) renames Input_Output.Text_IO.Put_Line;
 
-   procedure Put (S : Unbounded_String);
-   procedure Put_Line (S : Unbounded_String);
-   procedure Put (F : File_Type; S : Unbounded_String);
-   procedure Put_Line (F : File_Type; S : Unbounded_String);
-
    Status_Error : exception renames Ada.Text_IO.Status_Error;
    Mode_Error   : exception renames Ada.Text_IO.Mode_Error;
    Name_Error   : exception renames Ada.Text_IO.Name_Error;
