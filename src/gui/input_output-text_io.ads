@@ -75,6 +75,8 @@ package Input_Output.Text_IO is
 
    procedure NLC (IO : in Text_IO_Type) is abstract;
 
+   function GetL (IO : in Text_IO_Type) return String is abstract;
+
 private
 
    type Handle_Type (File : access Text_IO_Type) is limited null record;

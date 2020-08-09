@@ -1,4 +1,3 @@
-pragma Ada_2012;
 package body Input_Output.Text_IO is
 
    subtype Text_IO_Class is Text_IO_Type'Class;
@@ -300,8 +299,7 @@ package body Input_Output.Text_IO is
 
    function Get_Line (File : in Text_IO_Type) return String is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Get_Line unimplemented");
-      return raise Program_Error with "Unimplemented function Get_Line";
+      return GetL (Text_IO_Class (File));
    end Get_Line;
 
    --------------

@@ -1,39 +1,38 @@
-pragma Ada_2012;
 package body Input_Output.Text_IO.File_Text_IO is
 
-   toto : Text_IO_File_Access;
-   Std_In : aliased File_Type := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
-   Std_Out : aliased File_Type := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
-   Std_Err : aliased File_Type := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+   toto    : constant Text_IO_File_Access := new Ada.Text_IO.File_Type;
+   Std_In  : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+   Std_Out : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+   Std_Err : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
 
    ------------
    -- Create --
    ------------
 
-   procedure Create
-     (File : in out File_Type; Mode : File_Mode := Out_File;
-      Name :        String := ""; Form : String := "")
-   is
+   procedure Create (File : in out File_Type; Mode : File_Mode := Out_File; Name : String := ""; Form : String := "") is
    begin
       if File.Text_IO_File /= null then
          raise Status_Error with "file already open";
       else
-         File.Text_IO_File := new ada.Text_IO.File_Type;
+         File.Text_IO_File := new Ada.Text_IO.File_Type;
       end if;
-      ada.Text_IO.Create (File.Text_IO_File.all, mode, Name, Form);
+      Ada.Text_IO.Create (File.Text_IO_File.all, Mode, Name, Form);
+      Ada.Text_IO.Put_Line ("Create:" & Mode'img & Name & Form);
    end Create;
 
    ----------
    -- Open --
    ----------
 
-   procedure Open
-     (File : in out File_Type; Mode : File_Mode; Name : String;
-      Form :        String := "")
-   is
+   procedure Open (File : in out File_Type; Mode : File_Mode; Name : String; Form : String := "") is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Open unimplemented");
-      raise Program_Error with "Unimplemented procedure Open";
+      if File.Text_IO_File /= null then
+         raise Status_Error with "file already open";
+      else
+         File.Text_IO_File := new Ada.Text_IO.File_Type;
+      end if;
+      Ada.Text_IO.Open (File.Text_IO_File.all, Mode, Name, Form);
+      Ada.Text_IO.Put_Line ("Open:" & Mode'img & Name & Form);
    end Open;
 
    -----------
@@ -42,8 +41,8 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Close (File : in out File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Close unimplemented");
-      raise Program_Error with "Unimplemented procedure Close";
+      Ada.Text_IO.Close (File.Text_IO_File.all);
+      Ada.Text_IO.Put_Line ("Close:");
    end Close;
 
    ------------
@@ -52,8 +51,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Delete (File : in out File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Delete unimplemented");
-      raise Program_Error with "Unimplemented procedure Delete";
+      Ada.Text_IO.Delete (File.Text_IO_File.all);
    end Delete;
 
    -----------
@@ -62,8 +60,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Reset (File : in out File_Type; Mode : in File_Mode) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Reset unimplemented");
-      raise Program_Error with "Unimplemented procedure Reset";
+      Ada.Text_IO.Reset (File.Text_IO_File.all, Mode);
    end Reset;
 
    -----------
@@ -72,8 +69,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Reset (File : in out File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Reset unimplemented");
-      raise Program_Error with "Unimplemented procedure Reset";
+      Ada.Text_IO.Reset (File.Text_IO_File.all);
    end Reset;
 
    ----------
@@ -149,7 +145,9 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Current_Input return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => File_Type(Input_Output.Text_IO.Current_Input.all).Text_IO_File);
+      return
+        (Input_Output.Text_IO.Text_IO_Type with
+         Text_IO_File => File_Type (Input_Output.Text_IO.Current_Input.all).Text_IO_File);
    end Current_Input;
 
    --------------------
@@ -158,7 +156,9 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Current_Output return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => File_Type(Input_Output.Text_IO.Current_Output.all).Text_IO_File);
+      return
+        (Input_Output.Text_IO.Text_IO_Type with
+         Text_IO_File => File_Type (Input_Output.Text_IO.Current_Output.all).Text_IO_File);
    end Current_Output;
 
    -------------------
@@ -167,7 +167,9 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Current_Error return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => File_Type(Input_Output.Text_IO.Current_Error.all).Text_IO_File);
+      return
+        (Input_Output.Text_IO.Text_IO_Type with
+         Text_IO_File => File_Type (Input_Output.Text_IO.Current_Error.all).Text_IO_File);
    end Current_Error;
 
    --------------------
@@ -230,8 +232,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Flush (File : in File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Flush unimplemented");
-      raise Program_Error with "Unimplemented procedure Flush";
+      Ada.Text_IO.Flush (File.Text_IO_File.all);
    end Flush;
 
    -----------
@@ -240,8 +241,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Flush is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Flush unimplemented");
-      raise Program_Error with "Unimplemented procedure Flush";
+      Flush (Current_Output);
    end Flush;
 
    ---------------------
@@ -250,8 +250,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Set_Line_Length (File : in File_Type; To : in Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Line_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Line_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Line_Length";
    end Set_Line_Length;
 
@@ -261,8 +260,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Set_Line_Length (To : in Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Line_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Line_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Line_Length";
    end Set_Line_Length;
 
@@ -272,8 +270,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Set_Page_Length (File : in File_Type; To : in Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Page_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Page_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Page_Length";
    end Set_Page_Length;
 
@@ -283,8 +280,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Set_Page_Length (To : in Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Page_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Page_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Page_Length";
    end Set_Page_Length;
 
@@ -404,8 +400,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function End_Of_File (File : in File_Type) return Boolean is
    begin
-      pragma Compile_Time_Warning (Standard.True, "End_Of_File unimplemented");
-      return raise Program_Error with "Unimplemented function End_Of_File";
+      return Ada.Text_IO.End_Of_File (File.Text_IO_File.all);
    end End_Of_File;
 
    -----------------
@@ -414,8 +409,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function End_Of_File return Boolean is
    begin
-      pragma Compile_Time_Warning (Standard.True, "End_Of_File unimplemented");
-      return raise Program_Error with "Unimplemented function End_Of_File";
+      return End_Of_File (Current_Input);
    end End_Of_File;
 
    -------------
@@ -524,8 +518,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Put (S : Unbounded_String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put unimplemented");
-      raise Program_Error with "Unimplemented procedure Put";
+      Put (To_String (S));
    end Put;
 
    --------------
@@ -534,8 +527,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Put_Line (S : Unbounded_String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put_Line unimplemented");
-      raise Program_Error with "Unimplemented procedure Put_Line";
+      Put_Line (To_String (S));
    end Put_Line;
 
    ---------
@@ -544,8 +536,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Put (F : File_Type; S : Unbounded_String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put unimplemented");
-      raise Program_Error with "Unimplemented procedure Put";
+      Put (F, To_String (S));
    end Put;
 
    --------------
@@ -554,8 +545,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure Put_Line (F : File_Type; S : Unbounded_String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put_Line unimplemented");
-      raise Program_Error with "Unimplemented procedure Put_Line";
+      Put_Line (F, To_String (S));
    end Put_Line;
 
    -----------
@@ -572,10 +562,7 @@ package body Input_Output.Text_IO.File_Text_IO is
    -- Read --
    ----------
 
-   overriding procedure Read
-     (IO   : in     File_Type; Item : out IO_Element_Array;
-      Last :    out IO_Element_Offset)
-   is
+   overriding procedure Read (IO : in File_Type; Item : out IO_Element_Array; Last : out IO_Element_Offset) is
    begin
       pragma Compile_Time_Warning (Standard.True, "Read unimplemented");
       raise Program_Error with "Unimplemented procedure Read";
@@ -585,12 +572,9 @@ package body Input_Output.Text_IO.File_Text_IO is
    -- GetC --
    ----------
 
-   overriding procedure GetC
-     (IO : in File_Type; Ch : out Character; Available : out Boolean)
-   is
+   overriding procedure GetC (IO : in File_Type; Ch : out Character; Available : out Boolean) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "GetC unimplemented");
-      raise Program_Error with "Unimplemented procedure GetC";
+      Ada.Text_IO.Get_Immediate (IO.Text_IO_File.all, Ch, Available);
    end GetC;
 
    ----------
@@ -600,18 +584,16 @@ package body Input_Output.Text_IO.File_Text_IO is
    overriding procedure PutC (IO : in File_Type; Item : Character) is
    begin
       Ada.Text_IO.Put (IO.Text_IO_File.all, Item);
+--        Ada.Text_IO.Put ("C:"&item);
    end PutC;
 
    -----------
    -- LookC --
    -----------
 
-   overriding procedure LookC
-     (IO : in File_Type; Ch : out Character; Available : out Boolean)
-   is
+   overriding procedure LookC (IO : in File_Type; Ch : out Character; Available : out Boolean) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "LookC unimplemented");
-      raise Program_Error with "Unimplemented procedure LookC";
+      Ada.Text_IO.Look_Ahead (IO.Text_IO_File.all, Ch, Available);
    end LookC;
 
    ---------
@@ -620,8 +602,23 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure NLC (IO : in File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "NLC unimplemented");
-      raise Program_Error with "Unimplemented procedure NLC";
+      Ada.Text_IO.New_Line (IO.Text_IO_File.all);
+--        Ada.Text_IO.Put_line ("NL:");
+      Ada.Text_IO.Flush (IO.Text_IO_File.all);
    end NLC;
 
+   ----------
+   -- GetL --
+   ----------
+
+   function GetL (IO : in File_Type) return String is
+   begin
+      return Ada.Text_IO.Get_Line (IO.Text_IO_File.all);
+   end GetL;
+
+begin
+   Ada.Text_IO.Create (toto.all, Ada.Text_IO.Append_File, "sftoto.txt");
+   Set_Output (Std_Out);
+   Ada.Text_IO.Put_Line (toto.all, "Create: sftoto");
+   Ada.Text_IO.Flush (toto.all);
 end Input_Output.Text_IO.File_Text_IO;
