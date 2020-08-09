@@ -92,6 +92,9 @@ package body SparGUI.Controller is
 --        Worker.Start;
       View.Exit_Button.On_Click_Handler (On_Exit'Access);
       View.Quit_Button.On_Click_Handler (On_Quit'Access);
+      View.Console_IO.Open (View.Console'Access);
+      view.Console_IO.Set_Output;
+      view.Console_IO.Set_Error;
       Launch_Interpreteur (View);
    end Default;
 

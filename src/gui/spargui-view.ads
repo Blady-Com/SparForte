@@ -17,6 +17,7 @@ with Gnoga.Gui.Plugin.Pixi.Sprite;
 with Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
 with Gnoga.Gui.Window;
 --  with ZanyBlue.Text.Locales;
+with Input_Output.Text_IO.GUI_Text_IO;
 
 --  with Spar.Parser;
 
@@ -33,7 +34,8 @@ package SparGUI.View is
       Renderer     : Gnoga.Gui.Plugin.Pixi.Renderer_Type;
       Container    : Gnoga.Gui.Plugin.Pixi.Container_Type;
       Turtle       : Gnoga.Gui.Plugin.Pixi.Sprite.Sprite_Type;
-      Console      : Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Console_IO_Type;
+      Console      : aliased Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Console_IO_Type;
+      Console_IO   : Input_Output.Text_IO.GUI_Text_IO.Console_Type;
 --        Locale       : ZanyBlue.Text.Locales.Locale_Type;
 --        Primitives   : Spar.Parser.Primitive_Tables.Dictionary;
    end record;
