@@ -71,7 +71,7 @@ package Input_Output.Text_IO is
 
    procedure PutC (IO : in Text_IO_Type; Item : Character) is abstract;
 
-   procedure LookC (IO : in Text_IO_Type; Item : out Character; Available : out Boolean) is abstract;
+   procedure LookC (IO : in Text_IO_Type; Item : out Character; End_Of_Line : out Boolean) is abstract;
 
    procedure NLC (IO : in Text_IO_Type) is abstract;
 

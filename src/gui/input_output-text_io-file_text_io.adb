@@ -1,9 +1,9 @@
 package body Input_Output.Text_IO.File_Text_IO is
 
-   toto    : constant Text_IO_File_Access := new Ada.Text_IO.File_Type;
-   Std_In  : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
-   Std_Out : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
-   Std_Err : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+   Text_File : constant Text_IO_File_Access := new Ada.Text_IO.File_Type;
+   Std_In    : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
+   Std_Out   : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
+   Std_Err   : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
 
    ------------
    -- Create --
@@ -118,7 +118,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Standard_Input return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
    end Standard_Input;
 
    ---------------------
@@ -127,7 +127,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Standard_Output return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
    end Standard_Output;
 
    --------------------
@@ -136,7 +136,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Standard_Error return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
+      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
    end Standard_Error;
 
    -------------------
@@ -591,9 +591,9 @@ package body Input_Output.Text_IO.File_Text_IO is
    -- LookC --
    -----------
 
-   overriding procedure LookC (IO : in File_Type; Ch : out Character; Available : out Boolean) is
+   overriding procedure LookC (IO : in File_Type; Ch : out Character; End_Of_Line : out Boolean) is
    begin
-      Ada.Text_IO.Look_Ahead (IO.Text_IO_File.all, Ch, Available);
+      Ada.Text_IO.Look_Ahead (IO.Text_IO_File.all, Ch, End_Of_Line);
    end LookC;
 
    ---------
@@ -617,8 +617,8 @@ package body Input_Output.Text_IO.File_Text_IO is
    end GetL;
 
 begin
-   Ada.Text_IO.Create (toto.all, Ada.Text_IO.Append_File, "sftoto.txt");
+   Ada.Text_IO.Create (Text_File.all, Ada.Text_IO.Append_File, "sf_text_file.txt");
    Set_Output (Std_Out);
-   Ada.Text_IO.Put_Line (toto.all, "Create: sftoto");
-   Ada.Text_IO.Flush (toto.all);
+   Ada.Text_IO.Put_Line (Text_File.all, "Create: sf_text_file");
+   Ada.Text_IO.Flush (Text_File.all);
 end Input_Output.Text_IO.File_Text_IO;

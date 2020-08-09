@@ -150,7 +150,7 @@ private
    overriding procedure Read (IO : in File_Type; Item : out IO_Element_Array; Last : out IO_Element_Offset);
    overriding procedure GetC (IO : in File_Type; Ch : out Character; Available : out Boolean);
    overriding procedure PutC (IO : in File_Type; Item : Character);
-   overriding procedure LookC (IO : in File_Type; Ch : out Character; Available : out Boolean);
+   overriding procedure LookC (IO : in File_Type; Ch : out Character; End_Of_Line : out Boolean);
    overriding procedure NLC (IO : in File_Type);
    overriding function GetL (IO : in File_Type) return String;
 

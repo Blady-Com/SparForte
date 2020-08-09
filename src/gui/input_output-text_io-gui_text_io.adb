@@ -2,11 +2,6 @@ with Ada.Text_IO;
 
 package body Input_Output.Text_IO.GUI_Text_IO is
 
---     toto    : constant Text_IO_File_Access := new Ada.Text_IO.Console_Type;
---     Std_In  : aliased Console_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
---     Std_Out : aliased Console_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
---     Std_Err : aliased Console_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => toto);
-
    ------------
    -- Create --
    ------------
@@ -460,9 +455,4 @@ package body Input_Output.Text_IO.GUI_Text_IO is
       return IO.Text_IO_Console.Get_Line;
    end GetL;
 
---  begin
---     Ada.Text_IO.Create (toto.all, Ada.Text_IO.Append_File, "sftoto.txt");
---     Set_Output (Std_Out);
---     Ada.Text_IO.Put_Line (toto.all, "Create: sftoto");
---     Ada.Text_IO.Flush (toto.all);
 end Input_Output.Text_IO.GUI_Text_IO;
