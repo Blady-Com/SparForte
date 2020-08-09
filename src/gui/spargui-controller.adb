@@ -16,7 +16,7 @@ with Gnoga.Gui.Plugin.Ace_Editor;
 with Gnoga.Gui.Navigator;
 with Gnoga.Server.Connection;
 --  with ZanyBlue.Text.Locales;
-with world, spar;
+with spar;
 
 with SparGUI.View;
 --  with SparGUI_messages.SparGUI_Strings;
@@ -56,19 +56,12 @@ package body SparGUI.Controller is
 --        gnoga.log(ada.Tags.Expanded_Name(Object.Parent.Parent'tag));
    end On_Click;
 
-   procedure Launch_Interpreteur (View : SparGUI.View.Default_View_Access) is
-   begin
-      world.GUI_View := View;
-      spar;
-   end Launch_Interpreteur;
-
    procedure Default
      (Main_Window : in out Gnoga.Gui.Window.Window_Type'Class;
       Connection  :        access Gnoga.Application.Multi_Connect.Connection_Holder_Type)
    is
       pragma Unreferenced (Connection);
       View : constant SparGUI.View.Default_View_Access := new SparGUI.View.Default_View_Type;
---        Worker : Interpreter (View);
    begin
       View.Dynamic;
       View.Main_Window := Main_Window'Unchecked_Access;
@@ -89,13 +82,13 @@ package body SparGUI.Controller is
       View.Create (Main_Window, Gnoga.Gui.View.Grid.Horizontal_Split);
       --        View.Click_Button.On_Click_Handler (On_Click'Access);
 --        Gnoga.Activate_Exception_Handler (Worker'Identity);
---        Worker.Start;
       View.Exit_Button.On_Click_Handler (On_Exit'Access);
       View.Quit_Button.On_Click_Handler (On_Quit'Access);
       View.Console_IO.Open (View.Console'Access);
-      view.Console_IO.Set_Output;
-      view.Console_IO.Set_Error;
-      Launch_Interpreteur (View);
+      View.Console_IO.Set_Input;
+      View.Console_IO.Set_Output;
+      View.Console_IO.Set_Error;
+      Spar;  -- Launch SparForte interpreter
    end Default;
 
 begin

@@ -1,23 +1,18 @@
-with world;
-with SparGUI.View;
-with Ada.Strings.Unbounded;
+with SF_Text_IO; use SF_Text_IO;
 
 package body user_io.getline is
 
-   procedure getLine( line : out unbounded_string; prompt : unbounded_string := null_unbounded_string; keepHistory : boolean := false ) is
-      use type SparGUI.View.Default_View_Access;
+   procedure getLine
+     (line : out Unbounded_String; prompt : Unbounded_String := Null_Unbounded_String; keepHistory : Boolean := False)
+   is
    begin
-      if world.GUI_View /= null then
-         world.GUI_View.Console.Put (Ada.Strings.Unbounded.To_String (prompt));
-         line := Ada.Strings.Unbounded.To_Unbounded_String (world.GUI_View.Console.Get_Line);
-      else
-         put_bold ("Error: GUI not actovated.");
-      end if;
-end;
+      Put (prompt);
+      line := To_Unbounded_String (Get_Line);
+   end getLine;
 
-function has_readline return boolean is
-begin
-  return false;
-end has_readline;
+   function has_readline return Boolean is
+   begin
+      return False;
+   end has_readline;
 
 end user_io.getline;

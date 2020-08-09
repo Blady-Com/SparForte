@@ -308,8 +308,7 @@ package body Input_Output.Text_IO is
 
    function Get_Line return String is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Get_Line unimplemented");
-      return raise Program_Error with "Unimplemented function Get_Line";
+      return Current_In.GetL;
    end Get_Line;
 
    --------------
