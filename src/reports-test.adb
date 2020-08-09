@@ -22,21 +22,21 @@
 ------------------------------------------------------------------------------
 with Ada.Characters.Latin_1,
      Ada.Strings.Fixed,
-     SF_Text_IO,
+     sf_unbounded_text_io,
      Ada.Calendar.Arithmetic,
      string_util,
      world,
      compiler; -- Circular dependency...
 use  Ada.Strings,
      Ada.Strings.Fixed,
-     SF_Text_IO,
+     sf_unbounded_text_io,
      Ada.Calendar.Arithmetic,
      string_util,
      world,
      compiler;
-use all type Sf_Text_Io.File_Mode;
 
 package body reports.test is
+use all type Sf_Text_Io.File_Mode;
 
   -- JUNIT Utilities
 

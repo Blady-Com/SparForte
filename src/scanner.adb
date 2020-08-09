@@ -28,8 +28,9 @@ with ada.command_line.environment;
 pragma warnings( on );
 
 with system,
-    Sf_Text_Io,
+    sf_text_io,
     ada.strings.fixed,
+    sf_unbounded_text_io,
     ada.characters.handling,
     gnat.source_info,
     spar_os.tty,
@@ -82,10 +83,11 @@ with system,
     parser_templates,
     parser_tinyserve,
     parser_logs;
-use Sf_Text_Io,
+use sf_text_io,
     ada.command_line,
     ada.command_line.environment,
     ada.strings.fixed,
+    sf_unbounded_text_io,
     ada.characters.handling,
     spar_os,
     spar_os.tty,

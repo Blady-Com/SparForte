@@ -20,13 +20,14 @@
 -- This is maintained at http://www.sparforte.com                           --
 --                                                                          --
 ------------------------------------------------------------------------------
-with ada.strings.unbounded.text_io,
+with ada.strings,
+     sf_unbounded_text_io,
      ada.calendar,
      cgi,
      string_util,
      user_io;
 use  ada.strings,
-     ada.strings.unbounded.text_io,
+     sf_unbounded_text_io,
      ada.calendar,
      cgi,
      string_util,

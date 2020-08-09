@@ -6,8 +6,8 @@ package body user_io.getline is
      (line : out Unbounded_String; prompt : Unbounded_String := Null_Unbounded_String; keepHistory : Boolean := False)
    is
    begin
-      Put (prompt);
-      line := To_Unbounded_String (Get_Line);
+      Put (to_string ( prompt ) );
+      line := To_Unbounded_String ( Get_Line );
    end getLine;
 
    function has_readline return Boolean is

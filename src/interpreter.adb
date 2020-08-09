@@ -27,6 +27,7 @@ with ada.command_line.environment;
 pragma warnings( on );
 with sf_text_io,
     ada.command_line,
+    sf_unbounded_text_io,
     ada.characters.handling,
     ada.numerics.float_random,
     ada.calendar,
@@ -49,6 +50,7 @@ with sf_text_io,
     parser_tio;
 use sf_text_io,
     ada.command_line,
+    sf_unbounded_text_io,
     ada.characters.handling,
     spar_os,
     user_io,

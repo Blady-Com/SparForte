@@ -27,7 +27,7 @@ with ada.command_line.environment;
 pragma warnings( on );
 with Interfaces.C,
     ada.command_line,
-    ada.strings.unbounded.text_io,
+    sf_unbounded_text_io,
     gnat.regexp,
     gnat.directory_operations,
     gnat.source_info,
@@ -49,7 +49,7 @@ with Interfaces.C,
     interpreter; -- circular relationship for breakout prompt
 use Interfaces.C,
     ada.command_line,
-    ada.strings.unbounded.text_io,
+    sf_unbounded_text_io,
     gnat.regexp,
     gnat.directory_operations,
     spar_os,

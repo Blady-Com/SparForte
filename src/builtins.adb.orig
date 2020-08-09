@@ -22,6 +22,7 @@
 ------------------------------------------------------------------------------
 
 with sf_text_io,
+     sf_unbounded_text_io,
      ada.strings.fixed,
      gnat.source_info,
 #if POSTGRES
@@ -39,6 +40,7 @@ with sf_text_io,
      parser_db,
      parser_mysql;
 use  sf_text_io,
+     sf_unbounded_text_io,
      ada.strings.fixed,
 #if POSTGRES
      APQ,

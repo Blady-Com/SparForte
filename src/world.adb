@@ -29,9 +29,10 @@ pragma warnings( on );
 
 with system,
     sf_text_io,
-    ada.strings.unbounded.text_io,
+    sf_unbounded_text_io,
     gnat.source_info;
 use sf_text_io,
+    sf_unbounded_text_io,
     ada.command_line,
     ada.command_line.environment;
 

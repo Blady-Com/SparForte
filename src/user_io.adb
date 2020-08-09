@@ -22,12 +22,14 @@
 ------------------------------------------------------------------------------
 
 with sf_text_io,
+    sf_unbounded_text_io,
     ada.calendar,
     spar_os,
     spar_os.tty,
     world,
     string_util;
 use sf_text_io,
+    sf_unbounded_text_io,
     ada.calendar,
     spar_os,
     spar_os.tty,

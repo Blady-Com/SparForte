@@ -29,7 +29,7 @@ pragma warnings( on );
 
 with sf_text_io,
     ada.integer_text_io,
-    ada.strings.unbounded.text_io,
+    sf_unbounded_text_io,
     ada.characters.handling,
     gnat.source_info,
     spar_os.tty,
@@ -41,6 +41,7 @@ with sf_text_io,
     performance_monitoring;
 use sf_text_io,
     ada.integer_text_io,
+    sf_unbounded_text_io,
     ada.command_line,
     ada.command_line.environment,
     ada.characters.handling,

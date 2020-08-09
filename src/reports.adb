@@ -20,18 +20,19 @@
 -- This is maintained at http://www.sparforte.com                           --
 --                                                                          --
 ------------------------------------------------------------------------------
-with Sf_Text_Io,
+with sf_unbounded_text_io,
      spar_os.tty,
      cgi,
      string_util,
      user_io;
-use  spar_os.tty,
+use  sf_unbounded_text_io,
+     spar_os.tty,
      cgi,
      string_util,
      user_io;
-use all type Sf_Text_Io.File_Mode;
 
 package body reports is
+use all type sf_text_io.File_Mode;
 
   -- THIS IS A STUB to avoid bringing in user_io dependencies
   --function optional_bold( s : string ) return unbounded_string is

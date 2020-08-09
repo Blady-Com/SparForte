@@ -23,6 +23,7 @@
 
 with interfaces.c,
     sf_text_io,
+    sf_unbounded_text_io,
     gnat.source_info,
     compiler,
     scanner,
@@ -34,6 +35,7 @@ with interfaces.c,
     world;
 use interfaces.c,
     sf_text_io,
+    sf_unbounded_text_io,
     user_io,
     string_util,
     builtins,
