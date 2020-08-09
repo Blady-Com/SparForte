@@ -15,6 +15,7 @@ with Gnoga.Gui.Element.Common;
 with Gnoga.Gui.Element.Canvas;
 with Gnoga.Gui.Plugin.Pixi.Sprite;
 with Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
+with Gnoga.Gui.Window;
 --  with ZanyBlue.Text.Locales;
 
 --  with Spar.Parser;
@@ -22,8 +23,11 @@ with Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
 package SparGUI.View is
 
    type Default_View_Type is new Gnoga.Gui.View.Grid.Grid_View_Type with record
+      Main_Window  : Gnoga.Gui.Window.Pointer_To_Window_Class;
       Label_Text   : Gnoga.Gui.View.View_Type;
       Click_Button : Gnoga.Gui.Element.Common.Button_Type;
+      Exit_Button  : Gnoga.Gui.Element.Common.Button_Type;
+      Quit_Button  : Gnoga.Gui.Element.Common.Button_Type;
       Canvas       : Gnoga.Gui.Element.Canvas.Canvas_Type;
       Application  : Gnoga.Gui.Plugin.Pixi.Application_Type;
       Renderer     : Gnoga.Gui.Plugin.Pixi.Renderer_Type;
@@ -37,11 +41,8 @@ package SparGUI.View is
    type Pointer_to_Default_View_Class is access all Default_View_Type'Class;
 
    overriding procedure Create
-     (Grid        : in out Default_View_Type;
-      Parent      : in out Gnoga.Gui.Base.Base_Type'Class;
-      Layout      : in     Gnoga.Gui.View.Grid.Grid_Rows_Type;
-      Fill_Parent : in     Boolean := True;
-      Set_Sizes   : in     Boolean := True;
-      ID          : in     String  := "");
+     (Grid   : in out Default_View_Type; Parent : in out Gnoga.Gui.Base.Base_Type'Class;
+      Layout : in Gnoga.Gui.View.Grid.Grid_Rows_Type; Fill_Parent : in Boolean := True; Set_Sizes : in Boolean := True;
+      ID     : in     String := "");
 
 end SparGUI.View;

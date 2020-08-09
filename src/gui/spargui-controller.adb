@@ -19,57 +19,59 @@ with Gnoga.Server.Connection;
 with world, spar;
 
 with SparGUI.View;
---  with SparGUI.Parser;
---  with SparGUI.Engine;
 --  with SparGUI_messages.SparGUI_Strings;
 
 package body SparGUI.Controller is
 
+   --  Handlers
+   procedure On_Exit (Object : in out Gnoga.Gui.Base.Base_Type'Class);
+   procedure On_Quit (Object : in out Gnoga.Gui.Base.Base_Type'Class);
    procedure On_Click (Object : in out Gnoga.Gui.Base.Base_Type'Class);
 
+   procedure On_Exit (Object : in out Gnoga.Gui.Base.Base_Type'Class) is
+      View : constant SparGUI.View.Default_View_Access := SparGUI.View.Default_View_Access (Object.Parent.Parent);
+      Dummy_Last_View : Gnoga.Gui.View.View_Type;
+   begin
+      View.Remove;
+      Dummy_Last_View.Create (View.Main_Window.all);
+      Dummy_Last_View.Put_Line ("Disconnected!");
+      View.Main_Window.Close;
+      View.Main_Window.Close_Connection;
+   end On_Exit;
+
+   procedure On_Quit (Object : in out Gnoga.Gui.Base.Base_Type'Class) is
+      View : constant SparGUI.View.Default_View_Access := SparGUI.View.Default_View_Access (Object.Parent.Parent);
+      Dummy_Last_View : Gnoga.Gui.View.View_Type;
+   begin
+      View.Remove;
+      Dummy_Last_View.Create (View.Main_Window.all);
+      Dummy_Last_View.Put_Line ("SparForte server ended!");
+      Gnoga.Application.Multi_Connect.End_Application;
+   end On_Quit;
+
    procedure On_Click (Object : in out Gnoga.Gui.Base.Base_Type'Class) is
-      View : constant SparGUI.View.Default_View_Access :=
-        SparGUI.View.Default_View_Access (Object.Parent.Parent);
+      View : constant SparGUI.View.Default_View_Access := SparGUI.View.Default_View_Access (Object.Parent.Parent);
    begin
       View.Label_Text.Put_Line ("Click");
 --        gnoga.log(ada.Tags.Expanded_Name(Object.Parent.Parent'tag));
    end On_Click;
 
-   task type Interpreter (View : SparGUI.View.Default_View_Access) is
-      entry Start;
-   end Interpreter;
-
-   task body Interpreter is
-   begin
-      accept Start;
-      loop
---           View.Console.Put
---           (SparGUI_messages.SparGUI_Strings.Format_ACTN (View.Locale));
---           SparGUI.Engine.Action
---             (SparGUI.Engine.Decode (View.Console.Get_Line, View.Primitives),
---              View);
-         View.Console.Put         ("toto >");
-         View.Console.Put         (View.console.get_line);
-      end loop;
-   end Interpreter;
-
    procedure Launch_Interpreteur (View : SparGUI.View.Default_View_Access) is
    begin
       world.GUI_View := View;
-      Spar;
-   end;
+      spar;
+   end Launch_Interpreteur;
 
    procedure Default
      (Main_Window : in out Gnoga.Gui.Window.Window_Type'Class;
-      Connection  :        access Gnoga.Application.Multi_Connect
-        .Connection_Holder_Type)
+      Connection  :        access Gnoga.Application.Multi_Connect.Connection_Holder_Type)
    is
       pragma Unreferenced (Connection);
-      View : constant SparGUI.View.Default_View_Access :=
-        new SparGUI.View.Default_View_Type;
+      View : constant SparGUI.View.Default_View_Access := new SparGUI.View.Default_View_Type;
 --        Worker : Interpreter (View);
    begin
       View.Dynamic;
+      View.Main_Window := Main_Window'Unchecked_Access;
       Gnoga.Gui.Plugin.Pixi.Load_PIXI (Main_Window);
       Gnoga.Gui.Plugin.Ace_Editor.Load_Ace_Editor (Main_Window);
 
@@ -78,8 +80,7 @@ package body SparGUI.Controller is
 --            (Gnoga.Gui.Navigator.Language (Main_Window) & ".ISO8859-1");
 --        Main_Window.Document.Title
 --        (SparGUI_messages.SparGUI_Strings.Format_TITL (View.Locale));
-      Main_Window.Document.Title
-      ("SparForte - GUI (Gnoga)");
+      Main_Window.Document.Title ("SparForte - GUI (Gnoga)");
 --        Gnoga.Server.Connection.HTML_On_Close
 --          (Main_Window.Connection_ID,
 --           Spar_messages.Spar_Strings.Format_APPE (View.Locale));
@@ -89,11 +90,11 @@ package body SparGUI.Controller is
       --        View.Click_Button.On_Click_Handler (On_Click'Access);
 --        Gnoga.Activate_Exception_Handler (Worker'Identity);
 --        Worker.Start;
+      View.Exit_Button.On_Click_Handler (On_Exit'Access);
+      View.Quit_Button.On_Click_Handler (On_Quit'Access);
       Launch_Interpreteur (View);
    end Default;
 
 begin
-   Gnoga.Application.Multi_Connect.On_Connect_Handler
-     (Default'Access,
-      "default");
+   Gnoga.Application.Multi_Connect.On_Connect_Handler (Default'Access, "default");
 end SparGUI.Controller;
