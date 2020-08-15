@@ -101,8 +101,8 @@ begin
 
   mkstemp( tputResultsFD, tputResults );
   if tputResultsFD < 0 then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Unable to make temp file" );
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Error # " & C_errno'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Unable to make temp file" );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Error # " & C_errno'img );
      return null_unbounded_string;
   end if;
 
@@ -117,8 +117,8 @@ begin
            goto retry2;
         end if;
      end if;
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Unable to save stdout" );
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Error # " & C_errno'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Unable to save stdout" );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Error # " & C_errno'img );
      return null_unbounded_string;
   end if;
 
@@ -139,8 +139,8 @@ begin
            goto retry5;
         end if;
      end if;
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Unable to redirect stdout" );
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Error # " & C_errno'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Unable to redirect stdout" );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Error # " & C_errno'img );
      return null_unbounded_string;
   end if;
 
@@ -226,7 +226,7 @@ begin
            goto retry8;
         end if;
      end if;
-     put_line( standard_error, Gnat.Source_Info.Source_Location & to_string( ": Unable to find/run " & tput_path1 ) );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & to_string( ": Unable to find/run " & tput_path1 ) );
      return null_unbounded_string;
   end if;
   result := dup2( oldstdout, stdout );
@@ -255,7 +255,7 @@ begin
      if C_errno = EINTR then
         goto retry11;
      end if;
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": Unable to open " & tputResults );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Unable to open " & tputResults );
   else
      loop
         readchar( amountRead, tputResultsFD, ch, 1 );
@@ -282,8 +282,8 @@ begin
   return ttyCode;
 
   exception when others =>
-       put( standard_error, Gnat.Source_Info.Source_Location & ": Contraint thrown for " );
-       put_line( standard_error, attr'img );
+       put( Current_Error, Gnat.Source_Info.Source_Location & ": Contraint thrown for " );
+       put_line( Current_Error, attr'img );
        return ttyCode;
 end tput;
 
@@ -346,8 +346,8 @@ begin
 
   exception when others =>
     -- This occurs on templates where there is no terminal.  Just assume 80x24
-    -- put_line( standard_error, "Internal error: exception thrown" );
-    -- put_line( standard_error, "Assuming 80x24 and no special capabilities" );
+    -- put_line( Current_Error, "Internal error: exception thrown" );
+    -- put_line( Current_Error, "Assuming 80x24 and no special capabilities" );
     displayInfo.row := 24;
     displayInfo.col := 80;
 
@@ -388,15 +388,15 @@ begin
         if C_errno = EINTR then
            goto retryopen;
         end if;
-        put( standard_error, Gnat.Source_Info.Source_Location & ": unable to read keyboard settings - " );
-        put( standard_error, "open /dev/tty failed - " );
-        put_line( standard_error, "error " & spar_os.C_errno'img );
+        put( Current_Error, Gnat.Source_Info.Source_Location & ": unable to read keyboard settings - " );
+        put( Current_Error, "open /dev/tty failed - " );
+        put_line( Current_Error, "error " & spar_os.C_errno'img );
         raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location &
            ": open /dev/tty failed: errno " & spar_os.C_errno'img;
      else
         ioctl_getattr( res, ttyFile, TCGETATTR, tio );
         if res /= 0 then
-           put_line( standard_error, "ioctl /dev/tty TCGETATTR failed" );
+           put_line( Current_Error, "ioctl /dev/tty TCGETATTR failed" );
            raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location &
               ": unable to load keyboard settings - ioctl /dev/tty TCGETATTR failed";
         else
@@ -426,7 +426,7 @@ begin
            -- leave alone.
            ioctl_setattr( res, ttyFile, TCSETATTR, tio ); -- raw read mode
            if res /= 0 then                            -- very unlikely
-              put_line( standard_error, Gnat.Source_Info.Source_Location & ": ioctl_set failed" );          -- but check anyway
+              put_line( Current_Error, Gnat.Source_Info.Source_Location & ": ioctl_set failed" );          -- but check anyway
               -- probably should raise an exception here
            else
               res := tcdrain( stdout );            -- flush pending output

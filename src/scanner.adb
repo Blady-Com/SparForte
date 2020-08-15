@@ -181,7 +181,7 @@ begin
        Put_Line( "    Token type = " & identifiers( identifiers( token ).kind ).name );
     exception
     when constraint_error =>
-      put_line( standard_error, "put_token: constraint_error raised on token type" );
+      put_line( Current_Error, "put_token: constraint_error raised on token type" );
      end;
   end if;
   if identifiers( token ).value = null then
@@ -230,9 +230,9 @@ begin
   New_Line;
 exception
   when constraint_error =>
-    put_line( standard_error, "put_token: constraint_error raised" );
+    put_line( Current_Error, "put_token: constraint_error raised" );
   when storage_error =>
-    put_line( standard_error, "put_token: storage_error raised" );
+    put_line( Current_Error, "put_token: storage_error raised" );
 end Put_Token;
 
 
@@ -1620,7 +1620,7 @@ begin
 
   -- Show the test result message immediately
 
-  put_line( standard_error, ourFullErrorMessage );
+  put_line( Current_Error, ourFullErrorMessage );
   -- may or may not have a template at this point, so check
   if hasTemplate then
      putTemplateHeader( templateHeader );
@@ -1629,15 +1629,15 @@ begin
 
   -- Originally:
   --
-  -- put( standard_error, scriptFilePath );
-  -- put( standard_error, ":" );
-  -- put( standard_error, getLineNo'img );
-  -- put( standard_error, ": " );
+  -- put( Current_Error, scriptFilePath );
+  -- put( Current_Error, ":" );
+  -- put( Current_Error, getLineNo'img );
+  -- put( Current_Error, ": " );
   -- if gccOpt then
-  --     put_line( standard_error, "test failed" );
+  --     put_line( Current_Error, "test failed" );
   -- else
-  --     put_line( standard_error, to_string( getCommandLine ) );
-  --     put_line( standard_error, "^ test failed" );
+  --     put_line( Current_Error, to_string( getCommandLine ) );
+  --     put_line( Current_Error, "^ test failed" );
   -- end if;
 end err_test_result;
 
@@ -1656,7 +1656,7 @@ begin
   location := scriptFilePath & ":" & getLineNo'img & ": ";
   fullMsg  := location & "warning--" & msg;
 
-  put_line( standard_error, fullMsg );
+  put_line( Current_Error, fullMsg );
 
   if hasTemplate and boolean( debugOpt or not maintenanceOpt ) then
      case templateHeader.templateType is
@@ -1840,13 +1840,13 @@ begin
             -- Unused variables are always checked.  Skip record fields since there
             -- is no guarantee that all fields will be accessed.
             else
---put_line( standard_error, "HERE 1" ); -- DEBUG
---put( standard_error, " id:" ); put( identifier'image(i-2) ); -- DEBUG
---put_line( standard_error, " " & to_string( identifiers( i-2 ).name ) ); -- DEBUG
---put( standard_error, " id:" ); put( identifier'image(i-1) ); -- DEBUG
---put_line( standard_error, " " & to_string( identifiers( i-1 ).name ) ); -- DEBUG
---put( standard_error, " id:" ); put( i'img ); -- DEBUG
---put_line( standard_error, " " & to_string( identifiers( i ).name ) ); -- DEBUG
+--put_line( Current_Error, "HERE 1" ); -- DEBUG
+--put( Current_Error, " id:" ); put( identifier'image(i-2) ); -- DEBUG
+--put_line( Current_Error, " " & to_string( identifiers( i-2 ).name ) ); -- DEBUG
+--put( Current_Error, " id:" ); put( identifier'image(i-1) ); -- DEBUG
+--put_line( Current_Error, " " & to_string( identifiers( i-1 ).name ) ); -- DEBUG
+--put( Current_Error, " id:" ); put( i'img ); -- DEBUG
+--put_line( Current_Error, " " & to_string( identifiers( i ).name ) ); -- DEBUG
 --           if identifiers( i ).field_of = eof_t then
               -- in design mode, only check types
                if designOpt then
@@ -1986,11 +1986,11 @@ begin
 -- TODO: should this be dropped altogether?
             elsif boolean( testOpt ) or identifiers( i ).class = varClass then
               -- in design mode, only check types
---put_line( standard_error, "HERE 2" ); -- DEBUG
+--put_line( Current_Error, "HERE 2" ); -- DEBUG
 --           if identifiers( i ).field_of = eof_t then
---put_line( standard_error, "HERE 2 - not a field" ); -- DEBUG
---put( standard_error, " id:" ); put( i'img ); -- DEBUG
---put_line( standard_error, " " & to_string( identifiers( i ).name ) ); -- DEBUG
+--put_line( Current_Error, "HERE 2 - not a field" ); -- DEBUG
+--put( Current_Error, " id:" ); put( i'img ); -- DEBUG
+--put_line( Current_Error, " " & to_string( identifiers( i ).name ) ); -- DEBUG
                  err( optional_bold( to_string( identifiers( i ).name ) ) & " is declared but never used" );
 --           end if;
             end if;
@@ -2129,12 +2129,12 @@ begin
       if inputMode /= interactive and inputMode /= breakout then -- in a script?
          scriptLineStart := blocks( blocks_top-1).startpos;     -- current line
          if trace and not exit_block and not error_found then   -- display
-            put( standard_error, "=> " & '"' );                 -- line if
+            put( Current_Error, "=> " & '"' );                 -- line if
             getCommandLine( cmdline, firstpos, lastpos, lineno, fileno );
-            put( standard_error, toEscaped( cmdline ) );
-            put( standard_error, """ [" );
-            put( standard_error, lineno'img );
-            put_line( standard_error, "]" );
+            put( Current_Error, toEscaped( cmdline ) );
+            put( Current_Error, """ [" );
+            put( Current_Error, lineno'img );
+            put_line( Current_Error, "]" );
          end if;
       end if;
   end if;
@@ -5453,17 +5453,17 @@ begin
       if trace then
          if syntax_check or (not exit_block and not error_found) then
             cmdpos := cmdpos + 2; -- first character of next command
-            put( standard_error, "=> " & '"' );
+            put( Current_Error, "=> " & '"' );
             getCommandLine( gnt_commandLine, token_firstpos, token_lastpos, lineno, fileno );
-            put( standard_error, toEscaped( gnt_commandLine ) );
-            put( standard_error, """ [" );
+            put( Current_Error, toEscaped( gnt_commandLine ) );
+            put( Current_Error, """ [" );
             if fileno > 1 then -- don't bother naming main file
                sourceFilesList.Find( sourceFiles, sourceFilesList.aListIndex( fileno ), sfr );
-               put( standard_error, toEscaped( sfr.name ) );
-               put( standard_error, ":" );
+               put( Current_Error, toEscaped( sfr.name ) );
+               put( Current_Error, ":" );
             end if;
-            put( standard_error, lineno'img );
-            put_line( standard_error, "]" );
+            put( Current_Error, lineno'img );
+            put_line( Current_Error, "]" );
             cmdpos := cmdpos - 2;
          end if;
       end if;

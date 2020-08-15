@@ -68,7 +68,7 @@ begin
      elsif C_pegasock_errno = EAGAIN or C_pegasock_errno = EWOULDBLOCK then      -- -1 = 'last
         raise fileutils_wouldblock with OSError( C_pegasock_errno );
      end if;
-     -- Put_Line( Standard_Error, "Read from file failed" & OSError( C_pegasock_errno ) );
+     -- Put_Line( Current_Error, "Read from file failed" & OSError( C_pegasock_errno ) );
      raise data_error with "Read from file failed" & OSError( C_pegasock_errno );
    end if;
 -- Read 0?
@@ -91,7 +91,7 @@ begin
      elsif C_pegasock_errno = EAGAIN or C_pegasock_errno = EWOULDBLOCK then      -- -1 = 'last
         raise fileutils_wouldblock with OSError( C_pegasock_errno );
      end if;
-     -- Put_Line( Standard_Error, "Read from file failed" & OSError( C_pegasock_errno ) );
+     -- Put_Line( Current_Error, "Read from file failed" & OSError( C_pegasock_errno ) );
      raise data_error with "Read from file failed" & OSError( C_pegasock_errno );
    end if;
    fd.readPos := fd.readBuffer'first;
@@ -283,7 +283,7 @@ begin
   end case;
   fd.fd := open( name & ASCII.NUL, flags, os_perms );
   if fd.fd < 0 then
-     --Put_Line( Standard_Error, "Open file failed: " & OSError( C_pegasock_errno ) );
+     --Put_Line( Current_Error, "Open file failed: " & OSError( C_pegasock_errno ) );
      raise name_error with "Open file failed: " & OSError( C_pegasock_errno );
   end if;
   pragma debug( Put_Line( Gnat.Source_Info.Source_Location & ": opened file descriptor" & fd.fd'img ) );
@@ -319,7 +319,7 @@ begin
   end case;
   fd.fd := open( name & ASCII.NUL, flags, os_perms );
   if fd.fd < 0 then
-     --Put_Line( Standard_Error, "Open file failed: " & OSError( C_pegasock_errno ) );
+     --Put_Line( Current_Error, "Open file failed: " & OSError( C_pegasock_errno ) );
      raise name_error with "Open file failed: " & OSError( C_pegasock_errno );
   end if;
   pragma debug( Put_Line( Gnat.Source_Info.Source_Location & ": opened file descriptor" & fd.fd'img ) );
@@ -355,7 +355,7 @@ begin
   end case;
   fd.fd := open( name & ASCII.NUL, flags, os_perms );
   if fd.fd < 0 then
-     --Put_Line( Standard_Error, "Open file failed: " & OSError( C_pegasock_errno ) );
+     --Put_Line( Current_Error, "Open file failed: " & OSError( C_pegasock_errno ) );
      raise name_error with "Open file failed: " & OSError( C_pegasock_errno );
   end if;
   pragma debug( Put_Line( Gnat.Source_Info.Source_Location & ": opened file descriptor" & fd.fd'img ) );
@@ -545,7 +545,7 @@ begin
         elsif C_pegasock_errno = EAGAIN or C_pegasock_errno = EWOULDBLOCK then
            raise fileutils_wouldblock;
         end if;
-        -- Put_Line( Standard_Error, "Write to file failed" & OSError( C_pegasock_errno ) );
+        -- Put_Line( Current_Error, "Write to file failed" & OSError( C_pegasock_errno ) );
 	raise data_error with "Write to file failed: " & OSError( C_pegasock_errno );
       end if;
     pragma debug( Put_Line( Gnat.Source_Info.Source_Location & ": wrote" & amountWritten'img & " bytes to file descriptor" & fd.fd'img ) );
@@ -690,7 +690,7 @@ begin
 
   mySocket.fd := Socket( PF_INET, flags, 0 );
   if mySocket.fd = -1 then
-     -- put_line( standard_error, "error making socket: " & OSError( C_pegasock_errno ) );
+     -- put_line( Current_Error, "error making socket: " & OSError( C_pegasock_errno ) );
      raise name_error with "error making socket: " & OSError( C_pegasock_errno );
   end if;
   --New_Line;
@@ -703,10 +703,10 @@ begin
   myServerPtr := HEptrs.To_Pointer( myServer );
   if myServerPtr = null then
      if C_pegasock_errno = 0 then
-        -- put_line( standard_error, "there is no server by this name" );
+        -- put_line( Current_Error, "there is no server by this name" );
         raise name_error with "there is no server by this name";
      end if;
-     -- put_line( standard_error, "error looking up host: " & OSError( C_pegasock_errno ) );
+     -- put_line( Current_Error, "error looking up host: " & OSError( C_pegasock_errno ) );
      raise name_error with "error looking up host: " & OSError( C_pegasock_errno );
   end if;
 
@@ -745,7 +745,7 @@ begin
 
      close( mySocket );  -- BUSH missing this
 
-     -- put_line( standard_error, "error connecting to server: " & OSerror( C_pegasock_errno ) );
+     -- put_line( Current_Error, "error connecting to server: " & OSerror( C_pegasock_errno ) );
      raise name_error with "error connecting to server: " & OSerror( errno );
   end if;
   --New_Line;
@@ -948,7 +948,7 @@ begin
          elsif C_pegasock_errno = EAGAIN or C_pegasock_errno = EWOULDBLOCK then
             raise fileutils_wouldblock;
          end if;
-         -- Put_Line( Standard_Error, "Write to socket failed" & OSError( C_pegasock_errno ) );
+         -- Put_Line( Current_Error, "Write to socket failed" & OSError( C_pegasock_errno ) );
 	 raise data_error with "Write to socket failed" & OSError( C_pegasock_errno );
       end if;
      pragma debug( Put_Line( Gnat.Source_Info.Source_Location & ": wrote" & amountWritten'img & " bytes to file descriptor" & fd.fd'img ) );

@@ -473,20 +473,20 @@ begin
   -- enums like direction.forward will go here since the prefix doesn't match the namespace tags
 
   if id = eof_t then
---put_line( standard_error, "brute force" ); -- DEBUG
+--put_line( Current_Error, "brute force" ); -- DEBUG
      for i in reverse 1..save_i loop                         -- from local ns
          if i /= eof_t then                                  -- not this token
             if not identifiers( i ).deleted then             -- not deleted
                if identifiers( i ).name = name then          -- exists and
                   id := i;                                   -- return id
---put_line( standard_error, "internal error: brute force found " & to_string( name ) ); -- DEBUG
+--put_line( Current_Error, "internal error: brute force found " & to_string( name ) ); -- DEBUG
                   exit;                                      -- we're done
                end if;
             end if;
          end if;
      end loop;
   end if;
---put_line( standard_error, "findIdent: done" ); -- DEBUG
+--put_line( Current_Error, "findIdent: done" ); -- DEBUG
 --if id = eof_t then -- DEBUG
    --put_line( "findIdent: not found" ); -- DEBUG
 --end if; -- DEBUG
@@ -1179,7 +1179,7 @@ begin
       end if;
       numFields := natural( to_numeric( identifiers( recordBaseTypeId ).value.all ) );
    exception when others =>
-      put_line( standard_error, gnat.source_info.source_location &
+      put_line( Current_Error, gnat.source_info.source_location &
         "internal errror: unable to get number of fields for " &
         to_string( identifiers( recordBaseTypeId ).name ) );
       raise;
@@ -1667,7 +1667,7 @@ end toHighASCII;
 --  ch1 := character'val( 128 + integer(n) mod 128 );
 --  ch2 := character'val( integer(n) / 128 + 1 );
 --exception when constraint_error =>
---  put_line( standard_error, Gnat.Source_Info.Source_Location & ": Internal error: cannot encode natural number" & n'img );
+--  put_line( Current_Error, Gnat.Source_Info.Source_Location & ": Internal error: cannot encode natural number" & n'img );
 --  raise;
 --end toByteCode;
 

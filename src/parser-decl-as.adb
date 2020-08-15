@@ -2756,7 +2756,7 @@ procedure VerifySubprogramParameters( specId : identifier; is_function : boolean
 
   b : boolean;
 begin
-  -- put_line( standard_error, "Verifying " & to_string( identifiers( proc_id ).name ) ); -- DEBUG
+  -- put_line( Current_Error, "Verifying " & to_string( identifiers( proc_id ).name ) ); -- DEBUG
   -- put_token;
   specParamId := specId + 1;
   specParameterNumber := 1;
@@ -5549,7 +5549,7 @@ begin
             end if;
         end loop;
         --BREAKDBG
-        put_line( standard_error, get_script_execution_position(
+        put_line( Current_Error, get_script_execution_position(
            optional_inverse( "Break: return to continue, logout to quit" ) ) ); -- show stop posn
         error_found := true;
      end if;
@@ -5847,7 +5847,7 @@ begin
         scriptState : aScriptState;                   -- current script
      begin
         --BREAKDBG: 2
-        put_line( standard_error, fullErrorMessage );
+        put_line( Current_Error, fullErrorMessage );
         wasSIGINT := false;                            -- clear sig flag
         saveScript( scriptState );                     -- save position
         error_found := false;                          -- not a real error
@@ -5859,7 +5859,7 @@ begin
         if breakoutContinue then                       -- continuing execution?
            resumeScanning( cmdStart );                 -- start of command
            --BREAKDBG
-           put_line( standard_error, get_script_execution_position(
+           put_line( Current_Error, get_script_execution_position(
               optional_inverse( "resuming here" ) ) ); -- redisplay line
            --err( optional_inverse( "resuming here" ) ); -- redisplay line
            done := false;                              --   clear logout flag
@@ -5936,7 +5936,7 @@ begin
             end if;
         end loop;
         --BREAKDBG
-        put_line( standard_error, get_script_execution_position(
+        put_line( Current_Error, get_script_execution_position(
             optional_inverse( "Break: return to continue, logout to quit" ) ) ); -- show stop posn
         error_found := true;
         --err( optional_inverse( "Break: return to continue, logout to quit" ) ); -- show stop posn
@@ -6239,7 +6239,7 @@ begin
         scriptState : aScriptState;                   -- current script
      begin
         --BREAKDBG: 2
-        put_line( standard_error, fullErrorMessage );
+        put_line( Current_Error, fullErrorMessage );
         wasSIGINT := false;                            -- clear sig flag
         saveScript( scriptState );                     -- save position
         error_found := false;                          -- not a real error
@@ -6253,7 +6253,7 @@ begin
            resumeScanning( cmdStart );                 -- start of command
            --BREAKDBG
            --err( optional_inverse( "resuming here" ) ); -- redisplay line
-           put_line( standard_error, get_script_execution_position(
+           put_line( Current_Error, get_script_execution_position(
               optional_inverse( "resuming here" ) ) ); -- redisplay line
            done := false;                              --   clear logout flag
            error_found := false;                       -- not a real error

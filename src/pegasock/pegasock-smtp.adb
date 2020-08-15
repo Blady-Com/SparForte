@@ -106,7 +106,7 @@ begin
      end if;
   end if;
   if status /= 250 then
-    pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+    pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": Error: mail server says '" & to_string( s ) & "'" ) );
      raise SMTP_ERROR with to_string( s );
   end if;

@@ -109,7 +109,7 @@ package body spar_os.sound is
 
             -- Report the error if not WC.host.EPERM
    --         if Z /= ENOERR and Z /= WC.host.EPERM then
-   --            Put(Standard_Error,"WARNING: ");
+   --            Put(Current_Error,"WARNING: ");
    --            Put(Strerror(Z));
    --            Put(": sched_setscheduler(0,FIFO,");
    --            Put(Integer'Image(P));

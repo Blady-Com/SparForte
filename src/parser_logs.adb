@@ -170,7 +170,7 @@ begin
      loop
         retry := false;
         begin
-          Put_Line( standard_error, to_string( expr_val ) );
+          Put_Line( Current_Error, to_string( expr_val ) );
         exception when msg: device_error =>
           if exception_message( msg ) = "interrupted system call" then
              retry := true;

@@ -148,7 +148,7 @@ procedure put_trace( msg : string ) is
 -- Display an escaped message to standard error in the format used when
 -- "trace true" is used.  This does not check the tracing flag.
 begin
-  put_line( standard_error, "=> (" & toEscaped( to_unbounded_string( msg ) ) & ")" );
+  put_line( Current_Error, "=> (" & toEscaped( to_unbounded_string( msg ) ) & ")" );
 end put_trace;
 
 procedure checkDisplay( ttype : unbounded_string ) is

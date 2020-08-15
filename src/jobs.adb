@@ -193,7 +193,7 @@ procedure addCommandHash( cmd, full : unbounded_string; builtin : boolean ) is
 begin
   bin := hashOf( cmd );
   if builtin and length( cmdHash( bin ).fullPath ) /= 0 then
-    put_line( standard_error, gnat.source_info.source_location & ": internal error: builtin command hash clash for builtin "
+    put_line( Current_Error, gnat.source_info.source_location & ": internal error: builtin command hash clash for builtin "
         & toEscaped( cmd ) );
   else
     cmdHash( bin ).cmd := cmd;

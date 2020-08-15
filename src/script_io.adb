@@ -67,7 +67,7 @@ begin
      lineptr.all := lineptr.all & string( buffer(1..bufpos-1 ) );
   end if;
   if amountRead < 0 or amountRead = size_t'last then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": error reading script file: errno " & C_errno'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": error reading script file: errno " & C_errno'img );
      return false;
   elsif amountRead = 0 and length( lineptr.all ) = 0 then
      return false;

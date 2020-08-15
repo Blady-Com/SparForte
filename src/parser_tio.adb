@@ -1143,7 +1143,7 @@ begin
         loop
           retry := false;
           begin
-            Put_Line( standard_error, expr_val );
+            Put_Line( Current_Error, expr_val );
           exception when msg: device_error =>
             if exception_message( msg ) = "interrupted system call" then
                retry := true;
@@ -1431,7 +1431,7 @@ begin
         loop
            retry := false;
            begin
-             Put( standard_error, expr_val );
+             Put( Current_Error, expr_val );
            exception when msg: device_error =>
              if exception_message( msg ) = "interrupted system call" then
                 retry := true;
@@ -1494,7 +1494,7 @@ begin
   end if;
   if isExecutingCommand then
      if target_ref.id = standard_error_t then
-        New_Line( standard_error );
+        New_Line( Current_Error );
      elsif target_ref.id = standard_output_t then
         New_Line;
      else

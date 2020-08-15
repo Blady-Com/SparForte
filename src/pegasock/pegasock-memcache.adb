@@ -76,7 +76,7 @@ begin
   end if;
   mcdp.backoffCount := backoffFactor**mcdp.backoffLevel;
   -- error message could be pre
-  put_line( standard_error, Gnat.Source_Info.Source_Location &
+  put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": server " & to_string( mcdp.host) & mcdp.port'img & " error - backing off for" &
     mcdp.backoffCount'img & " tries" );
 end backoffServer;
@@ -101,11 +101,11 @@ begin
   if mcdp.backoffCount = 0 then
      begin
        if mcdp.backoffLevel > 0 then
-          put_line( standard_error, Gnat.Source_Info.Source_Location &
+          put_line( Current_Error, Gnat.Source_Info.Source_Location &
             ": server" & to_string( mcdp.host) & mcdp.port'img & " backoff complete - attempting to reestablish connection" );
        else
           -- a first attempt
-          pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+          pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
             ": server" & to_string( mcdp.host) & mcdp.port'img & " trying to establish connection" ) );
           null;
        end if;
@@ -315,12 +315,12 @@ begin
 
   getServers( mc, name, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": set '" & to_string( name ) & "' on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := "set " & name & " 0 0" & integer'image( length( value ) );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   -- this pointer is used to improve performance. not sure why unchecked
@@ -360,12 +360,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_STORED ) ) /= memcacheResult_STORED then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": set failed on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" );
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": set succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
 
@@ -392,12 +392,12 @@ procedure Add( mc : in out aMemcacheCluster; name, value : unbounded_string ) is
 begin
   getServers( mc, name, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": add '" & to_string( name ) & "' on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := "add " & name & " 0 0" & integer'image( length( value ) );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   -- this pointer is used to improve performance. not sure why unchecked
@@ -437,12 +437,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_STORED ) ) /= memcacheResult_STORED then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": add failed on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" );
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": add succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -468,12 +468,12 @@ procedure Replace( mc : in out aMemcacheCluster; name, value : unbounded_string 
 begin
   getServers( mc, name, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": replace '" & to_string( name ) & "' on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := "replace " & name & " 0 0" & integer'image( length( value ) );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   -- this pointer is used to improve performance. not sure why unchecked
@@ -513,12 +513,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_STORED ) ) /= memcacheResult_STORED then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": replace failed on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" );
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": replace succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -544,12 +544,12 @@ procedure Append( mc : in out aMemcacheCluster; name, value : unbounded_string )
 begin
   getServers( mc, name, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": append '" & to_string( name ) & "' on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := "append " & name & " 0 0" & integer'image( length( value ) );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   -- this pointer is used to improve performance. not sure why unchecked
@@ -589,12 +589,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_STORED ) ) /= memcacheResult_STORED then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": append failed on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" );
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": append succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -620,12 +620,12 @@ procedure Prepend( mc : in out aMemcacheCluster; name, value : unbounded_string 
 begin
   getServers( mc, name, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": prepend '" & to_string( name ) & "' on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := "prepend " & name & " 0 0" & integer'image( length( value ) );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   -- this pointer is used to improve performance. not sure why unchecked
@@ -665,12 +665,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_STORED ) ) /= memcacheResult_STORED then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": prepend failed on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" );
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": prepend succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -696,12 +696,12 @@ procedure Delete( mc : in out aMemcacheCluster; name : unbounded_string ) is
 begin
   getServers( mc, name, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": delete '" & to_string( name ) & "' on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := "delete " & name;
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   -- this pointer is used to improve performance. not sure why unchecked
@@ -739,12 +739,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_DELETED ) ) /= memcacheResult_DELETED then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": delete failed on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" );
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": delete succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -780,11 +780,11 @@ begin
     secondaryServer := temp;
   end if;
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": get '" & to_string( name ) & "'" ) );
 
   memcache_cmd := "get " & name;
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   value := null_unbounded_string;
@@ -852,13 +852,13 @@ begin
      -- we'll bombard the logs.  so suppress these error messages.  the backoff
      -- warnings will still be logged anyway
      if length( result ) > 0 then
-        put_line( standard_error, Gnat.Source_Info.Source_Location &
+        put_line( Current_Error, Gnat.Source_Info.Source_Location &
           ": get failed on key '" & to_string( name ) & "' with result '" &
           to_string( result ) & "'" );
      end if;
   else
      null;
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": get succeeded on key '" & to_string( name ) & "' with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -877,11 +877,11 @@ procedure Stats( mc : in out aMemcacheCluster; value : out unbounded_string ) is
   memcache_cmd    : unbounded_string;
   result          : unbounded_string;
 begin
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": stats on all servers" ) );
 
   memcache_cmd := to_unbounded_string( "stats" );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   value := null_unbounded_string;
@@ -906,12 +906,12 @@ begin
        end;
      end if;
      if head( result, length( memcacheResult_END ) ) /= memcacheResult_END then
-        put_line( standard_error, Gnat.Source_Info.Source_Location &
+        put_line( Current_Error, Gnat.Source_Info.Source_Location &
           ": stats failed on server" & s'img & " with result '" &
           to_string( result ) & "'" );
      else
         null;
-        pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+        pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
           ": stats succeeded on server" & s'img & " with result '" &
           to_string( result ) & "'" ) );
      end if;
@@ -938,12 +938,12 @@ procedure Version( mc : in out aMemcacheCluster; value : out unbounded_string ) 
 begin
   getRandomServers( mc, primaryServer, secondaryServer );
 
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": version on primary server" &
        primaryServer'img & " and secondary" & secondaryServer'img ) );
 
   memcache_cmd := to_unbounded_string( "version" );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   primaryPtr := mc.server( primaryServer )'unchecked_access;
@@ -982,12 +982,12 @@ begin
   end if;
 
   if head( result, length( memcacheResult_VERSION ) ) /= memcacheResult_VERSION then
-     put_line( standard_error, Gnat.Source_Info.Source_Location &
+     put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": version failed with result '" &
        to_string( result ) & "'" );
   else
      value := unbounded_slice( result, length( memcacheResult_VERSION ) + 2, length( result ) );
-     pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+     pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": version succeeded with result '" &
        to_string( result ) & "'" ) );
   end if;
@@ -1004,11 +1004,11 @@ procedure Flush( mc : in out aMemcacheCluster ) is
   memcache_cmd    : unbounded_string;
   result          : unbounded_string;
 begin
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
        ": flush on all servers" ) );
 
   memcache_cmd := to_unbounded_string( "flush_all" );
-  pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+  pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
     ": cmd = '" & to_string( memcache_cmd ) & "'" ) );
 
   for s in 1..mc.serverCount loop
@@ -1025,12 +1025,12 @@ begin
        end;
      end if;
      if head( result, length( memcacheResult_OK ) ) /= memcacheResult_OK then
-        put_line( standard_error, Gnat.Source_Info.Source_Location &
+        put_line( Current_Error, Gnat.Source_Info.Source_Location &
           ": flush failed on server" & s'img & " with result '" &
           to_string( result ) & "'" );
      else
         null;
-        pragma debug( put_line( standard_error, Gnat.Source_Info.Source_Location &
+        pragma debug( put_line( Current_Error, Gnat.Source_Info.Source_Location &
           ": flush succeeded on server" & s'img & " with result '" &
           to_string( result ) & "'" ) );
      end if;

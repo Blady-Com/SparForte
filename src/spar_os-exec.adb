@@ -102,10 +102,10 @@ begin
       execResult := execv( Path,
           Convert_To_C_Args( Path'address, ap.all )'address );
       if execResult < 0 then
-         put_line( standard_error, "BUSH.exec: failed to execute command, " &
+         put_line( Current_Error, "BUSH.exec: failed to execute command, " &
            "error #" & C_errno'img );
       else
-         put_line( standard_error, "BUSH.exec: execv unexpectedly returned" );
+         put_line( Current_Error, "BUSH.exec: execv unexpectedly returned" );
       end if;
 
       raise PROGRAM_ERROR; -- this process must die

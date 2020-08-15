@@ -201,7 +201,7 @@ begin
              ParseGeneralStatement;                     -- do the command
           end loop;
           if error_found then
-             put_line( standard_error, fullErrorMessage );
+             put_line( Current_Error, fullErrorMessage );
              -- Not sure if templates are possible here but...
              if hasTemplate then
                 putTemplateHeader( templateHeader );
@@ -647,7 +647,7 @@ begin
   compileCommand( commandString );
   parse;
   if error_found then                              -- was there an error?
-     put_line( standard_error, fullErrorMessage );
+     put_line( Current_Error, fullErrorMessage );
      -- may or may not have a template at this point, so check
      if hasTemplate then
         putTemplateHeader( templateHeader );
@@ -752,7 +752,7 @@ begin
      end if;
   end if;
   if error_found then
-     put_line( standard_error, fullErrorMessage );
+     put_line( Current_Error, fullErrorMessage );
   end if;
   rshOpt := save_rshOpt;                          -- restore rsh setting
   execOpt := save_execOpt;                        -- restore -e setting
@@ -803,7 +803,7 @@ begin
      end if;
   end if;
   if error_found then
-     put_line( standard_error, fullErrorMessage );
+     put_line( Current_Error, fullErrorMessage );
   end if;
   rshOpt := save_rshOpt;                          -- restore rsh setting
   execOpt := save_execOpt;                        -- restore -e setting
@@ -848,7 +848,7 @@ begin
      end if;
   end if;
   if error_found then
-     put_line( standard_error, fullErrorMessage );
+     put_line( Current_Error, fullErrorMessage );
   end if;
   rshOpt := save_rshOpt;                          -- restore rsh setting
   execOpt := save_execOpt;                        -- restore -e setting
@@ -902,7 +902,7 @@ begin
      end if;
   end if;
   if error_found then
-     put_line( standard_error, fullErrorMessage );
+     put_line( Current_Error, fullErrorMessage );
   end if;
   rshOpt := save_rshOpt;                          -- restore rsh setting
   execOpt := save_execOpt;                        -- restore -e setting
@@ -927,7 +927,7 @@ end doLocalProfile;
 procedure checkAndInterpretScript( fullScriptPath : string ) is
 begin
   if tail( to_unbounded_string( fullScriptPath ), 3 ) = ".sh" then
-     put_line( standard_error, ".sh probably means " & fullScriptPath & " (if it exists) is not a SparForte script" );
+     put_line( Current_Error, ".sh probably means " & fullScriptPath & " (if it exists) is not a SparForte script" );
      set_exit_status( Failure );
      return;
   elsif syntaxOpt then                               -- -c / --check?
@@ -941,7 +941,7 @@ begin
   --   end if;
   --   interpretScript( Argument( OptionOffset ) );    -- run the script
      if error_found then
-        put_line( standard_error, fullErrorMessage );
+        put_line( Current_Error, fullErrorMessage );
      end if;
   else
      syntax_check := true;                           -- check syntax only
@@ -961,7 +961,7 @@ begin
      end if;
      -- display any error message
      if error_found then
-        put_line( standard_error, fullErrorMessage );
+        put_line( Current_Error, fullErrorMessage );
         -- may or may not have a template at this point, so check
         if hasTemplate then
            putTemplateHeader( templateHeader );
@@ -1018,7 +1018,7 @@ begin
            end if;
         end if;
         if error_found then
-           put_line( standard_error, fullErrorMessage );
+           put_line( Current_Error, fullErrorMessage );
            -- always has template if we get here
            put_line( fullTemplateErrorMessage );
         end if;

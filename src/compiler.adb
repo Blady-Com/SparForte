@@ -159,7 +159,7 @@ begin
   -- later.
 
   if script = null then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": internal_error: getCommandLine: script is null" );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": internal_error: getCommandLine: script is null" );
      cmdline        := null_unbounded_string;
      token_firstpos := cmdpos;
      token_lastpos  := cmdpos;
@@ -172,7 +172,7 @@ begin
   -- raised later.
 
   if cmdpos > script'length then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": internal_error: getCommandLine: cmdpos " & cmdpos'img & " is greater than length of script " & script'length'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": internal_error: getCommandLine: cmdpos " & cmdpos'img & " is greater than length of script " & script'length'img );
      cmdline        := null_unbounded_string;
      token_firstpos := cmdpos;
      token_lastpos  := cmdpos;
@@ -457,16 +457,16 @@ begin
            end if;
         end if;
         sourceFilesList.Find( sourceFiles, sourceFilesList.aListIndex( getByteCodeFileNo ), sfr );
-        put( standard_error, sfr.name );              -- show it
-        put( standard_error, ":" );
-        put( standard_error, to_string( lineStr ) );
-        put( standard_error, ":1:" );
+        put( Current_Error, sfr.name );              -- show it
+        put( Current_Error, ":" );
+        put( Current_Error, to_string( lineStr ) );
+        put( Current_Error, ":1:" );
      else
         sourceFilesList.Find( sourceFiles, sourceFilesList.aListIndex( getByteCodeFileNo ), sfr );
-        put( standard_error, sfr.name );            -- otherwise
-        put( standard_error, ":" );                  -- leave leading
-        put( standard_error, getByteCodeLineNo'img );           -- spaces in
-        put( standard_error, ":1:" );
+        put( Current_Error, sfr.name );            -- otherwise
+        put( Current_Error, ":" );                  -- leave leading
+        put( Current_Error, getByteCodeLineNo'img );           -- spaces in
+        put( Current_Error, ":1:" );
      end if;
   else
      if gccOpt then                                    -- gcc style?
@@ -477,46 +477,46 @@ begin
               delete( lineStr, 1, 1 );
            end if;
         end if;
-        put( standard_error, to_string( lineStr ) );
-        put( standard_error, ":1:" );
+        put( Current_Error, to_string( lineStr ) );
+        put( Current_Error, ":1:" );
      else
-        put( standard_error, "In line" );                     -- show line num
-        put_line( standard_error, natural'image( getByteCodeLineNo ) );
+        put( Current_Error, "In line" );                     -- show line num
+        put_line( Current_Error, natural'image( getByteCodeLineNo ) );
      end if;
   end if;
 
   -- Command line that errored (ie the current line)
 
   if not gccOpt then
-     put_line( standard_error, cmdline );                     -- display line
+     put_line( Current_Error, cmdline );                     -- display line
 
   -- Error Pointer
 
      -- KB: 07/11/04: guestimated
      for i in 1..length( sfr.name )+length( lineStr )+6 loop                           -- move to token
-        put( standard_error, " " );
+        put( Current_Error, " " );
      end loop;
      for i in 1..firstpos-1 loop                              -- move to token
-        put( standard_error, " " );
+        put( Current_Error, " " );
      end loop;
-     put( standard_error, "^" );                              -- underline it
+     put( Current_Error, "^" );                              -- underline it
      if lastpos-1 > firstpos then
         for i in 1..lastpos-firstpos-2 loop
-           put( standard_error, "-" );
+           put( Current_Error, "-" );
         end loop;
-        put( standard_error, "^" );
+        put( Current_Error, "^" );
      end if;
   -- TODO: if we include timestamps for templates, they should be in all error
   -- procedures.
   --else
-  --   put( standard_error, "[" & getDateString( ada.calendar.clock ) &
+  --   put( Current_Error, "[" & getDateString( ada.calendar.clock ) &
   --     "]" ); -- error time
   end if;
 
   -- Error Message
 
-  put( standard_error, " " );                                 -- display the
-  put_line( standard_error, msg );                            -- error msg
+  put( Current_Error, " " );                                 -- display the
+  put_line( Current_Error, msg );                            -- error msg
   error_found := true;                                        -- flag error
   token := eof_t;                                             -- stop parser
 end err_tokenize;
@@ -2490,7 +2490,7 @@ begin
      end if;
   end if;
   if verboseOpt then
-     put_line( standard_error, "=> (Line 1 ...)" );
+     put_line( Current_Error, "=> (Line 1 ...)" );
   end if;
 
   -- compile the script into byte code
@@ -2498,7 +2498,7 @@ begin
      if verboseOpt then
         if getByteCodeLineNo >= lastLineNumber + 500 then
            lastLineNumber := getByteCodeLineNo;
-           put_line( standard_error, to_string( term( up ) & "=> (Line" & lastLineNumber'img & " ...)" ) );
+           put_line( Current_Error, to_string( term( up ) & "=> (Line" & lastLineNumber'img & " ...)" ) );
         end if;
      end if;
      line2ByteCode( ci, command );                            -- compress line
@@ -2550,14 +2550,14 @@ begin
   -- later.
 
   if script = null then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: script is null" );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: script is null" );
      return "";
   end if;
 
   -- Invalid range test
 
   if point1 > point2 then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": internal error: copyByteCodeLines: point1 " & point1'img & " is greater than point2 " & point2'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": internal error: copyByteCodeLines: point1 " & point1'img & " is greater than point2 " & point2'img );
      return "";
   end if;
 
@@ -2565,7 +2565,7 @@ begin
   -- raised later.
 
   if point2 > script'length then
-     put_line( standard_error, Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: cmdpos " & cmdpos'img & " is greater than length of script " & script'length'img );
+     put_line( Current_Error, Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: cmdpos " & cmdpos'img & " is greater than length of script " & script'length'img );
      return "";
   end if;
 
@@ -2745,7 +2745,7 @@ begin
   declareKeyword( eof_t, "End of File" );
   toByteCode( eof_t, eof_character, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line( standard_error,
+     put_line( Current_Error,
        gnat.source_info.source_location &
         ": internal error: eof_t is declared too late" );
   end if;
@@ -2886,19 +2886,19 @@ begin
   declareIdent( imm_delim_t, "", symbol_t );
   toByteCode( imm_delim_t, immediate_word_delimiter, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line( standard_error, gnat.source_info.source_location & ": internal error: imm_delim_t is declared too late" );
+     put_line( Current_Error, gnat.source_info.source_location & ": internal error: imm_delim_t is declared too late" );
   end if;
 
   declareIdent( imm_sql_delim_t, "", symbol_t );
   toByteCode( imm_sql_delim_t, immediate_sql_word_delimiter, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line( standard_error, gnat.source_info.source_location &": internal error: imm_sql_delim_t is declared too late" );
+     put_line( Current_Error, gnat.source_info.source_location &": internal error: imm_sql_delim_t is declared too late" );
   end if;
 
   declareIdent( char_escape_t, "", symbol_t );
   toByteCode( char_escape_t, high_ascii_escape, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line( standard_error, gnat.source_info.source_location & ": internal error: high_ascii_escape is declared too late" );
+     put_line( Current_Error, gnat.source_info.source_location & ": internal error: high_ascii_escape is declared too late" );
   end if;
 
   declareIdent( word_t, "Word", uni_string_t );

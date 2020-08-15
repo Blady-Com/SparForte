@@ -110,7 +110,7 @@ begin
 
          if libraryPathNext then
             if Argument(i)'length = 0 then
-               Put_Line( standard_error, Command_Name & ": missing argument for -L" );
+               Put_Line( Current_Error, Command_Name & ": missing argument for -L" );
                Set_Exit_Status( 192 );
                return;
             end if;
@@ -140,7 +140,7 @@ begin
          elsif Argument(i) = "--gcc-errors" then
             gccOpt := true;
          elsif Argument(i) = "--help" then
-            Put_Line( standard_error, Command_Name & ": --help should appear by itself" );
+            Put_Line( Current_Error, Command_Name & ": --help should appear by itself" );
             Set_Exit_Status( 192 );
             return;
          elsif Argument(i) = "--import-all" then
@@ -167,7 +167,7 @@ begin
          elsif Argument(i) = "--verbose" then
             verboseOpt := true;
          elsif Argument(i) = "--version" then
-            Put_Line( standard_error, Command_Name & ": --version should appear by itself" );
+            Put_Line( Current_Error, Command_Name & ": --version should appear by itself" );
             Set_Exit_Status( 192 );
             return;
          elsif Argument(i) = "--" then
@@ -175,9 +175,9 @@ begin
             exit;
          elsif Argument(i)'length = 0 then
             if execOpt then
-               Put_Line( standard_error, Command_Name & ": empty script string" );
+               Put_Line( Current_Error, Command_Name & ": empty script string" );
             else
-               Put_Line( standard_error, Command_Name & ": empty script name" );
+               Put_Line( Current_Error, Command_Name & ": empty script name" );
             end if;
             Set_Exit_Status( 192 );
             return;
@@ -189,7 +189,7 @@ begin
                Args : constant string := Argument(i);
             begin
                if Args'length < 2 then
-                  Put_Line( standard_error, Command_Name & ": missing options: " & Argument(i) );
+                  Put_Line( Current_Error, Command_Name & ": missing options: " & Argument(i) );
                   Set_Exit_Status( 1 );
                   return;
                end if;
@@ -223,7 +223,7 @@ begin
                    elsif Args(letter) = 'e' then
                       execOpt := true;
                    elsif Args(letter) = 'h' then
-                      Put_Line( standard_error, Command_Name & ": -h should appear by itself" );
+                      Put_Line( Current_Error, Command_Name & ": -h should appear by itself" );
                       Set_Exit_Status( 192 );
                       return;
                    elsif Args(letter) = 'i' then
@@ -249,7 +249,7 @@ begin
                    elsif Args(letter) = 'v' then
                       verboseOpt := true;
                    elsif Argument(i) = "-V" then
-                      Put_Line( standard_error, Command_Name & ": -V should appear by itself" );
+                      Put_Line( Current_Error, Command_Name & ": -V should appear by itself" );
                       Set_Exit_Status( 192 );
                       return;
                    --elsif Argument(i) = "-w" then
@@ -257,7 +257,7 @@ begin
                    elsif Args(letter) = 'x' then
                       traceOpt := true;
                    else
-                      Put_Line( standard_error, Command_Name & ": unknown option: " & Argument(i) );
+                      Put_Line( Current_Error, Command_Name & ": unknown option: " & Argument(i) );
                       Set_Exit_Status( 192 );
                       return;
                    end if;
@@ -274,13 +274,13 @@ begin
   -- Missing arguments / commands
 
   if libraryPathNext then
-     Put_Line( standard_error, Command_Name & ": missing argument for -L" );
+     Put_Line( Current_Error, Command_Name & ": missing argument for -L" );
      Set_Exit_Status( 192 );
      return;
   end if;
   if boolean(syntaxOpt) and
      optionOffset > Argument_Count then
-     Put_Line( standard_error, Command_Name & ": missing command name" );
+     Put_Line( Current_Error, Command_Name & ": missing command name" );
      Set_Exit_Status( 192 );
      return;
   end if;
@@ -291,12 +291,12 @@ begin
   -- Illegal option switch combinations
 
   if (wasDesign and wasCoding) or (wasDesign and wasMaintenance) or (wasDesign and wasTest) or (wasCoding and wasMaintenance) or (wasCoding and wasTest) or (wasMaintenance and wasTest) then
-     Put_Line( standard_error, Command_Name & ": only one of --design, --maintenance or --test is allowed" );
+     Put_Line( Current_Error, Command_Name & ": only one of --design, --maintenance or --test is allowed" );
      Set_Exit_Status( 192 );
      return;
   end if;
   if isLoginShell and boolean( profileOpt ) then
-     Put_Line( standard_error, Command_Name & ": only one of --login and --profile is allowed" );
+     Put_Line( Current_Error, Command_Name & ": only one of --login and --profile is allowed" );
      Set_Exit_Status( 192 );
      return;
   end if;

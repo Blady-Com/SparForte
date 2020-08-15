@@ -850,7 +850,7 @@ begin -- read_cookie
     Cookie_Data:= null;
   end if;
 exception when end_error =>
-  put_line( standard_error, "cgi: error reading cookie past end of file" );
+  put_line( Current_Error, "cgi: error reading cookie past end of file" );
 end Read_Cookie;
 
 
@@ -908,7 +908,7 @@ ch : character;
       end loop;
       Raw_Data := To_Unbounded_String(Raw_Data_String);
     exception when end_error =>
-      put_line( standard_error, "adacgi: END_ERROR reading POST data on standard input, expected" & content_length'img & " bytes but read" & content_count'img );
+      put_line( Current_Error, "adacgi: END_ERROR reading POST data on standard input, expected" & content_length'img & " bytes but read" & content_count'img );
     end;
  else
     Actual_CGI_Method := Unknown;
