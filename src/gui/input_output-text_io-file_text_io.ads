@@ -1,9 +1,12 @@
 with Ada.Text_IO;
-with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
 package Input_Output.Text_IO.File_Text_IO is
 
-   type File_Type is new Text_IO_Type with private;
+   type File_Kind is (Reg, Std);
+   -- Reg is for regular file descriptors, Std is for standard IO descriptors
+   -- The user should only work with Reg (default value), Std is for internal purpose
+   type File_Type (Kind : File_Kind := Reg) is new Text_IO_Type with private;
+
    subtype File_Mode is Ada.Text_IO.File_Mode;
    use all type Ada.Text_IO.File_Mode;
 
@@ -136,9 +139,14 @@ package Input_Output.Text_IO.File_Text_IO is
    Layout_Error : exception renames Ada.Text_IO.Layout_Error;
 
 private
-   type Text_IO_File_Access is access Ada.Text_IO.File_Type;
-   type File_Type is new Text_IO_Type with record
-      Text_IO_File : Text_IO_File_Access;
+   type File_Type (Kind : File_Kind := Reg) is new Text_IO_Type with record
+      -- The access is constant for standard IO descriptors
+      case Kind is
+         when Reg =>
+            Text_IO_File : access Ada.Text_IO.File_Type;
+         when Std =>
+            Std_IO_File : Ada.Text_IO.File_Access;
+      end case;
    end record;
 
    overriding procedure Write (IO : in File_Type; Item : IO_Element_Array);

@@ -1,9 +1,11 @@
 package body Input_Output.Text_IO.File_Text_IO is
 
-   Text_File : constant Text_IO_File_Access := new Ada.Text_IO.File_Type;
-   Std_In    : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
-   Std_Out   : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
-   Std_Err   : aliased File_Type            := (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
+   Std_In : aliased File_Type :=
+     (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => Ada.Text_IO.Standard_Input);
+   Std_Out : aliased File_Type :=
+     (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => Ada.Text_IO.Standard_Output);
+   Std_Err : aliased File_Type :=
+     (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => Ada.Text_IO.Standard_Error);
 
    ------------
    -- Create --
@@ -118,7 +120,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Standard_Input return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
+      return (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => Ada.Text_IO.Standard_Input);
    end Standard_Input;
 
    ---------------------
@@ -127,7 +129,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Standard_Output return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
+      return (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => Ada.Text_IO.Standard_Output);
    end Standard_Output;
 
    --------------------
@@ -136,7 +138,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function Standard_Error return File_Type is
    begin
-      return (Input_Output.Text_IO.Text_IO_Type with Text_IO_File => Text_File);
+      return (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => Ada.Text_IO.Standard_Error);
    end Standard_Error;
 
    -------------------
@@ -144,10 +146,14 @@ package body Input_Output.Text_IO.File_Text_IO is
    -------------------
 
    function Current_Input return File_Type is
+      File : File_Type renames File_Type (Input_Output.Text_IO.Current_Input.all);
    begin
-      return
-        (Input_Output.Text_IO.Text_IO_Type with
-         Text_IO_File => File_Type (Input_Output.Text_IO.Current_Input.all).Text_IO_File);
+      case File.Kind is
+         when Reg =>
+            return (Input_Output.Text_IO.Text_IO_Type with Kind => Reg, Text_IO_File => File.Text_IO_File);
+         when Std =>
+            return (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => File.Std_IO_File);
+      end case;
    end Current_Input;
 
    --------------------
@@ -155,10 +161,14 @@ package body Input_Output.Text_IO.File_Text_IO is
    --------------------
 
    function Current_Output return File_Type is
+      File : File_Type renames File_Type (Input_Output.Text_IO.Current_Output.all);
    begin
-      return
-        (Input_Output.Text_IO.Text_IO_Type with
-         Text_IO_File => File_Type (Input_Output.Text_IO.Current_Output.all).Text_IO_File);
+      case File.Kind is
+         when Reg =>
+            return (Input_Output.Text_IO.Text_IO_Type with Kind => Reg, Text_IO_File => File.Text_IO_File);
+         when Std =>
+            return (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => File.Std_IO_File);
+      end case;
    end Current_Output;
 
    -------------------
@@ -166,10 +176,14 @@ package body Input_Output.Text_IO.File_Text_IO is
    -------------------
 
    function Current_Error return File_Type is
+      File : File_Type renames File_Type (Input_Output.Text_IO.Current_Error.all);
    begin
-      return
-        (Input_Output.Text_IO.Text_IO_Type with
-         Text_IO_File => File_Type (Input_Output.Text_IO.Current_Error.all).Text_IO_File);
+      case File.Kind is
+         when Reg =>
+            return (Input_Output.Text_IO.Text_IO_Type with Kind => Reg, Text_IO_File => File.Text_IO_File);
+         when Std =>
+            return (Input_Output.Text_IO.Text_IO_Type with Kind => Std, Std_IO_File => File.Std_IO_File);
+      end case;
    end Current_Error;
 
    --------------------
@@ -538,7 +552,8 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    overriding procedure GetC (IO : in File_Type; Ch : out Character; Available : out Boolean) is
    begin
-      Ada.Text_IO.Get_Immediate (IO.Text_IO_File.all, Ch, Available);
+      Ada.Text_IO.Get_Immediate
+        ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all), Ch, Available);
    end GetC;
 
    ----------
@@ -547,7 +562,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    overriding procedure PutC (IO : in File_Type; Item : Character) is
    begin
-      Ada.Text_IO.Put (IO.Text_IO_File.all, Item);
+      Ada.Text_IO.Put ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all), Item);
 --        Ada.Text_IO.Put ("C:"&item);
    end PutC;
 
@@ -557,7 +572,8 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    overriding procedure LookC (IO : in File_Type; Ch : out Character; End_Of_Line : out Boolean) is
    begin
-      Ada.Text_IO.Look_Ahead (IO.Text_IO_File.all, Ch, End_Of_Line);
+      Ada.Text_IO.Look_Ahead
+        ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all), Ch, End_Of_Line);
    end LookC;
 
    ---------
@@ -566,9 +582,9 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    procedure NLC (IO : in File_Type) is
    begin
-      Ada.Text_IO.New_Line (IO.Text_IO_File.all);
+      Ada.Text_IO.New_Line ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all));
 --        Ada.Text_IO.Put_line ("NL:");
-      Ada.Text_IO.Flush (IO.Text_IO_File.all);
+      Ada.Text_IO.Flush ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all));
    end NLC;
 
    ----------
@@ -577,12 +593,7 @@ package body Input_Output.Text_IO.File_Text_IO is
 
    function GetL (IO : in File_Type) return String is
    begin
-      return Ada.Text_IO.Get_Line (IO.Text_IO_File.all);
+      return Ada.Text_IO.Get_Line ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all));
    end GetL;
 
-begin
-   Ada.Text_IO.Create (Text_File.all, Ada.Text_IO.Append_File, "sf_text_file.txt");
-   Set_Output (Std_Out);
-   Ada.Text_IO.Put_Line (Text_File.all, "Create: sf_text_file");
-   Ada.Text_IO.Flush (Text_File.all);
 end Input_Output.Text_IO.File_Text_IO;
