@@ -123,8 +123,7 @@ package body GX_Text_IO is
 
    procedure Set_Input (File : File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Set_Input unimplemented");
-      raise Program_Error with "Unimplemented procedure Set_Input";
+      Cur_In := File;
    end Set_Input;
 
    ----------------
@@ -133,8 +132,7 @@ package body GX_Text_IO is
 
    procedure Set_Output (File : File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Set_Output unimplemented");
-      raise Program_Error with "Unimplemented procedure Set_Output";
+      Cur_Out := File;
    end Set_Output;
 
    ---------------
@@ -143,8 +141,7 @@ package body GX_Text_IO is
 
    procedure Set_Error (File : File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Set_Error unimplemented");
-      raise Program_Error with "Unimplemented procedure Set_Error";
+      Cur_Err := File;
    end Set_Error;
 
    --------------------
@@ -183,8 +180,7 @@ package body GX_Text_IO is
 
    function Current_Input return File_Type is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Current_Input unimplemented");
-      return raise Program_Error with "Unimplemented function Current_Input";
+      return Cur_In;
    end Current_Input;
 
    --------------------
@@ -193,8 +189,7 @@ package body GX_Text_IO is
 
    function Current_Output return File_Type is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Current_Output unimplemented");
-      return raise Program_Error with "Unimplemented function Current_Output";
+      return Cur_Err;
    end Current_Output;
 
    -------------------
@@ -203,8 +198,7 @@ package body GX_Text_IO is
 
    function Current_Error return File_Type is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Current_Error unimplemented");
-      return raise Program_Error with "Unimplemented function Current_Error";
+      return Cur_Err;
    end Current_Error;
 
    --------------------

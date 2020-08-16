@@ -79,17 +79,15 @@ package body SparGUI.Controller is
 --          (Main_Window.Connection_ID,
 --           Spar_messages.Spar_Strings.Format_APPE (View.Locale));
 
---        SparGUI.Parser.Fill (View.Primitives, View.Locale);
       View.Create (Main_Window, Gnoga.Gui.View.Grid.Horizontal_Split);
       --        View.Click_Button.On_Click_Handler (On_Click'Access);
---        Gnoga.Activate_Exception_Handler (Worker'Identity);
+      --        Gnoga.Activate_Exception_Handler (Worker'Identity);
       View.Exit_Button.On_Click_Handler (On_Exit'Access);
       View.Quit_Button.On_Click_Handler (On_Quit'Access);
---        View.Console_IO.Open (View.Console'Access);
---        View.Console_IO.Set_Input;
---        View.Console_IO.Set_Output;
---        View.Console_IO.Set_Error;
-      GX_Text_IO.Create (view.Console_IO, View.Console'Access);
+      GX_Text_IO.Create (View.Console_IO, View.Console'Access);
+      GX_Text_IO.Set_Input (View.Console_IO);
+      GX_Text_IO.Set_Output (View.Console_IO);
+      GX_Text_IO.Set_Error (View.Console_IO);
       spar;  -- Launch SparForte interpreter
    end Default;
 

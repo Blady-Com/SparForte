@@ -1,6 +1,5 @@
-with IO_Exceptions;
-with Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
 with Ada.Text_IO;
+with Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
 
 package GX_Text_IO is
 
@@ -174,19 +173,20 @@ package GX_Text_IO is
    -- Exceptions --
    ----------------
 
-   Status_Error : exception renames IO_Exceptions.Status_Error;
-   Mode_Error   : exception renames IO_Exceptions.Mode_Error;
-   Name_Error   : exception renames IO_Exceptions.Name_Error;
-   Use_Error    : exception renames IO_Exceptions.Use_Error;
-   Device_Error : exception renames IO_Exceptions.Device_Error;
-   End_Error    : exception renames IO_Exceptions.End_Error;
-   Data_Error   : exception renames IO_Exceptions.Data_Error;
-   Layout_Error : exception renames IO_Exceptions.Layout_Error;
+   Status_Error : exception renames Ada.Text_IO.Status_Error;
+   Mode_Error   : exception renames Ada.Text_IO.Mode_Error;
+   Name_Error   : exception renames Ada.Text_IO.Name_Error;
+   Use_Error    : exception renames Ada.Text_IO.Use_Error;
+   Device_Error : exception renames Ada.Text_IO.Device_Error;
+   End_Error    : exception renames Ada.Text_IO.End_Error;
+   Data_Error   : exception renames Ada.Text_IO.Data_Error;
+   Layout_Error : exception renames Ada.Text_IO.Layout_Error;
 
 private
+
    type File_Kind is (Reg, Std, Gui);
-   -- Reg is for regular file descriptors, Std is for standard IO descriptors The user should only work with Reg
-   -- (default value), Std is for internal purpose
+   -- Reg is for regular file descriptors, Std is for standard IO descriptors, Gui is for graphic interface IO
+   -- descriptor
    type Root_File_Type (Kind : File_Kind) is record
       -- The access is constant for standard IO descriptors
       case Kind is
