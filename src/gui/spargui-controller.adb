@@ -20,6 +20,7 @@ with spar;
 
 with SparGUI.View;
 --  with SparGUI_messages.SparGUI_Strings;
+with GX_Text_IO;
 
 package body SparGUI.Controller is
 
@@ -84,10 +85,11 @@ package body SparGUI.Controller is
 --        Gnoga.Activate_Exception_Handler (Worker'Identity);
       View.Exit_Button.On_Click_Handler (On_Exit'Access);
       View.Quit_Button.On_Click_Handler (On_Quit'Access);
-      View.Console_IO.Open (View.Console'Access);
-      View.Console_IO.Set_Input;
-      View.Console_IO.Set_Output;
+--        View.Console_IO.Open (View.Console'Access);
+--        View.Console_IO.Set_Input;
+--        View.Console_IO.Set_Output;
 --        View.Console_IO.Set_Error;
+      GX_Text_IO.Create (view.Console_IO, View.Console'Access);
       spar;  -- Launch SparForte interpreter
    end Default;
 
