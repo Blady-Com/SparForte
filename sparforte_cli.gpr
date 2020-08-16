@@ -33,9 +33,10 @@ project SparForte_CLI is
             for Default_Switches ("ada") use ("-g", "-Wl,-no_pie",
                                               "/Users/blady/Library/Frameworks/SDL.framework/SDL",
                                               "/Users/blady/Library/Frameworks/SDL_image.framework/SDL_image",
-                                              "-L/Users/blady/Documents/Programmation/SVNGIT/build/lib", "-lpcre");
+                                              "-L/Users/blady/Documents/Programmation/SVNGIT/build/lib", "-lpcre",
+                                              "-Wl,-framework,OpenGL");
          when "NOSDL" =>
-             for Default_Switches ("ada") use ("-g", "-Wl,-no_pie");
+             for Default_Switches ("ada") use ("-g", "-Wl,-no_pie", "-Wl,-framework,OpenGL");
          when others =>
              for Default_Switches ("ada") use ("-g", "-Wl,-no_pie");
       end case;

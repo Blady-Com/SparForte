@@ -1044,6 +1044,7 @@ if [ -z "$NO_OPENGL" ] ; then
       if [ "$OS" = "darwin" ]; then
           MESALIBSTYPE="-Wl,-framework,OpenGL"
           MESAINCLTYPE=""
+          HAS_OPENGL=1
       else
           MESALIBSTYPE="-lGLU\ -lGL\ \ "
           MESAINCLTYPE="-I\/usr\/include\/libdrm\ \ "
