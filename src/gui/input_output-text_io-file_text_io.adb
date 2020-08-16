@@ -596,4 +596,8 @@ package body Input_Output.Text_IO.File_Text_IO is
       return Ada.Text_IO.Get_Line ((case IO.Kind is when Reg => IO.Text_IO_File.all, when Std => IO.Std_IO_File.all));
    end GetL;
 
+begin
+   Set_Input (Std_In);
+   Set_Output (Std_Out);
+   Set_Error (Std_Err);
 end Input_Output.Text_IO.File_Text_IO;

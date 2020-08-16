@@ -87,8 +87,8 @@ package body SparGUI.Controller is
       View.Console_IO.Open (View.Console'Access);
       View.Console_IO.Set_Input;
       View.Console_IO.Set_Output;
-      View.Console_IO.Set_Error;
-      Spar;  -- Launch SparForte interpreter
+--        View.Console_IO.Set_Error;
+      spar;  -- Launch SparForte interpreter
    end Default;
 
 begin
