@@ -41,8 +41,7 @@ package GX_Text_IO is
    ---------------------
 
    procedure Create
-     (File : in out File_Type; Console : in Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Pointer_To_Console_IO_Class;
-      ID   : in     String := "");
+     (File : in out File_Type; Console : in Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Pointer_To_Console_IO_Class);
 
    ------------------------------------------------------
    -- Control of default input, output and error files --

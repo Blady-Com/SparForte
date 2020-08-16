@@ -1,26 +1,30 @@
 package body GX_Text_IO is
+   use Ada.Text_IO;
+   use Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
+
+   Std_In  : constant File_Type := new Root_File_Type'(Kind => Std, Std_IO => Standard_Input);
+   Std_Out : constant File_Type := new Root_File_Type'(Kind => Std, Std_IO => Standard_Output);
+   Std_Err : constant File_Type := new Root_File_Type'(Kind => Std, Std_IO => Standard_Error);
+
+   Cur_In  : File_Type := Std_In;
+   Cur_Out : File_Type := Std_Out;
+   Cur_Err : File_Type := Std_Err;
 
    ------------
    -- Create --
    ------------
 
-   procedure Create
-     (File : in out File_Type; Mode : File_Mode := Out_File;
-      Name :        String := ""; Form : String := "")
-   is
+   procedure Create (File : in out File_Type; Mode : File_Mode := Out_File; Name : String := ""; Form : String := "") is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Create unimplemented");
-      raise Program_Error with "Unimplemented procedure Create";
+      File := new Root_File_Type'(Kind => Reg, others => <>);
+      Create (File.File_IO, Mode, Name, Form);
    end Create;
 
    ----------
    -- Open --
    ----------
 
-   procedure Open
-     (File : in out File_Type; Mode : File_Mode; Name : String;
-      Form :        String := "")
-   is
+   procedure Open (File : in out File_Type; Mode : File_Mode; Name : String; Form : String := "") is
    begin
       pragma Compile_Time_Warning (Standard.True, "Open unimplemented");
       raise Program_Error with "Unimplemented procedure Open";
@@ -32,8 +36,7 @@ package body GX_Text_IO is
 
    procedure Close (File : in out File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Close unimplemented");
-      raise Program_Error with "Unimplemented procedure Close";
+      Close (File.File_IO);
    end Close;
 
    ------------
@@ -42,8 +45,7 @@ package body GX_Text_IO is
 
    procedure Delete (File : in out File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Delete unimplemented");
-      raise Program_Error with "Unimplemented procedure Delete";
+      Delete (File.File_IO);
    end Delete;
 
    -----------
@@ -52,8 +54,7 @@ package body GX_Text_IO is
 
    procedure Reset (File : in out File_Type; Mode : File_Mode) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Reset unimplemented");
-      raise Program_Error with "Unimplemented procedure Reset";
+      Reset (File.File_IO, Mode);
    end Reset;
 
    -----------
@@ -62,8 +63,7 @@ package body GX_Text_IO is
 
    procedure Reset (File : in out File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Reset unimplemented");
-      raise Program_Error with "Unimplemented procedure Reset";
+      Close (File.File_IO);
    end Reset;
 
    ----------
@@ -111,14 +111,10 @@ package body GX_Text_IO is
    ------------
 
    procedure Create
-     (File    : in out File_Type;
-      Console : in     Gnoga.Gui.Plugin.Ace_Editor.Console_IO
-        .Pointer_To_Console_IO_Class;
-      ID : in String := "")
+     (File : in out File_Type; Console : in Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Pointer_To_Console_IO_Class)
    is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Create unimplemented");
-      raise Program_Error with "Unimplemented procedure Create";
+      File := new Root_File_Type'(Kind => Gui, Gui_IO => Console);
    end Create;
 
    ---------------
@@ -157,8 +153,7 @@ package body GX_Text_IO is
 
    function Standard_Input return File_Type is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Standard_Input unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Standard_Input unimplemented");
       return raise Program_Error with "Unimplemented function Standard_Input";
    end Standard_Input;
 
@@ -168,8 +163,7 @@ package body GX_Text_IO is
 
    function Standard_Output return File_Type is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Standard_Output unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Standard_Output unimplemented");
       return raise Program_Error with "Unimplemented function Standard_Output";
    end Standard_Output;
 
@@ -179,8 +173,7 @@ package body GX_Text_IO is
 
    function Standard_Error return File_Type is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Standard_Error unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Standard_Error unimplemented");
       return raise Program_Error with "Unimplemented function Standard_Error";
    end Standard_Error;
 
@@ -190,8 +183,7 @@ package body GX_Text_IO is
 
    function Current_Input return File_Type is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Current_Input unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Current_Input unimplemented");
       return raise Program_Error with "Unimplemented function Current_Input";
    end Current_Input;
 
@@ -201,8 +193,7 @@ package body GX_Text_IO is
 
    function Current_Output return File_Type is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Current_Output unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Current_Output unimplemented");
       return raise Program_Error with "Unimplemented function Current_Output";
    end Current_Output;
 
@@ -212,8 +203,7 @@ package body GX_Text_IO is
 
    function Current_Error return File_Type is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Current_Error unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Current_Error unimplemented");
       return raise Program_Error with "Unimplemented function Current_Error";
    end Current_Error;
 
@@ -223,8 +213,7 @@ package body GX_Text_IO is
 
    function Standard_Input return File_Access is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Standard_Input unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Standard_Input unimplemented");
       return raise Program_Error with "Unimplemented function Standard_Input";
    end Standard_Input;
 
@@ -234,8 +223,7 @@ package body GX_Text_IO is
 
    function Standard_Output return File_Access is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Standard_Output unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Standard_Output unimplemented");
       return raise Program_Error with "Unimplemented function Standard_Output";
    end Standard_Output;
 
@@ -245,8 +233,7 @@ package body GX_Text_IO is
 
    function Standard_Error return File_Access is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Standard_Error unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Standard_Error unimplemented");
       return raise Program_Error with "Unimplemented function Standard_Error";
    end Standard_Error;
 
@@ -256,8 +243,7 @@ package body GX_Text_IO is
 
    function Current_Input return File_Access is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Current_Input unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Current_Input unimplemented");
       return raise Program_Error with "Unimplemented function Current_Input";
    end Current_Input;
 
@@ -267,8 +253,7 @@ package body GX_Text_IO is
 
    function Current_Output return File_Access is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Current_Output unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Current_Output unimplemented");
       return raise Program_Error with "Unimplemented function Current_Output";
    end Current_Output;
 
@@ -278,8 +263,7 @@ package body GX_Text_IO is
 
    function Current_Error return File_Access is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Current_Error unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Current_Error unimplemented");
       return raise Program_Error with "Unimplemented function Current_Error";
    end Current_Error;
 
@@ -289,8 +273,7 @@ package body GX_Text_IO is
 
    procedure Flush (File : File_Type) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Flush unimplemented");
-      raise Program_Error with "Unimplemented procedure Flush";
+      Close (File.File_IO);
    end Flush;
 
    -----------
@@ -299,8 +282,7 @@ package body GX_Text_IO is
 
    procedure Flush is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Flush unimplemented");
-      raise Program_Error with "Unimplemented procedure Flush";
+      Close (Cur_Out.File_IO);
    end Flush;
 
    ---------------------
@@ -309,8 +291,7 @@ package body GX_Text_IO is
 
    procedure Set_Line_Length (File : File_Type; To : Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Line_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Line_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Line_Length";
    end Set_Line_Length;
 
@@ -320,8 +301,7 @@ package body GX_Text_IO is
 
    procedure Set_Line_Length (To : Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Line_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Line_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Line_Length";
    end Set_Line_Length;
 
@@ -331,8 +311,7 @@ package body GX_Text_IO is
 
    procedure Set_Page_Length (File : File_Type; To : Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Page_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Page_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Page_Length";
    end Set_Page_Length;
 
@@ -342,8 +321,7 @@ package body GX_Text_IO is
 
    procedure Set_Page_Length (To : Count) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Set_Page_Length unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Set_Page_Length unimplemented");
       raise Program_Error with "Unimplemented procedure Set_Page_Length";
    end Set_Page_Length;
 
@@ -393,8 +371,14 @@ package body GX_Text_IO is
 
    procedure New_Line (File : File_Type; Spacing : Positive_Count := 1) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "New_Line unimplemented");
-      raise Program_Error with "Unimplemented procedure New_Line";
+      case File.Kind is
+         when Reg =>
+            New_Line (File.File_IO, Spacing);
+         when Std =>
+            New_Line (File.Std_IO.all, Spacing);
+         when Gui =>
+            New_Line (File.Gui_IO.all, Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Positive_Count (Spacing));
+      end case;
    end New_Line;
 
    --------------
@@ -403,8 +387,14 @@ package body GX_Text_IO is
 
    procedure New_Line (Spacing : Positive_Count := 1) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "New_Line unimplemented");
-      raise Program_Error with "Unimplemented procedure New_Line";
+      case Cur_Out.Kind is
+         when Reg =>
+            New_Line (Cur_Out.File_IO, Spacing);
+         when Std =>
+            New_Line (Cur_Out.Std_IO.all, Spacing);
+         when Gui =>
+            New_Line (Cur_Out.Gui_IO.all, Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Positive_Count (Spacing));
+      end case;
    end New_Line;
 
    ---------------
@@ -513,8 +503,7 @@ package body GX_Text_IO is
 
    function End_Of_File (File : File_Type) return Boolean is
    begin
-      pragma Compile_Time_Warning (Standard.True, "End_Of_File unimplemented");
-      return raise Program_Error with "Unimplemented function End_Of_File";
+      return End_Of_File (File.File_IO);
    end End_Of_File;
 
    -----------------
@@ -523,8 +512,7 @@ package body GX_Text_IO is
 
    function End_Of_File return Boolean is
    begin
-      pragma Compile_Time_Warning (Standard.True, "End_Of_File unimplemented");
-      return raise Program_Error with "Unimplemented function End_Of_File";
+      return End_Of_File (Cur_In.File_IO);
    end End_Of_File;
 
    -------------
@@ -671,9 +659,7 @@ package body GX_Text_IO is
    -- Look_Ahead --
    ----------------
 
-   procedure Look_Ahead
-     (File : File_Type; Item : out Character; End_Of_Line : out Boolean)
-   is
+   procedure Look_Ahead (File : File_Type; Item : out Character; End_Of_Line : out Boolean) is
    begin
       pragma Compile_Time_Warning (Standard.True, "Look_Ahead unimplemented");
       raise Program_Error with "Unimplemented procedure Look_Ahead";
@@ -695,8 +681,7 @@ package body GX_Text_IO is
 
    procedure Get_Immediate (File : File_Type; Item : out Character) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Get_Immediate unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Get_Immediate unimplemented");
       raise Program_Error with "Unimplemented procedure Get_Immediate";
    end Get_Immediate;
 
@@ -706,8 +691,7 @@ package body GX_Text_IO is
 
    procedure Get_Immediate (Item : out Character) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Get_Immediate unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Get_Immediate unimplemented");
       raise Program_Error with "Unimplemented procedure Get_Immediate";
    end Get_Immediate;
 
@@ -715,12 +699,9 @@ package body GX_Text_IO is
    -- Get_Immediate --
    -------------------
 
-   procedure Get_Immediate
-     (File : File_Type; Item : out Character; Available : out Boolean)
-   is
+   procedure Get_Immediate (File : File_Type; Item : out Character; Available : out Boolean) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Get_Immediate unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Get_Immediate unimplemented");
       raise Program_Error with "Unimplemented procedure Get_Immediate";
    end Get_Immediate;
 
@@ -730,8 +711,7 @@ package body GX_Text_IO is
 
    procedure Get_Immediate (Item : out Character; Available : out Boolean) is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Get_Immediate unimplemented");
+      pragma Compile_Time_Warning (Standard.True, "Get_Immediate unimplemented");
       raise Program_Error with "Unimplemented procedure Get_Immediate";
    end Get_Immediate;
 
@@ -761,8 +741,14 @@ package body GX_Text_IO is
 
    procedure Put (File : File_Type; Item : String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put unimplemented");
-      raise Program_Error with "Unimplemented procedure Put";
+      case File.Kind is
+         when Reg =>
+            Put (File.File_IO, Item);
+         when Std =>
+            Put (File.Std_IO.all, Item);
+         when Gui =>
+            Put (File.Gui_IO.all, Item);
+      end case;
    end Put;
 
    ---------
@@ -771,16 +757,21 @@ package body GX_Text_IO is
 
    procedure Put (Item : String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put unimplemented");
-      raise Program_Error with "Unimplemented procedure Put";
+      case Cur_Out.Kind is
+         when Reg =>
+            Put (Cur_Out.File_IO, Item);
+         when Std =>
+            Put (Cur_Out.Std_IO.all, Item);
+         when Gui =>
+            Put (Cur_Out.Gui_IO.all, Item);
+      end case;
    end Put;
 
    --------------
    -- Get_Line --
    --------------
 
-   procedure Get_Line (File : File_Type; Item : out String; Last : out Natural)
-   is
+   procedure Get_Line (File : File_Type; Item : out String; Last : out Natural) is
    begin
       pragma Compile_Time_Warning (Standard.True, "Get_Line unimplemented");
       raise Program_Error with "Unimplemented procedure Get_Line";
@@ -802,8 +793,14 @@ package body GX_Text_IO is
 
    function Get_Line (File : File_Type) return String is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Get_Line unimplemented");
-      return raise Program_Error with "Unimplemented function Get_Line";
+      case File.Kind is
+         when Reg =>
+            return Get_Line (File.File_IO);
+         when Std =>
+            return Get_Line (File.Std_IO.all);
+         when Gui =>
+            return Get_Line (File.Gui_IO.all);
+      end case;
    end Get_Line;
 
    --------------
@@ -812,8 +809,14 @@ package body GX_Text_IO is
 
    function Get_Line return String is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Get_Line unimplemented");
-      return raise Program_Error with "Unimplemented function Get_Line";
+      case Cur_In.Kind is
+         when Reg =>
+            return Get_Line (Cur_In.File_IO);
+         when Std =>
+            return Get_Line (Cur_In.Std_IO.all);
+         when Gui =>
+            return Get_Line (Cur_In.Gui_IO.all);
+      end case;
    end Get_Line;
 
    --------------
@@ -822,8 +825,14 @@ package body GX_Text_IO is
 
    procedure Put_Line (File : File_Type; Item : String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put_Line unimplemented");
-      raise Program_Error with "Unimplemented procedure Put_Line";
+      case File.Kind is
+         when Reg =>
+            Put_Line (File.File_IO, Item);
+         when Std =>
+            Put_Line (File.Std_IO.all, Item);
+         when Gui =>
+            Put_Line (File.Gui_IO.all, Item);
+      end case;
    end Put_Line;
 
    --------------
@@ -832,8 +841,14 @@ package body GX_Text_IO is
 
    procedure Put_Line (Item : String) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Put_Line unimplemented");
-      raise Program_Error with "Unimplemented procedure Put_Line";
+      case Cur_Out.Kind is
+         when Reg =>
+            Put_Line (Cur_Out.File_IO, Item);
+         when Std =>
+            Put_Line (Cur_Out.Std_IO.all, Item);
+         when Gui =>
+            Put_Line (Cur_Out.Gui_IO.all, Item);
+      end case;
    end Put_Line;
 
 end GX_Text_IO;
