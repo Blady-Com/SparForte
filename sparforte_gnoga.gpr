@@ -56,6 +56,8 @@ project SparForte_Gnoga is
          when "NOSDL" =>
             for Spec ("spar_os.sdl") use "spar_os_nosdl.ads";
             for Body ("spar_os.sdl") use "spar_os_nosdl.adb";
+            for Spec ("pen") use "pen_gui.ads";
+            for Body ("pen") use "pen_gui.adb";
          when others =>
             for Spec ("spar_os.sdl") use "spar_os_nosdl.ads";
             for Body ("spar_os.sdl") use "spar_os_nosdl.adb";

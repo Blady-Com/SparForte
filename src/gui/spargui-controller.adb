@@ -21,6 +21,7 @@ with spar;
 with SparGUI.View;
 --  with SparGUI_messages.SparGUI_Strings;
 with GX_Text_IO;
+with pen;
 
 package body SparGUI.Controller is
 
@@ -88,6 +89,7 @@ package body SparGUI.Controller is
       GX_Text_IO.Set_Input (View.Console_IO);
       GX_Text_IO.Set_Output (View.Console_IO);
       GX_Text_IO.Set_Error (View.Console_IO);
+      pen.Set_Graphic (View.Graphic'Access);
       spar;  -- Launch SparForte interpreter
    end Default;
 

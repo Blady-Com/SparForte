@@ -38,6 +38,7 @@ package body SparGUI.View is
         (Grid.Turtle.Row - 50, Grid.Turtle.Row + 50, Grid.Turtle.Column - 50, Grid.Turtle.Column + 50,
          Gnoga.Gui.Plugin.Pixi.Sprite.Bounce_Effect);
       Grid.Turtle.Motion (20.0, 0.0);
+      Grid.Graphic.Create (Grid.Container);
 
 --        Grid.Click_Button.Create (Grid.Panel (1, 2).all, "Click Me");
       Grid.Panel (1, 1).New_Line;

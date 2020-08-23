@@ -14,6 +14,7 @@ with Gnoga.Gui.View.Grid;
 with Gnoga.Gui.Element.Common;
 with Gnoga.Gui.Element.Canvas;
 with Gnoga.Gui.Plugin.Pixi.Sprite;
+with Gnoga.Gui.Plugin.Pixi.Graphics;
 with Gnoga.Gui.Plugin.Ace_Editor.Console_IO;
 with Gnoga.Gui.Window;
 --  with ZanyBlue.Text.Locales;
@@ -33,6 +34,7 @@ package SparGUI.View is
       Application  : Gnoga.Gui.Plugin.Pixi.Application_Type;
       Renderer     : Gnoga.Gui.Plugin.Pixi.Renderer_Type;
       Container    : Gnoga.Gui.Plugin.Pixi.Container_Type;
+      Graphic      : aliased Gnoga.Gui.Plugin.Pixi.Graphics.Graphics_Type;
       Turtle       : Gnoga.Gui.Plugin.Pixi.Sprite.Sprite_Type;
       Console      : aliased Gnoga.Gui.Plugin.Ace_Editor.Console_IO.Console_IO_Type;
       Console_IO   : GX_Text_IO.File_Type;
