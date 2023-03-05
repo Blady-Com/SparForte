@@ -536,6 +536,8 @@ elif [ "$OS" = "cygwin" ] ; then
    fi
 elif [ "$OS" = "darwin" ] ; then
    echo -n "Darwin"
+   # Force ARCH to x86-64 for now
+   ARCH="x86-64"
    if test -r spar_os.ads ; then
       echo " (cached, make distclean to remove)";
    else

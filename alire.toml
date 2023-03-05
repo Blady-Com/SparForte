@@ -12,11 +12,24 @@ licenses = "GPL-2.0-only"
 
 executables = ["spar"]
 
+[available."case(os)"]
+"linux" = true
+"macos" = true
+"..." = false
+
+[[depends-on]]
+[depends-on."case(os)"."linux"]
+locate = "*"
+
 [[actions]]
 type = "post-fetch"
 command = ["sh", "configure", "--without-bdb", "--without-mysql", "--without-opengl",
                               "--without-postgres", "--without-readline", "--without-sound",
                               "--without-pcre", "--without-sdl"]
+
+[[actions]]
+type = "post-fetch"
+command = ["make"]
 
 [gpr-set-externals.'case(os)']
 macos   = { SPAR_LINKER_FLAGS = "-Wl,-no_pie" } # needed for symbolic exception traceback 
