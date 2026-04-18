@@ -316,6 +316,7 @@ begin
      -- they probably should be plural the the annotation but it wasn't
      -- important enough to fix.
      if name /= "account" and
+        name /= "assisted" and
         name /= "author" and
         name /= "created" and
         name /= "category" and

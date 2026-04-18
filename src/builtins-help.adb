@@ -115,6 +115,7 @@ package body builtins.help is
        refactor_str : constant unbounded_string := to_unbounded_string( "refactor" );
 
        accounts_str    : constant unbounded_string := to_unbounded_string( "accounts" );
+       assisted_str    : constant unbounded_string := to_unbounded_string( "assisted" );
        author_str      : constant unbounded_string := to_unbounded_string( "author" );
        bugs_str        : constant unbounded_string := to_unbounded_string( "bugs" );
        created_str     : constant unbounded_string := to_unbounded_string( "created" );
@@ -308,6 +309,8 @@ package body builtins.help is
                   --      end if;
                   --   end if;
                   --end if;
+               elsif annotationKind = assisted_str then
+                  assistedBy( e, to_string(expr.value) );
                elsif annotationKind = bugs_str then
                   bugs( e, to_string(expr.value)  );
                elsif annotationKind = created_str then
