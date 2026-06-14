@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- AdaScript Language Parser - Identifiers and Expressions                  --
 --                                                                          --
 -- Part of SparForte                                                        --
@@ -22,8 +22,8 @@
 ------------------------------------------------------------------------------
 pragma ada_2005;
 
---with ada.text_io;
---use ada.text_io;
+with ada.text_io;
+use ada.text_io;
 
 pragma warnings( off ); -- suppress Gnat-specific package warning
 with ada.command_line.environment;
@@ -449,8 +449,6 @@ begin
   valid := false;
   if token = number_t then
      expectIdentifier( what, "number" );
-     --err( optional_yellow( "identifier") & " expected, not a " &
-     --     optional_yellow( "number" ) );
   elsif token = strlit_t then
      expectIdentifier( what, "string literal" );
   elsif token = backlit_t then
@@ -542,6 +540,118 @@ exception when symbol_table_overflow =>
   token := eof_t; -- this exception cannot be handled
   done := true;   -- abort
 end ParseFieldIdentifier;
+
+
+-----------------------------------------------------------------------------
+--  PARSE FORMAL PARAMETER NAME IDENTIFIER
+--
+-- This is a variation on ParseFieldIdentifier for subprogram formal
+-- parameter names.  Originally, this used ParseNewParameter but this
+-- required the parameter name to be new, which is not necessarily true.
+--
+-- When reading a formal parameter, the name will be "p" and not "s.p"
+-- where s is the subprogram.  "p" will either be new identifier or it
+-- may be an existing identifier with the same name, such as a more
+-- global variable.  The parameter already exists, it will need
+-- to verified that it is not a duplicate name (e.g. s(p, p)).
+--
+-- The subprogram name also cannot be used as an identifier.
+--
+-- Special handling is required for a forward parameter because it
+-- should always be declared already.  We're just validating it.
+--
+-- When testing for existence, we need to use the full name with the
+-- subprogram prefix.
+--
+-- If valid, declare "p" (or redeclare it) as "s.p".
+-----------------------------------------------------------------------------
+
+procedure ParseFormalParameterNameIdentifier(
+    subId : identifier;
+    id : out identifier;
+    forwarded : boolean := false ) is
+  simpleParamName   : unbounded_string;
+  prefixedParamName : unbounded_string;
+  existingParamId   : identifier;
+  formalParamId     : identifier;
+begin
+  id := eof_t;
+
+  -- If token is a new identifier, parse it as typical new identifier.
+  -- Otherwise, check to see if it's the same name as the subprogram
+  -- itself.
+
+  if identifiers( token ).kind = new_t or identifiers( token ).deleted then
+     ParseNewIdentifier( formalParamId );
+     -- Check to see if the name is the same as the subprogram.  At this point
+     -- the subprogram token is known but the definition is incomplete so the
+     -- kind will be "new_t".
+     if formalParamId = subId then
+        err( subject => formalParamId,
+             reason => +"is already defined",
+             obstructorNotes => +"as the subprogram name",
+             remedy => +"choose a different name for the parameter."
+        );
+     end if;
+
+  -- This is the handling if the identifier already exists.  Ensure that
+  -- it is an identifier and save the name.
+
+  elsif isTokenValidIdentifier( "a parameter name" ) then
+     formalParamId := token;
+     getNextToken;
+  end if;
+
+  -- At this point, the formalParamId is the simple parameter name
+  --
+  -- Check to see if there's an existing formal parameter with the full
+  -- name.  If it's new, declare the formal parameter.  If it was
+  -- not declared in a forward specification, then it is a duplicate
+  --
+  -- If forwarded, return the existing formal parameter.
+
+  simpleParamName := identifiers( formalParamId ).name;
+  prefixedParamName := identifiers( subId ).name & "." & simpleParamName;
+  findIdent( prefixedParamName, existingParamId);
+  if existingParamId /= eof_t then
+     if identifiers( existingParamId ).field_of = subId then
+        if forwarded then
+          discardUnusedIdentifier( formalParamId );
+          declareIdent( formalParamId, simpleParamName, new_t, varClass );
+          identifiers( formalParamId ).field_of := subId;
+          identifiers( formalParamId ).declaredAt := getLineNo;
+          identifiers( formalParamId ).declaredFile := getSourceFileName;
+          id := formalParamId;
+        else
+           err( subject => formalParamId,
+              subjectType => identifiers( existingParamId ).kind,
+              subjectLocation => pl( to_string( identifiers( existingParamId ).declaredFile) & ":" &
+                 identifiers( existingParamId ).declaredAt'img ),
+              reason => +"is already a parameter of",
+              obstructor => subId,
+              remedy => +"choose a different name for the parameter or remove one as a duplicate."
+           );
+        end if;
+     end if;
+  else
+     -- If the parameter was not forwarded, create a new parameter
+     -- identifier with the same name, attached to the subprogram.
+     --
+     -- Don't use subprogram prefixed name because when the original
+     -- short version is used when parsing the subprogram definition.
+     -- A later stage will rename it to the full name so it will not
+     -- conflict with an existing identifier with the same name.
+     --
+     -- Return the new formal parameter
+
+     discardUnusedIdentifier( formalParamId );
+     declareIdent( formalParamId, simpleParamName, new_t, varClass );
+     identifiers( formalParamId ).field_of := subId;
+     identifiers( formalParamId ).declaredAt := getLineNo;
+     identifiers( formalParamId ).declaredFile := getSourceFileName;
+     id := formalParamId;
+  end if;
+end ParseFormalParameterNameIdentifier;
 
 
 -----------------------------------------------------------------------------
@@ -1597,12 +1707,21 @@ procedure ParseFactor( f : out storage; kind : out identifier ) is
        --f := identifiers( t ).store.value;
        --kind := identifiers( t ).kind;
     end if;
-    -- check to see if it's an incomplete spec
+    -- Check to see if it's an incomplete spec
+    --
+    -- This is not triggered by an incomplete function or constant
+    -- specification so it may be redundant.
     if isExecutingCommand then
        if identifiers( t ).specAt /= noSpec then
-          err( pl( "earlier specification has not been completed (at " &
-               to_string( identifiers( t ).specFile) & ":" &
-               identifiers( t ).specAt'img & ")" ) );
+          err( contextNotes => +"in the expression",
+               subject => t,
+               subjectType => identifiers( t ).kind,
+               subjectLocation => +"(at " & pl(
+                  to_string( identifiers( t ).specFile) & ":" &
+                  identifiers( t ).specAt'img & ")" ),
+               reason => +"cannot be used because",
+               obstructorNotes => + "its specification that has not been completed"
+          );
        end if;
     end if;
 
@@ -1694,10 +1813,20 @@ procedure ParseFactor( f : out storage; kind : out identifier ) is
           reason => +"is an array variable and an array index"
        );
        ParseExpression( f, kind );               -- kind is the index type
+       -- this might be redundant.  Not sure how to trigger this
+       -- error.
        if getUniType( kind ) = uni_string_t or   -- index must be scalar
           getUniType( kind ) = root_record_t or
           identifiers( getBaseType( kind ) ).list then
-          err( +"array index must be a scalar type" );
+          err( contextNotes => +"In the expression",
+               subject => t,
+               subjectType => identifiers( t ).kind,
+               subjectLocation => +"(at " & pl(
+                  to_string( identifiers( t ).specFile) & ":" &
+                  identifiers( t ).specAt'img & ")" ),
+               reason => +"cannot be used because",
+               obstructorNotes => +"array index must be a scalar type"
+          );
        end if;                                   -- variables are not
        if isExecutingCommand then                -- declared in syntax chk
               -- parse factor identifier: arrays

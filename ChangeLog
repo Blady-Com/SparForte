@@ -16,3 +16,7 @@ CHANGES SINCE 3.0
 
 4. pragma annotate( assisted ) for automation generated source code as per Linux kernel standards. [docs needed]
 
+5. Fix: certain edge cases in subprogram parameter names like names already in use, duplicate parameter names, a parameter with the name of the subprogram should now work correctly.
+
+6. Fix: most declarations now include the declaration location for error messages (such as enum type items, for example).
+

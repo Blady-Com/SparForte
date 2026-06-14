@@ -13,7 +13,23 @@ Long term Ongoing Work
 
 - CGI package broken since 2.5.
   - better testing needed for CGI package and/or file mode features
+- in a secret, if it contains the text "Example", "not-real" or "Change-me",
+  produce a placeholder credential warning?
+- cannot run ada script shell command in backquotes (at least, as pipelines
+  in error processing script).
+- cannot redirect ada script shell command using ">" (at least, as pipelines
+  in error processing script).
+- long quotes should have a better error message (such as identifying starting
+  character position
+- I added the line number and file to enum declarations but they may be
+  wrong.  Get Line Number also seems wrong for the case procedure specification
+  verification because the "earlier" line may be the procedure call rather
+  than the specification.
+- other declarations without line numbers: e.g. auto-declared variables
 
+
+- need to test unchecked_volatile with a file variable (ideally, hash_io)
+  and a function
 - tests still needed for subprograms with an in out parameter of a generic type
 
 - value meta labels project
@@ -82,6 +98,7 @@ Long term Ongoing Work
 
   - factors can be labelled but continue with expressions and labels
     - related unit tests
+  - pragma to set a time when security policy is reviewed
   - designing how meta labels apply to database columns
   - designing how meta labels apply to fields in a file of records
   - ? deploying strings + meta tags
@@ -413,6 +430,9 @@ Priority Issues (Fix These First)
 Annoyances / Bugs with Workarounds / Updates
 --------------------------------------------
 
+- in addition to server profile and personal profile, a project or
+  team profile would be useful.  A team profile is the team-wide
+  defaults and so would take priority over user settings.
 - doubly_linked_lists.unique and/or arrays.unique
   - double_linked_lists/arrays.max_position / min_position?
 - investigate the possibility of a simple ada-to-python code converter to

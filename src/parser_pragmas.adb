@@ -2161,6 +2161,28 @@ begin
               if baseTypesOk( boolean_t, var_id ) then
                  if expr.value = "0" then
                     err( +"assertion failed" );
+                    --declare -- DEBUG
+                    --   temp_id : identifier; -- DEBUG
+                    --   msg : unbounded_string;
+                    --begin
+                    --   findIdent( to_unbounded_string( "i" ), temp_id );
+                    --   msg := "assertion failed: expr='" &
+                    --       expr.value &
+                    --       "' and i='" &
+                    --       identifiers(temp_id).store.value &
+                    --       "' stack="; -- DEBUG
+                    --   for id in reverse temp_id-5..identifiers_top loop
+                    --       msg := msg & identifiers(id).name & ":" &
+                    --         identifiers(identifiers(id).kind).name & "=" &
+                    --         to_string(identifiers(id).store.value ) & " @";
+                    --       if identifiers(id).deleted then
+                    --          msg := msg & "[deleted], ";
+                    --       else
+                    --          msg := msg & identifiers(id).declaredAt'img & ", ";
+                    --       end if;
+                    --   end loop;
+                    --   err( pl( to_string(msg) ) ); -- DEBUG
+                    --end;
                  end if;
               end if;
            end if;

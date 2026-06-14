@@ -3160,9 +3160,15 @@ procedure ParseType is
    parent_id   : identifier;
    enum_index  : integer := 0;
    b : boolean;
+   declaredAt : natural;
+   declaredFile : unbounded_string;
 begin
    expect( type_t );                                       -- "type"
+   declaredAt := getLineNo;
+   declaredFile := getSourceFileName;
    ParseNewIdentifier( newtype_id );                       -- typename
+   identifiers( newtype_id ).declaredAt := declaredAt;
+   identifiers( newtype_id ).declaredFile := declaredFile;
    expect( is_t );                                         -- is
 
    if Token = symbol_t and identifiers( token ).store.value = "(" then
@@ -3191,7 +3197,11 @@ begin
          reason => +"items list seems to be missing because the list"
       );
       while token /= eof_t loop                            -- name [,name]
+         declaredAt := getLineNo;
+         declaredFile := getSourceFileName;
          ParseNewIdentifier( newtype_id );                 -- enumerated item
+         identifiers( newtype_id ).declaredAt := declaredAt;
+         identifiers( newtype_id ).declaredFile := declaredFile;
          -- always execute declarations when syntax checking
          -- because they are needed to test types and interpret
          -- other statements

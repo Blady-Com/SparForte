@@ -1088,7 +1088,7 @@ end ParseCaseWhenPart;
 
 
 -----------------------------------------------------------------------------
---  PARSE CASE IN BLOCK
+--  PARSE CASE PROCEDURE BLOCK
 --
 -----------------------------------------------------------------------------
 
@@ -2657,13 +2657,31 @@ procedure ParseFormalParameterProperties(
   paramKind : out identifier;
   abstractKind : out identifier;
   subId : identifier;
-  isFunction : boolean ) is
+  isFunction : boolean;
+  forwarded : boolean := false ) is
 begin
   abstractKind := eof_t;
 
   -- Parse the new parameter name
+  --
+  -- For a subprogram declaration "procedure p( x : t )", these parameters do
+  -- not have the namespace of p.
+  --
+  -- Technically, a formal name like "x" should be in the namespace of the
+  -- subprogram for duplicate name purposes.  If "x" exists, a formal
+  -- parameter named "x" should not cause a duplicate identifier.
+  -- (One exception is when "x" is both a parameter and the subprogram name.)
+  -- When the declaraction is completed, "x" will be "p.x".
+  --
+  -- However, the data type for the formal parameter will be in the
+  -- outside namespace.
+  --
+  -- For now, both "x" and "t" in the outer scope.  When the usable
+  -- parameters are created, they will existing within the scope of
+  -- the subprogram.
 
-  ParseNewIdentifier( formalParamId );
+
+  ParseFormalParameterNameIdentifier( subId, formalParamId, forwarded );
   expect( symbol_t, ":" );
 
   -- Parse the access mode
@@ -3092,7 +3110,8 @@ begin
           paramKind => bodyParamKind,
           abstractKind => bodyAbstractKind,
           subId => specId,
-          isFunction => false
+          isFunction => false,
+          forwarded => true
           );
 
        -- Parameter name: specification vs implementation

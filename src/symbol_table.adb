@@ -741,6 +741,7 @@ begin
        identifiers(id).name     := identifiers( proc_id ).name & "." & identifiers( id ).name;
     end if;
     identifiers(id).sstorage   := storage'(to_unbounded_string( parameterNumber'img ), noMetaTag, noMetaTags);
+    identifiers(id).store    := identifiers(id).sstorage'access;
     identifiers(id).class    := formalParamClass;
     identifiers(id).kind     := kind;
     identifiers(id).import   := false;

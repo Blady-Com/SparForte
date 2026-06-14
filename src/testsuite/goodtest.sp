@@ -1926,6 +1926,34 @@ begin
   pragma assert( i = 9 ); -- execution of proc6 and nested begin block
 end;
 
+declare
+
+  myvar : integer; -- overshadowed by param
+
+  procedure myproc( myvar : integer ) is
+  begin
+    ? myvar;
+  end myproc;
+
+begin
+  myproc( 5 );
+  myvar := 5;
+end;
+
+declare
+
+  myvar : integer; -- overshadowed by param
+
+  function myfunc( myvar : integer ) return integer is
+  begin
+    return myvar;
+  end myfunc;
+
+begin
+  myvar := myfunc( 5 );
+  pragma assert( myvar = 5 );
+end;
+
 -- self-referential variables
 
 i := 1;
@@ -4479,7 +4507,7 @@ declare
   procedure return_test3 is
   begin
     declare
-      j : integer := 4;
+      j : constant integer := 4;
     begin
       i := j;
       return;
@@ -4490,7 +4518,7 @@ declare
   function return_test4 return integer is
   begin
     declare
-      j : integer := 5;
+      j : constant integer := 5;
     begin
       return j;
     end;
@@ -4511,7 +4539,9 @@ end;
 -- integer casting
 -- in bush, literals are universal_numeric's
 
+env i;
 i := 2.4;
+env i;
 pragma assert( i = 2 );
 i := 2.5;
 pragma assert( i = 3 );

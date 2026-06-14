@@ -36,6 +36,10 @@ package parser is
 ------------------------------------------------------------------------------
 
 procedure ParseFieldIdentifier( record_id : identifier; id : out identifier );
+procedure ParseFormalParameterNameIdentifier(
+    subId : identifier;
+    id : out identifier;
+    forwarded : boolean := false );
 procedure ParseProcedureIdentifier( id : out identifier );
 procedure ParseVariableIdentifier( id : out identifier );
 procedure ParseNewIdentifier( id : out identifier );
