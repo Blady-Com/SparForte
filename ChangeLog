@@ -20,3 +20,5 @@ CHANGES SINCE 3.0
 
 6. Fix: most declarations now include the declaration location for error messages (such as enum type items, for example).
 
+7. Fix: better error message for missing filenames on a shell redirect (e.g. echo >;).
+

@@ -19,8 +19,6 @@ Long term Ongoing Work
   in error processing script).
 - cannot redirect ada script shell command using ">" (at least, as pipelines
   in error processing script).
-- long quotes should have a better error message (such as identifying starting
-  character position
 - I added the line number and file to enum declarations but they may be
   wrong.  Get Line Number also seems wrong for the case procedure specification
   verification because the "earlier" line may be the procedure call rather

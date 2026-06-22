@@ -1161,7 +1161,7 @@ begin
         end loop;
      end if;
      if lastpos > length( command ) then                    -- missing quote?
-        err_tokenize( "missing single quote", to_string( command ) );
+        err_tokenize( "While compiling the AdaScript statement, SparForte reached the end of the line and did not find a closing single quote", to_string( command ) );
         return;
      else
         word := word & ''';                                 -- add ' to buffer
@@ -1194,7 +1194,7 @@ begin
         end loop;
      end if;
      if cmdpos > length( command ) then
-        err_tokenize( "missing double quote", to_string( command ) );
+        err_tokenize( "While compiling the Adascript statement, SparForte reached the end of the line and did not find a closing double quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
         return;
      else
       --   newstr := To_Unbounded_String( Slice( command, cmdpos, lastpos-1 ) );
@@ -1514,6 +1514,11 @@ begin
      -- Anything to save?
 
      if length( word ) > 0 then
+        -- KLUDGE: this handles case of ">;" where filename is missing,
+        -- as well as similar cases
+        if word = ">" or word = "<" or word = "2>" then
+           err_tokenize( "filename expected for shell command redirect", to_string( command ) );
+        end if;
         if isSymbolNotWord then
            ci.compressedScript := ci.compressedScript & toByteCode( imm_symbol_delim_t ) &
               word & toByteCode( imm_symbol_delim_t );
@@ -1547,27 +1552,27 @@ begin
 
     if cmdpos > length( command ) then
        if inSingleQuotes then
-          err_tokenize( "missing single quote", to_string( command ) );
+          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a closing single quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
           return;
        end if;
        if inDoubleQuotes then
-          err_tokenize( "missing double quote", to_string( command ) );
+          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a closing double quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
           return;
        end if;
        if inBackQuotes then
-          err_tokenize( "missing back quote", to_string( command ) );
+          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a closing back quote.  Perhaps break up long commands with functions or procedures", to_string( command ) );
           return;
        end if;
        if inBackslash then
-          err_tokenize( "missing backslashed character", to_string( command ) );
+          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a character to escape with the backslash.  Perhaps make strings of multiple lines using concatenantion of ASCII.LF and/or ASCII.CR", to_string( command ) );
           return;
        end if;
        if redirectAmpersand then
-          err_tokenize( "missing end of shell command redirect", to_string( command ) );
+          err_tokenize( "While compiling the shell statement, the file number for the redirection is missing", to_string( command ) );
           return;
        end if;
        if inRedirect then
-          err_tokenize( "filename expected for shell command redirect", to_string( command ) );
+          err_tokenize( "While compiling the shell statement, the redirection is missing a filename", to_string( command ) );
           return;
        end if;
        lastpos := cmdpos - 1;
@@ -1611,6 +1616,13 @@ begin
     -- see when it is complete.  We're not allow $ substitutions as a part
     -- of the same word: a redirect is a word to itself even if more characters
     -- follow without a field separator character.
+
+    -- Special case of >&; to avoid infinite loop
+
+    if redirectAmpersand and ch = ';' then
+       err_tokenize( "While compiling the shell statement, the file number for the redirection is missing", to_string( command ) );
+       return;
+    end if;
 
     if inRedirect and ch /= '>' and ch /= '<' and ch /= '&' and ch /= '1' then
        inRedirect := false;
@@ -1821,19 +1833,19 @@ begin
 
     if cmdpos > length( command ) then
        if inSingleQuotes then
-          err_tokenize( "missing single quote", to_string( command ) );
+          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a closing single quote", to_string( command ) );
           return;
        end if;
        if inDoubleQuotes then
-          err_tokenize( "missing double quote", to_string( command ) );
+          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a closing double quote", to_string( command ) );
           return;
        end if;
        if inBackQuotes then
-          err_tokenize( "missing back quote", to_string( command ) );
+          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a missing back quote", to_string( command ) );
           return;
        end if;
        if inBackslash then
-          err_tokenize( "missing backslashed character", to_string( command ) );
+          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a character to escape with the backslash.  Perhaps make strings of multiple lines using concatenantion of ASCII.LF and/or ASCII.CR", to_string( command ) );
           return;
        end if;
        lastpos := cmdpos - 1;
