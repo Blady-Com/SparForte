@@ -22,3 +22,9 @@ CHANGES SINCE 3.0
 
 7. Fix: better error message for missing filenames on a shell redirect (e.g. echo >;).
 
+8. New: constant values are checked for placeholder values in testing and maintenance modes.
+
+9. Fix: -C / --coding disables the default testing mode flag instead of enabling both.
+
+10. Fix: case statments can now test array elements as well as scalar variables.
+

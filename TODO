@@ -13,22 +13,13 @@ Long term Ongoing Work
 
 - CGI package broken since 2.5.
   - better testing needed for CGI package and/or file mode features
-- in a secret, if it contains the text "Example", "not-real" or "Change-me",
-  produce a placeholder credential warning?
-- cannot run ada script shell command in backquotes (at least, as pipelines
-  in error processing script).
-- cannot redirect ada script shell command using ">" (at least, as pipelines
-  in error processing script).
-- I added the line number and file to enum declarations but they may be
-  wrong.  Get Line Number also seems wrong for the case procedure specification
-  verification because the "earlier" line may be the procedure call rather
-  than the specification.
-- other declarations without line numbers: e.g. auto-declared variables
-
 
 - need to test unchecked_volatile with a file variable (ideally, hash_io)
   and a function
 - tests still needed for subprograms with an in out parameter of a generic type
+
+- move parsecaseparam and parseref...these are not parameters for parse_params.
+  - add case tests for array case variables
 
 - value meta labels project
   - NOTE: left off recreation of good testing of value meta labels with arrays package
@@ -568,13 +559,16 @@ Annoyances / Bugs with Workarounds / Updates
 
 - shell
     - substring substitutions not implemented yet: ${#}, ${%}
+    - cannot run ada script shell command in backquotes (at least, as pipelines
+      in error processing script).
+    - cannot redirect ada script shell command using ">" (at least, as pipelines
+      in error processing script).
     - windows size change is not refreshing the terminal settings?
 - unsorted/misc
     - err_tokenize doesn't indent properly (e.g. s := `xxx - missing backquote)
     - spitbol support
       - http://www.dmitry-kazakov.de/match/match.htm
     - text_io's get requires a file but shouldn't, or docs should be updated
-    - case..is doesn't accept an array element like a(i)
     - control-z handling - fork, send a sleep signal and reset scanner
     - get_line on an out mode file gives bad file descriptor but needs a better
       error message

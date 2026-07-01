@@ -984,6 +984,8 @@ begin
      getNextToken;
   else
      id := token;
+     identifiers( id ).declaredAt := getLineNo;
+     identifiers( id ).declaredFile := getSourceFileName;
      declare
         nameAsLower : constant unbounded_string := " " & toLower( identifiers(id).name ) & " ";
      begin
@@ -1090,6 +1092,9 @@ begin
      getNextToken;
   else
      id := token;
+     identifiers( id ).declaredAt := getLineNo;
+     identifiers( id ).declaredFile := getSourceFileName;
+
      declare
         nameAsLower : constant unbounded_string := " " & toLower( identifiers(id).name ) & " ";
      begin

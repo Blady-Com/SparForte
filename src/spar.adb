@@ -161,6 +161,7 @@ begin
             syntaxOpt := true;
          elsif Argument(i) = "--coding" then
             testOpt := false;
+            codingOpt := true;
             wasCoding := true;
          elsif Argument(i) = "--color" then
             colourOpt := true;
@@ -281,6 +282,7 @@ begin
                       syntaxOpt := true;
                    elsif Args(letter) = 'C' then
                       testOpt := false;
+                      codingOpt := true;
                       wasCoding := true;
                    elsif Args(letter) = 'd' then
                       debugOpt := true;

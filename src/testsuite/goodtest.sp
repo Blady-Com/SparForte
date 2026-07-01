@@ -2572,9 +2572,24 @@ begin
    pragma assert( c = 2 );
 end;
 
--- case in
+-- case and array reference
 
--- case in : 1 and 1
+declare
+  type atype is array(1..1) of integer;
+  a : atype;
+  ok : boolean := false;
+begin
+  a(1) := 1;
+  case a(1) is
+  when 1 => ok := true;
+  when others => ok := false;
+  end case;
+  pragma assert( ok );
+end;
+
+-- case procedure
+
+-- case procedure : 1 and 1
 
 declare
    type a_customer_loyalty is (unknown, recent, loyal);
@@ -2598,7 +2613,7 @@ begin
    pragma assert( rebate = none );
 end;
 
--- case in : 2 and 1
+-- case procedure : 2 and 1
 
 declare
    type a_customer_loyalty is (unknown, recent, loyal);
@@ -2625,7 +2640,7 @@ begin
    pragma assert( rebate = none );
 end;
 
--- case in : 2 and 2
+-- case procedure : 2 and 2
 
 declare
    type a_customer_loyalty is (unknown, recent, loyal);

@@ -78,6 +78,24 @@ use  ada.text_io;
 
 package body parser.decl.as is
 
+-----------------------------------------------------------------------------
+--
+-- Data Structures
+--
+-----------------------------------------------------------------------------
+
+package vector_identifier_lists is new Ada.Containers.Vectors( -- DEBUG: TO BE DELETED
+   positive,
+   identifier,
+   "="
+);
+
+package vector_reference_lists is new Ada.Containers.Vectors(
+   positive,
+   reference,
+   "="
+);
+
 
 -----------------------------------------------------------------------------
 --
@@ -85,11 +103,6 @@ package body parser.decl.as is
 --
 -----------------------------------------------------------------------------
 
-package vector_identifier_lists is new Ada.Containers.Vectors(
-   positive,
-   identifier,
-   "="
-);
 procedure SkipBlock( termid1, termid2 : identifier := keyword_t );
 
 
@@ -538,24 +551,26 @@ end ParseStaticIfBlock;
 -----------------------------------------------------------------------------
 
 procedure ParseStandardCaseHeaderPart(
-  test_ids : in out vector_identifier_lists.vector;
+  test_refs : in out vector_reference_lists.vector;
   test_len : out count_type
 ) is
-  test_id  : identifier;
+  test_ref : reference;
 begin
   test_len := 0;
 
  -- expect one or more test identifiers
 
   loop
-      ParseIdentifier( test_id );                          -- identifier to test
-      if type_checks_done or else class_ok( test_id, varClass ) then
-         if not vector_identifier_lists.contains( test_ids,test_id ) then
-            vector_identifier_lists.append( test_ids, test_id );
-            identifiers( test_id ).wasReferenced := true;
+      ParseCaseReference( test_ref );                      -- reference to test
+      --ParseIdentifier( test_id );                          -- identifier to test
+      if type_checks_done or else class_ok( test_ref.id, varClass ) then
+         if not vector_reference_lists.contains( test_refs, test_ref ) then
+            vector_reference_lists.append( test_refs, test_ref );
+            identifiers( test_ref.id ).wasReferenced := true;
             test_len := test_len + 1;
          else
-            err( name_em( test_id ) &
+            -- this may need to be clearer
+            err( name_em( test_ref.id ) &
                  pl( " is already in the case identifier list" ) );
          end if;
       end if;
@@ -685,6 +700,105 @@ begin
   end loop;
 end ParseCaseInHeaderPart;
 
+procedure ParseCaseProcedureInHeaderPart(
+  proc_id : identifier;
+  test_ids : in out vector_identifier_lists.vector;
+  test_len : out count_type;
+  return_ids : in out vector_identifier_lists.vector;
+  return_len : out count_type
+) is
+     n : identifier := 1;
+     first_out_param : identifier := eof_t;
+     actual_name : unbounded_string;
+     actual_id : identifier := eof_t;
+     formal_id : identifier := eof_t;
+begin
+  test_len := 0;
+  return_len := 0;
+
+  -- Loop through the procedure's formal parameters and find the actual
+  -- parameters.  Add in mode parameters to the list of identifiers to test
+  -- and out mode parameters to the list of return identifiers
+  --
+  -- any errors here will highlight the first "when" because the checks
+  -- are occurring after all the parameters have been processed
+
+  loop
+     formal_id := proc_id + n;
+  exit when identifiers( formal_id ).field_of /= proc_id;
+    actual_name := identifiers( formal_id ).name;
+    actual_name := delete( actual_name, 1, index( actual_name, "." ));
+    findIdent( actual_name, actual_id );
+    if actual_id /= eof_t then
+       case identifiers( formal_id ).passingMode is
+       when in_mode =>
+          if first_out_param /= eof_t then
+             err( contextNotes => +"in the parameter list",
+                subject => actual_id,
+                reason => +"should be between the start and",
+                obstructor => first_out_param,
+                remedy => pl(
+                       "the parameters should be declared in the same order " &
+                       "as they are used in the when clauses, or a parameter " &
+                       "passing mode is incorrect" )
+             );
+          else
+             -- put_line( "in " & identifiers( actual_id ).name );
+             vector_identifier_lists.append( test_ids, actual_id );
+             test_len := test_len + 1;
+             -- because of the tabular structure, it is safe to assume everything
+             -- was read...otherwise there would be when list errors
+             identifiers( actual_id ).wasReferenced := true;
+          end if;
+       when out_mode =>
+          if first_out_param = eof_t then
+             first_out_param := actual_id;
+          end if;
+          if identifiers( actual_id ).list then
+             err( context => proc_id,
+                  subject => actual_id,
+                  subjectType => identifiers( actual_id ).kind,
+                  reason => +"is not yet supported because it is",
+                  obstructorNotes => +"an array" );
+          elsif identifiers( getBaseType( identifiers( actual_id ).kind ) ).kind = root_record_t then
+             err( context => proc_id,
+                  subject => actual_id,
+                  subjectType => identifiers( actual_id ).kind,
+                  reason => +"is not yet supported because it is",
+                  obstructorNotes => +"a record" );
+          elsif getBaseType( identifiers( actual_id ).kind ) = command_t then
+             err( context => proc_id,
+                  subject => actual_id,
+                  subjectType => identifiers( actual_id ).kind,
+                  reason => +"is not yet supported because it is",
+                  obstructorNotes => +"a command" );
+          else
+             -- put_line( "out " & identifiers( actual_id ).name );
+             vector_identifier_lists.append( return_ids, actual_id );
+             return_len := return_len + 1;
+             -- because of the tabular structure, it is safe to assume everything
+             -- was read...otherwise there would be big arrow list errors
+             identifiers( actual_id ).wasReferenced := true;
+             identifiers( actual_id ).wasWritten := true;
+          end if;
+       when in_out_mode =>
+          err( contextNotes => +"in the parameter list",
+               subject => actual_id,
+               reason => +"should be in or out not",
+               obstructorNotes => +"in out" );
+       when others =>
+          err( pl( gnat.source_info.source_location &
+               ": internal error: unexpected passing mode " &
+               identifiers( formal_id ).passingMode'img ) );
+       end case;
+       n := n + 1;
+    else
+       err( pl( gnat.source_info.source_location &
+            ": internal error: actual param not found for " &
+            to_string( identifiers( formal_id ).name ) ) );
+    end if;
+  end loop;
+end ParseCaseProcedureInHeaderPart;
 
 -----------------------------------------------------------------------------
 --  PARSE CASE IN BIG ARROW PART
@@ -898,6 +1012,114 @@ end ParseStandardCaseBigArrowPart;
 -----------------------------------------------------------------------------
 
 procedure ParseCaseWhenPart(
+  test_refs : in out vector_reference_lists.vector;
+  test_len  : count_type;
+  b2        : in out boolean
+) is
+  test_ref : reference;
+  test_idx : count_type;
+  case_ref : reference;
+  boxCount : count_type := 0;
+  b1       : boolean := false;
+begin
+  expect( when_t );                                    -- "when"
+  if error_found or token = others_t then
+     return;
+  end if;
+
+  -- this should be ParseConstantIdentifier
+  b2 := true;                                          -- assume it succeeds
+  test_idx:= 1;                                        -- from first index
+  while test_idx <= test_len loop                       -- all test ids
+     if token = symbol_t and identifiers( token ).store.value = "=>" then
+       err(                                                 -- "=>"
+          contextNotes => +"in the case when part",
+          subjectNotes => pl( qp( "the when conditions" ) ),
+          reason => +"are",
+          obstructorNotes => +"missing"
+       );
+     end if;
+     test_ref := vector_reference_lists.element( test_refs, positive( test_idx ) );
+     b1 := false;                                      -- assume case fails
+     loop
+        if token = strlit_t then                          -- strlit allowed
+           if type_checks_done or else uniTypesOK( test_ref.kind, uni_string_t ) then
+              case_ref.id := token;
+              getNextToken;
+           end if;
+        elsif token = charlit_t then                      -- charlit allowed
+           if type_checks_done or else uniTypesOK( test_ref.kind, uni_string_t ) then
+              case_ref.id := token;
+              getNextToken;
+           end if;
+        elsif token = number_t then                       -- num lit allowed
+           if type_checks_done or else uniTypesOk( test_ref.kind, uni_numeric_t ) then
+              case_ref.id := token;
+              getNextToken;
+           end if;
+        elsif token = symbol_t and identifiers( token ).store.value = "<>" then -- box allowed
+           boxCount := boxCount + 1;
+           b1 := true;
+           case_ref.id := symbol_t;
+           -- I don't check for pragma ada_95 here because multiple when
+           -- conditions are already not allowed, and a box with single
+           -- when condition is already an error for not using when others.
+           getNextToken;
+        else                                             -- constant allowed
+           ParseCaseReference( case_ref );                     -- get the case
+           -- ParseIdentifier( case_id );                         -- get the case
+           if identifiers( case_ref.id ).usage /= constantUsage    -- is constant
+              and identifiers( case_ref.id ).class /= enumClass then -- or enum?
+              err( +"variable not allowed as a case" );         -- error if not
+           elsif type_checks_done or else baseTypesOK( test_ref.kind, case_ref.kind ) then -- types good?
+              null;
+           end if;
+        end if;
+        if not error_found then                            -- OK? check case
+           if case_ref.id /= symbol_t then                 -- if not box token
+              -- Either the reference to test points to an array element or not.
+              -- The when case is always a scalar literal and never an array.  I do not have
+              -- array literals yet.
+              if isExecutingCommand then
+                  if test_ref.hasIndex then
+                     b1 := b1 or
+                       Ada.Strings.Unbounded.trim( identifiers( test_ref.id ).astorage(test_ref.index).value,
+                                                   Ada.Strings.left ) =
+                       Ada.Strings.Unbounded.trim( identifiers( case_ref.id ).store.value,
+                                                   Ada.Strings.left );
+                 else
+                     b1 := b1 or
+                       Ada.Strings.Unbounded.trim( identifiers( test_ref.id ).store.value,
+                                                   Ada.Strings.left ) =
+                       Ada.Strings.Unbounded.trim( identifiers( case_ref.id ).store.value,
+                                                   Ada.Strings.left );
+                 end if;
+              end if;
+           end if;
+        end if;
+        exit when error_found or token /= symbol_t or identifiers( token ).store.value /= "|";
+        expect( symbol_t, "|" );                        -- expect alternate
+     end loop;
+     if not error_found then
+        b2 := b2 and b1;
+     end if;
+     exit when error_found or token /= symbol_t or identifiers( token ).store.value /= ",";
+     expectParameterComma;                                      -- expect alternate
+     test_idx := test_idx + 1;
+     if test_idx > test_len then
+        -- TODO: update this message so it makes for sense with case procedures
+        err( +"too many cases compared to case identifier list" );
+     end if;
+  end loop;
+  if test_idx < test_len then
+     err( +"too few cases compared to case identifier list" );
+  end if;
+  if test_len = boxCount then
+     err( +"<> for all conditions should be " & em( "when others" ) );
+  end if;
+end ParseCaseWhenPart;
+
+procedure ParseCaseProcedureWhenPart(
   test_ids : in out vector_identifier_lists.vector;
   test_len : count_type;
   b2       : in out boolean
@@ -926,7 +1148,7 @@ begin
        );
      end if;
      test_id := vector_identifier_lists.element( test_ids,positive( test_idx ) );
-     b1 := false;                                      -- assume case fails
+     b1 := false;
      loop
         if token = strlit_t then                          -- strlit allowed
            if type_checks_done or else uniTypesOK( identifiers( test_id ).kind, uni_string_t ) then
@@ -963,9 +1185,11 @@ begin
         end if;
         if not error_found then                         -- OK? check case
            if case_id /= symbol_t then                  -- if not box token
-              b1 := b1 or                                  -- against test var
-                Ada.Strings.Unbounded.trim( identifiers( test_id ).store.value, Ada.Strings.left ) =
-                Ada.Strings.Unbounded.trim( identifiers( case_id ).store.value, Ada.Strings.left );
+              if isExecutingCommand then                -- values only exist at run-time
+                 b1 := b1 or                                  -- against test var
+                   Ada.Strings.Unbounded.trim( identifiers( test_id ).store.value, Ada.Strings.left ) =
+                   Ada.Strings.Unbounded.trim( identifiers( case_id ).store.value, Ada.Strings.left );
+              end if;
            end if;
         end if;
         exit when error_found or token /= symbol_t or identifiers( token ).store.value /= "|";
@@ -988,7 +1212,7 @@ begin
   if test_len = boxCount then
      err( +"<> for all conditions should be " & em( "when others" ) );
   end if;
-end ParseCaseWhenPart;
+end ParseCaseProcedureWhenPart;
 
 
 -----------------------------------------------------------------------------
@@ -1100,9 +1324,7 @@ procedure ParseCaseProcedureCaseBlock( proc_id : identifier ) is
   handled  : boolean := false;
   b2       : boolean := false;
 begin
-  --expect( case_t );
-
-  ParseCaseInHeaderPart( proc_id, test_ids, test_len, return_ids, return_len );
+  ParseCaseProcedureInHeaderPart( proc_id, test_ids, test_len, return_ids, return_len );
 
   -- this will have an error during compilation.
   -- Case #1: case procedure when ... =>    ;
@@ -1114,7 +1336,7 @@ begin
      end if;
 
      while token = when_t loop
-        ParseCaseWhenPart( test_ids, test_len, b2 );
+        ParseCaseProcedureWhenPart( test_ids, test_len, b2 );
         exit when error_found or token = others_t;
         ParseCaseInBigArrowPart( return_ids, return_len, b2, handled );
      end loop;
@@ -1155,7 +1377,7 @@ end ParseCaseProcedureCaseBlock;
 --  PARSE STANDARD CASE BLOCK
 --
 -- Handle a case statement.
--- Syntax: case-block = "case" ident [,ident] "is"
+-- Syntax: case-block = "case" ref [,ref] "is"
 -- "when" const-ident ["|"...] [, ...]  "=>" ...
 -- "when" others =>" ..."
 -- "end" "case"
@@ -1163,21 +1385,21 @@ end ParseCaseProcedureCaseBlock;
 
 
 procedure ParseStandardCaseBlock is
-  test_ids : vector_identifier_lists.vector;
-  test_len : count_type := 0;
-  handled  : boolean := false;
-  b1       : boolean := false;
+  test_refs : vector_reference_lists.vector;
+  test_len  : count_type := 0;
+  handled   : boolean := false;
+  b1        : boolean := false;
 begin
 
   -- expect one or more test identifiers
 
-  ParseStandardCaseHeaderPart( test_ids, test_len );
+  ParseStandardCaseHeaderPart( test_refs, test_len );
 
   if token /= when_t then                                 -- first when missing?
      expect( when_t );                                    -- force error
   end if;
   while token = when_t loop
-     ParseCaseWhenPart( test_ids, test_len, b1 );
+     ParseCaseWhenPart( test_refs, test_len, b1 );
      exit when error_found or token = others_t;
      ParseStandardCaseBigArrowPart( b1, handled );
   end loop;
@@ -1190,82 +1412,6 @@ begin
   expect( others_t );                                      -- "others"
 
   ParseStandardCaseBigArrowPart( true, handled );
-
-
-  --ParseIdentifier( test_id );                          -- identifier to test
-  --if type_checks_done or else class_ok( test_id, varClass ) then
-  --   null;
-  --end if;
-
-  -- we allow const because parameters are consts in Bush 1.x.
-
-  -- expect( is_t );                                       -- "is"
-
-  --if token /= when_t then                                 -- first when missing?
-  --   expect( when_t );                                    -- force error
-  --end if;
-  --while token = when_t loop
-  --   expect( when_t );                                    -- "when"
-  --   exit when error_found or token = others_t;
-  --   -- this should be ParseConstantIdentifier
-  --    b1 := false;                                        -- assume case fails
-  --    loop
-  --      if token = strlit_t then                          -- strlit allowed
-  --         if type_checks_done or else uniTypesOK( identifiers( test_id ).kind, uni_string_t ) then
-  --            case_id := token;
-  --            getNextToken;
-  --         end if;
-  --      elsif token = charlit_t then                      -- charlit allowed
-  --         if type_checks_done or else uniTypesOK( identifiers( test_id ).kind, uni_string_t ) then
-  --            case_id := token;
-  --            getNextToken;
-  --         end if;
-  --      elsif token = number_t then                       -- num lit allowed
-  --         if type_checks_done or else uniTypesOk( identifiers( test_id ).kind, uni_numeric_t ) then
-  --            case_id := token;
-  --            getNextToken;
-  --         end if;
-  --      else                                             -- constant allowed
-  --         ParseIdentifier( case_id );                         -- get the case
-  --         if identifiers( case_id ).usage /= constantUsage    -- is constant
-  --            and identifiers( case_id ).class /= enumClass then -- or enum?
-  --            err( "variable not allowed as a case" );         -- error if not
-  --         elsif type_checks_done or else baseTypesOK( identifiers( test_id ).kind,
-  --               identifiers( case_id ).kind ) then            -- types good?
-  --            null;
-  --         end if;
-  --      end if;
-  --      if not error_found then                         -- OK? check case
-  --         b1 := b1 or                                  -- against test var
-  --           Ada.Strings.Unbounded.trim( identifiers( test_id ).store.value, Ada.Strings.left ) =
-  --           Ada.Strings.Unbounded.trim( identifiers( case_id ).store.value, Ada.Strings.left );
-  --      end if;
-  --      exit when error_found or token /= symbol_t or identifiers( token ).store.value /= "|";
-  --      expect( symbol_t, "|" );                        -- expect alternate
-  --   end loop;
-
-  --   expect( symbol_t, "=>" );                             -- "=>"
-  --   if b1 and not handled and not exit_block then         -- handled yet?
-  --      ParseBlock( when_t );                           -- if not, handle
-  --      handled := true;                                   -- and remember done
-  --   else
-  --      SkipBlock( when_t );                               -- else skip case
-  --   end if;
-  --end loop;
-
-  -- others part
-
-  --if token /= others_t then                                -- a little clearer
-  --   err( "when others expected" );                        -- if pointing at
-  --end if;                                                  -- end case
-  --expect( others_t );                                      -- "others"
-  --expect( symbol_t, "=>" );                                -- "=>"
-  --if not handled and not exit_block then                   -- not handled yet?
-  --   ParseBlock;                                        -- handle now
-  --else                                                     -- else just
-  --   SkipBlock;                                            -- skip
-  --end if;
-
 end ParseStandardCaseBlock;
 
 

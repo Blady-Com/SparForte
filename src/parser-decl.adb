@@ -126,6 +126,22 @@ end maybe_secret;
 
 
 -----------------------------------------------------------------------------
+--  MAYBE PLACEHOLDER VALUE
+--
+-- True if value looks like it could be comman placeholder data.
+-- this list is not exhaustive and tries to avoid words that may have
+-- legitimate use in production.  Only lower-case is checked.
+-----------------------------------------------------------------------------
+
+placeholders : constant unbounded_string := to_unbounded_string( " bar baz change-me example foo foobar not-real placeholder replace-me tba tbd val value " );
+
+function maybe_placeholder_value( field_name, str_val : unbounded_string ) return boolean is
+begin
+  return index( placeholders, ' ' & to_string( str_val ) & ' ' ) > 0;
+end maybe_placeholder_value;
+
+
+-----------------------------------------------------------------------------
 --  PARSE TYPE USAGE QUALIFIERS
 --
 -- In a type declaration, parent types may have a usage qualifier.  Check
@@ -2586,6 +2602,16 @@ begin
                       obstructorNotes => em( "secret data" ),
                       remedy => +"hard-coded secrets could accidentally be stored in version control software.  Store them in an untracked data file"
                  );
+                 elsif maybe_placeholder_value( identifiers(id).name, expr.value ) then
+                    if not (designOpt or codingOpt)  then
+                      err(
+                        contextNotes => +"In your declaration",
+                        subject => id,
+                        reason => +"is being assigned a value that could be",
+                        obstructorNotes => em( "placeholder data" ),
+                        remedy => +"replace placeholders with real values for testing and maintenance SDLC phases"
+                     );
+                    end if;
                  end if;
               end if;
               identifiers( id ).store.value := expr.value;

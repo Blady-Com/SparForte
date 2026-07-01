@@ -44,10 +44,19 @@ pragma inline( GetParameterValue );
 
 ------------------------------------------------------------------------------
 -- Renaming Declarations
+-- Should be moved from here as it's not parameter related
 ------------------------------------------------------------------------------
 
 procedure ParseRenamingReference( ref : out renamingReference; expectedType : identifier );
 -- parse a reference used in a "renames" clause in a declaration
+
+------------------------------------------------------------------------------
+-- Case Statements
+-- Should be moved from here as it's not parameter related
+------------------------------------------------------------------------------
+
+procedure ParseCaseReference( ref : out reference );
+-- parse a reference used in a "case" statement header
 
 ------------------------------------------------------------------------------
 -- Unchecked Parameters

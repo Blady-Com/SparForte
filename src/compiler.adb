@@ -28,6 +28,7 @@ with ada.command_line.environment;
 pragma warnings( on );
 
 with ada.text_io,
+    ada.exceptions,
     ada.integer_text_io,
     ada.characters.handling,
     gnat.source_info,
@@ -42,6 +43,7 @@ with ada.text_io,
     message_strings,
     performance_monitoring;
 use ada.text_io,
+    ada.exceptions,
     ada.integer_text_io,
     ada.characters.handling,
     spar_os,
@@ -669,6 +671,11 @@ begin
   token := eof_t;                                             -- stop parser
 end err_tokenize;
 
+-- typicial error context strings
+
+contextAdaScript : string := "While compiling the AdaScript statement, ";
+contextShell     : string := "While compiling the shell command, ";
+contextSQL       : string := "While compiling the SQL statement, ";
 
 -----------------------------------------------------------------------------
 -- A record containing the compressed script being generated
@@ -821,7 +828,7 @@ begin
         -- foreign characters could randomly break the script.
         for i in firstpos..length(command) loop
             if Element( command, i ) = ASCII.NUL or Element( command, i ) = immediate_word_delimiter then
-               err_tokenize( "ASCII character not allowed", to_string( command ) );
+               err_tokenize( "In the comment, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
             elsif Element( command, i ) > ASCII.DEL then
                ci.compressedScript := ci.compressedScript & toByteCode( char_escape_t );
             end if;
@@ -863,7 +870,7 @@ begin
               Element( command, lastpos ) > ASCII.DEL loop
               if Element( command, lastpos ) > ASCII.DEL then
                  if Element( command, lastpos ) = ASCII.NUL or Element( command, lastpos ) = immediate_word_delimiter then
-                    err_tokenize( "ASCII character not allowed", to_string( command ) );
+                    err_tokenize( "In the identifer, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
                  end if;
                  if Element( command, lastpos ) > ASCII.DEL then
                     word := word & toByteCode( char_escape_t );
@@ -912,8 +919,8 @@ begin
           ci.compressedScript := ci.compressedScript & word &
              immediate_word_delimiter;
        end if;
-    exception when others =>
-       err_tokenize( "interal error: byte code generator: exception thrown", to_string( command) );
+    exception when msg: others =>
+       err_tokenize( "While compiling, interal error: byte code generator raised an exception: " & exception_message( msg ), to_string( command) );
        raise;
     end;
 
@@ -982,7 +989,7 @@ begin
   -- bit set (since those are used to represent compressed keywords).
 
   if is_control( Element( command, cmdpos ) ) then
-     err_tokenize( "Unexpected character ASCII" & character'pos( Element( command, cmdpos ) )'img, to_string( command ) );
+     err_tokenize( contextAdaScript & "there was an unexpected character ASCII" & character'pos( Element( command, cmdpos ) )'img, to_string( command ) );
      cmdpos := cmdpos + 1;
      return;
 
@@ -1012,7 +1019,7 @@ begin
               Element( command, lastpos ) > ASCII.DEL loop
               if Element( command, lastpos ) > ASCII.DEL then
                  if Element( command, lastpos ) = ASCII.NUL or Element( command, lastpos ) = immediate_word_delimiter then
-                    err_tokenize( "ASCII character not allowed", to_string( command ) );
+                    err_tokenize( "In the identifer, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
                  end if;
                  if Element( command, lastpos ) > ASCII.DEL then
                     word := word & toByteCode( char_escape_t );
@@ -1059,8 +1066,8 @@ begin
              immediate_word_delimiter;
        end if;
        goto next;
-    exception when others =>
-       err_tokenize( "interal error: byte code generator: exception thrown", to_string( command) );
+    exception when msg: others =>
+       err_tokenize( contextAdaScript & "interal error: byte code generator raised an exception: " & exception_message( msg ), to_string( command) );
        raise;
     end;
 
@@ -1080,7 +1087,7 @@ begin
             decimalCount := decimalCount+1;
             if decimalCount > 1 then
                cmdpos := lastpos;  -- move cmdpos or infinite loop!
-               err_tokenize( "too many decimal points in floating point literal",  to_string( command ) );
+               err_tokenize( contextAdaScript & "there are too many decimal points in floating point literal",  to_string( command ) );
                return;
             end if;
          end if;
@@ -1102,8 +1109,8 @@ begin
         tmp : numericValue;
      begin
         tmp := to_numeric( unbounded_slice( command, cmdpos, lastpos-1 ) );
-     exception when others =>
-        err_tokenize( "malformed or too large numeric literal",  to_string( command ) );
+     exception when msg: others =>
+        err_tokenize( contextAdaScript & "an exception was raised for the numeric value: " & exception_message(msg) & "Perhaps the value is malformed or too large numeric literal",  to_string( command ) );
      end;
         cmdpos := lastpos;
         lastpos := lastpos-1;
@@ -1161,7 +1168,7 @@ begin
         end loop;
      end if;
      if lastpos > length( command ) then                    -- missing quote?
-        err_tokenize( "While compiling the AdaScript statement, SparForte reached the end of the line and did not find a closing single quote", to_string( command ) );
+        err_tokenize( contextAdaScript & "SparForte reached the end of the line and did not find a closing single quote", to_string( command ) );
         return;
      else
         word := word & ''';                                 -- add ' to buffer
@@ -1170,10 +1177,10 @@ begin
         -- cmdpos := lastpos+1;
      end if;
      if lastpos-firstpos < 3 then                           -- too long?
-        err_tokenize( "character literal too short--strings are delimited by double quote characters", to_string( command ) );
+        err_tokenize( contextAdaScript & "the character literal too short. Perhaps strings are delimited by double quote characters", to_string( command ) );
      end if;
      if lastpos-firstpos > 3 then                           -- too long?
-        err_tokenize( "character literal too long--strings are delimited by double quote characters", to_string( command ) );
+        err_tokenize( contextAdaScript & "the character literal too long.  Perhaps strings are delimited by double quote characters", to_string( command ) );
      end if;
      ci.compressedScript := ci.compressedScript & word;     -- add literal
      goto next;
@@ -1246,7 +1253,7 @@ begin
         end loop;
      end if;
      if natural( lastpos ) > length( command ) then
-        err_tokenize( "missing back quote", to_string( command ) );
+        err_tokenize( "While compiling the AdaScript statement, SparForte reached the end of the line and did not find a missing back quote", to_string( command ) );
         return;
      else
         cmdpos := lastpos+1; -- skip last `
@@ -1269,7 +1276,7 @@ begin
           null;
      when '#' =>
            -- shell comments used to be supported but not any more
-           err_tokenize( "shell comment not supported", to_string( command ) );
+           err_tokenize( "While compiling the AdaScript statement, shell comment not supported", to_string( command ) );
            cmdpos := length( command ); -- for read of next line (or EOF)
      when '-' =>
           if cmdpos < length( command ) then
@@ -1404,7 +1411,7 @@ begin
   if ch = '=' then
      if cmdpos < length( command ) then
         if element( command, cmdpos+1) = '>' then
-           err_tokenize( "unexpected => in shell command...is there a missing when?", to_string( command ) );
+           err_tokenize( contextShell & "an unexpected => was found.  Perhaps there is a missing when", to_string( command ) );
         end if;
      end if;
   end if;
@@ -1437,7 +1444,7 @@ begin
      word := word & ch;
      cmdpos := cmdpos + 1;
      if cmdpos > length( command ) then
-        err_tokenize( "filename expected for shell command redirect", to_string( command ) );
+        err_tokenize( contextShell & "a filename is expected for a redirect", to_string( command ) );
         return;
      end if;
   elsif ch = '<' then
@@ -1446,7 +1453,7 @@ begin
      word := word & ch;
      cmdpos := cmdpos + 1;
      if cmdpos > length( command ) then
-        err_tokenize( "filename expected for shell command redirect", to_string( command ) );
+        err_tokenize( contextShell & "a filename is expected for a redirect", to_string( command ) );
         return;
      end if;
   elsif ch = '2' then
@@ -1455,7 +1462,7 @@ begin
      word := word & ch;
      cmdpos := cmdpos + 1;
      if cmdpos > length( command ) then
-        err_tokenize( "filename expected for shell command redirect", to_string( command ) );
+        err_tokenize( contextShell & "a filename is expected for a redirect", to_string( command ) );
         return;
      end if;
   end if;
@@ -1472,7 +1479,7 @@ begin
         -- foreign characters could randomly break the script.
         for i in firstpos..length(command) loop
             if Element( command, i ) = ASCII.NUL or Element( command, i ) = immediate_word_delimiter then
-               err_tokenize( "ASCII character not allowed", to_string( command ) );
+               err_tokenize( "In the comment, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
             elsif Element( command, i ) > ASCII.DEL then
                ci.compressedScript := ci.compressedScript & toByteCode( char_escape_t );
             end if;
@@ -1517,7 +1524,7 @@ begin
         -- KLUDGE: this handles case of ">;" where filename is missing,
         -- as well as similar cases
         if word = ">" or word = "<" or word = "2>" then
-           err_tokenize( "filename expected for shell command redirect", to_string( command ) );
+           err_tokenize( contextShell & "filename is expected for a redirect", to_string( command ) );
         end if;
         if isSymbolNotWord then
            ci.compressedScript := ci.compressedScript & toByteCode( imm_symbol_delim_t ) &
@@ -1552,27 +1559,27 @@ begin
 
     if cmdpos > length( command ) then
        if inSingleQuotes then
-          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a closing single quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
+          err_tokenize( contextShell & "SparForte reached the end of the line and did not find a closing single quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
           return;
        end if;
        if inDoubleQuotes then
-          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a closing double quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
+          err_tokenize( contextShell & "SparForte reached the end of the line and did not find a closing double quote.  Perhaps make strings of multiple lines with concatenation", to_string( command ) );
           return;
        end if;
        if inBackQuotes then
-          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a closing back quote.  Perhaps break up long commands with functions or procedures", to_string( command ) );
+          err_tokenize( contextShell & "SparForte reached the end of the line and did not find a closing back quote.  Perhaps break up long commands with functions or procedures", to_string( command ) );
           return;
        end if;
        if inBackslash then
-          err_tokenize( "While compiling the shell statement, SparForte reached the end of the line and did not find a character to escape with the backslash.  Perhaps make strings of multiple lines using concatenantion of ASCII.LF and/or ASCII.CR", to_string( command ) );
+          err_tokenize( contextShell & "SparForte reached the end of the line and did not find a character to escape with the backslash.  Perhaps make strings of multiple lines using concatenantion of ASCII.LF and/or ASCII.CR", to_string( command ) );
           return;
        end if;
        if redirectAmpersand then
-          err_tokenize( "While compiling the shell statement, the file number for the redirection is missing", to_string( command ) );
+          err_tokenize( contextShell & "the file number for the redirection is missing", to_string( command ) );
           return;
        end if;
        if inRedirect then
-          err_tokenize( "While compiling the shell statement, the redirection is missing a filename", to_string( command ) );
+          err_tokenize( contextShell & "the redirection is missing a filename", to_string( command ) );
           return;
        end if;
        lastpos := cmdpos - 1;
@@ -1589,7 +1596,7 @@ begin
     if ch > ASCII.DEL then
         word := word & toByteCode( char_escape_t );
     elsif is_control( Element( command, cmdpos ) ) then
-       err_tokenize( "Unexpected character ASCII" & character'pos( Element( command, cmdpos ) )'img, to_string( command ) );
+       err_tokenize( contextShell & "there was an unexpected character ASCII" & character'pos( Element( command, cmdpos ) )'img, to_string( command ) );
        cmdPos := cmdPos + 1;
        return;
     end if;
@@ -1620,7 +1627,7 @@ begin
     -- Special case of >&; to avoid infinite loop
 
     if redirectAmpersand and ch = ';' then
-       err_tokenize( "While compiling the shell statement, the file number for the redirection is missing", to_string( command ) );
+       err_tokenize( contextShell & "the file number for the redirection is missing", to_string( command ) );
        return;
     end if;
 
@@ -1641,7 +1648,7 @@ begin
              processExpansionLevel := processExpansionLevel + 1;
              -- Nesting not supported
              if processExpansionlevel > 1 then
-                err_tokenize( "$( cannot be nested", to_string( command ) );
+                err_tokenize( contextShell & "a '$(' process expansion cannot be nested.  This is a SparForte compiler limitation.", to_string( command ) );
              end if;
              --word := word & ch;
             -- cmdpos := cmdpos + 1;
@@ -1653,7 +1660,7 @@ begin
           processExpansionLevel := processExpansionLevel - 1;
           --cmdpos := cmdpos + 1;
        else
-          err_tokenize( "extra closing ')' with no '$(' process expansion", to_string( command ) );
+          err_tokenize( contextShell & "an extra closing ')' with no '$(' process expansion", to_string( command ) );
        end if;
 
     -- Redirects
@@ -1783,7 +1790,7 @@ begin
         -- foreign characters could randomly break the script.
         for i in firstpos..length(command) loop
             if Element( command, i ) = ASCII.NUL or Element( command, i ) = immediate_word_delimiter then
-               err_tokenize( "ASCII character not allowed", to_string( command ) );
+               err_tokenize( "In the comment, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
             elsif Element( command, i ) > ASCII.DEL then
                ci.compressedScript := ci.compressedScript & toByteCode( char_escape_t );
             end if;
@@ -1833,19 +1840,19 @@ begin
 
     if cmdpos > length( command ) then
        if inSingleQuotes then
-          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a closing single quote", to_string( command ) );
+          err_tokenize( contextSQL & "SparForte reached the end of the line and did not find a closing single quote", to_string( command ) );
           return;
        end if;
        if inDoubleQuotes then
-          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a closing double quote", to_string( command ) );
+          err_tokenize( contextSQL & "SparForte reached the end of the line and did not find a closing double quote", to_string( command ) );
           return;
        end if;
        if inBackQuotes then
-          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a missing back quote", to_string( command ) );
+          err_tokenize( contextSQL & "SparForte reached the end of the line and did not find a missing back quote", to_string( command ) );
           return;
        end if;
        if inBackslash then
-          err_tokenize( "While compiling the SQL statement, SparForte reached the end of the line and did not find a character to escape with the backslash.  Perhaps make strings of multiple lines using concatenantion of ASCII.LF and/or ASCII.CR", to_string( command ) );
+          err_tokenize( contextSQL & "SparForte reached the end of the line and did not find a character to escape with the backslash.  Perhaps make strings of multiple lines using concatenantion of ASCII.LF and/or ASCII.CR", to_string( command ) );
           return;
        end if;
        lastpos := cmdpos - 1;
@@ -1859,7 +1866,7 @@ begin
 
     --if is_control( Element( command, cmdpos ) ) or Element( command, cmdpos ) > '~' then
     if is_control( Element( command, cmdpos ) ) then
-       err_tokenize( "Unexpected character ASCII" & character'pos( Element( command, cmdpos ) )'img, to_string( command ) );
+       err_tokenize( contextSQL & "there is an unexpected character ASCII" & character'pos( Element( command, cmdpos ) )'img, to_string( command ) );
        cmdPos := cmdPos + 1;
        return;
     end if;
@@ -1951,7 +1958,7 @@ begin
         -- foreign characters could randomly break the script.
         for i in firstpos..length(command) loop
             if Element( command, i ) = ASCII.NUL or Element( command, i ) = immediate_word_delimiter then
-               err_tokenize( "ASCII character not allowed", to_string( command ) );
+               err_tokenize( "In the comment, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
             elsif Element( command, i ) > ASCII.DEL then
                ci.compressedScript := ci.compressedScript & toByteCode( char_escape_t );
             end if;
@@ -2022,7 +2029,7 @@ begin
         -- foreign characters could randomly break the script.
         for i in firstpos..length(command) loop
             if Element( command, i ) = ASCII.NUL or Element( command, i ) = immediate_word_delimiter then
-               err_tokenize( "ASCII character not allowed", to_string( command ) );
+               err_tokenize( "In the comment, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
             elsif Element( command, i ) > ASCII.DEL then
                ci.compressedScript := ci.compressedScript & toByteCode( char_escape_t );
             end if;
@@ -2133,7 +2140,7 @@ begin
         -- foreign characters could randomly break the script.
         for i in firstpos..length(command) loop
             if Element( command, i ) = ASCII.NUL or Element( command, i ) = immediate_word_delimiter then
-               err_tokenize( "ASCII character not allowed", to_string( command ) );
+               err_tokenize( "In the comment, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
             elsif Element( command, i ) > ASCII.DEL then
                ci.compressedScript := ci.compressedScript & toByteCode( char_escape_t );
             end if;
@@ -2273,7 +2280,7 @@ begin
            -- escape high ASCII characters
            if ch > ASCII.DEL then
               if ch = ASCII.NUL or ch = immediate_word_delimiter then
-                 err_tokenize( "ASCII character not allowed", to_string( command ) );
+                 err_tokenize( "In the shell word, certain ASCII characters are not allowed because current limitations of the SparForte compiler", to_string( command ) );
               end if;
               word := word & toByteCode( char_escape_t );
            -- I can't remember why I did this.  was breaking ../../x
@@ -2446,7 +2453,7 @@ begin
     lastpos := cmdpos-1;            -- actually, first non-whitespace char
     if lastpos+tabAdjust > 80 then
        if scriptType = structured then
-          err_tokenize( "style issue: large identation can hide text beyond right display margin", to_string( command ) );
+          err_tokenize( "While compiling byte code, style issue: large identation can hide text beyond right display margin", to_string( command ) );
        end if;
     end if;
     if lastpos+tabAdjust > 254 then -- hopefully, never, but harmless
@@ -2498,7 +2505,7 @@ begin
   when ISPart =>
        ISByteCode( ci, command );
   when others =>
-       err_tokenize( "don't know how to handle compressionInfo context", to_string( command ) );
+       err_tokenize( "internal error: don't know how to handle compressionInfo context", to_string( command ) );
   end case;
 
   -- Line not finished?
@@ -2680,7 +2687,7 @@ begin
     line2ByteCode( ci, line2compile );                   -- compress that slice
     if element( command, lastLinePos ) = ' ' or element( command, lastLinePos ) = ASCII.HT then
        if not maintenanceOpt then
-          err_tokenize( "trailing whitespace at end of line", to_string( line2compile ) );
+          err_tokenize( "While including the file, there is trailing whitespace at end of line", to_string( line2compile ) );
        end if;
     end if;
     -- DOS text files have CR+LF
@@ -2875,7 +2882,7 @@ begin
        while i > 0 loop
          ch := element( command, i );
          if ch = ' ' or ch = ASCII.HT then
-            err_tokenize( "trailing whitespace at end-of-line", to_string( command ) );
+            err_tokenize( "While compiling the script, there is trailing whitespace at end-of-line", to_string( command ) );
          elsif ch /= ASCII.CR and ch /= ASCII.LF then
             exit;
          end if;
@@ -2922,14 +2929,14 @@ begin
   -- later.
 
   if script = null then
-     put_line_retry( standard_error, Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: script is null" );
+     put_line_retry( standard_error, "While compiling, " & Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: script is null" );
      return "";
   end if;
 
   -- Invalid range test
 
   if point1 > point2 then
-     put_line_retry( standard_error, Gnat.Source_Info.Source_Location & ": internal error: copyByteCodeLines: point1 " & point1'img & " is greater than point2 " & point2'img );
+     put_line_retry( standard_error, "While compiling, " & Gnat.Source_Info.Source_Location & ": internal error: copyByteCodeLines: point1 " & point1'img & " is greater than point2 " & point2'img );
      return "";
   end if;
 
@@ -2937,7 +2944,7 @@ begin
   -- raised later.
 
   if point2 > script'length then
-     put_line_retry( standard_error, Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: cmdpos " & cmdpos'img & " is greater than length of script " & script'length'img );
+     put_line_retry( standard_error, "While compiling, " & Gnat.Source_Info.Source_Location & ": internal_error: copyByteCodeLines: cmdpos " & cmdpos'img & " is greater than length of script " & script'length'img );
      return "";
   end if;
 
@@ -3118,6 +3125,7 @@ begin
   toByteCode( eof_t, eof_character, discard_char );
   if discard_char /= ASCII.NUL then
      put_line_retry( standard_error,
+       "While declaring keywords before compiling, " &
        gnat.source_info.source_location &
         ": internal error: eof_t is declared too late" );
   end if;
@@ -3261,25 +3269,33 @@ begin
   declareIdent( imm_delim_t, "", symbol_t );
   toByteCode( imm_delim_t, immediate_word_delimiter, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line_retry( standard_error, gnat.source_info.source_location & ": internal error: imm_delim_t is declared too late" );
+     put_line_retry( standard_error,
+       "While declaring keywords before compiling, " &
+       gnat.source_info.source_location & ": internal error: imm_delim_t is declared too late" );
   end if;
 
   declareIdent( imm_sql_delim_t, "", symbol_t );
   toByteCode( imm_sql_delim_t, immediate_sql_word_delimiter, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line_retry( standard_error, gnat.source_info.source_location &": internal error: imm_sql_delim_t is declared too late" );
+     put_line_retry( standard_error,
+       "While declaring keywords before compiling, " &
+       gnat.source_info.source_location &": internal error: imm_sql_delim_t is declared too late" );
   end if;
 
   declareIdent( imm_symbol_delim_t, "", symbol_t );
   toByteCode( imm_symbol_delim_t, immediate_symbol_delimiter, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line_retry( standard_error, gnat.source_info.source_location & ": internal error: imm_symbol_t is declared too late" );
+     put_line_retry( standard_error,
+       "While declaring keywords before compiling, " &
+       gnat.source_info.source_location & ": internal error: imm_symbol_t is declared too late" );
   end if;
 
   declareIdent( char_escape_t, "", symbol_t );
   toByteCode( char_escape_t, high_ascii_escape, discard_char );
   if discard_char /= ASCII.NUL then
-     put_line_retry( standard_error, gnat.source_info.source_location & ": internal error: high_ascii_escape is declared too late" );
+     put_line_retry( standard_error,
+       "While declaring keywords before compiling, " &
+       gnat.source_info.source_location & ": internal error: high_ascii_escape is declared too late" );
   end if;
 
   declareIdent( word_t, "Shell Word", uni_string_t );

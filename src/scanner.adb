@@ -3510,9 +3510,9 @@ begin
   -- Otherwise, the types must be identical.
 
   if effectiveLeftType /= effectiveRightType then
-     err_previous( pl( "type " ) & name_em( leftType ) &
-          pl( " is not compatible with the expeced type " ) &
-          name_em( rightType ) );
+     err_previous( pl( "type " ) & name_em( rightType ) &
+          pl( " is not compatible with the expected type " ) &
+          name_em( leftType ) );
      return false;
   end if;
   return true;

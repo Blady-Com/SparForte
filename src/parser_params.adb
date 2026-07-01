@@ -21,7 +21,7 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
---with ada.text_io; use ada.text_io;
+with ada.text_io; use ada.text_io;
 
 with ada.strings,
     pegasoft,
@@ -191,6 +191,85 @@ begin
     end if;
   end if;
 end ParseRenamingReference;
+
+
+------------------------------------------------------------------------------
+--
+-- Case Statements
+--
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+--  PARSE CASE REFERENCE
+--
+-- Parse a reference used in a "case" statement header.  There is no expected
+-- type and no auto-declarations.
+------------------------------------------------------------------------------
+
+procedure ParseCaseReference( ref : out reference ) is
+  -- syntax: identifier [ (index) ]
+  expr_type  : identifier;
+  expr_se    : storage;
+  arrayIndex : long_integer;
+begin
+  -- Unlike out parameters, we do not autodeclare undeclared identifiers
+  -- in a case header.
+
+  ParseIdentifier( ref.id );
+
+  -- Some sensible defaults for fields we will fill in
+
+  ref.index := 0;
+  ref.kind := eof_t;
+  ref.hasIndex := false;
+
+  -- If this is an array reference, read the index value.  Check that
+  -- the index value is within the index bounds for the array.
+
+  if identifiers( ref.id ).list then        -- array variable?
+     if token = symbol_t and identifiers( token ).store.value = "(" then
+        expect( symbol_t, "(" );
+        ref.hasIndex := true;
+        ref.kind := identifiers( identifiers( ref.id ).kind ).kind;
+        ParseExpression( expr_se, expr_type );
+        if getUniType( expr_type ) = uni_string_t or   -- index must be scalar
+           identifiers( getBaseType( expr_type ) ).list then
+           err( +"array index must be a scalar type" );
+        end if;
+        expect( symbol_t, ")" );
+     else
+        ref.kind := identifiers( ref.id ).kind;
+     end if;                                   -- variables are not
+
+     -- look up the index (if any)
+
+     if isExecutingCommand then                -- declared in syntax chk
+         if ref.hasIndex then
+            begin
+               arrayIndex := long_integer(to_numeric(expr_se.value));-- convert to number
+           exception when others =>
+               err_exception_raised;
+               arrayIndex := 0;
+            end;
+            if type_checks_done or else baseTypesOK( identifiers( ref.id ).genKind, expr_type ) then
+               -- TODO: probably needs a better error message
+               if arrayIndex not in identifiers( ref.id ).astorage'range then
+                  err( pl( "array index " & to_string( trim( expr_se.value, ada.strings.both ) ) &
+                     " not in" & identifiers( ref.id ).astorage'first'img & " .." &
+                     identifiers( ref.id ).astorage'last'img ) );
+               else
+                 ref.index := arrayIndex;
+               end if;
+            end if;
+         end if;
+      end if;
+
+  else
+    -- not a list
+    ref.kind := identifiers( ref.id ).kind;
+  end if;
+end ParseCaseReference;
 
 
 ------------------------------------------------------------------------------
