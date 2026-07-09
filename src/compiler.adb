@@ -1515,6 +1515,7 @@ begin
   -- A vertical bar always means another shell statement...
 
   ch := Element( command, cmdpos );                       -- next character
+
   if ch = ';' then -- really, an AdaScript statement but we're not ready...
      ci.context := startOfStatement;
 
@@ -1624,13 +1625,6 @@ begin
     -- of the same word: a redirect is a word to itself even if more characters
     -- follow without a field separator character.
 
-    -- Special case of >&; to avoid infinite loop
-
-    if redirectAmpersand and ch = ';' then
-       err_tokenize( contextShell & "the file number for the redirection is missing", to_string( command ) );
-       return;
-    end if;
-
     if inRedirect and ch /= '>' and ch /= '<' and ch /= '&' and ch /= '1' then
        inRedirect := false;
        redirectAmpersand := false;
@@ -1708,8 +1702,10 @@ begin
        inBackslash := false;
 
     end if; -- no quoting characters
+
     word := word & ch;
     cmdpos := cmdpos + 1;
+
   end loop;
 
   -- put_line( "word = " & to_string(word) ); -- DEBUG

@@ -1,6 +1,8 @@
 ------------------------------------------------------------------------------
 -- Common declarations across most of SparForte including command line      --
--- switches and global constants.  The symbol table is in a separate file.  --
+-- switches and global variables and constants.  This is the lowest-level   --
+-- of the SparForte ecosystem and has minimum dependencies.                 --
+-- The symbol table used to be here but is now in a separate file.          --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
@@ -33,82 +35,18 @@ use ada.text_io,
 
 package body world is
 
-localMemcacheClusterInitialized : boolean := false;
-distributedMemcacheClusterInitialized : boolean := false;
--- flag: only initialize the Memcache clusters once
-
 -----------------------------------------------------------------------------
--- TINY HASH CACHE
 --
--- This is a small hash table for caching identifier lookups by findIdent.
--- The goal is to keep the table very small, and the hash function very
--- fast and simple, to cache a subset of the most frequently accessed
--- variables.
---
--- The cnt field is used to mark the age of an entry.  If cnt is different
--- from the current cnt number, then the cache entry has expired.
---
--- To use the tiny id cache (with findIdent), each block must have its own
--- cache.  Otherwise, with one global cache that is cleared on every block
--- change, the cache contents get cleared so often that caching will not
--- effective.
---
--- Since the block table is in the scanner, and findIdent is global, it
--- would mean some source code restructuring to implement this cache.
------------------------------------------------------------------------------
-
---procedure resetTinyHashCache is
---begin
---  if currentTinyHashCacheCnt = 1 then
---     for i in actualHash'range loop
---         tinyHashCache( i ).cnt := 0;
---     end loop;
---  end if;
---  currentTinyHashCacheCnt := currentTinyHashCacheCnt + 1;
---end resetTinyHashCache;
---
---procedure setTinyHashCache( s : unbounded_string; h : actualHash; id : identifier ) is
---begin
---   if id /= eof_t then
---      if tinyHashCache( h ).cnt /= currentTinyHashCacheCnt then
---         tinyHashCache( h ).key := s;
---         tinyHashCache( h ).id  := id;
---         tinyHashCache( h ).cnt := currentTinyHashCacheCnt;
---put_line( "cache new - " & to_string( s ) & id'img );
---      end if;
---   end if;
---end setTinyHashCache;
-
---procedure getTinyHashCache( s : unbounded_string; id : out identifier ; h : out actualHash ) is
---    l : natural;
---   c1 : character;
---   c2 : character;
---begin
---    l := length( s );
---   c1 := element( s, 1 );
---   c2 := element( s, l );
---    h := actualhash(
---           1 + (
---             character'pos( c1 ) * 7 +
---             character'pos( c2 ) * 11 +
---             l * 17
---           ) mod integer( actualHash'last )
---         );
---
---    if tinyHashCache( h ).key = s then
---       if tinyHashCache( h ).cnt = currentTinyHashCacheCnt then
---          id := tinyHashCache( h ).id;
---put_line( "cache hit - " & to_string( s ) & id'img );
---       else
---          id := eof_t;
---       end if;
---    else
---       id := eof_t;
---    end if;
---end getTinyHashCache;
-
 -- Storage Primitives
 --
+-- Utilities for storage aggregate types.
+--
+-----------------------------------------------------------------------------
+
+
+--  VALUE EQUAL
+--
+-- True if the value fields of two storage records are equal.
 -----------------------------------------------------------------------------
 
 function value_equal( left, right : storage ) return boolean is
@@ -116,13 +54,18 @@ begin
   return left.value = right.value;
 end value_equal;
 
+--  META TAG SET HASH
+--
+-- Return the meta tag hash set for e.
+-----------------------------------------------------------------------------
+
 function metaTagSetHash( e : metaTagID ) return ada.containers.hash_type is
 begin
   return ada.containers.hash_type( e );
 end metaTagSetHash;
 
 
----> IS EXECUTING COMMAND
+--  IS EXECUTING COMMAND
 --
 -- True if OK to execute a statement that does work.
 -- That is, the parser isn't skipping the line because of
@@ -145,6 +88,7 @@ end isExecutingStaticCommand;
 
 
 -----------------------------------------------------------------------------
+--
 -- STORAGE CACHE
 --
 -- Allocating/deallocating memory is a slow operation.
@@ -156,28 +100,13 @@ end isExecutingStaticCommand;
 --
 -- Since only arrays currently use storage pointers, this only affects arrays.
 -- I didn't see much of a speed improvement.
+--
 -----------------------------------------------------------------------------
 
 storageCache     : storageGroupPtr := null;
 storageCacheMiss : natural := 0;
 
--- CACHE OR FREE STORAGE
---
--- Cache or destroy storage pointer sp.
------------------------------------------------------------------------------
-
---procedure cacheOrFreeStorage( sp : storageGroupPtr ) is
---begin
---  if storageCache = null then
---     storageCache := sp;
---  else
---     free( storageCache );
---     storageCache := sp;
---  end if;
---end cacheOrFreeStorage;
---pragma inline( cacheOrFreeStorage );
-
--- FIND STORAGE
+--  FIND STORAGE
 --
 -- Allocate storage space (or get it from the cache) and return a
 -- pointer to it.  If what is in the cache is missed three times,
@@ -208,6 +137,20 @@ begin
   return sp;
 end findStorage;
 
+
+-----------------------------------------------------------------------------
+--
+-- Passing Modes primitives
+--
+-----------------------------------------------------------------------------
+
+
+--  TO STRING
+--
+-- Return the string image of a parameter passing mode enumerated type item.
+-- An unexpected mode raises a SPARFORTE_ERROR.
+-----------------------------------------------------------------------------
+
 function to_string( mode : aParameterPassingMode ) return string is
 begin
   case mode is
@@ -220,20 +163,33 @@ begin
      when in_out_mode =>
         return "in out";
      when others =>
-        raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location &
-          ": internal error: unexpected mode ";
+         -- at the world level, raise exceptions on errors because there is
+         -- no access to error functionality
+         raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location &
+          ": internal error: unexpected mode " & mode'img;
   end case;
 end to_string;
 
 
 -----------------------------------------------------------------------------
--- SHELL WORDS
+--
+-- Shell Word Primitives
+--
 -----------------------------------------------------------------------------
+
 
 function ">"( left, right : aShellWord ) return boolean is
 begin
   return left.word > right.word;
 end ">";
+
+
+-----------------------------------------------------------------------------
+--
+-- Source File Primitives
+--
+-----------------------------------------------------------------------------
+
 
 function ">="( left, right : aSourceFile ) return boolean is
 begin
@@ -246,35 +202,61 @@ begin
 end equal;
 
 -----------------------------------------------------------------------------
--- MEMCACHE
+--
+-- Memcache Initialization
+--
 -----------------------------------------------------------------------------
 
--- CHECK AND INITIALIZE LOCAL MEMCACHE CLUSTER
+--  Memcache Initialization flags
+--
+-- These are flags to ensure that the shared Memcache clusters only initialize
+-- once.
+
+localMemcacheClusterInitialized : boolean := false;
+distributedMemcacheClusterInitialized : boolean := false;
+
+--  CHECK AND INITIALIZE LOCAL MEMCACHE CLUSTER
+--
+-- If a shared local memcache cluster is not initialized, initialize it.
+-- The default is for a memcache running on localhost.
+-----------------------------------------------------------------------------
 
 procedure checkAndInitializeLocalMemcacheCluster is
 begin
   if not localMemcacheClusterInitialized then
      localMemcacheClusterInitialized := true;
-     RegisterServer( localMemcacheCluster, to_unbounded_string( "localhost" ), 11211 );
+     RegisterServer( localMemcacheCluster, DEFAULT_MEMCACHE_HOST, DEFAULT_MEMCACHE_PORT );
      SetClusterName( localMemcacheCluster, to_unbounded_string( "Local Memcache" ) );
      SetClusterType( localMemcacheCluster, normal );
   end if;
 end checkAndInitializeLocalMemcacheCluster;
 
--- CHECK AND INITIALIZE DISTRIBUTED MEMCACHE CLUSTER
+--  CHECK AND INITIALIZE DISTRIBUTED MEMCACHE CLUSTER
+--
+-- If a shared distributed memcache cluster is not initialized, initialize it
+-----------------------------------------------------------------------------
 
 procedure checkAndInitializeDistributedMemcacheCluster is
 begin
-  if not localMemcacheClusterInitialized then
+  if not distributedMemcacheClusterInitialized then
      distributedMemcacheClusterInitialized := true;
      SetClusterName( distributedMemcacheCluster, to_unbounded_string( "Distributed Memcache" ) );
      SetClusterType( distributedMemcacheCluster, normal );
   end if;
 end checkAndInitializeDistributedMemcacheCluster;
 
+
+-----------------------------------------------------------------------------
+--
+-- Identifier Class primitives
+--
+-----------------------------------------------------------------------------
+
+
 --  GET IDENTIFIER CLASS NAME
 --
--- Return a string description of the class
+-- Return an image string description of the class enumerated item
+-----------------------------------------------------------------------------
 
 function getIdentifierClassImage( c : anIdentifierClass ) return string is
 begin
@@ -303,6 +285,13 @@ begin
 end getIdentifierClassImage;
 
 
+-----------------------------------------------------------------------------
+--
+-- Template Primitives
+--
+-----------------------------------------------------------------------------
+
+
 --  PUT TEMPLATE HEADER
 --
 -- Output the template header.  Mark it as sent so it isn't sent
@@ -310,11 +299,15 @@ end getIdentifierClassImage;
 --
 -- A bad status results in HTTP 500.  A bad content type results in text.
 -- In both cases, a message is written to standard error.
+--
+-- An unknown template type raises SPARFORTE_ERROR.
 -----------------------------------------------------------------------------
 
 procedure putTemplateHeader( header : in out templateHeaders ) is
   s : unbounded_string;
 begin
+
+  -- If the HTTP header has already been written, do not write another one.
 
   if header.templateHeaderSent then
      return;
@@ -324,7 +317,8 @@ begin
   -- CGI programs cannot directly return HTTP 404.  e.g. this is bad:
   -- s := to_unbounded_string( "HTTP/1.1" & header.status'img & " " );
   --
-  -- Instead, it must use a Status header field.
+  -- Fill in the HTTP response header Status field.  Add a standard
+  -- HTTP status string based on the HTTP status number.
 
   s := to_unbounded_string( "Status:" & header.status'img & " " );
   case header.status is
@@ -366,13 +360,16 @@ begin
   when 503 => s := s & "Service Unavailable";
   when 504 => s := s & "Gateway Timeout";
   when 505 => s := s & "HTTP Version Not Supported";
-  when others => -- includes 500
-     --s := to_unbounded_string( "HTTP/1.1 500 Internal Server Error" );
-     raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location & ": Internal error: unknown http status";
+  when others =>
+    -- at the world level, raise exceptions on errors because there is
+    -- no access to error functionality
+    raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location &
+      ": Internal error: unknown HTTP status" & header.status'img;
   end case;
   s := s & ASCII.CR & ASCII.LF;
 
---  put( s & ASCII.CR & ASCII.LF );
+  -- Create the HTTP Content-type response header field based on the type of
+  -- template
 
   s := s & to_unbounded_string( "Content-type: " );
   case header.templateType is
@@ -385,16 +382,16 @@ begin
   when wmlTemplate  => s := s & "text/vnd.wap.wml";
   when yamlTemplate => s := s & "text/yaml";
   when tomlTemplate => s := s & "text/toml"; -- no offical type
-  when others => -- includes noTemplate
-     --s := to_unbounded_string( "HTTP/1.1 500 Internal Server Error" );
+  when others => -- includes placeholder template type noTemplate
+    -- at the world level, raise exceptions on errors because there is
+    -- no access to error functionality
      raise SPARFORTE_ERROR with Gnat.Source_Info.Source_Location &
        ": internal error: unknown template type " &
        header.templateType'img;
   end case;
   s := s & ASCII.CR & ASCII.LF;
-  -- put( s & ASCII.CR & ASCII.LF );
 
-  -- Other fields (to be filled in later)
+  -- Other HTTP response fields (to be filled in later)
 
   if length( header.contentLength ) > 0 then
      s := s & "Content-length: " & header.contentLength & ASCII.CR & ASCII.LF;
@@ -424,10 +421,18 @@ end putTemplateHeader;
 
 
 -----------------------------------------------------------------------------
+--
+-- Misc. Output Functions
+--
+-----------------------------------------------------------------------------
+
+
 --  PUT TRACE
 --
 -- Display an escaped message to standard error in the format used when
--- "trace true" is used.  This does not check the tracing flag.
+-- "trace true" is used.  This does not check the tracing flag: the caller
+-- should do this if necessary.  Coloured output and an optional UTF-8 icon
+-- is supported if --colour/-color option is used.
 -----------------------------------------------------------------------------
 
 procedure put_trace( msg : string; icon : string := "" ) is
@@ -440,10 +445,10 @@ begin
 end put_trace;
 
 
------------------------------------------------------------------------------
 --  OS ERROR
 --
--- return an OS error message for error number e
+-- Return an OS error message for POSIX error number e.  The return value is
+-- an Ada string converted from the NUL terminated C string at ep.
 -----------------------------------------------------------------------------
 
 function OSerror( e : integer ) return string is
@@ -451,13 +456,18 @@ function OSerror( e : integer ) return string is
   ep       : anErrorPtr;
 begin
   ep := strerror( e );
-  for i in ep.all'range loop
-      if ep(i) = ASCII.NUL then
-         lastchar := i-1;
-         exit;
-      end if;
-  end loop;
-  return string( ep( 1..lastchar ) );
+  -- POSIX requires strerror() does not return null.  Check anyway in case
+  -- other operating systems do not have this behaviour.
+  if ep /= null then
+     for i in ep.all'range loop
+         if ep(i) = ASCII.NUL then
+            lastchar := i-1;
+            exit;
+         end if;
+     end loop;
+     return string( ep( 1..lastchar ) );
+  end if;
+  return "Unknown error";
 end OSerror;
 
 end world;

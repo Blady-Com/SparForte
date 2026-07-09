@@ -96,7 +96,7 @@ done
 # Test for the presence of sudo
 
 HAS_SUDO=
-(exec sudo -h >/dev/null 2>&1)
+(exec sudo -V >/dev/null 2>&1)
 if [ $? -eq 0 ] ; then
    HAS_SUDO=1
 fi
@@ -105,10 +105,10 @@ fi
 
 yum_install () {
   if [ -n "$HAS_SUDO" ] ; then
-     echo $@
+     echo "$@"
      sudo -u root dnf install -q -y $@
   else
-     echo $@
+     echo "$@"
      dnf install -q -y $@
   fi
 }
@@ -138,42 +138,35 @@ pacman_install () {
 }
 
 
-# Detect the Linux distribution
+# Detect the Linux/FreeBSD distribution
 # ----------------------------------------------------------------------------
 
-# CentOS/Red hat
-
-RHVERSION=""
-if test -f "/etc/redhat-release" ; then
+if test -f "/etc/os-release" ; then
+   DISTRO=`grep "^ID=" < /etc/os-release | cut -d= -f2`
+   DISTRO_PARENT=`grep "^ID_LIKE=" < /etc/os-release | cut -d= -f2`
+elif test -f "/etc/redhat-release" ; then
    DISTRO="redhat"
-   TMP=`grep -F " 7." "/etc/redhat-release"`
-   if [ -n "$TMP" ] ; then
-      RHVERSION="7"
-   fi
-   TMP=`grep -F " 8." "/etc/redhat-release"`
-   if [ -n "$TMP" ] ; then
-      RHVERSION="8"
-   fi
-   TMP=`grep -F " 9." "/etc/redhat-release"`
-   if [ -n "$TMP" ] ; then
-      RHVERSION="9"
-   fi
-fi
-
-if test -f "/etc/SUSE-brand" ; then
+elif test -f "/etc/SUSE-brand" ; then
    DISTRO="suse"
-fi
-
-if test -f "/etc/freebsd-update.conf" ; then
+elif test -f "/etc/freebsd-update.conf" ; then
    DISTRO="freebsd"
    if [ "$LOGNAME" != "root" ] ; then
       echo "you may need to run this script as root"
    fi
-fi
+elif [ -f "/etc/arch-release" ] ; then
+   # Arch Linux
+   DISTRO="arch"
+elif [ -f "/etc/alpine-release" ] ; then
+   # Alpine
+   # Run as root because Alpine is intended for containers
 
-# Mint/Ubuntu
-
-if [ -f "/etc/issue" ] ; then
+   DISTRO="alpine"
+   if [ "$LOGNAME" != "root" ] ; then
+      echo "Please run as the root user"
+      exit 192
+   fi
+elif [ -f "/etc/issue" ] ; then
+   # Mint/Ubuntu
    TMP=`grep -F Ubuntu /etc/issue`
    if [ "$TMP" != "" ] ; then
       DISTRO="ubuntu"
@@ -191,30 +184,35 @@ fi
 # Debian
 
 if [ -z "$DISTRO" ] ; then
-   if test -f "/etc/debian_version" ; then
+   if [ "$DISTRO_PARENT" = "debian" ] ; then
+      DISTRO="debian"
+   elif test -f "/etc/debian_version" ; then
+      DISTRO="debian"
+   fi
+   if [ -n "$DISTRO" ] ; then
       echo "Debian users"
       echo
       echo "This script uses sudo.  You may need to add your login to the"
       echo "sudoers configuration file.  Press return to continue."
       read TMP
-      DISTRO="debian"
    fi
 fi
 
-# Arch Linux
+# Identify specific Red Hat version
 
-if [ -f "/etc/arch-release" ] ; then
-   DISTRO="arch"
-fi
-
-# Alpine
-# Run as root because Alpine is intended for containers
-
-if [ -f "/etc/alpine-release" ] ; then
-   DISTRO="alpine"
-   if [ "$LOGNAME" != "root" ] ; then
-      echo "Please run as the root user"
-      exit 192
+RHVERSION=""
+if [ "$DISTRO" = "redhat" ] ; then
+   TMP=`grep -F " 7." "/etc/redhat-release"`
+   if [ -n "$TMP" ] ; then
+      RHVERSION="7"
+   fi
+   TMP=`grep -F " 8." "/etc/redhat-release"`
+   if [ -n "$TMP" ] ; then
+      RHVERSION="8"
+   fi
+   TMP=`grep -F " 9." "/etc/redhat-release"`
+   if [ -n "$TMP" ] ; then
+      RHVERSION="9"
    fi
 fi
 
@@ -281,7 +279,8 @@ arch )
    #
    pacman_install bzip2
    pacman_install gcc-ada
-   pacman_install bc
+   # To be confirmed: is bc still required?  Commented out for now.
+   # pacman_install bc
    if [ -z "$NO_SOUND" ] ; then
       pacman_install gstreamer
    fi
@@ -341,16 +340,16 @@ redhat )
       if [ -n "$HAS_SUDO" ] ; then
          if [ "$RHVERSION" != "7" ] ; then
             sudo dnf config-manager --set-enabled
-	        sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+	        sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$RHVERSION.noarch.rpm
 	     else
-            sudo -u root rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-latest-7.noarch.rpm
+            sudo -u root rpm -Uvh https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-latest-7.noarch.rpm
 	     fi
       else
          if [ "$RHVERSION" != "7" ] ; then
             dnf config-manager --set-enabled
-            dnf install http://download.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-latest-7.noarch.rpm
+            dnf install https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-latest-7.noarch.rpm
 	     else
-            rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-latest-7.noarch.rpm
+            rpm -Uvh https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-latest-7.noarch.rpm
 	     fi
       fi
    fi
@@ -360,7 +359,7 @@ redhat )
    yum_install bzip2
    yum_install gcc-gnat
    yum_install git
-   yum_install bc
+   # yum_install bc
    if [ -z "$NO_LOCATE" ] ; then
       yum_install mlocate
    fi
@@ -392,10 +391,11 @@ redhat )
    fi
    if [ -z "$NO_SDL" ] ; then
       if [ "$RHVERSION" != "9" ] ; then
-	 echo "Please provision using --without-sdl.  SDL1.2 is not included "
-	 echo "with Red Hat 9"
-	 exit 1
-         yum_install SDL
+	     echo "Please provision using --without-sdl.  SDL1.2 is not included "
+	     echo "with Red Hat 9"
+	     exit 1
+      else
+	     yum_install SDL
          # Does not exist with Red Hat 9 but is also included with SDL
          yum_install SDL-devel
          yum_install SDL_image
@@ -466,7 +466,7 @@ ubuntu )
    apt_install gnat
    apt_install git
    apt_install wget
-   apt_install bc
+   #apt_install bc
    if [ -z "$NO_LOCATE" ] ; then
       apt_install locate
    fi
@@ -504,14 +504,14 @@ debian )
    apt_install gnat
    apt_install git
    apt_install wget
-   apt_install bc
+   # apt_install bc
    apt_install gcc
    set +e
    apt_install libssl1.1
+   set -e
    if [ $? -ne 0 ] ; then
       apt_install libssl3
    fi
-   set -e
    if [ -z "$NO_LOCATE" ] ; then
       apt_install locate
    fi
@@ -521,11 +521,11 @@ debian )
    if [ -z "$NO_MYSQL" ] ; then
       set +e
       apt_install libmariadb-dev-compat # R Pi 4
+      set -e
       if [ $? -ne 0 ] ; then
          # Raspberry Pi 3 and older
          apt_install libmariadbclient-dev
       fi
-      set -e
       apt_install mariadb-server
    fi
    if [ -z "$NO_POSTGRES" ] ; then
@@ -551,6 +551,7 @@ debian )
    set +e
    ;;
 freebsd )
+   # FreeBSD support is hard-coded to the latest release that I've tested
    set -e
    echo "y" | pkg install bash
    echo "y" | pkg install gmake
@@ -586,11 +587,10 @@ freebsd )
       # echo "y" | pkg install libdb-dev
       echo "y" | pkg install db18
    fi
-   set +x
    set +e
    ;;
 *)
-   echo "I don't know how to provision this distro"
+   echo "I don't know how to install dependencies for this distro '$DISTRO'"
    exit 192
 esac
 echo "Dependencies installed"

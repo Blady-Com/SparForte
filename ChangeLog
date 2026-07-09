@@ -20,11 +20,23 @@ CHANGES SINCE 3.0
 
 6. Fix: most declarations now include the declaration location for error messages (such as enum type items, for example).
 
-7. Fix: better error message for missing filenames on a shell redirect (e.g. echo >;).
+7. Fix: better error message for missing filenames on a shell redirect (e.g. echo >;). [Needs Fixing]
 
 8. New: constant values are checked for placeholder values in testing and maintenance modes.
 
 9. Fix: -C / --coding disables the default testing mode flag instead of enabling both.
 
 10. Fix: case statments can now test array elements as well as scalar variables.
+
+11. Fix: using an parent meta tag to declare a child tag no longer has an unreferenced error.
+
+12. Change: general cleanup of provision script.  Support for os-release file when detecting your O/S.
+
+13. Fix: no bug report is displayed if a forked process fails (e.g. bad bang path).
+
+14. Fix: Sturges formula, reverse of ln2/ln10 constants fixed in parser_numerics.  Fixed documentation for shannon_entropy_of and modulus.
+
+15. Change: added GNU readline version 9 detection to configure script.
+
+16. Change: strings.is_fixed allows a leading space or minus sign.
 

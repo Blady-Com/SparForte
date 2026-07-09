@@ -81,7 +81,7 @@ function Is_Hexadecimal_Digit( s : unbounded_string ) return boolean;
 -- true if string is completely hexadecimal digit characters
 
 function Is_Alphanumeric( s : unbounded_string ) return boolean;
--- true if string is completely hexadecimal digit characters
+-- true if string is completely hexadecimal alphabetic or numeric characters
 
 function Is_Special( s : unbounded_string ) return boolean;
 -- true if string is completely special characters

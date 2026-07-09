@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Splashes                                                                 --
+-- Splashes are displays of mostly static text                              --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
@@ -29,8 +29,7 @@ package body world.splashes is
 -----------------------------------------------------------------------------
 --  DISPLAY VERSION SPLASH
 --
--- display --version message.  This is located here because it
--- uses term attributes.
+-- Display version message when the user types "spar --version".
 -----------------------------------------------------------------------------
 
 procedure displayVersionSplash is
@@ -40,31 +39,12 @@ begin
      if released then
         Put_Line( version );
      else
-        Put_Line( version & " (Build ID " & buildDate & ')' );
+        Put_Line( version & " (Build ID " & buildId & ')' );
      end if;
      Put_Line( "Built by " & builder );
      Put_Line( copyright );
      Put_Line( "This is free software; see the source for copying conditions." );
      Put_Line( "There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE." );
-     --New_Line;
-
-     --path := to_unbounded_string( globalConfigPath );
-     --if not C_is_includable_file( globalConfigPath & ASCII.NUL ) then
-     --   path := path & " (no file)";
-     --end if;
-     --Put_line( "* Global Configuration: " & toEscaped( path ) );
-
-     --path := to_unbounded_string( globalPolicyPath );
-     --if not C_is_includable_file( globalPolicyPath & ASCII.NUL ) then
-     --   path := path & " (no file)";
-     --end if;
-     --Put_line( "* Global Policy:        " & toEscaped( path ) );
-
-     --path := to_unbounded_string( globalProfilePath );
-     --if not C_is_includable_file( globalProfilePath & ASCII.NUL ) then
-     --   path := path & " (no file)";
-     --end if;
-     --Put_line( "* Global Profile:       " & toEscaped( path ) );
   end if;
 end displayVersionSplash;
 
@@ -72,10 +52,10 @@ end displayVersionSplash;
 -----------------------------------------------------------------------------
 --  DISPLAY COPYRIGHT SPLASH
 --
--- display copyright message.  This is located here because it
+-- Display copyright message.  This is located here because it
 -- uses term attributes.  Suppress the message on a login shell
 -- or if there is no tty.
--- Some of this is now defined in the world.ads file.
+-- Some of this message is now defined in the world.ads file.
 -----------------------------------------------------------------------------
 
 procedure displayCopyrightSplash is
@@ -84,6 +64,45 @@ begin
      Put_Line( "Type ""help"" for help" );
   end if;
 end displayCopyrightSplash;
+
+
+-----------------------------------------------------------------------------
+--  DISPLAY COMMAND LINE USAGE HELP
+--
+-- Display the help message for running SparForte on the command line, using
+-- GNU/Linux formatting.
+-----------------------------------------------------------------------------
+
+procedure displayCommandLineUsageHelp is
+begin
+  Put_Line( "SparForte usage" );
+  Put_Line( "spar [-BbcCdDeghilLmprtvVx] [-Ld|-L d] [--break][--builddeps][--check][--debug][--exec][--gcc-errors][--login][--verbose][--version][--perf][--restricted][--session s][--sbom][--coding|--design|--maintenance|--test][--trace][--] [script [param1 ...] ]" );
+  Put_Line( "  --break or -b       - enable breakout debugging prompt" );
+  Put_Line( "  --check or -c       - syntax check the script but do not run" );
+  Put_Line( "  --coding or -C      - development phase mode" );
+  Put_Line( "  --color or --colour - enable coloured messages and UTF-8 icons" );
+  Put_Line( "  --debug or -d       - enable pragma assert and pragma debug" );
+  Put_Line( "  --design or -D      - design phase mode" );
+  Put_Line( "  --exec or -e        - script is a string containing SparForte commands" );
+  Put_Line( "  --gcc-errors or -g  - simple GCC-style errors (good for IDEs)" );
+  Put_Line( "  --help or -h        - show this help" );
+  Put_Line( "  --import-all or -i  - import all environment variables" );
+  Put_Line( "  -Ld or -L d         - add directory d to the separate files search list" );
+  Put_Line( "                        (may be repeated)" );
+  Put_Line( "  --login or -l       - simulate a login shell" );
+  Put_Line( "  --maintenance or -m - maintenance phase mode" );
+  Put_Line( "  --profile or -P     - run the profile script when not logging in" );
+  Put_Line( "  --pref or -p        - show performance stats" );
+  Put_Line( "  --quiet or -q       - brief error messages" );
+  Put_Line( "  --restricted or -r  - restricted shell mode" );
+  Put_Line( "  --sbom or -B        - list build dependencies (SBOM)" );
+  Put_Line( "  --session s         - start a session with the name s" );
+  Put_Line( "  --test or -t        - test phase mode (default)" );
+  Put_Line( "  --trace or -x       - show script lines as they run" );
+  Put_Line( "  --verbose or -v     - show shell activity" );
+  Put_Line( "  --version or -V     - show version" );
+  Put_Line( "  --                  - explicitly end shell options" );
+end displayCommandLineUsageHelp;
 
 end world.splashes;
 

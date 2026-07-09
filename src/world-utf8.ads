@@ -4,7 +4,7 @@
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---            Copyright (C) 2001-2023 Free Software Foundation              --
+--            Copyright (C) 2001-2026 Free Software Foundation              --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -26,6 +26,10 @@ package world.utf8 is
 -----------------------------------------------------------------------------
 --  UTF-8 icons
 --
+-- These functions return UTF-8 byte sequences as Ada strings.  The sequences
+-- display text-based icons such as lines, checkmarks, and list bullets.  If
+-- the colour option was not selected, they will return either an empty
+-- string or an ASCII character approximating the UTF-8 icon.
 -----------------------------------------------------------------------------
 
 function utf_ballot return string;

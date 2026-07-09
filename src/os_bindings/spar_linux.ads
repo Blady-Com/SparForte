@@ -44,7 +44,7 @@ eol_characters : constant string := "" & ASCII.LF;
 -- O/S end-of-line characters in text files
 
 type unsigned32 is mod 2**32;
--- mod type allows boolean operations on bits
+-- mod type allows bit operations like and, or, xor
 
 type byte is new short_short_integer range -128..127;
 for byte'size use 8;
@@ -55,7 +55,7 @@ type aPID is new integer;
 
 function linux_system( s : string ) return integer;
 pragma import( C, linux_system, "system" );
--- used for BUSH system() function
+-- used for SparForte system() function
 
 
 ------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ stderr : constant aFileDescriptor := 2;
 type anOpenFlag is new integer;
 O_RDONLY   : constant anOpenFlag := 0;
 O_WRONLY   : constant anOpenFlag := 1;
-O_CREAT    : constant anOpenFLag := 8#100#;
+O_CREAT    : constant anOpenFlag := 8#100#;
 O_TRUNC    : constant anOpenFlag := 8#1000#;
 O_APPEND   : constant anOpenFlag := 8#2000#;
 O_NONBLOCK : constant anOpenFlag := 8#4000#;
@@ -88,7 +88,7 @@ procedure read( result : out size_t; fd : aFileDescriptor; buffer : in system.ad
 pragma import( C, read );
 pragma import_valued_procedure( read );
 procedure readchar( result : out size_t; fd : aFileDescriptor; char : in out character;
-  count : long_integer );
+  count : size_t );
 pragma import( C, readchar, "read" );
 pragma import_valued_procedure( readchar, "read" );
 
@@ -97,7 +97,7 @@ procedure write( result : out size_t; fd : aFileDescriptor; buffer : in system.a
 pragma import( C, write );
 pragma import_valued_procedure( write );
 procedure writechar( result : out size_t; fd : aFileDescriptor; char : in out character;
-  count : long_integer );
+  count : size_t );
 pragma import( C, writechar, "write" );
 pragma import_valued_procedure( writechar, "write" );
 
@@ -169,7 +169,7 @@ type localflags is new unsigned32;
 type controlflags is new unsigned32;
 type inputflags is new unsigned32;
 type outputflags is new unsigned32;
-type resarray is array ( 1..15 ) of character;
+type resarray is array ( 1..16 ) of character;
 pragma pack( resarray );
 type termios is record
      c_iflag : inputflags;   -- input modes
@@ -194,14 +194,15 @@ type termios is record
      cc_weras: character;    -- VWERASE = 14
      cc_lnext: character;    -- VLNEXT = 15
      cc_eol2 : character;    -- VEOL2 = 16
-     cc_res  : resarray;     -- 15 more, unused
+     cc_res  : resarray;     -- 16 more, unused (15 in classic Linux)
      c_ispd  : integer;      -- input speed
      c_ospd  : integer;      -- output speed
      c_line1 : character;    -- line discipline?
      c_line2 : character;    -- line discipline?
-     c_line3 : character;    -- line discipline?
 end record;
 pragma pack( termios );
+for termios'size use 480; -- 60 bytes
+
 
 HUPCL  : constant controlflags := 8#0002000#; -- Hang up on last close
 ISIG   : constant localflags := 8#0000001#; -- Enable signals
@@ -306,7 +307,7 @@ pragma import_valued_procedure( ioctl_cdromstart );
 
 procedure getcwd( buffer : in out string; buffer_size : long_integer );
 pragma import( C, getcwd );
--- get the current working directory
+-- get the current working directory.  buffer is undefined or NULL on an error.
 
 function chdir( path : string ) return integer;
 pragma import( C, chdir );
@@ -466,10 +467,10 @@ PF_INET : constant aNetDomain := 2;
 type aInAddr is record
      addr : unsigned := 0;
 end record;
-pragma warnings( off ); -- hide warning about wasted bits
-for aInAddr'size use 96;
+pragma warnings( off ); -- hide warning about padding bits
+for aInAddr'size use 128;
 pragma warnings( off );
--- A sockaddr_in record is defined as 16 bytes long (or 96 bits)
+-- A sockaddr_in record is defined as 16 bytes long (or 128 bits)
 -- Request Ada to use 16 bytes to represent this record
 
 type aSocketAddr is record
@@ -527,7 +528,7 @@ use HEptrs;
 
 function getHostByName( cname : string ) return aHEptr;
 pragma import( C, getHostByName );
--- look up a host by it's name, returning the IP number
+-- look up a host by it's name, returning the IP number (deprecated)
 
 function htons( s : unsigned_short ) return unsigned_short;
 pragma import( C, htons );

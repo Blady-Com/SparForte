@@ -25,6 +25,7 @@ with ada.text_io,
      ada.strings.unbounded,
      ada.command_line,
      ada.exceptions,
+     spar_os.exec,
      world.splashes,
      world.deps,
      symbol_table,
@@ -40,6 +41,7 @@ use ada.text_io,
     ada.strings.unbounded,
     ada.command_line,
     ada.exceptions,
+    spar_os.exec,
     world,
     world.splashes,
     world.deps,
@@ -60,13 +62,20 @@ use ada.text_io,
 -- pragma Optimize( space );
 
 procedure spar is
-  term_id : identifier;
-  libraryPathNext : boolean := false;
-  wasCoding : boolean := false;
-  wasDesign : boolean := false;
-  wasMaintenance : boolean := false;
-  wasTest : boolean := false;
-  i : positive := 1;
+  term_id         : identifier;        -- index of TERM environment identifier
+  libraryPathNext : boolean := false;  -- true if -L directory is a separate argument
+  wasCoding       : boolean := false;  -- true if we're in the development phase of SDLC
+  wasDesign       : boolean := false;  -- true if we're in the design phase of SDLC
+  wasMaintenance  : boolean := false;  -- true if we're in the maintenance phase of SDLC
+  wasTest         : boolean := false;  -- true if we're in the testing phase of SDLC
+  i               : positive := 1;     -- command line argument index
+
+  -- POSIX process exit status codes
+  -- 0 to 191 = the standard POSIX error number (defined in spar_os.ads)
+  -- 192 = a custom SparForte error
+
+  EXIT_STATUS_OK : constant Ada.Command_Line.Exit_Status := 0;
+  EXIT_STATUS_FAILED : constant Ada.Command_Line.Exit_Status := 192;
 
   procedure showSBOM is
   begin
@@ -98,38 +107,12 @@ begin
 
   if Argument_Count = 1 then
      if Argument(1) = "-h" or Argument( 1 ) = "--help" then
-        Put_Line( "SparForte usage" );
-        Put_Line( "spar [-BbcCdDeghilLmprtvVx] [-Ld|-L d] [--break][--builddeps][--check][--debug][--exec][--gcc-errors][--login][--verbose][--version][--perf][--restricted][--session s][--sbom][--coding|--design|--maintenance|--test][--trace][--] [script [param1 ...] ]" );
-        Put_Line( "  --break or -b       - enable breakout debugging prompt" );
-        Put_Line( "  --check or -c       - syntax check the script but do not run" );
-        Put_Line( "  --coding or -C      - development phase mode" );
-        Put_Line( "  --color or --colour - enable coloured messages and UTF-8 icons" );
-        Put_Line( "  --debug or -d       - enable pragma assert and pragma debug" );
-        Put_Line( "  --design or -D      - design phase mode" );
-        Put_Line( "  --exec or -e        - script is a string containing SparForte commands" );
-        Put_Line( "  --gcc-errors or -g  - simple GCC-style errors (good for IDEs)" );
-        Put_Line( "  --help or -h        - show this help" );
-        Put_Line( "  --import-all or -i  - import all environment variables" );
-        Put_Line( "  -Ld or -L d         - add directory d to the separate files search list" );
-        Put_Line( "                        (may be repeated)" );
-        Put_Line( "  --login or -l       - simulate a login shell" );
-        Put_Line( "  --maintenance or -m - maintenance phase mode" );
-        Put_Line( "  --profile or -P     - run the profile script when not logging in" );
-        Put_Line( "  --pref or -p        - show performance stats" );
-        Put_Line( "  --quiet or -q       - brief error messages" );
-        Put_Line( "  --restricted or -r  - restricted shell mode" );
-        Put_Line( "  --sbom or -B        - list build dependencies (SBOM)" );
-        Put_Line( "  --session s         - start a session with the name s" );
-        Put_Line( "  --test or -t        - test phase mode (default)" );
-        Put_Line( "  --trace or -x       - show script lines as they run" );
-        Put_Line( "  --verbose or -v     - show shell activity" );
-        Put_Line( "  --version or -V     - show version" );
-        Put_Line( "  --                  - explicitly end shell options" );
-        Set_Exit_Status( 0 );
+        displayCommandLineUsageHelp;
+        Set_Exit_Status( EXIT_STATUS_OK );
         return;
      elsif Argument(1) = "-V" or Argument( 1 ) = "--version" then
         displayVersionSplash;
-        Set_Exit_Status( 0 );
+        Set_Exit_Status( EXIT_STATUS_OK );
         return;
      elsif Argument(1) = "-B" or Argument( 1 ) = "--sbom" then
         showSBOM;
@@ -137,14 +120,20 @@ begin
      end if;
   end if;
   if Argument_Count > 0 then
+     -- optionOffset is the command line argument index.  Start with the first argument.
      optionOffset := 1;
+     -- LibraryPathNext is true when a directory argument is expected for the library
+     -- search path.  This only happens after a -L argument where there is a space between
+     -- the option and the library name, producing two arguments, which is permitted by
+     -- POSIX.
      libraryPathNext := false;
+
      -- for i in 1..Argument_Count loop
      while i <= Argument_Count loop
          if libraryPathNext then
             if Argument(i)'length = 0 then
                Put_Line( standard_error, Command_Name & ": missing argument for -L" );
-               Set_Exit_Status( 192 );
+               Set_Exit_Status( EXIT_STATUS_OK );
                return;
             end if;
             if length( libraryPath ) > 0 then
@@ -179,7 +168,7 @@ begin
             gccOpt := true;
          elsif Argument(i) = "--help" then
             Put_Line( standard_error, Command_Name & ": --help should appear by itself" );
-            Set_Exit_Status( 192 );
+            Set_Exit_Status( EXIT_STATUS_FAILED );
             return;
          elsif Argument(i) = "--import-all" then
             importOpt := true;
@@ -190,16 +179,18 @@ begin
             maintenanceOpt := true;
             wasMaintenance := true;
          elsif Argument(i) = "--perf" then
-            perfOpt := true;
+             -- enable performance profiling and show a report at the end of execution
+             perfOpt := true;
          elsif Argument(i) = "--profile" then
-            profileOpt := true;
+             -- read the user's shell profile even if it would not be read
+             profileOpt := true;
          elsif Argument(i) = "--quiet" then
             quietOpt := true;
          elsif Argument(i) = "--restricted" then
             rshOpt := true;
          elsif Argument(i) = "--sbom" then
             Put_Line( standard_error, Command_Name & ": --sbom should appear by itself" );
-            Set_Exit_Status( 192 );
+            Set_Exit_Status( EXIT_STATUS_FAILED );
             return;
          elsif Argument(i) = "--test" then
             testOpt := true;
@@ -211,18 +202,20 @@ begin
                i := i + 1;
                if sessionName /= "" then
                   Put_Line( standard_error, Command_Name & ": --session was used more than once" );
-                  Set_Exit_Status( 192 );
+                  Set_Exit_Status( EXIT_STATUS_FAILED );
                   return;
-              elsif not Is_Alphanumeric(to_unbounded_string( Argument(i) ) ) then
+               elsif not Is_Alphanumeric(to_unbounded_string( Argument(i) ) ) then
+                  -- While the session name needs error checking, requiring only alphanumeric
+                  -- characters may interfere with future support for UTF-8.
                   Put_Line( standard_error, Command_Name & ": --session name is not alphanumeric" );
-                  Set_Exit_Status( 192 );
+                  Set_Exit_Status( EXIT_STATUS_FAILED );
                   return;
               else
                   sessionName := to_unbounded_string( Argument(i) );
               end if;
             else
                Put_Line( standard_error, Command_Name & ": --session should have a name" );
-               Set_Exit_Status( 192 );
+               Set_Exit_Status( EXIT_STATUS_FAILED );
                return;
             end if;
          elsif Argument(i) = "--trace" then
@@ -233,7 +226,7 @@ begin
             verboseOpt := true;
          elsif Argument(i) = "--version" then
             Put_Line( standard_error, Command_Name & ": --version should appear by itself" );
-            Set_Exit_Status( 192 );
+            Set_Exit_Status( EXIT_STATUS_FAILED );
             return;
          elsif Argument(i) = "--" then
             optionOffset := optionOffset + 1;
@@ -244,7 +237,7 @@ begin
             else
                Put_Line( standard_error, Command_Name & ": empty script name" );
             end if;
-            Set_Exit_Status( 192 );
+            Set_Exit_Status( EXIT_STATUS_FAILED );
             return;
          elsif Argument(i)(1) = '-' then
 
@@ -255,11 +248,11 @@ begin
             begin
                if Args'length < 2 then
                   Put_Line( standard_error, Command_Name & ": missing options: " & Argument(i) );
-                  Set_Exit_Status( 1 );
+                  Set_Exit_Status( EXIT_STATUS_FAILED );
                   return;
                end if;
                -- -L has a weird format: the directory is immediately attached
-               -- to the "L"
+               -- to the "L" but the directory may optionally be a second parameter.
 
                if Args(2) = 'L' then
                    if Args'length = 2 then
@@ -276,7 +269,7 @@ begin
                       breakoutOpt := true;
                    elsif Args(letter) = 'B' then
                       Put_Line( standard_error, Command_Name & ": -B should appear by itself" );
-                      Set_Exit_Status( 192 );
+                      Set_Exit_Status( EXIT_STATUS_FAILED );
                       return;
                    elsif Args(letter) = 'c' then
                       syntaxOpt := true;
@@ -294,7 +287,7 @@ begin
                       execOpt := true;
                    elsif Args(letter) = 'h' then
                       Put_Line( standard_error, Command_Name & ": -h should appear by itself" );
-                      Set_Exit_Status( 192 );
+                      Set_Exit_Status( EXIT_STATUS_FAILED );
                       return;
                    elsif Args(letter) = 'i' then
                       importOpt := true;
@@ -322,15 +315,13 @@ begin
                       verboseOpt := true;
                    elsif Argument(i) = "-V" then
                       Put_Line( standard_error, Command_Name & ": -V should appear by itself" );
-                      Set_Exit_Status( 192 );
+                      Set_Exit_Status( EXIT_STATUS_FAILED );
                       return;
-                   --elsif Argument(i) = "-w" then
-                   --   tabsizeOpt := true;
                    elsif Args(letter) = 'x' then
                       traceOpt := true;
                    else
                       Put_Line( standard_error, Command_Name & ": unknown option: " & Argument(i) );
-                      Set_Exit_Status( 192 );
+                      Set_Exit_Status( EXIT_STATUS_FAILED );
                       return;
                    end if;
                end loop;
@@ -347,14 +338,15 @@ begin
   -- Missing arguments / commands
 
   if libraryPathNext then
+     -- if all arguments have been read but a library path is expected, then it is missing
      Put_Line( standard_error, Command_Name & ": missing argument for -L" );
-     Set_Exit_Status( 192 );
+     Set_Exit_Status( EXIT_STATUS_FAILED );
      return;
   end if;
   if boolean(syntaxOpt) and
      optionOffset > Argument_Count then
      Put_Line( standard_error, Command_Name & ": missing command name" );
-     Set_Exit_Status( 192 );
+     Set_Exit_Status( EXIT_STATUS_FAILED );
      return;
   end if;
   if optionOffset > Argument_Count then
@@ -365,12 +357,12 @@ begin
 
   if (wasDesign and wasCoding) or (wasDesign and wasMaintenance) or (wasDesign and wasTest) or (wasCoding and wasMaintenance) or (wasCoding and wasTest) or (wasMaintenance and wasTest) then
      Put_Line( standard_error, Command_Name & ": only one of --design, --maintenance or --test is allowed" );
-     Set_Exit_Status( 192 );
+     Set_Exit_Status( EXIT_STATUS_FAILED );
      return;
   end if;
   if isLoginShell and boolean( profileOpt ) then
      Put_Line( standard_error, Command_Name & ": only one of --login and --profile is allowed" );
-     Set_Exit_Status( 192 );
+     Set_Exit_Status( EXIT_STATUS_FAILED );
      return;
   end if;
 
@@ -391,14 +383,14 @@ begin
   -- a terminal and not running a script)
 
   if optionOffset = 0 then
-     displayCopyrightSplash; -- located in user_io
+     displayCopyrightSplash;
   end if;
 
-  -- Run SparForte: load profile, etc. and run script or start command line
+  -- Run the SparForte interpreter: load profiles, run a script or start command line session
 
   interpret;
 
-  -- Shutdown
+  -- Shut down the interpreter main layers cleanly.
 
   shutdownInterpreter;
   shutdownParser;
@@ -406,22 +398,39 @@ begin
   shutdownCompiler;
   shutdownSignalFlags;
   shutdownCommunications;
-exception when msg : others =>
+
+exception when EXEC_CHILD_ERROR =>
+   -- when exec() family of calls fail (for example, the bang path is
+   -- wrong, the child process must die.  There's no need for a SparForte
+   -- bug report.
+   null;
+ when msg : others =>
+  -- When handling any uncaught exception raised to the main program, produce a custom bug
+  -- report for the user.  Include the SparForte version, build date and exception message.
+  -- Fall back to writing to standard_error because the interpreter's state and normal
+  -- error functions may be unreliable.
+
   put_line( standard_error, "SparForte Bug" );
   new_line( standard_error );
-  put_line( standard_error, "SparForte " & version & "(" & buildDate & ")" );
+  put_line( standard_error, "SparForte " & version & "(BUILD ID " & buildId & ")" );
+  put_line( standard_error, "Built by " & builder );
   put_line( standard_error, "An unexpected exception was raised to the main program:" );
   put_line( standard_error, Exception_Message( msg ) ) ;
   new_line( standard_error );
   put_line( standard_error, "To report bugs, please read 'Reporting Bugs' at" );
   put_line( standard_error, "in the Preface of the SparForte documentation" );
 
+  -- After reporting the unexpected exception, shut down the interpreter main layers cleanly.
+
   shutdownInterpreter;
   shutdownParser;
   shutdownScanner;
   shutdownCompiler;
   shutdownSignalFlags;
   shutdownCommunications;
+
+  -- Finally, Ada will process the uncaught exception normally.  The SparForte
+  -- tests will fail when they detect an Ada exception.
 
   raise;
 end spar;

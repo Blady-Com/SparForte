@@ -51,10 +51,7 @@ procedure clear( ap : argumentListPtr );
 procedure delete( ap : argumentListPtr );
 -- delete : SQL delete
 
---procedure env( id : identifier := eof_t );
--- env - list environment to standard output
-
--- help is in a separate package
+-- help command is in a separate child package
 
 procedure do_history( ap : argumentListPtr );
 -- history: shell history control
@@ -78,16 +75,16 @@ procedure do_trace( ap : argumentListPtr );
 -- trace: command tracing
 
 procedure umask( ap : argumentListPtr );
--- unset: remove an identifier
+-- umask: set file mode creation mask
 
 procedure unset( ap : argumentListPtr );
 -- unset: remove an identifier
 
 procedure env( ap : argumentListPtr );
--- env: command update
+-- env: show identifier details
 
 procedure update( ap : argumentListPtr );
--- update: command update
+-- update: SQL update
 
 procedure wait( ap : argumentListPtr );
 -- wait: wait for background jobs

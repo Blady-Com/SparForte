@@ -3154,6 +3154,7 @@ begin
   end if;
 
   if isExecutingCommand or syntax_check then
+     identifiers( oldmeta_id ).wasReferenced := true;
      identifiers( newmeta_id ).kind := oldmeta_id;
      if isPolicy then
         identifiers( newmeta_id ).class := policyMetaClass;

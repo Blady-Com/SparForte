@@ -69,6 +69,7 @@ numeric values.</p>
   <a href="#numerics.rounding">f := rounding( e )</a>          <a href="#numerics.scaling">f := scaling( x, y )</a>         <a href="#numerics.sdbm_hash_of">f := sdbm_hash_of( s, l )</a>
   <a href="#numerics.serial">f := serial</a>                 <a href="#numerics.sha1_digest_of">d := sha1_digest_of( s )</a>     <a href="#numerics.sha224_digest_of">d := sha224_digest_of( s )</a>
   <a href="#numerics.sha256_digest_of">d := sha256_digest_of( s )</a>  <a href="#numerics.sha512_digest_of">d := sha512_digest_of( s )</a>   <a href="#numerics.shift_left">i := shift_left( e, b )</a>
+  <a href="#numerics.shannon_entropy_of">f := shannon_entropy_of( s )
   <a href="#numerics.shift_right">i := shift_right( e, b )</a> <a href="#numerics.shift_right_arithmetic">i := shift_right_arithmetic( x, b )</a>
   <a href="#numerics.sqrt">f := sqrt( e )</a>              <a href="#numerics.sturges">f := sturges( l, h, t )</a>      <a href="#numerics.truncation">f := truncation( e )</a>
   <a href="#numerics.unbiased_rounding">f := unbiased_rounding( e )</a> <a href="#numerics.value">f := value( s )</a>
@@ -1466,14 +1467,14 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.modulus"></a><h3>f := numerics.modulus( e [,cycle] )</h3>
+<a name="numerics.modulus"></a><h3>f := numerics.modulus( e )</h3>
 <table cellspacing="0" cellpadding="0" width="98%" summary="package call">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse consine function</p></td>
+<td><p>Returns the modulus of an Ada modular ("mod") type.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">f := numerics.arccos( e );</span></td>
+<td><span class="code">f := numerics.modulus( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
@@ -1488,32 +1489,25 @@ a constraint_error is raised if e is zero</p></td>
 <td><span>in</span></td>
 <td><span>universal_numeric</span></td>
 <td><span>required</span></td>
-<td><span>the expressions to take the arccos of</span></td>
-</tr>
-<tr>
-<td><span>cycle</span></td>
-<td><span>in</span></td>
-<td><span>universal_numeric</span></td>
-<td><span>numerics.pi*2</span></td>
-<td><span>the trig period (e.g. 360 for degrees), default is radians</span></td>
+<td><span>the modular type</span></td>
 </tr>
 <tr>
 <td><span>f</span></td>
 <td><span>return value</span></td>
-<td><span>floating point</span></td>
+<td><span>integer</span></td>
 <td><span>required</span></td>
-<td><span>the result</span></td>
+<td><span>the modulus result</span></td>
 </tr>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>an argument_error if the absolute value of e exceeds 1</p></td>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: Ada.Numerics.Generic_Elementary_Functions.arccos<br>PHP: acos</p></td>
+<td><p>-</p></td>
 </tr>
 </table>
 
@@ -2264,6 +2258,50 @@ will round to 7.</p></td>
 </tr>
 </table>
 
+
+<a name="numerics.shannon_entropy_of"></a><h3>f := numerics.shannon_entropy_of( s )</h3>
+<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<tr>
+<td width="15%">&nbsp;</td>
+<td><p>Calculate the entropy (randomness) of a string.</p></td>
+</tr><tr>
+<td><p class="pkg_label">Example</p></td>
+<td><span class="code">f := numerics.shannon_entropy_of( "applesauce"  );</span></td>
+</tr><tr>
+<td><p class="pkg_label">Parameters</p></td>
+<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<tr>
+<td><span class="pkg_param">Param</span></td>
+<td><span class="pkg_param">Mode</span></td>
+<td><span class="pkg_param">Type</span></td>
+<td><span class="pkg_param">Default</span></td>
+<td><span class="pkg_param">Description</span></td>
+</tr><tr>
+<td><span>s</span></td>
+<td><span>in</span></td>
+<td><span>universal_string</span></td>
+<td><span>required</span></td>
+<td><span>the string expression</span></td>
+</tr>
+<tr>
+<td>f</td>
+<td>return value</td>
+<td>natural</td>
+<td>required</td>
+<td>the entropy value</td>
+</tr>
+</table>
+</tr><tr>
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>-</p></td>
+</tr><tr>
+<td><p class="pkg_label">See Also</p></td>
+<td><p>-</p></td>
+</tr><tr>
+<td><p class="pkg_label">Compare With</p></td>
+<td><p>-</p></td>
+</tr>
+</table>
 
 <a name="numerics.shift_left"></a><h3>i := numerics.shift_left( e, b )</h3>
 <table cellspacing="0" cellpadding="0" width="98%" summary="package call">

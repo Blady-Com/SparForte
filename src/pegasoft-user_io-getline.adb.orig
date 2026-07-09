@@ -1512,7 +1512,7 @@ begin
               defaultPrompt &
               ASCII.SOH & term(normal) & ASCII.STX;
         else
-           bold_prompt := "spar-" & version & '-' & buildDate & ' ' &
+           bold_prompt := "spar-" & version & '-' & buildId & ' ' &
               ASCII.SOH & term(bold) & ASCII.STX &
               defaultPrompt &
               ASCII.SOH & term( normal ) & ASCII.STX;

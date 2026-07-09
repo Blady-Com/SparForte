@@ -9,8 +9,8 @@
 # default tcsh (which is based on csh and is not Bourne shell compatible).
 #set -eu
 
-# When this command was run (assumed to be build date)
-CONFIGBUILDDATE=`date "+%y%m%d"`
+# Default id is when this command was run (assumed to be build date)
+CONFIGBUILDID=`date "+%y%m%d"`
 
 # Default, this is not a release version
 CONFIGRELEASED="false"
@@ -226,7 +226,7 @@ if [ -f "/etc/issue" ] ; then
 fi
 
 HAS_SUDO=
-(exec sudo -h >/dev/null 2>&1)
+(exec sudo -V >/dev/null 2>&1)
 if [ $? -eq 0 ] ; then
    HAS_SUDO=1
 fi
@@ -252,18 +252,18 @@ echo "Configuring SparForte..."
 sleep 1
 echo
 
-# As per Fedja B, use Git version for build date, if available.
+# As per Fedja B, use Git version for build id, if available.
 # Git describe may fail if no git repo exiss
 
 (exec git --version >/dev/null 2>/dev/null)
 if [ $? -eq 0 ] ; then
    TMP=`git describe 2>/dev/null`
    if [ $? -eq 0 ] ; then
-      CONFIGBUILDDATE="$TMP"
+      CONFIGBUILDID="$TMP"
    fi
-   echo "Using Git version for build date string... $CONFIGBUILDDATE"
+   echo "Using Git version for build id string... $CONFIGBUILDID"
 else
-   echo "Using current date for build date string... $CONFIGBUILDDATE"
+   echo "Using current date for build id string... $CONFIGBUILDID"
 fi
 
 # Check for pkg-config command
@@ -539,7 +539,9 @@ elif [ "$OS" = "HPUX" ] ; then
          exit 1
       fi
    fi
-   echo "  (Warning: SparForte HP-UX support is obsolete...you will need to edit bush_hp.ads/adb)"
+   echo "  Warning: SparForte no longer supports HP-UX...you will need to manually update spar.os.ads/adb"
+   echo "Press return to continue."
+   read TMP
 elif [ "$OS" = "cygwin" ] ; then
    echo -n "Cygwin"
    if test -r spar_os.ads ; then
@@ -635,13 +637,13 @@ else
             echo
             echo "The name of the GCC package with Ada support depends on your operating system."
             echo "Examples:"
-            echo " - Debian Linux users can try apt-get install gnat-3.3 (or similar)"
+            echo " - Debian Linux users can try apt-get install gnat-x.y (where x, y is the version)"
             echo " - Fedora Linux users can try add/remove software gcc-gnat"
             echo " - SuSE Linux   users can try add/remove software gcc-ada"
             echo
             echo "Specifically, SparForte requires one of the following:"
-            echo " - GCC 3.x or newer with the Ada language enabled (http://gcc.gnu.org)"
-            echo " - ACT's GNAT compiler 3.14 or newer, based on GCC 2.7.2 (ftp://cs.nyu.edu/pub/gnat)"
+            echo " - GCC with the Ada language enabled (https://gcc.gnu.org)"
+            echo " - AdaCore's GNAT compiler"
             echo
             echo "Please update your system and re-run this script."
             echo "--------------------------------------------------------------------------"
@@ -818,9 +820,7 @@ else
    echo "yes"
 fi
 # clean test directory
-rm *.o *.ali scanner_test
-rm scanner-calendar*
-rm c_scanner.c
+rm -f *.o *.ali scanner_test scanner-calendar* c_scanner.c
 cd ../src/
 
 # Check for ncurses (which includes tput)
@@ -860,7 +860,7 @@ if [ -z "$TMP" ] ; then
        echo "yes"
    else
        echo "no"
-       # ldconfig doesn't print on Alpline linux and openssl is not directly
+       # ldconfig doesn't print on Alpine linux and openssl is not directly
        # under lib/.
        echo -n "checking for lib/openssl (Cygwin, Alpine)..."
        if [ ! -z "$LOCATE" ] ; then
@@ -1251,6 +1251,17 @@ if [ -z "$NO_READLINE" ] ; then
       echo "yes"
    fi
    if [ -z "$READLINE_VERSION" ] ; then
+      echo -n "checking for readline 7 (ldconfig -p, Linux)... "
+      TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libreadline.so.7`
+      if [ -z "$TMP" ] ; then
+         echo "no"
+      else
+         HAS_READLINE=1
+         READLINE_VERSION=7
+         echo "yes"
+      fi
+   fi
+   if [ -z "$READLINE_VERSION" ] ; then
       echo -n "checking for readline 8 (ldconfig -p, Linux)... "
       TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libreadline.so.8`
       if [ -z "$TMP" ] ; then
@@ -1262,13 +1273,13 @@ if [ -z "$NO_READLINE" ] ; then
       fi
    fi
    if [ -z "$READLINE_VERSION" ] ; then
-      echo -n "checking for readline 7 (ldconfig -p, Linux)... "
-      TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libreadline.so.7`
+      echo -n "checking for readline 9 (ldconfig -p, Linux)... "
+      TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libreadline.so.9`
       if [ -z "$TMP" ] ; then
          echo "no"
       else
          HAS_READLINE=1
-         READLINE_VERSION=7
+         READLINE_VERSION=9
          echo "yes"
       fi
    fi
@@ -1460,7 +1471,8 @@ echo "SparForte is configured"
 
 # Configure APQ library
 #
-# Require a database unless the user explicitly requested no database.
+# Require a database configure script unless the user explicitly requested
+# no databases at all.
 
 echo
 sleep 3
@@ -1471,18 +1483,20 @@ echo -n "apq library: checking for one or more database config scripts... "
 if [ -n "$NO_MYSQL" -a -n "$NO_POSTGRES" ] ; then
    echo "no"
 else
-   if [ -z "$HAS_POSTGRES" ] ; then
-      if [ -z "$HAS_MYSQL" ] ; then
-         echo "no"
-         echo
-         echo "The APQ library uses the pg_config and mysql_config scripts to configure"
-         echo "itself.  Not all operating systems include these, or they include them"
-         echo "as part of the 'devel' packages.  If you don't have these scripts, you"
-         echo "copy them from the database sources into /usr/local/bin"
-         exit 1
-      else
-         echo "yes"
-      fi
+   TMP=
+   if [ -z "$NO_POSTGRES" -a -z "$HAS_POSTGRES" ] ; then
+      TMP=1
+   elif [ -z "$NO_MYSQL" -a -z "$HAS_MYSQL" ] ; then
+      TMP=1
+   fi
+   if [ -n "$TMP" ] ; then
+      echo "no"
+      echo
+      echo "The APQ library uses the pg_config and mysql_config scripts to configure"
+      echo "itself.  Not all operating systems include these, or they include them"
+      echo "as part of the 'devel' packages.  If you don't have these scripts, you"
+      echo "copy them from the database sources into /usr/local/bin"
+      exit 1
    else
       echo "yes"
    fi
@@ -1596,124 +1610,26 @@ if [ -n "$NEEDS_APQ" ] ; then
 else
    GNATPREP_OPTS="$GNATPREP_OPTS -DAPQ=false"
 fi
-GNATPREP_OPTS="$GNATPREP_OPTS -D configbuildDate=\"$CONFIGBUILDDATE\""
+GNATPREP_OPTS="$GNATPREP_OPTS -D configbuildid=\"$CONFIGBUILDID\""
 GNATPREP_OPTS="$GNATPREP_OPTS -D configreleased=$CONFIGRELEASED"
 GNATPREP_OPTS="$GNATPREP_OPTS -D configbuilder=\"$CONFIGBUILDER\""
-echo "$GNATPREP_OPTS"
+# echo "$GNATPREP_OPTS"
 
-# Run each ".orig" file through GnatPrep Ada pre-processor to create the
+# Run each Ada ".orig" file through GnatPrep Ada pre-processor to create the
 # final file, with any disabled features removed.
 
-echo "Updating...world.ads"
-test -f world.ads && chmod 666 world.ads
-cp world.ads.orig temp.ads
-gnatprep $GNATPREP_OPTS temp.ads world.ads
-chmod 444 world.ads
+ls *.orig | (while read FILE ; do
+   if [ "$FILE" != "GNUmakefile.orig" ] ; then
+      TARGET=`echo "$FILE" | sed 's/.orig//g'`
+      echo "Updating...$TARGET"
+      test -f "$TARGET" && chmod 666 "$TARGET"
+      cp "$FILE" temp.ada
+      gnatprep $GNATPREP_OPTS temp.ada "$TARGET"
+      chmod 444 "$TARGET"
+   fi
+done )
 
-echo "Updating...pegasoft.user_io.getline.adb"
-test -f pegasoft-user_io-getline.adb && chmod 666 pegasoft-user_io-getline.adb
-cp pegasoft-user_io-getline.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb pegasoft-user_io-getline.adb
-chmod 444 pegasoft-user_io-getline.adb
-
-echo "Updating...scanner_res.ads"
-test -f scanner_res.ads && chmod 666 scanner_res.ads
-cp scanner_res.ads.orig temp.ads
-gnatprep $GNATPREP_OPTS temp.ads scanner_res.ads
-chmod 444 scanner_res.ads
-
-echo "Updating...scanner_res.adb"
-test -f scanner_res.adb && chmod 666 scanner_res.adb
-cp scanner_res.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb scanner_res.adb
-chmod 444 scanner_res.adb
-
-echo "Updating...builtins.adb"
-test -f builtins.adb && chmod 666 builtins.adb
-cp builtins.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb builtins.adb
-chmod 444 builtins.adb
-
-echo "Updating...parser_db.adb"
-test -f parser_db.adb && chmod 666 parser_db.adb
-cp parser_db.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_db.adb
-chmod 444 parser_db.adb
-
-echo "Updating...parser_dbm.adb"
-test -f parser_dbm.adb && chmod 666 parser_dbm.adb
-cp parser_dbm.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_dbm.adb
-chmod 444 parser_dbm.adb
-
-echo "Updating...parser_mysql.adb"
-test -f parser_mysql.adb && chmod 666 parser_mysql.adb
-cp parser_mysql.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_mysql.adb
-chmod 444 parser_mysql.adb
-
-echo "Updating...parser_mysqlm.adb"
-test -f parser_mysqlm.adb && chmod 666 parser_mysqlm.adb
-cp parser_mysqlm.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_mysqlm.adb
-chmod 444 parser_mysqlm.adb
-
-echo "Updating...parser_sound.adb"
-test -f parser_sound.adb && chmod 666 parser_sound.adb
-cp parser_sound.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_sound.adb
-chmod 444 parser_sound.adb
-
-echo "Updating...parser_pen.adb"
-test -f parser_pen.adb && chmod 666 parser_pen.adb
-cp parser_pen.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_pen.adb
-chmod 444 parser_pen.adb
-
-echo "Updating...parser_gnat_cgi.adb"
-test -f parser_gnat_cgi.adb && chmod 666 parser_gnat_cgi.adb
-cp parser_gnat_cgi.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_gnat_cgi.adb
-chmod 444 parser_gnat_cgi.adb
-
-echo "Updating...parser_bdb.adb"
-test -f parser_bdb.adb && chmod 666 parser_bdb.adb
-cp parser_bdb.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_bdb.adb
-chmod 444 parser_bdb.adb
-
-echo "Updating...parser_btree_io.adb"
-test -f parser_btree_io.adb && chmod 666 parser_btree_io.adb
-cp parser_btree_io.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_btree_io.adb
-chmod 444 parser_btree_io.adb
-
-echo "Updating...parser_hash_io.adb"
-test -f parser_hash_io.adb && chmod 666 parser_hash_io.adb
-cp parser_hash_io.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_hash_io.adb
-chmod 444 parser_hash_io.adb
-
-echo "Updating...parser_strings_pcre.adb"
-test -f parser_strings_pcre.adb && chmod 666 parser_strings_pcre.adb
-cp parser_strings_pcre.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_strings_pcre.adb
-chmod 444 parser_strings_pcre.adb
-
-echo "Updating...parser_l10n.adb"
-test -f parser_l10n.adb && chmod 666 parser_l10n.adb
-cp parser_l10n.adb.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb parser_l10n.adb
-chmod 444 parser_l10n.adb
-
-echo "Updating...world_deps.adb"
-test -f world-deps.ads && chmod 666 world-deps.ads
-cp world-deps.ads.orig temp.adb
-gnatprep $GNATPREP_OPTS temp.adb world-deps.ads
-chmod 444 world-deps.ads
-
-test -f temp.ads && rm temp.ads
-test -f temp.adb && rm temp.adb
+test -f temp.ada && rm temp.ada
 
 # Create a new makefile by substituting optional libraries and configuration
 # options into the file with sed.

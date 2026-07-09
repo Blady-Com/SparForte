@@ -11,15 +11,31 @@ These are new issues identified but not entered into the outstanding bug list
 Long term Ongoing Work
 ----------------------
 
-- CGI package broken since 2.5.
-  - better testing needed for CGI package and/or file mode features
+- to catch 2>;, I need "redirectFileNumber" the way I have redirectAmpersand
+  but maybe I will have to push it up to the parser to avoid adding more states
+  flags to the compiler.
 
+    -- If we're in a redirect and we're not looking for an ampersand, it should be
+    -- a file number
+
+    if inRedirect and not redirectAmpersand and redirectFileNumber and ch /= '1' then
+       inRedirect := false;
+       redirectAmpersand := false;
+       err_tokenize( contextShell & "the file number for the redirection is missing", to_string( command ) );
+       exit;
+    end if;
+
+- gethostbyname (deprecated) -> getaddrinfo with new parameters and
+  structure
+- if a command line starts with a space, c_rc.c counts the leading
+  space as ending a word and, thus, breaks second word auto-complete
+  such as (" git com" doesn't complete commit)
+  - likewise, "  git" will not match "git" when doing second word
+    auto-complete
 - need to test unchecked_volatile with a file variable (ideally, hash_io)
-  and a function
-- tests still needed for subprograms with an in out parameter of a generic type
-
-- move parsecaseparam and parseref...these are not parameters for parse_params.
-  - add case tests for array case variables
+  and a function...but I don't remember why.  Perhaps it's the handling
+  of tags and ensuring they are not overwritten.
+- sound.play and CD support should be removed
 
 - value meta labels project
   - NOTE: left off recreation of good testing of value meta labels with arrays package
@@ -201,6 +217,9 @@ Long term Ongoing Work
 Priority Issues (Fix These First)
 ---------------------------------
 
+- Ada's writable file test is incorrect.  Create my own is_writable/file
+  functions in c_os.c and uncomment tests in goodtest.sp which are
+  failing under Ada's version.
 - verify that the output from --help and other command line options
   such as unit tests and agile reports and secure the output; if it is
   not, determine how to escape characters

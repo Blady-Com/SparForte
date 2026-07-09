@@ -1,12 +1,14 @@
 ------------------------------------------------------------------------------
 -- Common declarations across most of SparForte including command line      --
--- switches and global constants.  The symbol table is in a separate file.  --
+-- switches and global variables and constants.  This is the lowest-level   --
+-- of the SparForte ecosystem and has minimum dependencies.                 --
+-- The symbol table used to be here but is now in a separate file.          --
 --                                                                          --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---              Copyright (C) 2001-2025 Free Software Foundation            --
+--              Copyright (C) 2001-2026 Free Software Foundation            --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -50,7 +52,7 @@ package world is
 builder   : constant string  := $configbuilder;
 version   : constant string  := "3.0.1";
 released  : constant boolean := $configreleased;
-buildDate : constant string  := $configbuilddate;
+buildId   : constant string  := $configbuildid;
 copyright : constant string  :=  " Copyright (c)2001-2026 Free Software Foundation";
 
 globalConfigPath  : constant string := "/etc/sparforte_config";
@@ -574,6 +576,9 @@ initialEnvironment : environmentList.List;
 -----------------------------------------------------------------------------
 -- Memcached
 -----------------------------------------------------------------------------
+
+DEFAULT_MEMCACHE_HOST : constant unbounded_string := to_unbounded_string( "localhost" );
+DEFAULT_MEMCACHE_PORT : constant natural := 11211;
 
 -- PegaSock Cluster for a Local Memcache Server
 -- It is only initialized if it is used in pragma import/etc.

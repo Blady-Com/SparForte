@@ -17,12 +17,11 @@
 #include <limits.h>
 #include <pwd.h>
 
+#if defined( __USE_GNU )
+#else
 /* For group_member(), a GNU libc extension, moved in recent versions */
 /* Some Linuxes do not have group_list defined and we must use the */
 /* non-standard grp.h for getgrouplist() */
-#if defined( __USE_GNU )
-#include <unistd.h>
-#else
 #include <grp.h>
 #endif
 
@@ -40,7 +39,8 @@ int group_member(gid_t gid) {
 
   ngroups = NGROUPS_MAX;
   ret = 0;
-  // This may fail and return NULL e.g. CGI scripts.
+  // getlogin() may fail and return NULL e.g. CGI scripts .
+  // I don't have a Mac to test changes on so leaving it as-is for now.
   login = getlogin();
   if (login != NULL ) {
      if (getgrouplist(login, -1, groups, &ngroups) == -1) {
@@ -400,7 +400,7 @@ int C_is_secure_dir( char * path ) {
 /*                                                          */
 /* Return file length as reported by stat().                */
 
-int C_file_length( char * path ) {
+long C_file_length( char * path ) {
   struct stat info;
   int result = -1;
   if ( stat( path, &info ) == 0 )
@@ -417,14 +417,20 @@ void C_file_modify_time( char * path, int *year, int *month, int *day, int *sec 
   struct tm *timestruct;
 
   *year = -1;
+  *month = -1;
+  *day = -1;
+  *sec = -1;
+
   if ( stat( path, &info ) == 0 ) {
      timestruct = localtime( &info.st_mtime );
-     *year = timestruct->tm_year+1900;
-     *month = timestruct->tm_mon+1;
-     *day = timestruct->tm_mday;
-     *sec = timestruct->tm_sec+
-            timestruct->tm_min*60+
-            timestruct->tm_hour*60*60;
+     if (timestruct != NULL) {
+        *year = timestruct->tm_year+1900;
+        *month = timestruct->tm_mon+1;
+        *day = timestruct->tm_mday;
+        *sec = timestruct->tm_sec+
+               timestruct->tm_min*60+
+               timestruct->tm_hour*60*60;
+     }
   }
 }
 
@@ -437,14 +443,20 @@ void C_file_change_time( char * path, int *year, int *month, int *day, int *sec 
   struct tm *timestruct;
 
   *year = -1;
+  *month = -1;
+  *day = -1;
+  *sec = -1;
+
   if ( stat( path, &info ) == 0 ) {
      timestruct = localtime( &info.st_ctime );
-     *year = timestruct->tm_year+1900;
-     *month = timestruct->tm_mon+1;
-     *day = timestruct->tm_mday;
-     *sec = timestruct->tm_sec+
-            timestruct->tm_min*60+
-            timestruct->tm_hour*60*60;
+     if (timestruct != NULL) {
+        *year = timestruct->tm_year+1900;
+        *month = timestruct->tm_mon+1;
+        *day = timestruct->tm_mday;
+        *sec = timestruct->tm_sec+
+               timestruct->tm_min*60+
+               timestruct->tm_hour*60*60;
+     }
   }
 }
 
@@ -457,14 +469,20 @@ void C_file_access_time( char * path, int *year, int *month, int *day, int *sec 
   struct tm *timestruct;
 
   *year = -1;
+  *month = -1;
+  *day = -1;
+  *sec = -1;
+
   if ( stat( path, &info ) == 0 ) {
      timestruct = localtime( &info.st_atime );
-     *year = timestruct->tm_year+1900;
-     *month = timestruct->tm_mon+1;
-     *day = timestruct->tm_mday;
-     *sec = timestruct->tm_sec+
-            timestruct->tm_min*60+
-            timestruct->tm_hour*60*60;
+     if (timestruct != NULL) {
+        *year = timestruct->tm_year+1900;
+        *month = timestruct->tm_mon+1;
+        *day = timestruct->tm_mday;
+        *sec = timestruct->tm_sec+
+               timestruct->tm_min*60+
+               timestruct->tm_hour*60*60;
+     }
   }
 }
 
@@ -484,19 +502,21 @@ void C_day_of_week( int * wday, int year, int month, int day ) {
   timestruct.tm_sec  = 0;
   timestruct.tm_min  = 0;
   timestruct.tm_hour = 0;
+  timestruct.tm_isdst = -1;
   result = mktime( &timestruct );
   timestruct2 = localtime( &result );
-  *wday = timestruct2->tm_wday+1;
-
+  if (timestruct2 != NULL) {
+     *wday = timestruct2->tm_wday+1;
+  }
 }
 
 // SIGNAL HANDLING
 
-int *sigchld_flag = 0;         // Address of Ada boolean variable
-int *sigint_flag = 0;          // Address of Ada boolean variable
-int *sigterm_flag = 0;         // Address of Ada boolean variable
-int *sigwinch_flag = 0;        // Address of Ada boolean variable
-int *sigpipe_flag = 0;         // Address of Ada boolean variable
+volatile int *sigchld_flag = 0;         // Address of Ada boolean variable
+volatile int *sigint_flag = 0;          // Address of Ada boolean variable
+volatile int *sigterm_flag = 0;         // Address of Ada boolean variable
+volatile int *sigwinch_flag = 0;        // Address of Ada boolean variable
+volatile int *sigpipe_flag = 0;         // Address of Ada boolean variable
 
 // SIGINT
 

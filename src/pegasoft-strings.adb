@@ -159,15 +159,17 @@ begin
      for i in 1..BadLen loop
          if Delete( BadString, i, i ) = GoodString then
             IsTypo := true;
+            exit;
          end if;
      end loop;
   end if;
 
   -- Single Deletion
-  if BadLen = GoodLen-1 then
+  if BadLen = GoodLen-1 and not IsTypo then
      for i in 1..GoodLen loop
          if BadString = Delete( GoodString, i, i ) then
             IsTypo := true;
+            exit;
          end if;
      end loop;
   end if;
@@ -181,6 +183,7 @@ begin
          Replace_Element( TempStr, i+1, TempChar );
          if TempStr = GoodString then
             IsTypo := true;
+            exit;
          end if;
          Replace_Element( TempStr, i+1, Element( TempStr, i ) );
          Replace_Element( TempStr, i, TempChar );
@@ -192,6 +195,7 @@ begin
      for i in 1..BadLen loop
          if Delete( BadString, i, i ) = Delete( GoodString, i, i ) then
             IsTypo := true;
+            exit;
          end if;
      end loop;
   end if;
@@ -361,7 +365,7 @@ end Is_Hexadecimal_Digit;
 ------------------------------------------------------------------------------
 --  IS ALPHANUMERIC
 --
--- true if string is completely hexadecimal digit characters
+-- true if string is completely hexadecimal alphabetic or numeric characters
 ------------------------------------------------------------------------------
 
 function Is_Alphanumeric( s : unbounded_string ) return boolean is
@@ -446,27 +450,39 @@ function Is_Fixed( s : unbounded_string ) return boolean is
   flag : boolean := true;
   dotcnt : natural := 0;
   ch   : character;
+  numberStart : positive := 1;
 begin
   if length( s ) = 0 then
      flag := false;
   else
-     if element( s, 1 ) = '.' then
-        flag := false;
-     end if;
      if element( s, length( s ) ) = '.' then
         flag := false;
      end if;
-     for i in 1..length( s ) loop
-         ch := element(s, i );
-         if  ch = '.' then
-             dotcnt := dotcnt + 1;
-         elsif not Is_Digit( ch ) then
-            flag := false;
-            exit;
-         end if;
-     end loop;
-     if dotcnt /= 1 then
+     ch := element( s, 1 );
+     if ch = '.' then
         flag := false;
+     end if;
+     if flag then
+        -- optional leading space (Ada uses for plus) or minus sign
+        if ch = ' ' then
+            numberStart := 2;
+        elsif ch = '-' then
+            numberStart := 2;
+        elsif not Is_Digit( ch ) then
+            flag := false;
+        end if;
+        for i in numberStart..length( s ) loop
+            ch := element(s, i );
+            if  ch = '.' then
+                dotcnt := dotcnt + 1;
+            elsif not Is_Digit( ch ) then
+               flag := false;
+               exit;
+            end if;
+        end loop;
+        if dotcnt /= 1 then
+           flag := false;
+        end if;
      end if;
   end if;
   return flag;
@@ -708,7 +724,7 @@ end ToJSONUnescaped;
 ------------------------------------------------------------------------------
 
 function AorAN( s : unbounded_string ) return unbounded_string is
-  ch  : character := Element( s, 1 );
+  ch  : character := ' ';
   ch2 : string(1..2);
 begin
   if length( s ) > 0 then
@@ -1330,6 +1346,8 @@ end getDateString;
 ------------------------------------------------------------------------------
 --  DIRNAME
 --
+-- Return the directory portion for the path p.  For an empty string, returns
+-- a "." (the current directory).
 ------------------------------------------------------------------------------
 
 function dirname( s : unbounded_string ) return unbounded_string is
@@ -1354,6 +1372,8 @@ end dirname;
 ------------------------------------------------------------------------------
 --  BASENAME
 --
+-- Return the filename for the path p.  For an empty string, returns an empty
+-- string.
 ------------------------------------------------------------------------------
 
 function basename( s : unbounded_string ) return unbounded_string is

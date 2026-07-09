@@ -309,14 +309,48 @@ setup() {
   test -f ./test.txt && rm ./test.txt
   test -f ./test2.txt && rm ./test2.txt
 
-  if test ! -f ./write_only.txt ; then
-     touch ./write_only.txt
-     chmod 222 ./write_only.txt
+  # Files to test access functions.
+  # This list is not exhaustive but some cases like group members with
+  # access is difficult to test in a machine-independent way.
+
+  if test ! -f ./write_only1.txt ; then
+     touch ./write_only1.txt
+     chmod 222 ./write_only1.txt
   fi
 
-  if test ! -f ./exec_only.txt ; then
-     touch ./exec_only.txt
-     chmod 111 ./exec_only.txt
+  if test ! -f ./write_only2.txt ; then
+     touch ./write_only2.txt
+     chmod 200 ./write_only2.txt
+  fi
+
+  if test ! -f ./write_only3.txt ; then
+     touch ./write_only3.txt
+     chmod 020 ./write_only3.txt
+  fi
+
+  if test ! -f ./write_only4.txt ; then
+     touch ./write_only4.txt
+     chmod 002 ./write_only4.txt
+  fi
+
+  if test ! -f ./exec_only1.txt ; then
+     touch ./exec_only1.txt
+     chmod 111 ./exec_only1.txt
+  fi
+
+  if test ! -f ./exec_only2.txt ; then
+     touch ./exec_only2.txt
+     chmod 111 ./exec_only2.txt
+  fi
+
+  if test ! -f ./exec_only3.txt ; then
+     touch ./exec_only3.txt
+     chmod 111 ./exec_only3.txt
+  fi
+
+  if test ! -f ./exec_only4.txt ; then
+     touch ./exec_only4.txt
+     chmod 111 ./exec_only4.txt
   fi
 
   mkdir cdtest
@@ -348,14 +382,44 @@ teardown() {
   test -f ./test.txt && rm ./test.txt
   test -f ./test2.txt && rm ./test2.txt
 
-  if [ -f ./write_only.txt ] ; then
-     chmod 722 ./write_only.txt
-     rm ./write_only.txt
+  if [ -f ./write_only1.txt ] ; then
+     chmod 722 ./write_only1.txt
+     rm ./write_only1.txt
   fi
 
-  if [ -f ./exec_only.txt ] ; then
-     chmod 711 ./exec_only.txt
-     rm ./exec_only.txt
+  if [ -f ./write_only2.txt ] ; then
+     chmod 722 ./write_only2.txt
+     rm ./write_only2.txt
+  fi
+
+  if [ -f ./write_only3.txt ] ; then
+     chmod 722 ./write_only3.txt
+     rm ./write_only3.txt
+  fi
+
+  if [ -f ./write_only4.txt ] ; then
+     chmod 722 ./write_only4.txt
+     rm ./write_only4.txt
+  fi
+
+  if [ -f ./exec_only1.txt ] ; then
+     chmod 711 ./exec_only1.txt
+     rm ./exec_only1.txt
+  fi
+
+  if [ -f ./exec_only2.txt ] ; then
+     chmod 711 ./exec_only2.txt
+     rm ./exec_only2.txt
+  fi
+
+  if [ -f ./exec_only3.txt ] ; then
+     chmod 711 ./exec_only3.txt
+     rm ./exec_only3.txt
+  fi
+
+  if [ -f ./exec_only4.txt ] ; then
+     chmod 711 ./exec_only4.txt
+     rm ./exec_only4.txt
   fi
 
   if [ -d cdtest ] ; then
@@ -1028,14 +1092,44 @@ test -f ./test.txt && rm ./test.txt
 
 # Create special test files
 
-if test ! -f ./write_only.txt ; then
-   touch ./write_only.txt
-   chmod 222 ./write_only.txt
+if test ! -f ./write_only1.txt ; then
+   touch ./write_only1.txt
+   chmod 222 ./write_only1.txt
 fi
 
-if test ! -f ./exec_only.txt ; then
-   touch ./exec_only.txt
-   chmod 111 ./exec_only.txt
+if test ! -f ./write_only2.txt ; then
+   touch ./write_only2.txt
+   chmod 200 ./write_only2.txt
+fi
+
+if test ! -f ./write_only3.txt ; then
+   touch ./write_only3.txt
+   chmod 020 ./write_only3.txt
+fi
+
+if test ! -f ./write_only4.txt ; then
+   touch ./write_only4.txt
+   chmod 002 ./write_only4.txt
+fi
+
+if test ! -f ./exec_only1.txt ; then
+   touch ./exec_only1.txt
+   chmod 111 ./exec_only1.txt
+fi
+
+if test ! -f ./exec_only2.txt ; then
+   touch ./exec_only2.txt
+   chmod 100 ./exec_only2.txt
+fi
+
+if test ! -f ./exec_only3.txt ; then
+   touch ./exec_only3.txt
+   chmod 010 ./exec_only3.txt
+fi
+
+if test ! -f ./exec_only4.txt ; then
+   touch ./exec_only4.txt
+   chmod 001 ./exec_only4.txt
 fi
 
 start_junit

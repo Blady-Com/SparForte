@@ -108,15 +108,23 @@ begin
       execResult := execv( Path,
           Convert_To_C_Args( Path'address, ap.all )'address );
       if execResult < 0 then
-         put_line_retry( standard_error, gnat.source_info.source_location &
-             ": spar_os.exec: failed to execute command, " &
-             "error #" & C_errno'img );
+         if C_errno = ENOENT then
+            put_line_retry( standard_error,
+                "While executing the command, the command failed to run, " &
+                "Perhaps the bang path is incorrect." );
+         else
+            put_line_retry( standard_error,
+                "While executing the command, the command failed to run, " &
+                "O/S error #" & C_errno'img );
+         end if;
       else
          put_line_retry( standard_error, gnat.source_info.source_location &
              ": spar_os.exec: execv unexpectedly returned" );
       end if;
 
-      raise PROGRAM_ERROR; -- this process must die
+      -- this process must die
+
+      raise EXEC_CHILD_ERROR;
 
       -- child process block
 

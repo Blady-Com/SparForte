@@ -28,6 +28,8 @@ use  ada.strings.unbounded;
 
 package spar_os.exec is
 
+-- spar_os-exec couldn't run a command (such as file not found)
+EXEC_CHILD_ERROR : exception;
 
 -- Arguments for the Program to Run
 

@@ -22,9 +22,11 @@
 ------------------------------------------------------------------------------
 
 with ada.strings.unbounded,
-     world;
+     world,
+     symbol_table;
 use ada.strings.unbounded,
-    world;
+    world,
+    symbol_table;
 
 package parser is
 
@@ -56,6 +58,12 @@ procedure ParseDesignPragmaConstraintIdentifier( name : out unbounded_string );
 procedure ParseDesignPragmaAffinityIdentifier( name : out unbounded_string );
 procedure ParseDesignPragmaModeIdentifier( name : out unbounded_string );
 procedure ParseDesignPragmaAffinityModeIdentifier( name : out unbounded_string );
+
+procedure ParseRenamingReference( ref : out renamingReference; expectedType : identifier );
+-- parse a reference used in a "renames" clause in a declaration
+
+procedure ParseCaseReference( ref : out reference );
+-- parse a reference used in a "case" statement header
 
 procedure DoContracts( kind_id : identifier; expr : in out storage );
 

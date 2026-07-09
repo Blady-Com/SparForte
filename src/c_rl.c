@@ -41,6 +41,33 @@ const int completion_type_npm        = 12;
 const int completion_type_dnf        = 13;
 const int completion_type_executable = 14;
 
+// Commands with autocomplete of subcommands
+const char git_str[5]    = "git ";
+const char ipset_str[7]  = "ipset ";
+const char svn_str[5]    = "svn ";
+const char yum_str[5]    = "yum ";
+const char apt_str[5]    = "apt ";
+const char docker_str[8] = "docker ";
+const char kubernetes_str[9] = "kubectl ";
+const char oc_str[4]     = "oc ";
+const char npm_str[5]    = "npm ";
+const char dnf_str[5]    = "dnf ";
+const char sudo_str[6]    = "sudo ";
+
+// String lengths of commands with autocomplete of subcommands
+const int git_str_len    = sizeof(git_str) - 1;
+const int ipset_str_len  = sizeof(ipset_str) - 1;
+const int svn_str_len    = sizeof(svn_str) - 1;
+const int yum_str_len    = sizeof(yum_str) - 1;
+const int apt_str_len    = sizeof(apt_str) - 1;
+const int docker_str_len = sizeof(docker_str) - 1;
+const int kubernetes_str_len = sizeof(kubernetes_str) - 1;
+const int oc_str_len     = sizeof(oc_str) - 1;
+const int npm_str_len    = sizeof(npm_str) - 1;
+const int dnf_str_len    = sizeof(dnf_str) - 1;
+const int sudo_str_len   = sizeof(sudo_str) - 1;
+
+
 /**
  *  SPARFORTE COMPLETION
  *
@@ -60,18 +87,6 @@ char ** sparforte_completion( const char *text, int start, int end ) {
     int  in_whspace    = -9999;
     int  in_backslash  = -9999;
     char ch;
-    // Commands with autocomplete of subcommands
-    const char git_str[5]    = "git ";
-    const char ipset_str[7]  = "ipset ";
-    const char svn_str[5]    = "svn ";
-    const char yum_str[5]    = "yum ";
-    const char apt_str[5]    = "apt ";
-    const char docker_str[8] = "docker ";
-    const char kubernetes_str[9] = "kubectl ";
-    const char oc_str[4]     = "oc ";
-    const char npm_str[5]    = "npm ";
-    const char dnf_str[5]    = "dnf ";
-    const char sudo_str[6]    = "sudo ";
 
     int completion_type = completion_type_none;
 
@@ -148,16 +163,16 @@ char ** sparforte_completion( const char *text, int start, int end ) {
 //printf( "%s\n", "word at end" ); // DEBUG
     } // if not empty
 
-/*
-    printf("%s %d\n", "start          ", start ); // DEBUG
-    printf("%s %d\n", "end            ", end ); // DEBUG
-    printf("%s %d\n", "text_idx       ", text_idx ); // DEBUG
-    printf("%s %d\n", "text_first     ", text_first ); // DEBUG
-    printf("%s %d\n", "text_word_count", text_word_cnt ); // DEBUG
-    printf("%s %d\n", "in_dquote      ", in_dquote ); // DEBUG
-    printf("%s %d\n", "in_squote      ", in_squote ); // DEBUG
-    printf("%s %d\n", "in_bquote      ", in_bquote ); // DEBUG
-    printf("%s %d\n", "in_whspace     ", in_bquote ); // DEBUG
+/* Uncomment this to debug the parsing of the command line for autocomplete
+    printf("%s %d\n", "start          ", start );
+    printf("%s %d\n", "end            ", end );
+    printf("%s %d\n", "text_idx       ", text_idx );
+    printf("%s %d\n", "text_first     ", text_first );
+    printf("%s %d\n", "text_word_count", text_word_cnt );
+    printf("%s %d\n", "in_dquote      ", in_dquote );
+    printf("%s %d\n", "in_squote      ", in_squote );
+    printf("%s %d\n", "in_bquote      ", in_bquote );
+    printf("%s %d\n", "in_whspace     ", in_bquote );
 */
 
     // Is this a command?
@@ -215,7 +230,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
 
     if (text_word_cnt == 2) {
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, git_str, strlen(git_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, git_str, git_str_len ) == 0 ) {
              completion_type = completion_type_git;
           }
        }
@@ -223,7 +238,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Svn subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, svn_str, strlen(svn_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, svn_str, svn_str_len ) == 0 ) {
              completion_type = completion_type_svn;
           }
        }
@@ -231,7 +246,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Ipset subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, ipset_str, strlen(ipset_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, ipset_str, ipset_str_len ) == 0 ) {
              completion_type = completion_type_ipset;
           }
        }
@@ -239,7 +254,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Yum subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, yum_str, strlen(yum_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, yum_str, yum_str_len ) == 0 ) {
              completion_type = completion_type_yum;
           }
        }
@@ -247,7 +262,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Dnf subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, dnf_str, strlen(dnf_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, dnf_str, dnf_str_len ) == 0 ) {
              completion_type = completion_type_dnf;
           }
        }
@@ -255,7 +270,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Apt subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, apt_str, strlen(apt_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, apt_str, apt_str_len ) == 0 ) {
              completion_type = completion_type_apt;
           }
        }
@@ -263,7 +278,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Docker subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, docker_str, strlen(docker_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, docker_str, docker_str_len ) == 0 ) {
              completion_type = completion_type_docker;
           }
        }
@@ -271,7 +286,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Kubernetes subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, kubernetes_str, strlen(kubernetes_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, kubernetes_str, kubernetes_str_len ) == 0 ) {
              completion_type = completion_type_k8s;
           }
        }
@@ -279,7 +294,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Openshift subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, oc_str, strlen(oc_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, oc_str, oc_str_len ) == 0 ) {
              completion_type = completion_type_k8s;
           }
        }
@@ -287,7 +302,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // NPM subcommand completion: a special case.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, npm_str, strlen(npm_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, npm_str, npm_str_len ) == 0 ) {
              completion_type = completion_type_npm;
           }
        }
@@ -295,7 +310,7 @@ char ** sparforte_completion( const char *text, int start, int end ) {
        // Sudo command completion: sudo is usually followed by a command.
 
        if (completion_type == completion_type_none) {
-          if ( strncmp( rl_line_buffer, sudo_str, strlen(sudo_str) ) == 0 ) {
+          if ( strncmp( rl_line_buffer, sudo_str, sudo_str_len ) == 0 ) {
              //completion_type = completion_type_command;
              completion_type = completion_type_executable;
           }
@@ -392,7 +407,7 @@ int backslash_check( char *line, int index ) {
  * Initialize the GNU readline library.
  */
 
-void C_init_readline(int idle_timeout) {
+void C_init_readline(void) {
   // This identifies SparForte configurations in inputrc files
 
   rl_readline_name = "SparForte";
@@ -418,10 +433,14 @@ void C_init_readline(int idle_timeout) {
 
   rl_attempted_completion_function = sparforte_completion;
 
+  // Normally tabs cannot occur (they are the auto-complete key)
+
+  rl_completer_word_break_characters = " \t";
+
   // Detecting a backslash escape
   // Remove backslash from word break characters.
+  // This does not work on some Mac's.
 
-  rl_completer_word_break_characters = " ";
 #ifndef __APPLE__
     rl_char_is_quoted_p = &backslash_check;
 #endif
@@ -464,6 +483,7 @@ void C_readline( char *term, char *prompt, char **ada_buffer, int keep_history) 
 
   // Read. Add non-empty lines to gnu readline's history
 
+  *ada_buffer = NULL;
   buffer = readline( prompt );
   if (buffer) {
      *ada_buffer = buffer;
@@ -477,10 +497,11 @@ void C_readline( char *term, char *prompt, char **ada_buffer, int keep_history) 
 /**
  *  C FREE READLINE (called from Ada)
  *
- * Deallocate the string in the ada_buffer.
+ * Deallocate the string in the ada_buffer.  Ada checks for not null
+ * before calling.
  */
 
 void C_free_readline(char *ada_buffer) {
-  free( ada_buffer);
+  free( ada_buffer );
 }
 

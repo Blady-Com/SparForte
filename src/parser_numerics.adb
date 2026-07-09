@@ -1237,7 +1237,7 @@ begin
           total := to_numeric( total_st.value );
           result := storage'( to_unbounded_string(
              numericValue'rounding(
-                (hi-lo) / 1.0+log( total )
+                (hi-lo) / ( 1.0+log( total ) )
              )
           ), noMetaTag, resolveEffectiveMetaTags( kind, lo_st, hi_st, total_st ) );
        end if;
@@ -2037,10 +2037,10 @@ procedure ParseNumericsSHA512DigestOf( result : out storage; kind : out identifi
   subprogramId : constant identifier := sha512_digest_of_t;
 begin
   expect( subprogramId );
-  ParseSingleStringParameter( sha512_digest_of_t, src_st, src_type );
+  ParseSingleStringParameter( subprogramId, src_st, src_type );
   kind := src_type;
   if isExecutingCommand then
-     if metaTagOK( sha512_digest_of_t, src_st ) then
+     if metaTagOK( subprogramId, src_st ) then
         result := storage'( to_unbounded_string( Gnat.SHA512.Digest( to_string( src_st.value ) ) ),
            noMetaTag,
            src_st.policyMetaTags );
@@ -2146,9 +2146,9 @@ begin
       "1.4426950408889634074" );
   declareStandardConstant( numerics_log10_e_t, "numerics.log10_e", long_float_t,
       "0.43429448190325182765" );
-  declareStandardConstant( numerics_ln10_t, "numerics.ln2", long_float_t,
+  declareStandardConstant( numerics_ln2_t, "numerics.ln1", long_float_t,
       "0.69314718055994530942" );
-  declareStandardConstant( numerics_ln2_t, "numerics.ln10", long_float_t,
+  declareStandardConstant( numerics_ln10_t, "numerics.ln10", long_float_t,
       "2.30258509299404568402" );
   declareStandardConstant( numerics_pi_t, "numerics.pi", long_float_t,
       "3.14159265358979323846" );
@@ -2166,6 +2166,35 @@ begin
       "1.4142135623730950488" );
   declareStandardConstant( numerics_sqrt_2_under_1_t, "numerics.sqrt_2_under_1", long_float_t,
       "0.70710678118654752440" );
+
+  -- For future reference these are the same values as above but double
+  -- precision
+  --declareStandardConstant( numerics_e_t, "numerics.e", long_float_t,
+  --    "2.718281828459045235360287471352662498" );
+  --declareStandardConstant( numerics_log2_e_t, "numerics.log2_e", long_float_t,
+  --    "1.442695040888963407359924681001892137" );
+  --declareStandardConstant( numerics_log10_e_t, "numerics.log10_e", long_float_t,
+  --    "0.434294481903251827651128918916605082" );
+  --declareStandardConstant( numerics_ln2_t, "numerics.ln1", long_float_t,
+  --    "0.693147180559945309417232121458176568" );
+  --declareStandardConstant( numerics_ln10_t, "numerics.ln10", long_float_t,
+  --    "2.302585092994045684017991454684364208" );
+  --declareStandardConstant( numerics_pi_t, "numerics.pi", long_float_t,
+  --    "3.141592653589793238462643383279502884" );
+  --declareStandardConstant( numerics_pi_by_2_t, "numerics.pi_by_2", long_float_t,
+  --    "1.570796326794896619231321691639751442" );
+  --declareStandardConstant( numerics_pi_by_4_t, "numerics.pi_by_4", long_float_t,
+  --    "0.785398163397448309615660845819875721" );
+  --declareStandardConstant( numerics_pi_under_1_t, "numerics.pi_under_1", long_float_t,
+  --    "0.318309886183790671537767526745028724" );
+  --declareStandardConstant( numerics_pi_under_2_t, "numerics.pi_under_2", long_float_t,
+  --    "0.636619772367581343075535053490057448" );
+  --declareStandardConstant( numerics_sqrt_pi_under_2_t, "numerics.sqrt_pi_under_2",
+  --    long_float_t, "1.128379167095512573896158903121545172" );
+  --declareStandardConstant( numerics_sqrt_2_t, "numerics.sqrt_2", long_float_t,
+  --    "1.414213562373095048801688724209698079" );
+  --declareStandardConstant( numerics_sqrt_2_under_1_t, "numerics.sqrt_2_under_1", long_float_t,
+  --    "0.707106781186547524400844362104849039" );
 
   declareNamespaceClosed( "numerics" );
 end StartupNumerics;

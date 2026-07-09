@@ -62,7 +62,9 @@ end rnd;
 ------------------------------------------------------------------------------
 --  HASH OF
 --
---
+-- Calculate a 32-bit number from string s that can be used with hash tables
+-- using a common standard Bernstein / Knuth / djb2 hash. The return value is
+-- will be between 1 and the limit l.
 ------------------------------------------------------------------------------
 
 function hash_of( val : unbounded_string; limit : hash_integer ) return hash_integer is
@@ -79,7 +81,9 @@ end hash_of;
 ------------------------------------------------------------------------------
 --  SDBM HASH OF
 --
---
+-- Calculate a 32-bit number from string s that can be used with hash tables
+-- using a Sleepycat / sdbm hash. The return value is will be between 1 and
+-- the limit l.
 ------------------------------------------------------------------------------
 
 function sdbm_hash_of( val : unbounded_string; limit : hash_integer ) return hash_integer is
@@ -96,7 +100,9 @@ end sdbm_hash_of;
 ------------------------------------------------------------------------------
 --  FNV HASH OF
 --
---
+-- Calculate a 32-bit number from string s that can be used with hash tables
+-- using a Fowler-Null-Vo / FNV-1a hash (used by DNS's). The return value is
+-- will be between 1 and the limit l.
 ------------------------------------------------------------------------------
 
 function fnv_hash_of( val : unbounded_string; limit : hash_integer ) return hash_integer is
@@ -119,7 +125,9 @@ end fnv_hash_of;
 ------------------------------------------------------------------------------
 --  MURMUR HASH OF
 --
---
+-- Calculate a 32-bit number from string s that can be used with hash tables
+-- using a Murmur hash (used by memcached). The return value is will be
+-- between 1 and the limit l.
 ------------------------------------------------------------------------------
 
 function murmur_hash_of( val : unbounded_string; limit : hash_integer ) return hash_integer is

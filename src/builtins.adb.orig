@@ -22,7 +22,6 @@
 ------------------------------------------------------------------------------
 
 with ada.text_io,
-     --ada.strings.unbounded.text_io,
      ada.strings.fixed,
      gnat.source_info,
 #if POSTGRES
@@ -39,12 +38,10 @@ with ada.text_io,
      message_strings,
      scanner.communications,
      jobs,
-     --parser_aux,
      parser_db,
      parser_mysql;
 use  ada.text_io,
      ada.strings,
-     --ada.strings.unbounded.text_io,
      ada.strings.fixed,
 #if POSTGRES
      APQ,
@@ -57,12 +54,10 @@ use  ada.text_io,
      pegasoft.strings,
      jobs,
      pegasoft.user_io,
-     --world,
      world.utf8,
      message_strings,
      scanner,
      scanner.communications,
-     --parser_aux,
      parser_db,
      parser_mysql;
 
@@ -128,9 +123,10 @@ begin
          obstructorNotes => getEmOSError
      );
      current_working_directory := null_unbounded_string;
+  else
+     current_working_directory := to_unbounded_string(
+        buffer( 1..index( buffer, ASCII.NUL & "" ) - 1 ) ) ;
   end if;
-  current_working_directory := to_unbounded_string(
-     buffer( 1..index( buffer, ASCII.NUL & "" ) - 1 ) ) ;
 end findPwd;
 
 
@@ -180,7 +176,8 @@ end old_pwd;
 -----------------------------------------------------------------------------
 --  OLD_CD
 --
--- Old version of the builtin cd command used in previous versions of Bush.
+-- Old version of the builtin cd command used in previous versions of
+-- SparForte.
 -- Syntax: old_cd s
 -- loosely modelled on bash/builtins/cd.def
 -----------------------------------------------------------------------------
@@ -244,7 +241,7 @@ begin
      Insert( path, 1, to_string( identifiers( temp_id ).store.value ) );
   end if;
 
-  -- CDPATH support not yet implmeneted.  Should go HERE, but
+  -- CDPATH support not yet implemented.  Should go HERE, but
   -- is CDPATH such a good idea anyway?  Not usually!
 
   -- Apply the directory change.  If we're in an interactive mode, attempt
@@ -379,12 +376,14 @@ begin
          );
      elsif currentEngine = Engine_PostgreSQL then
 #if POSTGRES
+        -- APQ library does not support parameterized SQL queries
         DoSQLStatement( "alter " & tempStr );
 #else
         err( +"postgresql support not configured" );
 #end if;
      elsif currentEngine = Engine_MySQL then
 #if MYSQL
+        -- APQ library does not support parameterized SQL queries
         DoMySQLSQLStatement( "alter " & tempStr );
 #else
         err( +"mysql support not configured" );
@@ -471,37 +470,37 @@ begin
         -- This list is some common values and is not exhaustive.
 
         if newMask = 777 then
-           remedySuggestion := to_unbounded_string( "you mean decimaal 0" );
+           remedySuggestion := to_unbounded_string( "you mean decimal 0" );
            if inputMode = interactive or inputMode = breakout then
               put_trace( "Assuming " & to_string( remedySuggestion ) );
               newMask := 0;
            end if;
         elsif newMask = 775 then
-           remedySuggestion := to_unbounded_string( "you mean octal 3 / decimaal 3" );
+           remedySuggestion := to_unbounded_string( "you mean octal 3 / decimal 3" );
            if inputMode = interactive or inputMode = breakout then
               put_trace( "Assuming " & to_string( remedySuggestion ) );
               newMask := 3;
            end if;
         elsif newMask = 755 then
-           remedySuggestion := to_unbounded_string( "you mean octal 22 / decimaal 18" );
+           remedySuggestion := to_unbounded_string( "you mean octal 22 / decimal 18" );
            if inputMode = interactive or inputMode = breakout then
               put_trace( "Assuming " & to_string( remedySuggestion ) );
               newMask := 18;
            end if;
         elsif newMask = 700 then
-           remedySuggestion := to_unbounded_string( "you mean octal 77 / decimaal 63" );
+           remedySuggestion := to_unbounded_string( "you mean octal 77 / decimal 63" );
            if inputMode = interactive or inputMode = breakout then
               put_trace( "Assuming " & to_string( remedySuggestion ) );
               newMask := 63;
            end if;
         elsif newMask = 644 then
-           remedySuggestion := to_unbounded_string( "you mean octal 133 / decimaal 91" );
+           remedySuggestion := to_unbounded_string( "you mean octal 133 / decimal 91" );
            if inputMode = interactive or inputMode = breakout then
               put_trace( "Assuming " & to_string( remedySuggestion ) );
               newMask := 91;
            end if;
         elsif newMask = 600 then
-           remedySuggestion := to_unbounded_string( "you mean octal 177 / decimaal 127" );
+           remedySuggestion := to_unbounded_string( "you mean octal 177 / decimal 127" );
            if inputMode = interactive or inputMode = breakout then
               put_trace( "Assuming " & to_string( remedySuggestion ) );
               newMask := 127;
@@ -572,12 +571,14 @@ begin
          );
      elsif currentEngine = Engine_PostgreSQL then
 #if POSTGRES
+        -- APQ library does not support parameterized SQL queries
         DoSQLStatement( "delete " & tempStr );
 #else
         err( +"postgres support not configured" );
 #end if;
      elsif currentEngine = Engine_MySQL then
 #if MYSQL
+        -- APQ library does not support parameterized SQL queries
         DoMySQLSQLStatement( "delete " & tempStr );
 #else
         err( +"mysql support not configured" );
@@ -642,7 +643,7 @@ begin
      if historyNext - historyMax < 1 then
         historyFirst := historyArray'last - historyMax + historyNext;
      else
-        historyFirst := historyNext- historyMax;
+        historyFirst := historyNext - historyMax;
      end if;
   end if;
   showHistory := historyFirst = 0 or historyFirst = historyNext;
@@ -660,7 +661,7 @@ begin
   -- end of array is reached.
 
   loop
-    if i = historyArray'last then
+    if i >= historyArray'last then
        i := 1;
     end if;
     exit when i = historyNext;
@@ -714,12 +715,14 @@ begin
          );
      elsif currentEngine = Engine_PostgreSQL then
 #if POSTGRES
+        -- APQ library does not support parameterized SQL queries
         DoSQLStatement( "insert " & tempStr );
 #else
         err( +"postgres support not configured" );
 #end if;
      elsif currentEngine = Engine_MySQL then
 #if MYSQL
+        -- APQ library does not support parameterized SQL queries
         DoMySQLSQLStatement( "insert " & tempStr );
 #else
         err( +"mysql support not configured" );
@@ -752,7 +755,7 @@ begin
      err(
          contextNotes => contextInCommand,
          subjectNotes => em( "cd" ),
-         reason => +"expects one arguments but",
+         reason => +"expects one argument but",
          obstructorNotes => em( "there are" & ap'length'img & " arguments" ),
          remedy => pl( "use " & '"' & "cd ~" & '"' & " to return to your home directory" ),
          seeAlso => +"doc/ref_shellcmds.html"
@@ -851,12 +854,14 @@ begin
          );
      elsif currentEngine = Engine_PostgreSQL then
 #if POSTGRES
+        -- APQ library does not support parameterized SQL queries
         DoSQLSelect( "select " & tempStr );
 #else
         err( +"postgresql support not supported" );
 #end if;
      elsif currentEngine = Engine_MySQL then
 #if MYSQL
+        -- APQ library does not support parameterized SQL queries
         DoMySQLSQLSelect( "select " & tempStr );
 #else
         err( +"mysql support not supported" );
@@ -995,7 +1000,7 @@ begin
      err(
          contextNotes => contextInCommand,
          subjectNotes => em( "unset" ),
-         reason => +"expects one arguments but",
+         reason => +"expects one argument but",
          obstructorNotes => em( "there are" & ap'length'img & " arguments" ),
          remedy => +"read the summary of unset in the help command",
          seeAlso => seeShellCmds
@@ -1049,7 +1054,7 @@ begin
         );
      elsif identifiers( identToUnset ).renamed_count > 0 then
         err_renaming( identToUnset );
-     elsif isExecutingCommand then
+     else
         -- record? delete any fields first (notice not recursive)
         if identifiers( identToUnset ).kind = root_record_t then
            for i in keywords_top..identifiers_top - 1 loop
@@ -1059,7 +1064,7 @@ begin
                        contextNotes => +"in " & em( "unset" ),
                        subjectNotes => em_value( identifiers( i ).name ),
                        reason => +"had an internal error because",
-                       obstructorNotes => +"it cound not be deleted"
+                       obstructorNotes => +"it could not be deleted"
                     );
                   end if;
                end if;
@@ -1074,7 +1079,7 @@ begin
                contextNotes => +"in " & em( "unset" ),
                subject => identToUnset,
                reason => +"had an internal error because",
-               obstructorNotes => +"it cound not be deleted"
+               obstructorNotes => +"it could not be deleted"
             );
         end if;
      end if;
@@ -1182,12 +1187,14 @@ begin
          );
      elsif currentEngine = Engine_PostgreSQL then
 #if POSTGRES
+        -- APQ library does not support parameterized SQL queries
         DoSQLStatement( "update " & tempStr );
 #else
         err( +"postgresql support not supported" );
 #end if;
      elsif currentEngine = Engine_MySQL then
 #if MYSQL
+        -- APQ library does not support parameterized SQL queries
         DoMySQLSQLStatement( "update " & tempStr );
 #else
         err( +"mysql support not supported" );
