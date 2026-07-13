@@ -43,7 +43,7 @@
 <h2><a name="2.5"></a>Script Tutorial 2: Intermediate Program Scripts</h2>
 
 <p>The first script tutorial showed how to write a basic script.  This
-tutorial discusses how execute statements and declarations can be
+tutorial discusses how to execute statements and declarations can be
 organized.  It also discusses how scripts can evolve and grow under
 SparForte.</p>
 
@@ -126,7 +126,7 @@ do the job:</p>
   <li>How does the operating system know that this is a SparForte script?</li>
   <li>Is there more than one "mail" command on the computer, which one
 executes?</li>
-  <li>How does the script inform the program if it succeeds or fails?</li>
+  <li>How does the script inform the program whether it succeeds or fails?</li>
   <li>What happens if the ls command was accidentally deleted or
 altered by the system administrator (these things happen)?</li>
 </ul>
@@ -229,7 +229,7 @@ easy for someone to refer to them while reading the script.
 is
 a special SparForte variable type: when a command variable is declared, SparForte
 verifies that the command exists and that it can be run. If the command
-cannot be run, SparForte stops the script before any command are executed.
+cannot be run, SparForte stops the script before any commands are executed.
 </p>
 <p>Without command variables, SparForte searches several directories for the
 command you want to run. If it can't find it, the script will stop with
@@ -241,7 +241,7 @@ to continue. Instead, command variables and other "sanity checks"
 should
 be put at the top of the script, or in the variable declarations, to
 ensure
-that when the script fails because of these kind of errors that the
+that when the script fails because of these kinds of errors that the
 system
 will be left in a consistent state.
 </p>
@@ -296,7 +296,7 @@ the script will run.</p>
 
 <h3>Procedures and Functions</h3>
 
-<p>Additional procedures and functions can be declared in declared in
+<p>Additional procedures and functions can be declared in
 the declaration section of the procedure.<br>
 
         <center>
@@ -670,7 +670,7 @@ are using Scrum.</p>
         <center>
         <div class="code">
         <p class="code">=&gt; help -t design_example.sp<br>
-Help for script t.sp:<br>
+Help for script design_example.sp:<br>
 <br>
 team,"get_customer is unfinished",work_measure.story_points, 2,work_priority.level,m<br>
 team,"get_supplier is unfinished",work_measure.story_points, 2,work_priority.level,m<br>

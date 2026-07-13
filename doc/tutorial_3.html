@@ -46,7 +46,7 @@
 software on your computer if you do not have one installed already.  The engine
 is a program that stores, sorts and retrieves data.  SparForte supports the
 PostgreSQL 7 or newer and MySQL 4 or newer.&nbsp; (When you build SparForte
-from sources, you can select which database engines SparForte will support.)
+from source code, you can select which database engines SparForte will support.)
 This tutorial uses
 the PostgreSQL database.  To use MySQL in these examples, use the "mysql."
 prefix instead of "db.".</p>
@@ -58,9 +58,8 @@ However, SparForte doesn't require a client program: it understands basic SQL
 commands and the built-in database package provides most of the additional
 features of a client program.&nbsp; (Note: Each engine uses a unique version
 of SQL.&nbsp; To create complex SQL queries, consult your database
-documentation.)<br>
+documentation.)</p>
 
-</p>
 <p>Before you can use a database, connect to software using the
 <span style="font-weight: bold;">connect</span> procedure.&nbsp; Connecting is
 similar to logging in: you will need the name of the database, a username and
@@ -81,14 +80,14 @@ database with your login name by providing only the database name.<br>
         </center>
 
 	<p>db.connect is a built-in AdaScript procedure in the db database
-package.&nbsp; It is not an operating command:
+package.&nbsp; It is not an operating system command:
 you cannot use Bourne parameters or redirect the output.</p>
 
 <p>Database client programs do more than just run SQL commands.&nbsp; They
 also know how to display information about the database, its users and
 its tables.&nbsp; These commands are not a part of the SQL
 language.&nbsp; SparForte's db package contains <span
- style="font-weight: bold;">db,databases</span>, <span
+ style="font-weight: bold;">db.databases</span>, <span
  style="font-weight: bold;">db.list</span>, <span
  style="font-weight: bold;">db.users</span> and <span
  style="font-weight: bold;">db.schema</span> procedures to display this
@@ -179,7 +178,7 @@ rows).</p>
 	------+------<br>
 	&nbsp;bob&nbsp; | 16<br>
 	&nbsp;joe&nbsp; | 78<br>
-	&nbsp;2 Rows and 2 Columns<br>&nbsp;<br>
+	&nbsp;2 Rows and 2 Columns<br>&nbsp;<br></p>
         <div class="code_caption">
 	<b>Example</b>: Inserting Rows into a Table
         </div>
@@ -194,7 +193,7 @@ file globbing (otherwise select count(*) would give very strange
 results!).&nbsp; SparForte will substitute variables with dollar sign
 expansion and the output from SQL commands can be redirected like an
 operating system command.&nbsp; For this reason you'll have to escape
-characters like "&gt;" with a backslash used with SQL on the command
+characters like "&gt;" with a backslash when using SQL on the command
 line.</p>
 
         <center>
@@ -207,12 +206,12 @@ line.</p>
 	&nbsp;bob&nbsp; | 16<br>
 	&nbsp;joe&nbsp; | 78<br>
 	&nbsp;2 Rows and 2 Columns<br>&nbsp;<br>
-	<p class="code">=&gt; select * from test where name \&gt; 'c' &gt; temp.txt<br>
+	=&gt; select * from test where name \&gt; 'c' &gt; temp.txt<br>
 	&nbsp;<br>
 	&nbsp;name | age<br>
 	------+------<br>
 	&nbsp;joe&nbsp; | 78<br>
-	&nbsp;1 Row and 2 Columns<br>&nbsp;<br>
+	&nbsp;1 Row and 2 Columns<br>&nbsp;<br></p>
         <div class="code_caption">
 	<b>Example</b>: Writing Rows from a Table to a File
         </div>
@@ -222,7 +221,7 @@ line.</p>
 <p>In the case of the where clause, the "&gt;" must be escaped to
 prevent SparForte from redirecting the output to a file called "c".</p>
 
-<p>Since these command are in a transaction, you can discard the table by
+<p>Since these commands are in a transaction, you can discard the table by
 rolling
 back with <span style="font-weight: bold;">db.rollback_work</span>, or
 commit the changes using <span style="font-weight: bold;">db.commit_work</span>.</p>

@@ -40,3 +40,15 @@ CHANGES SINCE 3.0
 
 16. Change: strings.is_fixed allows a leading space or minus sign.
 
+17. Fix: when cleanup up background processes, fixed a issue where the cleanup could be delayed by one command line.
+
+18. Fix: when parsing command paths for the command hash table, ~ is replaced with the value of HOME rather than the current working directory.
+
+19. Fix: arrays.length correctly returns zero for any first bound larger than the last bound on an array type or subtype.
+
+20. Fix: besides arrays of 1..0, any first bound greater than a last bound will  be treated as empty by the array package sort functions.
+
+21. Change: added colour output for HTML messages corresponding to the console colours that appear when --colour/--color is used.  The HTML colours remain even if --colour/--color is not used.
+
+22. Fix: in the unusual case of a SparForte message with a 1-character string, it should capitalize without an exception (though there are currently no strings this short).
+

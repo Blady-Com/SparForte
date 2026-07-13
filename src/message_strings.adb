@@ -36,9 +36,8 @@ package body message_strings is
 --
 -- Message "mark up" functions
 --
+
 ------------------------------------------------------------------------------
-
-
 --  ESCAPE CHAR (local)
 --
 -- Render a character for the output format, escaping or converting
@@ -86,8 +85,8 @@ begin
   when others => -- including noTemplate, textTemplate escape control chars
      newText.templateMessage := ToCtrlEscaped( to_unbounded_string( "" & ch ) );
   end case;
-  -- the text alternative also escapes control characters
-       newText.gccMessage := ToCtrlEscaped( to_unbounded_string( "" & ch ) );
+  -- the text-only alternative in gccMessage also escapes control characters
+  newText.gccMessage := ToCtrlEscaped( to_unbounded_string( "" & ch ) );
   return newText;
 end escapeChar;
 
@@ -127,36 +126,8 @@ function "&"( left, right : messageStrings ) return messageStrings is
 begin
 
   new_strings.templateMessage := left.templateMessage;
-
-  -- Text wrap on concatenation
-  --
-  -- This assumes messages are built left to right
-  --
-  -- Base the length of the message on the number of characters in the
-  -- text message.  If the new text exceeds the wrap point, move to the
-  -- next line and advance to the next wrap point (i.e. 80 + 80 = 160 chars)
-
-  --if not hasTemplate or templateheader.templateType = noTemplate then
-     --if left.wrapPoint > 0 then
-     --   new_strings.wrapPoint := left.wrapPoint;
-     --elsif right.wrapPoint > 0 then
-     --   new_strings.wrapPoint := right.wrapPoint;
-     --else
-     --  new_strings.wrapPoint := integer( displayInfo.col );
-     --end if;
-
-     --if length( left.textMessage & right.textMessage ) > new_strings.wrapPoint then
-        -- TODO: may not be perfect
-     --   new_strings.wrapPoint := length(left.textMessage) + integer( displayInfo.col );
-     --   temp := getNewLine;
-     --   new_strings.templateMessage := new_strings.templateMessage & temp.templateMessage;
-     --   --end loop;
-     --end if;
-  --end if;
   new_strings.templateMessage := new_strings.templateMessage & right.templateMessage;
-
-  new_strings.gccMessage     := left.gccMessage & right.gccMessage;
---put_line( "wrap point = " & new_strings.wrapPoint'img & ";" & new_strings.templateMessage ); -- DEBUG
+  new_strings.gccMessage      := left.gccMessage & right.gccMessage;
   return new_strings;
 end "&";
 
@@ -217,7 +188,7 @@ begin
      case templateHeader.templateType is
      when htmlTemplate =>
         return messageStrings'(
-           to_unbounded_string( "<span style=""font-style:italic"">" &
+           to_unbounded_string( "<span style=""color:darkred; font-style:italic"">" &
              CGI.html_encode( s ) & "</span>" ),
            to_unbounded_string( s )
         );
@@ -259,7 +230,7 @@ begin
      case templateHeader.templateType is
      when htmlTemplate =>
         return messageStrings'(
-           to_unbounded_string( "<span style=""font-style:bold"">" &
+           to_unbounded_string( "<span style=""color:darkgreen; font-style:bold"">" &
              CGI.html_encode( s ) & "</span>" ),
            to_unbounded_string( s )
         );
@@ -301,7 +272,7 @@ begin
      case templateHeader.templateType is
      when htmlTemplate =>
         return messageStrings'(
-            to_unbounded_string( "<span style=""font-weight:bold"">"  &
+            to_unbounded_string( "<span style=""color:darkgoldenrod;font-weight:bold"">"  &
             CGI.html_encode( s ) &
             "</span>" ),
             to_unbounded_string(s)
@@ -385,7 +356,12 @@ function qp( s : string ) return string is
   unb : constant unbounded_string := to_unbounded_string( s );
 begin
   if quietOpt then
-     if s /= "" then
+      if s = "" then
+        null;
+      elsif s'length = 1 then
+        -- a phrase of length 1 is very unlikely but it is handled here
+        return to_string( ToUpper( Head( unb, 1 ) ) );
+      else
         return to_string( ToUpper( Head( unb, 1 ) ) & Slice( unb, 2, length( unb ) ) );
      end if;
   end if;

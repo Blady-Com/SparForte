@@ -98,7 +98,7 @@ procedure findCmdPath( cmd : unbounded_string; fullpath : out unbounded_string )
    slashPos : integer;          -- slashes in the command path
    colonPos : integer;          -- colons in the PATH variable
    pathId   : identifier;       -- PATH in identifiers
-
+   homeId   : identifier;       -- HOME in identifiers
    cmdpath  : unbounded_string; -- working copy of the cmd path
    prefixes : unbounded_string; -- PATH prefix list
    prefix   : unbounded_string; -- prefix being tested
@@ -109,8 +109,9 @@ begin
    slashPos := index( cmd, "/" );
    if slashPos > 0 then
       if Element( cmdPath, 1 ) = '~' then
+         findIdent( to_unbounded_string( "HOME" ), homeId );
          Delete( cmdPath, 1, 1 );
-         Insert( cmdPath, 1, to_string( current_working_directory ) );
+         Insert( cmdPath, 1, to_string( identifiers( homeId ).store.value ) );
       end if;
       fullPath := cmdPath;
       if not C_is_executable_file( to_string( fullPath ) & ASCII.NUL ) then
@@ -307,7 +308,7 @@ begin
                        obstructorNotes => +"an executable program"
                   );
   when EMLINK  => err( contextNotes => contextInCommand,
-                       subjectNotes => pl( qp( "the pathanme" ) ),
+                       subjectNotes => pl( qp( "the pathname" ) ),
                        reason => +"is a link with",
                        obstructorNotes => em( "a circular path" )
                   );
@@ -389,7 +390,7 @@ begin
   when EAGAIN  => err( contextNotes => contextInCommand,
                        subjectNotes => subjectOS,
                        reason => +"has reached its",
-                       obstructorNotes => em( "esource limit" )
+                       obstructorNotes => em( "resource limit" )
                   );
                   -- err( +"The process may be above its resource limit" );
   when EFAULT  => err( contextNotes => pl( "At " & gnat.source_info.source_location &
@@ -457,7 +458,7 @@ begin
         subjectNotes => unb_pl( prefixStr ) & pl( "'" ) & em_esc( cmd ) & pl( "'" ),
         reason       => +"was " & em( "not found" ),
         obstructorNotes => nullMessageStrings,
-        remedy       => +"it was moved and is no longer in the directory list in the PATH variable, or you need to clear the command hash by restart SparForte or pragma no_command_hash"
+        remedy       => +"it was moved and is no longer in the directory list in the PATH variable, or you need to clear the command hash by restarting SparForte or pragma no_command_hash"
      );
   elsif id /= eof_t then
      err(
@@ -482,7 +483,7 @@ begin
            subjectNotes => unb_pl( prefixStr ) & pl( "'" ) & em_esc( cmd ) & pl( "'" ),
            reason       => +"was " & em( "not found" ),
            obstructorNotes => nullMessageStrings,
-           remedy       => +"an asignment operator ':=' was spelled wrong as ';=' (semi-colon equals)"
+           remedy       => +"an assignment operator ':=' was spelled wrong as ';=' (semi-colon equals)"
         );
      else
         err(
@@ -1155,12 +1156,16 @@ procedure updateJobStatus is
   -- update the status for all jobs, displaying changes
   status : integer := 0;                          -- wait status
   result : aPID;                                  -- wait result code
-  job    : aJob;                                  -- a BUSH job
---pgid : aPID;
+  job    : aJob;                                  -- a SparForte job
+  numJobs : jobList.aListIndex;
+  i      : jobList.aListIndex;
+  --pgid : aPID;
 --function getpgid( pid : aPID ) return aPID;
 --pragma import( C, getpgid );
 begin
-  for i in 1..jobList.Length( jobs ) loop         -- for all jobs
+  i := 1;
+  numJobs := jobList.Length( jobs );
+  while i <= numJobs loop                         -- for all jobs
       jobList.Find( jobs, i, job );               -- next job
 <<retry>>
 --      pgid := getpgid( job.pid );
@@ -1176,11 +1181,14 @@ begin
               reason => +"the status is uncertain because waitpid() returned",
               obstructorNotes => getEmOSError
          );
+         i := i + 1;
       elsif result = -1 then                      -- no such job? (ECHILD)
          jobList.Clear( jobs, i );                -- then it's done
-          if not job.quiet then
-            put_line_retry( job.cmd &" (" & job.pid'img & ") has finished" );
-          end if;
+         if not job.quiet then
+           put_line_retry( job.cmd &" (" & job.pid'img & ") has finished" );
+         end if;
+         numJobs := numJobs - 1;
+         -- do not increment i as the list has shrunk by a position
       elsif result = 0 then                       -- unable to get status?
          if job.status /= running then            -- show status on a change
             if not job.quiet then
@@ -1188,6 +1196,7 @@ begin
             end if;
          end if;
          job.status := running;                   -- still running
+         i := i + 1;
       else                                        -- able to get status?
          if job.status /= stopped then            -- show status on a change
             if not job.quiet then
@@ -1195,6 +1204,7 @@ begin
             end if;
          end if;
          job.status := stopped;                   -- probably stopped
+         i := i + 1;
       end if;
   end loop;
 end updateJobStatus;

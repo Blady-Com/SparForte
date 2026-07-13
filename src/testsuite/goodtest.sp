@@ -1625,7 +1625,7 @@ pragma assert( sa2(1) = 5 );
 
 -- null array
 
-type nullarray is array(1..0) of integer;
+type nullarray is array(2..0) of integer;
 nularr : nullarray;
 
 type constantarray is constant array(1..2) of integer;
@@ -1668,8 +1668,8 @@ pragma assert( arrays.last( arrtype ) = 1999 );
 pragma assert( arrays.last( typedarray ) = 1999 );
 pragma assert( arrays.length( arrtype ) = 100 );
 pragma assert( arrays.length( typedarray ) = 100 );
-pragma assert( arrays.first( nullarray ) = 1 );
-pragma assert( arrays.first( nularr ) = 1 );
+pragma assert( arrays.first( nullarray ) = 2 );
+pragma assert( arrays.first( nularr ) = 2 );
 pragma assert( arrays.last( nullarray ) = 0 );
 pragma assert( arrays.last( nularr ) = 0 );
 pragma assert( arrays.length( nullarray ) = 0 );

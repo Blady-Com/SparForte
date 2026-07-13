@@ -46,7 +46,7 @@
 
 <p>Tutorial 1 demonstrated how SparForte can be used to do command line
 calculations.&nbsp; It introduced the concepts of expressions, types,
-variables and built-in packages.&nbsp; SparForte can do far more that
+variables and built-in packages.&nbsp; SparForte can do far more than
 calculations.&nbsp; It can also run commands.&nbsp; The following
 tutorial shows how to use SparForte as an operating system shell.</p>
 
@@ -77,7 +77,7 @@ operating system.</p>
 
 <p>If a variable or procedure exists with the same name as the
 command, the name will be treated as a procedure or variable
-instead of a command.</p>
+instead of as a command.</p>
 
 <p>The rest of this tutorial will assume a UNIX-based operating
 system like Linux, FreeBSD or Cygwin.</p>
@@ -101,7 +101,7 @@ a command.</p>
         </div>
 	</center>
 
-<p>In this case, ls in located in the "/bin" directory.
+<p>In this case, ls is located in the "/bin" directory.
 If a command is in a directory that is not in the PATH list,
 the command will not be found.</p>
 
@@ -180,9 +180,9 @@ example, the dollar sign causes an expansion.  Escaping means removing
 the special properties
 of a character and treat it as a normal character.  The term <span style="font-weight: bold;">escaping</span>
 comes from the use of the escape key (ESC) on older systems to denote
-special commands to terminals or printers.</p>
+special command sequences sent to terminals or printers.</p>
 
-<p>For example, to put the characters "$s" to the screen instead
+<p>For example, to output the characters "$s" to the screen instead
 of the value of the variable s, you will need to "escape" the dollar
 sign so SparForte will treat it as a normal character.</p>
 
@@ -190,13 +190,13 @@ sign so SparForte will treat it as a normal character.</p>
 
 <ul>
 <li><span style="font-weight: bold;">Double quotes</span>: enclosing the characters in double quotes will
-escape most special characters but will not affect the dollar sign</li>
+escape most special characters except for the dollar sign</li>
 <li><span style="font-weight: bold;">Single quotes</span>: enclosing the characters in single quotes will
 escape most characters as well as the dollar sign</li>
 <li><span style="font-weight: bold;">Backslash</span>: this will escape the character following the backslash</li>
 </ul>
 
-<p>These escape characters control the shell words are interpreted.&nbsp;
+<p>These escape characters control how the shell words are interpreted.&nbsp;
  Double quotes allow spaces
 to be included in the word.&nbsp; Single quotes also allow spaces in
 the word but prevent dollar expansions from taking place.&nbsp; Sets of
@@ -244,8 +244,7 @@ given to the echo command.</p>
 <h3>Filename Globbing (Bourne Arguments)</h3>
 
 <p>Each word is matched against files using a technique called <span
- style="font-weight: bold;">file globbing<span
- style="font-weight: bold;"><span style="font-weight: bold;">.</span></span></span>&nbsp;
+ style="font-weight: bold;">file globbing.</span>&nbsp;
 Single or double quotes prevent file globbing from occurring.&nbsp; For
 example, an asterisk (*) is a wildcard character representing zero or
 more characters.&nbsp; The word "cat*" would match "cat", "cats" or
@@ -458,7 +457,7 @@ environment variables using <code>pragma import</code>.</p>
 		LOGNAME = "ken" ( imported identifier of type string )<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: Making an Variable Imported Again
+		<b>Example</b>: Making a Variable Imported Again
         </div>
         </div>
 	</center>
@@ -514,9 +513,6 @@ variables other than string variables.</p>
 <li>How can you read an environment variable with a space in the name?</li>
 </ol>
 &nbsp;<br />
-
-<p><br>
-</p>
 			</td>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_1.html">&nbsp;Command Prompt Tutorial 1: SparForte as a Calculator</a></p>

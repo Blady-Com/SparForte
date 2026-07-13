@@ -44,13 +44,13 @@
 
 <p>Complete instructions for converting a SparForte AdaScript script
 into Ada and compiling it with GCC is beyond the scope of this manual.
-However, here's are some tips.</p>
+However, here are some tips.</p>
 
 <h3>Getting GCC Ada/GNAT</h3>
 
-<p>GCC Ada is available for most version of Linux.  If you need to,
+<p>GCC Ada is available for most versions of Linux.  If you need to,
 you can compile GCC from sources and activate Ada support.  AdaCore,
-the company responsible for GCC Ada, also as a standalone GPL version
+the company responsible for GCC Ada, also has a standalone GPL version
 and commercial versions available from their web site.  Likewise,
 there are other Ada compiler vendors for other operating systems.</p>
 
@@ -58,9 +58,9 @@ there are other Ada compiler vendors for other operating systems.</p>
 
 <p>AdaScript is not completely compatible with Ada 2005 because Ada 2005
 was
-never designed as a language for writing scripts.&nbsp; Changes must be
-made to your script, but the changes should be minimal and easily made.
-
+never designed as a language for writing scripts. Changes must be
+made to your script, but the changes should be minimal and relatively
+easy to do.
 </p>
 <p>First, compile your script with the <code>pragma ada_95</code>
 directive.&nbsp;
@@ -69,23 +69,22 @@ This will report most non-Ada features as an error.&nbsp;
 disallows the following in scripts:
 </p>
 <ul>
-  <li>use of @ - use the full variable name instead</li>
-  <li>use of % - use an intermediate variable</li>
+  <li><strong>Use of @</strong> - Use the full variable name instead</li>
+  <li><strong>Use of %</strong> - Use an intermediate variable</li>
 
-  <li>mixed Boolean operators - that is, mixing "and", "or" and "xor"
-without
-parentheses</li>
-  <li>universal types - convert to specific types and use type casting
+  <li><strong>Mixed Boolean operators</strong> - That is, mixing "and", "or"
+and "xor" without parentheses</li>
+  <li><strong>Universal types</strong> - Convert to specific types and use type casting
 where
 necessary</li>
-  <li>command types - using constant strings</li>
-  <li>? - use put_line</li>
-  <li>pipelines - separate into individual commands and use I/O
+  <li><strong>Command types</strong> - Using constant strings</li>
+  <li><strong>?</strong> - Use put_line</li>
+  <li><strong>Pipelines</strong> - Separate into individual commands and use I/O
 redirection</li>
-  <li>use of return to return status codes - use the command_line
+  <li><strong>Use of return to return status codes</strong> - Use the command_line
 package</li>
 
-  <li>Bourne shell parameters on external commands - use AdaScript
+  <li><strong>Bourne shell parameters on external commands</strong> - Use AdaScript
 syntax
 instead</li>
 </ul>
@@ -106,11 +105,11 @@ will have to import system() to use it.
 
 <h3>Final Steps</h3>
 
-<p>There are still differences you may encounter such as the package
-names for certain functions, incompatibility with string types, use
-of with/use statements, or Ada attributes.</p>
+<p>There are still differences you may encounter such as differences
+in the package names for certain functions, string
+types, with/use statements, or Ada attributes.</p>
 
-<p>To test your script, compile the script.&nbsp; To generate
+<p>To test your script, compile it.&nbsp; To generate
 Java
 byte code to run on a Java Virtual Machine, use the JGNAT compiler
 instead

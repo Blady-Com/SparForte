@@ -46,7 +46,7 @@
 <p>Individual values are accessed by an index.  The type of the index
 can be either numeric or an enumerated type.</p>
 
-<p>Arrays are a fixed size and the size is determined by the a range
+<p>Arrays are a fixed size and the size is determined by the range
 of values for the index.  The lower bound and
 upper bound of the array are set when the type is declared (or, in
 the case of an anonymous array, when it is used in a declaration).  It
@@ -61,7 +61,7 @@ is an error to access elements outside of the index's range.</p>
 
         <center>
         <div class="code">
-                <p class="code">=&gt; zerbra_population : <b>array</b>(1900..2009) <b>of</b> natural<br>
+                <p class="code">=&gt; zebra_population : <b>array</b>(1900..2009) <b>of</b> natural<br>
 =&gt; <b>type</b> divisions <b>is</b> (america, asia, africa, europe, oceania )<br>
 =&gt; sales : <b>array</b> (america..oceania) <b>of</b> float</p>
         </div>
@@ -106,7 +106,7 @@ after the array name.</p>
 
 <p>When you declare an array, you can assign a list of initial values
 or copy the values of another identical array.  When providing initial
-value, provide a value for each component in the array.</p>
+values, provide a value for each component in the array.</p>
 
 <p><tt>=&gt; type grocery_list is array(1..10) of string</tt>
 
@@ -123,8 +123,8 @@ bananas
 
 <h3>Empty Arrays</h3>
 
-<p>An empty array can be created using 1..0.&nbsp; This is the only
-case where the low bound is higher than the high bound.</p>
+<p>An empty array can be created using 1..0 (or any case where the
+first bound is greater than the second bound).</p>
 
         <center>
         <div class="code">

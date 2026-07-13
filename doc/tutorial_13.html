@@ -110,6 +110,7 @@ is a part of the language by design.  In PHP, documentation can only be typed in
 
   mysql_free_result( $res );
 ?&gt;
+</pre>
 </td>
 <td><p><u>SparForte</u></p>
 <pre>
@@ -150,17 +151,17 @@ is a part of the language by design.  In PHP, documentation can only be typed in
 </td>
 </tr>
 </table>
-<p class="plain"><b>Figure 3</b>: Documentation</b></p>
+<p class="plain"><b>Figure 3</b>: Documentation</p>
 <hr>
 
 <h3>Standards Compliance</h3>
 
-<p class="plain">In the SparForte, coding
-standards can be specified as a part of the language.  These provide guarantees
+<p class="plain">In SparForte, coding
+standards can be specified as a part of the language.  SparForte guarantees
 that a script meets certain conditions.  With the restriction pragma, for example,
 SparForte guarantees that there are no calls to operating system commands, meaning the
 script is portable across operating systems.  In PHP, standards can
-only be enforced through peer review and there's no guarantees except my manually
+only be enforced through peer review and there are no guarantees except my manually
 examining the program.</p>
 
 <hr>
@@ -204,6 +205,7 @@ examining the program.</p>
 
   mysql_free_result( $res );
 ?&gt;
+</pre>
 </td>
 <td><p><u>SparForte</u></p>
 <pre>
@@ -245,13 +247,13 @@ examining the program.</p>
 </td>
 </tr>
 </table>
-<p class="plain"><b>Figure 4</b>: Standards Compliance</b></p>
+<p class="plain"><b>Figure 4</b>: Standards Compliance</p>
 <hr>
 
 <h3>Debugging Statements</h3>
 
-<p class="plain">In the SparForte, debugging
-statements are a part of the language.  They can be isolated and can be enabled
+<p class="plain">In SparForte, debugging is integrated into the language.
+Debugging features can be isolated and can be enabled
 or disabled without editing the source
 code.  (Though in the case of a CGI script where command line options are not
 configurable in the web browser, you may have to edit a single "pragma debug"
@@ -307,6 +309,7 @@ put the pragma debug in your .profile startup file on your development environme
 
   mysql_free_result( $res );
 ?&gt;
+</pre>
 </td>
 <td><p><u>SparForte</u></p>
 <pre>
@@ -348,15 +351,16 @@ put the pragma debug in your .profile startup file on your development environme
 </td>
 </tr>
 </table>
-<p class="plain"><b>Figure 5</b>: Debugging</b></p>
+<p class="plain"><b>Figure 5</b>: Debugging</p>
 <hr>
 
 <h3>Variables and Types</h3>
 
 <p class="plain">In the SparForte, all variables
 are declared and have a specific type (unless you explicitly use the universal
-types, but these are intended for the command line).  In PHP, with no declarations
-and variables with constantly changing types, when you read a script you can never be sure if a variable
+types, but these are intended for the command line).  In PHP, a dynamic
+language with no declarations
+and variables with constantly changing types, when someone reads a script they can never be sure if a variable
 is spelled correctly or what type of data it contains.  The widespread use of
 associative arrays, which are accessed with string values, makes debugging even worse.</p>
 
@@ -402,6 +406,7 @@ and has a value in the environment or the script will not run.</p>
   }
   mysql_free_result( $res );
 ?&gt;
+</pre>
 </td>
 <td><p><u>SparForte</u></p>
 <pre>
@@ -443,7 +448,7 @@ and has a value in the environment or the script will not run.</p>
 </td>
 </tr>
 </table>
-<p class="plain"><b>Figure 6</b>: Variables</b></p>
+<p class="plain"><b>Figure 6</b>: Variables</p>
 <hr>
 
 <h3>The Small Stuff</h3>

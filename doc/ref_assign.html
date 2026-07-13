@@ -66,7 +66,7 @@ the assignment statement.</p>
 <p>As a special exception, stating a Boolean variable's name implies that the
 variable is assigned true.  This only applies to variables that are
 Boolean or subtypes of Boolean.  The shortcut only assigns true (not false).
-It can only be used with scalar variables (not arrays or records)</p>
+It can only be used with scalar variables (not arrays or records).</p>
 
         <center>
         <div class="code">
@@ -97,18 +97,16 @@ It can only be used with scalar variables (not arrays or records)</p>
   <li> <b>exponentiation</b>: **</li>
   <li> <b>arithmetic</b>: +, -, *, /, &amp; (string concatenation),
 rem (remainder),
-mod (modulo), and (bitwise and), or (bitwise or), xor (bitwise exclusive or), *
-(string duplication)</li>
-  <li> <b>relational</b>: =, /= (not equals), &gt;=, &gt;, &lt;=, 
-
-&lt;,
+mod (modulo), and (bitwise and), or (bitwise or), xor (bitwise exclusive or),
+* (string duplication)</li>
+  <li> <b>relational</b>: =, /= (not equals), &gt;=, &gt;, &lt;=, &lt;,
 in, not in</li>
   <li> <b>Boolean</b>: and, or, xor (exclusive OR)</li>
 </ul>
 
 <p>The bitwise operators are identical to the Boolean operators: SparForte
 chooses
-which to use on the context of the expression.</p>
+which to use based on the context of the expression.</p>
 
 <p><code>in</code> and <code>not in</code> test for membership in a range. (In Ada, the range
 can be a type but under AdaScript types have no bounds.) The range can
@@ -124,7 +122,7 @@ be a pair of numbers, characters (not strings) or a pair of enumerated items.
 
 <p><code>in</code> and <code>not in</code> are technically not operators.</p>
 
-<p><b>Ada</b>: <code>and then</code> and <code>or else</code> not yet implemented.
+<p><b>Ada</b>: <code>and then</code> and <code>or else</code> are not yet implemented.
 Character ranges not yet implemented.</p>
 
 <h3>Expressions and Order of Operations</h3>
@@ -135,7 +133,7 @@ compute a result value.</p>
 <p>Expression operators are evaluated in the following order:</p>
 
 <ul>
-  <li> <b>Factors</b>: literals, variables are other values, unary +, unary -, subexpressions</li>
+  <li> <b>Factors</b>: literals, constants/variables, unary +, unary -, subexpressions in parantheses</li>
   <li> <b>Power Terms</b>: **</li>
   <li> <b>Terms</b>: /, mod, rem, *, &amp;</li>
   <li> <b>Simple Expressions</b>: +, -</li>

@@ -54,7 +54,7 @@
 
 <p>To "spar" is to duel.  "Forte" (pronounced FORE-tay) is a music term
 for loudness.  If you are going to spar, spar loud.  Together "Sparforte"
-expresses "sound design".</p>
+expresses "robust design".</p>
 
 <img class="padded_right" src="pictures/roosevelt_bridge.jpg" width="128" height="92" alt="[Roosevelt Bridge]" />
 <p>"Spar" is also a stout naval mast or boom and "Forte" is a proficiency
@@ -72,7 +72,7 @@ fast.  Work well.</p>
 
 <p>There were frequent complaints that Bush was a poor choice for Internet
 searches.  "Bush" results in millions of page hits for a famous family.
-"Business Shell" resulted in millions of pages hits for a petroleum
+"Business Shell" resulted in millions of page hits for a petroleum
 company.</p>
 
 <p>After several dozen names were reviewed, "Sparforte" was chosen as the
@@ -111,13 +111,13 @@ package names but may not be identical.</li>
 </ol>
 
 <h4>Is Sparforte a "cloud" language or an "agile" language?  Is there a
-single thing it excels at?  What is it's "killer app"?</h4>
+single thing it excels at?  What is its "killer app"?</h4>
 
 <p>Sparforte is designed to improve speed and quality in development over
 rival tools while managing the SDLC, scaling and code aging better.  These, of
 course, are not things that will excite your coworkers or management.
 These are general things that impact many aspects of development.  I'm not
-a marketer and I don't have trendy buzzwords word attach to Sparforte.</p>
+a marketer and I don't have trendy buzzwords word attached to Sparforte.</p>
 
 <h3>Using Sparforte</h3>
 
@@ -125,7 +125,7 @@ a marketer and I don't have trendy buzzwords word attach to Sparforte.</p>
 
 <p>The Sparforte download page has a file called "spar.vim".  If you have
 access to the vim syntax folder (usually /usr/share/vim/.../syntax),
-you can copy this file to that folder.
+you can copy this file to that folder.</p>
 
 <p>If you can't install the spar.vim file, you use it as a local, custom
 syntax file as described at <a href="http://www.fleiner.com/vim/create.html">http://www.fleiner.com/vim/create.html</a>.</p>
@@ -168,7 +168,7 @@ under Editor / Tools / Highlighting / Source menu.</p>
 <h4>How Do I Use Eclipse with Sparforte?</h4>
 
 <p>Eclipse has support for Ada (though I've never tried it).  There is
-a AdaCore's GNATBench plug-in for GCC Ada, AonixADT for the Aonix Ada
+an AdaCore GNATBench plug-in for GCC Ada, AonixADT for the Aonix Ada
 compiler, and an Ada Developer Tools project.  There may be others.  See
 if you can configure one of these plug-ins to recognize Sparforte scripts
 as Ada.  This may give you 90% of the highlighting and other features you are
@@ -248,7 +248,7 @@ Why not?</h4>
 When the script syntax is checked, the variable declaration hasn't
 executed yet so the variable doesn't exist.</p>
 
-<h4>I used "with separate" inside of a pragma debug but it nothing seemed
+<h4>I used "with separate" inside of a pragma debug but nothing seemed
 to happen.  Why not?</h4>
 
 <p>The commands in the backquotes are a small script.  When the commands
@@ -257,7 +257,7 @@ small script in the backquotes, instead of the main script.</p>
 
 <h4>How do I convert strings to numbers?</h4>
 
-<p>There are built-in functions to do this.
+<p>There are built-in functions to do this.</p>
 <p><code>numerics.value</code> converts a string to its equivalent value: <code>numerics.value("5")</code> returns 5.</p>
 <p><code>numerics.pos</code> returns the Latin-1 value <code>numerics.pos( "A" )</code> returns 65.</p>
 
@@ -274,7 +274,7 @@ positive number.</p>
 <h4>How do I read in a number like scanf, readln, etc?</h4>
 
 <p><code>get_line</code> returns a universal type, not a string,
-so it can save to a string or numeric variable.
+so the returned value can saved to a string or numeric variable.</p>
 
 <p><tt>n : integer := get_line</tt></p>
 
@@ -369,7 +369,7 @@ to be imported to a user-defined type.  You can add an
 
 <h4>Can you do Continuous Integration with Sparforte?</h4>
 
-<p>CI is a technique were tests are automatically run on a regular basis to
+<p>CI is a technique where tests are automatically run on a regular basis to
 detect errors as quickly as possible.  This requires a set of test programs
 that can perform tests without human intervention.  Most CI frameworks
 will run a shell command or script to start the tests.  As long as you can
@@ -433,7 +433,7 @@ robotics, and financial institutions chose Ada over Java, Perl, etc.</p>
 by other languages.</h4>
 
 <p>Ada is standard on most versions of Linux.  It remains one of the
-the top 10/top 20 (depending on which survey you read) languages in
+the top 10 (or top 20, depending on which survey you read) languages in
 the world.  It is the most popular language for high-reliability
 applications.  Ada has not been supplanted by Java or PHP because
 those languages traditionally solve different problems and target
@@ -483,8 +483,8 @@ Sparforte an enterprise language.</p>
 
 <h4>Is AdaScript a cloud language?</h4>
 
-<p>There is no strict definition of an cloud language.  However, if you
-consider "cloud" to mean to ability to create networked applications and to
+<p>There is no strict definition for a cloud language.  However, if you
+consider "cloud" to mean the ability to create networked applications and to
 access shared services like Memcached, then you could consider Sparforte to
 be a cloud language.</p>
 
@@ -541,7 +541,7 @@ less developed.  The belief was that an inexperienced programmer could misuse
 the statement and create programs that were difficult to read and maintain.
 Supporters of goto believe that the statement can improve readability and
 maintenance in some cases: it is useful for breaking out of deeply nested loops,
-handing certain types of errors (like retry conditions), implementing alternate
+handling certain types of errors (like retry conditions), implementing alternate
 entry/exit points for initialization/cleanup (eliminating duplicate code),
 that labels can improve readability by documenting intent. They also
 believe that <code>goto</code> statements can improve performance as a result.</p>
@@ -561,10 +561,10 @@ started appearing in popular languages.  Some have not.</p>
 <p>AdaScript has always been a language based on standards and solving real-world
 problems has always been its main objective.</p>
 
-<p>While many of its features many not be innovative, it solves design problems
+<p>While many of its features may not be innovative, it solves design problems
 that other languages may find difficult.</p>
 
-<h4>Won't big project features slow development of small nimble project?</h4>
+<h4>Won't big project features slow development of small, nimble projects?</h4>
 
 <p>While reducing keystrokes is not a goal of Sparforte, it does have
 several convenience features for the command prompt.  It also has the
@@ -590,8 +590,8 @@ reporting a lot of irrelevant bugs?</h4>
 impact on the application of the program in the real world.  A bug
 may be costly in one situation or relatively harmless in another.  As a
 result, any strategy for error checking will identify many bugs that are
-not dangerous to a project.  The only way to remove the serious bugs
-is try to do a thorough job of removing as many bugs as possible.</p>
+not dangerous to a project.  The only way to remove the serious bugs is
+to do a thorough job of removing as many bugs as possible.</p>
 
 <h4>Isn't your idea of Code Evolution is all about General Purpose languages?  I believe in Domain Specific languages which tailor solutions to specific environments.</h4>
 
@@ -602,7 +602,8 @@ language that target specific environments such as the command prompt.
 These features may be disallowed outside of their intended
 environment.</p>
 
-<p>Not everything evolves to produce superior features endure.
+<p>Not everything evolves will produce superior features that endure
+over a project's lifetime.
 Is a shell's if statement really tailor-made to solve
 shell scripting problems?  It's a throwback to when memory was critical
 and shells did not have the ability to process an if expression.
@@ -647,7 +648,7 @@ This included checks done by GCC Ada (which does more compile time and run
 time checking compared to most languages), as well as Sparforte's own
 extensive error checking.</p>
 
-<p>Third, it is has more powerful features than other languages, and these
+<p>Third, it has more powerful features than other languages, and these
 features may require more setup to use.  As a general rule, the simpler
 the language, the faster the interpreter will run.  Sparforte is more
 high level than many languages.</p>

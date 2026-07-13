@@ -774,7 +774,6 @@ procedure helpBtreeIO is
 begin
      startHelp( e, "btree_io" );
      summary( e, "btree_io package" );
-     authorKen( e );
      categoryPackage( e );
      createdOn( e, "v2.0");
      authorKen( e );
@@ -820,7 +819,6 @@ procedure helpDb is
 begin
      startHelp( e, "db" );
      summary( e, "db (PostgreSQL) package" );
-     authorKen( e );
      categoryPackage( e );
      authorKen( e );
      description( e, "A collection of common routines using a PostgreSQL database.  " &
@@ -874,7 +872,6 @@ procedure helpDbm is
 begin
      startHelp( e, "dbm" );
      summary( e, "dbm (PostgreSQL) package" );
-     authorKen( e );
      createdOn( e, "v2.0");
      categoryPackage( e );
      authorKen( e );
@@ -931,7 +928,6 @@ procedure helpHashIO is
 begin
      startHelp( e, "hash_io" );
      summary( e, "hash_io package" );
-     authorKen( e );
      categoryPackage( e );
      createdOn( e, "v2.0");
      authorKen( e );
@@ -977,7 +973,6 @@ procedure helpMySQL is
 begin
      startHelp( e, "mysql" );
      summary( e, "mysql package" );
-     authorKen( e );
      categoryPackage( e );
      authorKen( e );
      description( e, "A collection of common routines using a MySQL database.  " &
@@ -1030,7 +1025,6 @@ procedure helpMySQLM is
 begin
      startHelp( e, "mysqlm" );
      summary( e, "mysqlm package" );
-     authorKen( e );
      createdOn( e, "v2.0");
      categoryPackage( e );
      authorKen( e );
@@ -1087,7 +1081,6 @@ procedure helpUnits is
 begin
      startHelp( e, "units" );
      summary( e, "units package" );
-     authorKen( e );
      categoryPackage( e );
      authorKen( e );
      description( e, "A collection of common routines for conversion of units of measurement." );
@@ -1136,7 +1129,6 @@ procedure helpNumerics is
 begin
      startHelp( e, "numerics" );
      summary( e, "numerics package" );
-     authorKen( e );
      categoryPackage( e );
      authorKen( e );
      description( e, "A collection of constants and common routines using numbers and mathematics." );
@@ -1389,7 +1381,6 @@ begin
      summary( e, "arrays package" );
      authorKen( e );
      categoryPackage( e );
-     authorKen( e );
      description( e, "A collection of common routines using arrays." );
      content( e, "first( a )","last( a )","length( a )");
      content( e, "bubble_sort( a )","bubble_sort_descending( a )" );
@@ -1886,8 +1877,8 @@ begin
      seeAlso( e, "doc/pkg_gnat_crc32.html" );
      endHelp( e );
   elsif helpTopic = "gnat.cgi" then
-     startHelp( e, "gnat.crc32" );
-     summary( e, "gnat.crc32 package" );
+     startHelp( e, "gnat.cgi" );
+     summary( e, "gnat.cgi package" );
      authorKen( e );
      categoryPackage( e );
      description( e, "A collection of common routines for web programming and cookies.  " &
@@ -2504,7 +2495,7 @@ begin
      content( e, "$(X) - replace with output of commands X.  Not recursive." );
      section( e, "Positional Parameters and Special Variables" );
      content( e, "$0 or ${0} - the script path" );
-     content( e, "$1..$9 or ${1}..$(9} - the first 9 parameters" );
+     content( e, "$1..$9 or ${1}..${9} - the first 9 parameters" );
      content( e, "$# or ${#} - the number of parameters" );
      content( e, "$? or ${?} - the error status of the last command" );
      content( e, "$$ or ${$} - the current process id" );
@@ -2768,10 +2759,10 @@ begin
      authorKen( e );
      category( e, "reference" );
      description( e, "These are the expression operators and operands:" );
-     section( e, "Uniary Operators" );
-     content( e, "+ - uniary plus" );
-     content( e, "- - uniary minus" );
-     content( e, "not - uniary not" );
+     section( e, "Unary Operators" );
+     content( e, "+ - unary plus" );
+     content( e, "- - unary minus" );
+     content( e, "not - unary not" );
      section( e, "Exponents" );
      content( e, "** - exponentiation" );
      section( e, "Mathematics" );

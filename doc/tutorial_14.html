@@ -40,7 +40,7 @@
 			<td align="left" valign="top">
 				<!-- Content Area -->
 
-<h2><a name="2.2"></a>Script Tutorial 3: Data Types</h2>
+<h2><a name="14.1"></a>Script Tutorial 3: Data Types</h2>
 
 <p>If you used other scripting languages, you may find SparForte's
 type system confusing.  In most languages, a type is a primitive
@@ -72,7 +72,7 @@ them appropriate data types.  You can't change the type of a variable
 nor can you destroy a variable.  When a script runs, SparForte performs
 type checking before any commands execute, catching type errors early.</p>
 
-<p>SparForte is also a <b>strongly-type</b> language, which means that there are
+<p>SparForte is also a <b>strongly-typed</b> language, which means that there are
 restrictions for how different types of data can be mixed.  Most strong typing
 languages will not allow strings to be mixed with numbers in an expression
 (they are treated as incompatible).  However, SparForte uses more strong
@@ -91,7 +91,7 @@ without using object classes.</p>
 the parent type are structurally equivalent.  You can create any number
 of new types derived from the parent type but each new type is incompatible
 with its sibling or its parent types.  Although they are all structurally
-the same, the are logically incompatible.</p>
+the same, they are logically incompatible.</p>
 
 <p>For example, you can create two new float-based types to represent
 weight and distance.</p>
@@ -103,7 +103,7 @@ weight and distance.</p>
         </div>
         </center>
 
-<p>Both distance_km and weight_kg are both types of floats and have the
+<p>Both distance_km and weight_kg are types of floats and have the
 same properties as floats.  Any function parameter that expects a float
 will also accept these new types.  But they are incompatible with each
 other: a distance_km value cannot be assigned to a weight_kg, and a
@@ -196,7 +196,7 @@ created.</p>
 cumbersome, requiring extra type casting, converting one type to
 another.  For example, if you have a lot of different integer
 types and you want to use them in an expression, you may have to
-typecast them all to integer and then typecast the result back
+typecast them all to an integer and then typecast the result back
 to the final type, which makes the expression hard to read.</p>
 
 <p>It is important that you use new types where they make the
@@ -242,7 +242,7 @@ properties of the universal type.  This shouldn't be much of an
 obstacle, since you use the universal types to avoid the type
 system.</p>
 
-<p>These types are similar to <b>weak typing</b>: an universal_typeless
+<p>These types are similar to <b>weak typing</b>: a universal_typeless
 variable is always contains a universal_typeless value, but the value
 is interpreted as a string or integer depending on the expression or
 context, implicitly type casting the value.  This is different from
@@ -253,7 +253,7 @@ program runs.</p>
 more convenient when creating a quick prototype or a short script,
 but you also lose the safety, readability and easy scaling advantages
 of explicit types and compile-time error checking.  Like any data type,
-be cautious and chose the appropriate type for your task.</p>
+be cautious and choose the appropriate type for your task.</p>
 
 <h3>Types, Subtypes and Aggregate Types</h3>
 

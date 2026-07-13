@@ -43,29 +43,29 @@
 <h2><a name="2.11"></a>Calling SparForte from C: A Tutorial</h2>
 <p>Certain kinds of programs, such as games or the Gimp, allow users to
 write
-their own scripts&nbsp;&nbsp; For example, there are game scripts that
+their own script. For example, there are game scripts that
 change the behaviour of enemies, or Gimp scripts that apply imaging
 effects
-to a photograph.&nbsp; SparForte can be used as a scripting language for
+to a photograph. SparForte can be used as a scripting language for
 these
-kind of applications.</p>
+kinds of applications.</p>
 
 <p>There is a special pragma, <b>pragma restriction(
 no_external_commands
-)</b>, that will disable all operating system commands.&nbsp;&nbsp; If
+)</b>, that will disable all operating system commands.  If
 you are using SparForte strictly as a scripting language, this pragma will
 guarantee
 that your SparForte scripts will be portable to other operating
-systems.&nbsp;
+systems.
 
 In addition, if you use <b>pragma ada_95</b>, your scripts will have
-less
-errors and commonly used scripts can compiled with GCC Ada (with only
+fewer
+errors and commonly used scripts can be compiled with GCC Ada (with only
 minor
 changes) for extra speed.</p>
 
-<p>Scripts that interact with other programs must be able to share data
-with the SparForte scripts.&nbsp; In order to share variables with SparForte, you
+<p>Scripts that interact with other programs must be able to share data.
+To share variables with SparForte, you
 will have to export your variables as environment variables or add the
 appropriate declarations to the scripts before you run them with SparForte.
 </p>
@@ -163,7 +163,7 @@ no_external_commands
 <p><tt>/* Run the script. If successful, delete script */</tt>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Hello World
+                <b>Example</b>: A Dynamically-generated SparForte Script
         </div>
         </div>
         </center>

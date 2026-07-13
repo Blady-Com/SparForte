@@ -138,13 +138,9 @@ a SIGINT (e.g. a <tt class="key">control</tt> - <tt class="key">c</tt>) will pau
 command
 prompt. This breakout prompt is identical to a normal interactive
 session
-except for the command to quit. <code>return</code> will retry the last statement.
-<code>step</code> will run the next statement and then stop. <code>logout</code> will
-terminate
-the script.
+except for the command to quit. Typing <code>return</code> will retry the last statement.
+<code>step</code> will run the next statement and then stop. Type <code>logout</code> to terminate the script.
 </p>
-
-<h3>The Breakout Prompt</h3>
 
 <p>Without a <code>--break</code>, a SIGINT will terminate the script, just as if a
 return command was executed.
@@ -183,7 +179,7 @@ return command was executed.
 		3<br>
 		breakdemo.sp: 4: 1: for loop<br>
 		&nbsp; put_line( i );<br>
-		^ <span class="code" style="background: black; color:white">Break: return to continue, logout to quit</span><br>
+		^ <span class="code" style="background: black; color: white">Break: return to continue, logout to quit</span><br>
 		=&gt;<br>&nbsp;<br></p>
         <div class="code_caption">
                 <b>Example</b>: Breakout Prompt Appears when Control-C is used on a Script with --break
@@ -221,14 +217,14 @@ uninspect</code> to stop inspecting a variable.</p>
 
 <p>To break at a specific point in a script without using Control-C, use <code>pragma
 inspection_point</code>.  When this pragma is reached, SparForte will stop as if you
-typed a Control-C.  That is, it marks a "break point" in your program.  All
+typed a Control-C.  That is, it marks a "breakpoint" in your program.  All
 variables selected with pragma inspect will be displayed.  Use
 <code>pragma inspection_peek</code> to see the inspected variables without stopping
 the program.</p>
 
 <h3>Study Questions</h3>
 <ol>
-<li>Why is detecting errors in an early in the development cycle valuable?</li>
+<li>Why is detecting errors early stage in a development cycle valuable?</li>
 <li>How can creating your own types with the "type" statement reveal design errors?</li>
 <li>Why does "pragma debug" run commands in restricted shell mode?</li>
 </ol>

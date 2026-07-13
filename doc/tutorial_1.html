@@ -44,13 +44,13 @@
 
 <img class="padded_left" src="pictures/popeye_punch.png" width="128" height="186" alt="[Popeye]" />
 
-<p>Thanks for taking the time to look at the SparForte.&nbsp; This
+<p>Thanks for taking the time to look at SparForte.&nbsp; This
 tutorial is a simple introduction to SparForte by using SparForte to perform
 interactive math like a pocket calculator.  Then there will be an example
 of running a script.</p>
 
-<p>Although this tutorial does not require specific knowledge, there is
-working knowledge that can explain basic concepts in more detail.</p>
+<p>This tutorial does not require specific knowledge, although a
+working knowledge of the Linux shell may be beneficial.</p>
 
 <ul>
 <li><p>The Ada Programming Language</p>
@@ -58,6 +58,7 @@ working knowledge that can explain basic concepts in more detail.</p>
 language.  This does not mean that Ada is the same as SparForte and
 you do not need to know Ada.  However, the basic data types and control
 structures are the same.</p>
+</li>
 <li><p>Bourne Shells and Shell Scripting</p>
 <p>As a shell, SparForte has some compatibility with UNIX Bourne shells
 like Bash and the Korn shell.  Not all features are supported, and
@@ -69,11 +70,10 @@ some features are implemented in a different way.</p>
 welcome
 message and a command prompt, a "<tt>=&gt;</tt>". From this prompt, you
 can
-
 <a href="ref_types.html">declare
 variables</a>, execute AdaScript statements, or run <a
  href="ref_extcmds.html">external
-commands.</a><br>
+commands.</a>
 </p>
 <p>SparForte is case-sensitive, as are many other shells, because
 UNIX/Linux environment variables are also case-sensitive.&nbsp; This
@@ -81,21 +81,18 @@ means that SparForte treats "IF", "if" and "If" as three different words.<br>
 </p>
 <p>SparForte will <b>terminate your session</b> by the
 command <code>return</code> (or <code>logout</code> for a login shell).&nbsp;
-
 You can also terminate your session by typing a Control-D (the UNIX
-end-of-file character).<br>
+end-of-file character).
 </p>
 <p>The <code>help</code> command presents a
 short summary of recognized SparForte commands.
 </p>
-<p><img src="pictures/sparforte_help.gif" alt="[SparForte help command]" width="616" height="421"><br>
-<b style="font-style: italic;">Figure:</b><span
- style="font-style: italic;"> Screenshot of an interactive SparForte session</span>
+<p><img src="pictures/sparforte_help.gif" alt="[SparForte help command output in an interactive session]" width="616" height="421"><br>
+<b style="font-style: italic;">Figure:</b> <span
+ style="font-style: italic;">Screenshot of an interactive SparForte session</span>
 </p>
 <p>For a brief description of a particular topic or command, use <code>help</code>
-
-and the topic name.
-</p>
+and the topic name.  </p>
 
         <center>
         <div class="code">
@@ -146,10 +143,10 @@ to group subexpressions.</p>
 		3<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Arithmetic on the Command Prompt</span>
+                <b>Example</b>: Arithmetic on the Command Prompt
         </div>
         </div>
-	</center>
+	    </center>
 
 <p>Because SparForte is a shell that can run commands, if you omit the "?",
 SparForte
@@ -159,15 +156,15 @@ attempt to run it.<br>
         <center>
         <div class="code">
 		<p class="code">
-		<p>=&gt; 12/4
+		=&gt; 12/4
 		<br>
 		12/4: No such file or directory
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Arithmetic without ? is treated as a command</span>
+                <b>Example</b>: Arithmetic without ? is treated as a command
         </div>
         </div>
-	</center>
+    	</center>
 
 <p>In this case, SparForte attempts to run a command named "12/4" but doesn't
 find one.&nbsp; Running commands is discussed in more detail in the
@@ -189,7 +186,7 @@ characters by single quotes.  There is no limit on the length of strings
 		c<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Strings and Characters at the Command Prompt</span>
+                <b>Example</b>: Strings and Characters at the Command Prompt
         </div>
         </div>
 	</center>
@@ -214,14 +211,13 @@ procedure, for example, can format the result using a picture string.<br>
 		<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: How to Format Numbers</span>
+                <b>Example</b>: How to Format Numbers
         </div>
         </div>
 	</center>
 
 <p>Strings operators include "&amp;" (concatenation) and *
-(duplication).  <a href="ref_charsets.html#ascii">Special string characters can be expressed with </a>"ASCII", a period, and the code name for the character.  
-</p>
+(duplication).  <a href="ref_charsets.html">Special string characters</a> can be expressed with "ASCII", a period, and the code name for the character.</p>
 
         <center>
         <div class="code">
@@ -234,7 +230,7 @@ procedure, for example, can format the result using a picture string.<br>
 		Three times lucky is luckluckluck<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: String and Character Operators at the Command Prompt</span>
+                <b>Example</b>: String and Character Operators at the Command Prompt
         </div>
         </div>
 	</center>
@@ -253,7 +249,7 @@ numbers.)</p>
 constants "true" and "false" represent true and false respectively:
 unlike many scripting languages and shells, they have no numeric or
 string equivalent.  A zero is not false: it is a numeric zero.  An
-empty string is not false: it is an string with no characters.  true
+empty string is not false: it is a string with no characters.  true
 and false are a completely different type of value (an enumerated value,
 to be precise).
 </p>
@@ -270,7 +266,7 @@ to be precise).
 		true<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Boolean Operators at the Command Prompt</span>
+                <b>Example</b>: Boolean Operators at the Command Prompt
         </div>
         </div>
 	</center>
@@ -280,7 +276,7 @@ the <a href="bushref.html#itself%20lastout">last outputted</a>
 value.&nbsp; This is
 represented by the "%" operand (pronounced "last output").&nbsp; This
 is the output of the last put, put_line or "?".&nbsp; This is useful
-for doing calculations without having save the intermediate results in
+for doing calculations without having saved the intermediate results in
 a variable.</p>
 
         <center>
@@ -295,16 +291,16 @@ a variable.</p>
 		Hello world! It's good to be alive!"<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: The Last Output Operand</span>
+                <b>Example</b>: The Last Output Operand
         </div>
         </div>
 	</center>
 
 <p>More advanced expressions can be created using SparForte's built-in
-packages.&nbsp; These packages containing routines that perform more
+packages.&nbsp; These packages contain routines that perform more
 complex calculations.&nbsp; For example, the strings package contains
 many routines for working with strings such as calculating the length
-of string, editing strings or performing pattern matching.</p>
+of strings, editing strings or performing pattern matching.</p>
 <p>The "strings.glob" function performs POSIX shell "globbing" pattern
 matching.&nbsp; The format for globbing patterns is discussed in the
 Packages section.&nbsp; The "strings.length" function returns the
@@ -320,7 +316,7 @@ length of a string.</p>
 		5<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Built-in String Functions at the Command Prompt</span>
+                <b>Example</b>: Built-in String Functions at the Command Prompt
         </div>
         </div>
 	</center>
@@ -338,17 +334,17 @@ name.&nbsp; The assignment operator is ":=".</p>
 		&nbsp;5.50000000000000E+00<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Automatic Variable Declarations at the Command Prompt</span>
+                <b>Example</b>: Automatic Variable Declarations at the Command Prompt
         </div>
         </div>
 	</center>
 
-<p>Like many strong typed languages, all variables are declared to provide protection
+<p>Like many strongly-typed languages, all variables are declared to provide protection
 against spelling mistakes and to provide the variable with a <a href="ref_types.html">type</a>.
 For example, a string variable may only contain string values.&nbsp; This
 prevents variables containing fundamentally different
-values from being combined in nonsense ways.&nbsp; When SparForte declared
-"v", it was given the type of "universal_numeric" (that is, a
+values from being combined in nonsense ways.&nbsp; When SparForte declares
+the variable "v", it is given the type of "universal_numeric" (that is, a
 variable compatible with any kind of number).&nbsp; You can explicitly declare
 a variable, giving it type of your choosing.</p>
 
@@ -365,7 +361,7 @@ a variable, giving it type of your choosing.</p>
 		universal_string<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Declarations and Strong Typing at the Command Prompt</span>
+                <b>Example</b>: Declarations and Strong Typing at the Command Prompt
         </div>
         </div>
 	</center>
@@ -395,7 +391,7 @@ command.
 		y :=  5.00000000000000E+00; -- identifier of the type float<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Changing a Type at the Command Prompt</span>
+                <b>Example</b>: Changing a Type at the Command Prompt
         </div>
         </div>
 	</center>
@@ -418,7 +414,7 @@ one command can be placed on a line.
 		5<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Calculating the Hypotenuse of a Triangle</span>
+                <b>Example</b>: Calculating the Hypotenuse of a Triangle
         </div>
         </div>
 	</center>

@@ -43,14 +43,15 @@
 	<!-- Content Area -->
 <h2><a NAME="4.1"></a>Package Summary</h2>
 
-<img class="padded_right" src="pictures/ryu_sheng_long.jpg" width="192" height="153" alt="[Ryu and Ken]" \>
+<img class="padded_right" src="pictures/ryu_sheng_long.jpg" width="192" height="153" alt="[Ryu and Ken]" />
 
 <p>AdaScript contains hundreds of built-in constants, variables, functions and
 procedures. Many of these are grouped into collections called packages.</p>
 
 <h3>Built-in Packages</h3>
 
-<p>AdaScript includes the following packages:
+<p>AdaScript includes the following packages:</p>
+
 <ul>
 <li>
 <b>arrays</b> - contains general array operations</li>
@@ -71,10 +72,10 @@ procedures. Many of these are grouped into collections called packages.</p>
 <b>command_line</b> - the script name, parameters and return value</li>
 
 <li>
-<b>db</b> - PostgreSQL database interface</li>
+<b>db</b> - PostgreSQL database (single connection) interface</li>
 
 <li>
-<b>dbm</b> - PostgreSQL database (multiple connections) interface</li>
+<b>dbm</b> - PostgreSQL database (multiple connections) interface (not to be confused with Berkeley DB)</li>
 
 <li>
 <b>directory_operations</b> - manage directories</li>
@@ -122,10 +123,10 @@ procedures. Many of these are grouped into collections called packages.</p>
 <b>memcache.highread</b> - Memcache network cache interface - high reading / high redundancy</li>
 
 <li>
-<b>mysql</b> - MySQL database interface</li>
+<b>mysql</b> - MySQL database (single connection) interface</li>
 
 <li>
-<b>mysqlm</b> - MySQL multiple connections database interface</li>
+<b>mysqlm</b> - MySQL database (multiple connections) interface</li>
 
 <li>
 <b>numerics</b> - contains mathematical functions and constants</li>
@@ -183,18 +184,19 @@ in this guide.</p>
 
 <p>To use a function or constant inside a package, prefix the function
 with the name of the package.&nbsp; For example, to use the "length" function
-in the "strings" package, refer to it as "strings.length".
+in the "strings" package, refer to it as "strings.length".</p>
 
 <p><tt>=&gt; ? strings.length( "PegaSoft" )</tt>
-<br><tt>8</tt>
+<br><tt>8</tt></p>
+
 <p>The built-in Text_IO package is treated as an inherent part of the language
 and doesn't use a prefix of "Text_IO".  This is the only package that doesn't
 use a package prefix.</p>
 
 <h3>Parameter Types</h3>
 
-<p>Parameters to a command have a mode which determine how the parameter
-is treated:</p>
+<p>Parameters to a command have modes which determine how the parameter
+are treated:</p>
 <ul>
 <li>
 <b>in</b> - the parameter is read only.  This is not the same as C/C++/Java's
@@ -211,9 +213,9 @@ variable must exist.  This is the same as <i>call-by-reference</i> in
 languages like C/C++/Java.</li>
  
 <li>
-
 <b>return value</b> - the type of value returned for functions.</li>
 </ul>
+
 <h3>An Example</h3>
 
 <h4>n := strings.length( s )</h4>
@@ -340,8 +342,6 @@ the number of characters in the string.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;text_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;units</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_vectors.html">&nbsp;vectors</a></p>
-</a></p>
-
 			</td>
 		</tr>
 		<tr>
@@ -354,4 +354,3 @@ the number of characters in the string.</p>
 </body>
 </html>
 
-                                <p class="rmt"><a class="rightmenutext" href="pkg_vectors.html">&nbsp;vectors</a></p>

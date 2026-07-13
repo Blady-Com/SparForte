@@ -53,7 +53,7 @@ Interface).  The exact configuration depends on your operating system
 and your web server.</p>
 
 <p>As an example, with Apache, you can create scripts with a <tt>.cgi</tt>
-ending in a <tt>cgi-bin</tt> directory.  The specify the location of the
+ending in a <tt>cgi-bin</tt> directory.  Then specify the location of the
 SparForte interpreter in the "#!" line at the top of script.</p>
 
 <p>CGI scripts can work with or without templates.</p>
@@ -131,7 +131,7 @@ error log.</p>
 it doesn't yet have an Apache module, you can use the CGI mechanism
 to use templates.  First, the CGI script can do any necessary
 computation.  Then, using a directive called
-called <code>pragma template</code>, a web template is loaded containing
+<code>pragma template</code>, a web template is loaded containing
 HTML and embedded SparForte statements.</p>
 
 <p>The template pragma has two parameters: the type of
@@ -145,9 +145,8 @@ to return a web page.</p>
 
 <p>Use the main script to run operating system command, database
 queries or
-complex calculations. Once SparForte has executed this script, SparForte try will
-load a
-template called "status.tmpl".</p>
+complex calculations. Once SparForte has executed this script, SparForte
+will try to load a template called "status.tmpl".</p>
 
 <h4>What's in a Template File?</h4>
 <p>A template file should contain the web page SparForte will display. Embed
@@ -192,7 +191,7 @@ scripts run in a restricted shell and are not able to run external
 operating
 system commands. (You can disable this protection with <code>pragma
 unrestricted_template</code> but anyone who can edit the template will be
-able to run commands with the authority of the web server.</p>
+able to run commands with the authority of the web server.)</p>
 
 <p>Here is a longer example:</p>
 <table border="1" width="98%">
@@ -225,7 +224,7 @@ an error occurred but don't see it on the web page, check the error log.</p>
 
 <p>On the web page, errors will appear something like this:</p>
 
-<div style="border: 1px solid; margin: 10px 5px padding: 15px 10px 15px 50px; color: #00529B; background-color: #BDE5F8; width:100%; overflow:auto"><div style="float:left;font: 32px Times New Roman,serif; font-style:italic; border-radius:50%; height:50px; width:50px; color: #FFFFFF; background-color:#00529B; text-align: center; vertical-align: middle; line-height: 50px; margin: 5px">i</div><div style="float:left;font: 12px Courier New,Courier,monospace; color: #00529B; background-color: transparent"><p style="font: 14px Verdana,Arial,Helvetica,sans-serif; font-weight:bold">SparForte says</p><p>/srv/www/cgi-bin/t_tmpl.sp:&nbsp;13:&nbsp;10:&nbsp;in&nbsp;script<br>&nbsp;i1&nbsp;:=&nbsp;j1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;type&nbsp;<span style="font-weight:bold">i</span>&nbsp;is&nbsp;not&nbsp;compatible&nbsp;with&nbsp;type&nbsp;<span style="font-weight:bold">j</span></p></div></div><br />
+<div style="border: 1px solid; margin: 10px 5px; padding: 15px 10px 15px 50px; color: #00529B; background-color: #BDE5F8; width:100%; overflow:auto"><div style="float:left;font: 32px Times New Roman,serif; font-style:italic; border-radius:50%; height:50px; width:50px; color: #FFFFFF; background-color:#00529B; text-align: center; vertical-align: middle; line-height: 50px; margin: 5px">i</div><div style="float:left;font: 12px Courier New,Courier,monospace; color: #00529B; background-color: transparent"><p style="font: 14px Verdana,Arial,Helvetica,sans-serif; font-weight:bold">SparForte says</p><p>/srv/www/cgi-bin/t_tmpl.sp:&nbsp;13:&nbsp;10:&nbsp;in&nbsp;script<br>&nbsp;i1&nbsp;:=&nbsp;j1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;type&nbsp;<span style="font-weight:bold">i</span>&nbsp;is&nbsp;not&nbsp;compatible&nbsp;with&nbsp;type&nbsp;<span style="font-weight:bold">j</span></p></div></div><br />
 
 <h3>Securing Your Web Site</h3>
 
@@ -244,7 +243,7 @@ prevent most exploits.  However, if a restricted shell is too restrictive,
 remember to do the following things:</p>
 
 <ul>
-<li>Use <code>cgi.url_encode</code> for all URL's being returned.</li>
+<li>Use <code>cgi.url_encode</code> for all URLs being returned.</li>
 <li>Use <code>cgi.html_encode</code> for all string values that will used to build web content.</li>
 <li>Use the strings validation functions like <code>strings.is_alphanumeric</code> on all strings.</li>
 <li>Sanitize input values with <code>strings.fix</code> or <code>strings.trim</code> where appropriate.</li>
@@ -256,7 +255,7 @@ remain separate.  It can help protect your site from putting plain, not encoded
 data on a web site.  For example, create new string types like <code>unescaped_string</code>
 and <code>escaped_string</code>.</p>
 
-<p>The create your own version of the <code>html_encode</code> and <code>url_encode</code> functions that
+<p>Then create your own version of the <code>html_encode</code> and <code>url_encode</code> functions that
 have an <code>unescaped_string</code> parameter and returns a <code>escaped_string</code>.
 Create your own version of <code>put</code> or <code>put_line</code> that use <code>escaped_string</code> parameters.</p>
 

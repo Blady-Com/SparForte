@@ -50,7 +50,7 @@ to writing scripts.</p>
 
 <p>SparForte <b>comments</b> begin with a double minus sign. Any text
 following
-the comment sign to the end of the line are treated as explanatory
+the comment sign to the end of the line is treated as explanatory
 text.
 For example,
 </p>
@@ -62,7 +62,7 @@ For example,
         </center>
 
 <p>Comments are not very useful at the command prompt but they are very
-useful in scripts.&nbsp; A script is collection of SparForte commands stored
+useful in scripts.&nbsp; A script is a collection of SparForte commands stored
 in a file.</p>
 
 <h3>Running Commands</h3>
@@ -155,9 +155,8 @@ a message on the screen.
         </div>
 	</center>
 
-<p><code>put_line</code> and <code>set_exit_status</code> are built-in procedures. put_line, part
-of
-the Text_IO package, displays a message on the screen. 
+<p><code>put_line</code> and <code>set_exit_status</code> are built-in procedures.
+put_line, part of the Text_IO package, displays a message on the screen. 
 <code>set_exit_status(0)</code> informs the program which ran your shell script
 that the script ran successfully.</p>
 
@@ -242,7 +241,7 @@ a set of commands a specific number of times or over a specific range of
 numbers.  The variable in the for loop doesn't need to be declared: SparForte will
 declare it for you automatically.  A <code>while</code> loop will repeat a set of
 commands until something
-becomes true.  A <code>loop</code> loop will loop indefinitely until you break out
+becomes true.  A <code>loop</code> loop will run indefinitely until you break out
 of the loop with an <code>exit</code> command.</p>
 
         <center>
@@ -266,7 +265,7 @@ session.) Instead, use the <b>return</b> command to unconditionally
 stop a script and return control to the calling program or person. Set
 the exit status to zero to indicate there is no error.</p>
 
-<p>Scripts automatically stop when it reaches its end as if there was an
+<p>Scripts automatically stop when it reaches their end as if there was an
 implicit <code>return</code> typed there.</p>
 
 <h3>The Delay Command</h3>

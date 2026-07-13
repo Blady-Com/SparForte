@@ -308,7 +308,11 @@ begin
      result.unitMetaTag := noMetaTag;
      result.policyMetaTags := noMetaTags;
      if identifiers( var_id ).class = typeClass or identifiers( var_id ).class = subClass then
-        result.value := to_unbounded_string( long_integer'image( identifiers( var_id ).lastBound - identifiers( var_id ).firstBound + 1 ) );
+         if identifiers( var_id ).firstBound > identifiers( var_id ).lastBound then
+             result.value := to_unbounded_string( " 0" ); -- null array
+         else
+             result.value := to_unbounded_string( long_integer'image( identifiers( var_id ).lastBound - identifiers( var_id ).firstBound + 1 ) );
+         end if;
      else
         result.value := to_unbounded_string( long_integer'image( identifiers( var_id ).aStorage'length ) );
      end if;
@@ -516,20 +520,30 @@ begin
      first := identifiers( var_id ).aStorage'first;
      last  := identifiers( var_id ).aStorage'last;
      -- do not sort an empty array
-     if first /= 1 or last /= 0 then
+     if last >= first then
         offsetArrayBeingSorted := first-1;
-        kind := getUniType( identifiers( var_id ).kind );
-        begin
-           if kind = uni_string_t or kind = universal_t then
-              GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_string'access );
-           elsif kind = uni_numeric_t or kind = root_enumerated_t then
-              GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_numeric'access );
-           else
-              expectSortableArray( subprogramId, var_id );
-           end if;
-        exception when others =>
-          err_exception_raised;
-        end;
+        -- not sure if this will every happen but...
+        if last - first + 1 > long_integer( natural'last ) then
+           err( contextNotes => +"checking the array size",
+                subject => arrayBeingSortedId,
+                subjectType => identifiers( arrayBeingSortedId ).kind,
+                reason => pl( "is too large to be sorted" ),
+                obstructorNotes => nullMessageStrings
+              );
+        else
+           kind := getUniType( identifiers( var_id ).kind );
+           begin
+              if kind = uni_string_t or kind = universal_t then
+                 GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_string'access );
+              elsif kind = uni_numeric_t or kind = root_enumerated_t then
+                 GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_numeric'access );
+              else
+                 expectSortableArray( subprogramId, var_id );
+              end if;
+           exception when others =>
+              err_exception_raised;
+           end;
+        end if;
      end if;
   end if;
 end ParseArraysBubbleSort;
@@ -571,20 +585,30 @@ begin
      first := identifiers( var_id ).aStorage'first;
      last  := identifiers( var_id ).aStorage'last;
      -- do not sort an empty array
-     if first /= 1 or last /= 0 then
+     if last >= first then
         offsetArrayBeingSorted := first-1;
-        kind := getUniType( identifiers( var_id ).kind );
-        begin
-           if kind = uni_string_t or kind = universal_t then
-              GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_string_descending'access );
-           elsif kind = uni_numeric_t or kind = root_enumerated_t then
-              GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_numeric_descending'access );
-           else
-              expectSortableArray( subprogramId, var_id );
-           end if;
-        exception when others =>
-          err_exception_raised;
-        end;
+        -- not sure if this will every happen but...
+        if last - first + 1 > long_integer( natural'last ) then
+           err( contextNotes => +"checking the array size",
+                subject => arrayBeingSortedId,
+                subjectType => identifiers( arrayBeingSortedId ).kind,
+                reason => pl( "is too large to be sorted" ),
+                obstructorNotes => nullMessageStrings
+              );
+        else
+           kind := getUniType( identifiers( var_id ).kind );
+           begin
+              if kind = uni_string_t or kind = universal_t then
+                 GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_string_descending'access );
+              elsif kind = uni_numeric_t or kind = root_enumerated_t then
+                 GNAT.Bubble_Sort_A.Sort( natural( last - first ) + 1, moveElement'access, lt_numeric_descending'access );
+              else
+                 expectSortableArray( subprogramId, var_id );
+              end if;
+           exception when others =>
+              err_exception_raised;
+           end;
+        end if;
      end if;
   end if;
 end ParseArraysBubbleSortDescending;
@@ -614,7 +638,7 @@ begin
   expectWritableItems( subprogramId, var_id );
   expect( symbol_t, ")" );
   -- mark as being altered for later tests
-  if syntax_check then
+  if syntax_check and not error_found then
      identifiers( var_id ).wasWritten := true;
   end if;
   if isExecutingCommand then
@@ -626,7 +650,7 @@ begin
      first := identifiers( var_id ).aStorage'first;
      last  := identifiers( var_id ).aStorage'last;
      -- do not sort an empty array
-     if first /= 1 or last /= 0 then
+     if last >= first then
         offsetArrayBeingSorted := first-1;
         kind := getUniType( identifiers( var_id ).kind );
         begin
@@ -671,7 +695,7 @@ begin
   expectWritableItems( subprogramId, var_id );
   expect( symbol_t, ")" );
   -- mark as being altered for later tests
-  if syntax_check then
+  if syntax_check and not error_found then
      identifiers( var_id ).wasWritten := true;
   end if;
   if isExecutingCommand then
@@ -683,7 +707,7 @@ begin
      first := identifiers( var_id ).aStorage'first;
      last  := identifiers( var_id ).aStorage'last;
      -- do not sort an empty array
-     if first /= 1 or last /= 0 then
+     if last >= first then
         offsetArrayBeingSorted := first-1;
         kind := getUniType( identifiers( var_id ).kind );
         begin
@@ -848,7 +872,7 @@ end ParseArraysFlip;
 -- AdaScript Syntax: arrays.shift_right( a )
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_arrays.html#arrays.rotate_right
+--   SparForte Docs: doc/pkg_arrays.html#arrays.shift_right
 -----------------------------------------------------------------------------
 
 procedure ParseArraysShiftRight is

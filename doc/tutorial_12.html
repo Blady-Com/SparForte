@@ -56,25 +56,25 @@ easily ported to different operating systems</p></li>
 comments for who created the script and any source control elements.</p></li>
 
 <li><p>Use pragma annotate instead of comments to describe how to use a script.
- The help command can shows these annotations.  Describe the usage: leave notes
+ The help command can show these annotations.  Describe the usage: leave notes
 on the history, implementation or design as comments.  Annotate can then serve
 the same function as an Ada package specification.</p></li>
 
 <li><p>Use pragma ada_95 in scripts where you want to copy your routines to Ada
 programs.</p></li>
 
-<li><p>Variable naming in the standard Ada packages usually use words with
+<li><p>Variable naming in the standard Ada packages usually uses words
 beginning with upper-case and containing an underscore (e.g. Put_Line).
 Shell conventions use upper-case for variable names.  Since SparForte is
 case-sensitive, SparForte uses lower-case words with underscores to fit to the
 conventions of UNIX shell-scripting.</p></li>
 
-<li><p>Sticking to lower-case will make it easier to reuse code with Ada and SparForte</p></li>
+<li><p>Sticking to lower-case will make it easier to reuse code with Ada and SparForte.</p></li>
 
 <li><p>Avoid using names that vary only in case.  (e.g. do not use "x" and "X".)</p></li>
 
 <li><p>Ada conventions use full words in functions or variable names wherever possible.
-(e.g. unbiased_rounding() .)  Avoid acronyms, especially when they can be ambiguous,
+(e.g. unbiased_rounding() ).  Avoid acronyms, especially when they can be ambiguous,
 unless the acronym is a common one.</p></li>
 
 <li><p>Don't use universal variable types in scripts.</p></li>
@@ -83,13 +83,13 @@ unless the acronym is a common one.</p></li>
 of a simple null.</p></li>
 
 <li><p>Use comments on a separate line to identify sections of a script, or to
-explain design decisions, potential problems or workarounds</p></li>
+explain design decisions, potential problems or workarounds.</p></li>
 
 <li><p>Don't rely on separator characters such as lines of "=" or "*" to
 make comments stand out.  Instead, use blank lines and white space.</p></li>
 
-<li><p>Use a usage functions and show the usage when "-h" or "--help" are
-used to run the script</p></li>
+<li><p>Use a usage function and show the usage when "-h" or "--help" are
+used to run the script.</p></li>
 
 <li><p>Put complicated routines into a function, procedure or a declare block.
 Declare any local variables in the local scope to improve readability and

@@ -41,8 +41,8 @@
 				<!-- Content Area -->
 
 <h2><a name="2.10"></a>Creating a Profile Script</h2>
-<p>When SparForte is started when a user first logs in (or if it is started
-with --login), SparForte search for a profile script.  This is a list of
+<p>When SparForte is started n a user first logs in (or if it is started
+with --login), SparForte searches for a profile script.  This is a list of
 commands to run that will set up a user's environment.  By creating a
 profile script, a user can create variables or run programs
 every time they log in.</p>
@@ -112,7 +112,7 @@ DISPLAY : string := "undefined";
   <b>pragma</b> export( shell, DISPLAY );
 <b>end</b> <b>if</b>;
 
--- disable automatic declaractions if I don't like them
+-- disable automatic declarations if I don't like them
 <b>pragma</b> restriction( no_auto_declaractions );
 
 -- declare company name, but don't export beyond shell session
@@ -133,12 +133,11 @@ date;
         </center>
 
 <p>After the profile scripts are executed, the user sees the "=&gt;"
-prompt and
-can being entering commands.</p>
+prompt and can begin entering commands.</p>
 
-<p>SparForte perform security checks before running a profile script,
+<p>SparForte performs security checks before running a profile script,
 and will raise an exception if there is a problem.  The script file
-must be a regular file, not empty and must not be world writable.</p>
+must be a regular file, not empty and also must not be world writable.</p>
 
 <h3>Study Questions</h3>
 <ol>
