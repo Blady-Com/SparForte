@@ -65,14 +65,14 @@ statements.</p>
 
 <h3>Declare Block</h3>
 
-<p>Declare blocks (also called block statements) contains a sequence of
+<p>Declare blocks (also called block statements) contain a sequence of
 statements or commands that can include locally declared variables.
 Declare blocks are located in the executable part
 of a script.  Between <code>declare</code> and <code>begin</code>, declarations can be made.
 Between <code>begin</code> and <code>end</code> are executable statements.  The declarations
 are visible to these executable statements.</p>
 
-<p>A new block can be created without declaration any
+<p>A new block can be created without declaring any
 variables by using begin...end without the declare section.<br>
 </p>
 
@@ -135,7 +135,7 @@ represent conditions and the return values defined by business policy.
 The tables describe values more complex than simple constants.</p>
 
 <p>Case procedures are intended for business analysts.  They require
-only a small enough of AdaScript and are easier to show business people
+only a small knowledge of AdaScript and are easier to show business people
 an understanding of their policy.  However, they can also be used by
 developers as a form of named case statements.</p>
 
@@ -214,7 +214,7 @@ value.</p>
 
 <p>A <code>return</code> statement may contain an optional <code>when</code> clause, similar
 to a loop <code>exit</code> statement.  The main advantage of the <code>when</code> clause over an
-<code>if</code> statement is to execution jumps in the source code more obvious.</p>
+<code>if</code> statement is to make execution jumps in the source code more obvious.</p>
 
 <h3>Procedure and Function Parameters</h3>
 
@@ -246,7 +246,7 @@ before the type of parameter.</p>
 
 <p><b>Ada</b>: Ada does not permit functions to use in out mode parameters.</p>
 
-<p>Procedures and functions can only declared inside the declaration section of
+<p>Procedures and functions can only be declared inside the declaration section of
 a script's main procedure block (or declared nested inside other subprograms
 or declare blocks).</p>
 
@@ -289,7 +289,7 @@ mode parameters are not supported for user-defined subprograms.
 Named parameters are not supported.  Default values are not
 supported.</p>
 
-<h3>Subprogram Specifications and Mutual Recurson</h3>
+<h3>Subprogram Specifications and Mutual Recursion</h3>
 
 <p>Introduced in SparForte 2.3</p>
 
@@ -396,7 +396,7 @@ example.</p>
 
 <h3>Separate Subprograms</h3>
 
-<p>Procedures and functions maybe loaded from a separate file.
+<p>Procedures and functions may be loaded from a separate file.
 (This is referred to as a "subunit": a feature of a script stored
 in a separate file).</p>
 
@@ -438,7 +438,7 @@ with the word <code>separate</code>.</p>
         &nbsp;&nbsp;<b>procedure</b> t2 <b>is</b> <b>separate</b>;<br>
         <b>begin</b><br>
         &nbsp;&nbsp;t2;<br>
-        <b>end</b> t;<br>&nbsp;<br>
+        <b>end</b> t;<br>&nbsp;<br></p>
         <div class="code_caption">
                 <b>Example</b>: t.sp loads t2.sp and executes t2
         </div>
@@ -818,7 +818,7 @@ include files.</p>
 <h2>Configuration Blocks and Global Configuration File</h2>
 
 <p>A <b>configuration</b> block is a special block.  It contains a
-collection of declarations and pragmas at apply to a project.  These
+collection of declarations and pragmas that apply to a project.  These
 are for describing environment settings such as server names,
 login credentials for services (such as databases) and so forth.
 The block is intended for use by system administrators.</p>
@@ -884,7 +884,7 @@ have risky or unpredictable consequences.</p>
 
 <p>A <b>volatile</b> variable is any variable that has a value that can
 change unexpectedly.  Volatile variables are a problem in expressions
-because the value of a variable could change while tn expression is being
+because the value of a variable could change while the expression is being
 calculated.</p>
 
 <p>One way a variable can be volatile is by designating one volatile with
@@ -945,7 +945,7 @@ value when that value is also read later in the expression.</p>
 </div>
 
 <p>To avoid this message, declare a new variable using the <b>copies</b> clause to
-get a value in a moment of time, and use the copy in the expression.</p>
+get a value from a point in time, and use the copy in the expression.</p>
 
 <p>With arrays and records, writing to an array element or any record field will
 cause the entire array or record to be treated as volatile.</p>
@@ -953,7 +953,7 @@ cause the entire array or record to be treated as volatile.</p>
 <p><b>Read then Write</b></p>
 
 <p>The reverse case is to read a variable first, then a function changes it
-aftewards in an expression.  Technically, this is not a side-effect because
+afterwards in an expression.  Technically, this is not a side-effect because
 the variable's value isn't affected by the function.  However, it is treated
 as a side-effect because if the math changes in the expression and the
 expression is evaluated in a different order, it could become one.</p>
@@ -967,7 +967,7 @@ side-effects: i was written after read within an expression.  Perhaps a copy sho
 <p>To solve these errors, use a copy of the original variable.</p>
 
 <p>This particular check is expensive and tests for a potential problem,
-so SparForte does not run this check in maintenace mode.</p>
+so SparForte does not run this check in maintenance mode.</p>
 
 <p><b>Write then Write</b></p>
 
@@ -982,7 +982,7 @@ is responsible for updating the value.</p>
 <p>For any global variable, any function can change a global variable.  However,
 only that function and no other function can change that variable.</p>
 
-<p>In this case, there error will be like this example:</p>
+<p>In this case, there will be an error like this example:</p>
 
 <div class="code">
 <p class="code">

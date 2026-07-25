@@ -41,10 +41,11 @@
 	<!-- Content Area -->
 <h2><a name="3.14"></a>Command Argument Shortcuts</h2>
 
-<p>Command line arguments are additional data passed to a script on the
-command that executes the script.  These may include things like
+<p>Command line arguments are additional data passed to a script,
+provided on the SparForte command
+that executes the script.  These may include things like
 filenames and option switches. Although there is a built-in package to
-handle arguments (<a href="pkg_cmdline.html">command_line</a>),
+handle arguments (<code><a href="pkg_cmdline.html">command_line</a></code>),
 for&nbsp; compatibility, the familiar Bourne shell syntax
 can also be used:</p>
 
@@ -52,7 +53,7 @@ can also be used:</p>
   <li> <code>$?</code> - the status code for the last shell command
 executed</li>
   <li> <code>$0</code> - the script name</li>
-  <li> <code>$1</code>...<code>$9</code> - the first 9 arguments given to
+  <li> <code>$1</code> to <code>$9</code> - the first 9 arguments given to
 this script (if they exist)</li>
   <li> <code>$#</code> - the number of arguments</li>
   <li> <code>$$</code> - the process id (PID) of this program</li>
@@ -68,9 +69,10 @@ this script (if they exist)</li>
         </div>
         </center>
 
-<p>$1 is "a", $2 is "b" and $3 is "c".  The argument variables are
-always string.  The number of parameters, $#, will be 3.  Attempting
-to access an argument that doesn't exist, such as $4 in this example,
+<p><code>$1</code> is "a", <code>$2</code> is "b" and <code>$3</code> is "c".
+The argument variables are
+always of the string type.  The number of parameters, <code>$#</code>, will be 3.  Attempting
+to access an argument that doesn't exist, such as <code>$4</code> in this example,
 is an error.  Redirection operators are not arguments because they
 are processed prior to running the command.</p>
 
@@ -87,7 +89,7 @@ script.</p>
         </div>
         </center>
 
-<p>In this example, $1 is still "a".  The "--trace" argument is not
+<p>In this example, <code>$1</code> is still "a".  The <code>"--trace"</code> argument is not
 visible to your script.</p>
 
 <p>Here is a longer script example.</p>
@@ -111,15 +113,16 @@ visible to your script.</p>
         </div>
         </center>
 
-<p>If there are more than 9 arguments, they can be accessed with the
-command_line
-package.</p>
-<p>The Bourne shell form are intended as command line shortcuts and the
-command_line package should normally be used in a well-structured
+<p>If there are more than 9 arguments, they cannot be accessed using
+the <code>$1</code> parameters:  use the <code>command_line</code>
+package to access the 10th argument and beyond.</p>
+
+<p>The Bourne shell format arguments are intended as command line shortcuts
+and the <code>command_line</code> package should normally be used in a well-structured
 script.
 </p>
 
-<p>SparForte also permits these command line tokens in dollar
+<p>SparForte also permits these command line tokens in dollar sign
 expansions.  Here is an example of removing a traditional shell
 temporary file.</p>
 
@@ -138,15 +141,14 @@ temporary file.</p>
 
 
 <p>The status code of the last command executed is returned from a
-script when it finishes executing.&nbsp; Traditionally, a non-zero
+script when it finishes.&nbsp; Traditionally, a non-zero
 status is an error condition.</p>
 
 <p>A SparForte script can set its status code using the
-command_line package.</p>
+<code>command_line</code> package (or through an exception).</p>
 
-<p><b>Bourne Shell</b>: <code>$@</code>, <code>$#</code> and <code>shift</code>
-are not available.  Use the command_line package for these and
-loop through the parameters.</p>
+<p><b>Bourne Shell</b>: <code>shift</code> is not available.  Use the
+command_line package to loop through the parameters.</p>
 &nbsp;
 
 			</td>

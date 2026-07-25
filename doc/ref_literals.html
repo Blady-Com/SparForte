@@ -6,7 +6,7 @@
     <META NAME="description" CONTENT="SparForte language documentation">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Reference - Literals</title>
-	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
 <body bgcolor="#FFFFFF"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
@@ -42,7 +42,7 @@
 <h2><a name="3.5"></a>Literals</h2>
 
 <p>Numbers (numeric literals) represent a numeric value.  They are
-in conventional base 10 (by default) can contain a decimal point.
+in conventional base 10 (by default) and can contain a decimal point.
 Numbers can also have an underscore (underline character) which
 does not affect the meaning: underscores may be used to break up
 a long number for readability.</p>
@@ -58,8 +58,8 @@ letter characters can be in upper or lower case.</p>
 
 <ul>
   <li><tt>5</tt> - the numeric value 5</li>
-  <li><tt>5.0</tt> the numeric value 5.0</li>
-  <li><tt>10_000</tt> the numeric value 10,000</li>
+  <li><tt>5.0</tt> - the numeric value 5.0</li>
+  <li><tt>10_000</tt> - the numeric value 10,000</li>
   <li><tt>8#777#</tt> - the octal value 511</li>
   <li><tt>16#ff#</tt> - the hexadecimal value 255</li>
 </ul>
@@ -67,17 +67,22 @@ letter characters can be in upper or lower case.</p>
 <p>All numeric literals are of type universal_numeric.</p>
 
 <p>Characters are enclosed in single quotes.  It must be only one graphic
-character bracketed by two single quotes (also called apostrophes).</p>
+character bracketed by two single quotes (also called apostrophes).  It
+cannot be empty.</p>
 
 <ul>
+  <li><tt>'''</tt> - the character single quote</li>
   <li><tt>'a'</tt> - the character a</li>
 </ul>
 
 <p>Strings are enclosed in double quotes.  They are a sequence of zero or
-more graphic characters bracketed by two double quotes.</p>
+more graphic characters bracketed by two double quotes.  A double quote
+can be escaped using two double quotes.</p>
 
 <ul>
-  <li><tt>"hello" </tt>- the string hello</li>
+  <li><tt>""</tt> - an empty string</li>
+  <li><tt>""""</tt> - string with one double quote</li>
+  <li><tt>"hello"</tt> - the string hello</li>
 </ul>
 
 <p>All string or character literals are of type universal_string.</p>

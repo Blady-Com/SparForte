@@ -44,7 +44,7 @@
 <p>Network sockets can be declared using socket_type variables. Most of the
 file I/O functions will work with sockets as well as files.</p>
 <p>The main difference between a socket and a file is that sockets are
-always "in" and "out". When opening a socket, do not specify a mode.
+always "in" and "out". When opening a socket, do not specify a mode.</p>
 <p>The name of the socket is a string containing the name of the server
 computer, followed by a colon and a port number. The port number is 80
 (a web server) if no port is specified. Certain ports, such as those above
@@ -53,7 +53,7 @@ computer, followed by a colon and a port number. The port number is 80
         <center>
         <div class="code">
                 <p class="code">
-#!/usr/local/bin/bush<br>
+#!/usr/local/bin/spar<br>
 &nbsp;<br>
 -- download a web page<br>
 &nbsp;<br>
@@ -78,11 +78,10 @@ put_line( "End of web page" );<br>
 close( f );<br>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Hello World
+                <b>Example</b>: Downloading a web page with open
         </div>
         </div>
         </center>
-
 
 			</td>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>

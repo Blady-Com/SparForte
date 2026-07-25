@@ -100,9 +100,7 @@ your version of SQL.</p>
 <span style="font-family: monospace;">&nbsp;ken&nbsp;&nbsp; | 38</span><br
  style="font-family: monospace;">
 &nbsp;
-
-<span style="font-family: monospace;"></span><span
- style="font-family: monospace;">kati&nbsp; | 36</span><br
+<span style="font-family: monospace;">&nbsp;kati&nbsp; | 36</span><br
  style="font-family: monospace;">
 &nbsp;
 <span style="font-family: monospace;">2 Rows and 2 Columns</span><br
@@ -118,7 +116,7 @@ your version of SQL.</p>
  style="font-family: monospace;">
 <span style="font-family: monospace;">&nbsp;4<br>
 =&gt; s : string := `select age from users;`<br>
-=&gt;&nbsp; k := "ken"<br>
+=&gt;&nbsp; k := "ken"<br style="font-family: monospace;">
 =&gt; (Assuming k is a new universal_string variable)<br>
 
 =&gt; select * from users where name = '$k'<br>
@@ -152,29 +150,29 @@ library instead)<br>
 
 <h2>Database Commands and Pipes</h2>
 
-<p>The output of database commands cannot be redirect using a pipe (|).
+<p>The output of database commands cannot be redirected using a pipeline (|).
 A pipe creates a separate process for the SQL command. This new process
 does not inherit the database connection: a "database has gone away" error
 will occur. (A fix will be made when a workaround is found.)</p>
 
 <h2>Database Substitutions and Escaping Characters</h2>
 
-<p>SparForte submits the SQL command to the database with only one
-change.&nbsp; Bush will search command for variables and will
-substitute values using a dollar sign ($) and escape characters with a
-backslash.</p>
+<p>SparForte submits the SQL command or query to the database with only one
+change.&nbsp; SparForte will search the command for variables and will
+substitute values using a dollar sign ($).  Some characters must be
+escaped with a backslash (such as %gt;).</p>
 
 <p>Single and double quotes in SQL commands do not have the same
 effect as shell commands.  In shell commands, single quotes have
 strong character escaping and double quotes have weak escaping.
-In SQL, both single quotes and double quotes will escape
-characters.</p>
+In SQL, both single quotes and double quotes will affect the
+handling of special characters in strings.</p>
 
         <center>
         <div class="code">
                 <p class="code">
 <span style="font-family: monospace;">=&gt; ? mysql.is_connected</span><br>
-<span style="font-family: monospace;">true<br>
+<span style="font-family: monospace;">true</span><br>
 <span style="font-family: monospace;">=&gt; select * from customer;</span><br>
 <br>
 <span style="font-family: monospace;">&nbsp;first_name | last_name</span><br>
@@ -208,7 +206,7 @@ used.</p>
 <span style="font-family: monospace;">&nbsp;first_name | last_name</span><br>
 <span style="font-family: monospace;">------------+-----------</span><br>
 <span style="font-family: monospace;">ken&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | burtch   </span><br>
-<span style="font-family: monospace;">=&gt; select "$STAR" from customer</span<br>
+<span style="font-family: monospace;">=&gt; select "$STAR" from customer</span><br>
 <br>
 <span style="font-family: monospace;">*   </span><br>
 <span style="font-family: monospace;">------</span><br>

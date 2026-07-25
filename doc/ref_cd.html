@@ -47,7 +47,7 @@ directory:</p>
 <p><b>pwd</b></p>
 
 <center>
-<table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
+<table border="0" cellspacing="0" cellpadding="0" width="90%" summary="pwd command description">
 <tr>
 <td align="left">
 <p>Display the path of the present (also called "current") working
@@ -64,25 +64,25 @@ directory.</p>
 
 <p><b>cd</b></p>
 <center>
-<table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
+<table border="0" cellspacing="0" cellpadding="0" width="90%" summary="cd command description">
 <tr>
 <td align="left">
-<p>Change the present working directory. The tilde, '~', represents your
-home directory.  The variable PWD will be set with the path of the
+<p>Change the present working directory. The tilde ('~') represents your
+home directory and the minus sign ('-') represents your previous directory.
+The variable PWD will be set with the path of the
 current working directory.  The variable OLDPWD will be set to the
-previous value of PWD.  The minus sign, '-', represents your previous
-directory.  The cd command ignores the value of a CDPATH variable.</p>
-</p>
+previous value of PWD.  The cd command ignores the value of the CDPATH
+environment variable.</p>
 <p><u>Example</u></p>
 
 <pre>
 <b>=&gt;</b> pwd
-/home/ken/ada/bush/doc
+/home/ken/ada/spar/doc
 <b>=&gt;</b> cd ../src
 <b>=&gt;</b> pwd
-/home/ken/ada/bush/src
+/home/ken/ada/spar/src
 <b>=&gt;</b> cd -
-/home/ken/ada/bush/doc
+/home/ken/ada/spar/doc
 <b>=&gt;</b> cd ~/src
 <b>=&gt;</b> pwd
 /home/ken/src

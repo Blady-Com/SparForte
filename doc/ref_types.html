@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SparForte - Reference - Bourne Shell Word Expansions</title>
+	<title>SparForte - Reference - Fundamental Types</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
 <body bgcolor="#FFFFFF"><a name="top"></a>
@@ -40,7 +40,7 @@
 			<td align="left" valign="top">
 	<!-- Content Area -->
 <h2><a name="3.7"></a>Fundamental Types</h2>
-<p>All AdaScript variables have a type.&nbsp; Variables must declared so
+<p>All AdaScript variables have a type.&nbsp; Variables must be declared so
 that
 SparForte knows what that type is.&nbsp; When new variables are created by
 assignment
@@ -81,8 +81,8 @@ confusion, as well as to improve Ada compatibility.</li>
 English like <b>"stuff"</b>, <b>"data</b> or <b>"thing"</b> are not allowed.  This is done to
 promote descriptive names.  This only applies to scripts: they are
 permitted on the command line.</li>
-<li>Variables or constants are checked for similar sound or for
-short-forms to check to see if two names might cause confusion.</li>
+<li>Variables and constants checked for similar sound or
+short-forms to prevent team member confusion over similar-sounding names.</li>
 <li>Subprogram names contain at least 3 characters.  This is to
 make the names descriptive.</li>
 <li>Program names that may conflict with built-in Bourne shell
@@ -141,7 +141,7 @@ removed for the command prompt, where style is less important.</p>
 and
 numeric types.&nbsp; Variables declared as universal_typeless change
 their
-type between universal_string and universal_numeric depending how they
+type between universal_string and universal_numeric depending on how they
 are used.&nbsp; If an enumerated value is assigned to a universal_typeless
 variable, it becomes a number with the ordinal value of the enumerated
 item.  If AdaScript cannot decide in a particular context, the
@@ -160,8 +160,8 @@ many characters.</p>
 
 <p>Universal types are used for all AdaScript literals.&nbsp; For
 example,
-a string literal like "hello" is a universal_string and be assigned to
-any string type. The numeric literal 45.5 is a universal_numeric can be
+a string literal like "hello" is a universal_string and can be assigned to
+any string type. The numeric literal 45.5 is a universal_numeric and can be
 used with float, long_float, or any other numeric type.</p>
 
 <p>Using these three built-in types will give you a minimum amount of
@@ -174,7 +174,7 @@ reduce the number of errors SparForte can detect.</p>
 
 <p>Variables are declared as name, a colon and the type.  More than one
 name can be used in a comma list to declare several variables of the same
-time at one time.</p>
+type at one time.</p>
 
         <center>
         <div class="code">
@@ -398,7 +398,7 @@ typecasts will be needed whenever they are used.  If they are all
 subtypes, then the benefits of strong typing are lost.</p>
 
 <p>Before SparForte 1.4, natural, positive and integer were defined
-as distinct types.  After SparForte 1.4., natural and positive are
+as distinct types.  After SparForte 1.4, natural and positive are
 subtypes of integer.  You can mix natural, positive and integer in
 expressions, assignments and parameters.  However, as a special case,
 SparForte will check the values of natural and positive when assigned
@@ -603,7 +603,7 @@ some of the Ada complex number functions are not available.</p>
 <p>External operating system commands can be declared using <b>command</b>
 variables. When a command is declared, SparForte will ensure that the
 command
-exists and is can be run.
+exists and can be run.
 </p>
 <p>Command types are similar to limited types and have several
 restrictions.
@@ -772,7 +772,7 @@ fields and enumerated variables.  An exception cannot be renamed.</p>
 =&gt; m : string <b>renames</b> this_month<br>
 =&gt; ? m<br>
 October<br>
-=&gt; <b>type</b> fruit_array <b>is</b> <b>array</b>(1..4) <b>of</b> <b>fruit </b><br>
+=&gt; <b>type</b> fruit_array <b>is</b> <b>array</b>(1..4) <b>of</b> <b>fruit</b><br>
 =&gt; fruits : fruit_array := (berry, cherry, apple, apple)<br>
 =&gt; the_cherry : fruit <b>renames</b> fruits(2)<br>
 =&gt; ? the_cherry<br>

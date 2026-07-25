@@ -52,3 +52,5 @@ CHANGES SINCE 3.0
 
 22. Fix: in the unusual case of a SparForte message with a 1-character string, it should capitalize without an exception (though there are currently no strings this short).
 
+23. Fix: general documentation review and cleanup of spelling and grammar.
+

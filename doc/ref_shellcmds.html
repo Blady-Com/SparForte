@@ -53,7 +53,7 @@ commands.</p>
 <tr>
 <td align="left">
 <p>Change directory. Changes the present working directory to the new directory.  A leading '~' is your home directory.  An empty string path will also go to your home directory.  Unlike the standard cd, cd requires at least one parameter.  cd supports AdaScript parameters.</p>
-<p>A "-" path will revert to your previous directory.  If use are at an interactive prompt, the name of the directory will be shown.</p>
+<p>A "-" path will revert to your previous directory.  If you are at an interactive prompt, the name of the directory will be shown.</p>
 <u>Bash equivalent</u>: <tt>cd</tt><br>
 <u>Perl equivalent</u>: <tt>chdir</tt><br>
 <u>PHP  equivalent</u>: <tt>chdir</tt><br>
@@ -111,7 +111,7 @@ true := true; -- constant boolean enumerated item<br>
 ASCII.CR := '[# 13]'; -- constant character<br>
 =&gt; <b>env</b> | tail -5<br>
 <pre>
-PWD                  | /home/ken/ada/bush/example | imported identifier of the type string<br>
+PWD                  | /home/ken/ada/spar/example | imported identifier of the type string<br>
                      | s                          |<br>
 HOME                 | /home/ken                  | imported identifier of the type string<br>
 OLDPWD               | /home/ken                  | identifier of the type universal_string<br>
@@ -124,7 +124,6 @@ tail                 |                            | identifier of the type new
 <u>Perl equivalent</u>: <tt>Data::Dumper</tt><br>
 <u>PHP  equivalent</u>: <tt>var_dump</tt><br>
 
-</ul>
 </td>
 </tr>
 </table>
@@ -178,17 +177,14 @@ output may change to improve their effectiveness.</p>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
-<p>show the command history (up to n lines).  If the number of lines is
+<p>Show the command history (up to n lines).  If the number of lines is
 not specified, show all the command history</p>
-
-<u>Bash equivalent</u>: <tt>pwd</tt><br>
-<u>Perl equivalent</u>: <tt>getcwd</tt><br>
-<u>PHP  equivalent</u>: <tt>cwd</tt><br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
+
 <p><b>jobs</b></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">

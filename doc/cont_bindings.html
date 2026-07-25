@@ -8,7 +8,7 @@
 	<title>SparForte - Contributors - Bindings</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF">
+<body bgcolor="#FFFFFF"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
 		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
@@ -23,7 +23,7 @@
 				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
 				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
 				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="dummy">Examples</a></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
 				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
 				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html"><b>Contributors</b></a></td>
 				<td background="art/menu_border.png" align="center">&nbsp;</td>
@@ -65,7 +65,7 @@ the existing ones and edit it rather than starting one from scratch.</p>
 <h3>3. Declare Your Identifiers</h3>
 
 <p>All identifiers are declared as variables.  In your parser_*.ads package,
-declare an indentifier for your SparForte subprogram.  Using Ada.Calendar.Year
+declare an identifier for your SparForte subprogram.  Using Ada.Calendar.Year
 as an example, create
 
 <pre>
@@ -173,7 +173,7 @@ have no other errors.
 <h3>5. Run Your Bindings</h3>
 
 <p>The only thing left to do is to check the parameters to the subprograms
-and execute them.&nbsp; Create a package body file and being implementing
+and execute them.&nbsp; Create a package body file and begin implementing
 the Parse procedures one at a time.&nbsp; As you implement each, remove
 the corresponding stub pragma from the specification file.
 
@@ -185,7 +185,7 @@ For example,
 <br><tt>&nbsp;&nbsp; expect( symbol_t, "(" ); -- expect the punctuation
 mark "("</tt>
 <p>The parser has some Parsing functions that automatically process and
-report errors.&nbsp; An important ones are:
+report errors.&nbsp; The important ones include:
 
 <p><tt>&nbsp;&nbsp; ParseExpessions( val, kind ); -- interpret any kind
 of expression.&nbsp; Return the value and the type.</tt>
@@ -206,15 +206,14 @@ for most functions.&nbsp; For example, to Ada.Calendar.Year has one parameter:
 
 <br><tt>&nbsp; expect( symbol_t, "(" );</tt>
 <br><tt>&nbsp; ParseExpression( year_value, year_type );</tt>
-<br><tt>&nbsp; expect( symbol_t( ")" );</tt>
+<br><tt>&nbsp; expect( symbol_t, ")" );</tt>
 <p>Don't check for a semi-colon.&nbsp; SparForte will do that later.
 <p>Now add the type checks.
 <p>The scanner has several functions to check the type of an identifier.&nbsp;
 The main procedure is <b>baseTypesOK</b>.&nbsp; This compares two type
 identifiers and verifies they are compatible with one another.&nbsp; You
 don't have to report the error: baseTypesOK will do this for you.&nbsp;
-
-baseTypes also handles derrived types and subtypes.
+The baseTypes function also handles derived types and subtypes.</p>
 <p><tt>expect( cal_year_t );</tt>
 <br><tt>expect( symbol_t, "(" );</tt>
 <br><tt>ParseExpression( year_value, year_type );</tt>
@@ -224,7 +223,7 @@ be a calendar.time type or compatible</tt>
 -- do nothing special if type is OK</tt>
 <br><tt><b>end</b> <b>if</b>;</tt>
 
-<br><tt>expect( symbol_t( ")" );</tt>
+<br><tt>expect( symbol_t, ")" );</tt>
 <p>Recompile SparForte again and check your work.&nbsp; Although calendar.year
 does nothing yet, SparForte should understand the parameters.&nbsp; Using an
 integer or a character parameter instead of a calendar.time parameter should
@@ -240,7 +239,7 @@ Check your definition of types using the env command
 
 <p>Finally, you need to actually execute the subprogram.&nbsp; Before you
 execute anything, check to see if you should execute the function with
-the SparForte i<b>sExeuctingCommand</b> function.&nbsp; If SparForte is doing a syntax
+the SparForte <b>isExeuctingCommand</b> function.&nbsp; If SparForte is doing a syntax
 check of a script, or if an error was previously encountered, isExecutingCommand
 will be false.
 <p>It is also a good idea to wrap the function or procedure you are calling
@@ -259,7 +258,7 @@ time( to_numeric( year_value ) ) )'img );</tt>
 <br><tt>&nbsp;&nbsp; <b>end</b>;</tt>
 
 <br><tt><b>end</b> <b>if</b>;</tt>
-<p>An explaination of the conversions:
+<p>An explanation of the conversions:
 <ul>
 <li>
 to_numeric - convert the unbounded_string year_value to a numeric type

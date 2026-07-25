@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SparForte - Reference - Case Sensitivity</title>
+	<title>SparForte - Reference - Value Meta Tags</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
 <body bgcolor="#FFFFFF"><a name="top"></a>
@@ -50,9 +50,7 @@ the script.  Every value will have a set of tags, just like in the
 previous examples.  Each variable, function parameters and other places
 that store values will also store the tags along with them.</p>
 
-<p>There are different categories of value meta tags.
-
-</p>
+<p>There are different categories of value meta tags.</p>
 
 <h3>The Meta Statement</h3>
 
@@ -90,8 +88,7 @@ literals or enumerated type items.</p>
 <li>50.0 <b>tagged</b> us_dollars</li>
 <li> "company name" <b>tagged</b> utf8_english</li>
 <li>`ls -l` <b>tagged</b> <b>policy</b> unchecked_data</li>
-<li>apple <b>tagged</b> <b>policy</b> confidential -- where apple in an enumerated item</li>
-</li>
+<li>apple <b>tagged</b> <b>policy</b> confidential -- where apple is an enumerated item</li>
 </ul>
 
 <p>The value in variables cannot be tagged.  You can only tag values at
@@ -125,11 +122,11 @@ currency:</p>
 </pre>
 
 <p>This is sometimes described as "comparing apples
-to oranges".  You cannot add U.S. dollars to directly to Euros because they are
+to oranges".  You cannot add U.S. dollars to Euros because they are
 different units.</p>
 
 <p>Units of measure may be applicable to strings, even though
-strings do not measure anything per se.  For example,  I'm considering:</p>
+strings do not measure anything per se.  For example:</p>
 
 <pre>
    company_name := "Sales Co" <b>tagged</b> english;
@@ -195,7 +192,7 @@ an array unless the items all have the same unit-of-measure.</p>
 <h3>The Authorize Statement</h3>
 
 <p>SparForte is always running with a set of system security policies
-that it will enforce: anything policy that it not in SparForte's
+that it will enforce: anything policy that is not in SparForte's
 system policies will be rejected.  These policies are managed at
 run-time, not compile-time, so that security policies are dynamic and
 a script can change policies when needed.</p>

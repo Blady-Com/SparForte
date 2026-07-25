@@ -51,9 +51,9 @@
 <b>if</b> x &gt; y <b>then</b><br>
 &nbsp;&nbsp; put_line( "x is greater than y" );<br>
 <b>elsif</b> x = y <b>then</b><br>
-&nbsp;&nbsp; put_line( x is equal to y" );<br>
+&nbsp;&nbsp; put_line( "x is equal to y" );<br>
 <b>else</b><br>
-&nbsp;&nbsp; put_line( x is less than y" );<br>
+&nbsp;&nbsp; put_line( "x is less than y" );<br>
 <b>end</b> <b>if</b>;
 <br>&nbsp;<br></p>
         <div class="code_caption">
@@ -74,7 +74,7 @@
 c : country;<br>
 ...<br>
 <b>case</b> c <b>is</b><br>
-<b>when</b> austraila =&gt;<br>
+<b>when</b> australia =&gt;<br>
 &nbsp;&nbsp; put_line( "Australia" );<br>
 <b>when</b> u_k =&gt;<br>
 &nbsp;&nbsp; put_line( "United Kingdom" );<br>
@@ -125,7 +125,7 @@ language : languages;<br>
 <b>when</b> canada, french =&gt;<br>
 &nbsp;&nbsp; put_line( "Canadian French" );<br>
 <b>when</b> brazil, &lt;&gt; =&gt;<br>
-&nbsp;&nbsp; put_line( "Brazillian Portuguese" );<br>
+&nbsp;&nbsp; put_line( "Brazilian Portuguese" );<br>
 <b>when</b> others =&gt;<br>
 &nbsp;&nbsp; put_line( "Unexpected country and language" );<br>
 <b>end</b> <b>case</b>;
@@ -140,14 +140,12 @@ language : languages;<br>
 ignoring the value of that case identifier.  In the example above,
 we assume that everyone in Brazil speaks Portuguese.</p>
 
-<p><b>Ada</b>: <code>pragma ada_95</code> does not allow multiple cases identifiers.</p>
+<p><b>Ada</b>: <code>pragma ada_95</code> does not allow multiple case identifiers.</p>
 
 <h3>The While Loop Statement</h3>
 
 <p>The while loop is a pre-test loop.&nbsp; The commands in the loop
-are
-repeat while the condition is true and the condition is tested each
-time
+repeat while the condition is true and the condition is tested each time
 the first line of the loop is executed.</p>
 
         <center>

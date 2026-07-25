@@ -239,7 +239,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>${HOME^^}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/HOME/KEN</tt></br>
+      <td style="vertical-align: top;"><tt>/HOME/KEN</tt><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -251,7 +251,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>${HOME,,}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/ken</tt></br>
+      <td style="vertical-align: top;"><tt>/home/ken</tt><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -263,7 +263,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>S := "kEn" ... ${S^}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>KEn</tt></br>
+      <td style="vertical-align: top;"><tt>KEn</tt><br>
       </td>
       <td style="vertical-align: top;"><span>Performs proper-case (e.g. Ken)</span><br>
       </td>
@@ -272,10 +272,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Lowercase First</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>S := "KeN" ... ${S^}</tt><br>
+      <td style="vertical-align: top;"><tt>S := "KeN" ... ${S,}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>keN</tt></br>
+      <td style="vertical-align: top;"><tt>keN</tt><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -287,7 +287,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>N := -1234.2 ... ${N|}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt></br>
+      <td style="vertical-align: top;"><tt>1234</tt><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -299,7 +299,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>N := -1234 ... ${N||}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt></br>
+      <td style="vertical-align: top;"><tt>1234</tt><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -311,7 +311,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>N := 1233.7 ... ${N|^}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt></br>
+      <td style="vertical-align: top;"><tt>1234</tt><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -323,7 +323,7 @@ in SparForte.</p>
       <td style="vertical-align: top;"><tt>N := 1234.5 ... ${N|,}</tt><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt></br>
+      <td style="vertical-align: top;"><tt>1234</tt><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -451,7 +451,7 @@ in SparForte.</p>
   </tbody>
 </table>
 
-<p>Parenthesis Command Substitution can be nested.</p>
+<p>Parenthesis Command Substitution cannot be nested.</p>
 
 <p><b>Implementation Note</b>: Default assignment is not implemented.  As
 a general principle, assignments are not done during expressions.</p>
@@ -547,14 +547,14 @@ value is not numeric.  No type check is performed.</p>
 <p>Variable expansions are affected by quotation and the data type of
 expansion variable.  If no quotes are used, the leading and trailing
 spaces are discarded.  If in single quotes, no variable expansion
-occurs at all.  If double quotes are used, the affect on spaces
+occurs at all.  If double quotes are used, the effect on spaces
 depends on the data type.  If the value is numeric, the leading space
 for a positive variable is discarded (to mimic shell behaviour) but
 other variable types maintain any leading or trailing spaces.</p>
 
 <p>To prevent unexpected word splitting, most dollar variable expansions
 are expected to be quoted.  This excludes the special variables $?, $#,
-and $$ and on the command line.  This check can be disabled with
+and $$ on the command line.  This check can be disabled with
 <b>pragma suppress( word_quoting )</b>.</p>
 
         <center>

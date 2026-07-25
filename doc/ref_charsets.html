@@ -39,85 +39,91 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a name="3.29"></a>ASCII and Latin 1 Character Set</h2>
+<h2><a name="3.29"></a>ASCII and Latin_1 Character Sets</h2>
 
 <h3>ASCII Character Set</h3>
 
-<p>The ASCII character set is represented by the ASCII enumerated type, characters 0 to 127.  The Latin_1 character set is another character set for characters 0 to 255.  The following is the complete ASCII set:</p>
+<p>The ASCII character set is represented by the ASCII enumerated type,
+covering characters 0 to 127.  The Latin_1 character set is another
+character set extending this range for characters 0 to 255.</p>
 
-<p>ASCII.NUL - control-@
-<br>
-ASCII.SOH - control-A
-<br>
-ASCII.STX - control-B
+<p><strong>Ada</strong>: ASCII is deprecated in Ada in favour of Latin_1.</p>
 
-<br>
-ASCII.ETX - control-C
-<br>
-ASCII.EOT - control-D
-<br>
-ASCII.ENQ - control-E
-<br>
-ASCII.ACK - control-F
-<br>
-ASCII.BEL - control-G
-<br>
-ASCII.BS - control-H
-<br>
-ASCII.HT - control-I
-<br>
-ASCII.LF - control-J
-<br>
+<p>The following is the complete ASCII set:</p>
 
-ASCII.VT - control-K
+<p>ASCII.NUL - control-@, Null
 <br>
-ASCII.FF - control-L
+ASCII.SOH - control-A, Start of heading
 <br>
-ASCII.CR - control-M
-<br>
-ASCII.SO - control-N
-<br>
-ASCII.SI - control-O
-<br>
-ASCII.DLE - control-P
-<br>
-ASCII.DC1 - control-Q
-<br>
-ASCII.DC2 - control-R
-<br>
-ASCII.DC3 - control-S
+ASCII.STX - control-B, Start of text
 
 <br>
-ASCII.DC4 - control-T
+ASCII.ETX - control-C, End of text
 <br>
-ASCII.NAK - control-U
+ASCII.EOT - control-D, End of Transmission
 <br>
-ASCII.SYN - control-V
+ASCII.ENQ - control-E, Enquiry
 <br>
-ASCII.ETB - control-W
+ASCII.ACK - control-F, Acknowledge
 <br>
-ASCII.CAN - control-X
+ASCII.BEL - control-G, Bell
 <br>
-ASCII.EM - control-Y
+ASCII.BS - control-H, Backspace
 <br>
-ASCII.SUB - control-Z
+ASCII.HT - control-I, Horizontal tab
+<br>
+ASCII.LF - control-J, UNIX-based O/S Newline
+<br>
+
+ASCII.VT - control-K, Vertical tab
+<br>
+ASCII.FF - control-L, Form Feed
+<br>
+ASCII.CR - control-M, Enter/Return key
+<br>
+ASCII.SO - control-N, Shift out
+<br>
+ASCII.SI - control-O, Shift in
+<br>
+ASCII.DLE - control-P, Data link escape
+<br>
+ASCII.DC1 - control-Q, Device control 1
+<br>
+ASCII.DC2 - control-R, Device control 2
+<br>
+ASCII.DC3 - control-S, Device control 3
+
+<br>
+ASCII.DC4 - control-T, Device control 4
+<br>
+ASCII.NAK - control-U, Negative acknowledge
+<br>
+ASCII.SYN - control-V, Sychronous idle
+<br>
+ASCII.ETB - control-W, End of transmission block
+<br>
+ASCII.CAN - control-X, Cancel
+<br>
+ASCII.EM - control-Y, End of Medium
+<br>
+ASCII.SUB - control-Z, Substitute
 <br>
 ASCII.ESC - Escape key
 <br>
 
-ASCII.FS
+ASCII.FS - File separator
 <br>
-ASCII.GS
+ASCII.GS - Group separator
 <br>
-ASCII.RS
+ASCII.RS - record separator
 <br>
-ASCII.US
+ASCII.US - Unit seperator
 <br>
 ASCII.DEL - ASCII 127, delete key
 <br>
 ASCII.Exclam - "!"
 <br>
-ASCII.Quotation - """"
+ASCII.Quotation - Double quote
 <br>
 ASCII.Sharp - "#"
 <br>
@@ -172,6 +178,8 @@ ASCII.LC_Z - "z"
 <br>
 
 <h3>Latin_1 Character Set</h3>
+
+<p>The following is the complete Latin_1 set:</p>
 
 Latin_1.NUL          <br>
 Latin_1.SOH          <br>

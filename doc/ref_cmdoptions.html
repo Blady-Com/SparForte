@@ -41,7 +41,8 @@
 	<!-- Content Area -->
 <h2><a name="3.27"></a>Command Line Options</h2>
 
-<p>There are several command options for SparForte.</p>
+<p>SparForte has sever command options that influence how SparForte interprets
+and executes scripts.</p>
 
 <center><img src="pictures/bush_4.gif" alt="[SparForte screenshot]" height="365"
  width="616">
@@ -49,61 +50,57 @@
 <ul>
   <li> <b>--break (or -b)</b> - allow breakout to a shell prompt on a
 SIGINT or a script error. (e.g. a control-c will give you a shell prompt.)
-Use "return" to continue execution or "logout" to terminate script.  A
+Use <tt>return</tt> to continue execution or <tt>logout</tt> to terminate the script.  A
 breakout prompt will allow you to assign values to constants, such as
 a for loop index, with a warning.</li>
-
   <li> <b>--check (or -c)</b> - check the syntax of a script but do
 not
-run the script</li>
+run the script.</li>
   <li> <b>--coding (or -C)</b> - specify that this project is in the
-development phase of the software development life cycle.  This will
-enable/disable languages features and errors suitable to this phase.</li>
+development phase of the software development life cycle.  This option will
+adjust language features and diagnostics to this phase.</li>
   <li> <b>--color (or --colour)</b> -&nbsp; enable colour in SparForte
 messages for systems that support it.</li>
   <li> <b>--debug (or -d)</b> -&nbsp; enable pragma debug and
 assert.&nbsp;
 Without this, pragma debug has no effect.</li>
   <li> <b>--design (or -D)</b> -&nbsp; specify that this project is in the
-design phase of the software development life cycle.  This will enable/
-disable language features and errors suitable to this phase.</li>
-  <li> <b>--exec (or -e)</b> -&nbsp; the script path is not a path but
-a script to execute.</li>
+design phase of the software development life cycle.  This will adjust
+language features and diagnostics to this phase.</li>
+  <li> <b>--exec (or -e)</b> -&nbsp; the script path argument is treated
+as the text of a script to execute.</li>
   <li> <b>--gcc-errors (or -g)</b> - show simple GCC-style error
-messages
-to be
-compatible with smart editors and IDEs. Also disables bold and inverse
-printing in error messages.</li>
+messages to be compatible with IDEs and other tools. Also disables
+color, bold and inverse printing in error messages.</li>
   <li> <b>--help (or -h)</b> - show help on command line options</li>
   <li> <b>--import-all (or -n)</b> - declare and import all
-environment variables when SparForte starts</li>
+environment variables when SparForte starts.</li>
   <li> <b>-L<i>d</i> or -L <i>d</i></b> - specify additional SPAR_LIBRARY_PATH directories (see below)</li>
-  <li> <b>--login (or -l)</b> - simulate a login shell</li>
+  <li> <b>--login (or -l)</b> - simulate a login shell.</li>
   <li> <b>--maintenance (or -m)</b> -&nbsp; specify that this project is in the
 maintenance phase of the software development life cycle.  That is, that the
-project has been installed in the production environment.  This will enable/
-disable language features and errors suitable to this phase.</li>
+project has been installed in the production environment.  This will adjust
+language features and diagnostics to this phase.</li>
   <li> <b>--pref (or -p)</b> - after the script runs, produce a report
 on the static metrics (such as number of blocks) and run-time performance
-information (such as how many lines were executed)</li>
+information (such as how many lines were executed).</li>
   <li> <b>--profile (or -P)</b> - run the profile script even though not
 logging in.</li>
-  <li> <b>--quiet or -q</b> - use brief error messages</li>
+  <li> <b>--quiet or -q</b> - use brief error messages.</li>
   <li> <b>--restricted (or -r)</b> - run as a restricted shell, where
-a several features are disabled to create a more controlled environment.</li>
-  <li> <b>--session s</b> - start a session with the name s.  Each session
+several features are disabled to create a more controlled environment.</li>
+  <li> <b>--session <i>session-name</i></b> - start a session with the given name.  Each session
 uses a different profile and history file which includes the session name.</li>
-  <li> <b>--sbom (or -B)</b> - experimental. Output a software bill-of-materials
-and exit.  Show a list of build dependencies: all the O/S libraries that are
-used by the SparForte interpreter</li>
+  <li> <b>--sbom (or -B)</b> - experimental feature. Output a software bill-of-materials and then exit.  Show a list of build dependencies, the O/S libraries that are
+used by the SparForte interpreter.</li>
   <li> <b>--test (or -t)</b> -&nbsp; specify that this project is in the
 testing phase of the software development life cycle.  This will enable/
-disable language features and errors suitable to this phase. For example,
-it will enable pragma assert and pragma test.</li>
-  <li> <b>--trace (or -x)</b> - same as "trace true". Turn on tracing.</li>
-  <li> <b>--verbose (or -v)</b> - show interpreter progress</li>
-  <li> <b>--version (or -V)</b> - show version of SparForte and exit</li>
-
+disable language features and errors suitable to this phase.
+It will enable <tt>pragma assert</tt> and <tt>pragma test</tt> and other
+test-related features.</li>
+  <li> <b>--trace (or -x)</b> - Turn on tracing, same as using the "trace true" command.</li>
+  <li> <b>--verbose (or -v)</b> - show interpreter progress.</li>
+  <li> <b>--version (or -V)</b> - show version of SparForte and exit.</li>
   <li> <b>--</b> - explicitly end of shell options. Use this before specifying
 files on the command line that contain a leading "-".</li>
 </ul>
@@ -129,9 +126,9 @@ runs.</p>
 third-party scripts or to give limited shell access to a user.</p>
 
 <p>SparForte also has a restricted shell mode.  While it can be used
-in the same way, the main purpose of SparForte's restricted shell mode
-is not security.  It is used throughout SparForte as a read-only mode,
-where full shell capabilities are not required.  For example, web templates
+to run potentially insecure scripts, the main purpose of SparForte's
+restricted shell mode is not security but to provide a read-only environment
+when full shell capabilities are not required.  For example, web templates
 run in restricted shell mode.</p>
 
 <p><tt>System.Restricted_Shell</tt> will be true in a restricted shell.</p>

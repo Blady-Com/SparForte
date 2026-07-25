@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SparForte - Reference - Command Reference</title>
+	<title>SparForte - Reference - Miscellaneous Command Reference</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
 <body bgcolor="#FFFFFF">
@@ -39,31 +39,33 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a name="3.28"></a>Command Reference</h2>
+<h2><a name="3.28"></a>Miscellaneous Command Reference</h2>
 
-<p>These are other miscellaneous AdaScript commands.  These are not built-in
-commands but instead are derived from the Ada 95 programming language.</p>
+<p>These are other miscellaneous AdaScript features based on
+the Ada 95 programming language.  They do not operate as built-in
+commands.</p>
 
 <p><b>command</b> [obsolete/prior to Bush 1.0]
 </p>
-<p>Syntax: command cmd
+<p>Syntax: command <i>cmd</i>
 <br>
-Description: run a Linux command (instead of a built-in command).
+Description: treats cmd as an external O/S command, search for an executable file
+(as opposed to running a built-in command with the same name).
 </p>
 
 <p><b>delay</b>
 </p>
-<p>Syntax: delay secs
+<p>Syntax: delay <i>seconds</i>
 <br>
-Description: wait (sleep) for a specific time.
+Description: wait (put the process to sleep) for a specific number of seconds.  The seconds is a float value.
 </p>
 
 <p><b>null</b>
 </p>
 <p>Syntax: null
 <br>
-Description: do nothing.  This command can be used as a placeholder in places
-where a command is required.
+Description: Do nothing (no-op).  This command can be used as a placeholder in
+situations where a command is otherwise required but you do not want to take action.
 </p>
 
 			</td>
