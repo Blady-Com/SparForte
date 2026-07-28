@@ -458,7 +458,12 @@ ubuntu )
    apt_install apt-utils
    apt_install ncurses-bin
    if [ -z "$NO_PCRE" ] ; then
+      set +e
       apt_install libpcre3-dev
+      set -e
+      if [ $? -ne 0 ] ; then
+         apt_install libpcre2-dev
+      fi
    fi
    #
    apt_install libselinux-dev

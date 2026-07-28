@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SparForte - Contributors - Source Guilde</title>
+	<title>SparForte - Contributors - Source Guide</title>
     <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
 <body bgcolor="#FFFFFF"><a name="top"></a>
@@ -60,7 +60,7 @@ is all contained in Ada package files.</p>
 
 <h3>.orig Files</h3>
 
-<p>In order for configure to remove undesired feature, such as support for a
+<p>In order for configure to remove undesired features, such as support for a
 particular database engine, some files end with an ".orig" suffix.  These
 are the original files, the ones with full capability, before configure
 removes any features.  For example, parser.adb.orig is the complete version
@@ -83,12 +83,12 @@ on top of another:
 several packages</li>
 
 <li>
-<b>scanner</b> - packages implement the lexical scanner.&nbsp; This part
+<b>scanner</b> - packages implementing the lexical scanner.&nbsp; This part
 of SparForte compiles the byte code, maintains the symbol table, and interprets
 the script as a series of "tokens".</li>
 
 <li>
-<b>parser</b> - packages that implement the SparForte features and check for
+<b>parser</b> - packages that implement the SparForte features and that check for
 syntactic and semantic errors.&nbsp; This part of SparForte "runs" the script
 and reports error messages.</li>
 
@@ -105,7 +105,7 @@ other packages.</p>
 <ul>
 
 <li>
-<b>bush_os</b> - the package containing a thin binding to your operating system.
+<b>spar_os</b> - the package containing a thin binding to your operating system.
 For example, opening files, deleting files, creating pipes, operating system
 error codes, etc.
 When the configure script is run, these files are created by copying bush_linux,
@@ -114,16 +114,16 @@ There are several child packages: support for the O/S terminal (bush_os.tty),
 support for the SDL library (bush_os.sdl) and executing programs (bush_os.exec).</li>
 
 <li>
-<b>bush_alpha</b> - bush_os for Linux on DEC Alpha computers</li>
+<b>spar_alpha</b> - spar_os for Linux on DEC Alpha computers</li>
 
 <li>
-<b>bush_cygwin</b> - bush_os for the Cygwin system on Microsoft Windows computers</li>
+<b>spar_cygwin</b> - spar_os for the Cygwin system on Microsoft Windows computers</li>
 
 <li>
-<b>bush_freebsd</b> - bush_os for FreeBSD operating system</li>
+<b>spar_freebsd</b> - spar_os for FreeBSD operating system</li>
 
 <li>
-<b>bush_linux</b> - bush_os for the Linux on i386/x86_64 systems</li>
+<b>spar_linux</b> - spar_os for the Linux on i386/x86_64 systems</li>
 
 <li>
 <b>world</b> - the symbol table and global type declarations</li>
@@ -164,12 +164,13 @@ the command running.&nbsp; Also implements SparForte job control.</li>
 <li>
 <b>scanner</b> - contains the main body of the scanner.&nbsp; Includes
 identifier declarations, byte code compiler,&nbsp; tokenizing functions,
-and error reproting.</li>
+and error reporting.</li>
 
 <li>
 <b>scanner-arrays </b>- the implementation of SparForte single-dimensional
-arrays.<li>
+arrays.</li>
 
+<li>
 <b>scanner-calendar </b>- implementation of Ada.Calendar package.&nbsp;
 (This is the GCC Ada calendar package with the time type as non-private
 so it can be used from SparForte.)</li>
@@ -178,7 +179,7 @@ so it can be used from SparForte.)</li>
 <b>scanner-calendar-latest.ads</b> / <b>scanner-calendar-pre441.ads</b> /
 <b>scanner-calendar-pre431.ads</b> / <b>scan-cal-gnat314.ads</b> - different
 versions of the Ada.Calendar
-package from different version of GCC Ada modified for use with SparForte.
+package from different versions of GCC Ada modified for use with SparForte.
 "pre441", for example, means
 the Calendar package prior to GCC 4.4.1.  The configure script chooses
 one and copies it to the name scanner-calendar</li>
@@ -203,7 +204,7 @@ command prompt.</li>
 <b>parser_arrays</b> - implementation of the built-in arrays package.</li>
 
 <li>
-<b>parser_aux</b> - utility functions soley for the parser.&nbsp; For example,
+<b>parser_aux</b> - utility functions solely for the parser.&nbsp; For example,
 working with file_type variables, creating temp files and opening network
 sockets.</li>
 
@@ -243,7 +244,7 @@ interface to GNAT.Lock_Files</li>
 
 <li>
 <b>parser_mysql</b> - implementation of the built-in mysql package; interface
-to Warren Gay's APQ Postgres binding</li>
+to Warren Gay's APQ MySQL binding</li>
 
 <li>
 <b>parser_numerics</b> - implementation of the built-in numerics package,
@@ -276,7 +277,7 @@ interface to various measurement conversion routines.</li>
 <ul>
 <li>
 
-<b>spar</b> - shows --help instrutions, interprets command line option
+<b>spar</b> - shows --help instructions, interprets command line option
 switches, invokes the SparForte parser</li>
 </ul>
 
@@ -302,7 +303,7 @@ release.  Most of these projects are contained in subdirectories.</p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_roadmap.html">&nbsp;Roadmap</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_sguide.html">&nbsp;<b>Source Guide</b></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_uport.html">&nbsp;UNIX Ports</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Window Ports</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Windows Ports</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_bindings.html">&nbsp;Bindings</a></p>
 
 			</td>

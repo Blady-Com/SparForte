@@ -556,10 +556,6 @@ b  := strings.glob( "h*", "hello" );
 pragma assert( b = true );
 b  := strings.glob( "i*", "hello" );
 pragma assert( b = false );
-b := strings.perl_match( "hello", "hello" );
-pragma assert( b = true );
-b := strings.perl_match( "ht", "hello" );
-pragma assert( b = false );
 
 -- strings functions
 --

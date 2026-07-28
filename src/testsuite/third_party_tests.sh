@@ -7,6 +7,25 @@
 # simple as possible to run on as many Bourne-compatible shells as
 # possible.
 
+do_perl_match_good_test() {
+TESTSET="perl_match_test.sp"
+if [ ! -f "$TESTSET" ] ; then
+   echo "Failed - $TESTSET is missing"
+fi
+RESULT=`../../spar --test --debug ./$TESTSET 2>&1`
+if [ $? -ne 0 ] ; then
+   echo "Failed - $TESTSET Failed"
+   echo "$RESULT"
+   exit 192
+elif [ -n "$RESULT" ] ; then
+   echo "Failed - $TESTSET Failed"
+   echo "$RESULT"
+   exit 192
+else
+   echo "OK - $TESTSET"
+fi
+}
+
 do_cgi_good_test() {
    # Fake a minimal CGI environment
 
@@ -126,6 +145,7 @@ echo "$0: "`date`
 
 cd third_party
 
+do_perl_match_good_test
 do_cgi_good_test
 # exit 192
 do_btree_good_test

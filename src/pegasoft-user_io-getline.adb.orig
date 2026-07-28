@@ -1609,7 +1609,7 @@ procedure getLine( line : out unbounded_string; prompt : unbounded_string := nul
           if released then
              put( bold( to_string( defaultPrompt ) ) );
           else
-             put( "spar-" & version & '-' & buildDate & ' ' &
+             put( "spar-" & version & '-' & buildId & ' ' &
                 bold( to_string( defaultPrompt ) ) );
           end if;
        else

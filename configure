@@ -631,23 +631,31 @@ else
             echo "yes"
          else
             echo "no"
-            echo
-            echo "--------------------------------------------------------------------------"
-            echo "Your system does not have a GCC compiler that understands the Ada language"
-            echo
-            echo "The name of the GCC package with Ada support depends on your operating system."
-            echo "Examples:"
-            echo " - Debian Linux users can try apt-get install gnat-x.y (where x, y is the version)"
-            echo " - Fedora Linux users can try add/remove software gcc-gnat"
-            echo " - SuSE Linux   users can try add/remove software gcc-ada"
-            echo
-            echo "Specifically, SparForte requires one of the following:"
-            echo " - GCC with the Ada language enabled (https://gcc.gnu.org)"
-            echo " - AdaCore's GNAT compiler"
-            echo
-            echo "Please update your system and re-run this script."
-            echo "--------------------------------------------------------------------------"
-            exit 1
+            CC="gcc-15"
+            $CC -c spar_os.ads >/dev/null 2>/dev/null
+            echo -n "checking for gcc-15 (Ubuntu 26.04)... "
+            if [ $? -eq 0 ] ; then
+               echo "yes"
+            else
+               echo "no"
+               echo
+               echo "--------------------------------------------------------------------------"
+               echo "This script did not find a GCC compiler that understands the Ada language"
+               echo
+               echo "The name of the GCC package with Ada support depends on your operating system."
+               echo "Examples:"
+               echo " - Debian Linux users can try apt-get install gnat-x.y (where x, y is the version)"
+               echo " - Fedora Linux users can try add/remove software gcc-gnat"
+               echo " - SuSE Linux   users can try add/remove software gcc-ada"
+               echo
+               echo "Specifically, SparForte requires one of the following:"
+               echo " - GCC with the Ada language enabled (https://gcc.gnu.org)"
+               echo " - AdaCore's GNAT compiler"
+               echo
+               echo "Please update your system and re-run this script."
+               echo "--------------------------------------------------------------------------"
+               exit 1
+           fi
         fi
       fi
    fi

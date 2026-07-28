@@ -40,11 +40,10 @@
 			<td align="left" valign="top">
 	<!-- Content Area -->
 <h2><a NAME="5.4"></a>Making New Bindings for Built-in Packages</h2>
-<p>This is a quick overview on adding new built-in packages to SparForte.&nbsp;
+<p>This is a quick overview of adding new built-in packages to SparForte.&nbsp;
 We'll use the Ada.Calendar.Year package as an example binding.</p>
 
 <p>In the current version of SparForte, packages are hard-coded into the parser.&nbsp;
-
 There's no ability to create separate files that can be loaded on demand.&nbsp;
 Some day this ability may be added.</p>
 
@@ -80,7 +79,7 @@ and identify what types they are).&nbsp; Copy some of the other declarations
 that are similar to the ones you are doing.&nbsp; For example, to declare
 Ada.Calendar's time type,
 <p><tt>declareIdent( cal_time_t, "calendar.time", variable_t, typeClass
-);</tt>
+);</tt></p>
 
 <p>There are several declare calls.&nbsp; <b>declareIdent</b> is a general
 purpose declaration that uses the identifier variable, the name of the
@@ -123,10 +122,9 @@ end StartupCalendar;
 <p>The parser_ package specification should contain a series of "Parse" procedures.&nbsp;
 These will be called by SparForte when it needs to run subprograms in the built-in
 package.&nbsp; If a parse procedure defines a function, it should have
-one out unbounded_string parameter (to return the result of the function).</p>
-
-<p>Procedures, which return nothing, have no parameters.&nbsp; For the Ada.Calendar
-package, you might have:</p>
+one out unbounded_string parameter (to return the result of the function).
+Parse procedures that return nothing will have no parameters.</p>
+<p>For the Ada.Calendar package, you might have:</p>
 
 <p><tt>procedure ParseCalClock( result : out unbounded_string );&nbsp;
 -- Ada.Calendar.Clock function</tt>
@@ -134,8 +132,9 @@ package, you might have:</p>
 -- Ada.Calendar.Year function</tt>
 <br><tt>procedure ParseCalMonth( result : out unbounded_string ); -- Ada.Calendar.Month
 function</tt>
-<br><tt>procedure ParseCalSplit; -- Ada.Calendar.Split procedure</tt>
-<p>For each of these procedures, follow them with a <b>stub pragma</b>
+<br><tt>procedure ParseCalSplit; -- Ada.Calendar.Split procedure</tt></p>
+
+<p>For each of these procedures, follow them with a <b>stub pragma</b>.</p>
 
 <p><tt><b>procedure</b> ParseCalClock( result : <b>out</b> unbounded_string ); -- Ada.Calendar.Clock
 function</tt>
@@ -144,38 +143,38 @@ function</tt>
 and it will raise a PROGRAM_ERROR exception if the procedure is called.&nbsp;
 When you complete the ParseCalClock procedure, remove the stub pragma.
 <p>Compile the package specification with <b>gcc -c</b> to make sure there
-are no obvious errors.
+are no obvious errors.</p>
 <p>Now tie your package specification into the parser.&nbsp; Edit the parser.adb
 file and add the name of your package with the "with" and "use" statements
-at the top of the file.
+at the top of the file.</p>
 <p>Get SparForte to take action when it sees a procedure or function.&nbsp;
 (This is the purpose of those identifier variables you declared earlier.)&nbsp;
 
 SparForte checks for built-in package procedures in <b>ParseGeneralStatement</b>.&nbsp;
 It checks for built-in package functions in <b>ParseFactor</b>.
 <p>For an Ada.Calendar package, add the check for the Ada.Calendar.Split
-procedure in ParseGeneralStatement:
+procedure in ParseGeneralStatement:</p>
 <p><tt><b>elsif</b> token = cal_split_t <b>then</b> -- are we looking at "calendar.split"?</tt>
 <br><tt>&nbsp;&nbsp; ParseCalSplit;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 -- then process a calendar.split call</tt>
 <p>Add functions like Ada.Calendar.Clock to ParseFactor.&nbsp; The parameter
 is always "f" (the value of the "factor" and the variable "kind" must be
 set to the identifier variable for the type of result (e.g. an integer
-result has a kind of integer_t).
+result has a kind of integer_t).</p>
 
 <p><tt><b>elsif</b> token = cal_clock_t <b>then</b> -- are we looking at "calendar.clock"?</tt>
 <br><tt>&nbsp; ParseCalClock( f );</tt>
-<br><tt>&nbsp; kind := cal_tile_t;</tt>
+<br><tt>&nbsp; kind := cal_time_t;</tt></p>
 <p>Recompile SparForte to check for errors.&nbsp; Try using the procedures and
 functions.&nbsp; Each should raise a PROGRAM_ERROR exception but should
-have no other errors.
+have no other errors.</p>
 
 <h3>5. Run Your Bindings</h3>
 
 <p>The only thing left to do is to check the parameters to the subprograms
 and execute them.&nbsp; Create a package body file and begin implementing
 the Parse procedures one at a time.&nbsp; As you implement each, remove
-the corresponding stub pragma from the specification file.
+the corresponding stub pragma from the specification file.</p>
 
 <p>The variable "token" represents the current item in the source file.&nbsp;
 To move to the next item in the source file, use the <b>expect </b>procedure.&nbsp;
@@ -183,20 +182,20 @@ Typically, you are only looking for an identifier or a punctuation mark.&nbsp;
 For example,
 <p><tt>&nbsp;&nbsp; expect( cal_clock_t ); -- expect the identifier "calendar.clock"</tt>
 <br><tt>&nbsp;&nbsp; expect( symbol_t, "(" ); -- expect the punctuation
-mark "("</tt>
+mark "("</tt></p>
 <p>The parser has some Parsing functions that automatically process and
-report errors.&nbsp; The important ones include:
+report errors.&nbsp; The important ones include:</p>
 
-<p><tt>&nbsp;&nbsp; ParseExpessions( val, kind ); -- interpret any kind
-of expression.&nbsp; Return the value and the type.</tt>
+<p><tt>&nbsp;&nbsp; ParseExpressions( val, kind ); -- interpret any kind
+of expression.&nbsp; Return the value and the type.</tt></p>
 <p><tt>&nbsp;&nbsp; ParseIdentifier( id ); -- interpret an identifier.
-&nbsp; Return the id number for the identifier.</tt>
+&nbsp; Return the id number for the identifier.</tt></p>
 <p><tt>&nbsp;&nbsp; ParseOutParameter( id, kind ); -- interpret an identifier.
 &nbsp; Return the id number of the identifier.  If it doesn't exist, it will be
-declared as a kind variable (if auto-declarations are allowed by the user).</tt>
+declared as a kind variable (if auto-declarations are allowed by the user).</tt></p>
 <p><tt>&nbsp;&nbsp; ParseInOutParameter( id, kind ); -- interpret an identifier.
 
-&nbsp; Return the id number of the identifier.</tt>
+&nbsp; Return the id number of the identifier.</tt></p>
 <p>Using expect and ParseExpression you can read through the parameters
 for most functions.&nbsp; For example, to Ada.Calendar.Year has one parameter:
 <p><tt>&nbsp; year_value : unbounded_string;</tt>
@@ -206,9 +205,9 @@ for most functions.&nbsp; For example, to Ada.Calendar.Year has one parameter:
 
 <br><tt>&nbsp; expect( symbol_t, "(" );</tt>
 <br><tt>&nbsp; ParseExpression( year_value, year_type );</tt>
-<br><tt>&nbsp; expect( symbol_t, ")" );</tt>
-<p>Don't check for a semi-colon.&nbsp; SparForte will do that later.
-<p>Now add the type checks.
+<br><tt>&nbsp; expect( symbol_t, ")" );</tt></p>
+<p>Don't check for a semi-colon.&nbsp; SparForte will do that later.</p>
+<p>Now add the type checks.</p>
 <p>The scanner has several functions to check the type of an identifier.&nbsp;
 The main procedure is <b>baseTypesOK</b>.&nbsp; This compares two type
 identifiers and verifies they are compatible with one another.&nbsp; You
@@ -223,12 +222,12 @@ be a calendar.time type or compatible</tt>
 -- do nothing special if type is OK</tt>
 <br><tt><b>end</b> <b>if</b>;</tt>
 
-<br><tt>expect( symbol_t, ")" );</tt>
+<br><tt>expect( symbol_t, ")" );</tt></p>
 <p>Recompile SparForte again and check your work.&nbsp; Although calendar.year
 does nothing yet, SparForte should understand the parameters.&nbsp; Using an
 integer or a character parameter instead of a calendar.time parameter should
 cause an error.&nbsp; Leaving out a "(" or ")" should also cause an error.&nbsp;
-Check your definition of types using the env command
+Check your definition of types using the env command</p>
 
 <pre>
 =&gt; <b>env</b> calendar.time
@@ -239,15 +238,15 @@ Check your definition of types using the env command
 
 <p>Finally, you need to actually execute the subprogram.&nbsp; Before you
 execute anything, check to see if you should execute the function with
-the SparForte <b>isExeuctingCommand</b> function.&nbsp; If SparForte is doing a syntax
+the SparForte <b>isExecutingCommand</b> function.&nbsp; If SparForte is doing a syntax
 check of a script, or if an error was previously encountered, isExecutingCommand
-will be false.
+will be false.</p>
 <p>It is also a good idea to wrap the function or procedure you are calling
 in an Ada declare block to catch and report any exceptions.&nbsp; Otherwise,
-SparForte will crash because of the exception.
+SparForte will crash because of the exception.</p>
 <p>All the parameters are unbounded strings and will have to be converted
 to the appropriate Ada type needed for the parameters.&nbsp; In the case
-of Ada.Calendar.Year,
+of Ada.Calendar.Year,</p>
 
 <p><tt><b>if</b> isExecutingCommand <b>then</b></tt>
 <br><tt>&nbsp;&nbsp; <b>begin</b></tt>
@@ -257,8 +256,8 @@ time( to_numeric( year_value ) ) )'img );</tt>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; err( "exception raised" );</tt>
 <br><tt>&nbsp;&nbsp; <b>end</b>;</tt>
 
-<br><tt><b>end</b> <b>if</b>;</tt>
-<p>An explanation of the conversions:
+<br><tt><b>end</b> <b>if</b>;</tt></p>
+<p>An explanation of the conversions:</p>
 <ul>
 <li>
 to_numeric - convert the unbounded_string year_value to a numeric type
@@ -320,7 +319,7 @@ to strings.</p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_roadmap.html">&nbsp;Roadmap</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_sguide.html">&nbsp;Source Guide</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_uport.html">&nbsp;UNIX Ports</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Window Ports</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Windows Ports</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_bindings.html">&nbsp;<b>Bindings</b></a></p>
 
 			</td>

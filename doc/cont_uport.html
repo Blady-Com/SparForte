@@ -40,40 +40,40 @@
 			<td align="left" valign="top">
 	<!-- Content Area -->
 <h2><a NAME="5.2"></a>UNIX Porting</h2>
-<p>Install  GCC with the Ada 2005 language enabled.&nbsp; Either use GCC
-4.x or later with the Ada language active or downloaded a version of GNAT
-for your computer from Ada Core Technologies.
+<p>Install GCC with the Ada 2012 language enabled.&nbsp; Either use GCC
+4.x or later with the Ada language active or download a version of GNAT
+for your computer from Ada Core Technologies.</p>
 
-<p>The bush_os packages (bush_linux, etc.) contain binding to UNIX/Linux
+<p>The spar_os packages (spar_linux, etc.) contain binding to UNIX/Linux
 system calls and other operating system constants.&nbsp; To port SparForte to
 a UNIX-based operating system, make a copy of bush_linux and rename it
 to your operating system.&nbsp; Then edit the file and make sure all the
 system calls and constants are updated to reflect your version of UNIX.&nbsp;
-This should be the only SparForte package that needs to be modified.
+This should be the only SparForte package that needs to be modified.</p>
 <p>You will have to check the man pages and the C include files to find
 the necessary information.&nbsp; For example, to get tty driver ioctl()
 values (TCGETATTR, etc.) you may have to read the C include files looking
-for TCGETATTR (or the equivalent).
-<p>It may be possible that your version of UNIX doesn't have a particular
+for TCGETATTR (or the equivalent).</p>
+<p>You your version of UNIX may not have a particular
 system call.&nbsp; You may have to fake the call using other operating
 system calls.&nbsp; For example, "htons" is a macro on HP-UX, not a function
 call.&nbsp; Since htons does nothing on HP-UX, write a htons function for
-the bush_hp package that returns unchanged whatever parameter it is given.
+the spar_hp package that returns unchanged whatever parameter it is given.</p>
 
 <p>Run the SparForte test suite and try the command line features to make sure
-your bush_os bindings are correct.
+your spar_os bindings are correct.</p>
 <p>If you have a working version of SparForte, you should now update the configure
 scripts and GNUmakefile's to recognize your operating system.  The configure
 script is a shell script that verifies all required libraries are installed,
-identifies your operating system, installs the proper bush_os file for
+identifies your operating system, installs the proper spar_os file for
 your operating system, and then creates the Makefiles needed to compile SparForte.
-Change update configure to recognize your operating system and install the
-your new bush_os file.  This is normally all you need to do.</p>
+Update configure to recognize your operating system and install
+your new spar_os file.  This is normally all you need to do.</p>
 <p>If you need to update the GNUmakefile's as well, change the ones named
 GNUmakefile.orig: these are the originals that configure uses to produce the
-final GNUmakefiles.
-<p>Finally, send your changes to Ken and he will add it to the SparForte source
-code.</p>
+final GNUmakefiles.</p>
+<p>Finally, send your changes to the project maintainer and he will add it to
+the SparForte source code.</p>
 &nbsp;<br>
 
 			</td>
@@ -82,7 +82,7 @@ code.</p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_roadmap.html">&nbsp;Roadmap</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_sguide.html">&nbsp;Source Guide</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_uport.html">&nbsp;<b>UNIX Ports</b></a></p>
-                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Window Ports</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Windows Ports</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_bindings.html">&nbsp;Bindings</a></p>
 
 			</td>

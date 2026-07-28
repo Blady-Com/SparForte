@@ -41,24 +41,25 @@
 	<!-- Content Area -->
 <h2><a NAME="5.3"></a>Windows Porting</h2>
 <p>SparForte was designed to run on UNIX/Linux operating systems, not for
-Microsoft Windows.  However, it is possible to port SparForte to Cygwin, though
-you may have to disable some functionality.
+Microsoft Windows.  However, it is possible to run SparForte under Windows
+using Cygwin.  Most functionality may not be available but it can be disabled
+through the configure script.
 (Alternatively, to run SparForte in Windows, you could use a virtual appliance
 like Oracle's VirtualBox or VMWare and install an operating system supported
-by SparForte.</p>
+by SparForte.)</p>
 
-<p>The bush_os packages (bush_linux, etc.) contain binding to UNIX/Linux
+<p>The spar_os packages (spar_linux, etc.) contain bindings to UNIX/Linux
 system calls and other operating system constants.&nbsp; To port SparForte to
-Cygwin, a partial port exists in the bush_cygwin file.  Copy this (if configure
-doesn't work automatically) to bush_os.ads.</p>
+Cygwin, a partial port exists in the spar_cygwin file.  Copy this (if configure
+doesn't work automatically) to spar_os.ads.</p>
 
 <p>GCC Ada 4.x and later is available on Cygwin.</p>
 
 <p>Run the SparForte test suite and try the command line features to make sure
-your bush_os bindings are correct.</p>
+your spar_os bindings are correct.</p>
 
-<p>Finally, send Ken your bush_os file and he will add it to the SparForte source
-code.</p>
+<p>Finally, send the project maintainer your spar_os file and he will add
+it to the SparForte source code.</p>
 
 &nbsp;<br>
 
@@ -68,7 +69,7 @@ code.</p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_roadmap.html">&nbsp;Roadmap</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_sguide.html">&nbsp;Source Guide</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_uport.html">&nbsp;UNIX Ports</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;<b>Window Ports</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;<b>Windows Ports</b></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_bindings.html">&nbsp;Bindings</a></p>
 
 			</td>

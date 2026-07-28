@@ -54,3 +54,9 @@ CHANGES SINCE 3.0
 
 23. Fix: general documentation review and cleanup of spelling and grammar.
 
+24. Fix: perl_match tests moved to third-party tests.
+
+25. Fix: buildDate reference fixed in pegasoft-userio package.
+
+26. New: Ubuntu 26.04 support [PCRE2 not complete].
+
