@@ -1820,7 +1820,7 @@ begin
         if released then
            put( bold( to_string( defaultPrompt ) ) );
         else
-           put( "spar-" & version & '-' & buildDate & ' ' &
+           put( "spar-" & version & '-' & buildId & ' ' &
               bold( to_string( defaultPrompt ) ) );
         end if;
      else
