@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - MySQLM</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_mysql.html" />
 	<link rel="next" href="pkg_numerics.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_mysql.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_numerics.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_mysql.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_numerics.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,26 +42,26 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.19"></a>MySQLM Database Package</h2>
-<p>A package for opening multiple connections and having mutiple open queries
+<h2><a id="4.25"></a>MySQLM Database Package</h2>
+<p>A package for opening multiple connections and supports mutiple open queries
 to a MySQL database.  The subprograms here are similar to the mysql package
-accept that they also require a connection, query or both.</p>
+except that they also require a connection, query or both.</p>
 
 <p>New data types:</p>
 
 <ul>
-<li><b>mysqlm.connection</b> - a connection id to a database</li>
-<li><b>mysqlm.query</b> - a database id query</li>
+<li><strong>mysqlm.connection</strong> - a connection id to a database</li>
+<li><strong>mysqlm.query</strong> - a database query id</li>
 </ul>
 
-<p>The database package is based on a modified version of Warren Gay's APQ MySQL binding.  For full details on these routines, consult the APQ documentation.</p>
+<p>The database package is based on an updated version of Warren Gay's APQ MySQL binding.  For full details on these routines, consult the APQ documentation.</p>
 
         <center>
         <div class="code">
 <pre>
   <a href="#mysqlm.connect">connect( c, d [, u, w ][, h][, p] )</a>
   <a href="#mysqlm.append">append( q, s [, a] )</a>         <a href="#mysqlm.prepare">prepare( q, s [, a] )</a>
-  <a href="#mysqlm.append_line">append_line( q, s )</a>          <a href="#mysqlm.append_quoted">append_quoted( q, c, s )</a>
+  <a href="#mysqlm.append_line">append_line( q, s )</a>          <a href="#mysqlm.append_quoted">append_quoted( q, c, s [, a] )</a>
   <a href="#mysqlm.execute">execute( q, c )</a>              <a href="#mysqlm.execute_checked">execute_checked( q, c [, s ] )</a>
   <a href="#mysqlm.disconnect">disconnect( c )</a>              <a href="#mysqlm.is_connected">is_connected( c )</a>
   <a href="#mysqlm.reset">reset( c )</a>                   <a href="#mysqlm.error_message">s := error_message( c )</a>
@@ -77,7 +77,7 @@ accept that they also require a connection, query or both.</p>
   <a href="#mysqlm.tuple">n := tuple( q, t )</a>           <a href="#mysqlm.tuples">n := tuples( q )</a>
   <a href="#mysqlm.columns">n := columns( q )</a>            <a href="#mysqlm.column_name">s := column_name( q, i )</a>
   <a href="#mysqlm.column_index">i := column_index( q, s ) </a>   <a href="#mysqlm.is_null">b := is_null( q, i )</a>
-  <a href="#mysqlm.value">s := value( q, i )</a>           <a href="#mysqlm.engine_of">b := engine_of( c )</a> 
+  <a href="#mysqlm.value">s := value( q, i )</a>           <a href="#mysqlm.engine_of">e := engine_of( c )</a>
   <a href="#mysqlm.show">show( q, c )</a>                 <a href="#mysqlm.list">list( c )</a>
   <a href="#mysqlm.schema">schema( c, t )</a>               <a href="#mysqlm.users">users( c )</a>
   <a href="#mysqlm.new_connection">new_connection( c )</a>          <a href="#mysqlm.new_query">new_query( q )</a>
@@ -86,29 +86,27 @@ accept that they also require a connection, query or both.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the mysqlm package
+        <strong>Help Command</strong>: Contents of the mysqlm package
         </div>
         </div>
         </center>
 
 
-<p>There is an enumerated type in the db package that controls the verbosity of tracing:
+<p>There is an enumerated type in the db package that controls the detail level of tracing:
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> db.trace_mode_type <b>is</b> ( db.trace_none, db.trace_db, db.trace_apq, db.trace_full );
+<strong>type</strong> db.trace_mode_type <strong>is</strong> ( db.trace_none, db.trace_db, db.trace_apq, db.trace_full );
                 </p>
         </div>
         </center>
-
-<p><tt>type db.trace_mode_type is ( db.trace_none, db.trace_db, db.trace_apq, db.trace_full );</tt>
 
 <p>There is an enumerated type that controls file access:
 
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> mysqlm.mode_type <b>is</b> ( mysqlm.read, mysqlm.write, mysqlm.read_write );
+<strong>type</strong> mysqlm.mode_type <strong>is</strong> ( mysqlm.read, mysqlm.write, mysqlm.read_write );
                 </p>
         </div>
         </center>
@@ -118,7 +116,7 @@ accept that they also require a connection, query or both.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> db.fetch_mode_type <b>is</b> ( db.sequential_fetch, db.random_fetch );
+<strong>type</strong> db.fetch_mode_type <strong>is</strong> ( db.sequential_fetch, db.random_fetch );
                 </p>
         </div>
         </center>
@@ -129,15 +127,15 @@ accept that they also require a connection, query or both.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> db.database_type <b>is</b> ( db.engine_postgresql, db.engine_mysql, db.engine_oracle, db.engine_sybase, db.engine_db2 );
+<strong>type</strong> db.database_type <strong>is</strong> ( db.engine_postgresql, db.engine_mysql, db.engine_oracle, db.engine_sybase, db.engine_db2 );
                 </p>
         </div>
         </center>
 
 <br>&nbsp;
 
-<a name="mysqlm.append"></a><h3>mysqlm.append( q, s [, a] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.append"></a><h3>mysqlm.append( q, s [, a] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append text s to the SQL query. The text is on the same line.</p></td>
@@ -146,7 +144,7 @@ accept that they also require a connection, query or both.</p>
 <td><span class="code">mysqlm.append( q, s, " where customer_no &gt; 5" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -189,8 +187,8 @@ accept that they also require a connection, query or both.</p>
 </tr>
 </table>
 
-<a name="mysqlm.append_for_insert"></a><h3>mysqlm.append_for_insert( q, c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.append_for_insert"></a><h3>mysqlm.append_for_insert( q, c, r )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append the fields of record r to the query in the format of an ANSI SQL
@@ -209,7 +207,7 @@ r : row;<br />
 mysqlm.append_for_insert( q, c, r ); -- (b,i,s) values (...)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -244,15 +242,15 @@ mysqlm.append_for_insert( q, c, r ); -- (b,i,s) values (...)</span></td>
 <td><p>Not allowed in a restricted shell<br>Not allowed with no_mysql_database restriction</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#mysqlm.append_for_update">mysqml.append_for_update</a></p></td>
+<td><p><a href="#mysqlm.append_for_update">mysqlm.append_for_update</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.append_for_update"></a><h3>mysqlm.append_for_update( q, c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.append_for_update"></a><h3>mysqlm.append_for_update( q, c, r )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append the fields of record r to the query in the format of an ANSI SQL
@@ -271,7 +269,7 @@ r : row;<br />
 mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -306,24 +304,24 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><p>Not allowed in a restricted shell<br>Not allowed with no_mysql_database restriction</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#mysqlm.append_for_insert">mysqml.append_for_insert</a></p></td>
+<td><p><a href="#mysqlm.append_for_insert">mysqlm.append_for_insert</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.append_line"></a><h3>mysqlm.append_line( q, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.append_line"></a><h3>mysqlm.append_line( q, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append text s to the SQL query and start a new line.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">mysqlm.append_line( q, s, "where customer_no &gt; 5" );</span></td>
+<td><span class="code">mysqlm.append_line( q, "where customer_no &gt; 5" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -359,8 +357,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.append_quoted"></a><h3>mysqlm.append_quoted( q, c, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.append_quoted"></a><h3>mysqlm.append_quoted( q, c, s [, a] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append text s to SQL query while surrounding s with single quotes.</p></td>
@@ -369,7 +367,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">mysqlm.append_quoted( q, c, "customer_name" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -418,8 +416,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.begin_work"></a><h3>mysqlm.begin_work( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.begin_work"></a><h3>mysqlm.begin_work( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Start a database transaction, marking the position of a possible rollback.  The query will be erased.</p></td>
@@ -428,7 +426,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">mysqlm.begin_work( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -464,8 +462,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.clear"></a><h3>mysqlm.clear( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.clear"></a><h3>mysqlm.clear( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Erase the text of the current query.</p></td>
@@ -474,7 +472,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">mysqlm.clear( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -504,8 +502,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.close_db_trace"></a><h3>mysqlm.close_db_trace( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.close_db_trace"></a><h3>mysqlm.close_db_trace( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Stop tracing the database activity and close the trace file.</p></td>
@@ -514,7 +512,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">mysqlm.close_db_trace( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -540,12 +538,12 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><p><a href="#mysqlm.is_trace">mysqlm.is_trace</a><br><a href="#mysqlm.open_db_trace">mysqlm.open_db_trace</a><br><a href="#mysqlm.set_trace">mysqlm.set_trace</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Clear</p></td>
+<td><p>Ada: APQ.Close_DB_Trace</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.column_index"></a><h3>i := mysqlm.column_index( q, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.column_index"></a><h3>i := mysqlm.column_index( q, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the position of a query result column.  This is the position in the query, not the database table.</p></td>
@@ -554,7 +552,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">third_column_position := mysqlm.column_index( q, "first name" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -597,8 +595,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.column_name"></a><h3>s := mysqlm.column_name( q, i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.column_name"></a><h3>s := mysqlm.column_name( q, i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the name of a query result column.  The number is the position in the query, not the database table.</p></td>
@@ -607,7 +605,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">third_column_heading := mysqlm.column_name( q, 3 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -650,8 +648,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.columns"></a><h3>n := mysqlm.columns( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.columns"></a><h3>n := mysqlm.columns( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of columns (fields) from the last query.</p></td>
@@ -660,7 +658,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">number_of_columns := mysqlm.columns( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -696,8 +694,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.commit_work"></a><h3>mysqlm.commit_work( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.commit_work"></a><h3>mysqlm.commit_work( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Complete a database transaction.  The query will be erased.</p></td>
@@ -706,7 +704,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">mysqlm.commit_work( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -742,8 +740,8 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.connect"></a><h3>mysqlm.connect( c, d [, u, w ][, h][, p] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.connect"></a><h3>mysqlm.connect( c, d [, u, w ][, h][, p] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Connect to database d using username u, password w, hostname h and port p. If no hostname or port are specified, connection is made by a UNIX socket instead of a network socket.</p></td>
@@ -752,7 +750,7 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">mysqlm.connect( c, "db", "user", "password" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -815,18 +813,18 @@ mysqlm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="mysqlm.databases"></a><h3>mysqlm.databases( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.databases"></a><h3>mysqlm.databases( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Show a list of the databases available with the current connection.  This
-is the equivalent of MySQL "show databases".</p></td>
+is the same as MySQL "show databases".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.databases( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -856,8 +854,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.disconnect"></a><h3>mysqlm.disconnect( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.disconnect"></a><h3>mysqlm.disconnect( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 
@@ -867,7 +865,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">mysqlm.disconnect( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -897,8 +895,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.end_of_query"></a><h3>b := mysqlm.end_of_query( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.end_of_query"></a><h3>b := mysqlm.end_of_query( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if there are no more result (tuple) rows.</p></td>
@@ -907,7 +905,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">while not mysqlm.end_of_query( q ) loop ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -944,8 +942,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.engine_of"></a><h3>e := mysqlm.engine_of( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.engine_of"></a><h3>e := mysqlm.engine_of( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the identity of the database engine</p></td>
@@ -954,7 +952,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">e := mysqlm.engine_of( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -989,8 +987,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.error_message"></a><h3>s := mysqlm.error_message( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.error_message"></a><h3>s := mysqlm.error_message( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Last error message returned by database server.</p></td>
@@ -999,7 +997,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">err := mysqlm.error_message( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1007,7 +1005,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>b</span></td>
+<td><span>s</span></td>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
@@ -1029,8 +1027,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.execute"></a><h3>mysqlm.execute( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.execute"></a><h3>mysqlm.execute( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Run a prepared database query.</p></td>
@@ -1039,7 +1037,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">mysqlm.execute( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1075,20 +1073,20 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.execute_checked"></a><h3>mysqlm.execute_checked( q, c [, s ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.execute_checked"></a><h3>mysqlm.execute_checked( q, c [, s ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Execute the query.  If an error occurs, display the message s on
 standard error and raise an exception.  If an error occurs and there is
-no error message s, display the query on standard error and raise an
+no message s, display the query on standard error and raise an
 exception.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.execute_checked( q, c, "message" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1130,17 +1128,17 @@ exception.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.fetch"></a><h3>mysqlm.fetch( q, [, i] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.fetch"></a><h3>mysqlm.fetch( q [, i] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Fetch the next query result tuple row, or a specific result row.</p></td>
+<td><p>Fetch the next query result row (tuple), or the result row i.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.fetch( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1176,8 +1174,8 @@ exception.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.fetch_values"></a><h3>mysqlm.fetch_values( q, c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.fetch_values"></a><h3>mysqlm.fetch_values( q, c, r )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fetch the next query result tuple row into a record.</p>
@@ -1202,7 +1200,7 @@ if not mysqlm.end_of_query( Q ) then<br />
 &nbsp;&nbsp;mysqlm.fetch_values( Q, C, r );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1245,8 +1243,8 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="mysqlm.in_abort_state"></a><h3>s := mysqlm.in_abort_state( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.in_abort_state"></a><h3>s := mysqlm.in_abort_state( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if in abort state. If there is no connection, return false.</p></td>
@@ -1255,7 +1253,7 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 <td><span class="code">b := mysqlm.in_abort_state( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1291,8 +1289,8 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="mysqlm.is_connected"></a><h3>b := mysqlm.is_connected( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.is_connected"></a><h3>b := mysqlm.is_connected( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if a connection is open to a database.</p></td>
@@ -1302,7 +1300,7 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1338,8 +1336,8 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="mysqlm.is_null"></a><h3>b := mysqlm.is_null(q, i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.is_null"></a><h3>b := mysqlm.is_null( q, i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if column in the fetch result is undefined.</p></td>
@@ -1348,7 +1346,7 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 <td><span class="code">b := mysqlm.is_null( q, 2 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1391,17 +1389,17 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="mysqlm.is_trace"></a><h3>b := mysqlm.is_trace( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.is_trace"></a><h3>b := mysqlm.is_trace( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>True if set_trace was true (that is, if debug tracing is enabled).</p></td>
+<td><p>Return true if set_trace was true (that is, if debug tracing is enabled).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">b := mysqlm.is_trace( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1437,18 +1435,18 @@ string to a numeric or boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="mysqlm.list"></a><h3>mysqlm.list( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.list"></a><h3>mysqlm.list( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Show on standard output a list of the tables available in the current database.  This is the
-equivalent of MySQL's "show tables".</p></td>
+same as MySQL's "show tables".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.list( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1478,8 +1476,8 @@ equivalent of MySQL's "show tables".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.new_connection"></a><h3>mysqlm.new_connection( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.new_connection"></a><h3>mysqlm.new_connection( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Allocate a new mysql connection and return the id.  The connection will be deallocated when the variable is destroyed.</p></td>
@@ -1488,7 +1486,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="code">mysqlm.new_connection( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1505,7 +1503,7 @@ equivalent of MySQL's "show tables".</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>Out-of-memory</p>
+<td><p>An exception is raised if the memory is full</p>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>-</p></td>
@@ -1515,8 +1513,8 @@ equivalent of MySQL's "show tables".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.new_query"></a><h3>mysqlm.new_query( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.new_query"></a><h3>mysqlm.new_query( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Allocate a new mysql query and return the id.  The query will be deallocated when the variable is destroyed.</p></td>
@@ -1525,7 +1523,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="code">mysqlm.new_query( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1542,7 +1540,7 @@ equivalent of MySQL's "show tables".</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>Out-of-memory</p>
+<td><p>An exception is raised if the memory is full</p>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>-</p></td>
@@ -1552,8 +1550,8 @@ equivalent of MySQL's "show tables".</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.open_db_trace"></a><h3>mysqlm.open_db_trace( c, f [,m] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.open_db_trace"></a><h3>mysqlm.open_db_trace( c, f [,m] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Begin tracing the database activity, storing the results at pathname f.  m is an optional trace mode type</p></td>
@@ -1562,7 +1560,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="code">mysqlm.open_db_trace( c, "./trace.log" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1605,8 +1603,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="mysqlm.options"></a><h3>s := mysqlm.options( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.options"></a><h3>s := mysqlm.options( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return database options.</p></td>
@@ -1616,7 +1614,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1652,8 +1650,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="mysqlm.prepare"></a><h3>mysqlm.prepare( q, s [, a] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.prepare"></a><h3>mysqlm.prepare( q, s [, a] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Prepare a SQL statement to execute.  If a is included, insert the next statement after the statement named a.</p></td>
@@ -1662,7 +1660,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 <td><span class="code">mysqlm.prepare( q, "select * from customers" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1705,8 +1703,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="mysqlm.raise_exceptions"></a><h3>mysqlm.raise_exceptions( q, [ b ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.raise_exceptions"></a><h3>mysqlm.raise_exceptions( q [, b ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True to raise exceptions on query errors.</p></td>
@@ -1715,7 +1713,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 <td><span class="code">mysqlm.raise_exceptions( q, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1751,8 +1749,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="mysqlm.report_errors"></a><h3>mysqlm.report_errors( q, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.report_errors"></a><h3>mysqlm.report_errors( q, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True to report errors on query.</p></td>
@@ -1761,7 +1759,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 <td><span class="code">mysqlm.report_errors( q, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1797,19 +1795,18 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="mysqlm.reset"></a><h3>mysqlm.reset( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.reset"></a><h3>mysqlm.reset( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reset the database connection: close open files, rollback query (if
-necessary) and disconnect.  Use disconnect instead unless you know what
-you are doing.</p></td>
+necessary) and disconnect.  mysqlm.disconnect is recommended for normal use.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.reset( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1839,8 +1836,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.rewind"></a><h3>mysqlm.rewind( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.rewind"></a><h3>mysqlm.rewind( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return to the start of a query's results.</p></td>
@@ -1849,7 +1846,7 @@ you are doing.</p></td>
 <td><span class="code">mysqlm.rewind( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1879,8 +1876,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.rollback_work"></a><h3>mysqlm.rollback_work( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.rollback_work"></a><h3>mysqlm.rollback_work( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Rollback a database transaction, undoing all work since begin_work.  The query will be erased.</p></td>
@@ -1889,7 +1886,7 @@ you are doing.</p></td>
 <td><span class="code">mysqlm.rollback_work( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1925,17 +1922,17 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.schema"></a><h3>mysqlm.schema( c, t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.schema"></a><h3>mysqlm.schema( c, t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Show information about the columns available in a table.  This is the equivalent of MySQL's "show create table" or "desc".</p></td>
+<td><p>Show information about the columns available in a table.  This is the same as MySQL's "show create table" or "desc".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.schema( c, "table" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1971,17 +1968,17 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.set_rollback_on_finalize"></a><h3>mysqlm.set_rollback_on_finalize( c, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.set_rollback_on_finalize"></a><h3>mysqlm.set_rollback_on_finalize( c, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Determine if a rollback will be issued when the connection is deallocated while the connection is still open (true) or no rollback (false).  Default is true.</p></td>
+<td><p>Enable a transaction rollback when the script ends and the database connection is still open (true) or no rollback (false).  Default is true.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mysqlm.set_rollback_on_finalize( c, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2017,8 +2014,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.set_trace"></a><h3>mysqlm.set_trace( c, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.set_trace"></a><h3>mysqlm.set_trace( c, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Enable or disable query tracing.  The trace file will remain open.</p></td>
@@ -2027,7 +2024,7 @@ you are doing.</p></td>
 <td><span class="code">mysqlm.set_trace( c, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2063,8 +2060,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.show"></a><h3>mysqlm.show( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.show"></a><h3>mysqlm.show( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Run the prepared query and show the results in a table on standard output.
@@ -2074,7 +2071,7 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 <td><span class="code">mysqlm.show( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2110,8 +2107,8 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.tuple"></a><h3>t := mysqlm.tuple( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.tuple"></a><h3>t := mysqlm.tuple( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the result row (tuple) number from the last fetch.</p></td>
@@ -2120,7 +2117,7 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 <td><span class="code">row_number := mysqlm.tuple( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2156,8 +2153,8 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.tuples"></a><h3>n := mysqlm.tuples( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.tuples"></a><h3>n := mysqlm.tuples( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of rows (tuples) from the last query.</p></td>
@@ -2166,7 +2163,7 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 <td><span class="code">row_number := mysqlm.tuples( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2202,8 +2199,8 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.users"></a><h3>mysqlm.users( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.users"></a><h3>mysqlm.users( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Show a list of database users.  This is similar to MySQL's "show grants".  The
@@ -2213,7 +2210,7 @@ columns in the list depend on the database engine.</p></td>
 <td><span class="code">mysqlm.users( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2243,8 +2240,8 @@ columns in the list depend on the database engine.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.value"></a><h3>s := mysqlm.value( q, i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.value"></a><h3>s := mysqlm.value( q, i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the column value as a string.</p></td>
@@ -2253,7 +2250,7 @@ columns in the list depend on the database engine.</p></td>
 <td><span class="code">first_name := mysqlm.value( q, 3 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2295,8 +2292,8 @@ columns in the list depend on the database engine.</p></td>
 </tr>
 </table>
 
-<a name="mysqlm.will_rollback_on_finalize"></a><h3>b := mysqlm.will_rollback_on_finalize( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mysqlm.will_rollback_on_finalize"></a><h3>b := mysqlm.will_rollback_on_finalize( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if set_rollback_on_finalize was true (that is, that when the connection is deallocated, a rollback will be issued if the connection is still open).</p></td>
@@ -2305,7 +2302,7 @@ columns in the list depend on the database engine.</p></td>
 <td><span class="code">b := mysqlm.will_rollback_on_finalize( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2338,7 +2335,7 @@ columns in the list depend on the database engine.</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -2364,7 +2361,7 @@ columns in the list depend on the database engine.</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache.html">&nbsp;memcache</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache_highread.html">&nbsp;memcache.highread</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysql.html">&nbsp;mysql</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_mysqlm.html">&nbsp;<b>mysqlm</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_mysqlm.html">&nbsp;<strong>mysqlm</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_numerics.html">&nbsp;numerics</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_os.html">&nbsp;os</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_pen.html">&nbsp;pen</a></p>

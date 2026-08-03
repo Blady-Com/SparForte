@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Units</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_text_io.html" />
 	<link rel="next" href="pkg_vectors.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_text_io.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_vectors.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_text_io.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_vectors.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,7 +42,9 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.13"></a>Units Package</h2>
+<h2><a id="4.40"></a>Units Package</h2>
+
+<p>The units package contains functions to convert between units of measurement.</p>
 
         <center>
         <div class="code">
@@ -68,22 +70,22 @@
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the units package
+        <strong>Help Command</strong>: Contents of the units package
         </div>
         </div>
         </center>
 
-<a name="units.acres2hectares"></a><h3>r := units.acres2hectares( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.acres2hectares"></a><h3>r := units.acres2hectares( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts acres to metric hectares.</p></td>
+<td><p>Convert acres to metric hectares.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">h := units.acres2hectares( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -117,17 +119,17 @@
 </tr>
 </table>
 
-<a name="units.bytes2mb"></a><h3>r := units.bytes2mb( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.bytes2mb"></a><h3>r := units.bytes2mb( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts bytes to megabytes.</p></td>
+<td><p>Convert bytes to megabytes.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">megs := units.bytes2mb( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -161,17 +163,17 @@
 </tr>
 </table>
 
-<a name="units.c2f"></a><h3>r := units.c2f( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.c2f"></a><h3>r := units.c2f( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts Celsius temperatures to Fahrenheit.</p></td>
+<td><p>Convert Celsius temperatures to Fahrenheit.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">fahren := units.c2f( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -205,17 +207,17 @@
 </tr>
 </table>
 
-<a name="units.c2k"></a><h3>r := units.c2k( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.c2k"></a><h3>r := units.c2k( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts Celsius temperatures to Kelvin.</p></td>
+<td><p>Convert Celsius temperatures to Kelvin.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">kelvin := units.c2k( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -249,17 +251,17 @@
 </tr>
 </table>
 
-<a name="units.cm2inches"></a><h3>r := units.cm2inches( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.cm2inches"></a><h3>r := units.cm2inches( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts centimeters to feet.</p></td>
+<td><p>Convert centimeters to inches.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">ft := units.cm2inches( 5.5 );</span></td>
+<td><span class="code">in := units.cm2inches( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -293,17 +295,17 @@
 </tr>
 </table>
 
-<a name="units.cucm2floz"></a><h3>r := units.cucm2floz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.cucm2floz"></a><h3>r := units.cucm2floz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric cubic centimeters to imperial (British) fluid ounces.</p></td>
+<td><p>Convert metric cubic centimeters to imperial (British) fluid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">floz := units.cucm2floz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -337,17 +339,17 @@
 </tr>
 </table>
 
-<a name="units.cucm2usfloz"></a><h3>r := units.cucm2usfloz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.cucm2usfloz"></a><h3>r := units.cucm2usfloz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric cubic centimeters to U.S. fluid ounces.</p></td>
+<td><p>Convert metric cubic centimeters to U.S. fluid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">floz := units.cucm2usfloz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -381,17 +383,17 @@
 </tr>
 </table>
 
-<a name="units.f2c"></a><h3>r := units.f2c( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.f2c"></a><h3>r := units.f2c( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts Fahrenheit temperatures to Celsius.</p></td>
+<td><p>Convert Fahrenheit temperatures to Celsius.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">celcius := units.f2c( 5.5 );</span></td>
+<td><span class="code">celsius := units.f2c( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -425,17 +427,17 @@
 </tr>
 </table>
 
-<a name="units.feet2cm"></a><h3>r := units.feet2cm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.feet2cm"></a><h3>r := units.feet2cm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts feet to centimeters.</p></td>
+<td><p>Convert feet to centimeters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">cm := units.feet2cm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -469,17 +471,17 @@
 </tr>
 </table>
 
-<a name="units.floz2cucm"></a><h3>r := units.floz2cucm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.floz2cucm"></a><h3>r := units.floz2cucm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts imperial (British) fluid ounces to cubic centimeters.</p></td>
+<td><p>Convert imperial (British) fluid ounces to cubic centimeters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">cm3 := units.floz2cucm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -513,17 +515,17 @@
 </tr>
 </table>
 
-<a name="units.floz2usfloz"></a><h3>r := units.floz2usfloz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.floz2usfloz"></a><h3>r := units.floz2usfloz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts imperial (British) fluid ounces to U.S. fluid ounces.</p></td>
+<td><p>Convert imperial (British) fluid ounces to U.S. fluid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">usfloz := units.floz2usfloz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -557,17 +559,17 @@
 </tr>
 </table>
 
-<a name="units.floz2ml"></a><h3>r := units.floz2ml( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.floz2ml"></a><h3>r := units.floz2ml( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts imperial (British) fluid ounces to milliliters.</p></td>
+<td><p>Convert imperial (British) fluid ounces to milliliters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">ml := units.floz2ml( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -601,17 +603,17 @@
 </tr>
 </table>
 
-<a name="units.g2troz"></a><h3>r := units.g2troz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.g2troz"></a><h3>r := units.g2troz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts grams to troy ounces.</p></td>
+<td><p>Convert grams to troy ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">troz := units.g2troz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -645,17 +647,17 @@
 </tr>
 </table>
 
-<a name="units.gal2l"></a><h3>r := units.gal2l( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.gal2l"></a><h3>r := units.gal2l( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts imperial (British) gallons to metric liters.</p></td>
+<td><p>Convert imperial (British) gallons to metric liters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">liters := units.gal2l( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -689,17 +691,17 @@
 </tr>
 </table>
 
-<a name="units.grams2oz"></a><h3>r := units.grams2oz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.grams2oz"></a><h3>r := units.grams2oz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts grams to imperial (British) ounces.</p></td>
+<td><p>Convert grams to imperial (British) ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">oz := units.grams2oz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -733,17 +735,17 @@
 </tr>
 </table>
 
-<a name="units.hectares2acres"></a><h3>r := units.hectares2acres( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.hectares2acres"></a><h3>r := units.hectares2acres( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric hectares to acres.</p></td>
+<td><p>Convert metric hectares to acres.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">ac := units.hectares2acres( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -777,17 +779,17 @@
 </tr>
 </table>
 
-<a name="units.inches2mm"></a><h3>r := units.inches2mm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.inches2mm"></a><h3>r := units.inches2mm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts inches to millimeters.</p></td>
+<td><p>Convert inches to millimeters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mm := units.inches2mm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -821,17 +823,17 @@
 </tr>
 </table>
 
-<a name="units.kg2lb"></a><h3>r := units.kg2lb( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.kg2lb"></a><h3>r := units.kg2lb( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts kilograms to pounds (weight).</p></td>
+<td><p>Convert kilograms to pounds (weight).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">lb := units.kg2lb( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -865,17 +867,17 @@
 </tr>
 </table>
 
-<a name="units.k2c"></a><h3>r := units.k2c( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.k2c"></a><h3>r := units.k2c( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts Kelvin temperatures to Celsius.</p></td>
+<td><p>Convert Kelvin temperatures to Celsius.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">celcius := units.k2c( 5.5 );</span></td>
+<td><span class="code">celsius := units.k2c( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -909,17 +911,17 @@
 </tr>
 </table>
 
-<a name="units.km2miles"></a><h3>r := units.km2miles( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.km2miles"></a><h3>r := units.km2miles( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts kilometers to miles.</p></td>
+<td><p>Convert kilometers to miles.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mi := units.km2miles( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -953,17 +955,17 @@
 </tr>
 </table>
 
-<a name="units.l2quarts"></a><h3>r := units.l2quarts( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.l2quarts"></a><h3>r := units.l2quarts( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric liters to imperial (British) quarts.</p></td>
+<td><p>Convert metric liters to imperial (British) quarts.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">quarts := units.l2quarts( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -997,17 +999,17 @@
 </tr>
 </table>
 
-<a name="units.l2usdryoz"></a><h3>r := units.l2usdryoz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.l2usdryoz"></a><h3>r := units.l2usdryoz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric liters to U.S. dry ounces.</p></td>
+<td><p>Convert metric liters to U.S. dry ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">oz := units.l2usdryoz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1041,17 +1043,17 @@
 </tr>
 </table>
 
-<a name="units.l2usliqoz"></a><h3>r := units.l2usliqoz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.l2usliqoz"></a><h3>r := units.l2usliqoz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric liters to U.S. liquid ounces.</p></td>
+<td><p>Convert metric liters to U.S. liquid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">oz := units.l2usliqoz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1085,17 +1087,17 @@
 </tr>
 </table>
 
-<a name="units.lb2kg"></a><h3>r := units.lb2kg( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.lb2kg"></a><h3>r := units.lb2kg( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts pounds (weight) to kilograms.</p></td>
+<td><p>Convert pounds (weight) to kilograms.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">kg := units.lb2kg( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1129,17 +1131,17 @@
 </tr>
 </table>
 
-<a name="units.l2gal"></a><h3>r := units.l2gal( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.l2gal"></a><h3>r := units.l2gal( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric liters to imperial (British) gallons.</p></td>
+<td><p>Convert metric liters to imperial (British) gallons.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">gals := units.l2gal( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1173,17 +1175,17 @@
 </tr>
 </table>
 
-<a name="units.ly2pc"></a><h3>r := units.ly2pc( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.ly2pc"></a><h3>r := units.ly2pc( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts light years to parsecs.</p></td>
+<td><p>Convert light years to parsecs.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">pc := units.ly2pc( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1217,17 +1219,17 @@
 </tr>
 </table>
 
-<a name="units.m2yards"></a><h3>r := units.m2yards( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.m2yards"></a><h3>r := units.m2yards( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts meters to yards.</p></td>
+<td><p>Convert meters to yards.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">yd := units.m2yards( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1261,17 +1263,17 @@
 </tr>
 </table>
 
-<a name="units.mb2bytes"></a><h3>r := units.mb2bytes( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.mb2bytes"></a><h3>r := units.mb2bytes( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts megabytes to bytes.</p></td>
+<td><p>Convert megabytes to bytes.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">bytes := units.mb2bytes( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1305,17 +1307,17 @@
 </tr>
 </table>
 
-<a name="units.miles2km"></a><h3>r := units.miles2km( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.miles2km"></a><h3>r := units.miles2km( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts miles to kilometers.</p></td>
+<td><p>Convert miles to kilometers.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">km := units.miles2km( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1349,17 +1351,17 @@
 </tr>
 </table>
 
-<a name="units.ml2floz"></a><h3>r := units.ml2floz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.ml2floz"></a><h3>r := units.ml2floz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts milliliters to imperial (British) fluid ounces.</p></td>
+<td><p>Convert milliliters to imperial (British) fluid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">floz := units.ml2floz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1393,17 +1395,17 @@
 </tr>
 </table>
 
-<a name="units.ml2usfloz"></a><h3>r := units.ml2usfloz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.ml2usfloz"></a><h3>r := units.ml2usfloz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts milliliters to U.S. fluid ounces.</p></td>
+<td><p>Convert milliliters to U.S. fluid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">floz := units.ml2usfloz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1437,17 +1439,17 @@
 </tr>
 </table>
 
-<a name="units.mm2inches"></a><h3>r := units.mm2inches( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.mm2inches"></a><h3>r := units.mm2inches( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts millimeters to inches.</p></td>
+<td><p>Convert millimeters to inches.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">in := units.mm2inches( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1481,17 +1483,17 @@
 </tr>
 </table>
 
-<a name="units.oz2grams"></a><h3>r := units.oz2grams( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.oz2grams"></a><h3>r := units.oz2grams( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts imperial (British) ounces to grams.</p></td>
+<td><p>Convert imperial (British) ounces to grams.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">g := units.oz2grams( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1525,17 +1527,17 @@
 </tr>
 </table>
 
-<a name="units.pc2ly"></a><h3>r := units.pc2ly( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.pc2ly"></a><h3>r := units.pc2ly( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts parsecs to light years.</p></td>
+<td><p>Convert parsecs to light years.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">ly := units.pc2ly( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1569,17 +1571,17 @@
 </tr>
 </table>
 
-<a name="units.pints2l"></a><h3>r := units.pints2l( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.pints2l"></a><h3>r := units.pints2l( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts imperial (British) pints to metric liters.</p></td>
+<td><p>Convert imperial (British) pints to metric liters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">liters := units.pints2l( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1613,17 +1615,17 @@
 </tr>
 </table>
 
-<a name="units.sqcm2sqin"></a><h3>r := units.sqcm2sqin( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqcm2sqin"></a><h3>r := units.sqcm2sqin( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square centimeters to square inches.</p></td>
+<td><p>Convert square centimeters to square inches.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">in2 := units.sqcm2sqin( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1657,17 +1659,17 @@
 </tr>
 </table>
 
-<a name="units.sqft2sqm"></a><h3>r := units.sqft2sqm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqft2sqm"></a><h3>r := units.sqft2sqm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square feet to square meters.</p></td>
+<td><p>Convert square feet to square meters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">m2 := units.sqft2sqm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1701,17 +1703,17 @@
 </tr>
 </table>
 
-<a name="units.sqin2sqcm"></a><h3>r := units.sqin2sqcm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqin2sqcm"></a><h3>r := units.sqin2sqcm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square inches to square centimeters.</p></td>
+<td><p>Convert square inches to square centimeters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">cm2 := units.sqin2sqcm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1745,17 +1747,17 @@
 </tr>
 </table>
 
-<a name="units.sqkm2sqmiles"></a><h3>r := units.sqkm2sqmiles( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqkm2sqmiles"></a><h3>r := units.sqkm2sqmiles( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square kilometers to square miles.</p></td>
+<td><p>Convert square kilometers to square miles.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">mi2 := units.sqkm2sqmiles( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1789,17 +1791,17 @@
 </tr>
 </table>
 
-<a name="units.sqm2sqft"></a><h3>r := units.sqm2sqft( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqm2sqft"></a><h3>r := units.sqm2sqft( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square meters to square feet.</p></td>
+<td><p>Convert square meters to square feet.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">ft2 := units.sqm2sqft( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1833,17 +1835,17 @@
 </tr>
 </table>
 
-<a name="units.sqm2sqyd"></a><h3>r := units.sqm2sqyd( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqm2sqyd"></a><h3>r := units.sqm2sqyd( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square meters to square yards.</p></td>
+<td><p>Convert square meters to square yards.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">yd2 := units.sqm2sqyd( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1877,17 +1879,17 @@
 </tr>
 </table>
 
-<a name="units.sqmiles2sqkm"></a><h3>r := units.sqmiles2sqkm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqmiles2sqkm"></a><h3>r := units.sqmiles2sqkm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square miles to square kilometers.</p></td>
+<td><p>Convert square miles to square kilometers.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">km2 := units.sqmiles2sqkm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1921,17 +1923,17 @@
 </tr>
 </table>
 
-<a name="units.sqyd2sqm"></a><h3>r := units.sqyd2sqm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.sqyd2sqm"></a><h3>r := units.sqyd2sqm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts square yards to square meters.</p></td>
+<td><p>Convert square yards to square meters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">m2 := units.sqyd2sqm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1965,17 +1967,17 @@
 </tr>
 </table>
 
-<a name="units.tonnes2tons"></a><h3>r := units.tonnes2tons( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.tonnes2tons"></a><h3>r := units.tonnes2tons( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts metric tonnes to tons.</p></td>
+<td><p>Convert metric tonnes to tons.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">t := units.tonnes2tons( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2009,17 +2011,17 @@
 </tr>
 </table>
 
-<a name="units.tons2tonnes"></a><h3>r := units.tons2tonnes( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.tons2tonnes"></a><h3>r := units.tons2tonnes( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts tons to metric tonnes.</p></td>
+<td><p>Convert tons to metric tonnes.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">mt := units.ton2tonnes( 5.5 );</span></td>
+<td><span class="code">mt := units.tons2tonnes( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2053,17 +2055,17 @@
 </tr>
 </table>
 
-<a name="units.troz2g"></a><h3>r := units.troz2g( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.troz2g"></a><h3>r := units.troz2g( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts troy ounces to grams.</p></td>
+<td><p>Convert troy ounces to grams.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">g := units.troz2g( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2097,17 +2099,17 @@
 </tr>
 </table>
 
-<a name="units.usdryoz2l"></a><h3>r := units.usdryoz2l( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.usdryoz2l"></a><h3>r := units.usdryoz2l( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts U.S. dry ounces to liters.</p></td>
+<td><p>Convert U.S. dry ounces to liters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">cm3 := units.usdryoz2l( 5.5 );</span></td>
+<td><span class="code">liters := units.usdryoz2l( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2141,17 +2143,17 @@
 </tr>
 </table>
 
-<a name="units.usliqoz2l"></a><h3>r := units.usliqoz2l( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.usliqoz2l"></a><h3>r := units.usliqoz2l( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts U.S. liquid ounces to metric liters.</p></td>
+<td><p>Convert U.S. liquid ounces to metric liters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">cm3 := units.usliqoz2l( 5.5 );</span></td>
+<td><span class="code">liters := units.usliqoz2l( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2185,17 +2187,17 @@
 </tr>
 </table>
 
-<a name="units.usfloz2cucm"></a><h3>r := units.usfloz2cucm( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.usfloz2cucm"></a><h3>r := units.usfloz2cucm( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts U.S. fluid ounces to cubic centimeters.</p></td>
+<td><p>Convert U.S. fluid ounces to cubic centimeters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">cm3 := units.usfloz2cucm( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2229,17 +2231,17 @@
 </tr>
 </table>
 
-<a name="units.usfloz2floz"></a><h3>r := units.usfloz2floz( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.usfloz2floz"></a><h3>r := units.usfloz2floz( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts U.S. fluid ounces to imperial (British) fluid ounces.</p></td>
+<td><p>Convert U.S. fluid ounces to imperial (British) fluid ounces.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">floz := units.usfloz2floz( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2273,17 +2275,17 @@
 </tr>
 </table>
 
-<a name="units.usfloz2ml"></a><h3>r := units.usfloz2ml( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.usfloz2ml"></a><h3>r := units.usfloz2ml( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts U.S. fluid ounces to milliliters.</p></td>
+<td><p>Convert U.S. fluid ounces to milliliters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">ml := units.usfloz2ml( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2317,17 +2319,17 @@
 </tr>
 </table>
 
-<a name="units.yards2m"></a><h3>r := units.yards2m( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="units.yards2m"></a><h3>r := units.yards2m( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Converts yards to meters.</p></td>
+<td><p>Convert yards to meters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">m := units.yards2m( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2364,7 +2366,7 @@
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -2405,7 +2407,7 @@
                                 <p class="rmt"><a class="rightmenutext" href="pkg_teams.html">&nbsp;teams</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_templates.html">&nbsp;templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;text_io</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;<b>units</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;<strong>units</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_vectors.html">&nbsp;vectors</a></p>
 			</td>
 		</tr>

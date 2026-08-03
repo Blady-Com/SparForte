@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Calendar</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
-	<link rel="index" href="packages.php" />
+	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_btree_io.html" />
 	<link rel="next" href="pkg_cgi.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_btree_io.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_cgi.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_btree_io.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_cgi.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,11 +42,11 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.12"></a>Calendar Package</h2>
-<p>The calendar package provides date and time routines for SparForte.  These include
-determining the current date and time, determining the year, performing date
-arithmetic and more.</p>
-<p><u>GCC Ada equivalent</u>: Ada.Calendar</p>
+<h2><a id="4.3"></a>Calendar Package</h2>
+<p>The calendar package provides date and time routines for SparForte.  These subprograms include
+returning the current date and time, calculating dates and similar capabilities.</p>
+
+<p><span class="underline">GCC Ada equivalent</span>: Ada.Calendar</p>
 
         <center>
         <div class="code">
@@ -58,39 +58,41 @@ arithmetic and more.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the calendar package
+        <strong>Help Command</strong>: Contents of the calendar package
         </div>
         </div>
         </center>
 
-<p>The calendar package defines 4 special types:</p>
+<p>The calendar package defines 6 special types:</p>
 <ul>
 <li>
-<b>calendar.year_number</b> - an integer year number (1901..2099)</li>
+<strong>calendar.year_number</strong> - an integer year number (1901..2099)</li>
 
 <li>
-<b>calendar.month_number</b> - an integer month number (1..12)</li>
+<strong>calendar.month_number</strong> - an integer month number (1..12)</li>
 
 <li>
-<b>calendar.day_number</b> - an integer day number (1..31)</li>
+<strong>calendar.day_number</strong> - an integer day number (1..31)</li>
 
 <li>
-<b>calendar.day_duration</b> - a floating point number of seconds</li>
+<strong>calendar.day_duration</strong> - a floating point number of seconds</li>
 
 <li>
-<b>calendar.time</b> - a point in time</li>
+<strong>calendar.time</strong> - a point in time</li>
 
 <li>
-<b>calendar.julian_date</b> - a Julian date</li>
+<strong>calendar.julian_date</strong> - a Julian date</li>
 </ul>
 
-<p><b>Ada</b>: year_number, month_number, day_number are subtypes in Ada, but are declared
-as types in AdaScript to emphasize that they represent incompatible values.  julian_date is not defined in Ada.</p>
+<p><strong>Ada</strong>: year_number, month_number, day_number are subtypes in Ada, but are declared
+as incompatible types in AdaScript.  julian_date is not defined in Ada.</p>
 
 <p>
 Limited arithmetic: a duration can be added or subtracted from a
-calendar.time value.  "calendar.clock - 1.0" subtracts 1 second from the
-current time.  "calendar.clock + 2.5" adds 2.5 seconds to the current time.
+calendar.time value.  For example, "calendar.clock - 1.0" subtracts 1 second from the
+current time.  Another example, "calendar.clock + 2.5" adds 2.5 seconds to the current time.
+</p>
+
 <p>Comparing times: time values can be compared with &gt;, &gt;=, <, &lt;=, =,
 /=, in, and not in.
 </p>
@@ -99,7 +101,7 @@ current time.  "calendar.clock + 2.5" adds 2.5 seconds to the current time.
         <div class="code">
 <p class="code">
 =&gt; current_time : calendar.time := calendar.clock<br>
-=&gt; ? calendar.year( current_time )<br>
+=&gt; ? calendar.year( current_time ); -- example output<br>
 &nbsp;2011<br>
 =&gt; ? calendar.month( current_time )<br>
 &nbsp;11<br>
@@ -111,13 +113,13 @@ true<br>
 &nbsp;<br>
 </p>
         <div class="code_caption">
-        <b>Example</b>: Using the calendar package
+        <strong>Example</strong>: Using the calendar package
         </div>
         </div>
         </center>
 
-<a name="calendar.clock"></a><h3>t := calendar.clock</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.clock"></a><h3>t := calendar.clock</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the current time (that is, the calendar date and clock time, or the
@@ -127,7 +129,7 @@ timestamp for this moment in time) as a calendar.time value.</p></td>
 <td><span class="code">current_time := clock;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -154,17 +156,17 @@ timestamp for this moment in time) as a calendar.time value.</p></td>
 </tr>
 </table>
 
-<a name="calendar.day"></a><h3>d := calendar.day( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.day"></a><h3>d := calendar.day( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the day of the given time as a number between 1 and 31.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">the_year := calendar.day( current_time );</span></td>
+<td><span class="code">the_day := calendar.day( current_time );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -198,8 +200,8 @@ timestamp for this moment in time) as a calendar.time value.</p></td>
 </tr>
 </table>
 
-<a name="calendar.day_of_week"></a><h3>d := calendar.day_of_week( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.day_of_week"></a><h3>d := calendar.day_of_week( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the day of the week of the given time as a number of days since
@@ -209,7 +211,7 @@ Sunday, an integer between 0 and 6.</p></td>
 <td><span class="code">the_dow := calendar.day_of_week( current_time );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -243,8 +245,8 @@ Sunday, an integer between 0 and 6.</p></td>
 </tr>
 </table>
 
-<a name="calendar.month"></a><h3>m := calendar.month( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.month"></a><h3>m := calendar.month( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the month of the given time between 1 and 12.</p></td>
@@ -253,7 +255,7 @@ Sunday, an integer between 0 and 6.</p></td>
 <td><span class="code">the_month := calendar.month( current_time );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -287,8 +289,8 @@ Sunday, an integer between 0 and 6.</p></td>
 </tr>
 </table>
 
-<a name="calendar.seconds"></a><h3>s := calendar.seconds( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.seconds"></a><h3>s := calendar.seconds( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the seconds into the day of the given time as a floating point
@@ -298,7 +300,7 @@ number between 0.0 and 86,400.0.</p></td>
 <td><span class="code">the_seconds := calendar.seconds( current_time );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -332,8 +334,8 @@ number between 0.0 and 86,400.0.</p></td>
 </tr>
 </table>
 
-<a name="calendar.split"></a><h3>calendar.split( t, y, m, d, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.split"></a><h3>calendar.split( t, y, m, d, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the year, month, day and seconds value for the given time.</p></td>
@@ -342,7 +344,7 @@ number between 0.0 and 86,400.0.</p></td>
 <td><span class="code">calendar.split( current_time, year, month, day, secs );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -397,8 +399,8 @@ number between 0.0 and 86,400.0.</p></td>
 </tr>
 </table>
 
-<a name="calendar.time_of"></a><h3>t := calendar.time_of( y, m, d, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.time_of"></a><h3>t := calendar.time_of( y, m, d, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Create a time from year, month, day and seconds values.</p></td>
@@ -407,7 +409,7 @@ number between 0.0 and 86,400.0.</p></td>
 <td><span class="code">the_time := calendar.time_of( 2002, 3, 15, 125.6 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -462,18 +464,18 @@ number between 0.0 and 86,400.0.</p></td>
 </tr>
 </table>
 
-<a name="calendar.to_julian"></a><h3>j := calendar.to_julian( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.to_julian"></a><h3>j := calendar.to_julian( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the number of days since at noon Universal Time on Monday,
+<td><p>Return the number of days since noon Universal Time on Monday,
 January 1, 4713 BC.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">julian_date := calendar.to_julian( current_time );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -508,17 +510,17 @@ January 1, 4713 BC.</p></td>
 </table>
 
 
-<a name="calendar.to_time"></a><h3>t := calendar.to_time( j )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.to_time"></a><h3>t := calendar.to_time( j )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the Calendar time of a Julian date.  This is broken and does not work.</p></td>
+<td><p>(This is broken and does not work.) Return the calendar.time value of a Julian date.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">caltime := calendar.to_time( julian_date );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -526,13 +528,12 @@ January 1, 4713 BC.</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-</tr>
 <td><span>t</span></td>
 <td><span>return value</span></td>
 <td><span>calendar.time</span></td>
 <td><span>required</span></td>
 <td><span>the time</span></td>
-<tr>
+</tr><tr>
 <td><span>j</span></td>
 <td><span>in</span></td>
 <td><span>calendar.julian_date</span></td>
@@ -550,14 +551,14 @@ January 1, 4713 BC.</p></td>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
 </tr><tr>
-<td><p><b>Implementation Note</b></p></td>
+<td><p><strong>Implementation Note</strong></p></td>
 <td><p>This function is broken.</p></td>
 </tr>
 </table>
 
 
-<a name="calendar.year"></a><h3>y := calendar.year( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="calendar.year"></a><h3>y := calendar.year( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the year value of the given time as a number between 1901
@@ -567,7 +568,7 @@ and 2099.</p></td>
 <td><span class="code">the_year := calendar.year( current_time );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -603,11 +604,11 @@ and 2099.</p></td>
 
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_calendar.html">&nbsp;<b>calendar</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_calendar.html">&nbsp;<strong>calendar</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_cgi.html">&nbsp;cgi</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_chains.html">&nbsp;chains</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_cmdline.html">&nbsp;command_line</a></p>

@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Built-in Shell Commands</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_cmdline.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cd.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_cmdline.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cd.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -47,23 +47,23 @@ prompt.&nbsp; AdaScript has a number of built-in commands to be used
 at a command prompt.  The commands behave as if they were external
 commands.</p>
 
-<p><b>cd -|dirname</b></p>
+<p><strong>cd -|dirname</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
 <p>Change directory. Changes the present working directory to the new directory.  A leading '~' is your home directory.  An empty string path will also go to your home directory.  Unlike the standard cd, cd requires at least one parameter.  cd supports AdaScript parameters.</p>
 <p>A "-" path will revert to your previous directory.  If you are at an interactive prompt, the name of the directory will be shown.</p>
-<u>Bash equivalent</u>: <tt>cd</tt><br>
-<u>Perl equivalent</u>: <tt>chdir</tt><br>
-<u>PHP  equivalent</u>: <tt>chdir</tt><br>
+<span class="underline">Bash equivalent</span>: <code>cd</code><br>
+<span class="underline">Perl equivalent</span>: <code>chdir</code><br>
+<span class="underline">PHP  equivalent</span>: <code>chdir</code><br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>clear</b></p>
+<p><strong>clear</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -71,45 +71,45 @@ commands.</p>
 <p>Reset the display device and clear the screen, placing the cursor in the
 top-left corner of the display.</p>
 
-<u>Bash equivalent</u>: <tt>tput reset; stty sane; tput clear</tt><br>
-<u>Perl equivalent</u>: N/A<br>
-<u>PHP  equivalent</u>: N/A<br>
+<span class="underline">Bash equivalent</span>: <code>tput reset; stty sane; tput clear</code><br>
+<span class="underline">Perl equivalent</span>: N/A<br>
+<span class="underline">PHP  equivalent</span>: N/A<br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>env [ident]</b></p>
+<p><strong>env [ident]</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
 <p>Display a list of all declared identifiers, their values and their
 properties, or the properties of a particular identifier.</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 
         <center>
         <div class="code">
                 <p class="code">=&gt; i : integer := 3<br>
-=&gt; <b>env</b> i<br>
+=&gt; <strong>env</strong> i<br>
 i :=  3; -- identifier of the type integer<br>
-=&gt; c : <b>constant</b> string := "company"<br>
-=&gt; <b>env</b> c<br>
+=&gt; c : <strong>constant</strong> string := "company"<br>
+=&gt; <strong>env</strong> c<br>
 c := "company"; -- constant string<br>
-=&gt; <b>env</b> HOME<br>
+=&gt; <strong>env</strong> HOME<br>
 HOME := "/home/ken"; -- imported shell environment identifier of the type string<br>
-=&gt; <b>env</b> TERM<br>
+=&gt; <strong>env</strong> TERM<br>
 TERM := "xterm"; -- imported exported shell environment identifier of the type string<br>
-=&gt; <b>=> env</b> true<br>
+=&gt; <strong>=> env</strong> true<br>
 true := true; -- constant boolean enumerated item<br>
-=&gt; <b>env</b> strings.length<br>
+=&gt; <strong>env</strong> strings.length<br>
 ; -- built-in function <br>
-=&gt; <b>env</b> if<br>
+=&gt; <strong>env</strong> if<br>
  ( AdaScript reserved word )<br>
-=&gt; <b>env</b> ASCII.CR<br>
+=&gt; <strong>env</strong> ASCII.CR<br>
 ASCII.CR := '[# 13]'; -- constant character<br>
-=&gt; <b>env</b> | tail -5<br>
+=&gt; <strong>env</strong> | tail -5<br>
 <pre>
 PWD                  | /home/ken/ada/spar/example | imported identifier of the type string<br>
                      | s                          |<br>
@@ -120,9 +120,9 @@ tail                 |                            | identifier of the type new
         </div>
         </center>
 
-<u>Bash equivalent</u>: <tt>env</tt><br>
-<u>Perl equivalent</u>: <tt>Data::Dumper</tt><br>
-<u>PHP  equivalent</u>: <tt>var_dump</tt><br>
+<span class="underline">Bash equivalent</span>: <code>env</code><br>
+<span class="underline">Perl equivalent</span>: <code>Data::Dumper</code><br>
+<span class="underline">PHP  equivalent</span>: <code>var_dump</code><br>
 
 </td>
 </tr>
@@ -130,7 +130,7 @@ tail                 |                            | identifier of the type new
 </center>
 &nbsp;<br>
 
-<p><b>help [-c|-h|-m|-l|-t] [command or script]</b></p>
+<p><strong>help [-c|-h|-m|-l|-t] [command or script]</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -142,15 +142,15 @@ annotations as plain text.  With -l, SparForte will show the script license as
 set with pragma license.  With -c, the teamwork pragmas will be shown in CSV
 format.  With -t, the todo pragmas will be shown in CSV format and with a
 work summary.</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 
 <pre>
-<b>=&gt;</b> help reset
+<strong>=&gt;</strong> help reset
 reset - reopen a file
   reset( file [,mode])
-<b>=&gt;</b> help -l bjack.sp
+<strong>=&gt;</strong> help -l bjack.sp
 public_domain
-<b>=&gt;</b> help bjack.sp
+<strong>=&gt;</strong> help bjack.sp
 Help for script bjack.sp:
 
 Basic Blackjack
@@ -159,11 +159,11 @@ Basic Blackjack
 
 Usage: bjack
 </pre>
-<u>Bash equivalent</u>: <tt>help</tt><br>
-<u>Perl equivalent</u>: <tt>perldoc</tt><br>
-<u>PHP  equivalent</u>: <tt>phpdoc</tt><br>
+<span class="underline">Bash equivalent</span>: <code>help</code><br>
+<span class="underline">Perl equivalent</span>: <code>perldoc</code><br>
+<span class="underline">PHP  equivalent</span>: <code>phpdoc</code><br>
 
-<p><b>Implementation Note</b>: help -c and -t are experimental and the
+<p><strong>Implementation Note</strong>: help -c and -t are experimental and the
 output may change to improve their effectiveness.</p>
 
 </td>
@@ -172,7 +172,7 @@ output may change to improve their effectiveness.</p>
 </center>
 &nbsp;<br>
 
-<p><b>history [n]</b></p>
+<p><strong>history [n]</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -185,23 +185,23 @@ not specified, show all the command history</p>
 </center>
 &nbsp;<br>
 
-<p><b>jobs</b></p>
+<p><strong>jobs</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
 <p>list status of current background processes</p>
 
-<u>Bash equivalent</u>: <tt>jobs</tt><br>
-<u>Perl equivalent</u>: N/A<br>
-<u>PHP  equivalent</u>: N/A<br>
+<span class="underline">Bash equivalent</span>: <code>jobs</code><br>
+<span class="underline">Perl equivalent</span>: N/A<br>
+<span class="underline">PHP  equivalent</span>: N/A<br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>logout</b></p>
+<p><strong>logout</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -209,23 +209,23 @@ not specified, show all the command history</p>
 <td align="left">
 <p>Stop an interactive, login session and leave the SparForte shell.  SparForte uses a
 login session if SparForte is your login shell or if you start SparForte with the
-<tt>--login</tt> option.  When in the debugger (breakout mode), stop debugging
+<code>--login</code> option.  When in the debugger (breakout mode), stop debugging
 and leave the SparForte shell.  If the session is not a login session, an error is
-displayed.  Normally, <tt>return</tt> will exit SparForte.  login is required for
+displayed.  Normally, <code>return</code> will exit SparForte.  login is required for
 login sessions to prevent the user from mistakenly logging themselves out if
 quitting multiple shells, to let the user know they are in their top-most
 shell.</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 <pre>
-<b>=&gt;</b> return
+<strong>=&gt;</strong> return
 return;
-^----^ warning: This is a login shell.  Use <b>logout</b> to quit.
+^----^ warning: This is a login shell.  Use <strong>logout</strong> to quit.
 
-<b>=&gt;</b> logout
+<strong>=&gt;</strong> logout
 </pre>
-<u>Bash equivalent</u>: <tt>logout</tt><br>
-<u>Perl equivalent</u>: N/A<br>
-<u>PHP  equivalent</u>: N/A<br>
+<span class="underline">Bash equivalent</span>: <code>logout</code><br>
+<span class="underline">Perl equivalent</span>: N/A<br>
+<span class="underline">PHP  equivalent</span>: N/A<br>
 </td>
 </tr>
 </table>
@@ -233,23 +233,23 @@ return;
 </center>
 &nbsp;<br>
 
-<p><b>pwd</b></p>
+<p><strong>pwd</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
 <p>show the present (current) working directory</p>
 
-<u>Bash equivalent</u>: <tt>pwd</tt><br>
-<u>Perl equivalent</u>: <tt>getcwd</tt><br>
-<u>PHP  equivalent</u>: <tt>cwd</tt><br>
+<span class="underline">Bash equivalent</span>: <code>pwd</code><br>
+<span class="underline">Perl equivalent</span>: <code>getcwd</code><br>
+<span class="underline">PHP  equivalent</span>: <code>cwd</code><br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>trace [ boolean ]</b></p>
+<p><strong>trace [ boolean ]</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -260,15 +260,15 @@ The line number is displayed in square brackets after the line.  The first
 line is not shown which means trace, at the command prompt, always
 displays "End of File" for line 2 because there is only one line to run.
 trace by itself shows the current status (true or false).</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 
 <pre>
-<b>=&gt;</b> trace
+<strong>=&gt;</strong> trace
 Trace is currently off
-<b>=&gt;</b> trace true
+<strong>=&gt;</strong> trace true
 Trace is on
 =&gt; "End of File" [ 2]
-<b>=&gt;</b> ls | wc -l
+<strong>=&gt;</strong> ls | wc -l
 =&gt; (shell word 'ls' expands to:)
 =&gt; (ls)
 =&gt; (exporting 'TERM=xterm')
@@ -283,16 +283,16 @@ Trace is on
 =&gt; "End of File" [ 2]
 
 </pre>
-<u>Bash equivalent</u>: <tt>set -x</tt><br>
-<u>Perl equivalent</u>: Debug::Trace<br>
-<u>PHP  equivalent</u>: xdebug<br>
+<span class="underline">Bash equivalent</span>: <code>set -x</code><br>
+<span class="underline">Perl equivalent</span>: Debug::Trace<br>
+<span class="underline">PHP  equivalent</span>: xdebug<br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>typeset var is type</b></p>
+<p><strong>typeset var is type</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -302,59 +302,59 @@ to typecast the value of the variable if the variable exists: this may
 raise an exception if the variable cannot be typecast.  Typeset
 can only be used in an interactive session (the command prompt).  It cannot
 be used with pragma ada_95.</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 
         <center>
         <div class="code">
                 <p class="code">=&gt; y := 5.5<br>
 =&gt; (Assuming y is a new universal_numeric variable)<br>
-=&gt; <b>env</b> y<br>
+=&gt; <strong>env</strong> y<br>
 y :=  5.50000000000000E+00; -- identifier of the type universal_numeric<br>
-=&gt; <b>typeset</b> y <b>is</b> float<br>
-=&gt; <b>env</b> y<br>
+=&gt; <strong>typeset</strong> y <strong>is</strong> float<br>
+=&gt; <strong>env</strong> y<br>
 y :=  5.50000000000000E+00; -- identifier of the type float<br>
-=&gt; <b>typeset</b> y <b>is</b> integer<br>
-=&gt; <b>env</b> y<br>
+=&gt; <strong>typeset</strong> y <strong>is</strong> integer<br>
+=&gt; <strong>env</strong> y<br>
 y :=  6; -- identifier of the type integer <br>&nbsp;<br>
                 </p>
         </div>
         </center>
 
-<u>Bash equivalent</u>: <tt>typeset</tt> or <tt>declare</tt><br>
+<span class="underline">Bash equivalent</span>: <code>typeset</code> or <code>declare</code><br>
 
-<u>Perl equivalent</u>: N/A<br>
-<u>PHP  equivalent</u>: N/A<br>
+<span class="underline">Perl equivalent</span>: N/A<br>
+<span class="underline">PHP  equivalent</span>: N/A<br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>umask [mask]</b></p>
+<p><strong>umask [mask]</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
 <p>Display or set the operating system file mode creation mask.  Unlike traditional Bourne shells, the value is decimal (not octal).  It cannot be used with
 a restricted shell.</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 <pre>
-<b>=&gt;</b> umask
+<strong>=&gt;</strong> umask
 2
-<b>=&gt;</b> umask 3
-<b>=&gt;</b> umask
+<strong>=&gt;</strong> umask 3
+<strong>=&gt;</strong> umask
 3</pre>
-<u>Bash equivalent</u>: <tt>umask</tt><br>
-<u>Perl equivalent</u>: <tt>umask</tt><br>
-<u>Python equivalent</u>: <tt>os.umask</tt><br>
-<u>PHP  equivalent</u>: <tt>umask</tt><br>
+<span class="underline">Bash equivalent</span>: <code>umask</code><br>
+<span class="underline">Perl equivalent</span>: <code>umask</code><br>
+<span class="underline">Python equivalent</span>: <code>os.umask</code><br>
+<span class="underline">PHP  equivalent</span>: <code>umask</code><br>
 </td>
 </tr>
 </table>
 </center>
 &nbsp;<br>
 
-<p><b>unset ident</b></p>
+<p><strong>unset ident</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
@@ -362,18 +362,18 @@ a restricted shell.</p>
 <p>Permanently delete an identifier.  Keywords cannot be unset.  Unset can only
 be used in an interactive session (the command prompt).  It cannot be used with
 pragma ada_95.</p>
-<p><u>Examples</u>:</p>
+<p><span class="underline">Examples</span>:</p>
 <pre>
-<b>=&gt;</b> i : integer
-<b>=&gt;</b> unset i
+<strong>=&gt;</strong> i : integer
+<strong>=&gt;</strong> unset i
 
-<b>=&gt;</b> ? i
+<strong>=&gt;</strong> ? i
 ? i;
-  ^ <b>i</b> not declared</pre>
-<u>Bash equivalent</u>: <tt>unset</tt><br>
-<u>Perl equivalent</u>: N/A<br>
-<u>Python equivalent</u>: <tt>del</tt><br>
-<u>PHP  equivalent</u>: <tt>unset</tt><br>
+  ^ <strong>i</strong> not declared</pre>
+<span class="underline">Bash equivalent</span>: <code>unset</code><br>
+<span class="underline">Perl equivalent</span>: N/A<br>
+<span class="underline">Python equivalent</span>: <code>del</code><br>
+<span class="underline">PHP  equivalent</span>: <code>unset</code><br>
 
 </td>
 </tr>
@@ -381,16 +381,16 @@ pragma ada_95.</p>
 </center>
 &nbsp;<br>
 
-<p><b>wait</b></p>
+<p><strong>wait</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="">
 <tr>
 <td align="left">
 <p>wait for all background processes to finish running</p>
 
-<u>Bash equivalent</u>: <tt>wait</tt><br>
-<u>Perl equivalent</u>: N/A<br>
-<u>PHP  equivalent</u>: N/A<br>
+<span class="underline">Bash equivalent</span>: <code>wait</code><br>
+<span class="underline">Perl equivalent</span>: N/A<br>
+<span class="underline">PHP  equivalent</span>: N/A<br>
 </td>
 </tr>
 </table>
@@ -416,7 +416,7 @@ pragma ada_95.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;Command Argument Shortcuts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;Redirection and Pipelines</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdline.html">&nbsp;Command Line Interaction</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;<b>Built-in Shell Commands</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;<strong>Built-in Shell Commands</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cd.html">&nbsp;The Current Directory</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_db.html">&nbsp;Database Commands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_flow.html">&nbsp;Ifs and Loops</a></p>

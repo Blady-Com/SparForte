@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Bourne Shell Word Expansions</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_literals.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_types.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_literals.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_types.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -70,13 +70,13 @@ in SparForte.</p>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
  cellspacing="2">
      <tr>
-      <td style="vertical-align: top;"><span><b>Expansion</b><br></span>
+      <td style="vertical-align: top;"><span><strong>Expansion</strong><br></span>
       </td>
-      <td style="vertical-align: top;"><span><b>Before</b></span><br>
+      <td style="vertical-align: top;"><span><strong>Before</strong></span><br>
       </td>
-      <td style="vertical-align: top;"><span><b>After</b></span><br>
+      <td style="vertical-align: top;"><span><strong>After</strong></span><br>
       </td>
-      <td style="vertical-align: top;"><span><b>SparForte</b></span><br>
+      <td style="vertical-align: top;"><span><strong>SparForte</strong></span><br>
       </td>
     </tr>
   <tbody>
@@ -84,9 +84,9 @@ in SparForte.</p>
       <td style="vertical-align: top;"><span>Brace Expansion</span><br>
       </td>
 
-      <td style="vertical-align: top;"><tt>a.{txt,.dat}</tt><br>
+      <td style="vertical-align: top;"><code>a.{txt,.dat}</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>a.txt a.dat</tt><br>
+      <td style="vertical-align: top;"><code>a.txt a.dat</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -95,9 +95,9 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Tilde Expansion</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>~a/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>~a/a.txt</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>/home/user/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>/home/user/a.txt</code><br>
       </td>
 
       <td style="vertical-align: top;"><span>OK</span><br>
@@ -106,9 +106,9 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Dollar Quote (C)</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$'foo\n'</tt><br>
+      <td style="vertical-align: top;"><code>$'foo\n'</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>foo</tt>(new line)<br>
+      <td style="vertical-align: top;"><code>foo</code>(new line)<br>
       </td>
 
       <td style="vertical-align: top;"><span>Not implemented</span><br>
@@ -117,9 +117,9 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Dollar Double Quote (Locale)</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$"foo"</tt><br>
+      <td style="vertical-align: top;"><code>$"foo"</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>foo</tt><br>
+      <td style="vertical-align: top;"><code>foo</code><br>
       </td>
 
       <td style="vertical-align: top;"><span>Not implemented</span><br>
@@ -128,10 +128,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Expansion</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$HOME/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>$HOME/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/usr/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>/home/usr/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -140,10 +140,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Expansion</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME}/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>${HOME}/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/usr/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>/home/usr/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -152,10 +152,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Slice</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME:3}/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>${HOME:3}/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>me/user/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>me/user/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -164,10 +164,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Slice (with length)</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME:3:2}/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>${HOME:3:2}/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>me/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>me/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -176,10 +176,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Default</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME:-default}/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>${HOME:-default}/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/usr/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>/home/usr/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -188,10 +188,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Replace</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME:+default}/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>${HOME:+default}/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/usr/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>/home/usr/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -200,10 +200,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Empty Value Check</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME:?}/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>${HOME:?}/a.txt</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/usr/a.txt</tt><br>
+      <td style="vertical-align: top;"><code>/home/usr/a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -212,10 +212,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Default Assignment</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME:=new}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME:=new}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -224,10 +224,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Length</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${#HOME}</tt><br>
+      <td style="vertical-align: top;"><code>${#HOME}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>9</tt><br>
+      <td style="vertical-align: top;"><code>9</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -236,10 +236,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Uppercase</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME^^}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME^^}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/HOME/KEN</tt><br>
+      <td style="vertical-align: top;"><code>/HOME/KEN</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -248,10 +248,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Lowercase</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME,,}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME,,}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/ken</tt><br>
+      <td style="vertical-align: top;"><code>/home/ken</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -260,10 +260,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Uppercase First</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>S := "kEn" ... ${S^}</tt><br>
+      <td style="vertical-align: top;"><code>S := "kEn" ... ${S^}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>KEn</tt><br>
+      <td style="vertical-align: top;"><code>KEn</code><br>
       </td>
       <td style="vertical-align: top;"><span>Performs proper-case (e.g. Ken)</span><br>
       </td>
@@ -272,10 +272,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Lowercase First</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>S := "KeN" ... ${S,}</tt><br>
+      <td style="vertical-align: top;"><code>S := "KeN" ... ${S,}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>keN</tt><br>
+      <td style="vertical-align: top;"><code>keN</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -284,10 +284,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Rounding</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>N := -1234.2 ... ${N|}</tt><br>
+      <td style="vertical-align: top;"><code>N := -1234.2 ... ${N|}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt><br>
+      <td style="vertical-align: top;"><code>1234</code><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -296,10 +296,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Absolute Value</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>N := -1234 ... ${N||}</tt><br>
+      <td style="vertical-align: top;"><code>N := -1234 ... ${N||}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt><br>
+      <td style="vertical-align: top;"><code>1234</code><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -308,10 +308,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Ceiling</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>N := 1233.7 ... ${N|^}</tt><br>
+      <td style="vertical-align: top;"><code>N := 1233.7 ... ${N|^}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt><br>
+      <td style="vertical-align: top;"><code>1234</code><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -320,10 +320,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Floor</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>N := 1234.5 ... ${N|,}</tt><br>
+      <td style="vertical-align: top;"><code>N := 1234.5 ... ${N|,}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>1234</tt><br>
+      <td style="vertical-align: top;"><code>1234</code><br>
       </td>
       <td style="vertical-align: top;"><span>SparForte extension</span><br>
       </td>
@@ -332,10 +332,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Substring Delete</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME#/home}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME#/home}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/ken</tt><br>
+      <td style="vertical-align: top;"><code>/ken</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -344,10 +344,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Substring Delete Reverse</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME%/}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME%/}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home</tt><br>
+      <td style="vertical-align: top;"><code>/home</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -356,10 +356,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Longest Substring Delete</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME##/home}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME##/home}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/ken</tt><br>
+      <td style="vertical-align: top;"><code>/ken</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -368,10 +368,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Longest Substring Delete Reverse</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME%%/k}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME%%/k}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home</tt><br>
+      <td style="vertical-align: top;"><code>/home</code><br>
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
       </td>
@@ -380,10 +380,10 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Variable Brace Substring Search and Replace</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>${HOME/ken/john}</tt><br>
+      <td style="vertical-align: top;"><code>${HOME/ken/john}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/john</tt><br>
+      <td style="vertical-align: top;"><code>/home/john</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -393,9 +393,9 @@ in SparForte.</p>
       <td style="vertical-align: top;"><span>Command Substitution</span><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>`/bin/echo a.txt`</tt><br>
+      <td style="vertical-align: top;"><code>`/bin/echo a.txt`</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>a.txt</tt><br>
+      <td style="vertical-align: top;"><code>a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -405,9 +405,9 @@ in SparForte.</p>
       <td style="vertical-align: top;"><span>Parenthesis Command Substitution</span><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>$(/bin/echo a.txt)</tt><br>
+      <td style="vertical-align: top;"><code>$(/bin/echo a.txt)</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>a.txt</tt><br>
+      <td style="vertical-align: top;"><code>a.txt</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK (no nesting)</span><br>
       </td>
@@ -416,9 +416,9 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Arithmetic Expansion</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$((2+2))</tt><br>
+      <td style="vertical-align: top;"><code>$((2+2))</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>4</tt><br>
+      <td style="vertical-align: top;"><code>4</code><br>
 
       </td>
       <td style="vertical-align: top;"><span>not implemented</span><br>
@@ -429,9 +429,9 @@ in SparForte.</p>
       <td style="vertical-align: top;"><span>Pathname Expansion</span><br>
       </td>
 
-      <td style="vertical-align: top;"><tt>a.*</tt><br>
+      <td style="vertical-align: top;"><code>a.*</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>a.txt a.dat</tt><br>
+      <td style="vertical-align: top;"><code>a.txt a.dat</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -440,9 +440,9 @@ in SparForte.</p>
     <tr>
       <td style="vertical-align: top;"><span>Word Splitting</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>a\ word</tt><br>
+      <td style="vertical-align: top;"><code>a\ word</code><br>
       </td>
-      <td style="vertical-align: top;"><tt>"a word"</tt><br>
+      <td style="vertical-align: top;"><code>"a word"</code><br>
       </td>
 
       <td style="vertical-align: top;"><span>OK</span><br>
@@ -453,25 +453,25 @@ in SparForte.</p>
 
 <p>Parenthesis Command Substitution cannot be nested.</p>
 
-<p><b>Implementation Note</b>: Default assignment is not implemented.  As
+<p><strong>Implementation Note</strong>: Default assignment is not implemented.  As
 a general principle, assignments are not done during expressions.</p>
 
-<p><b>Implementation Note</b>: The $@ variable must be in double quotes.</p>
+<p><strong>Implementation Note</strong>: The $@ variable must be in double quotes.</p>
 
-<p><b>Implementation Note</b>: Arithmetic expressions would require
+<p><strong>Implementation Note</strong>: Arithmetic expressions would require
 a Bourne-shell expression functionality, which was too much effort
 when AdaScript parameters could be used instead.</p>
 
-<p><b>Implementation Note</b>: Brace expansion is not widely used and
+<p><strong>Implementation Note</strong>: Brace expansion is not widely used and
 has not been implemented.</p>
 
-<p><b>Implementation Note</b>: The colon is not optional with :-, :+ and :? because testing for unset variables is meaningless in SparForte.</p>
+<p><strong>Implementation Note</strong>: The colon is not optional with :-, :+ and :? because testing for unset variables is meaningless in SparForte.</p>
 
-<p><b>Implementation Note</b>: When substituting variables, only scalar
+<p><strong>Implementation Note</strong>: When substituting variables, only scalar
 variables can be used (no records or arrays).  This improves
 compatibility with the Bourne shell.</p>
 
-<p><b>Ada 95</b>: Bourne shell features are not available with
+<p><strong>Ada 95</strong>: Bourne shell features are not available with
 pragma ada_95, the Ada compatibility mode.</p>
 
 <h3>SparForte Extensions</h3>
@@ -481,7 +481,7 @@ the Bourne shell standard.</p>
 
 <h4>Variable Rounding ${X|}</h4>
 
-<p><b>Introduced</b>: SparForte 2.6</p>
+<p><strong>Introduced</strong>: SparForte 2.6</p>
 
 <p>Replace the expansion with the value of variable X rounded to the nearest
 integer.  Any leading space will be removed.  There is an error if the value
@@ -491,14 +491,14 @@ is not numeric.  No type check is performed.</p>
 
 <h4>Variable Absolute Value ${X||}</h4>
 
-<p><b>Introduced</b>: SparForte 2.6</p>
+<p><strong>Introduced</strong>: SparForte 2.6</p>
 <p>Replace the expansion with the absolute value of the value of variable X.
 Any leading space will be removed.  There is an error if the value is not
 an integer.  No type check is performed.</p>
 
 <h4>Variable Ceiling ${X|^}</h4>
 
-<p><b>Introduced</b>: SparForte 2.6</p>
+<p><strong>Introduced</strong>: SparForte 2.6</p>
 
 <p>Replace the expansion with the value of variable X rounded up to the nearest
 integer.  Any leading space will be removed.  There is an error if the value
@@ -506,7 +506,7 @@ is not numeric.  No type check is performed.</p>
 
 <h4>Variable Floor ${X|,}</h4>
 
-<p><b>Introduced</b>: SparForte 2.6</p>
+<p><strong>Introduced</strong>: SparForte 2.6</p>
 
 <p>Replace the expansion with the value of variable X rounded down to the
 nearest integer.  Any leading space will be removed.  There is an error if the
@@ -555,7 +555,7 @@ other variable types maintain any leading or trailing spaces.</p>
 <p>To prevent unexpected word splitting, most dollar variable expansions
 are expected to be quoted.  This excludes the special variables $?, $#,
 and $$ on the command line.  This check can be disabled with
-<b>pragma suppress( word_quoting )</b>.</p>
+<strong>pragma suppress( word_quoting )</strong>.</p>
 
         <center>
         <div class="code">
@@ -572,10 +572,10 @@ $s<br>
 /home/ken/ada/SparForte/src hello&nbsp;<br>
 =&gt; t : string<br>
 =&gt; t := `echo $s;`<br>
-=&gt; <b>env</b> t<br>
+=&gt; <strong>env</strong> t<br>
 t := "hello"; -- identifier of the type string<br>
 =&gt; t := `echo "$s";`<br>
-=&gt; <b>env</b> t<br>
+=&gt; <strong>env</strong> t<br>
 t := " hello "; -- identifier of the type string<br>
 
 =&gt; i : integer := 5<br>
@@ -587,7 +587,7 @@ t := " hello "; -- identifier of the type string<br>
 5<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-                <b>Example</b>: The leading/trailing space is affected by quotations and variable type
+                <strong>Example</strong>: The leading/trailing space is affected by quotations and variable type
         </div>
         </div>
         </center>
@@ -598,23 +598,23 @@ t := " hello "; -- identifier of the type string<br>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
  cellspacing="2">
      <tr>
-      <td style="vertical-align: top;"><span><b>Expansion</b><br></span>
+      <td style="vertical-align: top;"><span><strong>Expansion</strong><br></span>
       </td>
-      <td style="vertical-align: top;"><span><b>Before</b></span><br>
+      <td style="vertical-align: top;"><span><strong>Before</strong></span><br>
       </td>
-      <td style="vertical-align: top;"><span><b>After</b></span><br>
+      <td style="vertical-align: top;"><span><strong>After</strong></span><br>
       </td>
-      <td style="vertical-align: top;"><span><b>SparForte</b></span><br>
+      <td style="vertical-align: top;"><span><strong>SparForte</strong></span><br>
       </td>
     </tr>
   <tbody>
     <tr>
       <td style="vertical-align: top;"><span>Script path</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$0 or ${0}</tt><br>
+      <td style="vertical-align: top;"><code>$0 or ${0}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>/home/user/myscript.sp</tt><br>
+      <td style="vertical-align: top;"><code>/home/user/myscript.sp</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -623,10 +623,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>The First Nine Script Parameters</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$1..$9 or ${1}..${9}</tt><br>
+      <td style="vertical-align: top;"><code>$1..$9 or ${1}..${9}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -635,10 +635,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>Parameter Substitution (with word splitting)</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$* or ${*} with "a" "b" "c d"</tt><br>
+      <td style="vertical-align: top;"><code>$* or ${*} with "a" "b" "c d"</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>"a" "b" "c" "d"</tt><br>
+      <td style="vertical-align: top;"><code>"a" "b" "c" "d"</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -647,10 +647,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>Parameter Substitution</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>"$@" with "a" "b" "c d"</tt><br>
+      <td style="vertical-align: top;"><code>"$@" with "a" "b" "c d"</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>"a" "b" "c d"</tt><br>
+      <td style="vertical-align: top;"><code>"a" "b" "c d"</code><br>
       </td>
       <td style="vertical-align: top;"><span>Double quotes only (no quotes)</span><br>
       </td>
@@ -659,10 +659,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>The Number of Parameters</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$# or ${#}</tt><br>
+      <td style="vertical-align: top;"><code>$# or ${#}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -671,10 +671,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>The Current Process ID</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$$ or ${$}</tt><br>
+      <td style="vertical-align: top;"><code>$$ or ${$}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -683,10 +683,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>Last Background Process ID</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$! or ${!}</tt><br>
+      <td style="vertical-align: top;"><code>$! or ${!}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -695,10 +695,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>Error Status of the Last Command</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$? or ${?}</tt><br>
+      <td style="vertical-align: top;"><code>$? or ${?}</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>OK</span><br>
       </td>
@@ -707,10 +707,10 @@ t := " hello "; -- identifier of the type string<br>
     <tr>
       <td style="vertical-align: top;"><span>Command Options</span><br>
       </td>
-      <td style="vertical-align: top;"><tt>$-</tt><br>
+      <td style="vertical-align: top;"><code>$-</code><br>
 
       </td>
-      <td style="vertical-align: top;"><tt>-</tt><br>
+      <td style="vertical-align: top;"><code>-</code><br>
       </td>
       <td style="vertical-align: top;"><span>Not Implemented</span><br>
       </td>
@@ -726,7 +726,7 @@ t := " hello "; -- identifier of the type string<br>
                                 <p class="rmt"><a class="rightmenutext" href="ref_reserved.html">&nbsp;Reserved Words</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_comments.html">&nbsp;Comments</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;Literals</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;<b>Bourne Shell Word Expansions</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;<strong>Bourne Shell Word Expansions</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;Fundamental Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;User-defined Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;Enumerated Types</a></p>

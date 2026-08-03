@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Directory_Operations</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_db.html" />
 	<link rel="next" href="pkg_enums.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_dbm.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_doubly.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_dbm.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_doubly.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,10 +42,10 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.21"></a>Directory_Operations Package</h2>
-<p>The directory_operations package provides general functions pertaining to
+<h2><a id="4.10"></a>Directory_Operations Package</h2>
+<p>The directory_operations package provides routines for working with
 directories.</p>
-<p><u>GCC Ada Equivalent</u>: GNAT.Directory_Operations
+<p><span class="underline">GCC Ada Equivalent</span>: GNAT.Directory_Operations</p>
 
         <center>
         <div class="code">
@@ -59,14 +59,14 @@ directories.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the directory_operations package
+        <strong>Help Command</strong>: Contents of the directory_operations package
         </div>
         </div>
         </center>
 
 <p>Types in the package include:</p>
 <ul>
-<li><b>directory_operations.dir_name_str</b>: the name of a directory.  A
+<li><strong>directory_operations.dir_name_str</strong>: the name of a directory.  A
 subtype used in this package to represent string values that are directory
 names. A directory name is a prefix for files that appear with in the
 directory. This means that for UNIX systems, the string includes a final '/',
@@ -75,18 +75,18 @@ include drive letters if the operating system provides for this. The final '/'
 or '\' in a Dir_Name_Str is optional when passed as a procedure or function in
 parameter.  On OpenVMS, only Unix style path names are supported, not VMS
 style, but the directory and file names are not case sensitive.</li>
-<li><b>directory_operations.absoute_dir_name_dir</b>: the same as the previous
+<li><strong>directory_operations.absolute_dir_name_dir</strong>: the same as the previous
 item except that it is for absolute directories.</li>
-<li><b>directory_operations.path_name</b>: a pathname. All routines using
+<li><strong>directory_operations.path_name</strong>: a pathname. All routines using
 Path_Name handle both styles (UNIX and DOS) of directory separators (either
 slash or back slash).</li>
-<li><b>directory_operations.path_style</b>: the format of a pathname - path_style.unix, path_style.dos, path_style.system_default</li>
-<li><b>directory_operations.environment_style</b>: the format for environment variable substitution - environment_style.unix, environment_style.dos, environment_style.both, environment_style.system_default</li>
-<li><b>directory_operations.dir_type_id</b>: the id number of a dir_type resource, allocated by directory_operations.open</li>
+<li><strong>directory_operations.path_style</strong>: the format of a pathname - path_style.unix, path_style.dos, path_style.system_default</li>
+<li><strong>directory_operations.environment_style</strong>: the format for environment variable substitution - environment_style.unix, environment_style.dos, environment_style.both, environment_style.system_default</li>
+<li><strong>directory_operations.dir_type_id</strong>: the id number of a dir_type resource, allocated by directory_operations.open</li>
 </ul>
 
-<a name="directory_operations.absolute_dir_name"></a><h3>s := directory_operations.absolute_dir_name( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.absolute_dir_name"></a><h3>s := directory_operations.absolute_dir_name( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the absolute path of the directory portion of the pathname p. Everything after the last directory separator is removed. If there is no directory separator the current working directory is returned. Note that the contents of path is case-sensitive on systems that have case-sensitive file names (like Unix), and non-case-sensitive on systems where the file system is also non-case-sensitive (such as Windows, and OpenVMS).</p></td>
@@ -95,7 +95,7 @@ slash or back slash).</li>
 <td><span class="code">s := directory_operations.absolute_dir_name( "../myfile.txt" ); -- returns "/tmp/" if myfile is in /tmp</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -112,7 +112,7 @@ slash or back slash).</li>
 <tr>
 <td><span>s</span></td>
 <td><span>return value</span></td>
-<td><span>directory_operations.absoute_dir_name_dir</span></td>
+<td><span>directory_operations.absolute_dir_name_dir</span></td>
 <td><span>required</span></td>
 <td><span>the directory portion of the pathname</span></td>
 </tr>
@@ -129,8 +129,8 @@ slash or back slash).</li>
 </tr>
 </table>
 
-<a name="directory_operations.base_name"></a><h3>s := directory_operations.base_name( p [, f] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.base_name"></a><h3>s := directory_operations.base_name( p [, f] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the full file name portion of the pathname p.  If suffix f exists, it is removed.</p></td>
@@ -139,7 +139,7 @@ slash or back slash).</li>
 <td><span class="code">s := directory_operations.base_name( "/tmp/myfile.txt" ); -- returns "myfile.txt"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -180,8 +180,8 @@ slash or back slash).</li>
 </tr>
 </table>
 
-<a name="directory_operations.change_dir"></a><h3>directory_operations.change_dir( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.change_dir"></a><h3>directory_operations.change_dir( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Change the current working directory to path p.</p></td>
@@ -190,7 +190,7 @@ slash or back slash).</li>
 <td><span class="code">directory_operations.change_dir( "/tmp" ); -- moves to "/tmp"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -222,8 +222,8 @@ not affect the PWD and OLDPWD variables.</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.close"></a><h3>directory_operations.close( d )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.close"></a><h3>directory_operations.close( d )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Closes a directory referenced by the dir_type id.</p></td>
@@ -232,7 +232,7 @@ not affect the PWD and OLDPWD variables.</p></td>
 <td><span class="code">directory_operations.close( dir );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -255,27 +255,26 @@ not affect the PWD and OLDPWD variables.</p></td>
 <td><p><a href="#directory_operations.open">directory_operations.open</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: GNAT.Directory_Operations.Open</p></td>
+<td><p>Ada: GNAT.Directory_Operations.Close</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.dir_name"></a><h3>s := directory_operations.dir_name( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.dir_name"></a><h3>s := directory_operations.dir_name( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Returns directory name for Path. This is similar to the UNIX dirname
+<td><p>Returns directory name for Path. This is same as the UNIX dirname
 command. Everything after the last directory separator is removed. If
 there is no directory separator the current working directory is
 returned. Note that the contents of Path is case-sensitive on
-systems that have case-sensitive file names (like Unix), and
-non-case-sensitive on systems where the file system is also non-
-case-sensitive (such as Windows).</p></td>
+systems that have case-sensitive file names (like Unix).  A system
+that is not case-sensitive (such as Windows), the path is not case-sensitive.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := directory_operations.dir_name( "../myfile.txt" ); -- returns "/tmp/" if myfile is in /tmp</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -309,8 +308,8 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.dir_separator"></a><h3>c := directory_operations.dir_separator</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.dir_separator"></a><h3>c := directory_operations.dir_separator</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the directory separator for the operating system.</p></td>
@@ -319,7 +318,7 @@ case-sensitive (such as Windows).</p></td>
 <td><span class="code">c := directory_operations.dir_separator; -- returns '/' on Linux</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -346,17 +345,17 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.expand_path"></a><h3>s := directory_operations.expand_path( p [,t] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.expand_path"></a><h3>s := directory_operations.expand_path( p [,t] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Expand variables in a pathname, substituting environment variables.  This will not substitute SparForte variables but rather variables that are available for import from the previous environment.  Returns Path with environment variables (or logical names on OpenVMS) replaced by the current environment variable value. For example, $HOME/mydir will be replaced by /home/joe/mydir if $HOME environment variable is set to /home/joe and Mode is UNIX. If an environment variable does not exists the variable will be replaced by the empty string. Two dollar or percent signs are replaced by a single dollar/percent sign. Note that a variable must start with a letter.</p></td>
+<td><p>Returns Path with environment variable names replaced by their values. On OpenVMS logical names are replaced. Expand variables in a pathname, substituting environment variables.  This will not substitute SparForte variables but rather variables that in the previous environment that started SparForte.  For example, $HOME/mydir will be replaced by /home/joe/mydir if $HOME environment variable is set to /home/joe and Mode is UNIX. If an environment variable does not exist the variable will be replaced by the empty string. Two dollar or percent signs are replaced by a single dollar/percent sign. Note that a variable must start with a letter.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := directory_operations.expand_path( "$HOME/tmp", environment_style.unix );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -397,8 +396,8 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.file_extension"></a><h3>s := directory_operations.file_extension( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.file_extension"></a><h3>s := directory_operations.file_extension( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the file suffix portion of the pathname p.  The suffix is the string after the last dot, including the dot itself. For example, if the file name is "file1.xyz.adq", then the returned value would be ".adq". If no dot is present in the file name, or the last character of the file name is a dot, then the null string is returned.</p></td>
@@ -407,7 +406,7 @@ case-sensitive (such as Windows).</p></td>
 <td><span class="code">s := directory_operations.file_extension( "/tmp/myfile.txt" ); -- returns ".txt"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -441,17 +440,17 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.file_name"></a><h3>s := directory_operations.file_name( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.file_name"></a><h3>s := directory_operations.file_name( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the file name with an extension from the pathname p.  This is equivalent to Base_Name with default extension value.</p></td>
+<td><p>Return the file name with an extension from the pathname p.  This is the same as Base_Name with default extension value.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := directory_operations.dir_name( "/tmp/myfile.txt" ); -- returns "myfile.txt"</span></td>
+<td><span class="code">s := directory_operations.file_name( "/tmp/myfile.txt" ); -- returns "myfile.txt"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -485,17 +484,17 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.format_pathname"></a><h3>s := directory_operations.format_pathname( p [,t] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.format_pathname"></a><h3>s := directory_operations.format_pathname( p [,t] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Convert a pathname to an operating system.  If style t is not specified, it uses the default for the system. Removes all double directory separator and converts all '\' to '/' if t is UNIX and converts all '/' to '\' if t is set to DOS. This function will help to provide a consistent naming scheme running for different environments. If t is set to System_Default the routine will use the default directory separator on the running environment.</p></td>
+<td><p>Return a pathname converted to a operating system.  If style t is not specified, it uses the default for the system. Removes all double directory separator and converts all '\' to '/' if t is UNIX and converts all '/' to '\' if t is set to DOS. This function will help to provide a consistent naming scheme running for different environments. If t is set to System_Default the routine will use the default directory separator on the running environment.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := directory_operations.format_pathname( "/tmp", path_style.dos ); -- returns "tmp"</span></td>
+<td><span class="code">s := directory_operations.format_pathname( "/tmp", path_style.dos ); -- returns "\tmp"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -519,7 +518,7 @@ case-sensitive (such as Windows).</p></td>
 <tr>
 <td><span>s</span></td>
 <td><span>return value</span></td>
-<td><span>directory_operations. path_name</span></td>
+<td><span>directory_operations.path_name</span></td>
 <td><span>required</span></td>
 <td><span>the new pathname</span></td>
 </tr>
@@ -536,8 +535,8 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.get_current_dir"></a><h3>p := directory_operations.get_current_dir</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.get_current_dir"></a><h3>p := directory_operations.get_current_dir</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the current (present) working directory.</p></td>
@@ -546,7 +545,7 @@ case-sensitive (such as Windows).</p></td>
 <td><span class="code">p := directory_operations.get_current_dir;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -556,7 +555,7 @@ case-sensitive (such as Windows).</p></td>
 </tr><tr>
 <td><span>p</span></td>
 <td><span>return value</span></td>
-<td><span>directory_operations. dir_name_str</span></td>
+<td><span>directory_operations.dir_name_str</span></td>
 <td><span>required</span></td>
 <td><span>the current working directory</span></td>
 </tr>
@@ -573,8 +572,8 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.make_dir"></a><h3>directory_operations.make_dir( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.make_dir"></a><h3>directory_operations.make_dir( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Create a new directory specified by path p.</p></td>
@@ -583,7 +582,7 @@ case-sensitive (such as Windows).</p></td>
 <td><span class="code">directory_operations.make_dir( "/foo" ); -- makes "/foo"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -610,8 +609,8 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.is_open"></a><h3>b := directory_operations.is_open( d )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.is_open"></a><h3>b := directory_operations.is_open( d )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if the directory is open.</p></td>
@@ -620,7 +619,7 @@ case-sensitive (such as Windows).</p></td>
 <td><span class="code">b := directory_operations.is_open( dir );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -642,6 +641,9 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table></td>
 </tr><tr>
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>-</p></td>
+</tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
 </tr><tr>
@@ -650,18 +652,18 @@ case-sensitive (such as Windows).</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.open"></a><h3>directory_operations.open( d, p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.open"></a><h3>directory_operations.open( d, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Opens the directory named p and returns a dir_type id and is
-positioned at the first entry in the directory.</p></td>
+<td><p>Opens the directory named p and returns a dir_type id.  The position starts
+with the first entry.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">directory_operations.open( dir, "/tmp" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -687,7 +689,7 @@ positioned at the first entry in the directory.</p></td>
 <td><p>An error occurs if the directory does not exist or is not accessible.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>SparForte strings are not arrays so the length of the string is not returned as it is in Ada.</p></td>
+<td><p>SparForte strings are not arrays as in Ada fixed strings.  The length of the string is not returned as it is in Ada.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#directory_operations.close">directory_operations.close</a></p></td>
@@ -697,19 +699,19 @@ positioned at the first entry in the directory.</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.read"></a><h3>directory_operations.read( d, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.read"></a><h3>directory_operations.read( d, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Reads the next entry from the directory and returns the name
-as s.  This list includes the "." and ".." directory entries.  If s is empty,
-then the end of the directory is reached.</p></td>
+<td><p>Read the next entry from the directory and return the name
+as s.  This list will contain the "." and ".." directory entries.  If s is empty,
+then the end of the directory has been reached.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">directory_operations.read( dir, filename );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -745,8 +747,8 @@ then the end of the directory is reached.</p></td>
 </tr>
 </table>
 
-<a name="directory_operations.remove_dir"></a><h3>directory_operations.remove_dir( p [, r] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="directory_operations.remove_dir"></a><h3>directory_operations.remove_dir( p [, r] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete directory specified by path p.  Delete recursively if r is true.</p></td>
@@ -755,7 +757,7 @@ then the end of the directory is reached.</p></td>
 <td><span class="code">directory_operations.remove_dir( "/tmp/empty" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -792,7 +794,7 @@ then the end of the directory is reached.</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -802,7 +804,7 @@ then the end of the directory is reached.</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_cmdline.html">&nbsp;command_line</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_db.html">&nbsp;db/ postgresql</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dbm.html">&nbsp;dbm</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;<b>directory_operations</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;<strong>directory_operations</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;doubly_linked...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;dynamic_hash_...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;enums</a></p>

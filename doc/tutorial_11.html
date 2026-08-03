@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Calling SparForte from C: A Tutorial</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_10.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_13.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_10.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_13.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -50,15 +50,15 @@ to a photograph. SparForte can be used as a scripting language for
 these
 kinds of applications.</p>
 
-<p>There is a special pragma, <b>pragma restriction(
+<p>There is a special pragma, <strong>pragma restriction(
 no_external_commands
-)</b>, that will disable all operating system commands.  If
+)</strong>, that will disable all operating system commands.  If
 you are using SparForte strictly as a scripting language, this pragma will
 guarantee
 that your SparForte scripts will be portable to other operating
 systems.
 
-In addition, if you use <b>pragma ada_95</b>, your scripts will have
+In addition, if you use <strong>pragma ada_95</strong>, your scripts will have
 fewer
 errors and commonly used scripts can be compiled with GCC Ada (with only
 minor
@@ -76,94 +76,94 @@ directory.</p>
         <center>
         <div class="code">
                 <p class="code">
-<p><tt>/* -------------------------------------------- */</tt>
+<p><code>/* -------------------------------------------- */</code>
 <br>
-<tt>/*
+<code>/*
 scripting.c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-*/</tt>
+*/</code>
 
 <br>
-<tt>/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-*/</tt>
+<code>/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*/</code>
 <br>
-<tt>/* An example of using SparForte as a
+<code>/* An example of using SparForte as a
 scripting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-*/</tt>
+*/</code>
 <br>
-<tt>/* language for a C
+<code>/* language for a C
 program.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-*/</tt>
+*/</code>
 <br>
-<tt>/* -------------------------------------------- */</tt>
+<code>/* -------------------------------------------- */</code>
 
 </p>
-<p><tt>#include &lt;stdio.h&gt;</tt>
+<p><code>#include &lt;stdio.h&gt;</code>
 <br>
-<tt>#include &lt;stdlib.h&gt;</tt>
+<code>#include &lt;stdlib.h&gt;</code>
 <br>
-<tt>#include &lt;unistd.h&gt;</tt>
+<code>#include &lt;unistd.h&gt;</code>
 <br>
-<tt>#include &lt;string.h&gt;</tt>
+<code>#include &lt;string.h&gt;</code>
 <br>
 
-<tt>#include &lt;errno.h&gt;</tt>
+<code>#include &lt;errno.h&gt;</code>
 </p>
-<p><tt>int main() {</tt>
+<p><code>int main() {</code>
 <br>
-<tt>&nbsp; char i_string[255];</tt>
+<code>&nbsp; char i_string[255];</code>
 <br>
-<tt>&nbsp;&nbsp; int i;</tt>
+<code>&nbsp;&nbsp; int i;</code>
 <br>
-<tt>&nbsp;&nbsp; FILE *f;</tt>
+<code>&nbsp;&nbsp; FILE *f;</code>
 
 </p>
-<p><tt>/* assign a value to i */</tt>
+<p><code>/* assign a value to i */</code>
 </p>
-<p><tt>&nbsp; i = 5;</tt>
+<p><code>&nbsp; i = 5;</code>
 </p>
-<p><tt>/* export i */</tt>
+<p><code>/* export i */</code>
 </p>
-<p><tt>&nbsp; sprintf( i_string, "i_string=%d", i ); // convert i to a
-string</tt>
+<p><code>&nbsp; sprintf( i_string, "i_string=%d", i ); // convert i to a
+string</code>
 <br>
-<tt>&nbsp; if ( putenv( i_string ) != 0
+<code>&nbsp; if ( putenv( i_string ) != 0
 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-// add i to the environment</tt>
+// add i to the environment</code>
 <br>
-<tt>&nbsp;&nbsp;&nbsp; printf( "putenv i_string failed: %s\n",
+<code>&nbsp;&nbsp;&nbsp; printf( "putenv i_string failed: %s\n",
 strerror(
-errno ) );</tt>
+errno ) );</code>
 </p>
-<p><tt>/* Create the script to run */</tt>
+<p><code>/* Create the script to run */</code>
 </p>
-<p><tt>&nbsp; f = fopen( "scripting_example.sp", "w" );</tt>
+<p><code>&nbsp; f = fopen( "scripting_example.sp", "w" );</code>
 <br>
-<tt>&nbsp; fprintf( f, "%s\n", "pragma restriction(
+<code>&nbsp; fprintf( f, "%s\n", "pragma restriction(
 no_external_commands
-);" );</tt>
+);" );</code>
 
 <br>
-<tt>&nbsp; fprintf( f, "%s\n", "pragma ada_95;" );</tt>
+<code>&nbsp; fprintf( f, "%s\n", "pragma ada_95;" );</code>
 <br>
-<tt>&nbsp; fprintf( f, "%s\n", "procedure scripting_example is" );</tt>
+<code>&nbsp; fprintf( f, "%s\n", "procedure scripting_example is" );</code>
 <br>
-<tt>&nbsp; fprintf( f, "%s\n", "i : integer := numerics.value( i_string
-);" );</tt>
+<code>&nbsp; fprintf( f, "%s\n", "i : integer := numerics.value( i_string
+);" );</code>
 <br>
-<tt>&nbsp; fprintf( f, "%s\n", "begin" );</tt>
+<code>&nbsp; fprintf( f, "%s\n", "begin" );</code>
 <br>
 
-<tt>&nbsp; fprintf( f, "%s\n", "put_line( i * 2 );" );</tt>
+<code>&nbsp; fprintf( f, "%s\n", "put_line( i * 2 );" );</code>
 <br>
-<tt>&nbsp; fprintf( f, "%s\n", "end scripting_example;" );</tt>
+<code>&nbsp; fprintf( f, "%s\n", "end scripting_example;" );</code>
 <br>
-<tt>&nbsp; fclose( f );</tt>
+<code>&nbsp; fclose( f );</code>
 </p>
-<p><tt>/* Run the script. If successful, delete script */</tt>
+<p><code>/* Run the script. If successful, delete script */</code>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: A Dynamically-generated SparForte Script
+                <strong>Example</strong>: A Dynamically-generated SparForte Script
         </div>
         </div>
         </center>
@@ -182,7 +182,7 @@ no_external_commands
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_8.html">&nbsp;GCC Tutorial: Compiling SparForte Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_9.html">&nbsp;Debugging Tutorial - Using the SparForte Debugger</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_10.html">&nbsp;Creating a Profile Script</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_11.html">&nbsp;<b>Calling SparForte from C: A Tutorial</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_11.html">&nbsp;<strong>Calling SparForte from C: A Tutorial</strong></a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_13.html">&nbsp;SparForte For PHP Developers</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_12.html">&nbsp;SparForte Best Practices</a></p>
 			</td>

@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Script Tutorial 1: Basic Commands Scripts</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_3.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_5.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_3.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_5.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -48,7 +48,7 @@ to writing scripts.</p>
 
 <h3>Comments</h3>
 
-<p>SparForte <b>comments</b> begin with a double minus sign. Any text
+<p>SparForte <strong>comments</strong> begin with a double minus sign. Any text
 following
 the comment sign to the end of the line is treated as explanatory
 text.
@@ -85,7 +85,7 @@ through standard input. For example, from BASH you could type
 an interactive session with a human user.  Command prompts are written
 to the screen and the keyword return is necessary to terminate the session.</p>
 
-<p>A better way to run short commands is to use the <tt>--exec</tt> option.</p>
+<p>A better way to run short commands is to use the <code>--exec</code> option.</p>
 
         <center>
         <div class="code">
@@ -150,7 +150,7 @@ a message on the screen.
 	command_line.set_exit_status( 0 );<br>&nbsp;<br>
 	</p>
         <div class="code_caption">
-        <b>Example</b>: A First Script
+        <strong>Example</strong>: A First Script
         </div>
         </div>
 	</center>
@@ -178,7 +178,7 @@ that the script ran successfully.</p>
 
 <h3>Flow of Control</h3>
 
-<p><b>Conditional statements</b> are SparForte constructs for making choices and
+<p><strong>Conditional statements</strong> are SparForte constructs for making choices and
 providing alternative instructions.  Use the <code>if</code> statement to make
 choices.  The if statement can have optional <code>elsif</code> or <code>else</code>
 parts.</p>
@@ -186,12 +186,12 @@ parts.</p>
         <center>
         <div class="code">
 	<p class="code">current_day : calendar.day_number := calendar.day( calendar.clock );<br>
-	<b>if</b> current_day = 1 <b>then</b><br>
+	<strong>if</strong> current_day = 1 <strong>then</strong><br>
 	&nbsp;&nbsp;&nbsp;? "It is the first day of the month!";<br>
-	<b>end if</b>;<br>&nbsp;<br>
+	<strong>end if</strong>;<br>&nbsp;<br>
 	</p>
         <div class="code_caption">
-        <b>Example</b>: A First If Statement
+        <strong>Example</strong>: A First If Statement
         </div>
         </div>
 	</center>
@@ -204,25 +204,25 @@ includes all other values not covered by the other "when"'s.</p>
         <div class="code">
 	<p class="code">current_day : calendar.day_number := calendar.day( calendar.clock );<br>
 	put( "It is the" );<br>
-	<b>case</b> current_day <b>is</b><br>
-	<b>when</b> 1 =&gt; put( " first" );<br>
-	<b>when</b> 2 =&gt; put( " second" );<br>
+	<strong>case</strong> current_day <strong>is</strong><br>
+	<strong>when</strong> 1 =&gt; put( " first" );<br>
+	<strong>when</strong> 2 =&gt; put( " second" );<br>
 
-	<b>when</b> 3 =&gt; put( " third" );<br>
-	<b>when</b> 4 =&gt; put( " fourth" );<br>
-	<b>when</b> 5 =&gt; put( " fifth" );<br>
+	<strong>when</strong> 3 =&gt; put( " third" );<br>
+	<strong>when</strong> 4 =&gt; put( " fourth" );<br>
+	<strong>when</strong> 5 =&gt; put( " fifth" );<br>
 
-	<b>when</b> 6 =&gt; put( " sixth" );<br>
-	<b>when</b> 7 =&gt; put( " seventh" );<br>
-	<b>when</b> 8 =&gt; put( " eighth" );<br>
+	<strong>when</strong> 6 =&gt; put( " sixth" );<br>
+	<strong>when</strong> 7 =&gt; put( " seventh" );<br>
+	<strong>when</strong> 8 =&gt; put( " eighth" );<br>
 
-	<b>when</b> 9 =&gt; put( " ninth" );<br>
-	<b>when</b> <b>others</b> =&gt; put( current_day ) @ ( "th" );<br>
-	<b>end case;</b><br>
+	<strong>when</strong> 9 =&gt; put( " ninth" );<br>
+	<strong>when</strong> <strong>others</strong> =&gt; put( current_day ) @ ( "th" );<br>
+	<strong>end case;</strong><br>
 	put_line( " day of the month" );<br>&nbsp;<br>
 	</p>
         <div class="code_caption">
-        <b>Example</b>: A First Case Statement
+        <strong>Example</strong>: A First Case Statement
         </div>
         </div>
 	</center>
@@ -230,7 +230,7 @@ includes all other values not covered by the other "when"'s.</p>
 <p>The <code>@</code> character (pronounced "itself") has two different uses in SparForte.
 When used at the end of a command or procedure call, @ will call the
 command or procedure again with a new set of parameters.  Combining parameter
-lists with @ is called a <b>chain</b>.  @ is especially useful with the
+lists with @ is called a <strong>chain</strong>.  @ is especially useful with the
 put procedure to output several items without having to do string
 conversions and a long, hard to read expression.</p>
 
@@ -246,13 +246,13 @@ of the loop with an <code>exit</code> command.</p>
 
         <center>
         <div class="code">
-	<p class="code"><b>for</b> i <b>in</b> 1..10 <b>loop</b><br>
+	<p class="code"><strong>for</strong> i <strong>in</strong> 1..10 <strong>loop</strong><br>
 	&nbsp;&nbsp;&nbsp;put( i ) @ ( " times 2 is" ) @ ( i * 2 );<br>
 	&nbsp;&nbsp;&nbsp;new_line;<br>
-	<b>end loop</b>;<br>&nbsp;<br>
+	<strong>end loop</strong>;<br>&nbsp;<br>
 	</p>
         <div class="code_caption">
-        <b>Example</b>: A First For Statement
+        <strong>Example</strong>: A First For Statement
         </div>
         </div>
 	</center>
@@ -261,7 +261,7 @@ of the loop with an <code>exit</code> command.</p>
 
 <p>The <code>logout</code> command, which ends an interactive login session,
 cannot be used to stop a script. (After all, a script is not a login
-session.) Instead, use the <b>return</b> command to unconditionally
+session.) Instead, use the <strong>return</strong> command to unconditionally
 stop a script and return control to the calling program or person. Set
 the exit status to zero to indicate there is no error.</p>
 
@@ -280,10 +280,10 @@ can include a fractional part.
 
         <center>
         <div class="code">
-	<p class="code"><b>delay</b> 5.5; -- wait for 5 1/2 seconds<br>&nbsp;<br>
+	<p class="code"><strong>delay</strong> 5.5; -- wait for 5 1/2 seconds<br>&nbsp;<br>
 	</p>
         <div class="code_caption">
-        <b>Example</b>: The Delay Statement
+        <strong>Example</strong>: The Delay Statement
         </div>
         </div>
 	</center>
@@ -311,7 +311,7 @@ other factors outside of the script's control.
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_1.html">&nbsp;Command Prompt Tutorial 1: SparForte as a Calculator</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_2.html">&nbsp;Command Prompt Tutorial 2: Basic Shell Commands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_3.html">&nbsp;Command Prompt Tutorial 3: Working with Databases</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_4.html">&nbsp;<b>Script Tutorial 1: Basic Commands Scripts</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_4.html">&nbsp;<strong>Script Tutorial 1: Basic Commands Scripts</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_5.html">&nbsp;Script Tutorial 2: Intermediate Program Scripts</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_14.html">&nbsp;Script Tutorial 3: Data Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_6.html">&nbsp;Template Tutorial 1: Basic Templates</a></p>

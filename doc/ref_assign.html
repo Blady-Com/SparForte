@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Basic Assignment and Expressions</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_records.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_specials.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_records.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_specials.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -70,38 +70,38 @@ It can only be used with scalar variables (not arrays or records).</p>
 
         <center>
         <div class="code">
-                <p class="code">done : boolean := <b>false</b>;<br>
-<b>loop</b><br>
+                <p class="code">done : boolean := <strong>false</strong>;<br>
+<strong>loop</strong><br>
 &nbsp;&nbsp;-- ...do something<br>
-&nbsp;&nbsp;<b>if</b> end_of_file( f ) <b>then</b><br>
+&nbsp;&nbsp;<strong>if</strong> end_of_file( f ) <strong>then</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;done; -- same as done := true<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>exit</b>;<br>
-&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
-<b>end</b> <b>loop</b>;<br>
-<b>if</b> done <b>then</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>exit</strong>;<br>
+&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
+<strong>end</strong> <strong>loop</strong>;<br>
+<strong>if</strong> done <strong>then</strong><br>
 &nbsp;&nbsp;-- ...do something<br>
-<b>end</b> <b>if</b>;</p>
+<strong>end</strong> <strong>if</strong>;</p>
         </div>
         </center>
 
 
-<p>Under <b>pragma ada_95</b>, the Boolean variable shortcut is not allowed.</p>
+<p>Under <strong>pragma ada_95</strong>, the Boolean variable shortcut is not allowed.</p>
 
 <h3>Primitive Operators</h3>
 
 <p>AdaScript expressions can contain the following operators:</p>
 
 <ul>
-  <li> <b>unary</b>: +, -, not</li>
+  <li> <strong>unary</strong>: +, -, not</li>
 
-  <li> <b>exponentiation</b>: **</li>
-  <li> <b>arithmetic</b>: +, -, *, /, &amp; (string concatenation),
+  <li> <strong>exponentiation</strong>: **</li>
+  <li> <strong>arithmetic</strong>: +, -, *, /, &amp; (string concatenation),
 rem (remainder),
 mod (modulo), and (bitwise and), or (bitwise or), xor (bitwise exclusive or),
 * (string duplication)</li>
-  <li> <b>relational</b>: =, /= (not equals), &gt;=, &gt;, &lt;=, &lt;,
+  <li> <strong>relational</strong>: =, /= (not equals), &gt;=, &gt;, &lt;=, &lt;,
 in, not in</li>
-  <li> <b>Boolean</b>: and, or, xor (exclusive OR)</li>
+  <li> <strong>Boolean</strong>: and, or, xor (exclusive OR)</li>
 </ul>
 
 <p>The bitwise operators are identical to the Boolean operators: SparForte
@@ -115,14 +115,14 @@ be a pair of numbers, characters (not strings) or a pair of enumerated items.
 
         <center>
         <div class="code">
-                <p class="code">=&gt; b := green <b>in</b> red..blue;<br>
-=&gt; b := 5 <b>not</b> <b>in</b> 10..20;</p>
+                <p class="code">=&gt; b := green <strong>in</strong> red..blue;<br>
+=&gt; b := 5 <strong>not</strong> <strong>in</strong> 10..20;</p>
         </div>
         </center>
 
 <p><code>in</code> and <code>not in</code> are technically not operators.</p>
 
-<p><b>Ada</b>: <code>and then</code> and <code>or else</code> are not yet implemented.
+<p><strong>Ada</strong>: <code>and then</code> and <code>or else</code> are not yet implemented.
 Character ranges not yet implemented.</p>
 
 <h3>Expressions and Order of Operations</h3>
@@ -133,12 +133,12 @@ compute a result value.</p>
 <p>Expression operators are evaluated in the following order:</p>
 
 <ul>
-  <li> <b>Factors</b>: literals, constants/variables, unary +, unary -, subexpressions in parantheses</li>
-  <li> <b>Power Terms</b>: **</li>
-  <li> <b>Terms</b>: /, mod, rem, *, &amp;</li>
-  <li> <b>Simple Expressions</b>: +, -</li>
-  <li> <b>Relations</b>: =, /=, &gt;=, &gt;, &lt;=, &lt; in, not in</li>
-  <li> <b>Boolean Expressions</b>: and, or, xor</li>
+  <li> <strong>Factors</strong>: literals, constants/variables, unary +, unary -, subexpressions in parantheses</li>
+  <li> <strong>Power Terms</strong>: **</li>
+  <li> <strong>Terms</strong>: /, mod, rem, *, &amp;</li>
+  <li> <strong>Simple Expressions</strong>: +, -</li>
+  <li> <strong>Relations</strong>: =, /=, &gt;=, &gt;, &lt;=, &lt; in, not in</li>
+  <li> <strong>Boolean Expressions</strong>: and, or, xor</li>
 </ul>
 
 <p>Subexpressions can be created using parentheses.</p>
@@ -146,7 +146,7 @@ compute a result value.</p>
 <p>If <code>pragma ada_95</code> is used, expression parentheses are required in certain
 cases.</p>
 
-<p><b>Ada</b>: SparForte has looser restrictions on parentheses unless
+<p><strong>Ada</strong>: SparForte has looser restrictions on parentheses unless
 <code>pragma ada_95</code> is used.</p>
 
 <br>
@@ -165,7 +165,7 @@ cases.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;Enumerated Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_arrays.html">&nbsp;Arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;Records</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;<b>Basic Assignment</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;<strong>Basic Assignment</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_specials.html">&nbsp;The @ and % Operands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;Command Argument Shortcuts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;Redirection and Pipelines</a></p>

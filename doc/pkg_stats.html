@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Stats</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_sound.html" />
 	<link rel="next" href="pkg_strings.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_sinfo.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_strings.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_sound.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_strings.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,7 +42,7 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.17"></a>Stats Package</h2>
+<h2><a id="4.33"></a>Stats Package</h2>
 <p>This package contains a set of statistical calculations for numeric arrays,
 including calculating averages, standard deviations and more.</p>
 
@@ -54,13 +54,13 @@ including calculating averages, standard deviations and more.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the stats package
+        <strong>Help Command</strong>: Contents of the stats package
         </div>
         </div>
         </center>
 
-<a name="stats.average"></a><h3>r := stats.average( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="stats.average"></a><h3>r := stats.average( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Calculate the average (mean) value of the array.</p></td>
@@ -69,7 +69,7 @@ including calculating averages, standard deviations and more.</p>
 <td><p><span class="code">r := stats.average( numbers_collected );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -81,7 +81,7 @@ including calculating averages, standard deviations and more.</p>
 <td><span>result</span></td>
 <td><span>element type</span></td>
 <td><span>required</span></td>
-<td><span>the array to average</span></td>
+<td><span>the average value</span></td>
 </tr>
 <tr>
 <td><span>a</span></td>
@@ -100,11 +100,13 @@ including calculating averages, standard deviations and more.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
-</tr>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>The array parameter is in out mode but the array is not modified.  SparForte in mode parameters cannot be arrays.</p></td>
 </table>
 
-<a name="stats.max"></a><h3>r := stats.max( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="stats.max"></a><h3>r := stats.max( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Find the maximum (largest) value of the array.</p></td>
@@ -113,7 +115,7 @@ including calculating averages, standard deviations and more.</p>
 <td><p><span class="code">r := stats.max( numbers_collected );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -144,11 +146,14 @@ including calculating averages, standard deviations and more.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>PHP: max</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>The array parameter is in out mode but the array is not modified.  SparForte in mode parameters cannot be arrays.</p></td>
 </tr>
 </table>
 
-<a name="stats.min"></a><h3>r := stats.min( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="stats.min"></a><h3>r := stats.min( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Find the minimum (smallest) value of the array.</p></td>
@@ -157,7 +162,7 @@ including calculating averages, standard deviations and more.</p>
 <td><p><span class="code">r := stats.min( numbers_collected );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -188,11 +193,14 @@ including calculating averages, standard deviations and more.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>PHP: min</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>The array parameter is in out mode but the array is not modified.  SparForte in mode parameters cannot be arrays.</p></td>
 </tr>
 </table>
 
-<a name="stats.standard_deviation"></a><h3>r := stats.standard_deviation( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="stats.standard_deviation"></a><h3>r := stats.standard_deviation( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Calculate the standard deviation of the array elements.</p></td>
@@ -201,7 +209,7 @@ including calculating averages, standard deviations and more.</p>
 <td><p><span class="code">r := stats.standard_deviation( numbers_collected );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -232,11 +240,14 @@ including calculating averages, standard deviations and more.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>PHP: stats_standard_deviation</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>The array parameter is in out mode but the array is not modified.  SparForte in mode parameters cannot be arrays.</p></td>
 </tr>
 </table>
 
-<a name="stats.sum"></a><h3>r := stats.sum( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="stats.sum"></a><h3>r := stats.sum( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Calculate the total value of the array by adding all elements.</p></td>
@@ -245,7 +256,7 @@ including calculating averages, standard deviations and more.</p>
 <td><p><span class="code">r := stats.sum( numbers_collected );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -276,11 +287,14 @@ including calculating averages, standard deviations and more.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>PHP: array_sum</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>The array parameter is in out mode but the array is not modified.  SparForte in mode parameters cannot be arrays.</p></td>
 </tr>
 </table>
 
-<a name="stats.variance"></a><h3>r := stats.variance( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="stats.variance"></a><h3>r := stats.variance( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Calculate the variance of the array elements.</p></td>
@@ -289,7 +303,7 @@ including calculating averages, standard deviations and more.</p>
 <td><p><span class="code">r := stats.variance( numbers_collected );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -320,11 +334,14 @@ including calculating averages, standard deviations and more.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>PHP: stats_variance</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>The array parameter is in out mode but the array is not modified.  SparForte in mode parameters cannot be arrays.</p></td>
 </tr>
 </table>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -358,7 +375,7 @@ including calculating averages, standard deviations and more.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_records.html">&nbsp;records</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_sound.html">&nbsp;sound</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_sinfo.html">&nbsp;source_info</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_stats.html">&nbsp;<b>stats</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_stats.html">&nbsp;<strong>stats</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_strings.html">&nbsp;strings</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_system.html">&nbsp;System</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_tags.html">&nbsp;tags</a></p>

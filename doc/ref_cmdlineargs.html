@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Command Argument Shortcuts</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_specials.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_redirection.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_specials.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_redirection.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -65,7 +65,7 @@ this script (if they exist)</li>
         <center>
         <div class="code">
                 <p class="code">
-			<b>=&gt;</b> myscript a b c</p>
+			<strong>=&gt;</strong> myscript a b c</p>
         </div>
         </center>
 
@@ -98,17 +98,17 @@ visible to your script.</p>
         <div class="code">
                 <p class="code">-- a short-cut for ls -l for one optional parameter<br>
 &nbsp;<br>
-<b>procedure</b> ll <b>is</b><br>
+<strong>procedure</strong> ll <strong>is</strong><br>
 &nbsp;&nbsp;  dir : string := ".";<br>
-<b>begin</b><br>
-&nbsp;&nbsp;<b>if</b> $# &gt; 0 <b>then</b><br>
+<strong>begin</strong><br>
+&nbsp;&nbsp;<strong>if</strong> $# &gt; 0 <strong>then</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;dir := $1;<br>
-&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
+&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
 &nbsp;&nbsp;ls -l $dir;<br>
-<b>end</b> ll;<br>&nbsp;<br>
+<strong>end</strong> ll;<br>&nbsp;<br>
 </p>
         <div class="code_caption">
-                <b>Example</b>: Using Bourne Shell arguments
+                <strong>Example</strong>: Using Bourne Shell arguments
         </div>
         </div>
         </center>
@@ -129,12 +129,12 @@ temporary file.</p>
         <center>
         <div class="code">
                 <p class="code">rm "/tmp/temp."$$<br>
-<b>if</b> $? /= 0 <b>then</b><br>
+<strong>if</strong> $? /= 0 <strong>then</strong><br>
 &nbsp;&nbsp; put_line( standard_error, "unable to delete temp file");<br>
-<b>end</b> <b>if</b>;<br>&nbsp;<br>
+<strong>end</strong> <strong>if</strong>;<br>&nbsp;<br>
 </p>
         <div class="code_caption">
-                <b>Example</b>: Using Bourne Shell arguments - another example
+                <strong>Example</strong>: Using Bourne Shell arguments - another example
         </div>
         </div>
         </center>
@@ -147,7 +147,7 @@ status is an error condition.</p>
 <p>A SparForte script can set its status code using the
 <code>command_line</code> package (or through an exception).</p>
 
-<p><b>Bourne Shell</b>: <code>shift</code> is not available.  Use the
+<p><strong>Bourne Shell</strong>: <code>shift</code> is not available.  Use the
 command_line package to loop through the parameters.</p>
 &nbsp;
 
@@ -166,7 +166,7 @@ command_line package to loop through the parameters.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;Records</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;Basic Assignment</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_specials.html">&nbsp;The @ and % Operands</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;<b>Command Argument Shortcuts</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;<strong>Command Argument Shortcuts</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;Redirection and Pipelines</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdline.html">&nbsp;Command Line Interaction</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;Built-in Shell Commands</a></p>

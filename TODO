@@ -444,6 +444,8 @@ Annoyances / Bugs with Workarounds / Updates
 - in addition to server profile and personal profile, a project or
   team profile would be useful.  A team profile is the team-wide
   defaults and so would take priority over user settings.
+- stats package requires in out mode for an array parameter.  Upgrade package to use references
+  to solve this issue.
 - doubly_linked_lists.unique and/or arrays.unique
   - double_linked_lists/arrays.max_position / min_position?
 - investigate the possibility of a simple ada-to-python code converter to

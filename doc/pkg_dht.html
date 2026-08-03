@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Dynamic Hash Tables</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_cgi.html" />
 	<link rel="next" href="pkg_cmdline.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_doubly.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_enums.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_doubly.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_enums.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,14 +42,14 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.14"></a>Dynamic Hash Tables Package</h2>
+<h2><a id="4.9"></a>Dynamic Hash Tables Package</h2>
 
 <p>The SparForte built-in dynamic_hash_tables package contains subprograms
 to create and manage simple hash tables.</p>
 
-<p><u>Introduced</u>: SparForte 1.5<br>
+<p><span class="underline">Introduced</span>: SparForte 1.5</p>
 
-<p><u>GCC Ada Equivalent</u>: Gnat.Dynamic_Hash_Tables<br>
+<p><span class="underline">GCC Ada equivalent</span>: Gnat.Dynamic_Hash_Tables</p>
 
         <center>
         <div class="code">
@@ -64,62 +64,62 @@ to create and manage simple hash tables.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the dynamic_hash_tables package
+        <strong>Help Command</strong>: Contents of the dynamic_hash_tables package
         </div>
         </div>
         </center>
 
-<p>A hash table is a lookup table containing key-value pairs.  Keys are unique
+<p>A hash table is a lookup table that holds key-value pair components.  Keys are unique
 in the table.</p>
 
 <p>This package includes a new generic type:</p>
 
 <ul>
-<li><b>dynamic_hash_tables.table( <i>type</i> )</b></li>
+<li><strong>dynamic_hash_tables.table( <i>type</i> )</strong></li>
 </ul>
 
         <center>
         <div class="code">
 <p class="code">
-<b>=&gt;</b> <b>type</b> url_string <b>is</b> <b>new</b> string<br>
-<b>=&gt;</b> urls : dynamic_hash_tables.table( url_string )<br>
-<b>=&gt;</b> u : url_string<br>
-<b>=&gt;</b> dynamic_hash_tables.get_first( urls, u, eof )<br>
+<strong>=&gt;</strong> <strong>type</strong> url_string <strong>is</strong> <strong>new</strong> string<br>
+<strong>=&gt;</strong> urls : dynamic_hash_tables.table( url_string )<br>
+<strong>=&gt;</strong> u : url_string<br>
+<strong>=&gt;</strong> dynamic_hash_tables.get_first( urls, u, eof )<br>
 =&gt; (Assuming eof is a new boolean variable)<br>
-<b>=&gt;</b> ? eof<br>
+<strong>=&gt;</strong> ? eof<br>
 true<br>
-<b>=&gt;</b> dynamic_hash_tables.set( urls, "google", "http://www.google.com" )<br>
-<b>=&gt;</b> dynamic_hash_tables.set( urls, "yahoo", "http://www.yahoo.com" )<br>
-<b>=&gt;</b> dynamic_hash_tables.set( urls, "amazon", "http://www.amazon.com" )<br>
-<b>=&gt;</b> ? dynamic_hash_tables.has_element( urls, "google" )<br>
+<strong>=&gt;</strong> dynamic_hash_tables.set( urls, "google", "http://www.google.com" )<br>
+<strong>=&gt;</strong> dynamic_hash_tables.set( urls, "yahoo", "http://www.yahoo.com" )<br>
+<strong>=&gt;</strong> dynamic_hash_tables.set( urls, "amazon", "http://www.amazon.com" )<br>
+<strong>=&gt;</strong> ? dynamic_hash_tables.has_element( urls, "google" )<br>
 true<br>
-<b>=&gt;</b> ? dynamic_hash_tables.get( urls, "google" )<br>
+<strong>=&gt;</strong> ? dynamic_hash_tables.get( urls, "google" )<br>
 http://www.google.com<br>
-<b>=&gt;</b> dynamic_hash_tables.get_first( urls, u, eof )<br>
-<b>=&gt;</b> ? eof<br>
+<strong>=&gt;</strong> dynamic_hash_tables.get_first( urls, u, eof )<br>
+<strong>=&gt;</strong> ? eof<br>
 false<br>
-<b>=&gt;</b> ? u<br>
+<strong>=&gt;</strong> ? u<br>
 http://www.amazon.com<br>
-<b>=&gt;</b> dynamic_hash_tables.get_next( urls, u, eof )<br>
-<b>=&gt;</b> ? eof<br>
+<strong>=&gt;</strong> dynamic_hash_tables.get_next( urls, u, eof )<br>
+<strong>=&gt;</strong> ? eof<br>
 false<br>
-<b>=&gt;</b> ? u<br>
+<strong>=&gt;</strong> ? u<br>
 http://www.google.com<br>
-<b>=&gt;</b> dynamic_hash_tables.set( urls, "amazon", 12345 )<br>
+<strong>=&gt;</strong> dynamic_hash_tables.set( urls, "amazon", 12345 )<br>
 dynamic_hash_tables.set( urls, "amazon", 12345 );<br>
-                                                ^ type <b>universal_numeric</b> is<br>
-inherently different from an <b>url_string</b> (an universal_string)<br>
+                                                ^ type <strong>universal_numeric</strong> is<br>
+inherently different from an <strong>url_string</strong> (a universal_string)<br>
 </p>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Example</b>: Using dynamic_hash_tables to store URL's
+        <strong>Example</strong>: Using dynamic_hash_tables to store Uniform Resource Locators (URLs)
         </div>
         </div>
         </center>
 
 
-<a name="dynamic_hash_tables.add"></a><h3>dynamic_hash_tables.add( t, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.add"></a><h3>dynamic_hash_tables.add( t, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Put value v under key k in the hash table.  If the key already exists, do nothing.</p>
@@ -127,7 +127,7 @@ inherently different from an <b>url_string</b> (an universal_string)<br>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.add( fruit, "apples", 15 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -169,20 +169,20 @@ An exception is raised if out of memory</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This is in accordance with memcached.</p></td>
+<td><p>This is derived from memcached.</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.append"></a><h3>dynamic_hash_tables.append( t, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.append"></a><h3>dynamic_hash_tables.append( t, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append string value v to the value under key k in the hash table.  If the key does not exist, do nothing.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.set( fruit_unit, "apples", "bushel" );<br>doubly_linked_lists.append( fruit_unit, "apples", "s" );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.set( fruit_unit, "apples", "bushel" );<br>dynamic_hash_tables.append( fruit_unit, "apples", "s" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -229,8 +229,8 @@ An exception is raised if the value type is not a string</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.decrement"></a><h3>dynamic_hash_tables.decrement( t, k [,n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.decrement"></a><h3>dynamic_hash_tables.decrement( t, k [,n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reduce the numeric value under key k in the hash table by one (or n).  If the key does not exist, do nothing.</p>
@@ -238,7 +238,7 @@ An exception is raised if the value type is not a string</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.decrement( fruit, "apples" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -285,8 +285,8 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.get"></a><h3>v := dynamic_hash_tables.get( t, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.get"></a><h3>v := dynamic_hash_tables.get( t, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Get the value under key k in the hash table.</p>
@@ -294,7 +294,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">put_line( dynamic_hash_tables.get( fruit, "apples" ) );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -325,6 +325,9 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>-</p></td>
 </tr><tr>
+<td><p class="pkg_label">Restrictions</p></td>
+<td><p>-</p></td>
+</tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
 </tr><tr>
@@ -333,16 +336,16 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.get_first"></a><h3>dynamic_hash_tables.get_first( t, v, f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.get_first"></a><h3>dynamic_hash_tables.get_first( t, v, f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Iterate through the hash table.  Return the first value in the table.  Order of the values is not predictable.</p>
+<td><p>Return the first value in the table.  Begin to iterate through the hash table.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.get_first( fruit, first_value, eof );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -362,7 +365,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><span>required</span></td>
 <td><span>the first value</span></td>
 </tr><tr>
-<td><span>e</span></td>
+<td><span>f</span></td>
 <td><span>out</span></td>
 <td><span>boolean</span></td>
 <td><span>required</span></td>
@@ -387,16 +390,16 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.get_next"></a><h3>dynamic_hash_tables.get_next( t, v, f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.get_next"></a><h3>dynamic_hash_tables.get_next( t, v, f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Iterate through the hash table.  Return the next value in the table.  Order of the values is not predictable.  Use get_first to start iterating.  If iteration breaks if the table is altered.</p>
+<td><p>Iterate through the hash table.  Return the next value in the table.  Order of the values is not predictable.  Use get_first to start iterating.  The iteration ends if the table is altered while iterating.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.get_next( fruit, next_value, eof );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -414,7 +417,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><span>in out</span></td>
 <td><span><i>table value type</i></span></td>
 <td><span>required</span></td>
-<td><span>the first value</span></td>
+<td><span>the returned value</span></td>
 </tr><tr>
 <td><span>e</span></td>
 <td><span>out</span></td>
@@ -441,8 +444,8 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.has_element"></a><h3>b := dynamic_hash_tables.has_element( t, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.has_element"></a><h3>b := dynamic_hash_tables.has_element( t, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if key k is in the hash table.</p>
@@ -450,7 +453,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if dynamic_hash_tables.has_element( fruit, "apples" ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -489,8 +492,8 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.increment"></a><h3>dynamic_hash_tables.increment( t, k [,n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.increment"></a><h3>dynamic_hash_tables.increment( t, k [,n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Increase the numeric value under key k in the hash table by one (or n).  If the key does not exist, do nothing.</p>
@@ -498,7 +501,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.increment( fruit, "apples" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -545,8 +548,8 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.new_table"></a><h3>dynamic_hash_tables.new_table( t, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.new_table"></a><h3>dynamic_hash_tables.new_table( t, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>(No longer available) Initialize a new hash table, assigning the type for the values in the table.  The value type must be a scalar type, and it may be a universal type.</p>
@@ -554,7 +557,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.new_table( fruit, natural );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -590,8 +593,8 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.prepend"></a><h3>dynamic_hash_tables.prepend( t, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.prepend"></a><h3>dynamic_hash_tables.prepend( t, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Prepend string value v to the value under key k in the hash table.  If the key does not exist, do nothing.</p>
@@ -599,7 +602,7 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.set( fruit_unit, "apples", "ushels" );<br>dynamic_hash_tables.prepend( fruit_unit, "apples", "b" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -646,8 +649,8 @@ An exception is raised if the value type is not a string</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.remove"></a><h3>dynamic_hash_tables.remove( t, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.remove"></a><h3>dynamic_hash_tables.remove( t, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete a key and the associated value from the hash table.</p>
@@ -655,7 +658,7 @@ An exception is raised if the value type is not a string</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.remove( fruit, "bad apples" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -694,16 +697,16 @@ An exception is raised if the value type is not a string</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.replace"></a><h3>dynamic_hash_tables.replace( t, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.replace"></a><h3>dynamic_hash_tables.replace( t, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Replace the value v under key k in the hash table.  If the key does not exist, do nothing.</p>
+<td><p>Replace the value under key k in the hash table with the new value v.  If the key does not exist, do nothing.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.replace( fruit, "apples", 23 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -749,16 +752,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.reset"></a><h3>dynamic_hash_tables.reset( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.reset"></a><h3>dynamic_hash_tables.reset( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Delete all keys and associated values in the hash table..</p>
+<td><p>Delete all keys and associated values in the hash table.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.reset( fruit );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -785,8 +788,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="dynamic_hash_tables.set"></a><h3>dynamic_hash_tables.set( t, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dynamic_hash_tables.set"></a><h3>dynamic_hash_tables.set( t, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign the value v to the key k in the hash table.  If the key does not exist, create it.</p>
@@ -794,7 +797,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">dynamic_hash_tables.set( fruit, "apples", 21 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -837,7 +840,7 @@ An exception is raised if out of memory</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -849,7 +852,7 @@ An exception is raised if out of memory</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dbm.html">&nbsp;dbm</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;directory_operations</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;doubly_linked...</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;<b>dynamic_hash_...</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;<strong>dynamic_hash_...</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;enums</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;exceptions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_files.html">&nbsp;files</a></p>

@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Teams</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
-	<link rel="prev" href="pkg_system.html" />
+	<link rel="prev" href="pkg_tags.html" />
 	<link rel="next" href="pkg_templates.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_tags.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_templates.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_tags.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_templates.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,62 +42,59 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.2"></a>Teams Package</h2>
+<h2><a id="4.37"></a>Teams Package</h2>
 <p>The teams package defines data structures of development teams, such as
-team members, priorities and time estimate methods.</p>
+team members, priority rankings and measures of effort.</p>
 
-<p><u>GCC Ada Equivalent</u>: N/A<br>
+<p><span class="underline">GCC Ada Equivalent</span>: None</p>
 
 <p>There are three predefined data structures in the teams package.</p>
 
-<p><b>teams.member</b> defines a person on a team (or the team itself):</p>
+<p><strong>teams.member</strong> defines a person on a team (or the team itself):</p>
 
 <pre>
-  <b>type</b> teams.member <b>is</b> <b>record</b>
-       description       : string;   -- description of person
-       skills            : string;   -- description of skills
+  <strong>type</strong> teams.member <strong>is</strong> <strong>record</strong>
+       description       : string;   -- details about a person
+       skills            : string;   -- details of the skills of the team member
        lang              : string;   -- contact languages
        id                : natural;  -- id number
        preferred_contact : string;   -- preferred communication method
-       email             : string;   -- primary email address
-       secondary_email   : string;   -- secondary email address
-       preferred_name    : string;   -- preferred name
+       email             : string;   -- main email address
+       secondary_email   : string;   -- alternate email address
+       preferred_name    : string;   -- chosen name
        full_name         : string;   -- complete name
        chair             : string;   -- where they sit
        nickname          : string;   -- nickname
        business_phone    : string;   -- business phone number
-       messanging        : string;   -- messanging service/id
-       teams             : string;   -- teams belonging to
-       roles             : string;   -- roles on the teams
+       messaging         : string;   -- messanging service/id
+       teams             : string;   -- team membership
+       roles             : string;   -- the functions of the team member
        active            : boolean;  -- true if currently active member
        is_team           : boolean;  -- true if this is a team/group, rather
-                                     -- than an individual
-  <b>end</b> <b>record</b>;
+                                     --   than an individual
+  <strong>end</strong> <strong>record</strong>;
 </pre>
 
-<p>Project priorities are specified using the enumerated type
-<b>teams.work_priority</b>:</p>
+<p>The enumerated type <strong>teams.work_priority</strong> specifies project priorities:</p>
 
 <ul>
-<li><b>work_priority.unknown</b> - the priority is unknown</li>
-<li><b>work_priority.completed</b> - the work has been completed</li>
-<li><b>work_priority.level</b> - the priority is 'l' (low), 'm' (medium) or 'h' (high)</li>
-<li><b>work_priority.severity</b> - the priority is a level number, 1..5</li>
-<li><b>work_priority.risk</b> - the priority is a number representing risk</li>
-<li><b>work_priority.cvss</b> - the priority is a number representing the Common Vulnerability Scoring System (CVSS) score, 0.0..10.0</li>
+<li><strong>work_priority.unknown</strong> - the priority is unknown</li>
+<li><strong>work_priority.completed</strong> - the work has been completed</li>
+<li><strong>work_priority.level</strong> - the priority is 'l' (low), 'm' (medium) or 'h' (high)</li>
+<li><strong>work_priority.severity</strong> - the priority is a level number, 1..5</li>
+<li><strong>work_priority.risk</strong> - the priority is a number representing risk</li>
+<li><strong>work_priority.cvss</strong> - the priority is a number representing the Common Vulnerability Scoring System (CVSS) score, 0.0..10.0</li>
 </ul>
 
-
-<p>Project time estimates are specified using the enumerated type
-<b>teams.work_measure</b>:</p>
+<p>The enumerated type <strong>teams.work_measure</strong> specifies the measure of effort:</p>
 
 <ul>
-<li><b>work_measure.unknown</b> - the work measure is unknown</li>
-<li><b>work_measure.hours</b> - the measure is a natural number of hours</li>
-<li><b>work_measure.function_points</b> - the measure is a natural number of function points</li>
-<li><b>work_measure.story_points</b> - the measure is a natural number of story points</li>
-<li><b>work_measure.lines_of_code</b> - the measure is a natural number of lines-of-code</li>
-<li><b>work_measure.size</b> - the measure is a 's' (small), 'm' (medium), 'l' (large) or 'xl' (extra large)</li>
+<li><strong>work_measure.unknown</strong> - the work measure is unknown</li>
+<li><strong>work_measure.hours</strong> - the measure is a natural number of hours</li>
+<li><strong>work_measure.function_points</strong> - the measure is a natural number of function points</li>
+<li><strong>work_measure.story_points</strong> - the measure is a natural number of Agile project management story points</li>
+<li><strong>work_measure.lines_of_code</strong> - the measure is a natural number of lines-of-code</li>
+<li><strong>work_measure.size</strong> - the measure is a 's' (small), 'm' (medium), 'l' (large) or "xl" (extra large).  Sometimes called T-shirt sizes.</li>
 </ul>
 
 <p>See the pragmas section in the reference for more information on how these types are used.</p>
@@ -105,7 +102,7 @@ team members, priorities and time estimate methods.</p>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -143,7 +140,7 @@ team members, priorities and time estimate methods.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_strings.html">&nbsp;strings</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_system.html">&nbsp;System</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_tags.html">&nbsp;tags</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_teams.html">&nbsp;<b>teams</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_teams.html">&nbsp;<strong>teams</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_templates.html">&nbsp;templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;text_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;units</a></p>

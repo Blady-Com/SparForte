@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Dbm (PostgreSQL)</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_db.html" />
 	<link rel="next" href="pkg_dirops.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_db.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_dirops.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_db.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_dirops.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,21 +42,21 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.19"></a>DBM (PostgreSQL) - Multiple Connections Package</h2>
-<p>A package for opening multiple connections and having mutiple open queries
+<h2><a id="4.8"></a>DBM (PostgreSQL) - Multiple Connections Package</h2>
+<p>This package opens multiple connections and supports multiple open queries
 to a PostgreSQL database.  The subprograms here are similar to the db package
-accept that they also require a connection, query or both.</p>
+except that they also require a connection, query or both.</p>
 
-<p><u>Introduced</u>: SparForte 2.0<br>
+<p><span class="underline">Introduced</span>: SparForte 2.0</p>
 
 <p>New data types:</p>
 
 <ul>
-<li><b>dbm.connection</b> - a connection id to a database</li>
-<li><b>dbm.query</b> - a database id query</li>
+<li><strong>dbm.connection</strong> - a connection id to a database</li>
+<li><strong>dbm.query</strong> - a database query id</li>
 </ul>
 
-<p>The database package is based on a modified version of Warren Gay's APQ PostgreSQL binding.  For full details on these routines, consult the APQ documentation.</p>
+<p>The database package is based on a modified version of Warren Gay's APQ PostgreSQL binding.  For full details on these routines, read the APQ documentation.</p>
 
         <center>
         <div class="code">
@@ -88,58 +88,59 @@ accept that they also require a connection, query or both.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the dbm package
+        <strong>Help Command</strong>: Contents of the dbm package
         </div>
         </div>
         </center>
 
 
-<p>There is an enumerated type in the db package that controls the verbosity of tracing:
+<p>Some data types are shared with the db package.</p>
+
+<p>There is an enumerated type in the db package that controls the verbosity of tracing:</p>
+
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> db.trace_mode_type <b>is</b> ( db.trace_none, db.trace_db, db.trace_apq, db.trace_full );
+<strong>type</strong> db.trace_mode_type <strong>is</strong> ( db.trace_none, db.trace_db, db.trace_apq, db.trace_full );
                 </p>
         </div>
         </center>
 
-<p><tt>type db.trace_mode_type is ( db.trace_none, db.trace_db, db.trace_apq, db.trace_full );</tt>
-
-<p>There is an enumerated type that controls file access:
+<p>There is an enumerated type that controls file access:</p>
 
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> dbm.mode_type <b>is</b> ( dbm.read, dbm.write, dbm.read_write );
+<strong>type</strong> dbm.mode_type <strong>is</strong> ( dbm.read, dbm.write, dbm.read_write );
                 </p>
         </div>
         </center>
 
-<p>There is an enumerated type in the db package that controls fetch order:
+<p>There is an enumerated type in the db package that controls fetch order:</p>
 
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> db.fetch_mode_type <b>is</b> ( db.sequential_fetch, db.random_fetch );
+<strong>type</strong> db.fetch_mode_type <strong>is</strong> ( db.sequential_fetch, db.random_fetch );
                 </p>
         </div>
         </center>
 
 
-<p>There is an enumerated type in the db package that identifies the database engine:
+<p>There is an enumerated type in the db package that names the database engine:</p>
 
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> db.database_type <b>is</b> ( db.engine_postgresql, db.engine_mysql, db.engine_oracle, db.engine_sybase, db.engine_db2 );
+<strong>type</strong> db.database_type <strong>is</strong> ( db.engine_postgresql, db.engine_mysql, db.engine_oracle, db.engine_sybase, db.engine_db2 );
                 </p>
         </div>
         </center>
 
 <br>&nbsp;
 
-<a name="dbm.append"></a><h3>dbm.append( q, s [, a] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.append"></a><h3>dbm.append( q, s [, a] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append text s to the SQL query. The text is on the same line.</p></td>
@@ -148,7 +149,7 @@ accept that they also require a connection, query or both.</p>
 <td><span class="code">dbm.append( q, s, " where customer_no &gt; 5" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -178,7 +179,7 @@ accept that they also require a connection, query or both.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown when out of memory.</p></td>
+<td><p>An exception is raised when out of memory.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell<br>Not allowed with no_postgresql_database restriction</p>
@@ -191,8 +192,8 @@ accept that they also require a connection, query or both.</p>
 </tr>
 </table>
 
-<a name="dbm.append_for_insert"></a><h3>dbm.append_for_insert( q, c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.append_for_insert"></a><h3>dbm.append_for_insert( q, c, r )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append the fields of record r to the query in the format of an ANSI SQL
@@ -211,7 +212,7 @@ r : row;<br />
 dbm.append_for_insert( q, c, r ); -- (b,i,s) values (...)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -253,8 +254,8 @@ dbm.append_for_insert( q, c, r ); -- (b,i,s) values (...)</span></td>
 </tr>
 </table>
 
-<a name="dbm.append_for_update"></a><h3>dbm.append_for_update( q, c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.append_for_update"></a><h3>dbm.append_for_update( q, c, r )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append the fields of record r to the query in the format of an ANSI SQL
@@ -273,7 +274,7 @@ r : row;<br />
 dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -315,17 +316,17 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.append_line"></a><h3>dbm.append_line( q, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.append_line"></a><h3>dbm.append_line( q, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append text s to the SQL query and start a new line.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">dbm.append_line( q, s, "where customer_no &gt; 5" );</span></td>
+<td><span class="code">dbm.append_line( q, s );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -361,8 +362,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.append_quoted"></a><h3>dbm.append_quoted( q, c, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.append_quoted"></a><h3>dbm.append_quoted( q, c, s [,a] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append text s to SQL query while surrounding s with single quotes.</p></td>
@@ -371,7 +372,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">dbm.append_quoted( q, c, "customer_name" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -420,8 +421,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.begin_work"></a><h3>dbm.begin_work( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.begin_work"></a><h3>dbm.begin_work( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Start a database transaction, marking the position of a possible rollback.  The query will be erased.</p></td>
@@ -430,7 +431,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">dbm.begin_work( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -466,8 +467,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.clear"></a><h3>dbm.clear( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.clear"></a><h3>dbm.clear( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Erase the text of the current query.</p></td>
@@ -476,7 +477,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">dbm.clear( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -506,8 +507,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.close_db_trace"></a><h3>dbm.close_db_trace( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.close_db_trace"></a><h3>dbm.close_db_trace( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Stop tracing the database activity and close the trace file.</p></td>
@@ -516,7 +517,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">dbm.close_db_trace( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -542,12 +543,12 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><p><a href="#dbm.is_trace">dbm.is_trace</a><br><a href="#dbm.open_db_trace">dbm.open_db_trace</a><br><a href="#dbm.set_trace">dbm.set_trace</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Clear</p></td>
+<td><p>Ada: APQ.PostgreSQL.Client.Close_DB_Trace</p></td>
 </tr>
 </table>
 
-<a name="dbm.column_index"></a><h3>i := dbm.column_index( q, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.column_index"></a><h3>i := dbm.column_index( q, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the position of a query result column.  This is the position in the query, not the database table.</p></td>
@@ -556,7 +557,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">third_column_position := dbm.column_index( q, "first name" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -599,8 +600,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.column_name"></a><h3>s := dbm.column_name( q, i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.column_name"></a><h3>s := dbm.column_name( q, i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the name of a query result column.  The number is the position in the query, not the database table.</p></td>
@@ -609,7 +610,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">third_column_heading := dbm.column_name( q, 3 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -648,12 +649,12 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Column_Name<br>PHP: mysql_field_name</p></td>
+<td><p>Ada: APQ.Column_Name<br>PHP: pg_field_name</p></td>
 </tr>
 </table>
 
-<a name="dbm.columns"></a><h3>n := dbm.columns( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.columns"></a><h3>n := dbm.columns( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of columns (fields) from the last query.</p></td>
@@ -662,7 +663,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">number_of_columns := dbm.columns( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -698,8 +699,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.commit_work"></a><h3>dbm.commit_work( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.commit_work"></a><h3>dbm.commit_work( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Complete a database transaction.  The query will be erased.</p></td>
@@ -708,7 +709,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">dbm.commit_work( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -744,8 +745,8 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.connect"></a><h3>dbm.connect( c, d [, u, w ][, h][, p] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.connect"></a><h3>dbm.connect( c, d [, u, w ][, h][, p] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Connect to database d using username u, password w, hostname h and port p. If no hostname or port are specified, connection is made by a UNIX socket instead of a network socket.</p></td>
@@ -754,7 +755,7 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 <td><span class="code">dbm.connect( c, "db", "user", "password" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -817,18 +818,18 @@ dbm.append_for_update( q, c, r ); -- SET b = ..., i = ... etc.</span></td>
 </tr>
 </table>
 
-<a name="dbm.databases"></a><h3>dbm.databases( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.databases"></a><h3>dbm.databases( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Show a list of the databases available with the current connection.  This
-is the equivalent of MySQL "show databases".</p></td>
+is the same as of PostgreSQL "\l".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.databases( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -858,8 +859,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="dbm.disconnect"></a><h3>dbm.disconnect( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.disconnect"></a><h3>dbm.disconnect( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 
@@ -869,7 +870,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">dbm.disconnect( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -895,12 +896,12 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><p><a href="#dbm.connect">dbm.connect</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Disconnect<br>PHP: mysql_close</p></td>
+<td><p>Ada: APQ.Disconnect<br>PHP: pg_close</p></td>
 </tr>
 </table>
 
-<a name="dbm.end_of_query"></a><h3>b := dbm.end_of_query( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.end_of_query"></a><h3>b := dbm.end_of_query( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if there are no more result (tuple) rows.</p></td>
@@ -909,7 +910,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">while not dbm.end_of_query( q ) loop ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -946,17 +947,17 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="dbm.engine_of"></a><h3>e := dbm.engine_of( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.engine_of"></a><h3>e := dbm.engine_of( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the identity of the database engine</p></td>
+<td><p>Return the identity of the database engine.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">e := dbm.engine_of( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -973,7 +974,8 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span>e</span></td>
 <td><span>return value</span></td>
 <td><span>db.database_type</span></td>
-<td><span>db.engine_mysql, etc.</span></td>
+<td><span>required</span></td>
+<td><span>db.engine_postgresql, etc.</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -991,8 +993,8 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="dbm.error_message"></a><h3>s := dbm.error_message( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.error_message"></a><h3>s := dbm.error_message( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Last error message returned by database server.</p></td>
@@ -1001,7 +1003,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">err := dbm.error_message( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1009,7 +1011,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>b</span></td>
+<td><span>s</span></td>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
@@ -1027,12 +1029,12 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Error_Message;<br>PHP: mysql_error</p></td>
+<td><p>Ada: APQ.Error_Message;<br>PHP: pg_last_error</p></td>
 </tr>
 </table>
 
-<a name="dbm.execute"></a><h3>dbm.execute( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.execute"></a><h3>dbm.execute( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Run a prepared database query.</p></td>
@@ -1041,7 +1043,7 @@ is the equivalent of MySQL "show databases".</p></td>
 <td><span class="code">dbm.execute( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1077,20 +1079,20 @@ is the equivalent of MySQL "show databases".</p></td>
 </tr>
 </table>
 
-<a name="dbm.execute_checked"></a><h3>dbm.execute_checked( q, c [, s ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.execute_checked"></a><h3>dbm.execute_checked( q, c [, s ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Execute the query.  If an error occurs, display the message s on
 standard error and raise an exception.  If an error occurs and there is
-no error message s, display the query on standard error and raise an
+no message s, display the query on standard error and raise an
 exception.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.execute_checked( q, c, "message" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1119,7 +1121,7 @@ exception.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if an error occurs.</p></td>
+<td><p>An exception is raised if an error occurs.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell<br>Not allowed with no_postgresql_database restriction</p>
@@ -1132,8 +1134,8 @@ exception.</p></td>
 </tr>
 </table>
 
-<a name="dbm.fetch"></a><h3>dbm.fetch( q, [, i] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.fetch"></a><h3>dbm.fetch( q [, i] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fetch the next query result tuple row, or a specific result row.</p></td>
@@ -1142,7 +1144,7 @@ exception.</p></td>
 <td><span class="code">dbm.fetch( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1174,17 +1176,17 @@ exception.</p></td>
 <td><p><a href="#dbm.fetch_values">dbm.fetch_values</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Fetch<br>PHP: mysql_fetch_assoc</p></td>
+<td><p>Ada: APQ.Fetch<br>PHP: pg_fetch_assoc</p></td>
 </tr>
 </table>
 
-<a name="dbm.fetch_values"></a><h3>dbm.fetch_values( q, c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.fetch_values"></a><h3>dbm.fetch_values( q, c, r )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fetch the next query result tuple row into a record.</p>
 <p>The record's
-fields may be boolean, numeric, string or typeless types and the names of
+fields may be boolean, numeric, string or typeless types.  The names of
 the record's fields must be the same as the column names returned by the
 query.  The number of fields must match the number of columns, though the
 order may be different.</p></td>
@@ -1204,7 +1206,7 @@ if not dbm.end_of_query( Q ) then<br />
 &nbsp;&nbsp;dbm.fetch_values( Q, C, r );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1243,12 +1245,12 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 <td><p><a href="#dbm.fetch">dbm.fetch</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: N/A<br />PHP: mysql_fetch_array</p></td>
+<td><p>Ada: N/A<br />PHP: pg_fetch_array</p></td>
 </tr>
 </table>
 
-<a name="dbm.in_abort_state"></a><h3>s := dbm.in_abort_state( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.in_abort_state"></a><h3>b := dbm.in_abort_state( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if in abort state. If there is no connection, return false.</p></td>
@@ -1257,7 +1259,7 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 <td><span class="code">b := dbm.in_abort_state( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1293,8 +1295,8 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="dbm.is_connected"></a><h3>b := dbm.is_connected( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.is_connected"></a><h3>b := dbm.is_connected( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if a connection is open to a database.</p></td>
@@ -1304,7 +1306,7 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1340,8 +1342,8 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="dbm.is_null"></a><h3>b := dbm.is_null(q, i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.is_null"></a><h3>b := dbm.is_null( q, i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if column in the fetch result is undefined.</p></td>
@@ -1350,7 +1352,7 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 <td><span class="code">b := dbm.is_null( q, 2 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1393,8 +1395,8 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="dbm.is_trace"></a><h3>b := dbm.is_trace( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.is_trace"></a><h3>b := dbm.is_trace( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if set_trace was true (that is, if debug tracing is enabled).</p></td>
@@ -1403,7 +1405,7 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 <td><span class="code">b := dbm.is_trace( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1439,18 +1441,18 @@ string to a numeric or Boolean field may raise an exception.<br />A field that i
 </tr>
 </table>
 
-<a name="dbm.list"></a><h3>dbm.list( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.list"></a><h3>dbm.list( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Show on standard output a list of the tables available in the current database.  This is the
-equivalent of MySQL's "show tables".</p></td>
+same as PostgreSQL's "\dt.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.list( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1480,8 +1482,8 @@ equivalent of MySQL's "show tables".</p></td>
 </tr>
 </table>
 
-<a name="dbm.new_connection"></a><h3>dbm.new_connection( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.new_connection"></a><h3>dbm.new_connection( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Allocate a new PostgreSQL connection and return the id.  The connection will be deallocated when the variable is destroyed.</p></td>
@@ -1490,7 +1492,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="code">dbm.new_connection( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1517,8 +1519,8 @@ equivalent of MySQL's "show tables".</p></td>
 </tr>
 </table>
 
-<a name="dbm.new_query"></a><h3>dbm.new_query( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.new_query"></a><h3>dbm.new_query( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Allocate a new PostgreSQL query and return the id.  The query will be deallocated when the variable is destroyed.</p></td>
@@ -1527,7 +1529,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="code">dbm.new_query( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1554,8 +1556,8 @@ equivalent of MySQL's "show tables".</p></td>
 </tr>
 </table>
 
-<a name="dbm.notice_message"></a><h3>s := dbm.notice_message( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.notice_message"></a><h3>s := dbm.notice_message( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Last notice message returned by database server.</p></td>
@@ -1564,7 +1566,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="code">info := dbm.notice_message( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1572,7 +1574,7 @@ equivalent of MySQL's "show tables".</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>b</span></td>
+<td><span>s</span></td>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
@@ -1590,21 +1592,21 @@ equivalent of MySQL's "show tables".</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: APQ.Error_Message;<br>PHP: mysql_error</p></td>
+<td><p>Ada: APQ.Error_Message;<br>PHP: pg_last_error</p></td>
 </tr>
 </table>
 
-<a name="dbm.open_db_trace"></a><h3>dbm.open_db_trace( c, f [,m] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.open_db_trace"></a><h3>dbm.open_db_trace( c, f [,m] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Begin tracing the database activity, storing the results at pathname f.  m is an optional trace mode type</p></td>
+<td><p>Begin tracing the database activity, storing the results at pathname f.  m is an optional trace mode type.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.open_db_trace( c, "./trace.log" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1647,8 +1649,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="dbm.options"></a><h3>s := dbm.options( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.options"></a><h3>s := dbm.options( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return database options.</p></td>
@@ -1658,7 +1660,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1694,8 +1696,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="dbm.prepare"></a><h3>dbm.prepare( q, s [, a] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.prepare"></a><h3>dbm.prepare( q, s [, a] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Prepare a SQL statement to execute.  If a is included, insert the next statement after the statement named a.</p></td>
@@ -1704,7 +1706,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 <td><span class="code">dbm.prepare( q, "select * from customers" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1747,8 +1749,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="dbm.raise_exceptions"></a><h3>dbm.raise_exceptions( q, [ b ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.raise_exceptions"></a><h3>dbm.raise_exceptions( q, [ b ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True to raise exceptions on query errors.</p></td>
@@ -1757,7 +1759,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 <td><span class="code">dbm.raise_exceptions( q, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1793,8 +1795,8 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="dbm.report_errors"></a><h3>dbm.report_errors( q, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.report_errors"></a><h3>dbm.report_errors( q, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True to report errors on query.</p></td>
@@ -1803,7 +1805,7 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 <td><span class="code">dbm.report_errors( q, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1839,19 +1841,18 @@ not_connected, file already open, file not found exceptions may be raised</p></t
 </tr>
 </table>
 
-<a name="dbm.reset"></a><h3>dbm.reset( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.reset"></a><h3>dbm.reset( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reset the database connection: close open files, rollback query (if
-necessary) and disconnect.  Use disconnect instead unless you know what
-you are doing.</p></td>
+necessary) and disconnect.  dbm.disconnect is recommended for normal use.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.reset( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1881,8 +1882,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="dbm.rewind"></a><h3>dbm.rewind( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.rewind"></a><h3>dbm.rewind( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return to the start of a query's results.</p></td>
@@ -1891,7 +1892,7 @@ you are doing.</p></td>
 <td><span class="code">dbm.rewind( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1921,8 +1922,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="dbm.rollback_work"></a><h3>dbm.rollback_work( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.rollback_work"></a><h3>dbm.rollback_work( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Rollback a database transaction, undoing all work since begin_work.  The query will be erased.</p></td>
@@ -1931,7 +1932,7 @@ you are doing.</p></td>
 <td><span class="code">dbm.rollback_work( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1967,17 +1968,17 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="dbm.schema"></a><h3>dbm.schema( c, t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.schema"></a><h3>dbm.schema( c, t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Show information about the columns available in a table.  This is the equivalent of MySQL's "show create table" or "desc".</p></td>
+<td><p>Show information about the columns available in a table.  This is the same as PostgreSQL's "\d".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.schema( c, "table" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2013,17 +2014,17 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="dbm.set_rollback_on_finalize"></a><h3>dbm.set_rollback_on_finalize( c, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.set_rollback_on_finalize"></a><h3>dbm.set_rollback_on_finalize( c, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Determine if a rollback will be issued when the connection is deallocated while the connection is still open (true) or no rollback (false).  Default is true.</p></td>
+<td><p>Select if a rollback will be performed when the connection is deallocated while the connection is still open (true) or no rollback (false).  Default is true.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.set_rollback_on_finalize( c, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2059,8 +2060,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="dbm.set_trace"></a><h3>dbm.set_trace( c, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.set_trace"></a><h3>dbm.set_trace( c, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Enable or disable query tracing.  The trace file will remain open.</p></td>
@@ -2069,7 +2070,7 @@ you are doing.</p></td>
 <td><span class="code">dbm.set_trace( c, false );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2105,8 +2106,8 @@ you are doing.</p></td>
 </tr>
 </table>
 
-<a name="dbm.show"></a><h3>dbm.show( q, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.show"></a><h3>dbm.show( q, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Run the prepared query and show the results in a table on standard output.
@@ -2116,7 +2117,7 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 <td><span class="code">dbm.show( q, c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2152,8 +2153,8 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 </tr>
 </table>
 
-<a name="dbm.tuple"></a><h3>t := dbm.tuple( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.tuple"></a><h3>t := dbm.tuple( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the result row (tuple) number from the last fetch.</p></td>
@@ -2162,7 +2163,7 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 <td><span class="code">row_number := dbm.tuple( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2198,8 +2199,8 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 </tr>
 </table>
 
-<a name="dbm.tuples"></a><h3>n := dbm.tuples( q )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.tuples"></a><h3>n := dbm.tuples( q )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of rows (tuples) from the last query.</p></td>
@@ -2208,7 +2209,7 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 <td><span class="code">row_number := dbm.tuples( q );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2244,18 +2245,18 @@ This is often used to show the results of a SQL SELECT statement.</p></td>
 </tr>
 </table>
 
-<a name="dbm.users"></a><h3>dbm.users( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.users"></a><h3>dbm.users( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Show a list of database users.  This is similar to MySQL's "show grants".  The
+<td><p>Show a list of database users.  This is similar to PostgreSQL's "\du.  The
 columns in the list depend on the database engine.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">dbm.users( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2285,8 +2286,8 @@ columns in the list depend on the database engine.</p></td>
 </tr>
 </table>
 
-<a name="dbm.value"></a><h3>s := dbm.value( q, i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.value"></a><h3>s := dbm.value( q, i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the column value as a string.</p></td>
@@ -2295,7 +2296,7 @@ columns in the list depend on the database engine.</p></td>
 <td><span class="code">first_name := dbm.value( q, 3 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2337,8 +2338,8 @@ columns in the list depend on the database engine.</p></td>
 </tr>
 </table>
 
-<a name="dbm.will_rollback_on_finalize"></a><h3>b := dbm.will_rollback_on_finalize( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="dbm.will_rollback_on_finalize"></a><h3>b := dbm.will_rollback_on_finalize( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if set_rollback_on_finalize was true (that is, that when the connection is deallocated, a rollback will be issued if the connection is still open).</p></td>
@@ -2347,7 +2348,7 @@ columns in the list depend on the database engine.</p></td>
 <td><span class="code">b := dbm.will_rollback_on_finalize( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2359,7 +2360,7 @@ columns in the list depend on the database engine.</p></td>
 <td><span>return value</span></td>
 <td><span>boolean</span></td>
 <td><span>required</span></td>
-<td><span>rollback will be issued on finalize</span></td>
+<td><span>rollback will be performed on finalize</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -2380,7 +2381,7 @@ columns in the list depend on the database engine.</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -2389,7 +2390,7 @@ columns in the list depend on the database engine.</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_chains.html">&nbsp;chains</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_cmdline.html">&nbsp;command_line</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_db.html">&nbsp;db/ postgresql</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_dbm.html">&nbsp;<b>dbm</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_dbm.html">&nbsp;<strong>dbm</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;directory_operations</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;doubly_linked...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;dynamic_hash_...</a></p>

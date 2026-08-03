@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Block Statements and Subprograms</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_extcmds.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_sockets.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_extcmds.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_sockets.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -79,13 +79,13 @@ variables by using begin...end without the declare section.<br>
         <center>
         <div class="code">
                 <p class="code">
-<b>declare</b><br>
+<strong>declare</strong><br>
 &nbsp;&nbsp; i : integer := 5;<br>
-<b>begin</b><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp; ? i;<br>
-<b>end;</b><br>&nbsp;<br></p>
+<strong>end;</strong><br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Declare Block Statement
+                <strong>Example</strong>: The Declare Block Statement
         </div>
         </div>
         </center>
@@ -102,20 +102,20 @@ before the word <code>begin</code>.  Procedure and function subprograms
 must finish with <code>end</code> and the name of the subprogram: this is
 to clarify the structure of the program.</p>
 
-<p><b>Ada</b>: In Ada, the name of the subprogram is optional after
+<p><strong>Ada</strong>: In Ada, the name of the subprogram is optional after
 <code>end</code>.  In AdaScript, the name is required.</p>
 
         <center>
         <div class="code">
                 <p class="code">
-<b>procedure</b> print_title <b>is</b><br>
-<b>begin</b><br>
+<strong>procedure</strong> print_title <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp; put_line( "Script to Process New Orders" );<br>
 &nbsp;&nbsp; new_line;<br>
-<b>end</b> print_title;
+<strong>end</strong> print_title;
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Procedure Subprogram Statement
+                <strong>Example</strong>: The Procedure Subprogram Statement
         </div>
         </div>
         </center>
@@ -125,7 +125,7 @@ declaration parts of another procedure, function or declare block.
 These nested subprograms only exist for the scope of this parent
 block.</p>
 
-<p><b>Ada</b>: AdaScript doesn't support creating new arithmetic
+<p><strong>Ada</strong>: AdaScript doesn't support creating new arithmetic
 operators by defining functions with operator symbols.</p>
 
 <h3>The Case Procedure</h3>
@@ -151,23 +151,23 @@ creating lookup tables as commonly used in business programming.</p>
         <div class="code">
                 <p class="code">
 
-<b>declare</b><br>
-&nbsp;&nbsp;<b>type</b> a_customer_loyalty is (unknown, recent, loyal);<br>
-&nbsp;&nbsp;<b>type</b> a_rebate <b>is</b> (none, small, medium, large);<br>
+<strong>declare</strong><br>
+&nbsp;&nbsp;<strong>type</strong> a_customer_loyalty is (unknown, recent, loyal);<br>
+&nbsp;&nbsp;<strong>type</strong> a_rebate <strong>is</strong> (none, small, medium, large);<br>
 &nbsp;&nbsp;customer_loyalty : a_customer_loyalty := loyal;<br>
 &nbsp;&nbsp;rebate           : a_rebate;<br>
 <br>
-&nbsp;&nbsp;<b>case</b> <b>procedure</b> decide_customer_rebate( my_customer_loyalty : a_customer_loyalty; my_rebate : <b>out</b> a_rebate ) <b>is</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>when</b> recent =&gt; small;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>when</b> loyal =&gt; large;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>when</b> others =&gt; none;<br>
-&nbsp;&nbsp;<b>end</b> decide_customer_rebate;<br>
+&nbsp;&nbsp;<strong>case</strong> <strong>procedure</strong> decide_customer_rebate( my_customer_loyalty : a_customer_loyalty; my_rebate : <strong>out</strong> a_rebate ) <strong>is</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>when</strong> recent =&gt; small;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>when</strong> loyal =&gt; large;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>when</strong> others =&gt; none;<br>
+&nbsp;&nbsp;<strong>end</strong> decide_customer_rebate;<br>
 <br>
-<b>begin</b><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;decide_customer_rebate( customer_loyalty, rebate );<br>
-<b>end</b>;<br>
+<strong>end</strong>;<br>
         <div class="code_caption">
-                <b>Example</b>: A Case Procedure
+                <strong>Example</strong>: A Case Procedure
         </div>
         </div>
         </center>
@@ -182,7 +182,7 @@ exception handlers.</p>
 <p>Like other forms of a case statement, the <code>when others</code>
 is required.</p>
 
-<p><b>Ada</b>: Case Procedures are not allowed with <code>pragma ada_95</code>.</p>
+<p><strong>Ada</strong>: Case Procedures are not allowed with <code>pragma ada_95</code>.</p>
 
 <h3>The While Loop Statement</h3>
 
@@ -195,11 +195,11 @@ the first line of the loop is executed.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>while</b> x &lt; y <b>loop</b><br>
+<strong>while</strong> x &lt; y <strong>loop</strong><br>
 &nbsp; x := @ + 1;<br>
-<b>end</b> <b>loop</b>;<br>&nbsp;<br></p>
+<strong>end</strong> <strong>loop</strong>;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The While Statement
+                <strong>Example</strong>: The While Statement
         </div>
         </div>
         </center>
@@ -229,22 +229,22 @@ before the type of parameter.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>function</b> add_two( number : integer ) <b>return</b> integer <b>is</b><br>
-<b>begin</b><br>
-&nbsp; <b>return</b> number+2;<br>
-<b>end</b> add_two;<br>
+<strong>function</strong> add_two( number : integer ) <strong>return</strong> integer <strong>is</strong><br>
+<strong>begin</strong><br>
+&nbsp; <strong>return</strong> number+2;<br>
+<strong>end</strong> add_two;<br>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Function Subprogram Statement
+                <strong>Example</strong>: The Function Subprogram Statement
         </div>
         </div>
         </center>
 
-<p>Besides in mode parameters, parameters may also be <b>out</b> or <b>in out</b> mode.  Out parameters return values, and in out read, modify and return values.  These parameters may refer to arrays, records, array elements or record fields, in addition to the scalar types.</p>
+<p>Besides in mode parameters, parameters may also be <strong>out</strong> or <strong>in out</strong> mode.  Out parameters return values, and in out read, modify and return values.  These parameters may refer to arrays, records, array elements or record fields, in addition to the scalar types.</p>
 
 <p>Functions are not allowed to use out parameters.</p>
 
-<p><b>Ada</b>: Ada does not permit functions to use in out mode parameters.</p>
+<p><strong>Ada</strong>: Ada does not permit functions to use in out mode parameters.</p>
 
 <p>Procedures and functions can only be declared inside the declaration section of
 a script's main procedure block (or declared nested inside other subprograms
@@ -252,13 +252,13 @@ or declare blocks).</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>procedure</b> my_script <b>is</b><br>
-     <b>procedure</b> my_proc <b>is</b> -- OK<br>
+                <p class="code"><strong>procedure</strong> my_script <strong>is</strong><br>
+     <strong>procedure</strong> my_proc <strong>is</strong> -- OK<br>
   ...<br>
-  <b>end</b> my_script;
+  <strong>end</strong> my_script;
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: A Main Program Procedure
+                <strong>Example</strong>: A Main Program Procedure
         </div>
         </div>
         </center>
@@ -270,7 +270,7 @@ or declare blocks).</p>
                 <p class="code">
   i : integer;<br>
   i := 5;<br>
-  <b>procedure</b> my_proc <b>is</b> -- BAD...use a main procedure block<br>
+  <strong>procedure</strong> my_proc <strong>is</strong> -- BAD...use a main procedure block<br>
   ...
 </p>
         </div>
@@ -282,9 +282,9 @@ means the value of the parameter is used by the subprogram and
 may be changed.  <code>out</code> mode means the parameter is not read by
 the subprogram but a value will be returned using the parameter.
 Functions may only use in mode.  The modes are described on the front
-page of the <b>Packages</b> section of this documentation.</p>
+page of the <strong>Packages</strong> section of this documentation.</p>
 
-<p><b>Ada</b>: <code>access</code>
+<p><strong>Ada</strong>: <code>access</code>
 mode parameters are not supported for user-defined subprograms.
 Named parameters are not supported.  Default values are not
 supported.</p>
@@ -293,7 +293,7 @@ supported.</p>
 
 <p>Introduced in SparForte 2.3</p>
 
-<p>A subprogram <b>specification</b> is an incomplete description
+<p>A subprogram <strong>specification</strong> is an incomplete description
 of a procedure or
 function that will be fully described later.  This is like entries in
 a table of contents in a book which shows upcoming chapters that
@@ -309,10 +309,10 @@ function prematurely.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>procedure</b> show_report<b>;</b><br>
+                <p class="code"><strong>procedure</strong> show_report<strong>;</strong><br>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: A Procedure Specification
+                <strong>Example</strong>: A Procedure Specification
         </div>
         </div>
         </center>
@@ -322,13 +322,13 @@ same block of code.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>procedure</b> show_report <b>is</b><br>
-<b>begin</b><br>
+                <p class="code"><strong>procedure</strong> show_report <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;put_line( "This is the report" );<br>
-<b>end</b> show_report;<br>
+<strong>end</strong> show_report;<br>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Earlier Specification Implemented
+                <strong>Example</strong>: The Earlier Specification Implemented
         </div>
         </div>
         </center>
@@ -343,22 +343,22 @@ parameters.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>procedure</b> show_report( title : string )<b>;</b><br>
+                <p class="code"><strong>procedure</strong> show_report( title : string )<strong>;</strong><br>
 ...<br>
-<b>procedure</b> show_report( title : string ) <b>is</b><br>
-<b>begin</b><br>
+<strong>procedure</strong> show_report( title : string ) <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;put_line( "This is the report" );<br>
-<b>end</b> show_report;<br>
+<strong>end</strong> show_report;<br>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: A Specification with a Parameter
+                <strong>Example</strong>: A Specification with a Parameter
         </div>
         </div>
         </center>
 
 
 <p>Specifications have many uses.  One problem they help with is
-<b>mutual recursion</b>, where two subprograms use each other.  Without
+<strong>mutual recursion</strong>, where two subprograms use each other.  Without
 specifications, it is not possible to declare these subprograms.
 SparForte reads your script from the beginning to the end, and
 what you use must be declared before you use it.  With two
@@ -367,22 +367,22 @@ before either can be used.  Specifications solve this.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>procedure</b> first<b>;</b><br>
-<b>procedure</b> second<b>;</b><br>
+                <p class="code"><strong>procedure</strong> first<strong>;</strong><br>
+<strong>procedure</strong> second<strong>;</strong><br>
 &nbsp;<br>
-<b>procedure</b> first <b>is</b><br>
-<b>begin</b><br>
+<strong>procedure</strong> first <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;second;<br>
 &nbsp;&nbsp;...<br>
-<b>end</b> first;<br>
-<b>procedure</b> second <b>is</b><br>
-<b>begin</b><br>
+<strong>end</strong> first;<br>
+<strong>procedure</strong> second <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;first;<br>
 &nbsp;&nbsp;...<br>
-<b>end</b> second;<br>
+<strong>end</strong> second;<br>
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Mutual Recursion
+                <strong>Example</strong>: Mutual Recursion
         </div>
         </div>
         </center>
@@ -416,13 +416,13 @@ to a single, specific parent script.</p>
         <div class="code">
         <p class="code">
         -- t2.sp is a separate procedure<br>
-	<b>separate</b>( t );<br>
-        <b>procedure</b> t2 <b>is</b><br>
-        <b>begin</b><br>
+	<strong>separate</strong>( t );<br>
+        <strong>procedure</strong> t2 <strong>is</strong><br>
+        <strong>begin</strong><br>
         &nbsp;&nbsp;put_line( "t2 was called!" );<br>
-        <b>end</b> t2;<br>&nbsp;<br>
+        <strong>end</strong> t2;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: t2.sp is a loadable by a script named t.sp
+                <strong>Example</strong>: t2.sp is a loadable by a script named t.sp
         </div>
         </div>
         </center>
@@ -434,20 +434,20 @@ with the word <code>separate</code>.</p>
         <center>
         <div class="code">
         <p class="code">
-	<b>procedure</b> t <b>is</b><br>
-        &nbsp;&nbsp;<b>procedure</b> t2 <b>is</b> <b>separate</b>;<br>
-        <b>begin</b><br>
+	<strong>procedure</strong> t <strong>is</strong><br>
+        &nbsp;&nbsp;<strong>procedure</strong> t2 <strong>is</strong> <strong>separate</strong>;<br>
+        <strong>begin</strong><br>
         &nbsp;&nbsp;t2;<br>
-        <b>end</b> t;<br>&nbsp;<br></p>
+        <strong>end</strong> t;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: t.sp loads t2.sp and executes t2
+                <strong>Example</strong>: t.sp loads t2.sp and executes t2
         </div>
         </div>
         </center>
 
 <p>SparForte will search for the separate subprogram using the SparForte
-library path.  The path is specified using the <b>-L</b> command option or using
-the environment variable <b>SPAR_LIBRARY_PATH</b>.  By default, SparForte
+library path.  The path is specified using the <strong>-L</strong> command option or using
+the environment variable <strong>SPAR_LIBRARY_PATH</strong>.  By default, SparForte
 will search the current directory.  The separate subprogram must exist and
 be readable in order to load it.</p>
 
@@ -458,7 +458,7 @@ separate nested subprograms is planned but not yet implemented.</p>
 languages except that the separate block is a part of a specific main
 script.</p>
 
-<p><b>Ada</b>: GCC Ada also has separate subunits.  They are implemented
+<p><strong>Ada</strong>: GCC Ada also has separate subunits.  They are implemented
 in the same way.</p>
 
 <h3>Separate Declarations</h3>
@@ -480,13 +480,13 @@ or a declare block).</p>
         <center>
         <div class="code">
         <p class="code">
-        <b>procedure</b> main <b>is</b><br>
-	&nbsp;&nbsp;<b>with</b> <b>separate</b> "globals.sp";<br>
-        <b>begin</b><br>
+        <strong>procedure</strong> main <strong>is</strong><br>
+	&nbsp;&nbsp;<strong>with</strong> <strong>separate</strong> "globals.sp";<br>
+        <strong>begin</strong><br>
         &nbsp;&nbsp;? company_name; -- displays "PegaSoft"<br>
-        <b>end</b> main;<br>&nbsp;<br>
+        <strong>end</strong> main;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: Loading a separate declaration file
+                <strong>Example</strong>: Loading a separate declaration file
         </div>
         </div>
         </center>
@@ -499,17 +499,17 @@ first statement.  This identifies it as a separate declaration file.</p>
         <div class="code">
         <p class="code">
         -- This is the file named globals.sp<br>
-	<b>separate</b>;<br>
-        company_name : <b>constant</b> string := "PegaSoft";<br>&nbsp;<br>
+	<strong>separate</strong>;<br>
+        company_name : <strong>constant</strong> string := "PegaSoft";<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: A very short separate declaration file containing one constant
+                <strong>Example</strong>: A very short separate declaration file containing one constant
         </div>
         </div>
         </center>
 
 <p>Like separate subprograms, SparForte will search for the declaration file
-using the SparForte library path. The path is specified using the <b>-L</b> command
-option or using the environment variable <b>SPAR_LIBRARY_PATH</b>. By default,
+using the SparForte library path. The path is specified using the <strong>-L</strong> command
+option or using the environment variable <strong>SPAR_LIBRARY_PATH</strong>. By default,
 SparForte will search the current directory. The declaration file must
 exist and be readable in order to load it.</p>
 
@@ -532,12 +532,12 @@ of the Ada 95 standard, to allow large scripts to be broken up.</p>
 <p>Subscripts are permitted in a restricted shell to allow large scripts to
 be broken up.</p>
 
-<p><b>Implementation Note</b>: with separate has a string literal as a parameter.  Because
+<p><strong>Implementation Note</strong>: with separate has a string literal as a parameter.  Because
 the separate file is loaded before the program is running, any variables that might
 contain the file path cannot exist when the file is loaded.  So you're stuck
 with a string literal.</p>
 
-<p><b>Rationale</b>: Subscripts are intended as a simple mechanism to
+<p><strong>Rationale</strong>: Subscripts are intended as a simple mechanism to
 break up large scripts until loadable user-defined packages are completed.</p>
 
 <h3>Abstract Procedures and Functions</h3>
@@ -545,17 +545,17 @@ break up large scripts until loadable user-defined packages are completed.</p>
 <p>Abstract procedures and functions are subprograms that can be defined
 but not run.  They might be abstract because they are incomplete prototypes.</p>
 
-<p>They are created by including the word <b>abstract</b> after the word
-<b>is</b>.</p>
+<p>They are created by including the word <strong>abstract</strong> after the word
+<strong>is</strong>.</p>
 
-<p>A <b>null abstract</b> subprogram is one without a body</p>
+<p>A <strong>null abstract</strong> subprogram is one without a body</p>
 
         <center>
         <div class="code">
         <p class="code">
-	<b>procedure</b> unfinished <b>is</b> <b>null</b> <b>abstract</b>;<br>&nbsp;<br>
+	<strong>procedure</strong> unfinished <strong>is</strong> <strong>null</strong> <strong>abstract</strong>;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: A null abstract procedure
+                <strong>Example</strong>: A null abstract procedure
         </div>
         </div>
         </center>
@@ -570,31 +570,31 @@ and perform remedial action in the handler.</p>
 <h4>Declaring Exceptions</h4>
 
 <p>Exceptions can be declared by creating variables with the type
-of <b>exception</b>.  They are not intended for reporting all errors,
+of <strong>exception</strong>.  They are not intended for reporting all errors,
 but errors that are rare or inconvenient to test for in the middle
 of a routine.</p>
 
         <center>
         <div class="code">
         <p class="code">
-	file_load_error : <b>exception</b>;<br>&nbsp;<br>
+	file_load_error : <strong>exception</strong>;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: An exception declaration
+                <strong>Example</strong>: An exception declaration
         </div>
         </div>
         </center>
 
-<p>The exception type name may be followed with a "with/use".  <b>with</b>
+<p>The exception type name may be followed with a "with/use".  <strong>with</strong>
 specifies a default message to accompany the exception error message.
-<b>use</b> specifies a status code to return if the exception is raised to
+<strong>use</strong> specifies a status code to return if the exception is raised to
 the main program and is not handled.</p>
 
         <center>
         <div class="code">
         <p class="code">
-	file_load_error : <b>exception</b> <b>with</b> "unable to load the file" <b>use</b> 15;<br>&nbsp;<br>
+	file_load_error : <strong>exception</strong> <strong>with</strong> "unable to load the file" <strong>use</strong> 15;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: An exception declaration with a with/use clause
+                <strong>Example</strong>: An exception declaration with a with/use clause
         </div>
         </div>
         </center>
@@ -607,34 +607,34 @@ identify which exception was raised.  For example, if you had a global
 exception named "disk_space_error" you cannot declare another
 "disk_space_error" in a procedure.</p>
 
-<p><b>Ada</b>: Ada permits exceptions with the same name in overlapping
+<p><strong>Ada</strong>: Ada permits exceptions with the same name in overlapping
 scopes.  It differentiates between them with dotted notation.</p>
 
 <h4>Exception Handlers</h4>
 
-<p>Exception handlers are created using an <b>exception</b> section.  Once
+<p>Exception handlers are created using an <strong>exception</strong> section.  Once
 an exception handle runs, control is not returned to the block where the
 exception occurred: the exception handler replaces the remainder of the
 executable statements in the block.</p>
 
-<p>An exception handler is similar to a <b>case</b> statement.  <b>when</b>
+<p>An exception handler is similar to a <strong>case</strong> statement.  <strong>when</strong>
 sections contain the executable code to run in the case of a specific exception.</p>
 
-<p>If there is a <b>when</b> <b>others</b> section, it will run if none of the
-preceding sections applied.  <b>when</b> <b>others</b> will also handle most
+<p>If there is a <strong>when</strong> <strong>others</strong> section, it will run if none of the
+preceding sections applied.  <strong>when</strong> <strong>others</strong> will also handle most
 run-time errors.</p>
 
         <center>
         <div class="code">
         <p class="code">
-        <b>procedure</b> divide( x : integer; y : integer ) <b>is</b><br />
-        <b>begin</b><br />
+        <strong>procedure</strong> divide( x : integer; y : integer ) <strong>is</strong><br />
+        <strong>begin</strong><br />
         &nbsp;&nbsp;put_line( x / y );<br />
-        <b>exception</b> <b>when</b> <b>others</b> =&gt;<br />
+        <strong>exception</strong> <strong>when</strong> <strong>others</strong> =&gt;<br />
         &nbsp;&nbsp;put_line( "undefined" );<br />
-        <b>end</b> divide;<br />&nbsp;<br />
+        <strong>end</strong> divide;<br />&nbsp;<br />
         <div class="code_caption">
-                <b>Example</b>: Math errors like dividing by zero display "undefined"
+                <strong>Example</strong>: Math errors like dividing by zero display "undefined"
         </div>
         </div>
         </center>
@@ -656,7 +656,7 @@ exception handlers.</p>
 
 <h4>Re-raising Exceptions</h4>
 
-<p>The <b>raise</b> command will propagate the exception after handling.
+<p>The <strong>raise</strong> command will propagate the exception after handling.
 That is, it will
 reinstate the exception to exception handlers in the surrounding blocks, just
 as if the exception was not handled.</p>
@@ -664,74 +664,74 @@ as if the exception was not handled.</p>
         <center>
         <div class="code">
         <p class="code">
-        <b>procedure</b> main_prog <b>is</b><br />&nbsp;<br />
-        &nbsp;&nbsp;<b>procedure</b> divide( x : integer; y : integer ) <b>is</b><br />
-        &nbsp;&nbsp;<b>begin</b><br />
+        <strong>procedure</strong> main_prog <strong>is</strong><br />&nbsp;<br />
+        &nbsp;&nbsp;<strong>procedure</strong> divide( x : integer; y : integer ) <strong>is</strong><br />
+        &nbsp;&nbsp;<strong>begin</strong><br />
         &nbsp;&nbsp;&nbsp;&nbsp;put_line( x / y );<br />
-        &nbsp;&nbsp;<b>exception</b> <b>when</b> <b>others</b> =&gt;<br />
+        &nbsp;&nbsp;<strong>exception</strong> <strong>when</strong> <strong>others</strong> =&gt;<br />
         &nbsp;&nbsp;&nbsp;&nbsp;put_line( "undefined" );<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b>;<br />
-        &nbsp;&nbsp;<b>end</b> divide;<br />&nbsp;<br />
-        <b>begin</b><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>raise</strong>;<br />
+        &nbsp;&nbsp;<strong>end</strong> divide;<br />&nbsp;<br />
+        <strong>begin</strong><br />
         &nbsp;&nbsp;? divide( 2, 0 );<br />
-        <b>exception</b> <b>when</b> <b>others</b> =&gt;<br />
+        <strong>exception</strong> <strong>when</strong> <strong>others</strong> =&gt;<br />
         &nbsp;&nbsp;put_line( standard_error, "an exception occurred" );<br />
-        <b>end</b> main_prog;<br />&nbsp;<br />
+        <strong>end</strong> main_prog;<br />&nbsp;<br />
         <div class="code_caption">
-                <b>Example</b>: Both exception handlers will run
+                <strong>Example</strong>: Both exception handlers will run
         </div>
         </div>
         </center>
 
 <h4>Raising New Exceptions</h4>
 
-<p>The <b>raise</b> command will raise user-declared exceptions.</p>
+<p>The <strong>raise</strong> command will raise user-declared exceptions.</p>
 
         <center>
         <div class="code">
         <p class="code">
-file_load_error : <b>exception</b>;<br>
+file_load_error : <strong>exception</strong>;<br>
 ...<br>
-<b>raise</b> file_load_error;<br>&nbsp;<br>
+<strong>raise</strong> file_load_error;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: A basic raise statement
+                <strong>Example</strong>: A basic raise statement
         </div>
         </div>
         </center>
 
-<p>An alternate message can be given with a <b>with</b> clause.</p>
+<p>An alternate message can be given with a <strong>with</strong> clause.</p>
 
         <center>
         <div class="code">
         <p class="code">
-	<b>raise</b> file_load_error <b>with</b> "the customer file did not load";<br>&nbsp;<br>
+	<strong>raise</strong> file_load_error <strong>with</strong> "the customer file did not load";<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: A raise with a custom message
+                <strong>Example</strong>: A raise with a custom message
         </div>
         </div>
         </center>
 
-<p>A raise can be conditional when a <b>when</b> clause is added.  The main
+<p>A raise can be conditional when a <strong>when</strong> clause is added.  The main
 advantage of the when clause, over an if statement, is that it makes
 execution jumps more visible in the source code.</p>
 
         <center>
         <div class="code">
         <p class="code">
-file_length_error : <b>exception</b>;<br>
+file_length_error : <strong>exception</strong>;<br>
 ...<br>
-<b>raise</b> file_load_error <b>when</b> strings.length( file_contents ) = 0;<br>&nbsp;<br>
+<strong>raise</strong> file_load_error <strong>when</strong> strings.length( file_contents ) = 0;<br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: A conditional raise statement with a custom message
+                <strong>Example</strong>: A conditional raise statement with a custom message
         </div>
         </div>
         </center>
 
 
-<p><b>raise</b> can be used within an exception handler to raise a different
+<p><strong>raise</strong> can be used within an exception handler to raise a different
 exception.</p>
 
-<p><b>Ada 95</b>: A raise when clause and with clause are not allowed with pragma ada_95.</p>
+<p><strong>Ada 95</strong>: A raise when clause and with clause are not allowed with pragma ada_95.</p>
 
 <h2>Profile Files</h2>
 
@@ -763,7 +763,7 @@ a different shell history file.</p>
 
 <h2>Policies and the Global Policy File</h2>
 
-<p>A <b>policy</b> is a special block.  It contains a collection of
+<p>A <strong>policy</strong> is a special block.  It contains a collection of
 pragmas that apply to a project.  It may also contain static if or case
 statements (that is, with expressions that can be evaluated before the
 program is run) so that different pragmas can be applied in different
@@ -777,15 +777,15 @@ applied twice.</p>
 
         <center>
         <div class="code">
-        <p class="code"><b>policy</b> web_app_policy <b>is</b><br>
-        &nbsp;&nbsp;<b>pragma</b> ada_95;<br>
-        &nbsp;&nbsp;<b>if</b> <b>not</b> System.Development_Phase <b>then</b><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<b>pragma</b> restriction( no_external_commands );<br>
-        &nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
-        <b>end</b> web_app_policy;<br>&nbsp;<br>
+        <p class="code"><strong>policy</strong> web_app_policy <strong>is</strong><br>
+        &nbsp;&nbsp;<strong>pragma</strong> ada_95;<br>
+        &nbsp;&nbsp;<strong>if</strong> <strong>not</strong> System.Development_Phase <strong>then</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>pragma</strong> restriction( no_external_commands );<br>
+        &nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
+        <strong>end</strong> web_app_policy;<br>&nbsp;<br>
         </p>
         <div class="code_caption">
-        <b>Example</b>: A Simple Policy Block
+        <strong>Example</strong>: A Simple Policy Block
         </div>
         </div>
         </center>
@@ -812,12 +812,12 @@ following conditions:</p>
 <p>If a policy file exists but doesn't meet these conditions, an error is
 reported and the file will not be run.  The script will be aborted.</p>
 
-<p>A policy file may only contain <b>pragma</b>'s.  It cannot contain
+<p>A policy file may only contain <strong>pragma</strong>'s.  It cannot contain
 include files.</p>
 
 <h2>Configuration Blocks and Global Configuration File</h2>
 
-<p>A <b>configuration</b> block is a special block.  It contains a
+<p>A <strong>configuration</strong> block is a special block.  It contains a
 collection of declarations and pragmas that apply to a project.  These
 are for describing environment settings such as server names,
 login credentials for services (such as databases) and so forth.
@@ -861,14 +861,14 @@ files.</p>
         <center>
         <div class="code">
         <p class="code">-- Database settings for this server<br>
-        <b>configuration</b> dev_environment <b>is</b><br>
-        &nbsp;&nbsp;db_host     : <b>constant</b> string := "db1.ourcompany.com";<br>
-        &nbsp;&nbsp;db_username : <b>constant</b> string := "webapp";<br>
-        &nbsp;&nbsp;db_password : <b>constant</b> string := "secret";<br>
-        <b>end</b> dev_environment;<br>&nbsp;<br>
+        <strong>configuration</strong> dev_environment <strong>is</strong><br>
+        &nbsp;&nbsp;db_host     : <strong>constant</strong> string := "db1.ourcompany.com";<br>
+        &nbsp;&nbsp;db_username : <strong>constant</strong> string := "webapp";<br>
+        &nbsp;&nbsp;db_password : <strong>constant</strong> string := "secret";<br>
+        <strong>end</strong> dev_environment;<br>&nbsp;<br>
         </p>
         <div class="code_caption">
-        <b>Example</b>: A Simple /etc/sparforte_config File
+        <strong>Example</strong>: A Simple /etc/sparforte_config File
         </div>
         </div>
         </center>
@@ -882,13 +882,13 @@ used in some scripts.</p>
 <p>SparForte does not permit certain combinations of statements that may
 have risky or unpredictable consequences.</p>
 
-<p>A <b>volatile</b> variable is any variable that has a value that can
+<p>A <strong>volatile</strong> variable is any variable that has a value that can
 change unexpectedly.  Volatile variables are a problem in expressions
 because the value of a variable could change while the expression is being
 calculated.</p>
 
 <p>One way a variable can be volatile is by designating one volatile with
-<b>pragma volatile</b>.  For an imported variable, pragma volatile will
+<strong>pragma volatile</strong>.  For an imported variable, pragma volatile will
 cause the variable's value to be re-imported every time the variable is
 read.  There is no guarantee in an expression like "x + x that both
 occurrences of x will have the same value.  Any variable can be designated
@@ -896,7 +896,7 @@ volatile, even if it isn't imported.  It is an error to use volatile
 variables in an expression.</p>
 
 <p>Variables can also be volatile if their values are changed during an
-expression by a <b>function</b> called in the same expression.  In this
+expression by a <strong>function</strong> called in the same expression.  In this
 case, it is made more complex because of the order of operations.  By
 changing the operations in an expression, the order of the computations
 are changed, and this can change when a function is run.  This
@@ -909,28 +909,28 @@ procedures and functions run by the original function.</p>
 types of risky actions in expressions: write then read, read then write
 and write then write.</p>
 
-<p><b>Write then Read</b></p>
+<p><strong>Write then Read</strong></p>
 
 <p>A function (or anything run by a function) must not change a variable's
 value when that value is also read later in the expression.</p>
 
         <center>
         <div class="code">
-        <p class="code"><b>procedure</b> side_effect <b>is</b><br>
+        <p class="code"><strong>procedure</strong> side_effect <strong>is</strong><br>
 &nbsp;&nbsp;i : integer := 5;<br>
 <br>
-&nbsp;&nbsp;<b>function</b> risky <b>return</b> integer <b>is</b><br>
-&nbsp;&nbsp;<b>begin</b><br>
+&nbsp;&nbsp;<strong>function</strong> risky <strong>return</strong> integer <strong>is</strong><br>
+&nbsp;&nbsp;<strong>begin</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;i := 10;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> 1;<br>
-&nbsp;&nbsp;<b>end</b> risky;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>return</strong> 1;<br>
+&nbsp;&nbsp;<strong>end</strong> risky;<br>
 <br>
-<b>begin</b><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;? i * risky + i; -- changing i during an expression<br>
-<b>end</b> side_effect;<br>&nbsp;<br>
+<strong>end</strong> side_effect;<br>&nbsp;<br>
 </p>
         <div class="code_caption">
-        <b>Example</b>: An expression side-effect
+        <strong>Example</strong>: An expression side-effect
         </div>
         </div>
         </center>
@@ -944,13 +944,13 @@ value when that value is also read later in the expression.</p>
 </p>
 </div>
 
-<p>To avoid this message, declare a new variable using the <b>copies</b> clause to
+<p>To avoid this message, declare a new variable using the <strong>copies</strong> clause to
 get a value from a point in time, and use the copy in the expression.</p>
 
 <p>With arrays and records, writing to an array element or any record field will
 cause the entire array or record to be treated as volatile.</p>
 
-<p><b>Read then Write</b></p>
+<p><strong>Read then Write</strong></p>
 
 <p>The reverse case is to read a variable first, then a function changes it
 afterwards in an expression.  Technically, this is not a side-effect because
@@ -969,7 +969,7 @@ side-effects: i was written after read within an expression.  Perhaps a copy sho
 <p>This particular check is expensive and tests for a potential problem,
 so SparForte does not run this check in maintenance mode.</p>
 
-<p><b>Write then Write</b></p>
+<p><strong>Write then Write</strong></p>
 
 <p>Two different functions (or a function and the main program, or a
 function and a contract) in an expression are not allowed to write to the
@@ -993,20 +993,20 @@ side-effects: i (in func1) is not unchecked_volatile but is also changed by func
 <p>The solution is to change one function into a procedure, or to
 break the expression into two separate statements.</p>
 
-<p><b>pragma unchecked_volatile</b></p>
+<p><strong>pragma unchecked_volatile</strong></p>
 
 <p>There may be certain cases where "write then write" is the intended
 behaviour.  One example would be creating a log of the functions
 where each function writes an entry to the log when it runs.  In this case,
 you can declare the variable as an unchecked volatile using
-<b>pragma unchecked_volatile</b>.  SparForte will ignore "write then
+<strong>pragma unchecked_volatile</strong>.  SparForte will ignore "write then
 write" tests, but will still do "write then read" and "read then
 write" tests.</p>
 
 <p>An unchecked volatile variable can also be used in expressions.</p>
 
 <p>Declaring volatile and unchecked_volatile variables can be disabled
-entirely with <b>pragma restriction</b>.  See the pragma section for
+entirely with <strong>pragma restriction</strong>.  See the pragma section for
 more information.</p>
 
 <br>&nbsp;
@@ -1035,7 +1035,7 @@ more information.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_flow.html">&nbsp;Ifs and Loops</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_other.html">&nbsp;Other Statements/ Subprograms</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_extcmds.html">&nbsp;External Commands</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_subprograms.html">&nbsp;<b>Block Statements and Subprograms</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_subprograms.html">&nbsp;<strong>Block Statements and Subprograms</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_sockets.html">&nbsp;TCP/IP Sockets</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_numberformat.html">&nbsp;Numeric Formatting with Put</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_pragmas.html">&nbsp;Interpreter Directives</a></p>

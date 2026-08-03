@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - GNAT CRC32</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_gnat_cgi.html" />
 	<link rel="next" href="pkg_hash_io.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_gnat_cgi.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_hash_io.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_gnat_cgi.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_hash_io.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,13 +42,13 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.4"></a>GNAT.CRC32 Package</h2>
+<h2><a id="4.16"></a>GNAT.CRC32 Package</h2>
 
 <p>The gnat.crc32 package is the standard cyclic redundancy check (CRC)
-package included with GCC Ada (Gnat).  A CRC is a simple hash function
+package included with GCC Ada (GNAT).  A CRC is a simple hash function
 used to verify the integrity of a string.</p>
 
-<p><u>GCC Ada Equivalent</u>: GNAT.CRC32</p>
+<p><span class="underline">GCC Ada Equivalent</span>: GNAT.CRC32</p>
         <center>
         <div class="code">
 <pre>
@@ -58,7 +58,7 @@ used to verify the integrity of a string.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the gnat.crc32 package
+        <strong>Help Command</strong>: Contents of the gnat.crc32 package
         </div>
         </div>
         </center>
@@ -79,14 +79,14 @@ used to verify the integrity of a string.</p>
 &nbsp;3245118365<br>
 </p>
         <div class="code_caption">
-        <b>Example</b>: Using the gnat.crc32 package
+        <strong>Example</strong>: Using the gnat.crc32 package
         </div>
         </div>
         </center>
 
 
-<a name="gnat.crc32.initialize"></a><h3>gnat.crc32.initialize( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="gnat.crc32.initialize"></a><h3>gnat.crc32.initialize( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Initialize CRC value by assigning the standard Init value
@@ -96,7 +96,7 @@ used to verify the integrity of a string.</p>
 <td><span class="code">gnat.crc32.initialize( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -123,18 +123,17 @@ used to verify the integrity of a string.</p>
 </tr>
 </table>
          
-<a name="gnat.crc32.update"></a><h3>gnat.crc32.update( c, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="gnat.crc32.update"></a><h3>gnat.crc32.update( c, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Evolve CRC by including the contribution from Character'Pos (Value) for
-each character in the string.</p>
+<td><p>Update the CRC value by including each character in the string s.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">gnat.crc32.update( c, "fred" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -167,20 +166,17 @@ each character in the string.</p>
 </tr>
 </table>
          
-<a name="gnat.crc32.get_value"></a><h3>i := gnat.crc32.get_value( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="gnat.crc32.get_value"></a><h3>i := gnat.crc32.get_value( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Computes the CRC32 value by performing an XOR with the standard XorOut
-value (16#FFFF_FFFF). Note that this does not change the value of c, so it
-may be used to retrieve intermediate values of the CRC32 value during a
-sequence of update calls.</p>
+<td><p>Return the current CRC value.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">counter := gnat.crc32.get_value( c );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -195,7 +191,7 @@ sequence of update calls.</p>
 <td><span>the CRC32 counter</span></td>
 </tr><tr>
 <td><span>i</span></td>
-<td><span>result</span></td>
+<td><span>return value</span></td>
 <td><span>integer</span></td>
 <td><span>required</span></td>
 <td><span>the partial result</span></td>
@@ -216,7 +212,7 @@ sequence of update calls.</p>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -233,7 +229,7 @@ sequence of update calls.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;exceptions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_files.html">&nbsp;files</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_cgi.html">&nbsp;gnat.cgi</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_gnat_crc32.html">&nbsp;<b>gnat.crc32</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_gnat_crc32.html">&nbsp;<strong>gnat.crc32</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hash_io.html">&nbsp;hash_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hmaps.html">&nbsp;hashed_maps</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_l10n.html">&nbsp;l10n</a></p>

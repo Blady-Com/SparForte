@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Arrays</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
@@ -12,27 +12,27 @@
 	<link rel="next" href="pkg_btree_io.html" />
 
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="packages.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_btree_io.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="packages.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_btree_io.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -43,13 +43,13 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.14"></a>Arrays Package</h2>
+<h2><a id="4.1"></a>Arrays Package</h2>
 
-<p>The SparForte built-in arrays package provides subprograms to manipulate
-array variables and array types.  This includes determining the size of the
-array, sorting the array or moving the items in the array.</p>
+<p>The SparForte built-in arrays package provides subprograms to work with
+array variables and array types.  This includes finding the size of the
+array and reordering the components in the array.</p>
 
-<p><u>GCC Ada Equivalent</u>: array attributes, GNAT sort packages<br>
+<p><span class="underline">GCC Ada Equivalent</span>: array attributes, GNAT sort packages<br>
 
         <center>
         <div class="code">
@@ -64,23 +64,23 @@ array, sorting the array or moving the items in the array.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the arrays package
+        <strong>Help Command</strong>: Contents of the arrays package
         </div>
         </div>
         </center>
 
-<a name="arrays.bubble_sort"></a><h3>arrays.bubble_sort( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.bubble_sort"></a><h3>arrays.bubble_sort( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Bubble sort the array, treating the elements as strings or numbers
-depending on the element type.</p>
+<td><p>Sort the array using the bubble method, treating the components as strings or numbers
+depending on the component type.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.bubble_sort( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -99,8 +99,8 @@ depending on the element type.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.bubble_sort_descending">arrays.bubble_sort_descending</a><br><a href="#arrays.heap_sort">arrays.heap_sort</a><br><a href="#arrays.heap_sort_descending">arrays.heap_sort_descending</a></p>
@@ -110,18 +110,17 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.bubble_sort_descending"></a><h3>arrays.bubble_sort_descending( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.bubble_sort_descending"></a><h3>arrays.bubble_sort_descending( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Bubble sort the array in descending order, treating the elements as
-strings or numbers depending on the element type.</p>
+<td><p>Sort the array using the bubble sort method.  Arrange components in descending order, treating the components as strings or numbers depending on the component type.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.bubble_sort_descending( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -140,8 +139,8 @@ strings or numbers depending on the element type.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.bubble_sort">arrays.bubble_sort</a><br><a href="#arrays.heap_sort">arrays.heap_sort</a><br><a href="#arrays.heap_sort_descending">arrays.heap_sort_descending</a></p>
@@ -151,8 +150,8 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.first"></a><h3>i := arrays.first( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.first"></a><h3>i := arrays.first( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the first (lowest) index of the array.</p>
@@ -161,7 +160,7 @@ The elements must be writable</p></td>
 <td><span class="code">i := arrays.first( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -197,18 +196,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.heap_sort"></a><h3>arrays.heap_sort( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.heap_sort"></a><h3>arrays.heap_sort( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Heap sort the array, treating the elements as
-strings or numbers depending on the element type.</p>
+<td><p>Heap sort the array, treating the components as
+strings or numbers depending on the component type.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.heap_sort( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -227,8 +226,8 @@ strings or numbers depending on the element type.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.bubble_sort">arrays.bubble_sort</a><br><a href="#arrays.bubble_sort_descending">arrays.bubble_sort_descending</a><br><a href="#arrays.heap_sort_descending">arrays.heap_sort_descending</a></p>
@@ -238,18 +237,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.heap_sort_descending"></a><h3>arrays.heap_sort_descending( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.heap_sort_descending"></a><h3>arrays.heap_sort_descending( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Heap sort the array in descending order, treating the elements as
-strings or numbers depending on the element type.</p>
+<td><p>Heap sort the array in descending order, treating the components as
+strings or numbers depending on the component type.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.heap_sort_descending( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -268,8 +267,8 @@ strings or numbers depending on the element type.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.bubble_sort">arrays.bubble_sort</a><br><a href="#arrays.bubble_sort_descending">arrays.bubble_sort_descending</a><br><a href="#arrays.heap_sort">arrays.heap_sort</a></p>
@@ -279,8 +278,8 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.last"></a><h3>i := arrays.last( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.last"></a><h3>i := arrays.last( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the last (highest) index of the array.</p>
@@ -289,7 +288,7 @@ The elements must be writable</p></td>
 <td><span class="code">i := arrays.last( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -325,17 +324,17 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.length"></a><h3>n := arrays.length( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.length"></a><h3>n := arrays.length( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the number of elements in the array (last index - first index + 1).</p>
+<td><p>Return the number of components in the array (last index - first index + 1).</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">n := arrays.length( sales_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -356,7 +355,7 @@ The elements must be writable</p></td>
 <td><span>natural</span></td>
 <td><span>required</span></td>
 <td><span>no meta tags returned</span></td>
-<td><span>the number of elements in the array</span></td>
+<td><span>the number of components in the array</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -371,20 +370,20 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.flip"></a><h3>arrays.flip( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.flip"></a><h3>arrays.flip( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Reverse the order of the elements in the array, moving the last element
-to the first position and the first element to the last position.  (Prior to
-version 1.1, this was arrays.reverse but was renamed to avoid a conflict with the Ada
+<td><p>Reverse the order of the components in the array.  The procedure moves the last component
+to the first position and the first component to the last position.  (The name was changed in
+version 1.1.  The name was originally arrays.reverse.  This conflicted with the Ada
 reserved word "reverse".)</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.flip( backwards_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -398,13 +397,13 @@ reserved word "reverse".)</p>
 <td><span>any array type</span></td>
 <td><span>required</span></td>
 <td><span>no meta tags checked</span></td>
-<td><span>the array to reverse the order</span></td>
+<td><span>the array to reverse</span></td>
 </tr>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p>
@@ -414,18 +413,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.rotate_left"></a><h3>arrays.rotate_left( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.rotate_left"></a><h3>arrays.rotate_left( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Move all elements of the array one element toward the first position, moving
-the first element to the last position.</p>
+<td><p>Move all components of the array one index toward the first position, moving
+the first component to the last position.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.rotate_left( work_queue );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -444,8 +443,8 @@ the first element to the last position.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.rotate_right">arrays.rotate_right</a><br><a href="#arrays.shift_left">arrays.shift_left</a><br><a href="#arrays.shift_right">arrays.shift_right</a></p>
@@ -455,18 +454,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.rotate_right"></a><h3>arrays.rotate_right( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.rotate_right"></a><h3>arrays.rotate_right( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Move all elements of the array one element toward the last position, moving
-the last element to the first position.</p>
+<td><p>Move all components of the array one index toward the last position, moving
+the last component to the first position.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.rotate_right( work_queue );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -485,8 +484,8 @@ the last element to the first position.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.rotate_left">arrays.rotate_left</a><br><a href="#arrays.shift_left">arrays.shift_left</a><br><a href="#arrays.shift_right">arrays.shift_right</a></p>
@@ -496,18 +495,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.shift_left"></a><h3>arrays.shift_left( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.shift_left"></a><h3>arrays.shift_left( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Move all elements of the array one element toward the first element,
-overwriting the first element.</p>
+<td><p>Move all components of the array one index position toward the first position,
+overwriting the first position.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.shift_left( work_stack );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -526,8 +525,8 @@ overwriting the first element.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.rotate_left">arrays.rotate_left</a><br><a href="#arrays.rotate_right">arrays.rotate_right</a><br><a href="#arrays.shift_right">arrays.shift_right</a></p>
@@ -537,18 +536,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.shift_right"></a><h3>arrays.shift_right( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.shift_right"></a><h3>arrays.shift_right( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Move all elements of the array one element toward the last element,
-overwriting the last element.</p>
+<td><p>Move all components of the array one index position toward the last position,
+overwriting the last component.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.shift_right( work_stack );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -567,8 +566,8 @@ overwriting the last element.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.rotate_left">arrays.rotate_left</a><br><a href="#arrays.rotate_right">arrays.rotate_right</a><br><a href="#arrays.shift_left">arrays.shift_left</a></p>
@@ -578,17 +577,17 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.shuffle"></a><h3>arrays.shuffle( a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.shuffle"></a><h3>arrays.shuffle( a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Randomize the elements of the array with a Fisher-Yates shuffle.</p>
+<td><p>Place the components of the array in random order with the Fisher-Yates method.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">arrays.shuffle( playing_card_array );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -607,8 +606,8 @@ The elements must be writable</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The elements must have assigned values<br>
-The elements must be writable</p></td>
+<td><p>The array components must have assigned values<br>
+The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#arrays.bubble_sort_descending">arrays.bubble_sort_descending</a><br><a href="#arrays.heap_sort">arrays.heap_sort</a><br><a href="#arrays.heap_sort_descending">arrays.heap_sort_descending</a></p>
@@ -618,18 +617,18 @@ The elements must be writable</p></td>
 </tr>
 </table>
 
-<a name="arrays.to_array"></a><h3>arrays.to_array( a, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.to_array"></a><h3>arrays.to_array( a, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Decode a JSON string, storing the values in the array.</p>
+<td><p>Decode a JavaScript Object Notation (JSON) formatted string, storing the values in the array.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := "[32]";<br>
 arrays.to_array( a, s ); -- a(1) is 32</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -667,18 +666,18 @@ arrays.to_array( a, s ); -- a(1) is 32</span></td>
 </table>
 
 
-<a name="arrays.to_json"></a><h3>arrays.to_json( s, a )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="arrays.to_json"></a><h3>arrays.to_json( s, a )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Encode the array contents as a JSON string.</p>
+<td><p>Encode the array contents as a JavaScript Object Notation (JSON) formatted string.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">a : array(1..1) of string := "apple";<br>
 arrays.to_json( s, a ); -- s is ["apple"]</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -715,13 +714,12 @@ arrays.to_json( s, a ); -- s is ["apple"]</span></td>
 </tr>
 </table>
 
-
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;<b>arrays</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;<strong>arrays</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_calendar.html">&nbsp;calendar</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_cgi.html">&nbsp;cgi</a></p>

@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Command_Line</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_chains.html" />
 	<link rel="next" href="pkg_db.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_chains.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_db.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_chains.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_db.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,12 +42,13 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.9"></a>Command_Line Package</h2>
-<p>The command_line package provides communication between a script and the
-calling program. This package sets the exit status and processes command
-line option switches. command_line contains following routines:</p>
-<p><u>GCC Ada equivalent</u>: Ada.Command_Line
+<h2><a id="4.6"></a>Command_Line Package</h2>
+<p>The command_line package passes data between a script and the
+operating system calling environment. This package sets the exit status and processes command
+line option switches.</p>
+<p><span class="underline">GCC Ada equivalent</span>: Ada.Command_Line</p>
 
+<p>command_line contains the following routines:</p>
         <center>
         <div class="code">
 <pre>
@@ -60,13 +61,13 @@ line option switches. command_line contains following routines:</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the command_line package
+        <strong>Help Command</strong>: Contents of the command_line package
         </div>
         </div>
         </center>
 
-<a name="command_line.argument"></a><h3>s := command_line.argument( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="command_line.argument"></a><h3>s := command_line.argument( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return a command line argument (the same as $n where n is a number).  The arguments do not include option switches processed by SparForte.</p></td>
@@ -75,7 +76,7 @@ line option switches. command_line contains following routines:</p>
 <td><span class="code">put_line( "First argument is " &amp; command_line.argument( 1 ) );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -99,7 +100,7 @@ line option switches. command_line contains following routines:</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>A bad argument number will raise an exception.</p></td>
+<td><p>An exception is raised on a bad argument number.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -109,17 +110,17 @@ line option switches. command_line contains following routines:</p>
 </tr>
 </table>
 
-<a name="command_line.argument_count"></a><h3>n := command_line.argument_count</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="command_line.argument_count"></a><h3>n := command_line.argument_count</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the number of script arguments (the same as $#). Excludes command line option switches processed by SparForte.</p></td>
+<td><p>Return the number of script arguments (the same as $#). This will exclude command line option switches processed by SparForte.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">if command_line.argument_count &gt; 0 then ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -146,18 +147,18 @@ line option switches. command_line contains following routines:</p>
 </tr>
 </table>
 
-<a name="command_line.command_name"></a><h3>s := command_line.command_name</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="command_line.command_name"></a><h3>s := command_line.command_name</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the path of the script or SparForte interpreter used to run the script (the same as $0).  For example, in "/bin/spar myscript.sp" this will be
-"/bin/spar".  Or "/usr/local/myscript.sp foo" this will be "/usr/local/myscript.sp".</p></td>
+<td><p>Return the path of the script or SparForte interpreter used to run the script (the same as $0).  For example, with "/bin/spar myscript.sp" this will be
+"/bin/spar".  With "/usr/local/myscript.sp foo" this will be "/usr/local/myscript.sp".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">put_line( command_line.command_name &amp; " is this script");</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -184,8 +185,8 @@ line option switches. command_line contains following routines:</p>
 </tr>
 </table>
 
-<a name="command_line.environment.environment_count"></a><h3>n := command_line.environment.environment_count</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="command_line.environment.environment_count"></a><h3>n := command_line.environment.environment_count</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of variables in the operating system environment.</p></td>
@@ -194,7 +195,7 @@ line option switches. command_line contains following routines:</p>
 <td><span class="code">for i in 1..command_line.environment.environment_count loop <br>-- loop through all environment variables</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -206,7 +207,7 @@ line option switches. command_line contains following routines:</p>
 <td><span>return value</span></td>
 <td><span>natural</span></td>
 <td><span>required</span></td>
-<td><span>the argument count</span></td>
+<td><span>the environment count</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -221,8 +222,8 @@ line option switches. command_line contains following routines:</p>
 </tr>
 </table>
 
-<a name="command_line.environment.environment_value"></a><h3>s := command_line.environment.environment_value( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="command_line.environment.environment_value"></a><h3>s := command_line.environment.environment_value( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return an operating system environment value in the form of "VAR=value".</p></td>
@@ -231,7 +232,7 @@ line option switches. command_line contains following routines:</p>
 <td><span class="code">put_line( "First value is " &amp; command_line.environment.environment_value( 1 ) );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -255,7 +256,7 @@ line option switches. command_line contains following routines:</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>A bad environment value number will raise an exception.</p></td>
+<td><p>An exception is raised on a bad environment value number.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -265,17 +266,17 @@ line option switches. command_line contains following routines:</p>
 </tr>
 </table>
 
-<a name="command_line.set_exit_status"></a><h3>command_line.set_exit_status( n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="command_line.set_exit_status"></a><h3>command_line.set_exit_status( n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Set the status code to be returned by the script to the calling program.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">command_line.set_exit_status( 0 ); -- all is well</span></td>
+<td><span class="code">command_line.set_exit_status( 0 ); -- success, no error</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -292,7 +293,7 @@ line option switches. command_line contains following routines:</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if the value is out of range</p></td>
+<td><p>An exception is raised when the value is out of range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="pkg_os.html#os.status">os.status</a></p></td>
@@ -305,14 +306,14 @@ line option switches. command_line contains following routines:</p>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_calendar.html">&nbsp;calendar</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_cgi.html">&nbsp;cgi</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_chains.html">&nbsp;chains</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_cmdline.html">&nbsp;<b>command_line</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_cmdline.html">&nbsp;<strong>command_line</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_db.html">&nbsp;db/ postgresql</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dbm.html">&nbsp;dbm</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;directory_operations</a></p>

@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Records</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_arrays.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_assign.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_arrays.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_assign.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -60,12 +60,12 @@ of variables a record will represent.
 
         <center>
         <div class="code">
-                <p class="code"><b>type</b> customer <b>is</b> <b>record</b><br>
+                <p class="code"><strong>type</strong> customer <strong>is</strong> <strong>record</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp; name : string;<br>
 &nbsp;&nbsp;&nbsp;&nbsp; address : string;<br>
 &nbsp;&nbsp;&nbsp;&nbsp; balance : float;<br>
 &nbsp;&nbsp;&nbsp;&nbsp; active : boolean;<br>
-<b>end</b> <b>record</b>;</p>
+<strong>end</strong> <strong>record</strong>;</p>
         </div>
         </center>
 
@@ -110,7 +110,7 @@ Assigning records to records is only supported in declarations.
 <p>For long records, you can also choose to end the record with <code>end</code> and the
 record name instead of <code>end record</code>.</p>
 
-<p><b>Ada</b>: Null records, variant records, records containing arrays or
+<p><strong>Ada</strong>: Null records, variant records, records containing arrays or
 other records are not yet implemented.  Assignment with <code>other</code> not yet
 implemented.  When <code>pragma ada_95</code> is used, all record declarations must end
 with <code>end record</code>.</p>
@@ -129,7 +129,7 @@ fields can be limited or constants.</p>
         </div>
         </center>
 
-<p><b>Ada</b>: Ada does not have constant or limited record fields.</p>
+<p><strong>Ada</strong>: Ada does not have constant or limited record fields.</p>
 
 <br>&nbsp;
 
@@ -145,7 +145,7 @@ fields can be limited or constants.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;User-defined Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;Enumerated Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_arrays.html">&nbsp;Arrays</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;<b>Records</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;<strong>Records</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;Basic Assignment</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_specials.html">&nbsp;The @ and % Operands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;Command Argument Shortcuts</a></p>

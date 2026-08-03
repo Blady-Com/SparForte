@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Logs</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_lock_files.html" />
 	<link rel="next" href="pkg_memcache.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_lock_files.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_memcache.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_lock_files.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_memcache.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,12 +42,12 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.17"></a>Logs Package</h2>
+<h2><a id="4.21"></a>Logs Package</h2>
 <p>This package contains routines for creating simple program log files.</p>
 
-<p><u>Introduced</u>: SparForte 2.2<br>
+<p><span class="underline">Introduced</span>: SparForte 2.2</p>
 
-<p><u>GCC Ada Equivalent</u>: none<br>
+<p><span class="underline">GCC Ada Equivalent</span>: none</p>
 
         <center>
         <div class="code">
@@ -59,11 +59,11 @@
   <a href="#logs.metrics">metrics( o, i, w, e )</a>             <a href="#logs.mode">m := mode</a>
   <a href="#logs.ok">ok( m )</a>                           <a href="#logs.open">open( p, m [, w] )</a>
   <a href="#logs.rotate_begin">rotate_begin</a>                      <a href="#logs.rotate_end">rotate_end</a>
-  <a href="#logs.warning">warning( m )</a>                      <a href="#logs.width">w := logs.width</a>
+  <a href="#logs.warning">warning( m )</a>                      <a href="#logs.width">w := width</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the logs package
+        <strong>Help Command</strong>: Contents of the logs package
         </div>
         </div>
         </center>
@@ -71,62 +71,62 @@
 <p>A log file records events that occur while a script is running, mainly to
 assist with debugging and security audits.</p>
 
-<p>Only one log may be opened by a script at a time.  If no log is open, the
+<p>A script may open only only one log at a time.  If no log is open, the
 logs package writes messages to current_error (which is standard_error, if
 it is not redirected).</p>
 
-<p>Logs have mode which indicates how the log is stored.
-<b>logs.log_mode</b> is an enumerated type with the following values:</p>
+<p>Logs have mode to change the method of writing the log.
+<strong>logs.log_mode</strong> is an enumerated type with the following values:</p>
 
 <ul>
-<li><b>log_mode.stderr</b> - the log is written to current_error</li>
-<li><b>log_mode.file</b> - the log is written to a file</li>
-<li><b>log_mode.echo</b> - the log is written to both current_error and a file</li>
+<li><strong>log_mode.stderr</strong> - the log is written to current_error</li>
+<li><strong>log_mode.file</strong> - the log is written to a file</li>
+<li><strong>log_mode.echo</strong> - the log is written to both current_error and a file</li>
 </ul>
 
 <p>Log messages have severity levels.  In increasing severity, they are info,
-error and warning.  An ok message means an operation was successful.</p>
+warning and error.  An ok message means an operation was successful.</p>
 
 <p>Log messages may have an nesting level.  Increasing the level increases
-the indentation of the message.  Use the nesting level to make your logs
-easier to read, by grouping related items or showing dependencies.</p>
+the indentation of the message.  Nesting groups related messages and shows
+dependencies.</p>
 
 <p>When you record an event in a log, the message may not be written
-immediately to the log.  They may be buffered which the logs package
+immediately to the log.  The message may be buffered.  The logs package
 checks for duplicate messages.</p>
 
-<p><b>Chaining Messages</b></p>
+<p><strong>Chaining Messages</strong></p>
 
 <p>logs.ok and the other logging message functions may be run in a chain
 with "@".  The messages will be concatenated together to form the
 full message.</p>
 
-<p><b>Format of the Log File</b></p>
-
-<p>The log file has a series of colon-delimited fields.</p>
+<p><strong>Format of the Log File</strong></p>
 
 <pre>
 05/21 12:19:39:31283:logs:OK:logs:13::this is OK
 </pre>
 
+<p>The log file message has a series of colon-delimited fields:</p>
+
 <ul>
-<li><b>Timestamp</b> - the data and time of the entry</li>
-<li><b>PID</b> - the process id</li>
-<li><b>Enclosing Entity</b> - the name of the script (or subprogram)</li>
-<li><b>Severity</b> - the severity level</li>
-<li><b>Filename</b> - the file where the error occurred</li>
-<li><b>Line number</b> - the current line number in the program</li>
-<li><b>Width Spacer</b> - contains enough spaces to reach the column width defined in logs.open</li>
-<li><b>Message</b> - the log message</li>
+<li><strong>Timestamp</strong> - the date and time of the entry</li>
+<li><strong>PID</strong> - the process id</li>
+<li><strong>Enclosing Entity</strong> - the name of the script (or subprogram)</li>
+<li><strong>Severity</strong> - the severity level</li>
+<li><strong>Filename</strong> - the file where the error occurred</li>
+<li><strong>Line number</strong> - the current line number in the program</li>
+<li><strong>Width Spacer</strong> - contains enough spaces to reach the column width defined in logs.open</li>
+<li><strong>Message</strong> - the log message</li>
 </ul>
 
 <p>Except for the timestamp field, other fields are escaped for colons
 and by strings.to_escaped.</p>
 
-<p><b>Log Width and Nesting</b></p>
+<p><strong>Log Width and Nesting</strong></p>
 
-<p>To make log files more readable by humans, you can specify a header
-width and a nesting level.  The header with helps to line up messages
+<p>To make log files more readable by humans, specify a header
+width and a nesting level.  The header width helps to line up messages
 at the same position on a line.  The nesting level indents messages
 to show how messages relate to one another.</p>
 
@@ -135,8 +135,8 @@ to show how messages relate to one another.</p>
 05/21 12:19:39:31283:logs:OK:logs:134:      :  this is a new level
 </pre>
 
-<a name="logs.close"></a><h3>logs.close</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.close"></a><h3>logs.close</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Closes the log.  Writes any outstanding log messages to the log file.</p></td>
@@ -145,7 +145,7 @@ to show how messages relate to one another.</p>
 <td><p><span class="code">logs.close;</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span>None</span></td>
 </tr>
@@ -162,17 +162,17 @@ to show how messages relate to one another.</p>
 </tr>
 </table>
 
-<a name="logs.checkpoint"></a><h3>logs.checkpoint</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.checkpoint"></a><h3>logs.checkpoint</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Save the metrics for this script for retrieval and clears all log metrics for this script to zero.</p></td>
+<td><p>Save the metrics for this script for retrieval.  Resets all log metrics for this script to zero.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><p><span class="code">logs.checkpoint;</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span>none</span></td>
 </tr>
@@ -192,8 +192,8 @@ to show how messages relate to one another.</p>
 </tr>
 </table>
 
-<a name="logs.error"></a><h3>logs.error( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.error"></a><h3>logs.error( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Logs a message with an error severity level at the current
@@ -203,7 +203,7 @@ nesting level.</p></td>
 <td><p><span class="code">logs.error( "the disk is full" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -230,8 +230,8 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.info"></a><h3>logs.info( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.info"></a><h3>logs.info( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Logs a message with an informational severity level at the current
@@ -241,7 +241,7 @@ nesting level.</p></td>
 <td><p><span class="code">logs.info( "starting the update" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -268,8 +268,8 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.is_open"></a><h3>b := logs.is_open</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.is_open"></a><h3>b := logs.is_open</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if the log has been opened.</p></td>
@@ -278,7 +278,7 @@ nesting level.</p></td>
 <td><p><span class="code">if logs.is_open then<br>&nbsp;&nbsp;logs.close;<br>end if;</span></p>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -305,8 +305,8 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.is_rotating"></a><h3>b := logs.is_rotating</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.is_rotating"></a><h3>b := logs.is_rotating</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if log rotation has begun.</p></td>
@@ -315,7 +315,7 @@ nesting level.</p></td>
 <td><p><span class="code">if not logs.is_rotating then...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -342,17 +342,17 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.level_begin"></a><h3>logs.level_begin( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.level_begin"></a><h3>logs.level_begin( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Start a new nesting level.  Returns the level for use with logs.level_end.</p></td>
+<td><p>Start a new nesting level.  Returns the old level l for use with logs.level_end.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><p><span class="code">logs.level_begin( nesting );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -379,8 +379,8 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.level_end"></a><h3>logs.level_end( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.level_end"></a><h3>logs.level_end( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Complete a nesting level.  The parameter is the nesting level
@@ -390,7 +390,7 @@ returned by logs.level_begin.</p></td>
 <td><p><span class="code">logs.level_end( nesting );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -417,17 +417,17 @@ returned by logs.level_begin.</p></td>
 </tr>
 </table>
 
-<a name="logs.metrics"></a><h3>logs.metrics( o, i, w, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.metrics"></a><h3>logs.metrics( o, i, w, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return simple metrics of what the script has written to the log.  The metrics are since the log was opened or since the last time the metrics were cleared.  Does not include automated messages like those for repeated lines.</p></td>
+<td><p>Return simple metrics of what the script has written to the log.  The metrics are gathered since the log was opened or since the last checkpoint.  Automated messages like those for repeated lines are not included.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><p><span class="code">logs.metrics( ok_count, info_count, warning_count, error_count );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -465,7 +465,7 @@ returned by logs.level_begin.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#logs.metrics">logs.clear_metrics</a></p></td>
+<td><p><a href="#logs.checkpoint">logs.checkpoint</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
@@ -478,8 +478,8 @@ returned by logs.level_begin.</p></td>
 </tr>
 </table>
 
-<a name="logs.mode"></a><h3>m := logs.mode</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.mode"></a><h3>m := logs.mode</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the logging mode.</p></td>
@@ -488,7 +488,7 @@ returned by logs.level_begin.</p></td>
 <td><p><span class="code">if logs.mode = log_mode.stderr then...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -515,8 +515,8 @@ returned by logs.level_begin.</p></td>
 </tr>
 </table>
 
-<a name="logs.ok"></a><h3>logs.ok( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.ok"></a><h3>logs.ok( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Logs a message with success severity level at the current
@@ -526,7 +526,7 @@ nesting level.</p></td>
 <td><p><span class="code">logs.ok( "report is complete" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -553,8 +553,8 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.open"></a><h3>logs.open( p, m [,w] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.open"></a><h3>logs.open( p, m [,w] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Creates or resumes a log at path p, in mode m, where messages
@@ -565,7 +565,7 @@ is ignored.</p></td>
 <td><p><span class="code">logs.open( "/var/log/script.log", log_mode.file, 40 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -581,7 +581,7 @@ is ignored.</p></td>
 </tr><tr>
 <td><span>m</span></td>
 <td><span>in</span></td>
-<td><span>log.log_mode</span></td>
+<td><span>logs.log_mode</span></td>
 <td><span>required</span></td>
 <td><span>how the logs are to be written</span></td>
 </tr><tr>
@@ -604,8 +604,8 @@ is ignored.</p></td>
 </tr>
 </table>
 
-<a name="logs.rotate_begin"></a><h3>logs.rotate_begin</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.rotate_begin"></a><h3>logs.rotate_begin</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Create a lock file to prevent logging so that the log
@@ -616,7 +616,7 @@ This does not perform the rotation.</p></td>
 <td><p><span class="code">logs.rotate_begin;</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span>none</span></td>
 </tr>
@@ -633,8 +633,8 @@ This does not perform the rotation.</p></td>
 </tr>
 </table>
 
-<a name="logs.rotate_end"></a><h3>logs.rotate_end</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.rotate_end"></a><h3>logs.rotate_end</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Unlock the log previously locked by logs.rotate_begin.</p></td>
@@ -643,7 +643,7 @@ This does not perform the rotation.</p></td>
 <td><p><span class="code">logs.rotate_end;</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span>none</span></td>
 </tr>
@@ -660,8 +660,8 @@ This does not perform the rotation.</p></td>
 </tr>
 </table>
 
-<a name="logs.warning"></a><h3>logs.warning( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.warning"></a><h3>logs.warning( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Logs a message with a warning severity level at the current
@@ -671,7 +671,7 @@ nesting level.</p></td>
 <td><p><span class="code">logs.warning( "operation taking longer than expected" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -698,8 +698,8 @@ nesting level.</p></td>
 </tr>
 </table>
 
-<a name="logs.width"></a><h3>w := logs.width</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="logs.width"></a><h3>w := logs.width</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the starting position of the log message, not including
@@ -709,7 +709,7 @@ an indent for the logging level.  The width is defined in logs.open.</p></td>
 <td><p><span class="code">if logs.width &gt; 10 then...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -721,7 +721,7 @@ an indent for the logging level.  The width is defined in logs.open.</p></td>
 <td><span>result</span></td>
 <td><span>positive</span></td>
 <td><span>required</span></td>
-<td><span>how the width in characters</span></td>
+<td><span>the width in characters</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -738,7 +738,7 @@ an indent for the logging level.  The width is defined in logs.open.</p></td>
 
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -760,7 +760,7 @@ an indent for the logging level.  The width is defined in logs.open.</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hmaps.html">&nbsp;hashed_maps</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_l10n.html">&nbsp;l10n</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_lock_files.html">&nbsp;lock_files</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_logs.html">&nbsp;<b>logs</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_logs.html">&nbsp;<strong>logs</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache.html">&nbsp;memcache</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache_highread.html">&nbsp;memcache.highread</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysql.html">&nbsp;mysql</a></p>

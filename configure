@@ -1657,7 +1657,7 @@ else
    # There is a known bug with pg_config in that it reports the compiling
    # libraries for the PostgreSQL server, not libpg.  So it reports more
    # libraries than we need.  Strip out any libraries we don't need.
-   PGLIBSSUB=`echo "$PGLIBSSUB" | sed 's/\ \-lxslt//g;s/\ \-lxml2//g;s/\ \-lkrb5//g;s/\ \-lgssapi_krb5//g;s/\ \-lcom_err//g;s/\ \-lcrypto//g;s/\ \-lcrypt//g'`
+   PGLIBSSUB=`echo "$PGLIBSSUB" | sed 's/\ \-lxslt//g;s/\ \-lxml2//g;s/\ \-lkrb5//g;s/\ \-lgssapi_krb5//g;s/\ \-lcom_err//g;s/\ \-lcrypto//g;s/\ \-lcrypt//g;s/\ \-lnuma//g'`
    # On Red Hat 9, PostgreSQL has no libpgcommon for some reason
    TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libpgcommon`
    if [ -z "$TMP" ] ; then

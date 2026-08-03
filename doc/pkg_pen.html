@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Pen</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_os.html" />
 	<link rel="next" href="pkg_records.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_os.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_pengl.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_os.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_pengl.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,8 +42,8 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.18"></a>Pen Package</h2>
-<p><b>NOTE: This package is under construction.  The features have not been finalized.</b></p>
+<h2><a id="4.28"></a>Pen Package</h2>
+<p><strong>NOTE: This package is not complete.  The features have not final.</strong></p>
 <P>The pen package is the SparForte drawing environment.  It is based on the
 Simple DirectMedia Layer portable drawing environment originally created
 by Loki Games, a Linux games company.  However, the SDL is strictly a
@@ -52,12 +52,12 @@ extends the SDL for useful drawing.</p>
 <p>The drawing surface is called <i>a canvas</i>.  The canvas can be a window or
 the hardware screen, but it can also be an off-screen area in memory.  The
 drawing area is divided up into a number of rectangular pixels.</p>
-<p>To open a new canvas in a X Windows window, use:</p>
+<p>To open a new canvas in an X Windows window, use:</p>
 <pre>
-<b>=&gt;</b> pen.new_window_canvas( 256, 256, 16, canvas_id )
+<strong>=&gt;</strong> pen.new_window_canvas( 256, 256, 16, canvas_id )
 =&gt; (Assuming canvas_id is a new pen.canvas_id variable)
 
-<b>=&gt;</b> pen.set_title( canvas_id, "Drawing Area" )
+<strong>=&gt;</strong> pen.set_title( canvas_id, "Drawing Area" )
 </pre>
 <p>This canvas will be 256 pixels wide, 256 pixels high, a minimum of 16-bit colour and
 it will have an X windows title of "Drawing Area".  canvas_id is the id number referring
@@ -71,49 +71,49 @@ percentage of the canvas.  The canvas ranges from (0,0) to (100,100).</p>
 <p>The pen package draws on the canvas using an imaginary <i>pen</i>.  The pen
 has several properties:</p>
 <ul>
-<li><b>Position</b> - the location of the pen on the canvas</li>
+<li><strong>Position</strong> - the location of the pen on the canvas</li>
 
-<li><b>Direction</b> - the angle of rotation of the pen</li>
-<li><b>Ink</b> - the solid colour used drawing with the pencil brush</li>
-<li><b>Pattern</b> - multi-colour ink used for drawing</li>
-<li><b>Brush</b> - how the ink is spread on the canvas</li>
-<li><b>Mode</b> - how the ink is combined with the canvas pixels</li>
+<li><strong>Direction</strong> - the angle of rotation of the pen</li>
+<li><strong>Ink</strong> - the solid colour used for drawing with the pencil brush</li>
+<li><strong>Pattern</strong> - multi-colour ink used for drawing</li>
+<li><strong>Brush</strong> - how the ink is spread on the canvas</li>
+<li><strong>Mode</strong> - how the ink is combined with the canvas pixels</li>
 
 </ul>
 
 <p>Pen modes include:</p>
 
 <ul>
-<li><b>Off</b> - the pen moves but no drawing takes place</li>
-<li><b>Copy</b> - the ink overwrites the existing pixels on the canvas. This
+<li><strong>Off</strong> - the pen moves but no drawing takes place</li>
+<li><strong>Copy</strong> - the ink overwrites the existing pixels on the canvas. This
 is the normal pen mode. (default)</li>
-<li><b>Invert</b> - the ink is exclusive-or'd with the pixels.  Where the
+<li><strong>Invert</strong> - the ink is exclusive-or'd with the pixels.  Where the
 ink is 0%, the canvas is unchanged.  Where the ink is 100%, the canvas pixels
 are transformed to the opposite colour.  This is useful for simple highlighting
 that doesn't lose information on the canvas.</li>
-<li><b>Add</b> - adds the canvas pixels to the ink pixels</li>
-<li><b>Subtract</b> - removes the canvas pixels from the ink pixels</li>
-<li><b>Average</b> - blends the canvas and ink pixels, taking the average value</li>
-<li><b>Fade</b> - brighten or darken the canvas pixels (unfinished)</li>
-<li><b>Min</b> - where the ink is not 0, choose the darker pixel between the ink and the canvas.  If the ink is 0, leave the canvas unchanged. (unfinished)</li>
+<li><strong>Add</strong> - adds the canvas pixels to the ink pixels</li>
+<li><strong>Subtract</strong> - removes the canvas pixels from the ink pixels</li>
+<li><strong>Average</strong> - blends the canvas and ink pixels, taking the average value</li>
+<li><strong>Fade</strong> - brighten or darken the canvas pixels (unfinished)</li>
+<li><strong>Min</strong> - where the ink is not 0, choose the darker pixel between the ink and the canvas.  If the ink is 0, leave the canvas unchanged. (Not complete)</li>
 
-<li><b>Max</b> - where the ink is not 0, choose the brighter pixel between the ink and the canvas.  If the ink is 0, leave the canvas unchanged. (unfinished)</li>
+<li><strong>Max</strong> - where the ink is not 0, choose the brighter pixel between the ink and the canvas.  If the ink is 0, leave the canvas unchanged. (Not complete)</li>
 </ul>
 
 <p>The brush describes the pattern the pen will draw with:</p>
 
 <ul>
-<li><b>Pencil</b> - drawing by single pixels of a solid colour ink (default)</li>
-<li><b>Smear</b> - (Not complete)</li>
+<li><strong>Pencil</strong> - drawing by single pixels of a solid colour ink (default)</li>
+<li><strong>Smear</strong> - (Not complete)</li>
 
-<li><b>Stamp</b> - draw with a pattern aligned to the shape</li>
-<li><b>Stretch</b> - (Not complete) Resize the pattern to fit a shape</li>
-<li><b>Tile</b> - draw with a pattern aligned to the canvas</li>
+<li><strong>Stamp</strong> - draw with a pattern aligned to the shape</li>
+<li><strong>Stretch</strong> - (Not complete) Resize the pattern to fit a shape</li>
+<li><strong>Tile</strong> - draw with a pattern aligned to the canvas</li>
 </ul>
 
 <p>Not all pen modes are available on all kinds of canvas.</p>
 
-<table cellspacing="3" cellpadding="3" width="100%" border="1">
+<table cellspacing="3" cellpadding="3" width="100%" border="1" summary="list of pen modes">
 <tr>
 <td><img src="pictures/pen_tile_example.png" width="124" height="133" alt="pen_brush.tile"><br>pen_brush.tile</td>
 </tr><tr>
@@ -129,9 +129,9 @@ that doesn't lose information on the canvas.</li>
 is an enumerated type with the standard X windows color names.</p>
 
 <pre>
-<b>=&gt;</b> pen.set_pen_mode( canvas_id, pen_mode.copy )
-<b>=&gt;</b> pen.set_pen_brush( canvas_id, pen_brush.pencil)
-<b>=&gt;</b> pen.set_pen_ink( canvas_id, 100, 0, 0 )
+<strong>=&gt;</strong> pen.set_pen_mode( canvas_id, pen_mode.copy )
+<strong>=&gt;</strong> pen.set_pen_brush( canvas_id, pen_brush.pencil)
+<strong>=&gt;</strong> pen.set_pen_ink( canvas_id, 100, 0, 0 )
 </pre>
 
 <p>These commands set the pen brush to a pencil (single pixels) and the mode to copy (the
@@ -154,8 +154,6 @@ supported yet.)</p>
 =&gt; pen.paint_rect(c, r )
 </pre>
 
-</ul>
-
         <center>
         <div class="code">
 <pre>
@@ -170,7 +168,7 @@ supported yet.)</p>
   clear                     clear( r, g, b)          clear( cn )              
 
   get_pen_mode( id )        get_pen_brush( id )      set_pen_ink(id,r,g,b)    
-  set_pen_ink(id,cn)        set_pen_mode( id, m)     set_pen_pattern( id,pid) 
+  set_pen_ink(id,cn)        set_pen_mode( id, m )    set_pen_pattern( id,pid)
   set_pen_brush( id,brush ) set_font( c, f, p )*     put( c, s )*              
   p := greyscale( r,g,b) blend(r1,g1,b1,r2,g2,b2,r,g,b) fade(r1,g1,b1,p,r,g,b)
 
@@ -181,23 +179,23 @@ supported yet.)</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the pen package</span>
+        <strong>Help Command</strong>: Contents of the pen package
         </div>
         </div>
         </center>
 
 <h3>pen.blend( r1, g1, b1, r2 ,g2 ,b2 ,r, g, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Compute the average for the two RGB colours and return
 the resulting RGB colour.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.blend( 0, 0, 0, 100, 100, 100, r, g, b ); -- RGB will be 50;</span></p>
+<td><span class="code">pen.blend( 0, 0, 0, 100, 100, 100, r, g, b ); -- RGB will be 50;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -233,13 +231,13 @@ the resulting RGB colour.</p></td>
 <td><span>in</span></td>
 <td><span>pen.rgbcomponent</span></td>
 <td><span>required</span></td>
-<td><span>percentage of red in the second color</span></td>
+<td><span>percentage of green in the second color</span></td>
 </tr><tr>
 <td><span>b2</span></td>
 <td><span>in</span></td>
 <td><span>pen.rgbcomponent</span></td>
 <td><span>required</span></td>
-<td><span>percentage of red in the second color</span></td>
+<td><span>percentage of blue in the second color</span></td>
 </tr><tr>
 <td><span>r</span></td>
 <td><span>out</span></td>
@@ -262,7 +260,7 @@ the resulting RGB colour.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.fade<br>pen.greyscale</p>
@@ -273,7 +271,7 @@ the resulting RGB colour.</p></td>
 </table>
 
 <h3>pen.clear( c )<br>pen.clear( c, r, g, b)<br>pen.clear( c, cn )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fill the drawing area with the specified color.  The color
@@ -283,10 +281,10 @@ is the equivalent of paint_rect/fill_rect on the entire canvas,
 or the built-in clear command for a terminal session.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.clear( my_canvas, pen_color_name.turquoise );</span></p>
+<td><span class="code">pen.clear( my_canvas, pen_color_name.turquoise );</span>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -329,7 +327,7 @@ or the built-in clear command for a terminal session.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.paint_rect<br>pen.fill_rect<br>pen.frame_rect</p>
@@ -340,7 +338,7 @@ or the built-in clear command for a terminal session.</p></td>
 </table>
 
 <h3>pen.fade( r1, g1, b1, p, r, g, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Brighten or darken a color by percentage p and return
@@ -349,10 +347,10 @@ percentage is negative.  The resulting color will never have
 components more than 100.0 or less than 0.0.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.fade( 100, 100, 50, 50, r, g, b); -- RGB will be 50/50/25</span></p>
+<td><span class="code">pen.fade( 100, 100, 50, 50, r, g, b); -- RGB will be 50/50/25</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -405,7 +403,7 @@ components more than 100.0 or less than 0.0.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.blend<br>pen.greyscale</p>
@@ -417,7 +415,7 @@ components more than 100.0 or less than 0.0.</p></td>
 
 <h3>pen.fill_ellipse( c, rt, r, g, b )
 <br>pen.fill_ellipse( c, rt, cn )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fill ellipse bounded by rectangle r in canvas c using the specified RGB
@@ -431,11 +429,11 @@ until revealed.</p></td>
 =&gt; pen.set_rect( r, 10, 10, 90, 90 );<br>
 =&gt; (Assuming r is a new pen.rect variable)<br>
 =&gt; pen.fill_ellipse( c, r, pen_color_name.yellow )<br>
-<img src="pictures/pen_fill_ellipse.png" width="104" height="133" alt="[Ellipse screehshot]">
-</span></p>
+<img src="pictures/pen_fill_ellipse.png" width="104" height="133" alt="[Ellipse screenshot]">
+</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -484,7 +482,7 @@ until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.frame_rect<br>pen.paint_rect<br>pen.clear</p>
@@ -499,7 +497,7 @@ until revealed.</p></td>
 
 <h3>pen.fill_rect( c, rt, r, g, b )
 <br>pen.fill_rect( c, rt, cn )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fill rectangle rt in canvas c using the specified RGB color
@@ -517,7 +515,7 @@ until revealed.</p></td>
 </span></p>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -566,7 +564,7 @@ until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.frame_rect<br>pen.paint_rect<br>pen.clear</p>
@@ -577,7 +575,7 @@ until revealed.</p></td>
 </table>
 
 <h3>pen.frame_ellipse( c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Draw an outline around ellipse bounded by rectangle r in canvas c using
@@ -585,10 +583,10 @@ the current pen.  If wait_to_reveal is used, the results will not appear until
 revealed.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.frame_ellipse( canvas_id, pie_graph_rect );</span></p>
+<td><span class="code">pen.frame_ellipse( canvas_id, pie_graph_rect );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -611,7 +609,7 @@ revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.fill_ellipse<br>pen.paint_ellipse</p>
@@ -620,22 +618,22 @@ revealed.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Bugs</p></td>
-<td><span class="code">An ellipse in a (0,0,100,100) rectangle throws an exception due to a rounding error.</span></p>
+<td><span class="code">An ellipse in a (0,0,100,100) rectangle throws an exception due to a rounding error.</span></td>
 </tr>
 </table>
 
 <h3>pen.frame_rect( c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Draw an outline around rectangle r in canvas c using the current pen.
 If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.frame_rect( canvas_id, background_rect );</span></p>
+<td><span class="code">pen.frame_rect( canvas_id, background_rect );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -658,7 +656,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.clear<br>pen.fill_rect<br>pen.paint_rect</p>
@@ -669,16 +667,16 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table>
 
 <h3>b := pen.get_pen_brush( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the current pen brush for canvas c.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen_brush := pen.get_pen_brush( canvas_id );</span></p>
+<td><span class="code">pen_brush := pen.get_pen_brush( canvas_id );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -701,7 +699,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.set_pen_brush</p>
@@ -713,16 +711,16 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 
 <h3>pen.get_pen_ink( c, r, g, b )
 </h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the current pen solid drawing colour in canvas c.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.get_pen_ink( canvas_id, red, green, blue );</span></p>
+<td><span class="code">pen.get_pen_ink( canvas_id, red, green, blue );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -757,7 +755,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.set_pen_ink</p>
@@ -768,16 +766,16 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table>
 
 <h3>m := pen.get_pen_mode( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the current pen mode for canvas c.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen_mode := pen.get_pen_mode( canvas_id );</span></p>
+<td><span class="code">pen_mode := pen.get_pen_mode( canvas_id );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -785,7 +783,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>b</span></td>
+<td><span>m</span></td>
 <td><span>return value</span></td>
 <td><span>pen.pen_mode</span></td>
 <td><span>required</span></td>
@@ -800,7 +798,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.set_pen_mode</p>
@@ -811,7 +809,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table>
 
 <h3>p := pen.greyscale( r, g, b ) </h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Compute the greyscale for the RGB color and return the RGB
@@ -819,10 +817,10 @@ percentage (where RGB will be the same).  This is weighted for
 the human eye.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">p := pen.greyscale( 10, 20, 30 );</span></p>
+<td><span class="code">p := pen.greyscale( 10, 20, 30 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -857,7 +855,7 @@ the human eye.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.blend<br>pen.fade</p>
@@ -868,19 +866,18 @@ the human eye.</p></td>
 </table>
 
 <h3>pen.hline( c, x1, x2, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Draw a horizontal line between (x1,y) and (x2,y) on canvas c in the
 current pen.  Ignores clipping region.  If wait_to_reveal is used, the results
 will not appear until revealed.</p></td>
-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.hline( canvas_id, 0, 100, 50);</span></p>
+<td><span class="code">pen.hline( canvas_id, 0, 100, 50);</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -915,7 +912,7 @@ will not appear until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.line<br>pen.vline</p>
@@ -925,16 +922,16 @@ will not appear until revealed.</p></td>
 </tr>
 </table>
 
-<p>
-<hr><b>b := pen.in_rect( x, y, r )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>b := pen.in_rect( x, y, r )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>True if point (x, y) is inside of rectangle r.
 <br>Example: b := pen.in_rect( mouse_x, mouse_y, icon_rect );
 <br>Ada Equivalent: N/A - Pen.in_rect (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>b</td>
 
@@ -944,7 +941,7 @@ will not appear until revealed.</p></td>
 
 <td>required</td>
 
-<td>true if ir is contained in or</td>
+<td>true if point (x, y) is inside r</td>
 </tr><tr>
 <td>x</td>
 
@@ -973,10 +970,9 @@ will not appear until revealed.</p></td>
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.inset_rect( r, dx, dy )</b>
+<hr><strong>pen.inset_rect( r, dx, dy )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Change the size of the rectangle by dx horizontal and dy vertical.  Negative values cause
@@ -984,7 +980,8 @@ the rectangle to grow.  The center of the rectangle remains unchanged.
 <br>Example: pen.inset_rect( shrinking_rect, 10, 10 ); -- shrink by 10% of canvas
 <br>Ada Equivalent: N/A - Pen.inset_rect (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>r</td>
 
@@ -1024,9 +1021,8 @@ the rectangle to grow.  The center of the rectangle remains unchanged.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>b := pen.inside_rect( ir, or )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>b := pen.inside_rect( ir, or )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>True if ir is a rectangle inside of rectangle or.
@@ -1034,7 +1030,8 @@ the rectangle to grow.  The center of the rectangle remains unchanged.
 <br>Ada Equivalent: N/A - Pen.inside_rect (SparForte package)
 
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>b</td>
 
@@ -1075,16 +1072,16 @@ the rectangle to grow.  The center of the rectangle remains unchanged.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.intersect_rect( r, r1, r2 )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.intersect_rect( r, r1, r2 )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Calculate the overlap rectangle (if any) between rectangles r1 and r2.
 <br>Example: pen.intersect_rect( overlap_rect, player_sprite, monster_sprite );
 <br>Ada Equivalent: N/A - Pen.intersect_rect (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>r</td>
 
@@ -1123,19 +1120,19 @@ the rectangle to grow.  The center of the rectangle remains unchanged.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>b := pen.is_empty_rect( r )</b>
+<hr><strong>b := pen.is_empty_rect( r )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>True if r is a rectangle that contains nothing.
 <br>Example: bool := pen.is_empty_rect( some_rect );
 <br>Ada Equivalent: N/A - Pen.isEmptyRect (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
-<td>c</td>
+<td>b</td>
 
 <td>result</td>
 
@@ -1162,9 +1159,8 @@ the rectangle to grow.  The center of the rectangle remains unchanged.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.line( c, dx, dy )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.line( c, dx, dy )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 
@@ -1174,7 +1170,8 @@ If wait_to_reveal is used, the results will not appear until revealed.
 <br>Example: pen.line( canvas_id, 0, 10 );
 <br>Ada Equivalent: N/A - Pen.line (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1190,7 +1187,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1201,7 +1198,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1214,9 +1211,8 @@ If wait_to_reveal is used, the results will not appear until revealed.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.line_to( c, x, y )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.line_to( c, x, y )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Draw a line with the pen from the current pen position to a new position (x,y).
@@ -1224,7 +1220,8 @@ If wait_to_reveal is used, the results will not appear until revealed.
 <br>Example: pen.line_to( canvas_id, 75, 10 );
 <br>Ada Equivalent: N/A - Pen.line (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 
 <tr>
 <td>c</td>
@@ -1241,7 +1238,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1251,7 +1248,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1264,9 +1261,8 @@ If wait_to_reveal is used, the results will not appear until revealed.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.move( c, dx, dy )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.move( c, dx, dy )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Move the pen from the current pen position to a new relative position
@@ -1274,7 +1270,8 @@ offset by dx and dy.   No line will be drawn.
 <br>Example: pen.move( canvas_id, 0, 10 );
 <br>Ada Equivalent: N/A - Pen.move (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1290,7 +1287,7 @@ offset by dx and dy.   No line will be drawn.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1300,7 +1297,7 @@ offset by dx and dy.   No line will be drawn.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1313,9 +1310,8 @@ offset by dx and dy.   No line will be drawn.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.move_to( c, x, y )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.move_to( c, x, y )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 
@@ -1324,7 +1320,8 @@ drawn.
 <br>Example: pen.move_to( canvas_id, 75, 10 );
 <br>Ada Equivalent: N/A - Pen.move (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1340,7 +1337,7 @@ drawn.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1351,7 +1348,7 @@ drawn.
 
 <td>in</td>
 
-<td>pen.coordiante</td>
+<td>pen.coordinate</td>
 
 <td>required</td>
 
@@ -1364,10 +1361,9 @@ drawn.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.new_canvas( h, v, c, id )</b>
-<br><b>pen.new_canvas( s, id )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.new_canvas( h, v, c, id )</strong>
+<br><strong>pen.new_canvas( s, id )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Create a new drawing area canvas that does not appear on the display.
@@ -1381,7 +1377,8 @@ of the canvas to the on-screen canvas, use set_pen_pattern.
 <br>Ada Equivalent: N/A - Pen.newCanvas (SparForte package)
 
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>h</td>
 
@@ -1442,10 +1439,9 @@ of the canvas to the on-screen canvas, use set_pen_pattern.
 <p>An exception may be thrown if the existing canvas does not exist.</p>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.new_gl_screen_canvas( h, v, c, id )</b>
+<hr><strong>pen.new_gl_screen_canvas( h, v, c, id )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Create a new OpenGL drawing area canvas that covers the entire display
@@ -1453,7 +1449,8 @@ screen.
 <br>Example: pen.new_screen_canvas( 100, 100, 16, canvas_id );
 <br>Ada Equivalent: N/A - Pen.newGLScreenCanvas (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>h</td>
 
@@ -1503,9 +1500,8 @@ screen.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.new_gl_window_canvas( h, v, c, id )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.new_gl_window_canvas( h, v, c, id )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Create a new OpenGL drawing area canvas in a separate
@@ -1514,7 +1510,8 @@ by the SDL library.
 <br>Example: pen.new_gl_window_canvas( 100, 100, 16, canvas_id );
 <br>Ada Equivalent: N/A - Pen.newGLWindowCanvas (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 
 <tr>
 <td>h</td>
@@ -1564,17 +1561,17 @@ by the SDL library.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.new_screen_canvas( h, v, c, id )</b>
+<hr><strong>pen.new_screen_canvas( h, v, c, id )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Create a new drawing area canvas that covers the entire display screen.
 <br>Example: pen.new_screen_canvas( 100, 100, 16, canvas_id );
 <br>Ada Equivalent: N/A - Pen.newScreenCanvas (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>h</td>
 
@@ -1624,9 +1621,8 @@ by the SDL library.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.new_window_canvas( h, v, c, id )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.new_window_canvas( h, v, c, id )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Create a new drawing area canvas in a separate operating system window.
@@ -1634,7 +1630,8 @@ Multiple windows may not be supported by the SDL library.
 <br>Example: pen.new_window_canvas( 100, 100, 16, canvas_id );
 <br>Ada Equivalent: N/A - Pen.newWindowCanvas (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 
 <tr>
 <td>h</td>
@@ -1684,10 +1681,9 @@ Multiple windows may not be supported by the SDL library.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.offset_rect( r, dx, dy )</b>
+<hr><strong>pen.offset_rect( r, dx, dy )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Move rectangle by dx horizontal and dy vertical.  The size of the rectangle remains
@@ -1695,7 +1691,8 @@ unchanged.
 <br>Example: pen.offset_rect( player_sprite, 1, 0 );
 <br>Ada Equivalent: N/A - Pen.offset_rect (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>r</td>
 
@@ -1736,17 +1733,17 @@ unchanged.
 &nbsp;<br>
 
 <h3>pen.paint_ellipse( c, r )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Fill ellipse bounded by rectangle r in canvas c using the current pen.
 If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">pen.paint_ellipse( canvas_id, pie_graph_rect );</span></p>
+<td><span class="code">pen.paint_ellipse( canvas_id, pie_graph_rect );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1769,7 +1766,7 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><span class="code">-</span></p>
+<td><span class="code">-</span></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>pen.frame_ellipse<br>pen.fill_ellipse</p>
@@ -1782,9 +1779,8 @@ If wait_to_reveal is used, the results will not appear until revealed.</p></td>
 </tr>
 </table>
 
-<p>
-<hr><b>pen.paint_rect( c, r )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.paint_rect( c, r )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 
@@ -1793,7 +1789,8 @@ If wait_to_reveal is used, the results will not appear until revealed.
 <br>Example: pen.frame_rect( canvas_id, background_rect );
 <br>Ada Equivalent: N/A - Pen.fillRect (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1813,7 +1810,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 
 <td>required</td>
 
-<td>the rectangle to border</td>
+<td>the rectangle to fill</td>
 
 </tr>
 
@@ -1823,9 +1820,8 @@ If wait_to_reveal is used, the results will not appear until revealed.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.reveal( c )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.reveal( c )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Undo a wait_to_reveal.  The time of hiding the drawing has been
@@ -1835,7 +1831,8 @@ reveals are performed (to allow the drawing to be nested).
 <br>Example: pen.reveal( c )
 <br>Ada Equivalent: N/A - Pen (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1854,9 +1851,8 @@ reveals are performed (to allow the drawing to be nested).
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.reveal_now( c )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.reveal_now( c )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Undo all wait_to_reveal calls and immediately show the results of
@@ -1866,7 +1862,8 @@ reveal's will have no effect.
 <br>Example: pen.reveal_now( c )
 <br>Ada Equivalent: N/A - Pen (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1885,9 +1882,8 @@ reveal's will have no effect.
 </table></center>
 &nbsp;<br>
 
-<p>
-<br><b>pen.save_canvas( s, id )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.save_canvas( s, id )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Save the canvas as a BMP image file.  An exception is raised
@@ -1895,9 +1891,9 @@ if the image cannot be saved.
 <br>Example: pen.save_canvas( "company_logo.png", logo_id );
 <br>Ada Equivalent: N/A - Pen
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
-</tr><tr>
 <td>s</td>
 
 <td>in</td>
@@ -1917,27 +1913,27 @@ if the image cannot be saved.
 <td>required</td>
 
 <td>the identification number for the offscreen canvas</td>
-</tr>
+</tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell</p>
-</tr><tr>
+</tr>
 </table>
 </td>
 </tr>
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.set_pen_brush( c, b )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.set_pen_brush( c, b )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Change the current pen brush (pattern application mode) for canvas c.
-<br>Example: pen.set_pen_brush( canvas_id );
+<br>Example: pen.set_pen_brush( canvas_id, pen_brush.tile );
 <br>Ada Equivalent: N/A - Pen.setPenBrush (SparForte package)
 
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -1952,7 +1948,7 @@ if the image cannot be saved.
 </tr><tr>
 <td>b</td>
 
-<td>result</td>
+<td>in</td>
 
 <td>pen.brush</td>
 
@@ -1967,10 +1963,9 @@ if the image cannot be saved.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.set_pen_ink( c, r, g, b )</b>
-<br><b>pen.set_pen_ink( c, n )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.set_pen_ink( c, r, g, b )</strong>
+<br><strong>pen.set_pen_ink( c, n )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Change the current pen solid drawing colour in canvas c.
@@ -1979,7 +1974,8 @@ if the image cannot be saved.
 
 <br>Ada Equivalent: N/A - Pen.setPenInk (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -2039,17 +2035,17 @@ if the image cannot be saved.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>m := pen.set_pen_mode( c )</b>
+<hr><strong>pen.set_pen_mode( c, m )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Change the current pen mode for canvas c.
-<br>Example: pen_mode := pen.get_pen_mode( canvas_id );
-<br>Ada Equivalent: N/A - Pen.getPenMode (SparForte package)
+<br>Example: pen.get_pen_mode( canvas_id, pen_mode.copy );
+<br>Ada Equivalent: N/A - Pen.setPenMode (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -2078,9 +2074,8 @@ if the image cannot be saved.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.set_pen_pattern( c, pid )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.set_pen_pattern( c, pid )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 
@@ -2088,7 +2083,8 @@ if the image cannot be saved.
 <br>Example: pen.set_pen_pattern( canvas_id, company_logo_canvas_id );
 <br>Ada Equivalent: N/A - Pen.setPenPattern (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -2118,9 +2114,8 @@ if the image cannot be saved.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.set_rect( r, l, t, r, b )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.set_rect( r, l, t, r, b )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Assign coordinates to a rectangle.
@@ -2128,7 +2123,8 @@ if the image cannot be saved.
 <br>Ada Equivalent: N/A - Pen.setRect (SparForte package)
 
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>r</td>
 
@@ -2150,7 +2146,7 @@ if the image cannot be saved.
 <td>required</td>
 
 <td>the left coordinate</td>
-</tr>
+</tr><tr>
 <td>t</td>
 
 <td>in</td>
@@ -2160,7 +2156,7 @@ if the image cannot be saved.
 <td>required</td>
 
 <td>the top coordinate</td>
-</tr>
+</tr><tr>
 <td>r</td>
 
 <td>in</td>
@@ -2170,7 +2166,7 @@ if the image cannot be saved.
 <td>required</td>
 
 <td>the right coordinate</td>
-</tr>
+</tr><tr>
 <td>b</td>
 
 <td>in</td>
@@ -2188,10 +2184,9 @@ if the image cannot be saved.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.set_title( c, t )</b>
+<hr><strong>pen.set_title( c, t )</strong>
 
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Change the title of canvas c to string t.  On a window canvas, update the
@@ -2199,7 +2194,8 @@ window title bar.
 <br>Example: set_title( canvas_id, "Graph of Results" );
 <br>Ada Equivalent: N/A - Pen.setTitle (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -2228,9 +2224,8 @@ window title bar.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.wait_to_reveal( c )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.wait_to_reveal( c )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
 <br>Begin to hide the results of the drawing commands.  Continue to hide
@@ -2243,7 +2238,8 @@ refreshed after each drawing operation.
 <br>Example: pen.wait_to_reveal( c )
 <br>Ada Equivalent: N/A - Pen (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -2262,18 +2258,17 @@ refreshed after each drawing operation.
 </table></center>
 &nbsp;<br>
 
-<p>
-<hr><b>pen.vline( c, x, y1, y2 )</b>
-<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="95%" NOSAVE >
+<hr><strong>pen.vline( c, x, y1, y2 )</strong>
+<center><table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td>
-
 <br>Draw a vertical line between (x,y1) and (x,y2) on canvas c in the current pen.  Ignores clipping region.
 If wait_to_reveal is used, the results will not appear until revealed.
-<br>Example: pen.set_vline( canvas_id, 50, 0, 100);
+<br>Example: pen.vline( canvas_id, 50, 0, 100);
 <br>Ada Equivalent: N/A - Pen.vline (SparForte package)
 <br>Parameters:
-<table CELLSPACING=0 CELLPADDING=0 WIDTH="80%" NOSAVE >
+<table class="subprogram_parameters" summary="subprogram parameters">
+
 <tr>
 <td>c</td>
 
@@ -2304,7 +2299,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 
 <td>required</td>
 
-<td>the top-most y coordiante</td>
+<td>the top-most y coordinate</td>
 </tr><tr>
 <td>y2</td>
 
@@ -2326,7 +2321,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -2355,7 +2350,7 @@ If wait_to_reveal is used, the results will not appear until revealed.
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysqlm.html">&nbsp;mysqlm</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_numerics.html">&nbsp;numerics</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_os.html">&nbsp;os</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_pen.html">&nbsp;<b>pen</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_pen.html">&nbsp;<strong>pen</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_pengl.html">&nbsp;pen (OpenGL)</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_records.html">&nbsp;records</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_sound.html">&nbsp;sound</a></p>
@@ -2369,8 +2364,6 @@ If wait_to_reveal is used, the results will not appear until revealed.
                                 <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;text_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;units</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_vectors.html">&nbsp;vectors</a></p>
-</a></p>
-
 			</td>
 		</tr>
 		<tr>

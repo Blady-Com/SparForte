@@ -8,27 +8,27 @@
 	<title>SparForte - Contributors - Source Guide</title>
     <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html"><b>Contributors</b></a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="cont_roadmap.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="cont_uport.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html"><strong>Contributors</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="cont_roadmap.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="cont_uport.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -79,21 +79,21 @@ on top of another:
 
 <ol>
 <li>
-<b>utilities</b> - packages containing commonly used functions shared by
+<strong>utilities</strong> - packages containing commonly used functions shared by
 several packages</li>
 
 <li>
-<b>scanner</b> - packages implementing the lexical scanner.&nbsp; This part
+<strong>scanner</strong> - packages implementing the lexical scanner.&nbsp; This part
 of SparForte compiles the byte code, maintains the symbol table, and interprets
 the script as a series of "tokens".</li>
 
 <li>
-<b>parser</b> - packages that implement the SparForte features and that check for
+<strong>parser</strong> - packages that implement the SparForte features and that check for
 syntactic and semantic errors.&nbsp; This part of SparForte "runs" the script
 and reports error messages.</li>
 
 <li>
-<b>main program</b> - the procedure that runs when SparForte is started
+<strong>main program</strong> - the procedure that runs when SparForte is started
 (spar.adb)</li>
 </ol>
 
@@ -105,7 +105,7 @@ other packages.</p>
 <ul>
 
 <li>
-<b>spar_os</b> - the package containing a thin binding to your operating system.
+<strong>spar_os</strong> - the package containing a thin binding to your operating system.
 For example, opening files, deleting files, creating pipes, operating system
 error codes, etc.
 When the configure script is run, these files are created by copying bush_linux,
@@ -114,70 +114,70 @@ There are several child packages: support for the O/S terminal (bush_os.tty),
 support for the SDL library (bush_os.sdl) and executing programs (bush_os.exec).</li>
 
 <li>
-<b>spar_alpha</b> - spar_os for Linux on DEC Alpha computers</li>
+<strong>spar_alpha</strong> - spar_os for Linux on DEC Alpha computers</li>
 
 <li>
-<b>spar_cygwin</b> - spar_os for the Cygwin system on Microsoft Windows computers</li>
+<strong>spar_cygwin</strong> - spar_os for the Cygwin system on Microsoft Windows computers</li>
 
 <li>
-<b>spar_freebsd</b> - spar_os for FreeBSD operating system</li>
+<strong>spar_freebsd</strong> - spar_os for FreeBSD operating system</li>
 
 <li>
-<b>spar_linux</b> - spar_os for the Linux on i386/x86_64 systems</li>
+<strong>spar_linux</strong> - spar_os for the Linux on i386/x86_64 systems</li>
 
 <li>
-<b>world</b> - the symbol table and global type declarations</li>
+<strong>world</strong> - the symbol table and global type declarations</li>
 
 <li>
-<b>gen_list</b> - a generic (template) package for single-direction linked
+<strong>gen_list</strong> - a generic (template) package for single-direction linked
 lists.</li>
 
 <li>
-<b>pen</b> - the pen drawing package (uses SDL).</li>
+<strong>pen</strong> - the pen drawing package (uses SDL).</li>
 
 <li>
-<b>script_io</b> - routines to read a script file</li>
+<strong>script_io</strong> - routines to read a script file</li>
 
 <li>
-<b>user_io</b> - routines to read the keyboard and print to the screen.&nbsp;
+<strong>user_io</strong> - routines to read the keyboard and print to the screen.&nbsp;
 Also implements the emacs and vi editing modes.</li>
 
 <li>
-<b>signal_flags</b> - interface to the C signal handlers.</li>
+<strong>signal_flags</strong> - interface to the C signal handlers.</li>
 
 <li>
-<b>c_os</b> - support functions written in the C language.&nbsp; In particular,
+<strong>c_os</strong> - support functions written in the C language.&nbsp; In particular,
 the signal handlers are written in C, and helper functions for graphics.</li>
 
 <li>
-<b>c_scanner</b> - a function based on the GCC Ada source code dealing with the calendar, required by the SparForte calendar package.</li>
+<strong>c_scanner</strong> - a function based on the GCC Ada source code dealing with the calendar, required by the SparForte calendar package.</li>
 </ul>
 
 <h3>Scanner Packages</h3>
 
 <ul>
 <li>
-<b>jobs</b> - runs an operating system command.&nbsp; That is, forks
+<strong>jobs</strong> - runs an operating system command.&nbsp; That is, forks
 off a separate process, sets up standard input, output and error, and starts
 the command running.&nbsp; Also implements SparForte job control.</li>
 
 <li>
-<b>scanner</b> - contains the main body of the scanner.&nbsp; Includes
+<strong>scanner</strong> - contains the main body of the scanner.&nbsp; Includes
 identifier declarations, byte code compiler,&nbsp; tokenizing functions,
 and error reporting.</li>
 
 <li>
-<b>scanner-arrays </b>- the implementation of SparForte single-dimensional
+<strong>scanner-arrays </strong>- the implementation of SparForte single-dimensional
 arrays.</li>
 
 <li>
-<b>scanner-calendar </b>- implementation of Ada.Calendar package.&nbsp;
+<strong>scanner-calendar </strong>- implementation of Ada.Calendar package.&nbsp;
 (This is the GCC Ada calendar package with the time type as non-private
 so it can be used from SparForte.)</li>
 
 <li>
-<b>scanner-calendar-latest.ads</b> / <b>scanner-calendar-pre441.ads</b> /
-<b>scanner-calendar-pre431.ads</b> / <b>scan-cal-gnat314.ads</b> - different
+<strong>scanner-calendar-latest.ads</strong> / <strong>scanner-calendar-pre441.ads</strong> /
+<strong>scanner-calendar-pre431.ads</strong> / <strong>scan-cal-gnat314.ads</strong> - different
 versions of the Ada.Calendar
 package from different versions of GCC Ada modified for use with SparForte.
 "pre441", for example, means
@@ -191,84 +191,84 @@ one and copies it to the name scanner-calendar</li>
 
 <ul>
 <li>
-<b>builtins</b> - implementation of built-in shell commands.&nbsp; That
+<strong>builtins</strong> - implementation of built-in shell commands.&nbsp; That
 is, "cd", "pwd", "history", "help" and so on.</li>
 
 <li>
-<b>parser</b> - implements the core AdaScript language and any packages not
+<strong>parser</strong> - implements the core AdaScript language and any packages not
 separated into another file (e.g. sound).&nbsp;
 Handles syntax checking, running scripts and running commands at the SparForte
 command prompt.</li>
 
 <li>
-<b>parser_arrays</b> - implementation of the built-in arrays package.</li>
+<strong>parser_arrays</strong> - implementation of the built-in arrays package.</li>
 
 <li>
-<b>parser_aux</b> - utility functions solely for the parser.&nbsp; For example,
+<strong>parser_aux</strong> - utility functions solely for the parser.&nbsp; For example,
 working with file_type variables, creating temp files and opening network
 sockets.</li>
 
 <li>
-<b>parser_awk</b> - implementation of the Gnat.Awk package (not implemented)</li>
+<strong>parser_awk</strong> - implementation of the Gnat.Awk package (not implemented)</li>
 
 <li>
-<b>parser_cal</b> - implementation of the built-in calendar package; interface
+<strong>parser_cal</strong> - implementation of the built-in calendar package; interface
 to scanner-calendar package.</li>
 
 <li>
-<b>parser_cgi </b>- implementation of the built-in cgi package; interface
+<strong>parser_cgi </strong>- implementation of the built-in cgi package; interface
 to the AdaCGI package</li>
 
 <li>
-<b>parser_cmd</b> -&nbsp; implementation of the built-in command_line package,
+<strong>parser_cmd</strong> -&nbsp; implementation of the built-in command_line package,
 interface to Ada.Command_Line</li>
 
 <li>
-<b>parser_db</b> - implementation of the built-in db package; interface
+<strong>parser_db</strong> - implementation of the built-in db package; interface
 to Warren Gay's APQ Postgres binding</li>
 
 <li>
-<b>parser_dirops</b> - implementation of the directory_operations package;
+<strong>parser_dirops</strong> - implementation of the directory_operations package;
 interface to Gnat.Directory_Operations package</li>
 
 <li>
-<b>parser_enums</b> - implementation of the built-in enums package,
+<strong>parser_enums</strong> - implementation of the built-in enums package,
 interface to various Ada enumerated type features/packages</li>
 
 <li>
-<b>parser_files</b> -&nbsp; implementation of the built-in files package</li>
+<strong>parser_files</strong> -&nbsp; implementation of the built-in files package</li>
 
 <li>
-<b>parser_lock </b>- implementation of the built-in lock_files package,
+<strong>parser_lock </strong>- implementation of the built-in lock_files package,
 interface to GNAT.Lock_Files</li>
 
 <li>
-<b>parser_mysql</b> - implementation of the built-in mysql package; interface
+<strong>parser_mysql</strong> - implementation of the built-in mysql package; interface
 to Warren Gay's APQ MySQL binding</li>
 
 <li>
-<b>parser_numerics</b> - implementation of the built-in numerics package,
+<strong>parser_numerics</strong> - implementation of the built-in numerics package,
 interface to various Ada numeric features/packages</li>
 
 <li>
-<b>parser_os</b> -&nbsp; implementation of the built-in os package</li>
+<strong>parser_os</strong> -&nbsp; implementation of the built-in os package</li>
 
 <li>
-<b>parser_pen</b> -&nbsp; implementation of the built-in pen package</li>
+<strong>parser_pen</strong> -&nbsp; implementation of the built-in pen package</li>
 
 <li>
-<b>parser_stats</b> -&nbsp; implementation of the built-in stats package</li>
+<strong>parser_stats</strong> -&nbsp; implementation of the built-in stats package</li>
 
 <li>
-<b>parser_strings</b> - implementation of the built-in strings package,
+<strong>parser_strings</strong> - implementation of the built-in strings package,
 interface to various Ada string features/packages</li>
 
 <li>
-<b>parser_tio</b> - implementation of the built-in Text_IO package,
+<strong>parser_tio</strong> - implementation of the built-in Text_IO package,
 interface to the Ada.Text_IO package.</li>
 
 <li>
-<b>parser_units</b> - implementation of the built-in units package,
+<strong>parser_units</strong> - implementation of the built-in units package,
 interface to various measurement conversion routines.</li>
 </ul>
 
@@ -277,7 +277,7 @@ interface to various measurement conversion routines.</li>
 <ul>
 <li>
 
-<b>spar</b> - shows --help instructions, interprets command line option
+<strong>spar</strong> - shows --help instructions, interprets command line option
 switches, invokes the SparForte parser</li>
 </ul>
 
@@ -287,12 +287,12 @@ switches, invokes the SparForte parser</li>
 release.  Most of these projects are contained in subdirectories.</p>
 
 <ul>
-<li><b>adacgi</b> - David Wheeler's CGI library</li>
-<li><b>ADAVOX</b> - Warren Gay's Sound library</li>
-<li><b>apq</b> - Warren Gay's Database library</li>
-<li><b>base64</b> - Tom Moran's Base64 encoding library</li>
-<li><b>MD5</b> - Christoph Grein's MD5 library</li>
-<li><b>pegasock</b> - Ken Burtch's socket library</li>
+<li><strong>adacgi</strong> - David Wheeler's CGI library</li>
+<li><strong>ADAVOX</strong> - Warren Gay's Sound library</li>
+<li><strong>apq</strong> - Warren Gay's Database library</li>
+<li><strong>base64</strong> - Tom Moran's Base64 encoding library</li>
+<li><strong>MD5</strong> - Christoph Grein's MD5 library</li>
+<li><strong>pegasock</strong> - Ken Burtch's socket library</li>
 </ul>
 
 &nbsp;<br>
@@ -301,7 +301,7 @@ release.  Most of these projects are contained in subdirectories.</p>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="cont_vision.html">&nbsp;Vision</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_roadmap.html">&nbsp;Roadmap</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="cont_sguide.html">&nbsp;<b>Source Guide</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="cont_sguide.html">&nbsp;<strong>Source Guide</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_uport.html">&nbsp;UNIX Ports</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_wport.html">&nbsp;Windows Ports</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="cont_bindings.html">&nbsp;Bindings</a></p>

@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Value Meta Tags</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_adascript.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_reserved.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_adascript.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_reserved.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -41,7 +41,7 @@
 	<!-- Content Area -->
 <h2>Value Meta Tags</h2>
 
-<p><b>NOTE: This feature is under construction.  The features are not complete and may change.</b></p>
+<p><strong>NOTE: This feature is under construction.  The features are not complete and may change.</strong></p>
 
 <p>Variables and parameters have types or subtypes.  The values that are
 stored in them can have optional data meta tags.  The labels are names
@@ -58,37 +58,37 @@ that store values will also store the tags along with them.</p>
 is created with "is new meta".</p>
 
 <pre>
-   <b>meta</b> uom_name <b>is</b> <b>new</b> <b>meta</b>; -- a new unit-of-measure
-   <b>meta</b> <b>policy</b> policy_name <b>is</b> <b>new</b> <b>meta</b>; -- a new security policy
+   <strong>meta</strong> uom_name <strong>is</strong> <strong>new</strong> <strong>meta</strong>; -- a new unit-of-measure
+   <strong>meta</strong> <strong>policy</strong> policy_name <strong>is</strong> <strong>new</strong> <strong>meta</strong>; -- a new security policy
 </pre>
 
 <p>Meta labels can also be abstract.  These can be declared but not tagged
 to values.</p>
 
 <pre>
-   <b>meta</b> uom_name <b>is</b> <b>new</b> <b>abstract</b> <b>meta</b>;
+   <strong>meta</strong> uom_name <strong>is</strong> <strong>new</strong> <strong>abstract</strong> <strong>meta</strong>;
 </pre>
 
 <p>New labels can be extended from existing labels.</p>
 
 <pre>
-   <b>meta</b> distance <b>is</b> <b>new</b> <b>abstract</b> <b>meta</b>;
-   <b>meta</b> kilometers <b>is</b> <b>new</b> distance;
-   <b>meta</b> miles <b>is</b> <b>new</b> distance;
+   <strong>meta</strong> distance <strong>is</strong> <strong>new</strong> <strong>abstract</strong> <strong>meta</strong>;
+   <strong>meta</strong> kilometers <strong>is</strong> <strong>new</strong> distance;
+   <strong>meta</strong> miles <strong>is</strong> <strong>new</strong> distance;
 </pre>
 
 <h3>Tagging Values</h3>
 
-<p>Meta tags are attached to a value with the <tt>tagged</tt> keyword.
+<p>Meta tags are attached to a value with the <code>tagged</code> keyword.
 Tagged can be used on numeric literals, string literals, backquoted
 literals or enumerated type items.</p>
 
 <ul>
-<li>30 <b>tagged</b> kilometers</li>
-<li>50.0 <b>tagged</b> us_dollars</li>
-<li> "company name" <b>tagged</b> utf8_english</li>
-<li>`ls -l` <b>tagged</b> <b>policy</b> unchecked_data</li>
-<li>apple <b>tagged</b> <b>policy</b> confidential -- where apple is an enumerated item</li>
+<li>30 <strong>tagged</strong> kilometers</li>
+<li>50.0 <strong>tagged</strong> us_dollars</li>
+<li> "company name" <strong>tagged</strong> utf8_english</li>
+<li>`ls -l` <strong>tagged</strong> <strong>policy</strong> unchecked_data</li>
+<li>apple <strong>tagged</strong> <strong>policy</strong> confidential -- where apple is an enumerated item</li>
 </ul>
 
 <p>The value in variables cannot be tagged.  You can only tag values at
@@ -97,12 +97,12 @@ cannot be tagged.  The value of "y" must have originated somewhere
 earlier.</p>
 
 <p>Enumerated items cannot be given a tag when they are defined in
-a <tt>type</tt> declaration.</p>
+a <code>type</code> declaration.</p>
 
 <h3>Unit-of-Measure Labels</h3>
 
-<p><b>Units of measure is a description of what a number
-represents.</b>  If a number is 500, what is it measuring?  500 of what?
+<p><strong>Units of measure is a description of what a number
+represents.</strong>  If a number is 500, what is it measuring?  500 of what?
 It could be
 temperature, distance, inventory stock, money or something else.  The
 description names the things you are measuring.  As I recall, there was a
@@ -114,11 +114,11 @@ team used metric.</p>
 currency:</p>
 
 <pre>
-   north_american_sales := 50_000 <b>tagged</b> us_dollars;
-   european_sales       := 50_000 <b>tagged</b> euros;
+   north_american_sales := 50_000 <strong>tagged</strong> us_dollars;
+   european_sales       := 50_000 <strong>tagged</strong> euros;
    total_sales          := north_american_sales + european_sales; -- ERROR
-                                                                ^ In the expression, the left value tag <b>us_dollars</b> is not compatible with
-   the right value tag of <b>euros</b>
+                                                                ^ In the expression, the left value tag <strong>us_dollars</strong> is not compatible with
+   the right value tag of <strong>euros</strong>
 </pre>
 
 <p>This is sometimes described as "comparing apples
@@ -129,7 +129,7 @@ different units.</p>
 strings do not measure anything per se.  For example:</p>
 
 <pre>
-   company_name := "Sales Co" <b>tagged</b> english;
+   company_name := "Sales Co" <strong>tagged</strong> english;
 </pre>
 
 <p>While you could create separate variables with strong typing for
@@ -143,7 +143,7 @@ run-time, or with projects that have memory constraints.</p>
 securing personal and financial data.  I want to provide a safety net
 to stop sensitive data from being leaked.</p>
 
-<p><b>Tags can track security policies.</b>
+<p><strong>Tags can track security policies.</strong>
 Each file is assigned policies that they support.  Each value
 is assigned the data policy of the value.  Values can only be
 written to files supporting the correct policy.  For example,
@@ -151,23 +151,23 @@ what if I want to label a credit card number with PCI, the
 security standard for the payment card industry?</p>
 
 <pre>
-   credit_card := "1234567890" <b>tagged</b> <b>policy</b> pci;
+   credit_card := "1234567890" <strong>tagged</strong> <strong>policy</strong> pci;
    put( "My credit card is " );
    put_line( credit_card );
-                       ^ In <b>put_line</b>, the expression policy <b>pci</b> is not compatible with <b>standard_output</b>
-(policy <b>public</b>)
+                       ^ In <strong>put_line</strong>, the expression policy <strong>pci</strong> is not compatible with <strong>standard_output</strong>
+(policy <strong>public</strong>)
 </pre>
 
 <p>In this case, a value under the PCI policy cannot
 be written to an unsecured public file like standard output.  Even if
-a malicious threat actor manipulated a script to write such a
+a malicious threat actor made use of a script to write such a
 value, the language will refuse to do so.</p>
 
 <p>Unlike units-of-measure, policies will "bleed" or "taint"
 derived values.</p>
 
 <pre>
-   credit_card := "1234567890" <b>tagged</b> <b>policy</b> pci;
+   credit_card := "1234567890" <strong>tagged</strong> <strong>policy</strong> pci;
    checksum := strings.md5( credit_card );
 </pre>
 
@@ -181,12 +181,12 @@ its own.</p>
 <p>This is allowed:</p>
 
 <pre>
-  some_array(1) := 15 <b>tagged</b> miles;
-  some_array(2) := 25 <b>tagged</b> kilometers;
+  some_array(1) := 15 <strong>tagged</strong> miles;
+  some_array(2) := 25 <strong>tagged</strong> kilometers;
 </pre>
 
 <p>However, some subprograms using arrays may fail.  For example,
-you won't be able to use <tt>stats.sum</tt> to add the values in
+you won't be able to use <code>stats.sum</code> to add the values in
 an array unless the items all have the same unit-of-measure.</p>
 
 <h3>The Authorize Statement</h3>
@@ -206,21 +206,21 @@ will not be enforced.  This is for backward compatibility.</p>
 
 <p>For policy meta tags, the label cannot be assigned unless
 the script is authorized to use the meta tag.  The authorization
-expires at the end of the <tt>authorize</tt> block.</p>
+expires at the end of the <code>authorize</code> block.</p>
 
 <pre>
-  <b>authorize</b> <b>meta</b> <b>policy</b> pci <b>begin</b>
-    credit_card := "1234567890" <b>tagged</b> <b>policy</b> pci;
-  <b>end</b> <b>meta</b> pci;
+  <strong>authorize</strong> <strong>meta</strong> <strong>policy</strong> pci <strong>begin</strong>
+    credit_card := "1234567890" <strong>tagged</strong> <strong>policy</strong> pci;
+  <strong>end</strong> <strong>meta</strong> pci;
 </pre>
 
-<p>However, this will fail because policy <tt>gdpr</tt> is not the same
-as policy <tt>pci</tt>:</p>
+<p>However, this will fail because policy <code>gdpr</code> is not the same
+as policy <code>pci</code>:</p>
 
 <pre>
-  <b>authorize</b> <b>meta</b> <b>policy</b> gdpr <b>begin</b>
-    credit_card := "1234567890" <b>tagged</b> <b>policy</b> pci;
-  <b>end</b> <b>meta</b> gdpr;
+  <strong>authorize</strong> <strong>meta</strong> <strong>policy</strong> gdpr <strong>begin</strong>
+    credit_card := "1234567890" <strong>tagged</strong> <strong>policy</strong> pci;
+  <strong>end</strong> <strong>meta</strong> gdpr;
 </pre>
 
 <p>You cannot authorize unit-of-measure tags.</p>
@@ -228,12 +228,12 @@ as policy <tt>pci</tt>:</p>
 <h3>Assigning Meta Policies to Standard Files</h3>
 
 <p>Policies can be assigned to standard input, standard output or
-standard error using <tt>pragma meta_tag</tt>.  Once a policy
+standard error using <code>pragma meta_tag</code>.  Once a policy
 has been set, it cannot be changed.</p>
 
 <pre>
-  <b>pragma</b> meta_tag( standard_input, unchecked );
-  <b>pragma</b> meta_tag( standard_output, pci );
+  <strong>pragma</strong> meta_tag( standard_input, unchecked );
+  <strong>pragma</strong> meta_tag( standard_output, pci );
 </pre>
 
 <p>In this example, every value read from standard input will have
@@ -246,19 +246,19 @@ must have a policy of "pci".</p>
   put_line( s ); -- error: policy unchecked is not policy pci
 </pre>
 
-<p>In this example, the value of variable <tt>s</tt> has the <tt>unchecked</tt> policy label.
-Since unchecked is not the expected policy, the <tt>put_line</tt> will fail.</p>
+<p>In this example, the value of variable <code>s</code> has the <code>unchecked</code> policy label.
+Since unchecked is not the expected policy, the <code>put_line</code> will fail.</p>
 
 <p>User files inherit the policy of their pathnames.</p>
 
 <pre>
    credit_card_file : file_type;
-   credit_card_file_path : constant string := "cc.dat" <b>tagged</b> pci;
+   credit_card_file_path : constant string := "cc.dat" <strong>tagged</strong> pci;
    open( credit_card_file, credit_card_file_path ); -- credit card file will have policy pci
 </pre>
 
-<p>In this example, any value written to <tt>credit_card_file</tt> must have a
-<tt>pci</tt> policy tag.</p>
+<p>In this example, any value written to <code>credit_card_file</code> must have a
+<code>pci</code> policy tag.</p>
 
 <h3>Changing the Tag of a Value</h3>
 
@@ -270,7 +270,7 @@ Since unchecked is not the expected policy, the <tt>put_line</tt> will fail.</p>
 			</td>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="ref_adascript.html">&nbsp;AdaScript versus GCC</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_case.html">&nbsp;<b>Case Sensitivity</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_case.html">&nbsp;<strong>Case Sensitivity</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_reserved.html">&nbsp;Reserved Words</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_comments.html">&nbsp;Comments</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;Literals</a></p>

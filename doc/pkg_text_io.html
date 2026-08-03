@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Text_IO</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_templates.html" />
 	<link rel="next" href="pkg_units.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_templates.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_units.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_templates.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_units.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,12 +42,13 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.2"></a>Console Input/Output (Text_IO)</h2>
-<p>The Text_IO package handles reading and writing to the console (or UNIX
+<h2><a id="4.39"></a>Console Input/Output (Text_IO)</h2>
+
+<p>The Text_IO package handles reading and writing to the text screen or console (or UNIX
 tty device) and text files.  The package name "text_io" should be omitted
 when invoking these subroutines.</p>
 
-<p><u>GCC Ada Equivalent</u>: Ada.Text_IO<br>
+<p><span class="underline">GCC Ada Equivalent</span>: Ada.Text_IO</p>
 
         <center>
         <div class="code">
@@ -63,41 +64,41 @@ when invoking these subroutines.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the arrays package
+        <strong>Help Command</strong>: Contents of the text_io package
         </div>
         </div>
         </center>
 
-<p>Files are opened using <b>file_type</b> variables.</p>
+<p>Files are opened using <strong>file_type</strong> variables.</p>
 
-<p>The predefined enumerated type <b>file_mode</b> determines if a file will be
-read (<b>in_file</b>), written to (<b>out_file</b>) or appended to (<b>append_file</b>).  If a file is appended to, it should already exist.</p>
+<p>The predefined enumerated type <strong>file_mode</strong> determines if a file will be
+read (<strong>in_file</strong>), written to (<strong>out_file</strong>) or appended to (<strong>append_file</strong>).  If a file is appended to, it should already exist.</p>
 
-<p>There are several predefined file_type constants: <b>standard_input</b>,
-<b>standard_output</b> and <b>standard_error</b> can be used to redirect I/O
+<p>There are several predefined file_type constants: <strong>standard_input</strong>,
+<strong>standard_output</strong> and <strong>standard_error</strong> can be used to redirect I/O
 to your operating system's standard input, output or error respectively.</p>
 
 <p>There are also three file_type aliases. These can be used
 anywhere a file_type variable is expected.
 <ul>
 <li>
-<b>current_input</b> -- an alias for the current input file</li>
+<strong>current_input</strong> -- an alias for the current input file</li>
 
 <li>
-<b>current_output</b>-- an alias for the current output file</li>
+<strong>current_output</strong>-- an alias for the current output file</li>
 
 <li>
-<b>current_error</b> -- an alias for the current error file</li>
+<strong>current_error</strong> -- an alias for the current error file</li>
 </ul>
 
 <p>The current aliases can be redirected using set_output or related
 procedures.</p>
 
-<p><tt>=&gt; set_output( f )</tt>
+<p><code>=&gt; set_output( f )</code>
 <p>From now on, all output going to standard output is written to the file_type
 variable f. The current_output function refers to the file being written
 to (in this case, f). Output redirected to f is not counted by the line
-function.
+function.</p>
 
 <p>The put, put_line, get, get_line and new_line commands are used to read
 and write files.</p>
@@ -118,26 +119,26 @@ out_file<br>
 </p>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Example</b>: Writing to a text file
+        <strong>Example</strong>: Writing to a text file
         </div>
         </div>
         </center>
 
-<p><b>Ada</b>: look_ahead is not yet implemented</p>
+<p><strong>Ada</strong>: look_ahead is not yet implemented</p>
 
 <p>&nbsp;
 
-<a name="question_mark"></a><h3>? e (question mark command)</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="question_mark"></a><h3>? e (question mark command)</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Display expression e to current output.  If appropriate, removes the decimal part of the expression (i.e. 41.0 will be displayed as 41) so as more human-friendly.  If f is specified, writes to the file f instead of current_output.  The expression type can be a string type, a numeric type or an enumerated type.  Limited types are not allowed.</p></td>
+<td><p>Display expression e to current output.  If appropriate, removes the decimal part of the expression (i.e. 41.0 is shown as 41) for readability.  If f is specified, writes to the file f instead of current_output.  The expression type can be a string type, a numeric type or an enumerated type.  Limited types are not allowed.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">? 3*2; -- displays 6</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -170,8 +171,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="close"></a><h3>close( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="close"></a><h3>close( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Close and save the open file f</p></td>
@@ -180,7 +181,7 @@ out_file<br>
 <td><span class="code">close( data );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -207,8 +208,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="create"></a><h3>create( f [, m] [, n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="create"></a><h3>create( f [, m] [, n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Create a new file or open an existing file for writing. If no path is specified, create a new temporary file.  The mode cannot be in_file.</p></td>
@@ -217,7 +218,7 @@ out_file<br>
 <td><span class="code">create( temp_file );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -261,8 +262,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="delete"></a><h3>delete( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="delete"></a><h3>delete( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Close and delete the open file f</p></td>
@@ -271,7 +272,7 @@ out_file<br>
 <td><span class="code">delete( temp_file );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -298,8 +299,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="end_of_file"></a><h3>end_of_file( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="end_of_file"></a><h3>end_of_file( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if all data has been read from in_file mode file f</p></td>
@@ -308,7 +309,7 @@ out_file<br>
 <td><span class="code">if end_of_file( data ) then ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -335,8 +336,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="end_of_line"></a><h3>end_of_line( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="end_of_line"></a><h3>end_of_line( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if at the end of line for file f</p></td>
@@ -345,7 +346,7 @@ out_file<br>
 <td><span class="code">if end_of_line( data ) then ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -372,8 +373,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="get"></a><h3>get( [f,] c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="get"></a><h3>get( [f,] c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Read the first character from a line on standard input and return it as c.  End-of-line characters are not returned.</p></td>
@@ -382,7 +383,7 @@ out_file<br>
 <td><span class="code">get( ch );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -416,8 +417,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="get_immediate"></a><h3>get_immediate( [f,] c, [b] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="get_immediate"></a><h3>get_immediate( [f,] c, [b] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Read the first character from a line on standard input or the optional file and return it as c.  Don't display the character.  Return immediately if there's no data when b is true.</p></td>
@@ -426,7 +427,7 @@ out_file<br>
 <td><span class="code">get_immediate( ch );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -470,8 +471,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="get_line"></a><h3>s := get_line [( f )]</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="get_line"></a><h3>s := get_line [( f )]</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Read a string until the end of line is encountered. If f is specified, read from file f instead of current_input.  End-of-line characters are not returned.  To read a numeric value, convert the string value to a numeric value with numerics.value and typecast it if necessary.</p></td>
@@ -480,7 +481,7 @@ out_file<br>
 <td><span class="code">s := get_line;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -507,15 +508,15 @@ out_file<br>
 <td><p>Reading past end of file will raise an exception</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><br><a href="#end_of_file">end_of_file</a><br><a href="#end_of_line">end_of_line</a><br><a href="#get">get</a><br><a href="#inkey">inkey</a><br><a href="#skip_line">skip_line</a></p></td>
+<td><p><a href="#end_of_file">end_of_file</a><br><a href="#end_of_line">end_of_line</a><br><a href="#get">get</a><br><a href="#inkey">inkey</a><br><a href="#skip_line">skip_line</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Text_IO.Get_Line / Ada.Strings.Unbounded.Text_IO.Get_Line<br>PHP: fgets</p></td>
 </tr>
 </table>
 
-<a name="inkey"></a><h3>c := inkey</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="inkey"></a><h3>c := inkey</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Read a character from current_input. It does not write the character back to current_output.</p></td>
@@ -524,7 +525,7 @@ out_file<br>
 <td><span class="code">ch := inkey;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -550,12 +551,12 @@ out_file<br>
 <td><p>BASIC: inkey$</p></td>
 </tr><tr>
 <td><p class="pkg_label">Rationale</p></td>
-<td><p>get is provided for compatibility for Ada 95 but get is not very convenient. inkey is a more useful function for reading a keypress.</p></td>
+<td><p>get is provided for compatibility with Ada 95. inkey is a more useful function for reading a keypress.</p></td>
 </tr>
 </table>
 
-<a name="is_open"></a><h3>is_open( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="is_open"></a><h3>is_open( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if file f is open</p></td>
@@ -564,7 +565,7 @@ out_file<br>
 <td><span class="code">if is_open( data ) then ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -590,12 +591,12 @@ out_file<br>
 <td><p>Ada: Ada.Text_IO.Is_Open</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>SparForte 2.7/3.0: Parameter is now in_out instead of in_mode</p></td>
+<td><p>SparForte 2.7/3.0: Parameter is now in out instead of in mode</p></td>
 </tr>
 </table>
 
-<a name="line"></a><h3>i := line( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="line"></a><h3>i := line( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of lines read or written to file f (with put_line, the number of lines explicitly put to that file).  This function will work with standard_input, standard_output and standard_error.  However, it does not take into account lines read or written by operating system commands.</p></td>
@@ -604,7 +605,7 @@ out_file<br>
 <td><span class="code">if line( f ) &gt; 33 then ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -638,8 +639,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="mode"></a><h3>m := mode( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="mode"></a><h3>m := mode( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the mode of the open file.  This function will work with standard_input, standard_output and standard_error.</p></td>
@@ -648,7 +649,7 @@ out_file<br>
 <td><span class="code">if mode( f ) = in_file then ...</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -672,7 +673,7 @@ out_file<br>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception will be thrown if the file is not open</p></td>
+<td><p>An exception will be raised if the file is not open</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#line">line</a><br><a href="#name">name</a></p></td>
@@ -681,8 +682,8 @@ out_file<br>
 <td><p>Ada: Ada.Text_IO.Mode</p></td>
 </tr>
 </table>
-<a name="name"></a><h3>s := name( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="name"></a><h3>s := name( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the pathname of the open file.  This function will work with standard_input, standard_output and standard_error.  However, it does not return a pathname since these files have no known pathnames.</p></td>
@@ -691,7 +692,7 @@ out_file<br>
 <td><span class="code">put_line( "error in file " &amp; name( f ) );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -725,8 +726,8 @@ out_file<br>
 </tr>
 </table>
 
-<a name="new_line"></a><h3>new_line [(f)]</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="new_line"></a><h3>new_line [(f)]</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Write a line feed (new line).  If f is specified, writes to the file f instead
@@ -736,7 +737,7 @@ of current_output.</p></td>
 <td><span class="code">new_line;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -763,8 +764,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="open"></a><h3>open( f, m, p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="open"></a><h3>open( f, m, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Open existing file f as pathname p in file mode m.</p></td>
@@ -773,7 +774,7 @@ of current_output.</p></td>
 <td><span class="code">open( data, in_file, "/home/ken/data.txt" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -814,8 +815,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="put"></a><h3>put( [f,] e [, p] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="put"></a><h3>put( [f,] e [, p] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Write expression e with optional numeric formatting.  The
@@ -830,7 +831,7 @@ reference section.</p></td>
 <td><span class="code">put( 3*2 ); -- displays 6.0E+00<br>put( 3*2, "9999" ); -- displays 0006</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -871,8 +872,8 @@ reference section.</p></td>
 </tr>
 </table>
 
-<a name="put_line"></a><h3>put_line( [f,] e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="put_line"></a><h3>put_line( [f,] e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Write expression e with an appended line feed (new line) character.  The
@@ -884,7 +885,7 @@ of current_output.</p></td>
 <td><span class="code">put_line( 3*2 );<br>put_line( true or false );<br>put_line( standard_error, "an error message" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -918,8 +919,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="reset"></a><h3>reset( f [, m] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="reset"></a><h3>reset( f [, m] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reopen open file f in optional new file mode m</p></td>
@@ -928,7 +929,7 @@ of current_output.</p></td>
 <td><span class="code">reset( temp_file, in_file );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -965,8 +966,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="set_error"></a><h3>set_error( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="set_error"></a><h3>set_error( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Redirect the current error file (usually standard_error) to another open file f.  All future writes to current_error (put_line( current_error, ...), etc.) will use the new file.  The new file must be an out_mode file.  Use set_error( standard_error ) to return to standard error, or save the value of current_error and restore it later.</p></td>
@@ -975,7 +976,7 @@ of current_output.</p></td>
 <td><span class="code">set_error( log_file );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1002,8 +1003,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="set_input"></a><h3>set_input( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="set_input"></a><h3>set_input( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Redirect the current input (usually standard_input) to another open file f.  All future reads (get, get_line, etc.) will use the new file.  The new file must be an in_file mode file.  Use set_input( standard_input ) to return to standard input, or save the value of current_input and restore it later.</p></td>
@@ -1012,7 +1013,7 @@ of current_output.</p></td>
 <td><span class="code">set_input( data_file );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1039,8 +1040,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="set_output"></a><h3>set_output( f )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="set_output"></a><h3>set_output( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Redirect the current output (usually standard_output) to another open file f.  All future writes (put, put_line, etc.) will use the new file.  The new file must be an out_mode file.  Use set_output( standard_output ) to return to standard output, or save the value of current_output and restore it later.</p></td>
@@ -1049,7 +1050,7 @@ of current_output.</p></td>
 <td><span class="code">set_output( data_file );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1076,8 +1077,8 @@ of current_output.</p></td>
 </tr>
 </table>
 
-<a name="skip_line"></a><h3>skip_line( [f] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="skip_line"></a><h3>skip_line( [f] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Read a line from current input and discard it</p></td>
@@ -1086,7 +1087,7 @@ of current_output.</p></td>
 <td><span class="code">skip_line;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1116,7 +1117,7 @@ of current_output.</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -1156,7 +1157,7 @@ of current_output.</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_tags.html">&nbsp;tags</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_teams.html">&nbsp;teams</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_templates.html">&nbsp;templates</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;<b>text_io</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;<strong>text_io</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;units</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_vectors.html">&nbsp;vectors</a></p>
 			</td>

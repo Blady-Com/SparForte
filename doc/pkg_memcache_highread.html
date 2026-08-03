@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Memcache High Read</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_memcache.html" />
 	<link rel="next" href="pkg_mysql.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_memcache.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_mysql.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_memcache.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_mysql.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,13 +42,13 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.14"></a>Memcache.Highread Package</h2>
+<h2><a id="4.23"></a>Memcache.Highread Package</h2>
 
-<p>A package for storing data in memcached with optional redundancy, optimized for
+<p>A package for storing data in memcached with optional backup copies, optimized for
 more reads than writes.</p>
 
-<p><u>GCC Ada Equivalent</u>: N/A<br>
-<u>See Also</u>: memcache</p>
+<p><span class="underline">GCC Ada Equivalent</span>: N/A<br>
+<span class="underline">See Also</span>: memcache</p>
 
         <center>
         <div class="code">
@@ -64,34 +64,34 @@ more reads than writes.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the memcache.highread package
+        <strong>Help Command</strong>: Contents of the memcache.highread package
         </div>
         </div>
         </center>
 
-<p>Memcached (or the Memcache Daemon) is a general-purpose networked memory
+<p>Memcached (or the Memcache Daemon) is a networked memory
 caching system that was originally developed by Danga Interactive for
 LiveJournal, but is now used by many other sites. It is often used to speed up
-dynamic database-driven websites by caching data and objects in RAM to reduce the
-number of times an external data source (such as a database or API) must be read.
+dynamic database websites.  It can cache data and objects in RAM to reduce
+reading external data source (such as a database or API).
 Memcached has been used by web sites including YouTube, Facebook and Twitter.</p>
 
-<p>Values are store as keys (names or labels) and the associated value.</p>
+<p>Values are stored as keys (names or labels) with an associated value.</p>
 
-<p>SparForte supports memcached natively (that is, using pragmas you can import
+<p>SparForte has built-in support for memcached (that is, using pragmas you can import
 and export variable to/from Memcached.) The memcached support is built on the
-PegaSoft PegaSock socket library, which supports local memcached caching as well
+PegaSoft PegaSock socket library.  The library provides local memcached caching as well
 as distributed, redundant memcached caching clusters.</p>
 
-<p>The Memcache.highread package is a binding to the PegaSock library, giving a more
-flexible interface to memcache than the pragmas provide.  For example, you
+<p>The Memcache package is a binding to the PegaSock library, giving more
+memcache capabilities than the pragmas provide.  For example, you
 can use any keys you want, rather than using the variable name as the key.
 The names of the procedures and functions are equivalent to the commands
 of the memcached protocol: you can find out more information on them by
 consulting the memcached documentation.</p>
 
-<p>The following is a trivial example with one memcached server running
-on localhost port 11211.</p>
+<p>The following is a small example with two memcached servers running
+on localhost port 11211 and 11212.</p>
 
         <center>
         <div class="code">
@@ -106,7 +106,7 @@ cane<br>
 =&gt;<br>&nbsp;<br>
                 </p>
         <div class="code_caption">
-                <b>Example</b>: Setting key "candy" to value "cane" and retrieving it again
+                <strong>Example</strong>: Setting key "candy" to value "cane" and retrieving it again
         </div>
         </div>
         </center>
@@ -119,7 +119,7 @@ fails, a program can still retrieve the data.</p>
 <p>The highread package uses two normal memcache clusters, using them as if
 they were a single cluster.  Data is stored up to four times in servers, and
 the get function can read from any of the four servers.  This makes it a
-good choice for high redundancy tasks, or takes where there are more reads
+good choice for tasks needing backups, or tasks where there are more reads
 than writes.</p>
 
 <p>PegaSock implements an escalating back off mechanism: if a server cannot
@@ -135,8 +135,8 @@ failure.</p>
 shell will disable the memcache.highread package.  It can also be
 disabled with pragma restriction.</p>
 
-<a name="memcache.highread.add"></a><h3>memcache.highread.add( cl, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.add"></a><h3>memcache.highread.add( cl, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Store value v for key k in memcache cluster cl if the key does not exist.
@@ -146,7 +146,7 @@ Otherwise, an error is displayed but execution continues.</p></td>
 <td><p><span class="code">memcache.highread.add( mc_cluster, "company_name", "PegaSoft"  );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -175,7 +175,7 @@ Otherwise, an error is displayed but execution continues.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -188,18 +188,18 @@ Otherwise, an error is displayed but execution continues.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.append"></a><h3>memcache.highread.append( cl, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.append"></a><h3>memcache.highread.append( cl, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Concatenate value v to the end of the current value for key k in
 memcache cluster cl.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br><a href="#memcache.highread.append">memcache.highread.append</a>( mc_cluster, "company_name", " Inc.";<br>-- company_name is "PegaSoft Inc." </span></p></td>
+<td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br>memcache.highread.append( mc_cluster, "company_name", " Inc." );<br>-- company_name is "PegaSoft Inc." </span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -228,7 +228,7 @@ memcache cluster cl.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -241,8 +241,8 @@ memcache cluster cl.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.clear_servers"></a><h3>memcache.highread.clear_servers( cl )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.clear_servers"></a><h3>memcache.highread.clear_servers( cl )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete all registered servers for memcache cluster cl.  The data is not
@@ -252,7 +252,7 @@ flushed from memcached.</p></td>
 <td><p><span class="code">memcache.highread.clear_servers( cl ); -- there are now no servers in the cluster</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -282,17 +282,17 @@ flushed from memcached.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.delete"></a><h3>memcache.highread.delete( cl, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.delete"></a><h3>memcache.highread.delete( cl, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remove key k from memcache cluster cl, discarding the key's value.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.delete( mc_cluster, "company_name", "PegaSoft"  );<br>-- company_name no longer exists</span></p></td>
+<td><p><span class="code">memcache.highread.delete( mc_cluster, "company_name", "PegaSoft" );<br>-- company_name no longer exists</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -315,7 +315,7 @@ flushed from memcached.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -328,18 +328,18 @@ flushed from memcached.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.flush"></a><h3>memcache.highread.flush( cl )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.flush"></a><h3>memcache.highread.flush( cl )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete all keys.  The memory is not actually freed: all keys are
-marked invalid and are gradually replaced as new items are stored.</p></td>
+marked invalid and the memory is reused over time.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.flush( mc_cluster );-- all keys are destroyed</span></p></td>
+<td><p><span class="code">memcache.highread.flush( mc_cluster ); -- all keys are destroyed</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -356,7 +356,7 @@ marked invalid and are gradually replaced as new items are stored.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -369,8 +369,8 @@ marked invalid and are gradually replaced as new items are stored.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.get"></a><h3>v := memcache.highread.get( cl, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.get"></a><h3>v := memcache.highread.get( cl, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Look up the value previously stored for the key k in memcache cluster cl
@@ -382,7 +382,7 @@ with the key in order to distribute load.</p></td>
 <td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br>? memcache.highread.get( mc_cluster, "company_name" );<br>-- displays "PegaSoft" </span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -411,7 +411,7 @@ with the key in order to distribute load.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p>
@@ -421,18 +421,18 @@ with the key in order to distribute load.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.new_cluster"></a><h3>cl := memcache.highread.new_cluster</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.new_cluster"></a><h3>cl := memcache.highread.new_cluster</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Allocate a new memcache cluster record.  The record is used to identify
+<td><p>Create a new memcache cluster record.  The record is used to identify
 servers and manage connections.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><p><span class="code">mc_cluster := memcache.highread.new_cluster;</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -449,7 +449,7 @@ servers and manage connections.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -457,7 +457,7 @@ servers and manage connections.</p></td>
 <td><p class="pkg_label">Implementation Notes</p></td>
 <td><p>Because the memcache_cluster record is private, SparForte allocates
 clusters internally using a linked list.  The records are not freed until
-the script execution end.</p>
+the script execution ends.</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p>
@@ -467,18 +467,18 @@ the script execution end.</p>
 </tr>
 </table>
 
-<a name="memcache.highread.prepend"></a><h3>memcache.highread.prepend( cl, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.prepend"></a><h3>memcache.highread.prepend( cl, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Concatenate value v to the head of the current value for key k in
 memcache cluster cl.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br><a href="#memcache.highread.prepend">memcache.highread.prepend</a>( mc_cluster, "company_name", "This is " );<br>-- company_name is "This is PegaSoft" </span></p></td>
+<td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br>memcache.highread.prepend( mc_cluster, "company_name", "This is " );<br>-- company_name is "This is PegaSoft" </span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -507,7 +507,7 @@ memcache cluster cl.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -516,12 +516,12 @@ memcache cluster cl.</p></td>
 <td><p><a href="#memcache.highread.append">memcache.highread.append</a></p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: PegaSock.Memcache.Highspeed.Prepend</p></td>
+<td><p>Ada: PegaSock.Memcache.Highread.Prepend</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.register_alpha_server"></a><h3>memcache.highread.register_alpha_server( cl, h, p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.register_alpha_server"></a><h3>memcache.highread.register_alpha_server( cl, h, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Identify a new server to use in the memcache cluster.  The server is
@@ -534,63 +534,7 @@ register the same server twice.</p></td>
 <td><p><span class="code">memcache.highread.register_alpha_server( mc_cluster, "memcached1.somecompany.com", 11211 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
-<tr>
-<td><span class="pkg_param">Param</span></td>
-<td><span class="pkg_param">Mode</span></td>
-<td><span class="pkg_param">Type</span></td>
-<td><span class="pkg_param">Default</span></td>
-<td><span class="pkg_param">Description</span></td>
-</tr><tr>
-<td><span>cl</span></td>
-<td><span>in out</span></td>
-<td><span>memcache.memcache_dual_cluster</span></td>
-<td><span>required</span></td>
-<td><span>the memcache cluster to use</span></td>
-</tr><tr>
-<td><span>h</span></td>
-<td><span>in</span></td>
-<td><span>any string type</span></td>
-<td><span>required</span></td>
-<td><span>the host name</span></td>
-</tr><tr>
-<td><span>p</span></td>
-<td><span>in</span></td>
-<td><span>natural</span></td>
-<td><span>required</span></td>
-<td><span>the TCP/IP port</span></td>
-</tr>
-</table></td>
-</tr><tr>
-<td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if a server is registered twice.</p>
-</tr><tr>
-<td><p class="pkg_label">Restrictions</p></td>
-<td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
-</tr><tr>
-<td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#memcache.highread.clear_servers">memcache.highread.clear_servers</a></p>
-</tr><tr>
-<td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: PegaSock.Memcache.Highread.RegisterBetaServer</p></td>
-</tr>
-</table>
-
-<a name="memcache.highread.register_beta_server"></a><h3>memcache.highread.register_beta_server( cl, h, p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
-<tr>
-<td width="15%">&nbsp;</td>
-<td><p>Identify a new server to use in the memcache cluster.  The server is
-identified by hostname h and TCP/IP port p.  The servers should always be
-registered in the same order for this cluster.  No network connection is
-opened: network connections are opened when data is read or written.  Do not
-register the same server twice.</p></td>
-</tr><tr>
-<td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.register_beta_server( mc_cluster, "memcached2.somecompany.com", 11211 );</span></p></td>
-</tr><tr>
-<td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -632,19 +576,75 @@ register the same server twice.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.replace"></a><h3>memcache.highread.replace( cl, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.register_beta_server"></a><h3>memcache.highread.register_beta_server( cl, h, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Overwrite the current value of key k memcache cluster cl with value v, if
+<td><p>Identify a new server to use in the memcache cluster.  The server is
+identified by hostname h and TCP/IP port p.  The servers should always be
+registered in the same order for this cluster.  No network connection is
+opened: network connections are opened when data is read or written.  Do not
+register the same server twice.</p></td>
+</tr><tr>
+<td><p class="pkg_label">Example</p></td>
+<td><p><span class="code">memcache.highread.register_beta_server( mc_cluster, "memcached2.somecompany.com", 11211 );</span></p></td>
+</tr><tr>
+<td><p class="pkg_label">Parameters</p></td>
+<td><table class="subprogram_parameters" summary="subprogram parameters">
+<tr>
+<td><span class="pkg_param">Param</span></td>
+<td><span class="pkg_param">Mode</span></td>
+<td><span class="pkg_param">Type</span></td>
+<td><span class="pkg_param">Default</span></td>
+<td><span class="pkg_param">Description</span></td>
+</tr><tr>
+<td><span>cl</span></td>
+<td><span>in out</span></td>
+<td><span>memcache.memcache_dual_cluster</span></td>
+<td><span>required</span></td>
+<td><span>the memcache cluster to use</span></td>
+</tr><tr>
+<td><span>h</span></td>
+<td><span>in</span></td>
+<td><span>any string type</span></td>
+<td><span>required</span></td>
+<td><span>the host name</span></td>
+</tr><tr>
+<td><span>p</span></td>
+<td><span>in</span></td>
+<td><span>natural</span></td>
+<td><span>required</span></td>
+<td><span>the TCP/IP port</span></td>
+</tr>
+</table></td>
+</tr><tr>
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>An exception is raised if a server is registered twice.</p>
+</tr><tr>
+<td><p class="pkg_label">Restrictions</p></td>
+<td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
+</tr><tr>
+<td><p class="pkg_label">See Also</p></td>
+<td><p><a href="#memcache.highread.clear_servers">memcache.highread.clear_servers</a></p>
+</tr><tr>
+<td><p class="pkg_label">Compare With</p></td>
+<td><p>Ada: PegaSock.Memcache.Highread.RegisterBetaServer</p></td>
+</tr>
+</table>
+
+<a id="memcache.highread.replace"></a><h3>memcache.highread.replace( cl, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
+<tr>
+<td width="15%">&nbsp;</td>
+<td><p>Overwrite the current value of key k in memcache cluster cl with value v, if
 a value already exists.  If the key doesn't exist, a warning is displayed but
 execution continues.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br><a href="#memcache.highread.replace">memcache.highread.replace</a>( mc_cluster, "company_name", "MegaCorp";<br>-- company_name is "MegaCorp"</span></p></td>
+<td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br>memcache.highread.replace( mc_cluster, "company_name", "MegaCorp" );<br>-- company_name is "MegaCorp"</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -673,7 +673,7 @@ execution continues.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -686,8 +686,8 @@ execution continues.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.set"></a><h3>memcache.highread.set( cl, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.set"></a><h3>memcache.highread.set( cl, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign value v as the current value for key k in memcache cluster cl.  If
@@ -697,7 +697,7 @@ the key already has a value, it will be overwritten.</p></td>
 <td><p><span class="code">memcache.highread.set( mc_cluster, "company_name", "PegaSoft"  );<br>-- company_name is "PegaSoft" </span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -726,7 +726,7 @@ the key already has a value, it will be overwritten.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -739,8 +739,8 @@ the key already has a value, it will be overwritten.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.set_cluster_name"></a><h3>memcache.highread.set_cluster_name( cl, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.set_cluster_name"></a><h3>memcache.highread.set_cluster_name( cl, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign the string s as the name of the cluster.  The name is used in
@@ -750,7 +750,7 @@ some error messages.</p></td>
 <td><p><span class="code">memcache.highread.set_cluster_name( mc_cluster, "main cluster" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -773,7 +773,7 @@ some error messages.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -786,8 +786,8 @@ some error messages.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.set_cluster_type"></a><h3>memcache.highread.set_cluster_type( cl, t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.set_cluster_type"></a><h3>memcache.highread.set_cluster_type( cl, t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign the type of cluster.  Currently, there is only one type:
@@ -797,7 +797,7 @@ memcache.memcache_cluster_type.normal.</p></td>
 <td><p><span class="code">memcache.highread.set_cluster_type( mc_cluster, memcache.memcache_cluster_type.normal );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -820,7 +820,7 @@ memcache.memcache_cluster_type.normal.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -833,11 +833,11 @@ memcache.memcache_cluster_type.normal.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.stats"></a><h3>s := memcache.highread.stats( cl )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.stats"></a><h3>s := memcache.highread.stats( cl )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return detailed memached statistics for all servers in the cluster.  The
+<td><p>Return detailed memcached statistics for all servers in the cluster.  The
 first item in the row is either "alpha" or "beta" followed by the server number.
 For the meaning of the stats, consult the memcached documentation.</p></td>
 </tr><tr>
@@ -845,7 +845,7 @@ For the meaning of the stats, consult the memcached documentation.</p></td>
 <td><p><span class="code">? memcache.highread.stats( mc_cluster );-- display all stats</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -868,7 +868,7 @@ For the meaning of the stats, consult the memcached documentation.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -881,19 +881,19 @@ For the meaning of the stats, consult the memcached documentation.</p></td>
 </tr>
 </table>
 
-<a name="memcache.highread.version"></a><h3>s := memcache.highread.version( cl )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="memcache.highread.version"></a><h3>s := memcache.highread.version( cl )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Chooses a server from the cluster at random and display the version
-of memcached that is running on the server.  (It would be advisable to run
+<td><p>The function chooses a server from the cluster at random and returns the version
+of memcached that is running on the server.  (It is recommended to run
 the same version on all servers.)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><p><span class="code">? memcache.highread.version( mc_cluster ); -- displays the version e.g. 1.4.5</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" order="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -916,7 +916,7 @@ the same version on all servers.)</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is thrown if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -932,7 +932,7 @@ the same version on all servers.)</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -956,7 +956,7 @@ the same version on all servers.)</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_lock_files.html">&nbsp;lock_files</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_logs.html">&nbsp;logs</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache.html">&nbsp;memcache</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_memcache_highread.html">&nbsp;<b>memcache.highread</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_memcache_highread.html">&nbsp;<strong>memcache.highread</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysql.html">&nbsp;mysql</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysqlm.html">&nbsp;mysqlm</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_numerics.html">&nbsp;numerics</a></p>

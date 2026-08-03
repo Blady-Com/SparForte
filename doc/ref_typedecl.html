@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - User-defined Types</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_types.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_enum.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_types.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_enum.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -51,10 +51,10 @@ responsibility: they protect availability, integrity and privacy.
 Data types have four common aspects:</p>
 
 <ol>
-<li><b>A parent type</b> - An existing type that the new type will be based on.  This not only determines how the type is stored in memory but also organizes and extends the data types.  Unlike some languages, this is not limited to object classes.</li>
-<li><b>New type</b> or <b>subtype</b> - The type is conceptually incompatible with the parent type, so that it requires type casting to be used with the parent type.  This protects real-world values that are not meant to interact with each other. It can also be a subtype, a compatible variation on the parent type that doesn't require a type cast.</li>
-<li><b>A usage qualifier</b> - This is a constraint on how the type may be used (e.g. abstract, constant, limited).  This acts like operating system file permissions, controlling how others may use the type.  This also acts as a "need-to-know", limiting permissions to what is necessary or makes sense.</li>
-<li><b>An affirm clause</b> - Instructions for determining if a value is valid and acceptable.  Affirm clauses protect the integrity of the data represented by the data type.</li>
+<li><strong>A parent type</strong> - An existing type that the new type will be based on.  This not only determines how the type is stored in memory but also organizes and extends the data types.  Unlike some languages, this is not limited to object classes.</li>
+<li><strong>New type</strong> or <strong>subtype</strong> - The type is conceptually incompatible with the parent type, so that it requires type casting to be used with the parent type.  This protects real-world values that are not meant to interact with each other. It can also be a subtype, a compatible variation on the parent type that doesn't require a type cast.</li>
+<li><strong>A usage qualifier</strong> - This is a constraint on how the type may be used (e.g. abstract, constant, limited).  This acts like operating system file permissions, controlling how others may use the type.  This also acts as a "need-to-know", limiting permissions to what is necessary or makes sense.</li>
+<li><strong>An affirm clause</strong> - Instructions for determining if a value is valid and acceptable.  Affirm clauses protect the integrity of the data represented by the data type.</li>
 </ol>
 
 <p>The usage qualifier and affirm clauses are optional.</p>
@@ -63,13 +63,13 @@ Data types have four common aspects:</p>
 
 <h3>Subtypes</h3>
 
-<p>The <b>subtype</b> statement will create a type that is compatible
+<p>The <strong>subtype</strong> statement will create a type that is compatible
 with the original, as if it was a renaming of the original type.
 </p>
 
         <center>
         <div class="code">
-                <p class="code">=&gt; <b>subtype</b> int <b>is</b> integer;<br>
+                <p class="code">=&gt; <strong>subtype</strong> int <strong>is</strong> integer;<br>
 =&gt; i1 : integer := 1<br>
 =&gt; i2 : int := 2<br>
 =&gt; ? i1 + i2<br>
@@ -83,12 +83,12 @@ types can be mixed freely without type casting.</p>
 <p>Subtypes can be used where predefined types are used: you can use them
 to declare variables, as parameter types and as function return values.</p>
 
-<p><b>Ada</b>: In Ada, a subtype can be used to create a type with a
+<p><strong>Ada</strong>: In Ada, a subtype can be used to create a type with a
 smaller range of values, such as an integer with values 1 to 100.  In
 AdaScript, the range attribute is not (yet) supported for subtypes--they
 are simple renamings in AdaScript.</p>
 
-<p><b>Ada</b>: SparForte's output subprograms (like "?", put_line, etc.) understand
+<p><strong>Ada</strong>: SparForte's output subprograms (like "?", put_line, etc.) understand
 how to output strings and all scalar types.  It work as if all necessary
 packages were "with"-ed and "use"-ed.  In Ada, you would have to
 use with or instantiate I/O packages you need for each type.</p>
@@ -96,22 +96,22 @@ use with or instantiate I/O packages you need for each type.</p>
 <h3>Types</h3>
 
 <p>A regular type is logically incompatible with the type it is derived from.
-To make incompatible types, create a new type with the <b>type</b>
+To make incompatible types, create a new type with the <strong>type</strong>
 statement.
 </p>
 
         <center>
         <div class="code">
                 <p class="code">
-=&gt; <b>type</b> employee_number <b>is</b> <b>new</b> integer<br>
-=&gt; <b>type</b> customer_number <b>is</b> <b>new</b> integer<br>
+=&gt; <strong>type</strong> employee_number <strong>is</strong> <strong>new</strong> integer<br>
+=&gt; <strong>type</strong> customer_number <strong>is</strong> <strong>new</strong> integer<br>
 =&gt; en : employee_number := 1234<br>
 =&gt; cn : customer_number := 4567<br>
 =&gt; en := cn<br>
 en := cn;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ type <b>employee_number</b> is not compatible with type <b>customer_number</b><br>&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ type <strong>employee_number</strong> is not compatible with type <strong>customer_number</strong><br>&nbsp;<br>
         <div class="code_caption">
-                <b>Example</b>: Strong Typing with Logically Incompatible Types
+                <strong>Example</strong>: Strong Typing with Logically Incompatible Types
         </div>
         </div>
         </center>
@@ -125,7 +125,7 @@ that are logically different don't accidentally mix.
 <p>Types can be used where predefined types are used: you can use them
 to declare variables, as parameter types and as function return values.</p>
 
-<p><b>Ada</b>: In Ada, a type can be used to create a type with a
+<p><strong>Ada</strong>: In Ada, a type can be used to create a type with a
 smaller range of values, such as an integer with values 1 to 100.  In
 AdaScript, the range attribute is not (yet) supported for types--they
 are simply incompatible renamings in AdaScript.</p>
@@ -154,15 +154,15 @@ example, you cannot cast a string to an integer.</p>
                 <p class="code">
 =&gt; i : integer := integer( "this is a string" )<br>
 i : integer := integer( "this is a string" );<br>
-                                            ^ type <b>integer</b> (a universal_numeric) is inherently different from <b>an universal_string</b></p>
+                                            ^ type <strong>integer</strong> (a universal_numeric) is inherently different from <strong>an universal_string</strong></p>
         </div>
         </center>
 
-<p><b>Ada</b>:Type qualifications are not yet implemented.</p>
+<p><strong>Ada</strong>:Type qualifications are not yet implemented.</p>
 
 <h3>Abstract Types</h3>
 
-<p>An <b>abstract type</b> is a type that is declared but it cannot be used to
+<p>An <strong>abstract type</strong> is a type that is declared but it cannot be used to
 store values.  It cannot be used for
 variables, constants or subprogram parameters.  These can represent
 unfinished data types, future ideas, conceptual types that only exist
@@ -173,17 +173,17 @@ to create other types.</p>
                 <p class="code">
 -- Customer is not complete or ready for use<br />
 <br />
-<b>type</b> customer <b>is</b> <b>abstract</b> <b>record</b><br />
+<strong>type</strong> customer <strong>is</strong> <strong>abstract</strong> <strong>record</strong><br />
 &nbsp;&nbsp;cname : string;<br />
-<b>end</b> <b>record</b>;<br />
+<strong>end</strong> <strong>record</strong>;<br />
 <br />
 -- No customer id can be generic.  Only foreign or<br />
 -- domestic customers exist in the real world.<br />
 <br />
-<b>type</b> generic_customer_id <b>is</b> <b>new</b> <b>abstract</b> <b>integer</b>;<br />
+<strong>type</strong> generic_customer_id <strong>is</strong> <strong>new</strong> <strong>abstract</strong> <strong>integer</strong>;<br />
 <br />
-<b>type</b> domestic_customer_id <b>is</b> <b>new</b> generic_customer_id;<br />
-<b>type</b> foreign_customer_id <b>is </b><b>new</b> generic_customer_id;<br />
+<strong>type</strong> domestic_customer_id <strong>is</strong> <strong>new</strong> generic_customer_id;<br />
+<strong>type</strong> foreign_customer_id <strong>is </strong><strong>new</strong> generic_customer_id;<br />
         </div>
         </center>
 
@@ -204,7 +204,7 @@ not be abstract but you can make a subtype abstract.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>subtype</b> domestic_customer_id <b>is</b> <b>abstract</b> generic_customer_id;<br/>
+<strong>subtype</strong> domestic_customer_id <strong>is</strong> <strong>abstract</strong> generic_customer_id;<br/>
         </div>
         </center>
 
@@ -214,13 +214,13 @@ types.</p>
 <p>It is possible to typecast a value to an abstract type.  You can use
 abstract types as subprogram parameters.</p>
 
-<p><b>Ada</b>:In SparForte, abstract does not require an object.</p>
+<p><strong>Ada</strong>:In SparForte, abstract does not require an object.</p>
 
-<p><b>pragma ada_95</b>: Abstract types are not permitted.</p>
+<p><strong>pragma ada_95</strong>: Abstract types are not permitted.</p>
 
 <h3>Constant Variables and Types</h3>
 
-<p>A <b>constant variable</b> is a variable that cannot be assigned
+<p>A <strong>constant variable</strong> is a variable that cannot be assigned
 a new value.</p>
 
 <p>A variable can "downgrade" a type's qualifier.  For example, a
@@ -240,9 +240,9 @@ same.</p>
         <center>
         <div class="code">
                 <p class="code">
-pi : <b>constant</b> float;<br/>
+pi : <strong>constant</strong> float;<br/>
 ...<br/>
-pi : <b>constant</b> float := 3.14159;<br/>
+pi : <strong>constant</strong> float := 3.14159;<br/>
         </div>
 	</center>
 
@@ -254,7 +254,7 @@ They require a block with a declaration section.</p>
 
 <h3>Limited Variables and Types</h3>
 
-<p>A <b>limited variable</b> is a variable that cannot be copied
+<p>A <strong>limited variable</strong> is a variable that cannot be copied
 with an assignment statement.  It cannot be used in an expression.</p>
 
         <center>
@@ -263,7 +263,7 @@ with an assignment statement.  It cannot be used in an expression.</p>
 -- The operating system assigns id's so we don't want others<br />
 -- assigning new values accidentally.<br />
 <br />
-customer_id <b>:</b> <b>limited</b> integer;<br />
+customer_id <strong>:</strong> <strong>limited</strong> integer;<br />
         </div>
         </center>
 
@@ -272,7 +272,7 @@ customer_id <b>:</b> <b>limited</b> integer;<br />
         <center>
         <div class="code">
                 <p class="code">
-<b>subtype</b> file_id <b>is</b> <b>limited</b> integer;<br/>
+<strong>subtype</strong> file_id <strong>is</strong> <strong>limited</strong> integer;<br/>
         </div>
         </center>
 
@@ -280,8 +280,8 @@ customer_id <b>:</b> <b>limited</b> integer;<br />
 limited variable can be made for a constant type because limited
 is more constrained than a constant.</p>
 
-<p><b>Ada</b>: In SparForte, limited does not require private, although this may change in the future.</p>
-<p><b>pragma ada_95</b>: Limited variables and types are not permitted.</p>
+<p><strong>Ada</strong>: In SparForte, limited does not require private, although this may change in the future.</p>
+<p><strong>pragma ada_95</strong>: Limited variables and types are not permitted.</p>
 
 <h3>Generic Types</h3>
 
@@ -296,7 +296,7 @@ what kind of data the list contains.</p>
 <center>
 <div class="code">
 <p class="code">
-<b>type</b> fruit_string <b>is</b> <b>new</b> string;<br>
+<strong>type</strong> fruit_string <strong>is</strong> <strong>new</strong> string;<br>
 fruit : doubly_linked_lists.list( fruit_string );<br>
 </p>
 </div>
@@ -307,7 +307,7 @@ fruit : doubly_linked_lists.list( fruit_string );<br>
 <center>
 <div class="code">
 <p class="code">
-<b>type</b> fruit list <b>is</b> <b>new</b> <b>limited</b> doubly_linked_lists.list( fruit_string );<br>
+<strong>type</strong> fruit list <strong>is</strong> <strong>new</strong> <strong>limited</strong> doubly_linked_lists.list( fruit_string );<br>
 fruit : fruit_list;<br>
 </p>
 </div>
@@ -317,11 +317,11 @@ fruit : fruit_list;<br>
 
 <p>A universal type parameters can be used to store all strings or all numeric values or both.</p>
 
-<p><b>Ada</b>: SparForte is an interpreted language and the concept of a template does not exist as nothing is compiled.</p>
+<p><strong>Ada</strong>: SparForte is an interpreted language and the concept of a template does not exist as nothing is compiled.</p>
 
 <h3>Affirm Clauses</h3>
 
-<p>An <b>affirm clause</b> (or an affirm block) is an optional instruction block
+<p>An <strong>affirm clause</strong> (or an affirm block) is an optional instruction block
 that run whenever data is typecast.  These instructions validate whether or
 not the data meets the requirements of the type.  An exception can be raised
 if the requirements are not met.</p>
@@ -334,12 +334,12 @@ Describe how to check the value's requirements.</p>
         <center>
         <div class="code">
                 <p class="code">
-validation_error : <b>exception</b>;<br />
+validation_error : <strong>exception</strong>;<br />
 <br />
-<b>type</b> customer_id <b>is</b> integer<br />
-&nbsp;<b>affirm</b><br />
-&nbsp;&nbsp;&nbsp;<b>raise</b> validation_error <b>when</b> customer_id <b>not</b> <b>in</b> 100000..999999;<br/>
-&nbsp;<b>end</b> <b>affirm</b>;<br />
+<strong>type</strong> customer_id <strong>is</strong> integer<br />
+&nbsp;<strong>affirm</strong><br />
+&nbsp;&nbsp;&nbsp;<strong>raise</strong> validation_error <strong>when</strong> customer_id <strong>not</strong> <strong>in</strong> 100000..999999;<br/>
+&nbsp;<strong>end</strong> <strong>affirm</strong>;<br />
         </div>
         </center>
 
@@ -365,8 +365,8 @@ affirm clause, the parent type's clause will be run first.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> integer64 <b>is</b> ...<br />
-<b>type</b> integer32 <b>is</b> <b>new</b> integer64 ...<br />
+<strong>type</strong> integer64 <strong>is</strong> ...<br />
+<strong>type</strong> integer32 <strong>is</strong> <strong>new</strong> integer64 ...<br />
 x : integer32;
         </div>
         </center>
@@ -385,31 +385,31 @@ only scalar values may be assigned values with assignment statements.)</p>
         <center>
         <div class="code">
                 <p class="code">
-no_path_error : <b>exception</b>;<br />
+no_path_error : <strong>exception</strong>;<br />
 <br />
-<b>type</b> file_path <b>is</b> <b>new</b> <b>string</b>;<br />
+<strong>type</strong> file_path <strong>is</strong> <strong>new</strong> <strong>string</strong>;<br />
 <br />
-<b>subtype</b> dir_path <b>is</b> file_path<br />
-&nbsp;&nbsp;<b>affirm</b><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> no_path_error <b>with</b> "directory " &amp;<br />
+<strong>subtype</strong> dir_path <strong>is</strong> file_path<br />
+&nbsp;&nbsp;<strong>affirm</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>raise</strong> no_path_error <strong>with</strong> "directory " &amp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strings.to_escaped( dir_path ) &amp; " was not found"<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>when</b> <b>not</b> files.is_directory( string( dir_path ) );<br />
-&nbsp;&nbsp;  <b>end</b> <b>affirm</b>;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>when</strong> <strong>not</strong> files.is_directory( string( dir_path ) );<br />
+&nbsp;&nbsp;  <strong>end</strong> <strong>affirm</strong>;<br />
 <br />
-picture_dir : <b>constant</b> dir_path := "pictures";<br />
+picture_dir : <strong>constant</strong> dir_path := "pictures";<br />
         </div>
         </center>
 
-<p><b>pragma ada_95</b>: Affirm clauses are not available.</p>
+<p><strong>pragma ada_95</strong>: Affirm clauses are not available.</p>
 
-<p><b>Ada</b>: Affirm clauses are similar to Ada's programming-by-contract
+<p><strong>Ada</strong>: Affirm clauses are similar to Ada's programming-by-contract
 features.  The main difference is that they are not related to asserts:
 you cannot enable them with the debug option (-d) or disable them in
 maintenance mode (-m).  (An affirm clause can test for maintenance phase
 mode using the System package.) Affirm clauses can also modify their
 values.</p>
 
-<p><b>Implementation Note</b>: Why use a code block instead of an expression?
+<p><strong>Implementation Note</strong>: Why use a code block instead of an expression?
 Aren't code blocks free of side-effects (race conditions)?  Expressions are
 not intended as a tool to remove side-effects.  They also open up all sorts
 of issues when you add "if", "case" and so on to expressions, as a kludge
@@ -429,22 +429,22 @@ clause.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>procedure</b> mod_example <b>is</b><br />
+<strong>procedure</strong> mod_example <strong>is</strong><br />
 <br />
-&nbsp;&nbsp;validate_error : <b>exception</b>;<br />
+&nbsp;&nbsp;validate_error : <strong>exception</strong>;<br />
 <br />
-&nbsp;&nbsp;<b>subtype</b> mod_256 <b>is</b> <b>integer</b><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<b>affirm</b><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> mod_256 <b>not</b> <b>in</b> 0..255 <b>then</b><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mod_256 := @ <b>mod</b> 256;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>end</b> <b>if</b>;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<b>end</b> <b>affirm</b>;<br />
+&nbsp;&nbsp;<strong>subtype</strong> mod_256 <strong>is</strong> <strong>integer</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>affirm</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> mod_256 <strong>not</strong> <strong>in</strong> 0..255 <strong>then</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mod_256 := @ <strong>mod</strong> 256;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>end</strong> <strong>affirm</strong>;<br />
 <br />
 &nbsp;&nbsp;unsigned_byte : mod_256;<br />
-<b>begin</b><br />
+<strong>begin</strong><br />
 &nbsp;&nbsp;unsigned_byte := 416;<br />
 &nbsp;&nbsp;? unsigned_byte;<br />
-<b>end</b> mod_example;<br />
+<strong>end</strong> mod_example;<br />
         </div>
         </center>
 
@@ -464,7 +464,7 @@ recursion.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;Literals</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;Bourne Shell Word Expansions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;Fundamental Types</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;<b>User-defined Types</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;<strong>User-defined Types</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;Enumerated Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_arrays.html">&nbsp;Arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;Records</a></p>

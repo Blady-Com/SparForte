@@ -825,7 +825,7 @@ begin
         "Based on the APQ project.  See the dbm package for multiple connections." );
      content( e, "db.connect( d [, u, w ][, h][, p] )" );
      content( e, "append( s [,a] )","prepare( s [, a] )" );
-     content( e, "append_line( s )","append_quoted( s )" );
+     content( e, "append_line( s )","append_quoted( s [,a] )" );
      content( e, "execute","execute_checked( [ s ] )" );
      content( e, "disconnect","b := is_connected" );
      content( e, "reset","s := error_message" );
@@ -841,7 +841,7 @@ begin
      content( e, "t := tuple","n := tuples" );
      content( e, "n := columns","s := column_name( c )" );
      content( e, "i := column_index( s )","b := is_null( c )" );
-     content( e, "s := value( c )","d := engine_of" );
+     content( e, "s := value( c )","e := engine_of" );
      content( e, "show","list" );
      content( e, "schema( t )","users" );
      content( e, "databases" );
@@ -879,7 +879,7 @@ begin
          "Based on the APQ project.  Supports multiple connections." );
      content( e, "connect( c, d [, u, w ][, h][, p] )" );
      content( e, "append( q, s [, a] )","prepare( q, s [, a] )" );
-     content( e, "append_line( q, s )","append_quoted( q, c, s )" );
+     content( e, "append_line( q, s )","append_quoted( q, c, s [, a] )" );
      content( e, "execute( q, c )","execute_checked( q, c [, s ] )" );
      content( e, "disconnect( c )","is_connected( c )" );
      content( e, "reset( c )","s := error_message( c )" );
@@ -895,7 +895,7 @@ begin
      content( e, "n := tuple( q, t )","n := tuples( q )" );
      content( e, "n := columns( q )","s := column_name( q, i )" );
      content( e, "i := column_index( q, s )","b := is_null( q, i )" );
-     content( e, "s := value( q, i )","b := engine_of( c )" );
+     content( e, "s := value( q, i )","e := engine_of( c )" );
      content( e, "show( q, c )","list( c )" );
      content( e, "schema( c, t )","users( c )" );
      content( e, "new_connection( c )","new_query( q )" );
@@ -995,7 +995,7 @@ begin
      content( e, "n := tuple( t )","n := tuples" );
      content( e, "n := columns","s := column_name( c )" );
      content( e, "i := column_index( s )","b := is_null( c )" );
-     content( e, "s := value( c )","b := engine_of " );
+     content( e, "s := value( c )","e := engine_of " );
      content( e, "show","list" );
      content( e, "schema( t )","users" );
      seeAlso( e, "doc/pkg_mysql.html" );
@@ -1032,7 +1032,7 @@ begin
         "Based on the APQ project.  Supports multiple connections." );
      content( e, "connect( c, d [, u, w ][, h][, p] )" );
      content( e, "append( q, s [, a] )","prepare( q, s [, a] )" );
-     content( e, "append_line( q, s )","append_quoted( q, c, s )" );
+     content( e, "append_line( q, s )","append_quoted( q, c, s [, a] )" );
      content( e, "execute( q, c )","execute_checked( q, c [, s ] )" );
      content( e, "disconnect( c )","is_connected( c )" );
      content( e, "reset( c )","s := error_message( c )" );
@@ -1048,7 +1048,7 @@ begin
      content( e, "n := tuple( q, t )","n := tuples( q )" );
      content( e, "n := columns( q )","s := column_name( q, i )" );
      content( e, "i := column_index( q, s )","b := is_null( q, i )" );
-     content( e, "s := value( q, i )","b := engine_of( c ) " );
+     content( e, "s := value( q, i )","e := engine_of( c ) " );
      content( e, "show( q, c )","list( c )" );
      content( e, "schema( c, t )","users( c )" );
      content( e, "new_connection( c )","new_query( q )" );
@@ -1482,7 +1482,7 @@ begin
      content( e, "s := my_url", "b := parsing_errors", "put_cgi_header[( h )]" );
      content( e, "put_error_message( s )", "put_html_head( t, m )", "put_html_heading( s, l )" );
      content( e, "put_html_tail", "put_variables", "set_cookie( k,v,x,p,d,b )" );
-     content( e, "s := url_decode( u, b )", "u := url_encode( s, b )", "s := value( k, i, b )" );
+     content( e, "s := url_decode( u, b )", "u := url_encode( s, b )", "s := value( k [, i][, b] )" );
      content( e, "l := value_of_line( k, p )" );
      seeAlso( e, "doc/pkg_cgi.html" );
      endHelp( e );
@@ -1769,7 +1769,7 @@ begin
      authorKen( e );
      categoryPackage( e );
      description( e, "A collection of common routines using files." );
-     content( e, "b := basename( p )","b := dirname( p )","b := exists( p )" );
+     content( e, "b := basename( p )","s := dirname( p )","b := exists( p )" );
      content( e, "b := is_absolute_path( p )","b := is_directory( p )","b := is_executable( p )" );
      content( e, "b := is_executable_file( p )","b := is_regular_file( p )","b := is_readable( p )" );
      content( e, "b := is_readable_file( p )","b := is_waiting_file( p )","b := is_writable( p )  " );
@@ -2042,8 +2042,8 @@ begin
      content( e, "s := t_fmt_ampm", "s := negative_sign", "s := positive_sign" );
      content( e, "s := int_curr_symbol","s := getlocale( c )", "setlocale( c, s )" );
      content( e, "n := grouping", "n := frac_digits","n := int_frac_digits" );
-     content( e, "n := p_sep_by_space", "n := p_cs_precedes","n := p_sign_posn" );
-     content( e, "n := n_sep_by_space", "n := n_cs_precedes","n := n_sign_posn" );
+     content( e, "n := p_sep_by_space", "i := p_cs_precedes","n := p_sign_posn" );
+     content( e, "n := n_sep_by_space", "i := n_cs_precedes","n := n_sign_posn" );
      content( e, "s := mon_decimal_point", "s := mon_thousands_sep","n := mon_grouping" );
      content( e, "s := era", "s := era_year", "s := era_d_t_fmt" );
      content( e, "s := era_d_fmt", "s := era_t_fmt" );
@@ -2586,7 +2586,7 @@ begin
      content( e, "System.Script_Software_Model","System.System_Version" );
      content( e, "System.Design_Phase", "System.Maintenance_Phase" );
      content( e, "System.Testing_Phase", "System.Development_Phase" );
-     content( e, "System.Session_Name" );
+     content( e, "System.Session_Name", "System.Meta_Level_Image" );
      seeAlso( e, "doc/pkg_system.html" );
      endHelp( e );
   elsif helpTopic = "tags" then
@@ -2623,7 +2623,7 @@ begin
      description( e, "A collection of common routines using templates." );
      content( e, "b := has_put_template_header" );
      content( e, "put_template_header" );
-     content( e, "set_http_location( n )" );
+     content( e, "set_http_location( s )" );
      content( e, "set_http_status( i )" );
      seeAlso( e, "doc/pkg_templates.html" );
      endHelp( e );

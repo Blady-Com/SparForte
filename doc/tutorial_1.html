@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Command Prompt Tutorial 1: SparForte as a Calculator</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="intro_sffaq.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_2.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="intro_sffaq.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_2.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -68,7 +68,7 @@ some features are implemented in a different way.</p>
 
 <p>When SparForte is started without an argument, it presents you with a
 welcome
-message and a command prompt, a "<tt>=&gt;</tt>". From this prompt, you
+message and a command prompt, a "<code>=&gt;</code>". From this prompt, you
 can
 <a href="ref_types.html">declare
 variables</a>, execute AdaScript statements, or run <a
@@ -79,7 +79,7 @@ commands.</a>
 UNIX/Linux environment variables are also case-sensitive.&nbsp; This
 means that SparForte treats "IF", "if" and "If" as three different words.<br>
 </p>
-<p>SparForte will <b>terminate your session</b> by the
+<p>SparForte will <strong>terminate your session</strong> by the
 command <code>return</code> (or <code>logout</code> for a login shell).&nbsp;
 You can also terminate your session by typing a Control-D (the UNIX
 end-of-file character).
@@ -88,7 +88,7 @@ end-of-file character).
 short summary of recognized SparForte commands.
 </p>
 <p><img src="pictures/sparforte_help.gif" alt="[SparForte help command output in an interactive session]" width="616" height="421"><br>
-<b style="font-style: italic;">Figure:</b> <span
+<b style="font-style: italic;">Figure:</strong> <span
  style="font-style: italic;">Screenshot of an interactive SparForte session</span>
 </p>
 <p>For a brief description of a particular topic or command, use <code>help</code>
@@ -103,7 +103,7 @@ and the topic name.  </p>
 		delay secs<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: The Help Command: Help for the Delay Statement
+                <strong>Example</strong>: The Help Command: Help for the Delay Statement
         </div>
         </div>
         </center>
@@ -113,8 +113,8 @@ Reference section of this manual.  Summaries of all built-in packages
 are found in the Packages section of this manual.<br>
 </p>
 <p>SparForte recognizes the console arrow keys and common key
-sequences used by most shells.  The sequences are called <b>key
-bindings</b> and you can find out more about them in
+sequences used by most shells.  The sequences are called <strong>key
+bindings</strong> and you can find out more about them in
 <a href="ref_cmdline.html">Command Line Interaction</a> in the Reference
 section.
 
@@ -124,12 +124,12 @@ expression. The basic
 <a href="ref_assign.html#basic%20assign">arithmetic
 operators</a> are the same as they are in most computer languages: +
 (add), - (subtract),
-* (multiply), and / (divide). Also available are ** (exponentiation), <b>rem</b>
+* (multiply), and / (divide). Also available are ** (exponentiation), <strong>rem</strong>
 
 (remainder),
-<b>mod</b> (modulus), <b>and</b> (bitwise and), <b>or</b>
+<strong>mod</strong> (modulus), <strong>and</strong> (bitwise and), <strong>or</strong>
 (bitwise or),
-<b>xor</b> (bitwise exclusive or). Parentheses can be used
+<strong>xor</strong> (bitwise exclusive or). Parentheses can be used
 to group subexpressions.</p>
 
         <center>
@@ -143,7 +143,7 @@ to group subexpressions.</p>
 		3<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Arithmetic on the Command Prompt
+                <strong>Example</strong>: Arithmetic on the Command Prompt
         </div>
         </div>
 	    </center>
@@ -161,7 +161,7 @@ attempt to run it.<br>
 		12/4: No such file or directory
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Arithmetic without ? is treated as a command
+                <strong>Example</strong>: Arithmetic without ? is treated as a command
         </div>
         </div>
     	</center>
@@ -186,7 +186,7 @@ characters by single quotes.  There is no limit on the length of strings
 		c<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Strings and Characters at the Command Prompt
+                <strong>Example</strong>: Strings and Characters at the Command Prompt
         </div>
         </div>
 	</center>
@@ -211,7 +211,7 @@ procedure, for example, can format the result using a picture string.<br>
 		<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: How to Format Numbers
+                <strong>Example</strong>: How to Format Numbers
         </div>
         </div>
 	</center>
@@ -230,7 +230,7 @@ procedure, for example, can format the result using a picture string.<br>
 		Three times lucky is luckluckluck<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: String and Character Operators at the Command Prompt
+                <strong>Example</strong>: String and Character Operators at the Command Prompt
         </div>
         </div>
 	</center>
@@ -238,9 +238,9 @@ procedure, for example, can format the result using a picture string.<br>
 <p>SparForte performs authentic Boolean arithmetic. Boolean expressions are
 logically "true" or "false".&nbsp; The expressions can be computed
 using "=", "/=", "&gt;",
-"&gt;=", "&lt;", "&lt;=", <b>in</b>, <b>not in</b>, <b>and</b>, <b>or</b>
+"&gt;=", "&lt;", "&lt;=", <strong>in</strong>, <strong>not in</strong>, <strong>and</strong>, <strong>or</strong>
 
-and <b>xor</b>.  Numbers and strings cannot be compared directly: SparForte
+and <strong>xor</strong>.  Numbers and strings cannot be compared directly: SparForte
 assumes that you have made a mistake by trying to compare items that are
 not alike and it will not try to guess at what you meant to do.  (There
 are ways to explicitly convert numbers into strings, and strings into
@@ -266,7 +266,7 @@ to be precise).
 		true<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Boolean Operators at the Command Prompt
+                <strong>Example</strong>: Boolean Operators at the Command Prompt
         </div>
         </div>
 	</center>
@@ -291,7 +291,7 @@ a variable.</p>
 		Hello world! It's good to be alive!"<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: The Last Output Operand
+                <strong>Example</strong>: The Last Output Operand
         </div>
         </div>
 	</center>
@@ -316,7 +316,7 @@ length of a string.</p>
 		5<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Built-in String Functions at the Command Prompt
+                <strong>Example</strong>: Built-in String Functions at the Command Prompt
         </div>
         </div>
 	</center>
@@ -334,7 +334,7 @@ name.&nbsp; The assignment operator is ":=".</p>
 		&nbsp;5.50000000000000E+00<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Automatic Variable Declarations at the Command Prompt
+                <strong>Example</strong>: Automatic Variable Declarations at the Command Prompt
         </div>
         </div>
 	</center>
@@ -361,7 +361,7 @@ a variable, giving it type of your choosing.</p>
 		universal_string<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Declarations and Strong Typing at the Command Prompt
+                <strong>Example</strong>: Declarations and Strong Typing at the Command Prompt
         </div>
         </div>
 	</center>
@@ -391,7 +391,7 @@ command.
 		y :=  5.00000000000000E+00; -- identifier of the type float<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Changing a Type at the Command Prompt
+                <strong>Example</strong>: Changing a Type at the Command Prompt
         </div>
         </div>
 	</center>
@@ -414,7 +414,7 @@ one command can be placed on a line.
 		5<br>&nbsp;<br>
 		</p>
         <div class="code_caption">
-                <b>Example</b>: Calculating the Hypotenuse of a Triangle
+                <strong>Example</strong>: Calculating the Hypotenuse of a Triangle
         </div>
         </div>
 	</center>
@@ -423,13 +423,13 @@ one command can be placed on a line.
 this one.  Read on to learn about SparForte built-in packages, scripting, database
 access and web templates.&nbsp; To see a sample script, try running
 "eliza.sp", the SparForte version of the famous artificial intelligence program.
-This script is included in the <b>examples</b> directory and can be run with
+This script is included in the <strong>examples</strong> directory and can be run with
 "spar eliza.sp".
 
 </p>
 <p><img src="pictures/bush_3.gif" alt="[SparForte help command]" height="309"
  width="616"><br>
-<b>Figure</b>:Screenshot of the example eliza.sp script
+<strong>Figure</strong>:Screenshot of the example eliza.sp script
 </p>
 &nbsp;<br />
 
@@ -443,7 +443,7 @@ This script is included in the <b>examples</b> directory and can be run with
 &nbsp;<br />
 			</td>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
-				<p class="rmt"><a class="rightmenutext" href="tutorial_1.html">&nbsp;<b>Command Prompt Tutorial 1: SparForte as a Calculator</b></a></p>
+				<p class="rmt"><a class="rightmenutext" href="tutorial_1.html">&nbsp;<strong>Command Prompt Tutorial 1: SparForte as a Calculator</strong></a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_2.html">&nbsp;Command Prompt Tutorial 2: Basic Shell Commands</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_3.html">&nbsp;Command Prompt Tutorial 3: Working with Databases</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_4.html">&nbsp;Script Tutorial 1: Basic Commands Scripts</a></p>

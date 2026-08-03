@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Command Prompt Tutorial 2: Basic Shell Commands</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_1.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_3.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_1.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_3.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -59,7 +59,7 @@ of minor exceptions).  Shell commands are covered in more detail in the
 <a href="ref_shellcmds.html">Built-in Shell Commands</a> in the Reference
 section.</p>
 
-<p>An example on UNIX-based systems is the <b>ls</b> command which
+<p>An example on UNIX-based systems is the <strong>ls</strong> command which
 displays a list of the files in the current directory.  This is not
 a SparForte command: it is an external program provided by the
 operating system.</p>
@@ -70,7 +70,7 @@ operating system.</p>
 		letter2mom.txt examplescript.sp<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: Running an Operating System Command
+		<strong>Example</strong>: Running an Operating System Command
         </div>
         </div>
         </center>
@@ -84,7 +84,7 @@ system like Linux, FreeBSD or Cygwin.</p>
 
 <h3>The PATH Variable</h3>
 
-<p>Commands are located using a special variable called <b>PATH</b>.
+<p>Commands are located using a special variable called <strong>PATH</strong>.
 PATH contains a list of directories that will be searched to find
 a command.</p>
 
@@ -96,7 +96,7 @@ a command.</p>
                 letter2mom.txt examplescript.sp<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: The PATH Variable
+		<strong>Example</strong>: The PATH Variable
         </div>
         </div>
 	</center>
@@ -111,7 +111,7 @@ the command will not be found.</p>
 options or switches) that change their behaviour.
 There are two methods of representing parameters. If
 the command is followed by a left parenthesis, the command is executed
-using <b>AdaScript arguments</b> (the same as the parameters in the first
+using <strong>AdaScript arguments</strong> (the same as the parameters in the first
 tutorial).&nbsp; The arguments are contained by
 parentheses, separated by commas, characters are surrounded by single
 quotes and strings have double quotes.<br>
@@ -123,13 +123,13 @@ quotes and strings have double quotes.<br>
 		Sat Jan&nbsp; 1 17:23:16 UTC 2005<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: Running a Command With AdaScript Parameters
+		<strong>Example</strong>: Running a Command With AdaScript Parameters
         </div>
         </div>
 	</center>
 
 <p>If there are no parentheses, the command will use
-<b>Bourne shell (POSIX) arguments</b>, the same as the shell that comes
+<strong>Bourne shell (POSIX) arguments</strong>, the same as the shell that comes
 standard with most UNIX-based operating systems like Linux.</p>
 
         <center>
@@ -138,7 +138,7 @@ standard with most UNIX-based operating systems like Linux.</p>
 		Sat Jan&nbsp; 1 17:23:16 UTC 2005<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: Running a Command With Bourne Parameters
+		<strong>Example</strong>: Running a Command With Bourne Parameters
         </div>
         </div>
 	</center>
@@ -167,7 +167,7 @@ a variable into the command prior to executing the command.</p>
 		Sat Jan&nbsp; 1 17:23:16 UTC 2005<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: Running a Command With Variable Substitution
+		<strong>Example</strong>: Running a Command With Variable Substitution
         </div>
         </div>
 	</center>
@@ -207,7 +207,7 @@ quoting checks.</p>
 
         <center>
         <div class="code">
-		<p class="code">=&gt; <b>pragma</b> suppress( word_quoting )<br>
+		<p class="code">=&gt; <strong>pragma</strong> suppress( word_quoting )<br>
         =&gt; echo s&nbsp;&nbsp;is&nbsp;&nbsp;&nbsp; $s<br>
 		s is --universal<br>
 		=&gt; echo "s&nbsp;&nbsp;is&nbsp;&nbsp;&nbsp; $s"<br>
@@ -233,7 +233,7 @@ $s $s<br>
 "<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: How Shell Words and Escape Characters Are Parsed
+		<strong>Example</strong>: How Shell Words and Escape Characters Are Parsed
         </div>
         </div>
 	</center>
@@ -261,7 +261,7 @@ like "?" or "put".</p>
 		letter2mom.txt<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: File Globbing
+		<strong>Example</strong>: File Globbing
         </div>
         </div>
         </center>
@@ -292,7 +292,7 @@ used in string expressions.<br>
 		The date is Sat Jan&nbsp; 1 12:51:21 EST 2005<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: How to Capture Command Output
+		<strong>Example</strong>: How to Capture Command Output
         </div>
         </div>
 	</center>
@@ -304,7 +304,7 @@ any other Bourne shell style command.</p>
 
 <p>External commands will run in the background when a trailing
 ampersand
-(&amp;) is used.&nbsp; The term <b>"in the background"</b> refers to
+(&amp;) is used.&nbsp; The term <strong>"in the background"</strong> refers to
 starting the command as a separate process while you can continue
 to use the command prompt.  This can be used with Bourne or
 AdaScript parameters.</p>
@@ -319,7 +319,7 @@ applications (like the gimp image editing program).</p>
 		=&gt;<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: How to Run Commands as a Background Job
+		<strong>Example</strong>: How to Run Commands as a Background Job
         </div>
         </div>
 	</center>
@@ -331,8 +331,8 @@ job is finished, a message will be displayed.</p>
 
 <h3>Redirection</h3>
 
-<p>Like most shells, SparForte supports <b>input/output redirection</b> and
-<b>command pipelines</b>.  Redirection works with both Bourne and AdaScript
+<p>Like most shells, SparForte supports <strong>input/output redirection</strong> and
+<strong>command pipelines</strong>.  Redirection works with both Bourne and AdaScript
 parameters.</p>
 
         <center>
@@ -341,7 +341,7 @@ parameters.</p>
 		=&gt; grep sparforte &lt; list.txt<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: How to Redirect Command Input and Output
+		<strong>Example</strong>: How to Redirect Command Input and Output
         </div>
         </div>
 	</center>
@@ -381,7 +381,7 @@ file to store the results.</p>
 		<p class="code">=&gt; ls | grep sparforte<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-               <b>Example</b>: How to Create a Command Pipeline
+               <strong>Example</strong>: How to Create a Command Pipeline
         </div>
         </div>
 	</center>
@@ -398,7 +398,7 @@ for scripting in the Text_IO package described in <a
 <p>In UNIX-based
 operating systems, variables are shared between shells and commands
 or other programs
-through collections of variables called an <b>environment</b>.&nbsp; The
+through collections of variables called an <strong>environment</strong>.&nbsp; The
 environment
 can only hold string variables.&nbsp; To get around this problem, SparForte
 variables are stored independently of the operating system
@@ -416,15 +416,15 @@ Import other environment variables using <code>pragma import</code>.
 
         <center>
         <div class="code">
-		<p class="code">=&gt; <b>env</b> HOME<br>
+		<p class="code">=&gt; <strong>env</strong> HOME<br>
 		HOME = "/home/ken" -- imported identifier of the type string<br>
 		=&gt; LOGNAME : string<br>
-		=&gt; <b>pragma</b> import( shell, LOGNAME )<br>
+		=&gt; <strong>pragma</strong> import( shell, LOGNAME )<br>
 		=&gt; ? LOGNAME<br>
 		ken<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-               <b>Example</b>: How to Import Environment Variables
+               <strong>Example</strong>: How to Import Environment Variables
         </div>
         </div>
 	</center>
@@ -438,11 +438,11 @@ the point of view of the program that started SparForte.</p>
         <center>
         <div class="code">
 		<p class="code">=&gt; LOGNAME := "monkey"<br>
-		=&gt; <b>env</b> LOGNAME<br>
+		=&gt; <strong>env</strong> LOGNAME<br>
 		LOGNAME = "monkey" ( imported identifier of type string)<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-               <b>Example</b>: Overwriting an Imported Variable Makes It No Longer Imported
+               <strong>Example</strong>: Overwriting an Imported Variable Makes It No Longer Imported
         </div>
         </div>
 	</center>
@@ -452,12 +452,12 @@ environment variables using <code>pragma import</code>.</p>
 
         <center>
         <div class="code">
-		<p class="code">=&gt; <b>pragma</b> import( shell, LOGNAME )<br>
-		=&gt; <b>env</b> LOGNAME<br>
+		<p class="code">=&gt; <strong>pragma</strong> import( shell, LOGNAME )<br>
+		=&gt; <strong>env</strong> LOGNAME<br>
 		LOGNAME = "ken" ( imported identifier of type string )<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: Making a Variable Imported Again
+		<strong>Example</strong>: Making a Variable Imported Again
         </div>
         </div>
 	</center>
@@ -474,12 +474,12 @@ CVS, for example, requires a variable called CVSROOT.</p>
         <center>
         <div class="code">
 		<p class="code">=&gt; CVSROOT : string := "/home/ken/cvsroot";<br>
-		=&gt; <b>pragma</b> export( shell, CVSROOT )<br>
-		=&gt; <b>env</b> CVSROOT<br>
+		=&gt; <strong>pragma</strong> export( shell, CVSROOT )<br>
+		=&gt; <strong>env</strong> CVSROOT<br>
 		CVSROOT = "/home/ken/cvsroot" -- exported identifier of type string<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: How to Export Variables to the O/S Environment
+		<strong>Example</strong>: How to Export Variables to the O/S Environment
         </div>
         </div>
 	</center>
@@ -493,12 +493,12 @@ variables other than string variables.</p>
         <center>
         <div class="code">
 		<p class="code">=&gt; sum : integer<br>
-		=&gt; <b>pragma</b> export( shell, sum )<br>
+		=&gt; <strong>pragma</strong> export( shell, sum )<br>
 		pragma export( shell, sum );<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ type integer (an universal_numeric) is inherently different from an universal_string<br>&nbsp;<br>
                </p>
         <div class="code_caption">
-		<b>Example</b>: How to Export Variables to the O/S Environment
+		<strong>Example</strong>: How to Export Variables to the O/S Environment
         </div>
         </div>
 	</center>
@@ -516,7 +516,7 @@ variables other than string variables.</p>
 			</td>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_1.html">&nbsp;Command Prompt Tutorial 1: SparForte as a Calculator</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_2.html">&nbsp;<b>Command Prompt Tutorial 2: Basic Shell Commands</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_2.html">&nbsp;<strong>Command Prompt Tutorial 2: Basic Shell Commands</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_3.html">&nbsp;Command Prompt Tutorial 3: Working with Databases</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_4.html">&nbsp;Script Tutorial 1: Basic Commands Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_5.html">&nbsp;Script Tutorial 2: Intermediate Program Scripts</a></p>

@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Template Tutorial 1: Basic Templates</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_14.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_7.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_14.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_7.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -52,15 +52,15 @@ in templates for several other types of documents.</p>
 Interface).  The exact configuration depends on your operating system
 and your web server.</p>
 
-<p>As an example, with Apache, you can create scripts with a <tt>.cgi</tt>
-ending in a <tt>cgi-bin</tt> directory.  Then specify the location of the
+<p>As an example, with Apache, you can create scripts with a <code>.cgi</code>
+ending in a <code>cgi-bin</code> directory.  Then specify the location of the
 SparForte interpreter in the "#!" line at the top of script.</p>
 
 <p>CGI scripts can work with or without templates.</p>
 
 <h3>Using SparForte with CGI</h3>
 
-<p>The SparForte <tt>cgi</tt> package contains the basic functionality for
+<p>The SparForte <code>cgi</code> package contains the basic functionality for
 writing CGI scripts.  This is included by default.  If you prefer, support
 for the <code>gnat.cgi</code> can be added when SparForte is built, though this
 disables certain features.  See the gnat.cgi package reference for more
@@ -78,7 +78,7 @@ cgi.put_html_head( "test", "" );<br />
 &nbsp;<br />
         </p>
         <div class="code_caption">
-        <b>Example</b>: Display all predefined variables
+        <strong>Example</strong>: Display all predefined variables
         </div>
         </div>
         </center>
@@ -88,13 +88,13 @@ cgi.put_html_head( "test", "" );<br />
 Hello World
 <hr>
 
-<p>The following is a very simple CGI script using the <tt>cgi</tt>
+<p>The following is a very simple CGI script using the <code>cgi</code>
 package.  It shows the values submitted through a HTML form.</p>
 
         <center>
         <div class="code">
         <p class="code">
-	<b>procedure</b> minimal_cgi <b>is</b><br>
+	<strong>procedure</strong> minimal_cgi <strong>is</strong><br>
   	-- Demonstrate SparForte's CGI interface<br>
   	-- based on AdaCGI's minimal.adb example<br>
 &nbsp;<br>
@@ -102,22 +102,22 @@ package.  It shows the values submitted through a HTML form.</p>
   	-- environment variable REQUEST_METHOD to "GET" and the variable<br>
   	-- QUERY_STRING to either "" or "x=a&amp;y=b".<br>
 &nbsp;<br>
-	<b>begin</b><br>
+	<strong>begin</strong><br>
   	&nbsp;&nbsp;cgi.put_cgi_header;<br>
   	&nbsp;&nbsp;cgi.put_html_head( "Minimal Form Demonstration" );<br>
-  	&nbsp;&nbsp;<b>if</b> cgi.input_received <b>then</b><br>
+  	&nbsp;&nbsp;<strong>if</strong> cgi.input_received <strong>then</strong><br>
      	&nbsp;&nbsp;&nbsp;&nbsp;cgi.put_variables;<br>
-  	&nbsp;&nbsp;<b>else</b><br>
+  	&nbsp;&nbsp;<strong>else</strong><br>
      	&nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;form method=" &amp; ASCII.Quotation &amp; "POST" &amp; ASCII.Quotation &amp;<br>
        	&nbsp;&nbsp;&nbsp;&nbsp;"&gt;What's your name?&lt;input name=" &amp; ASCII.Quotation &amp; "username" &amp;<br>
        	&nbsp;&nbsp;&nbsp;&nbsp;ASCII.Quotation &amp; "&gt;&lt;input type=" &amp; ASCII.Quotation &amp; "submit" &amp;<br>
        	&nbsp;&nbsp;&nbsp;&nbsp;ASCII.Quotation &amp; "&lt;/form&gt;" );<br>
-  	&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
+  	&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
   	&nbsp;&nbsp;cgi.put_html_tail;<br>
-	<b>end</b> minimal_cgi;<br>&nbsp;<br>
+	<strong>end</strong> minimal_cgi;<br>&nbsp;<br>
         </p>
         <div class="code_caption">
-        <b>Example</b>: A Simple CGI Script
+        <strong>Example</strong>: A Simple CGI Script
         </div>
         </div>
         </center>
@@ -140,7 +140,7 @@ and an optional path to the template. If you don't include a path to
 the
 template, SparForte will assume that the template has the same name as your
 script
-but with a ".tmpl" file name extension. Use a template type of <tt>html</tt>
+but with a ".tmpl" file name extension. Use a template type of <code>html</code>
 to return a web page.</p>
 
 <p>Use the main script to run operating system command, database
@@ -172,7 +172,7 @@ command.</p>
 	&lt;/html&gt;<br>&nbsp;<br>
         </p>
         <div class="code_caption">
-        <b>Example</b>: A Simple Web Template (For the Simple Template Script)
+        <strong>Example</strong>: A Simple Web Template (For the Simple Template Script)
         </div>
         </div>
         </center>
@@ -197,8 +197,8 @@ able to run commands with the authority of the web server.)</p>
 <table border="1" width="98%">
   <tbody>
     <tr>
-      <td><b>CGI Script (test.cgi)</b></td>
-      <td><b>Template (test.tmpl)</b></td>
+      <td><strong>CGI Script (test.cgi)</strong></td>
+      <td><strong>Template (test.tmpl)</strong></td>
     </tr>
     <tr>
 
@@ -211,7 +211,7 @@ able to run commands with the authority of the web server.)</p>
       </td>
     </tr>
     <tr>
-      <td colspan="2"><b>Results in a Web Browser</b> (Taken from BUSH 1.0)<br>
+      <td colspan="2"><strong>Results in a Web Browser</strong> (Taken from BUSH 1.0)<br>
       <img src="pictures/bush_template_1.gif" alt="[Screenshot]" height="505"
  width="696"></td>
     </tr>
@@ -234,8 +234,8 @@ and validated, nor should you display any data on the web page or put any data
 in a URL that is not escaped for special characters.</p>
 
 <p>If you fail to protect your program, you will be vulnerable to Internet
-attacks such as <b>injections</b> (when strings variables are copied into SQL queries
-or OS commands) or <b>cross-site scripts</b> (where strings of HTML or JavaScript are
+attacks such as <strong>injections</strong> (when strings variables are copied into SQL queries
+or OS commands) or <strong>cross-site scripts</strong> (where strings of HTML or JavaScript are
 pasted back into a web page to take over a user session or deface a web site).</p>
 
 <p>If possible, try to run a script in restricted shell mode.  This will
@@ -262,31 +262,31 @@ Create your own version of <code>put</code> or <code>put_line</code> that use <c
         <center>
         <div class="code">
         <p class="code">
-<b>type</b> unescaped_string <b>is</b> <b>new</b> string;<br>
-<b>type</b> escaped_string <b>is</b> <b>new</b> string;<br>
+<strong>type</strong> unescaped_string <strong>is</strong> <strong>new</strong> string;<br>
+<strong>type</strong> escaped_string <strong>is</strong> <strong>new</strong> string;<br>
 <br>
-<b>function</b> html_encode( s : unescaped_string ) <b>return</b> escaped_string <b>is</b><br>
-<b>begin</b><br>
-&nbsp;&nbsp;<b>return</b> cgi.html_encode( s );<br>
-<b>end</b> html_encode;<br>
+<strong>function</strong> html_encode( s : unescaped_string ) <strong>return</strong> escaped_string <strong>is</strong><br>
+<strong>begin</strong><br>
+&nbsp;&nbsp;<strong>return</strong> cgi.html_encode( s );<br>
+<strong>end</strong> html_encode;<br>
 <br>
-<b>function</b> url_encode( s : unescaped_string ) <b>return</b> escaped_string <b>is</b><br>
-<b>begin</b><br>
-&nbsp;&nbsp;<b>return</b> cgi.url_encode( s );<br>
-<b>end</b> url_encode;<br>
+<strong>function</strong> url_encode( s : unescaped_string ) <strong>return</strong> escaped_string <strong>is</strong><br>
+<strong>begin</strong><br>
+&nbsp;&nbsp;<strong>return</strong> cgi.url_encode( s );<br>
+<strong>end</strong> url_encode;<br>
 <br>
-<b>procedure</b> put_html( s : escaped_string ) <b>is</b><br>
-<b>begin</b><br>
+<strong>procedure</strong> put_html( s : escaped_string ) <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;put( s );<br>
-<b>end</b> put_html;<br>
+<strong>end</strong> put_html;<br>
 <br>
-<b>procedure</b> put_line_html( s : escaped_string ) <b>is</b><br>
-<b>begin</b><br>
+<strong>procedure</strong> put_line_html( s : escaped_string ) <strong>is</strong><br>
+<strong>begin</strong><br>
 &nbsp;&nbsp;put_line( s );<br>
-<b>end</b> put_line_html;<br>&nbsp;<br>
+<strong>end</strong> put_line_html;<br>&nbsp;<br>
         </p>
         <div class="code_caption">
-        <b>Example</b>: Using Strong Typing to Ensure Web Page Content is Encoded
+        <strong>Example</strong>: Using Strong Typing to Ensure Web Page Content is Encoded
         </div>
         </div>
         </center>
@@ -312,7 +312,7 @@ especially one that can run shell shell commands and database queries?</li>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_4.html">&nbsp;Script Tutorial 1: Basic Commands Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_5.html">&nbsp;Script Tutorial 2: Intermediate Program Scripts</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_14.html">&nbsp;Script Tutorial 3: Data Types</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_6.html">&nbsp;<b>Template Tutorial 1: Basic Templates</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_6.html">&nbsp;<strong>Template Tutorial 1: Basic Templates</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_7.html">&nbsp;Template Tutorial 2: Intermediate Templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_8.html">&nbsp;GCC Tutorial: Compiling SparForte Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_9.html">&nbsp;Debugging Tutorial - Using the SparForte Debugger</a></p>

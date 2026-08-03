@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Template Tutorial 2: Intermediate Templates</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_6.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_8.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_6.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_8.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,7 +42,7 @@
 
 <h2><a name="2.7"></a>Template Tutorial 2: Intermediate Templates</h2>
 
-<p>Some web experts recommend using a <b>MVC</b> (model, view, controller) layout
+<p>Some web experts recommend using a <strong>MVC</strong> (model, view, controller) layout
 for web templates.  What they mean by that is that the business logic
 (or page routing, depending on the expert),
 the formatting of the web page, and the content should be separated.  In
@@ -57,8 +57,8 @@ without altering the underlying program.</p>
 
 <p>As shown in Tutorial 1, SparForte templates consist of a CGI script plus an
 HTML template.  By default, both files are located in the same directory.
-The template file can be located in a different directory.  <b>pragma
-template</b> can have the location of the template file as a second parameter.
+The template file can be located in a different directory.  <strong>pragma
+template</strong> can have the location of the template file as a second parameter.
 For example, if you have a web designer and programmer, place the templates
 in a different directory with different access rights so that these two
 people will not interfere with each other.</p>
@@ -79,9 +79,9 @@ import the variable.  In the same way as you import shell environment variables,
         <center>
         <div class="code">
                 <p class="code">first_name : string;<br>
-		<b>pragma</b> import( cgi, first_name );<br>&nbsp;<br></p>
+		<strong>pragma</strong> import( cgi, first_name );<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: How to Import HTML Form Variables
+                <strong>Example</strong>: How to Import HTML Form Variables
         </div>
         </div>
 	</center>
@@ -96,7 +96,7 @@ the variable is not there.</p>
         <div class="code">
                 <p class="code">first_name : string := cgi.value( "first_name", 1, false );<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: How to Read HTML Form Variables with the cgi Package
+                <strong>Example</strong>: How to Read HTML Form Variables with the cgi Package
         </div>
         </div>
         </center>
@@ -135,7 +135,7 @@ web server you are using. Common variables include:</p>
 		-- Get the name of the user's web browser<br>
 		-- e.g. Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.3) Gecko/20040922<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: How to Standard Web Server Variables
+                <strong>Example</strong>: How to Standard Web Server Variables
         </div>
         </div>
 	</center>
@@ -159,30 +159,30 @@ names and a message.</p>
 -----------------------------------------------------------------------------<br>
 &nbsp;<br>
 &nbsp;<br>
-<b>pragma</b> template( html );<br>
+<strong>pragma</strong> template( html );<br>
 -- this is a web template<br>
 &nbsp;<br>
-<b>pragma</b> debug;<br>
+<strong>pragma</strong> debug;<br>
 -- show SparForte errors on web page, enable assert/debug pragmas.  Comment this<br>
 -- out to record errors only in the web server log.<br>
 &nbsp;<br>
-<b>pragma</b> restriction( no_external_commands );<br>
+<strong>pragma</strong> restriction( no_external_commands );<br>
 -- this template is self-contained<br>
 &nbsp;<br>
 -----------------------------------------------------------------------------<br>
 -- USER CONFIGURATION AREA<br>
 -----------------------------------------------------------------------------<br>
 &nbsp;<br>
-dbname  : <b>constant</b> string := "ken";<br>
+dbname  : <strong>constant</strong> string := "ken";<br>
 -- the name of the database<br>
 &nbsp;<br>
-dbtable : <b>constant</b> string := "guestbook";<br>
+dbtable : <strong>constant</strong> string := "guestbook";<br>
 -- the name of the guestbook table<br>
 &nbsp;<br>
-guestbook_title : <b>constant</b> string := "Our Guestbook";<br>
+guestbook_title : <strong>constant</strong> string := "Our Guestbook";<br>
 -- the title of the guestbook<br>
 &nbsp;<br>
-allowed_host_address : <b>constant</b> string := "127.0.0.1";<br>
+allowed_host_address : <strong>constant</strong> string := "127.0.0.1";<br>
 -- the host computer with the CGI script that is allowed to submit things to<br>
 -- the guestbook (a security check)<br>
 &nbsp;<br>
@@ -190,9 +190,9 @@ allowed_host_address : <b>constant</b> string := "127.0.0.1";<br>
 -- GLOBAL VARIABLES<br>
 -----------------------------------------------------------------------------<br>
 &nbsp;<br>
-REMOTE_ADDR : <b>constant</b> string := "";<br>
+REMOTE_ADDR : <strong>constant</strong> string := "";<br>
 &nbsp;<br>
-<b>pragma</b> import( shell, REMOTE_ADDR );<br>
+<strong>pragma</strong> import( shell, REMOTE_ADDR );<br>
 -- Apache variable for address of requesting machine<br>
 &nbsp;<br>
 ok_to_post : boolean;<br>
@@ -208,7 +208,7 @@ ok_to_post := REMOTE_ADDR = allowed_host_address;  -- is this host OK?<br>
 -- VIM vi editor will show correct highlighting with this:<br>
 -- vim: ts=8 sw=4 tw=72 fdm=indent ft=ada smarttab noexpandtab<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Guest Book Example (guestbook.cgi, CGI Portion)
+                <strong>Example</strong>: Guest Book Example (guestbook.cgi, CGI Portion)
         </div>
         </div>
 	</center>
@@ -246,45 +246,45 @@ ok_to_post := REMOTE_ADDR = allowed_host_address;  -- is this host OK?<br>
 &nbsp;<br>
 &lt;?spar<br>
 &nbsp;&nbsp;-- if there is a new guestbook entry, insert<br>
-&nbsp;&nbsp;<b>if</b> cgi.input_received <b>then</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> ok_to_post <b>then</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> cgi.key_exists( "name", 1 ) <b>then</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>declare</b><br>
+&nbsp;&nbsp;<strong>if</strong> cgi.input_received <strong>then</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> ok_to_post <strong>then</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> cgi.key_exists( "name", 1 ) <strong>then</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>declare</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name    : string := cgi.value( "name", 1, false );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message : string := cgi.value( "message", 1, false );<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>begin</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>begin</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;? name;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;? message;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.prepare( "insert into " &amp; dbtable &amp; " values ('" &amp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name &amp; "','" &amp; message &amp; "')" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.execute;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>end</b>;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>else</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>end</strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>else</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;b&gt;This remote host is not allowed to post to the guestbook&lt;/b&gt;" );<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
-&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
+&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
 &nbsp;<br>
 &nbsp;&nbsp;-- show the messages<br>
 &nbsp;&nbsp;db.prepare( "select name, message from " &amp; dbtable );<br>
 &nbsp;&nbsp;db.execute;<br>
-&nbsp;&nbsp;<b>if</b> db.tuples = 0 <b>then</b><br>
+&nbsp;&nbsp;<strong>if</strong> db.tuples = 0 <strong>then</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;tr&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;td&gt;&lt;i&gt;You are the first person to sign the guestbook.&lt;/i&gt;&lt;/td&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;/tr&gt;" );<br>
-&nbsp;&nbsp;<b>else</b><br>
+&nbsp;&nbsp;<strong>else</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;tr&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;td bgcolor=lightgrey&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;td bgcolor=lightgrey&gt;&lt;b&gt;Message&lt;/b&gt;&lt;/td&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;/tr&gt;" );<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>while</b> <b>not</b> db.end_of_query <b>loop</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>while</strong> <strong>not</strong> db.end_of_query <strong>loop</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.fetch;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;tr&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;td&gt;" &amp; db.value( 1 ) &amp; "&lt;/td&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;td&gt;" &amp; db.value( 2 ) &amp; "&lt;/td&gt;" );<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;put_line( "&lt;/tr&gt;" );<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>end</b> <b>loop</b>;<br>
-&nbsp;&nbsp;<b>end</b> <b>if</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>end</strong> <strong>loop</strong>;<br>
+&nbsp;&nbsp;<strong>end</strong> <strong>if</strong>;<br>
 &nbsp;&nbsp;db.clear;<br>
 ?&gt;<br>
 &nbsp;<br>
@@ -292,7 +292,7 @@ ok_to_post := REMOTE_ADDR = allowed_host_address;  -- is this host OK?<br>
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Guest Book Example (guestbook.tmpl, Template Portion)
+                <strong>Example</strong>: Guest Book Example (guestbook.tmpl, Template Portion)
         </div>
         </div>
 	</center>
@@ -331,7 +331,7 @@ in the final web page.</p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_5.html">&nbsp;Script Tutorial 2: Intermediate Program Scripts</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_14.html">&nbsp;Script Tutorial 3: Data Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_6.html">&nbsp;Template Tutorial 1: Basic Templates</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_7.html">&nbsp;<b>Template Tutorial 2: Intermediate Templates</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_7.html">&nbsp;<strong>Template Tutorial 2: Intermediate Templates</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_8.html">&nbsp;GCC Tutorial: Compiling SparForte Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_9.html">&nbsp;Debugging Tutorial - Using the SparForte Debugger</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_10.html">&nbsp;Creating a Profile Script</a></p>

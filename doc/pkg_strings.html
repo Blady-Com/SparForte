@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Strings</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_stats.html" />
 	<link rel="next" href="pkg_system.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_stats.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_system.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_stats.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_system.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,11 +42,11 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.8"></a>Strings Package</h2>
+<h2><a id="4.34"></a>Strings Package</h2>
 <p>The SparForte built-in strings package provides subprograms to manipulate string
-and character values. (The character positions are numbered from 1.)</p>
+and character values.  Character positions are numbered from 1.</p>
 
-<p><u>GCC Ada equivalent</u>: Ada.Strings.Unbounded, GNAT.Regexp, GNAT.Regpat
+<p><span class="underline">GCC Ada equivalent</span>: Ada.Strings.Unbounded, GNAT.Regexp, GNAT.Regpat
 
         <center>
         <div class="code">
@@ -83,7 +83,7 @@ and character values. (The character positions are numbered from 1.)</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the strings package
+        <strong>Help Command</strong>: Contents of the strings package
         </div>
         </div>
         </center>
@@ -92,47 +92,52 @@ and character values. (The character positions are numbered from 1.)</p>
 bounded strings and unbounded strings. They are implemented in different
 packages and are incompatible with one another. The standard strings are
 implemented as arrays and cannot be used in SparForte since AdaScript had no
-array capabilities. SparForte implements strings as Ada unbounded strings.
+array capabilities. SparForte implements strings as Ada unbounded strings.</p>
+
 <p>For ease of use, string literals (like "hello world") are universal_string
-types in AdaScript, but are fixed string types in Ada. String literals
-should properly be converted to an unbounded string using the to_unbounded_string
-(to_unbounded_string( "hello world" ) even though AdaScript doesn't enforce
-this.
-<p>Likewise unbounded strings should be declared as "unbounded_string"
-type variables. For ease of use, SparForte uses "string" instead.
+types in AdaScript.  Ada string literals are fixed string types. You can explicitly
+convert string literals to an unbounded string using the to_unbounded_string function
+(e.g., to_unbounded_string( "hello world" ) even though AdaScript does not
+require this).</p>
+
+<p>Likewise you can declare unbounded strings as a "unbounded_string" type.
+For ease of use, SparForte uses "string" as equivalent to "unbounded_string".
 <p>When porting a script to Ada, unbounded_string types, to_unbounded_string
-and to_string functions should be used.
+and to_string functions should be used.</p>
+
 <p>There are 5 enumerated types used by the string functions:
 <ul>
-<li><b>strings.alignment</b> - alignment.left, alignment.right or alignment.center</li>
-<li><b>strings.truncation</b> - truncation.left, truncation.right or truncation.error</li>
-<li><b>strings.membership</b> - membership.inside or membership.outside</li>
+<li><strong>strings.alignment</strong> - alignment.left, alignment.right or alignment.center</li>
+<li><strong>strings.truncation</strong> - truncation.left, truncation.right or truncation.error</li>
+<li><strong>strings.membership</strong> - membership.inside or membership.outside</li>
 
-<li><b>strings.direction</b> - direction.forward or direction.backward</li>
-<li><b>strings.trim_end</b> - trim_end.left, trim_end.right or trim_end.both</li>
-<li><b>strings.sensitivity</b> - sensitivity.insensitive, sensitivity.sensitive</li>
+<li><strong>strings.direction</strong> - direction.forward or direction.backward</li>
+<li><strong>strings.trim_end</strong> - trim_end.left, trim_end.right or trim_end.both</li>
+<li><strong>strings.sensitivity</strong> - sensitivity.insensitive, sensitivity.sensitive</li>
 </ul>
 
-<p>There is also a string type, <b>strings.base64_string</b>, for use with
+<p>There is also a string type, <strong>strings.base64_string</strong>, for use with
 Base 64 encoded strings.</p>
 
-<p>There is a <b>strings.null_unbounded_string</b>, a constant empty string
+<p>There is a <strong>strings.null_unbounded_string</strong>, a constant empty string
 for compatibility with Ada.</p>
 
-<a name="strings.compare"></a><h3>i := strings.compare( s, t [, c [, l] ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<p>The American Standard Code for Information Interchange (ASCII) character set is
+described in the reference section.</p>
+
+<a id="strings.compare"></a><h3>i := strings.compare( s, t [, c [, l] ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return -1 if string s is less than string t, 1
-if t is greater than s or zero if they are equal.  If length l is given,
-only test the first l characters.  The default sensitivity
-is case-sensitive.</p></td>
+<td><p>Compares strings s and t.  Return -1 if string s is less than string t.
+Return 1 if t is greater than s or zero if they are equal.  If length l is given,
+only test the first l characters.  The function is case-sensitive by default.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><p><span class="code">i := strings.compare( "apples", "oranges" ); -- i is -1</span><br><span class="code">i := strings.compare( "apples", "apples" ); -- i is 0</span><br><span class="code">i := strings.compare( "oranges", "apples" ); -- i is 1</span><br><span class="code">i := strings.compare( "apples", "applesauce", sensitivity.sensitive, 6 ); -- i is 0</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -163,7 +168,7 @@ is case-sensitive.</p></td>
 <td><span>l</span></td>
 <td><span>in</span></td>
 <td><span>positive</span></td>
-<td><span>last positive</span></td>
+<td><span>the length of the string</span></td>
 <td><span>the number of characters to test</span></td>
 </tr>
 <tr>
@@ -192,17 +197,17 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.count"></a><h3>n := strings.count( s, p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.count"></a><h3>n := strings.count( s, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return the occurrences in string s of substring p</p></td>
+<td><p>Return the number of occurrences of substring p in string s</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">n := strings.count( "baby", "b" ); -- returns 2</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -246,17 +251,17 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.csv_field"></a><h3>r := strings.csv_field( s, c [, d [, q]] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.csv_field"></a><h3>r := strings.csv_field( s, c [, d [, q]] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return the natural c-th substring of s delimited by character d (typically a comma).  Double quotes will escape the delimiter.  For use with Comma Separated Value files.  A bad position returns an empty string (like the Linux/UNIX cut command).</p></td>
+<td><p>Return the natural c-th substring (data field) of s.  Character d (typically a comma) delimits the substrings.  Double quotes will escape the delimiter.  For use with Comma Separated Value files.  A bad position returns an empty string (like the Linux/UNIX cut command).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := strings.csv_field( "a/b/c", 2, '/' ); -- returns "b"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -317,8 +322,8 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.csv_replace"></a><h3>strings.csv_replace( s, f, t, [, d [, q] ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.csv_replace"></a><h3>strings.csv_replace( s, f, t, [, d [, q] ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>replace the natural f-th substring of s delimited by character d (typically a comma) with string t.  Double quotes will escape the delimiter.  For use with Comma Separated Value files (or ASCII.TAB for tab separated value file).  A bad position returns an empty string (like the Linux/UNIX cut command).</p></td>
@@ -327,7 +332,7 @@ is case-sensitive.</p></td>
 <td><span class="code">s := "a/b/c"; strings.csv_replace( s, 2, "x", '/' ); -- now "a/x/c"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -388,17 +393,17 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.delete"></a><h3>r := strings.delete( s, l, h )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.delete"></a><h3>r := strings.delete( s, l, h )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return a string with character positions positive l to natural h deleted</p></td>
+<td><p>Return string s with the character positions positive l to natural h removed.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.delete( "bowl", 4, 4 ); -- returns "bow"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -449,17 +454,17 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.element"></a><h3>c := strings.element( s, p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.element"></a><h3>c := strings.element( s, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return the character located at positive position p</p></td>
+<td><p>Return the character located at positive position p</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">c := strings.element( "baby", 2 ); -- returns 'a'</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -503,8 +508,8 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.ends_with"></a><h3>b := ends_with( s, t [, c] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.ends_with"></a><h3>b := ends_with( s, t [, c] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if substring t matches the end of string s.  If c is sensitivity.insensitive, the search is insensitive.</p></td>
@@ -513,7 +518,7 @@ is case-sensitive.</p></td>
 <td><span class="code">b := strings.ends_with( "foobar", "bar" ); -- b is true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -528,7 +533,7 @@ is case-sensitive.</p></td>
 <td><span>true if strings match</span></td>
 </tr><tr>
 <td><span>s</span></td>
-<td><span>in out</span></td>
+<td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
 <td><span>the string to test</span></td>
@@ -563,17 +568,17 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.field"></a><h3>r := strings.field( s, c [, d] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.field"></a><h3>r := strings.field( s, c [, d] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return the natural c-th substring of s delimited by character d.  A bad position returns an empty string (like the Linux/UNIX cut command).</p></td>
+<td><p>Return the natural c-th substring (data field) of s delimited by character d.  A bad position returns an empty string (like the Linux/UNIX cut command).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := strings.field( "a/b/c", 2, '/' ); -- returns "b"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -624,22 +629,22 @@ is case-sensitive.</p></td>
 </tr>
 </table>
 
-<a name="strings.glob"></a><h3>b := strings.glob( e, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.glob"></a><h3>b := strings.glob( e, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return true if string glob expression e matches the string s. Globbing characters include:</p>
+<td><p>Return true if string glob expression e matches the string s. Globbing characters include:</p>
 <ul>
 <li>
-<b>*</b> - zero or more characters</li>
+<strong>*</strong> - zero or more characters</li>
 <li>
-<b>?</b> - a single character</li>
+<strong>?</strong> - a single character</li>
 <li>
-<b>[...]</b> - a set of characters</li>
+<strong>[...]</strong> - a set of characters</li>
 <li>
-<b>[^...]</b> - any not in set of characters</li>
+<strong>[^...]</strong> - any not in set of characters</li>
 <li>
-<b>[c1...c2]</b> - a range of characters between c1 and c2</li>
+<strong>[c1...c2]</strong> - a range of characters between c1 and c2</li>
 </ul>
 </td>
 </tr><tr>
@@ -647,7 +652,7 @@ is case-sensitive.</p></td>
 <td><span class="code">b := strings.glob( "app*", "apple" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -690,13 +695,13 @@ is case-sensitive.</p></td>
 <td><p>Ada: GNAT.RegPat.Match</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Notes</p></td>
-<td><p>This should rightly be strings.match but the name conflicts with the
+<td><p>The name should properly be strings.match but the name conflicts with the
 other strings.match.  Glob also is a more descriptive name.</p></td>
 </tr>
 </table>
 
-<a name="strings.head"></a><h3>r := strings.head( s, c [, p] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.head"></a><h3>r := strings.head( s, c [, p] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the first natural c characters of string s. If the number of
@@ -707,7 +712,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.head( "minimum", 3 ); -- returns "min"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -758,18 +763,18 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.image"></a><h3>r := strings.image( n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.image"></a><h3>r := strings.image( n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Convert numeric or enumerated value n to a string representation of the same value.  For numeric types, it's the inverse of numerics.value.</p></td>
+<td><p>Convert numeric or enumerated value n to a string representation of the same value.  For numeric types, it is the inverse of numerics.value.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.image( 35 ); -- returns "35"</span><br>
 <span class="code">r := strings.image( true ); -- returns "true"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -806,17 +811,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.index"></a><h3>n := strings.index( s, p [, d] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.index"></a><h3>n := strings.index( s, p [, d] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the first position of substring p in string s in direction d.  Returns zero if the substring doesn't exist.  The search is case-sensitive.</p></td>
+<td><p>Return the first position of substring p in string s in direction d.  Returns zero if the substring does not exist.  The search is case-sensitive.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">n := strings.index( "catapult", "tap" ); -- returns 3</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -867,8 +872,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.index_non_blank"></a><h3>n := strings.index_non_blank( s [,d] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.index_non_blank"></a><h3>n := strings.index_non_blank( s [,d] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the first non-space position in string s in direction d.  Returns zero if the string is all spaces.</p></td>
@@ -877,7 +882,7 @@ padded using character p</p></td>
 <td><span class="code">n := strings.index_non_blank( " moon" ); -- returns 2</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -918,17 +923,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.index_set"></a><h3>n := strings.index_set( s, t [,f [, m [, d] ] ] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.index_set"></a><h3>n := strings.index_set( s, t [,f [, m [, d] ] ] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>For string s and a set of characters t, return the first position in s that matches a character in the set (if membership is inside) or doesn't match (if outside).  Start at position f and move in direction d.  Returns zero if the substring doesn't exist or if either string is empty.  The search is case-sensitive.</p></td>
+<td><p>Search string s for specific characters.  t is the set of characters t.  If membership is inside, return the first position in s that matches a character in the set.  If membership is outside, return the first position that doesn't match.  Start at position f.  Move in direction d.  Return zero if the substring doesn't exist or if either string is empty.  The search is case-sensitive.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">? strings.index_set( "marketplace", "place", 1, membership.inside ); -- returns 2</br>? strings.index_set( "marketplace", "mark", 1, membership.outside ); -- returns 5<br>? strings.index_set( "marketplace", "aeiou", 11, membership.outside, direction.backward ); -- returns 10<br>? strings.index_set( "marketplace", "z", 1, membership.inside ); -- return 0 </span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -996,8 +1001,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.insert"></a><h3>r := strings.insert( s, b, n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.insert"></a><h3>r := strings.insert( s, b, n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return a string with substring n inserted into string s before position positive b</p></td>
@@ -1006,7 +1011,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.insert( "ale", 2, "pp" ); -- returns "apple"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1057,8 +1062,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_alphanumeric"></a><h3>r := strings.is_alphanumeric( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_alphanumeric"></a><h3>r := strings.is_alphanumeric( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string completely contains alphanumeric characters (that is, the same as is_letter and is_digit).</p></td>
@@ -1067,7 +1072,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_alphanumeric( "hello" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1101,17 +1106,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_basic"></a><h3>r := strings.is_basic( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_basic"></a><h3>r := strings.is_basic( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>True if the string completely contains basic Latin-1 letters (A..Z, a..z, AE Diphtong, Icelandic Eth, Icelandic Thorn, German Sharp S).   Accented characters are not included.</p></td>
+<td><p>True if the string completely contains basic Latin-1 letters (A..Z, a..z, AE Diphthong, Icelandic Eth, Icelandic Thorn, German Sharp S).   Accented characters are not included.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">r := strings.basic( "hello" ); -- returns true</span></td>
+<td><span class="code">r := strings.is_basic( "hello" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1145,17 +1150,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_control"></a><h3>r := strings.is_control( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_control"></a><h3>r := strings.is_control( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string completely contains control characters (ASCII/Latin-1 0..31 and 127..159).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">r := strings.control( "hello" ); -- returns false</span></td>
+<td><span class="code">r := strings.is_control( "hello" ); -- returns false</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1189,17 +1194,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_digit"></a><h3>r := strings.is_digit( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_digit"></a><h3>r := strings.is_digit( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>true if the string completely contains numeric digits (ASCII/Latin-1 48..57).</p></td>
+<td><p>Return true if the string completely contains numeric digits (ASCII/Latin-1 48..57).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.is_digit( "1234567890" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1233,8 +1238,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_fixed"></a><h3>r := strings.is_fixed( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_fixed"></a><h3>r := strings.is_fixed( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string appears to be a fixed point number (that is, a number with a decimal point).  No check is made to see if the number can be accurately stored by AdaScript.</p></td>
@@ -1243,7 +1248,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_fixed( "340.12" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1277,17 +1282,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_graphic"></a><h3>r := strings.is_graphic( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_graphic"></a><h3>r := strings.is_graphic( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>true if the string completely contains printable characters (that is, not is_control).</p></td>
+<td><p>Return true if the string completely contains printable characters (that is, not is_control).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.is_graphic( "hello" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1321,17 +1326,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_hexadecimal_digit"></a><h3>r := strings.is_hexadecimal_digit( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_hexadecimal_digit"></a><h3>r := strings.is_hexadecimal_digit( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>true if the string completely contains hexadecimal numeric characters.</p></td>
+<td><p>Return true if the string completely contains hexadecimal numeric characters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.is_hexadecimal_digit( "FE00" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1365,8 +1370,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_letter"></a><h3>r := strings.is_letter( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_letter"></a><h3>r := strings.is_letter( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string completely contains Latin-1 letters (that is, is_basic plus accented characters).</p></td>
@@ -1375,7 +1380,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_letter( "hello" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1409,8 +1414,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_lower"></a><h3>r := strings.is_lower( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_lower"></a><h3>r := strings.is_lower( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string completely contains Latin-1 lower-case letters.</p></td>
@@ -1419,7 +1424,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_lower( "hello" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1453,8 +1458,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_slashed_date"></a><h3>r := strings.is_slashed_date( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_slashed_date"></a><h3>r := strings.is_slashed_date( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string appears to be an 8 or 10 character slashed date.  No check is made to see if the date is a real date.</p></td>
@@ -1463,7 +1468,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_slashed_date( "11/22/2003" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1497,8 +1502,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_special"></a><h3>r := strings.is_special( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_special"></a><h3>r := strings.is_special( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string completely contains special printable characters such as punctuation marks (that is, is_graphic and not is_alphanumeric).</p></td>
@@ -1507,7 +1512,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_special( "!" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1544,17 +1549,17 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_typo_of"></a><h3>b := strings.is_typo_of( s1, s2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_typo_of"></a><h3>b := strings.is_typo_of( s1, s2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>true if the string s1 is similar to s2.  false if the strings are the same, if the strings are too short to test or if the strings are very different.  The function is case-sensitive.  This is the same algorithm used by SparForte to check for identifiers with spelling mistakes.</p></td>
+<td><p>Compares string s1 to s2 for common spelling mistakes.  Return true if the string s1 is similar to s2.  Return false if the strings are identical. The function also returns false if the strings are too short to test or if the strings differ significantly.  The function is case-sensitive.  SparForte uses the same algorithm to detect misspelled identifiers.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">b := strings.is_typo_of( "apple", "app1e" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1598,8 +1603,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.is_upper"></a><h3>r := strings.is_upper( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.is_upper"></a><h3>r := strings.is_upper( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the string completely contains Latin-1 upper-case letters.</p></td>
@@ -1608,7 +1613,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.is_upper( "HELLO" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1642,8 +1647,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.length"></a><h3>n := strings.length( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.length"></a><h3>n := strings.length( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of characters in the string.  Returns zero if the string is empty.</p></td>
@@ -1652,7 +1657,7 @@ padded using character p</p></td>
 <td><span class="code">n := strings.length( "bounce" ); -- returns 6</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1686,8 +1691,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.levenshtein"></a><h3>b := strings.levenshtein( s1, s2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.levenshtein"></a><h3>n := strings.levenshtein( s1, s2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of edits to change s1 into s2.</p>
@@ -1697,7 +1702,7 @@ padded using character p</p></td>
 <td><span class="code">b := strings.levenshtein( "kitten", "sitting" ); -- returns 3</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1741,8 +1746,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.lookup"></a><h3>r := strings.lookup( s, k [, d] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.lookup"></a><h3>r := strings.lookup( s, k [, d] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>String s contains pairs of key-value substrings delimited by character d.  Return the right-hand (value) substring of the pair beginning with left-hand (key) field k.  An empty string is returned if the key is not found.</p></td>
@@ -1751,7 +1756,7 @@ padded using character p</p></td>
 <td><span class="code">s := strings.lookup( "a/b/c/d", "c", '/' ); -- returns "d" from pair "c/d"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1792,7 +1797,7 @@ padded using character p</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#strings.csv_field">strings.csv_field</a><br><a href="#strings.field">strings.field</a><br><a href="#strings.glob">strings.glob</a><br><a href="#strings.index">strings.index</a><br><a href="#strings.index">strings.index</a>_non_blank<br><a href="#strings.match">strings.match</a></p></td>
+<td><p><a href="#strings.csv_field">strings.csv_field</a><br><a href="#strings.field">strings.field</a><br><a href="#strings.glob">strings.glob</a><br><a href="#strings.index">strings.index</a><br><a href="#strings.index_non_blank">strings.index_non_blank</a><br><a href="#strings.match">strings.match</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
@@ -1802,31 +1807,31 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.match"></a><h3>b := strings.match( e, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.match"></a><h3>b := strings.match( e, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if the string matches regular expression with PERL extensions.</p>
 <p>Match characters include:
 <ul>
-<li><b>^</b> - at beginning</li> 
-<li><b>.</b> - any character</li>
-<li><b>$</b> - at end</li>
-<li><b>?</b> - zero or one character</li>
-<li><b>[s]</b> - any in set s</li>
-<li><b>+</b> - one or more characters</li>
-<li><b>[^s]</b> - any not in set s</li>
-<li><b>*</b> - zero or more characters</li>
-<li><b>\</b> - escape character</li>
-<li><b>(e)</b> - nested expression</li>
-<li><b>|</b> - alternative</li>
+<li><strong>^</strong> - at beginning</li> 
+<li><strong>.</strong> - any character</li>
+<li><strong>$</strong> - at end</li>
+<li><strong>?</strong> - zero or one character</li>
+<li><strong>[s]</strong> - any in set s</li>
+<li><strong>+</strong> - one or more characters</li>
+<li><strong>[^s]</strong> - any not in set s</li>
+<li><strong>*</strong> - zero or more characters</li>
+<li><strong>\</strong> - escape character</li>
+<li><strong>(e)</strong> - nested expression</li>
+<li><strong>|</strong> - alternative</li>
 </ul></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">b := strings.match( "^app", "apple" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1870,8 +1875,8 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.mktemp"></a><h3>r := strings.mktemp( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.mktemp"></a><h3>r := strings.mktemp( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Make a temporary file name using template p (like UNIX/Linux mktemp command)</p></td>
@@ -1880,7 +1885,7 @@ padded using character p</p></td>
 <td><span class="code">r := strings.mktemp( "tempXXXXXX" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1888,7 +1893,7 @@ padded using character p</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>s</span></td>
+<td><span>p</span></td>
 <td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
@@ -1917,19 +1922,19 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a name="strings.perl_match"></a><h3>b := strings.perl_match( e, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.perl_match"></a><h3>b := strings.perl_match( e, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return true if the string matches Perl Compatible regular expression.
-This has more features than strings.match.</p>
+<td><p>Return true if the string matches Perl Compatible Regular Expression (PCRE).
+This function has more features than the Ada-based strings.match.</p>
 </td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">b := strings.perl_match( "^app", "apple" ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1975,12 +1980,12 @@ This has more features than strings.match.</p>
 <td><p>SparForte 2.2.1</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>Uses the C pcre library.</p></td>
+<td><p>Uses the C PCRE library.</p></td>
 </tr>
 </table>
 
-<a name="strings.overwrite"></a><h3>r := strings.overwrite( s, p, n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.overwrite"></a><h3>r := strings.overwrite( s, p, n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return a string with substring n overwriting positions starting at positive p</p></td>
@@ -1989,7 +1994,7 @@ This has more features than strings.match.</p>
 <td><span class="code">r := strings.overwrite( "goose", 2, "ee" ); -- returns "geese"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2040,17 +2045,17 @@ This has more features than strings.match.</p>
 </tr>
 </table>
 
-<a name="strings.replace"></a><h3>strings.replace( s, f, t [, d] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.replace"></a><h3>strings.replace( s, f, t [, d] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>s contains substring fields delimited by character d.  Replace the f-th substring field with new substring t.  No change is made for a position that doesn't exist.  </p></td>
+<td><p>Replace the f-th substring field.  The replacement is string t.  String s contains substring fields delimited by character d.  The function makes no change when a position doesn't exist.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">strings.replace( s, 2, "*", '/' ); -- if s is "a/b/c", it is now "a/*/c"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2101,8 +2106,8 @@ This has more features than strings.match.</p>
 </tr>
 </table>
 
-<a name="strings.replace_all"></a><h3>r := replace_all( s, n, t [, c] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.replace_all"></a><h3>r := replace_all( s, n, t [, c] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Replace all occurrences of substring n in string s with replacement substring t.  If c is sensitivity.insensitive, the search is insensitive.  The search is first position to last position.</p></td>
@@ -2111,7 +2116,7 @@ This has more features than strings.match.</p>
 <td><span class="code">r := strings.replace_all( "foobar", "o", "x", true ); -- r is "fxxbar"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2126,7 +2131,7 @@ This has more features than strings.match.</p>
 <td><span>the new string</span></td>
 </tr><tr>
 <td><span>s</span></td>
-<td><span>in out</span></td>
+<td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
 <td><span>the string to change</span></td>
@@ -2168,8 +2173,8 @@ This has more features than strings.match.</p>
 </tr>
 </table>
 
-<a name="strings.replace_slice"></a><h3>r := replace_slice( s, l, h, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.replace_slice"></a><h3>r := replace_slice( s, l, h, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Replace the characters in s between positions low l and high h with substring b</p></td>
@@ -2178,7 +2183,7 @@ This has more features than strings.match.</p>
 <td><span class="code">r := strings.replace_slice( s, 2, 3, , 'foo' ); -- if s is "1234", r is "1foo34"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2235,8 +2240,8 @@ This has more features than strings.match.</p>
 </tr>
 </table>
 
-<a name="strings.set_unbounded_string"></a><h3>strings.set_unbounded_string( u, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.set_unbounded_string"></a><h3>strings.set_unbounded_string( u, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Set unbounded string u with the value of string s.  Provided for Ada 2005 compatibility.</p></td>
@@ -2245,7 +2250,7 @@ This has more features than strings.match.</p>
 <td><span class="code">strings.set_unbounded_string( u, "foo" ); -- u is now "foo"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2279,8 +2284,8 @@ This has more features than strings.match.</p>
 </tr>
 </table>
 
-<a name="strings.slice"></a><h3>r := strings.slice( s, l, h )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.slice"></a><h3>r := strings.slice( s, l, h )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return a substring between the positions positive l and natural h.</p></td>
@@ -2289,7 +2294,7 @@ This has more features than strings.match.</p>
 <td><span class="code">r := strings.slice( "realize", 2, 4 ); -- returns "eal"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2301,21 +2306,21 @@ This has more features than strings.match.</p>
 <td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
-<td><span>the string to overwrite</span></td>
+<td><span>the string to to extract from</span></td>
 </tr>
 <tr>
 <td><span>l</span></td>
 <td><span>in</span></td>
 <td><span>positive</span></td>
 <td><span>required</span></td>
-<td><span>low position to start replacing characters</span></td>
+<td><span>the starting position of the substring</span></td>
 </tr>
 <tr>
 <td><span>h</span></td>
 <td><span>in</span></td>
 <td><span>natural</span></td>
 <td><span>required</span></td>
-<td><span>high position to finish replacing characters</span></td>
+<td><span>the ending position of the substring</span></td>
 </tr>
 <tr>
 <td><span>r</span></td>
@@ -2340,21 +2345,21 @@ This has more features than strings.match.</p>
 </tr>
 </table>
 
-<a name="strings.soundex"></a><h3>r := strings.soundex( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.soundex"></a><h3>r := strings.soundex( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the English language Soundex code representing the sound of the string.
 The codes can be used to compare strings by their sound when the precise spelling
 is uncertain.
-Extended characters will be converted to basic characters.  An empty string will
-return an empty string.</p></td>
+The function converts Extended characters to basic characters.  The function
+returns an empty string when s is an empty string.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.soundex( "Soundex" ); -- returns "S532"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2388,17 +2393,17 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.split"></a><h3>strings.split( s, l, r , p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.split"></a><h3>strings.split( s, l, r , p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Split string s into a left substring l and a right substring r at or to the left of character position p.  split will attempt to split on the nearest space.  A bad position will be constrained to legal values.</p></td>
+<td><p>Split string s into a left substring l and a right substring r at or to the left of character position p.  The function splits the string at the nearest space.  The function will constrain a bad position, adjusting it to a valid value.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">strings.split( "hello there", l, r, 9 ); -- l is "hello " and r is "there"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2452,8 +2457,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.starts_with"></a><h3>b := starts_with( s, t [, c] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.starts_with"></a><h3>b := starts_with( s, t [, c] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if substring t matches the start of string s.  If c is sensitivity.insensitive, the search is insensitive.</p></td>
@@ -2462,7 +2467,7 @@ return an empty string.</p></td>
 <td><span class="code">b := strings.starts_with( "foobar", "foo" ); -- b is true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2477,7 +2482,7 @@ return an empty string.</p></td>
 <td><span>true if strings match</span></td>
 </tr><tr>
 <td><span>s</span></td>
-<td><span>in out</span></td>
+<td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
 <td><span>the string to test</span></td>
@@ -2512,8 +2517,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.tail"></a><h3>r := strings.tail( s, c [, p] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.tail"></a><h3>r := strings.tail( s, c [, p] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the last natural c characters of string s</p></td>
@@ -2522,7 +2527,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.tail( "maximum", 3 ); -- returns "mum"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2573,17 +2578,17 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_base64"></a><h3>r := strings.to_base64( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_base64"></a><h3>r := strings.to_base64( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Encode to arbitrary (possibly binary) string to base 64 characters.</p></td>
+<td><p>Returns an encoded string to base 64 characters for the arbitrary (possibly binary) string s.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">r := strings.to_base64( "foobar" &amp; ASCII.FF ); -- returns "Zm9vcmJhcgw="</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2623,8 +2628,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_basic"></a><h3>r := strings.to_basic( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_basic"></a><h3>r := strings.to_basic( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert the string to basic letters (as defined for strings.is_basic).</p></td>
@@ -2633,7 +2638,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.to_basic( "hello" ); -- returns "hello"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2667,8 +2672,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_escaped"></a><h3>r := strings.to_escaped( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_escaped"></a><h3>r := strings.to_escaped( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert the string to printable character by replacing control characters with "[# n]" where n is the ASCII/Latin-1 position.</p></td>
@@ -2677,7 +2682,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.to_escaped( "hello" &amp; ASCII.CR ); -- returns "hello[# 13]"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2714,8 +2719,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_hexadecimal_digits"></a><h3>s := strings.to_hexadecimal_digits( n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_hexadecimal_digits"></a><h3>s := strings.to_hexadecimal_digits( n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return a natural number as upper-case hexadecimal digits.</p></td>
@@ -2724,7 +2729,7 @@ return an empty string.</p></td>
 <td><span class="code">s := strings.to_hexadecimal_digits( 123 ); -- returns "7B"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2764,8 +2769,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_lower"></a><h3>r := strings.to_lower( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_lower"></a><h3>r := strings.to_lower( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string in lower-case</p></td>
@@ -2774,7 +2779,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.to_lower( "bOunce" ); -- returns "bounce"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2808,17 +2813,17 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_proper"></a><h3>r := strings.to_proper( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_proper"></a><h3>r := strings.to_proper( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string in proper (or mixed or title) case</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">n := strings.to_proper( "proper" ); -- returns "Proper"</span></td>
+<td><span class="code">r := strings.to_proper( "proper" ); -- returns "Proper"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2852,8 +2857,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_json"></a><h3>r := strings.to_json( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_json"></a><h3>r := strings.to_json( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the JSON encoding of the string.  Encoding arbitrary control characters with \u is not yet supported, though carriage returns, line feeds, etc. are supported.</p></td>
@@ -2862,7 +2867,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.to_json( "foobar" &amp; ASCII.LF &amp; "test" ); -- returns "foobar\ntest"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2902,22 +2907,22 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_string"></a><h3>r := strings.to_string( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_string"></a><h3>r := strings.to_string( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>The function depends on the string type.</p>
 <ol>
-<li>If s is an <b>unbounded_string</b>, convert unbounded string s to string r.  For compatibility with Ada 95.</li>
-<li>If s is a <b>json_string</b>, convert JSON encoding of a string into the original string r. Encoding arbitrary control characters with \u is not yet supported, though carriage returns, line feeds, etc. are supported. universal_string types (including string literals) are not accepted.</li>
-<li> If s is a <b>strings.base64_string</b>, return an arbitrary (possibly binary) string r as decoded from the base 64 characters s.</li>
+<li>If s is an <strong>unbounded_string</strong>, convert unbounded string s to string r.  For compatibility with Ada 95.</li>
+<li>If s is a <strong>json_string</strong>, convert JSON encoding of a string into the original string r. Encoding arbitrary control characters with \u is not yet supported, though carriage returns, line feeds, etc. are supported. universal_string types (including string literals) are not accepted.</li>
+<li> If s is a <strong>strings.base64_string</strong>, return an arbitrary (possibly binary) string r as decoded from the base 64 characters s.</li>
 </ol></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := strings.to_string( some_unbounded_string );<br>r := strings.to_string( json_string( ASCII.Quotation &amp; "foobar\ntest" &amp; ASCII.Quotation ) ); -- returns a string with foobar, a line feed, and test<br>r := strings.to_string( strings.base64_string( "Zm9vcmJhcgw=" ) ); -- returns "foobar" and a form feed</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2954,8 +2959,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_unbounded_string"></a><h3>u := strings.to_unbounded_string( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_unbounded_string"></a><h3>u := strings.to_unbounded_string( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert string s to unbounded string u.  For compatibility with Ada 95.</p></td>
@@ -2964,7 +2969,7 @@ return an empty string.</p></td>
 <td><span class="code">unbounded_string := strings.to_unbounded_string( "test" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2976,7 +2981,7 @@ return an empty string.</p></td>
 <td><span>in</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
-<td><span>the fixed string to covert</span></td>
+<td><span>the fixed string to convert</span></td>
 </tr>
 <tr>
 <td><span>u</span></td>
@@ -2998,17 +3003,17 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.to_upper"></a><h3>r := strings.to_upper( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.to_upper"></a><h3>r := strings.to_upper( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string in upper-case</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">n := strings.to_upper( "BoUNCE" ); -- returns "BOUNCE"</span></td>
+<td><span class="code">r := strings.to_upper( "BoUNCE" ); -- returns "BOUNCE"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -3042,8 +3047,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.trim"></a><h3>r := strings.trim( s [, e] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.trim"></a><h3>r := strings.trim( s [, e] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remove leading and/or trailing spaces (depending on e) from string s</p></td>
@@ -3052,7 +3057,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.trim( "&nbsp; many&nbsp; " ); -- returns "many"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -3096,8 +3101,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.unbounded_slice"></a><h3>r := strings.unbounded_slice( s, l, h )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.unbounded_slice"></a><h3>r := strings.unbounded_slice( s, l, h )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return a substring between the positions positive l and natural h.  For compatibility with Ada&mdash;normally use strings.slice.</p></td>
@@ -3106,7 +3111,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.unbounded_slice( "realize", 2, 4 ); -- returns "eal"</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -3118,21 +3123,21 @@ return an empty string.</p></td>
 <td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
-<td><span>the string to overwrite</span></td>
+<td><span>the string to extract from</span></td>
 </tr>
 <tr>
 <td><span>l</span></td>
 <td><span>in</span></td>
 <td><span>positive</span></td>
 <td><span>required</span></td>
-<td><span>low position to start replacing characters</span></td>
+<td><span>the starting position of the substring</span></td>
 </tr>
 <tr>
 <td><span>h</span></td>
 <td><span>in</span></td>
 <td><span>natural</span></td>
 <td><span>required</span></td>
-<td><span>high position to finish replacing characters</span></td>
+<td><span>the ending position of the substring</span></td>
 </tr>
 <tr>
 <td><span>r</span></td>
@@ -3154,8 +3159,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.val"></a><h3>c := strings.val( n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.val"></a><h3>c := strings.val( n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the ASCII character with value n (inverse of numerics.pos)</p></td>
@@ -3164,7 +3169,7 @@ return an empty string.</p></td>
 <td><span class="code">r := strings.val( 65 ); -- returns 'A'</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -3198,8 +3203,8 @@ return an empty string.</p></td>
 </tr>
 </table>
 
-<a name="strings.word_count"></a><h3>n := strings.word_count( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="strings.word_count"></a><h3>n := strings.word_count( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of words in a string, where a word is a sequence of letters.</p></td>
@@ -3208,7 +3213,7 @@ return an empty string.</p></td>
 <td><span class="code">n := strings.word_count( "night fall" ); -- returns 2</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -3251,7 +3256,7 @@ return an empty string.</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -3286,7 +3291,7 @@ return an empty string.</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_sound.html">&nbsp;sound</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_sinfo.html">&nbsp;source_info</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_stats.html">&nbsp;stats</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_strings.html">&nbsp;<b>strings</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_strings.html">&nbsp;<strong>strings</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_system.html">&nbsp;System</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_tags.html">&nbsp;tags</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_teams.html">&nbsp;teams</a></p>

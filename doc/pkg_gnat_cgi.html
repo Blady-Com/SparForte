@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - GNAT CGI</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_files.html" />
 	<link rel="next" href="pkg_lock_files.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_files.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_gnat_crc32.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_files.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_gnat_crc32.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,22 +42,22 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.4"></a>GNAT.CGI Package</h2>
+<h2><a id="4.15"></a>GNAT.CGI Package</h2>
 
 <p>The GNAT.CGI package is the standard CGI package included with GCC Ada
 (GNAT).
 By default, support is disabled because, once enabled, it requires SparForte
-to only run as a CGI language.  It can be enabled in the configure script
+to run only in a CGI environment.  It can be enabled in the configure script
 when building SparForte from sources.</p>
 
-<p>This package is experimental.  It has not been fully tested in SparForte.
-This package is incompatible with the cgi package and pragma import.</p>
+<p>This package is under development.  This package has undergone limited testing.
+This package does not work with the cgi package and pragma import.</p>
 
-<p><u>GCC Ada Equivalent</u>: GNAT.CGI</p>
+<p><span class="underline">GCC Ada Equivalent</span>: GNAT.CGI</p>
 
 <p>See also: the SparForte cgi package.</p>
 
-<p> The documentation is not complete.  See the Gcc Ada documentation for
+<p> The documentation is not complete.  The GNAT.CGI documentation has
 more information on these subprograms.</p>
 
         <center>
@@ -85,7 +85,7 @@ s := gnat.cgi.debug.html_output
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the gnat.cgi package
+        <strong>Help Command</strong>: Contents of the gnat.cgi package
         </div>
         </div>
         </center>
@@ -94,33 +94,14 @@ s := gnat.cgi.debug.html_output
 
 <ul>
 <li>gnat.cgi.default_header - a constant string, the default HTML header returned</li>
-<li>gnat.cgi.method_type - an enumerated type gnat.cgi.method_type.get and gnat.cgi.method_type.post</li>
-<li>gnat.cgi.metavariable_name - an enumerated type of the standard CGI variables (e.g. gnat.cgi.metavariable_name.auth_type and so on)</li>
+<li>gnat.cgi.method_type - an enumerated type with items gnat.cgi.method_type.get and gnat.cgi.method_type.post</li>
+<li>gnat.cgi.metavariable_name - an enumerated type of the standard CGI form variables (e.g. gnat.cgi.metavariable_name.auth_type).  The full list is in the GNAT.CGI package documentation.</li>
 </ul>
-
-<!--
-        <center>
-        <div class="code">
-=&gt; gnat.crc32.initialize( c )<br>
-=&gt; (Assuming c is a new gnat.crc32.crc32 variable)<br>
-=&gt; gnat.crc32.update( c, "Deign, Sovereign Mistress! to accept a lay,")<br>
-=&gt; gnat.crc32.update( c, "No Laureate offering of elaborate art;")<br>
-=&gt; crc := gnat.crc32.get_value( c )<br>
-=&gt; (Assuming crc is a new integer variable)<br>
-=&gt; ? crc<br>
-&nbsp;3245118365<br>
-        &nbsp;<br>
-        <div class="code_caption">
-        <b>Example</b>: Using the gnat.crc32 package
-        </div>
-        </div>
-        </center>
--->
 
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -136,7 +117,7 @@ s := gnat.cgi.debug.html_output
                                 <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;enums</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;exceptions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_files.html">&nbsp;files</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_gnat_cgi.html">&nbsp;<b>gnat.cgi</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_gnat_cgi.html">&nbsp;<strong>gnat.cgi</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_crc32.html">&nbsp;gnat.crc32</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hash_io.html">&nbsp;hash_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hmaps.html">&nbsp;hashed_maps</a></p>

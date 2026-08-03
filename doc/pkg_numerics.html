@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Numerics</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_mysql.html" />
 	<link rel="next" href="pkg_os.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_mysqlm.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_os.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_mysqlm.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_os.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,21 +42,21 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-	<a NAME="4.7"></a><h3>Numerics Package</h3>
-<p>The SparForte built-in numerics package provides math subprograms to manipulate
+	<a id="4.26"></a><h3>Numerics Package</h3>
+<p>The SparForte built-in numerics package contains subprograms to work with
 numeric values.</p>
 
         <center>
         <div class="code">
 <pre>
-<b>Constants</b>
+<strong>Constants</strong>
 
   e                    log2_e                  log10_e             ln10
   ln2                  pi                      pi_by_2             pi_by_4
   pi_under_1           pi_under_2              sqrt_pi_under_2     sqrt_2
   sqrt_2_under_1
 
-<b>General</b>
+<strong>General</strong>
 
   <a href="#abs">f := abs( e )</a>               <a href="#numerics.ceiling">f := ceiling( e )</a>            <a href="#numerics.copy_sign">f := copy_sign( x, y )</a>
   <a href="#numerics.even">f := even( i )</a>              <a href="#numerics.exp">f := exp( x )</a>                <a href="#numerics.exponent">f := exponent( e )</a>
@@ -69,12 +69,12 @@ numeric values.</p>
   <a href="#numerics.rounding">f := rounding( e )</a>          <a href="#numerics.scaling">f := scaling( x, y )</a>         <a href="#numerics.sdbm_hash_of">f := sdbm_hash_of( s, l )</a>
   <a href="#numerics.serial">f := serial</a>                 <a href="#numerics.sha1_digest_of">d := sha1_digest_of( s )</a>     <a href="#numerics.sha224_digest_of">d := sha224_digest_of( s )</a>
   <a href="#numerics.sha256_digest_of">d := sha256_digest_of( s )</a>  <a href="#numerics.sha512_digest_of">d := sha512_digest_of( s )</a>   <a href="#numerics.shift_left">i := shift_left( e, b )</a>
-  <a href="#numerics.shannon_entropy_of">f := shannon_entropy_of( s )
+  <a href="#numerics.shannon_entropy_of">f := shannon_entropy_of( s )</a>
   <a href="#numerics.shift_right">i := shift_right( e, b )</a> <a href="#numerics.shift_right_arithmetic">i := shift_right_arithmetic( x, b )</a>
   <a href="#numerics.sqrt">f := sqrt( e )</a>              <a href="#numerics.sturges">f := sturges( l, h, t )</a>      <a href="#numerics.truncation">f := truncation( e )</a>
   <a href="#numerics.unbiased_rounding">f := unbiased_rounding( e )</a> <a href="#numerics.value">f := value( s )</a>
 
-<b>Trig</b>
+<strong>Trig</strong>
 
   <a href="#numerics.arccos">f := arccos( x [,cycle] )</a>    <a href="#numerics.arccosh">f := arccosh( e )</a>         <a href="#numerics.arccot">f := arccot( x, y [,cycle] )</a>
   <a href="#numerics.arccoth">f := arccoth( e )</a>            <a href="#numerics.arcsin">f := arcsin( e [,cycle] )</a> <a href="#numerics.arcsinh">f := arcsinh( e )</a>
@@ -83,7 +83,7 @@ numeric values.</p>
   <a href="#numerics.sin">f := sin( e [,cycle] )</a>       <a href="#numerics.sinh">f := sinh( e )</a>            <a href="#numerics.tan">f := tan( e [,cycle] )</a>
   <a href="#numerics.tanh">f := tanh( e )</a>
 
-<b>Complex</b>
+<strong>Complex</strong>
 
   re( complex )                im( complex )             modulus( complex )
   set_re( complex, r )         set_im( complex, i )      argument( complex )
@@ -92,7 +92,7 @@ abs( x ) is not "numerics.abs( x )" because it's not in the numerics package
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the numerics package
+        <strong>Help Command</strong>: Contents of the numerics package
         </div>
         </div>
         </center>
@@ -101,48 +101,48 @@ abs( x ) is not "numerics.abs( x )" because it's not in the numerics package
 number (such as float, integer, etc.).
 The bit shifting operations which require a natural for the number of bits
 to shift, and leading_part requires an integer as the second parameter.</p>
-<p><u>GCC Ada Equivalent</u>: numerics combines several Ada.Numerics child
+<p><span class="underline">GCC Ada Equivalent</span>: numerics combines several Ada.Numerics child
 packages and type attributes
 <p>Predefined numeric constants:
 <ul>
 <li>
-<b>numerics.e</b></li>
+<strong>numerics.e</strong></li>
 
 <li>
-<b>numerics.log2_e</b></li>
+<strong>numerics.log2_e</strong></li>
 
 <li>
-<b>numerics.log10_e</b></li>
+<strong>numerics.log10_e</strong></li>
 
 <li>
-<b>numerics.ln10</b> - log e 10</li>
+<strong>numerics.ln10</strong> - log e 10</li>
 
 <li>
-<b>numerics.ln2</b> - log e 2</li>
+<strong>numerics.ln2</strong> - log e 2</li>
 
 <li>
-<b>numerics.pi</b></li>
+<strong>numerics.pi</strong></li>
 
 <li>
-<b>numerics.pi_by_2</b> - pi / 2</li>
+<strong>numerics.pi_by_2</strong> - pi / 2</li>
 
 <li>
-<b>numerics.pi_by_4</b> - pi / 4</li>
+<strong>numerics.pi_by_4</strong> - pi / 4</li>
 
 <li>
-<b>numerics.pi_under_1</b> - 1 / pi</li>
+<strong>numerics.pi_under_1</strong> - 1 / pi</li>
 
 <li>
-<b>numerics.pi_under_2</b> - 2 / pi</li>
+<strong>numerics.pi_under_2</strong> - 2 / pi</li>
 
 <li>
-<b>numerics.sqrt_pi_under_2</b> - 2 / sqrt( pi ) )</li>
+<strong>numerics.sqrt_pi_under_2</strong> - 2 / sqrt( pi )</li>
 
 <li>
-<b>numerics.sqrt_2</b> - sqrt( 2 )</li>
+<strong>numerics.sqrt_2</strong> - sqrt( 2 )</li>
 
 <li>
-<b>numerics.sqrt_2_under_1</b> - 1 / sqrt(2)</li>
+<strong>numerics.sqrt_2_under_1</strong> - 1 / sqrt(2)</li>
 </ul>
 
 <p>The Ada complex number functions are not fully implemented.</p>
@@ -150,17 +150,17 @@ packages and type attributes
 <p>Absolute value (abs) is not technically a part of the numerics package
 (it's a language construct) but is documented here.</p>
 
-<a name="abs"></a><h3>f := abs( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="abs"></a><h3>f := abs( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return the absolute value of e</p></td>
+<td><p>Return the absolute value of e</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := abs( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -194,17 +194,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arccos"></a><h3>f := numerics.arccos( e [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arccos"></a><h3>f := numerics.arccos( e [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse cosine function</p></td>
+<td><p>The trig inverse cosine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.arccos( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -245,17 +245,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arccosh"></a><h3>f := numerics.arccosh( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arccosh"></a><h3>f := numerics.arccosh( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse hyperbolic cosine function</p></td>
+<td><p>The trig inverse hyperbolic cosine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := arccosh( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -289,17 +289,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arccot"></a><h3>f := numerics.arccot( x, y [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arccot"></a><h3>f := numerics.arccot( x, y [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse cotangent function</p></td>
+<td><p>The trig inverse cotangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.arccot( x, y );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -340,17 +340,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arccoth"></a><h3>f := numerics.arccoth( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arccoth"></a><h3>f := numerics.arccoth( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse hyperbolic cotangent function</p></td>
+<td><p>The trig inverse hyperbolic cotangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := arccoth( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -384,17 +384,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arcsin"></a><h3>f := numerics.arcsin( e [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arcsin"></a><h3>f := numerics.arcsin( e [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse sine function</p></td>
+<td><p>The trig inverse sine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := arcsin( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -435,17 +435,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arcsinh"></a><h3>f := numerics.arcsinh( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arcsinh"></a><h3>f := numerics.arcsinh( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse hyperbolic sine function</p></td>
+<td><p>The trig inverse hyperbolic sine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := arcsinh( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -469,7 +469,7 @@ packages and type attributes
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>an argument_error if the absolute value of e exceeds 1</p></td>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -479,17 +479,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arctan"></a><h3>f := numerics.arctan( x, y [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arctan"></a><h3>f := numerics.arctan( x, y [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse tangent function</p></td>
+<td><p>The trig inverse tangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.arctan( x, y );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -530,17 +530,17 @@ packages and type attributes
 </tr>
 </table>
 
-<a name="numerics.arctanh"></a><h3>f := numerics.arctanh( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.arctanh"></a><h3>f := numerics.arctanh( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig inverse hyperbolic tangent function</p></td>
+<td><p>The trig inverse hyperbolic tangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := arctanh( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -575,8 +575,8 @@ a constraint_error when the absolute value of e is 1</p></td>
 </tr>
 </table>
 
-<a name="numerics.ceiling"></a><h3>f := numerics.ceiling( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.ceiling"></a><h3>f := numerics.ceiling( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert a float value to an integer by truncating the decimal part
@@ -588,7 +588,7 @@ equal to Y.</p></td>
 f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -621,17 +621,17 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.copy_sign"></a><h3>f := numerics.copy_sign( x, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.copy_sign"></a><h3>f := numerics.copy_sign( x, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return float x with sign of float y</p></td>
+<td><p>Return float x with sign of float y</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.copy_sign( 5.5, -1.0 ); -- returns -5.5</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -672,17 +672,17 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.cos"></a><h3>f := numerics.cos( e [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.cos"></a><h3>f := numerics.cos( e [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig cosine function</p></td>
+<td><p>The trig cosine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.cos( numerics.pi );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -723,17 +723,17 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.cosh"></a><h3>f :=numerics.cosh( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.cosh"></a><h3>f :=numerics.cosh( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig hyperbolic cosine function</p></td>
+<td><p>The trig hyperbolic cosine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := cosh( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -767,17 +767,17 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.cot"></a><h3>f := numerics.cot( e [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.cot"></a><h3>f := numerics.cot( e [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig cotangent function</p></td>
+<td><p>The trig cotangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.cot( numerics.pi );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -818,17 +818,17 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.coth"></a><h3>f := numerics.coth( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.coth"></a><h3>f := numerics.coth( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig hyperbolic cotangent function</p></td>
+<td><p>The trig hyperbolic cotangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := coth( numerics.pi );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -852,7 +852,7 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>a constraint_error when e is zero<br>a constraint_error when e is zero or a multiple of the half cycle</p></td>
+<td><p>a constraint_error is raised when e is zero<br>a constraint_error is raised when e is zero<br> a constrain_error is rised when e is a multiple of the half cycle</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -862,17 +862,17 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.even"></a><h3>f := numerics.even( i )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.even"></a><h3>f := numerics.even( i )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>true if integer i is an even number</p></td>
+<td><p>Return true if the value of i is an even number</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.even( 2 ); -- true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -906,18 +906,18 @@ f2 := numerics.ceiling( -5.5 ); -- returns -5</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.exp"></a><h3>f := numerics.exp( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.exp"></a><h3>f := numerics.exp( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>returns e raised to the power of x where e is epsilon, the base of the
+<td><p>Return epsilon raised to the power of e where epsilon is the base of the
 natural system of logarithms</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := exp( 1.0 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -951,11 +951,11 @@ natural system of logarithms</p></td>
 </tr>
 </table>
 
-<a name="numerics.exponent"></a><h3>f := numerics.exponent( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.exponent"></a><h3>f := numerics.exponent( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Ada's normalized exponent attribute.  It is used to break up a floating
+<td><p>Return Ada's normalized exponent attribute.  It separates a floating
 point number into its exponent and fraction parts by giving the gross magnitude
 of e.</p></td>
 </tr><tr>
@@ -963,7 +963,7 @@ of e.</p></td>
 <td><span class="code">f := numerics.exponent( 10.0 ); -- returns 4</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -997,8 +997,8 @@ of e.</p></td>
 </tr>
 </table>
 
-<a name="numerics.floor"></a><h3>f := numerics.floor( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.floor"></a><h3>f := numerics.floor( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert a float value to an integer by truncating the decimal part.
@@ -1011,7 +1011,7 @@ has the sign of X; a zero result otherwise has a positive sign</p></td>
 f2 := numerics.floor( -5.5 ); -- returns -6</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1044,17 +1044,17 @@ f2 := numerics.floor( -5.5 ); -- returns -6</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.fnv_hash_of"></a><h3>f := numerics.fnv_hash_of( s, l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.fnv_hash_of"></a><h3>f := numerics.fnv_hash_of( s, l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a Fowler-Null-Vo / FNV-1a hash (used by DNS's).  The return value is will be between 1 and the limit l.</p></td>
+<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a Fowler-Null-Vo / FNV-1a hash (used by DNS's).  The return value is between 1 and the limit l.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.fnv_hash_of( "apple", 10  ); -- returns 1 to 10</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1095,18 +1095,18 @@ f2 := numerics.floor( -5.5 ); -- returns -6</span></p></td>
 </tr>
 </table>
 
-<a name="numerics.fraction"></a><h3>f := numerics.fraction( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.fraction"></a><h3>f := numerics.fraction( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Ada's fraction attribute.  The function yields the value X*T'Machine_Radix**(-k), where k is the normalized exponent of X.  It is used to break up a floating
+<td><p>Return Ada's fraction attribute.  The function yields the value X*T'Machine_Radix**(-k), where k is the normalized exponent of X.  It is used to break up a floating
 point number into its exponent and fraction parts.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.fraction( 10.0 ); -- returns 0.625</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1140,17 +1140,17 @@ point number into its exponent and fraction parts.</p></td>
 </tr>
 </table>
 
-<a name="numerics.hash_of"></a><h3>f := numerics.hash_of( s, l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.hash_of"></a><h3>f := numerics.hash_of( s, l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a common standard Bernstein / Knuth / djb2 hash.  The return value is will be between 1 and the limit l.</p>
+<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a common standard Bernstein / Knuth / djb2 hash.  The return value is between 1 and the limit l.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.hash_of( "apple", 10  ); -- returns 1 to 10</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1191,17 +1191,17 @@ point number into its exponent and fraction parts.</p></td>
 </tr>
 </table>
 
-<a name="numerics.leading_part"></a><h3>f := numerics.leading_part( x, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.leading_part"></a><h3>f := numerics.leading_part( x, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Ada's leading part attribute. Let v be the value T'Machine_Radix**(k-Radix_Digits), where k is the normalized exponent of X. The function yields the value Floor(X/v)*v, when X is nonnegative and Radix_Digits is positive; Ceiling(X/v)*v, when X is negative and Radix_Digits is positive. Constraint_Error is raised when Radix_Digits is zero or negative. A zero result, which can only occur when X is zero, has the sign of X.  This is used for high precision mathematics.</p></td>
+<td><p>Ada's leading part attribute. Let v be the value T'Machine_Radix**(k-Radix_Digits), where k is the normalized exponent of X. The function yields the value Floor(X/v)*v, when X is nonnegative and Radix_Digits is positive; Ceiling(X/v)*v, when X is negative and Radix_Digits is positive. Constraint_Error is raised when Radix_Digits is zero or negative. A zero result, which can only occur when X is zero, has the sign of X.  This is used for calculations requiring exact values.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.leading_part( x, y );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1235,8 +1235,8 @@ point number into its exponent and fraction parts.</p></td>
 </tr>
 </table>
 
-<a name="numerics.log"></a><h3>f := numerics.log( e [,b] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.log"></a><h3>f := numerics.log( e [,b] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Logarithm. Return a number is the exponent e by which another fixed value, the base b, has to be raised to produce that number.  Without base b, the
@@ -1246,7 +1246,7 @@ natural logarithm is returned.</p></td>
 <td><span class="code">f := numerics.log( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1264,7 +1264,7 @@ natural logarithm is returned.</p></td>
 <td><span>b</span></td>
 <td><span>in</span></td>
 <td><span>universal_numeric</span></td>
-<td><span>epsilon (I think)</span></td>
+<td><span>epsilon</span></td>
 <td><span>the base of the log</span></td>
 </tr>
 <tr>
@@ -1277,8 +1277,8 @@ natural logarithm is returned.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>an argument_error is raised if the base is negative, 0, 1 or if e is negative<br>
-a constraint_error is raised if e is zero</p></td>
+<td><p>An argument_error is raised if the base is negative, 0, 1 or if e is negative<br>
+A constraint_error is raised if e is zero</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -1288,8 +1288,8 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.machine"></a><h3>f := numerics.machine( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.machine"></a><h3>f := numerics.machine( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Ada's machine attribute. If e is a machine number of the type T, the function yields e; otherwise, it yields the value obtained by rounding or truncating e to either one of the adjacent machine numbers of the type T.  A zero result has the sign of e when a machine has signed zeros.</p></td>
@@ -1298,7 +1298,7 @@ a constraint_error is raised if e is zero</p></td>
 <td><span class="code">f := numerics.machine( 10.0 ); -- returns 10.0</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1332,8 +1332,8 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.max"></a><h3>f := numerics.max( x, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.max"></a><h3>f := numerics.max( x, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the larger of x and y</p></td>
@@ -1342,7 +1342,7 @@ a constraint_error is raised if e is zero</p></td>
 <td><span class="code">f := numerics.max( 1.0, 2.0 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1376,8 +1376,8 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.md5"></a><h3>r := numerics.md5( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.md5"></a><h3>r := numerics.md5( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the message digest 5 hash value of string s</p></td>
@@ -1386,7 +1386,7 @@ a constraint_error is raised if e is zero</p></td>
 <td><span class="code">sig := numerics.md5( "Checksum for this message" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1423,17 +1423,17 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.min"></a><h3>f := numerics.min( x, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.min"></a><h3>f := numerics.min( x, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the smaller of x and y</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">f := numerics.max( 1.0, 2.0 );</span></td>
+<td><span class="code">f := numerics.min( 1.0, 2.0 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1467,17 +1467,17 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.modulus"></a><h3>f := numerics.modulus( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.modulus"></a><h3>f := numerics.modulus( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Returns the modulus of an Ada modular ("mod") type.</p></td>
+<td><p>Return the modulus of an Ada modular ("mod") type.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.modulus( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1511,17 +1511,17 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.murmur_hash_of"></a><h3>f := numerics.murmur_hash_of( s, l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.murmur_hash_of"></a><h3>f := numerics.murmur_hash_of( s, l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a Murmur hash (used by memcached).  The return value is will be between 1 and the limit l.</p>
+<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a Murmur hash (used by memcached).  The return value is between 1 and the limit l.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.murmur_hash_of( "apple", 10  ); -- returns 1 to 10</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1562,17 +1562,17 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.odd"></a><h3>f := numerics.odd( x )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.odd"></a><h3>f := numerics.odd( x )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>odd function</p></td>
+<td><p>Return true if the value of x is an odd number</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.odd( 1 ); -- true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1606,17 +1606,17 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.pos"></a><h3>p := numerics.pos( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.pos"></a><h3>p := numerics.pos( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return the ASCII value (ordinal position) of character c</p></td>
+<td><p>Return the ASCII value (ordinal position) of character c</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">p := numerics.pos( 'a' ); -- returns 97<br>p := numerics.pos( ASCII.Quotation ); -- returns 34</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1640,7 +1640,7 @@ a constraint_error is raised if e is zero</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>an exception is raised if c is a string with a length of 0 or more than 1</p></td>
+<td><p>an exception is raised if c is an empty string or a strong longer than one character</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -1650,8 +1650,8 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.random"></a><h3>f := numerics.random</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.random"></a><h3>f := numerics.random</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Generate a random floating-point number between zero and one</p></td>
@@ -1660,7 +1660,7 @@ a constraint_error is raised if e is zero</p></td>
 <td><span class="code">i := integer( numerics.truncation( numerics.random * 10 )+1; -- returns 1 to 10</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1687,8 +1687,8 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.rnd"></a><h3>r := numerics.rnd( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.rnd"></a><h3>r := numerics.rnd( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Generate a random positive number between 1 and p</p></td>
@@ -1697,7 +1697,7 @@ a constraint_error is raised if e is zero</p></td>
 <td><span class="code">r := numerics.rnd( 10 ); -- 1 to 10</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1731,8 +1731,8 @@ a constraint_error is raised if e is zero</p></td>
 </tr>
 </table>
 
-<a name="numerics.rotate_left"></a><h3>i := numerics.rotate_left( e, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.rotate_left"></a><h3>i := numerics.rotate_left( e, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Rotate expression e up to 64 bits left by natural b bits,
@@ -1742,7 +1742,7 @@ each step multiplying by two.  The highest bits are appended to the bottom.</p><
 <td><span class="code">p := numerics.rotate_left( 16, 2 ); -- returns 64</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1783,8 +1783,8 @@ each step multiplying by two.  The highest bits are appended to the bottom.</p><
 </tr>
 </table>
 
-<a name="numerics.rotate_right"></a><h3>i := numerics.rotate_right( e, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.rotate_right"></a><h3>i := numerics.rotate_right( e, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Rotate expression e up to 64 bits right by natural b bits,
@@ -1794,7 +1794,7 @@ each step dividing by two.  The lowest bits are appended to the top.</p></td>
 <td><span class="code">f := numerics.rotate_right( 16, 2 ); -- returns 4</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1835,8 +1835,8 @@ each step dividing by two.  The lowest bits are appended to the top.</p></td>
 </tr>
 </table>
 
-<a name="numerics.remainder"></a><h3>f := numerics.remainder( x, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.remainder"></a><h3>f := numerics.remainder( x, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remainder of a floating point divide of x by y.  According to the Ada Reference Manual: For nonzero Y, let v be the value X-n*Y, where n is the integer nearest to the exact value of X/Y; if |n-X/Y|=1/2, then n is chosen to be even. If v is a machine number of the type T, the function yields v; otherwise, it yields zero. Constraint_Error is raised if Y is zero. A zero result has the sign of X when a machine has signed zeros.</p></td>
@@ -1845,7 +1845,7 @@ each step dividing by two.  The lowest bits are appended to the top.</p></td>
 <td><span class="code">f := numerics.remainder( 16.5, 2.0 ); -- return 0.5</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1886,8 +1886,8 @@ each step dividing by two.  The lowest bits are appended to the top.</p></td>
 </tr>
 </table>
 
-<a name="numerics.rounding"></a><h3>f := numerics.rounding( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.rounding"></a><h3>f := numerics.rounding( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Round a float value to an integer.  Round to the farthest from zero
@@ -1898,7 +1898,7 @@ will round to 7.</p></td>
 <td><p><span class="code">f := numerics.rounding( 5.5 ); -- returns 6</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1931,17 +1931,17 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.scaling"></a><h3>f := numerics.scaling( x, y )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.scaling"></a><h3>f := numerics.scaling( x, y )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>multiply floating point number by 2 to the power of integer y. Let v be the value X*T'Machine_Radix**Adjustment. If v is a machine number of the type T, or if |v|&gt;=T'Model_Small, The function yields v; otherwise, it yields either one of the machine numbers of the type T adjacent to v.  A zero result has the sign of X when a machine has signed zeros.  This is used for high precision mathamatics.</p></td>
+<td><p>Multiply floating point number by 2 to the power of integer y. Let v be the value X*T'Machine_Radix**Adjustment. If v is a machine number of the type T, or if |v|&gt;=T'Model_Small, The function yields v; otherwise, it yields either one of the machine numbers of the type T adjacent to v.  A zero result has the sign of X when a machine has signed zeros.  This is used for calculations requiring exact values.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.scaling( 5.5, 3 ); -- returns 44</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1982,17 +1982,17 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sdbm_hash_of"></a><h3>f := numerics.sdbm_hash_of( s, l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sdbm_hash_of"></a><h3>f := numerics.sdbm_hash_of( s, l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a Sleepycat / sdbm hash.  The return value is will be between 1 and the limit l.</p>
+<td><p>Calculate a 32-bit number from string s that can be used with hash tables using a Sleepycat / sdbm hash.  The return value is between 1 and the limit l.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.sdbm_hash_of( "apple", 10  ); -- returns 1 to 10</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2033,17 +2033,17 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.serial"></a><h3>f := numerics.serial</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.serial"></a><h3>f := numerics.serial</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>return a natural integer, unique to this session.  That is, the first invocation returns zero, the second returns one and so forth.  The number returns to zero when it exceeds System.Max_Integer.</p></td>
+<td><p>Return a natural integer, unique to this session.  That is, the first invocation returns zero, the second returns one and so forth.  The number returns to zero when it exceeds System.Max_Integer.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.serial;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2070,8 +2070,8 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sha1_digest_of"></a><h3>d := numerics.sha1_digest_of( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sha1_digest_of"></a><h3>d := numerics.sha1_digest_of( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the NSA Secure Hash Algorithm SHA-1 digest (hash value) of string s.  It is 40 characters long.</p></td>
@@ -2081,7 +2081,7 @@ will round to 7.</p></td>
 -- outputs a9993e364706816aba3e25717850c26c9cd0d89d</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2117,8 +2117,8 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sha224_digest_of"></a><h3>d := numerics.sha224_digest_of( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sha224_digest_of"></a><h3>d := numerics.sha224_digest_of( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the NSA Secure Hash Algorithm SHA-2 224 digest (hash value) of string s.  It is 56 characters long.</p></td>
@@ -2128,7 +2128,7 @@ will round to 7.</p></td>
 -- outputs 23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2164,8 +2164,8 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sha256_digest_of"></a><h3>d := numerics.sha256_digest_of( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sha256_digest_of"></a><h3>d := numerics.sha256_digest_of( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the NSA Secure Hash Algorithm SHA-2 256 digest (hash value) of string s.  It is 64 characters long.</p></td>
@@ -2175,7 +2175,7 @@ will round to 7.</p></td>
 -- outputs ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2211,8 +2211,8 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sha512_digest_of"></a><h3>d := numerics.sha512_digest_of( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sha512_digest_of"></a><h3>d := numerics.sha512_digest_of( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the NSA Secure Hash Algorithm SHA-2 512 digest (hash value) of string s.  It is 128 characters long.</p></td>
@@ -2222,7 +2222,7 @@ will round to 7.</p></td>
 -- outputs ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a<br>2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2259,8 +2259,8 @@ will round to 7.</p></td>
 </table>
 
 
-<a name="numerics.shannon_entropy_of"></a><h3>f := numerics.shannon_entropy_of( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.shannon_entropy_of"></a><h3>f := numerics.shannon_entropy_of( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Calculate the entropy (randomness) of a string.</p></td>
@@ -2269,7 +2269,7 @@ will round to 7.</p></td>
 <td><span class="code">f := numerics.shannon_entropy_of( "applesauce"  );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2303,8 +2303,8 @@ will round to 7.</p></td>
 </tr>
 </table>
 
-<a name="numerics.shift_left"></a><h3>i := numerics.shift_left( e, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.shift_left"></a><h3>i := numerics.shift_left( e, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Shift expression e up to 64 bits left by natural b bits,
@@ -2315,7 +2315,7 @@ bit will be overwritten.</p></td>
 <td><span class="code">f := numerics.shift_left( 16, 2 ); -- returns 64</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2349,15 +2349,15 @@ bit will be overwritten.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#numerics.rotate_left">numerics.rotate_left</a><br><a href="#numerics.rotate_right">numerics.rotate_right</a><br><a href="#numerics.shift_right">numerics.shift_right</a><br><a href="#numerics.shift_right_arthmetic">numerics.shift_right_arthmetic</a></p></td>
+<td><p><a href="#numerics.rotate_left">numerics.rotate_left</a><br><a href="#numerics.rotate_right">numerics.rotate_right</a><br><a href="#numerics.shift_right">numerics.shift_right</a><br><a href="#numerics.shift_right_arthimetic">numerics.shift_right_arthimetic</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Interfaces.Shift_Left<br>PHP: &lt;&lt;</p></td>
 </tr>
 </table>
 
-<a name="numerics.shift_right"></a><h3>i := numerics.shift_right( e, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.shift_right"></a><h3>i := numerics.shift_right( e, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Shift expression e up to 64 bits right by natural b bits,
@@ -2367,7 +2367,7 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 <td><span class="code">f := numerics.shift_right( 16, 2 ); -- returns 4</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2408,8 +2408,8 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.shift_right_arithmetic"></a><h3>i := numerics.shift_right_arithmetic( e, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.shift_right_arithmetic"></a><h3>i := numerics.shift_right_arithmetic( e, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Shift expression e up to 64 bits right by natural b bits, preserving sign</p></td>
@@ -2418,7 +2418,7 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 <td><span class="code">f := numerics.shift_right_arithmetic( 16, 2 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2459,17 +2459,17 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sin"></a><h3>f := numerics.sin( e [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sin"></a><h3>f := numerics.sin( e [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig sine function</p></td>
+<td><p>The trig sine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.sin( numerics.pi );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2510,17 +2510,17 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sinh"></a><h3>f := numerics.sinh( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sinh"></a><h3>f := numerics.sinh( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig hyperbolic sine function</p></td>
+<td><p>The trig hyperbolic sine function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.sinh( numerics.pi );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2554,8 +2554,8 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sqrt"></a><h3>f := numerics.sqrt( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sqrt"></a><h3>f := numerics.sqrt( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>square root of e</p></td>
@@ -2564,7 +2564,7 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 <td><span class="code">f := numerics.sqrt( 9.0 ); -- returns 3.0</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2588,7 +2588,7 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>an exception may be thrown if e is negative</p></td>
+<td><p>An exception is raised if e is negative</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -2598,17 +2598,17 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.sturges"></a><h3>f := numerics.sturges( l, h, t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.sturges"></a><h3>f := numerics.sturges( l, h, t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Sturge's method: compute a grouping size for data with a low value of l, high value of h, and a sum total of t.  This is used for setting the scale of graphs.</p></td>
+<td><p>Sturges' method computes a grouping size for data with a low value of l, high value of h, and a sum total of t.  This is used for the bin counts of histograms.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.sturges( 18, 64, 421 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2655,21 +2655,21 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This should probably be moved to the stats package.</p></td>
+<td><p>Consider moving this function to the stats package.</p></td>
 </tr>
 </table>
 
-<a name="numerics.tan"></a><h3>f := numerics.tan( e [,cycle] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.tan"></a><h3>f := numerics.tan( e [,cycle] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig tangent function</p></td>
+<td><p>The trig tangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := numerics.tan( numerics.pi );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2710,17 +2710,17 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.tanh"></a><h3>f := numerics.tanh( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.tanh"></a><h3>f := numerics.tanh( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Trig hyperbolic tangent function</p></td>
+<td><p>The trig hyperbolic tangent function</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">f := tanh( e );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2754,8 +2754,8 @@ each step dividing by two.  The lowest bits are discarded.</p></td>
 </tr>
 </table>
 
-<a name="numerics.truncation"></a><h3>f := numerics.truncation( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.truncation"></a><h3>f := numerics.truncation( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert a float value to an integer by truncating the decimal part.
@@ -2768,7 +2768,7 @@ a machine has signed zeros.</p></td>
 f2 := numerics.truncation( -5.5 ); -- returns -5</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2802,8 +2802,8 @@ f2 := numerics.truncation( -5.5 ); -- returns -5</span></p></td>
 </table>
 &nbsp;<br>
 
-<a name="numerics.unbiased_rounding"></a><h3>f := numerics.unbiased_rounding( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.unbiased_rounding"></a><h3>f := numerics.unbiased_rounding( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Round a float value to an integer.  Round to the nearest even integer
@@ -2811,10 +2811,10 @@ if exactly between two integers. That is, 5.5 will round up to 6 and 6.5
 will round down to 6.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">f := numerics.unbiased_rouding( 7.5 ); -- returns 8</span></p></td>
+<td><p><span class="code">f := numerics.unbiased_rounding( 7.5 ); -- returns 8</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2848,8 +2848,8 @@ will round down to 6.</p></td>
 </table>
 &nbsp;<br>
 
-<a name="numerics.value"></a><h3>f := numerics.value( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="numerics.value"></a><h3>f := numerics.value( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert string s to a numeric value (inverse of strings.image).  The
@@ -2859,7 +2859,7 @@ string is trimmed first.  This function only parses numbers.</p></td>
 <td><p><span class="code">f := numerics.value( " 32.5" ) * numerics.value( "-1.2" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -2896,7 +2896,7 @@ cannot be converted.</span></p>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -2923,7 +2923,7 @@ cannot be converted.</span></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache_highread.html">&nbsp;memcache.highread</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysql.html">&nbsp;mysql</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_mysqlm.html">&nbsp;mysqlm</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_numerics.html">&nbsp;<b>numerics</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_numerics.html">&nbsp;<strong>numerics</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_os.html">&nbsp;os</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_pen.html">&nbsp;pen</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_pengl.html">&nbsp;pen (OpenGL)</a></p>

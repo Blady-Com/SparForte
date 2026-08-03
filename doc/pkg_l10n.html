@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - l10n</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_dirops.html" />
 	<link rel="next" href="pkg_exceptions.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_hmaps.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_lock_files.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_hmaps.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_lock_files.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,14 +42,14 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.22"></a>L10N Package</h2>
+<h2><a id="4.19"></a>L10N Package</h2>
 
 <p>The SparForte built-in l10n package provides routines for different
 languages and countries.  This is a binding to the GNU locale functions.</p>
 
-<p><u>Introduced</u>: SparForte 2.5<br>
+<p><span class="underline">Introduced</span>: SparForte 2.5</p>
 
-<p><u>GCC Ada Equivalent</u>: none<br>
+<p><span class="underline">GCC Ada Equivalent</span>: none</p>
 
         <center>
         <div class="code">
@@ -58,24 +58,24 @@ languages and countries.  This is a binding to the GNU locale functions.</p>
   <a href="#l10n.codeset">s := codeset</a>           <a href="#l10n.currency_symbol">s := currency_symbol</a>   <a href="#l10n.day">s := day( p )</a>
   <a href="#l10n.decimal_point">s := decimal_point</a>     <a href="#l10n.d_fmt">s := d_fmt</a>             <a href="#l10n.d_t_fmt">s := d_t_fmt</a>
   <a href="#l10n.era">s := era</a>               <a href="#l10n.era_d_fmt">s := era_d_fmt</a>         <a href="#l10n.era_d_t_fmt">s := era_d_t_fmt</a>
-  <a href="#l10n.t_fmt">s := era_t_fmt</a>         <a href="#l10n.era_year">s := era_year</a>          <a href="#l10n.frac_digits">n := frac_digits</a>
+  <a href="#l10n.era_t_fmt">s := era_t_fmt</a>         <a href="#l10n.era_year">s := era_year</a>          <a href="#l10n.frac_digits">n := frac_digits</a>
   <a href="#l10n.getlocale">s := getlocale( c )</a>    <a href="#l10n.grouping">n := grouping</a>          <a href="#l10n.int_curr_symbol">s := int_curr_symbol</a>
   <a href="#l10n.int_frac_digits">n := int_frac_digits</a>   <a href="#l10n.mon">s := mon( p )</a>          <a href="#l10n.mon_decimal_point">s := mon_decimal_point</a>
   <a href="#l10n.mon_grouping">n := mon_grouping</a>      <a href="#l10n.mon_thousands_sep">s := mon_thousands_sep</a> <a href="#l10n.negative_sign">s := negative_sign</a>
-  <a href="#l10n.noexpr">s := noexpr</a>            <a href="#l10n.n_cs_precedes">n := n_cs_precedes</a>     <a href="#l10n.n_sep_by_space">n := n_sep_by_space</a>
+  <a href="#l10n.noexpr">s := noexpr</a>            <a href="#l10n.n_cs_precedes">i := n_cs_precedes</a>     <a href="#l10n.n_sep_by_space">n := n_sep_by_space</a>
   <a href="#l10n.n_sign_posn">n := n_sign_posn</a>       <a href="#l10n.pmstr">s := pmstr</a>             <a href="#l10n.positive_sign">s := positive_sign</a>
-  <a href="#l10n.p_cs_precedes">n := p_cs_precedes</a>     <a href="#l10n.p_sep_by_space">n := p_sep_by_space</a>    <a href="#l10n.p_sign_posn">n := p_sign_posn</a>
+  <a href="#l10n.p_cs_precedes">i := p_cs_precedes</a>     <a href="#l10n.p_sep_by_space">n := p_sep_by_space</a>    <a href="#l10n.p_sign_posn">n := p_sign_posn</a>
   <a href="#l10n.setlocale">setlocale( c, s )</a>      <a href="#l10n.thousands_sep">s := thousands_sep</a>     <a href="#l10n.t_fmt">s := t_fmt</a>
   <a href="#l10n.t_fmt_ampm">s := t_fmt_ampm</a>        <a href="#l10n.yesexpr">s := yesexpr</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the l10n package
+        <strong>Help Command</strong>: Contents of the l10n package
         </div>
         </div>
         </center>
 
-<p>The type <b>locale_catagory</b> is an enumerated type of the following:</p>
+<p>The type <strong>locale_category</strong> is an enumerated type of the following:</p>
 
 <ul>
 <li>l10n.lc_all - all locale categories</li>
@@ -86,46 +86,46 @@ languages and countries.  This is a binding to the GNU locale functions.</p>
 <li>l10n.lc_time - for date and time</li>
 </ul>
 
-<p>The GNU extension to locale catagories are not included for portability reasons.</p>
+<p>The GNU extensions to locale catagories are not included for portability across operating systems.</p>
 
-<p>You may need to install additional languages on your operating system to use their locales.  For example, with Ubuntu Linux, with Preferences /Languages.</p>
+<p>You may need to install additional languages on your operating system to use their locales.  On Ubuntu Linux, these are located in Preferences / Languages.</p>
 
-<p>On Linux, the <b>locale</b> command provides the same information.</p>
+<p>On Linux, the <strong>locale</strong> command provides the same information.</p>
 
         <center>
         <div class="code">
 <p class="code">
-<b>=&gt;</b> ? l10n.getlocale( l10n.lc_all )<br>
+<strong>=&gt;</strong> ? l10n.getlocale( l10n.lc_all )<br>
 LC_CTYPE=en_CA.UTF-8;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAG
 ES=C;LC_PAPER=C;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=C;LC_IDENTI
 FICATION=C<br>
-<b>=&gt;</b> ? l10n.currency_symbol<br>
+<strong>=&gt;</strong> ? l10n.currency_symbol<br>
 <br>
-<b>=&gt;</b> l10n.setlocale( l10n.lc_monetary, "en_US.UTF-8" )<br>
-<b>=&gt;</b> ? l10n.getlocale( l10n.lc_monetary )<br>
+<strong>=&gt;</strong> l10n.setlocale( l10n.lc_monetary, "en_US.UTF-8" )<br>
+<strong>=&gt;</strong> ? l10n.getlocale( l10n.lc_monetary )<br>
 en_US.UTF-8<br>
-<b>=&gt;</b> ? l10n.currency_symbol<br>
+<strong>=&gt;</strong> ? l10n.currency_symbol<br>
 $<br>
-<b>=&gt;</b> ? l10n.int_curr_symbol<br>
+<strong>=&gt;</strong> ? l10n.int_curr_symbol<br>
 USD<br>
-<b>=&gt;</b> ? l10n.day(1)<br>
+<strong>=&gt;</strong> ? l10n.day(1)<br>
 Sunday<br>
-<b>=&gt;</b> l10n.setlocale( l10n.lc_time, "fr_CA.UTF-8" )<br>
-<b>=&gt;</b> ? l10n.getlocale( l10n.lc_time)<br>
+<strong>=&gt;</strong> l10n.setlocale( l10n.lc_time, "fr_CA.UTF-8" )<br>
+<strong>=&gt;</strong> ? l10n.getlocale( l10n.lc_time)<br>
 fr_CA.UTF-8<br>
-<b>=&gt;</b> ? l10n.day(1)<br>
+<strong>=&gt;</strong> ? l10n.day(1)<br>
 dimanche<br>
 </p>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Example</b>: Using localization
+        <strong>Example</strong>: Using localization
         </div>
         </div>
         </center>
 
 
-<a name="l10n.abday"></a><h3>s := abday( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.abday"></a><h3>s := abday( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the abbreviated day of the week for day number p.  The first day is 1.</p></td>
@@ -134,7 +134,7 @@ dimanche<br>
 <td><span class="code">s := l10n.abday( 2 ); -- returns "Mon" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -168,8 +168,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.abmon"></a><h3>s := abmon( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.abmon"></a><h3>s := abmon( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the abbreviated month for month number p.  The first month is 1.</p></td>
@@ -178,7 +178,7 @@ dimanche<br>
 <td><span class="code">s := l10n.abmon( 2 ); -- returns "Feb" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -188,7 +188,7 @@ dimanche<br>
 </tr><tr>
 <td><span>p</span></td>
 <td><span>in</span></td>
-<td><span>positive (1..7)</span></td>
+<td><span>positive (1..12)</span></td>
 <td><span>required</span></td>
 <td><span>the month number</span></td>
 </tr>
@@ -202,7 +202,7 @@ dimanche<br>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The day number is out-of-range</p></td>
+<td><p>The month number is out of range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -212,17 +212,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.amstr"></a><h3>s := amstr</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.amstr"></a><h3>s := amstr</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the string for AM time.  It is blank if it is not used in this locale.</p></td>
+<td><p>Return the string for AM time.  Return an empty string if this locale does not use AM/PM notation.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.amstr; -- returns "AM" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -250,8 +250,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.codeset"></a><h3>s := codeset</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.codeset"></a><h3>s := codeset</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the character encoding.</p></td>
@@ -260,7 +260,7 @@ dimanche<br>
 <td><span class="code">s := l10n.codeset; -- returns "UTF-8" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -288,8 +288,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.currency_symbol"></a><h3>s := currency_symbol</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.currency_symbol"></a><h3>s := currency_symbol</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the currency symbol.</p></td>
@@ -298,7 +298,7 @@ dimanche<br>
 <td><span class="code">s := l10n.currency_symbol; -- returns "$" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -326,8 +326,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.d_fmt"></a><h3>s := d_fmt</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.d_fmt"></a><h3>s := d_fmt</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the strftime C function date formatting.</p></td>
@@ -336,7 +336,7 @@ dimanche<br>
 <td><span class="code">s := l10n.d_fmt; -- returns "%m/%d/%y" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -364,8 +364,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.d_t_fmt"></a><h3>s := d_t_fmt</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.d_t_fmt"></a><h3>s := d_t_fmt</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the strftime C function date and time formatting.</p></td>
@@ -374,7 +374,7 @@ dimanche<br>
 <td><span class="code">s := l10n.d_t_fmt; -- returns "%a %b %e %H:%M:%S %Y" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -402,8 +402,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.day"></a><h3>s := day( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.day"></a><h3>s := day( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the day of the week for day number p.  The first day is 1.</p></td>
@@ -412,7 +412,7 @@ dimanche<br>
 <td><span class="code">s := l10n.day( 2 ); -- returns "Monday" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -446,8 +446,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.decimal_point"></a><h3>s := decimal_point</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.decimal_point"></a><h3>s := decimal_point</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the decimal point character.</p></td>
@@ -456,7 +456,7 @@ dimanche<br>
 <td><span class="code">s := l10n.decimal_point; -- returns "." (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -484,8 +484,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.era"></a><h3>n := era</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.era"></a><h3>s := era</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the locale's alternate era (e.g. the name of a king).</p></td>
@@ -494,7 +494,7 @@ dimanche<br>
 <td><span class="code">s := l10n.era; -- returns "" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -522,8 +522,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.era_year"></a><h3>n := era_year</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.era_year"></a><h3>n := era_year</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the locale's alternate era year (e.g. in the year of a king's reign).</p></td>
@@ -532,7 +532,7 @@ dimanche<br>
 <td><span class="code">s := l10n.era_year; -- returns "" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -560,8 +560,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.era_d_fmt"></a><h3>n := era_d_fmt</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.era_d_fmt"></a><h3>s := era_d_fmt</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the strftime C function date formatting in the alternate era.</p></td>
@@ -570,7 +570,7 @@ dimanche<br>
 <td><span class="code">s := l10n.era_d_fmt; -- returns "" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -598,8 +598,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.era_d_t_fmt"></a><h3>n := era_d_t_fmt</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.era_d_t_fmt"></a><h3>s := era_d_t_fmt</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the strftime C function date and time formatting in the alternate era.</p></td>
@@ -608,7 +608,7 @@ dimanche<br>
 <td><span class="code">s := l10n.era_d_t_fmt; -- returns "" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -636,8 +636,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.era_t_fmt"></a><h3>n := era_t_fmt</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.era_t_fmt"></a><h3>s := era_t_fmt</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the strftime C function time formatting in the alternate era.</p></td>
@@ -646,7 +646,7 @@ dimanche<br>
 <td><span class="code">s := l10n.era_t_fmt; -- returns "" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -674,17 +674,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.frac_digits"></a><h3>n := frac_digits</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.frac_digits"></a><h3>n := frac_digits</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of digits right of the decimal point in monetary amounts.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := l10n.frac_digits; -- returns 2 (or similar)</span></td>
+<td><span class="code">n := l10n.frac_digits; -- returns 2 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -712,17 +712,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.getlocale"></a><h3>s := getlocale( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.getlocale"></a><h3>s := getlocale( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the locale namefor the given locale category.</p></td>
+<td><p>Return the locale name for the given locale category.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.getlocale(l10n.lc_ctype); -- returns "en_CA.UTF-8" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -757,17 +757,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.grouping"></a><h3>n := grouping</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.grouping"></a><h3>n := grouping</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of digits to group in large numbers.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := l10n.grouping; -- returns 3 (or similar)</span></td>
+<td><span class="code">n := l10n.grouping; -- returns 3 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -795,8 +795,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.int_curr_symbol"></a><h3>s := int_curr_symbol</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.int_curr_symbol"></a><h3>s := int_curr_symbol</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the international currency symbol.</p></td>
@@ -805,7 +805,7 @@ dimanche<br>
 <td><span class="code">s := l10n.int_curr_symbol; -- returns "USD" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -833,17 +833,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.int_frac_digits"></a><h3>n := int_frac_digits</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.int_frac_digits"></a><h3>n := int_frac_digits</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of digits right of the decimal point in international monetary amounts.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := l10n.int_frac_digits; -- returns 2 (or similar)</span></td>
+<td><span class="code">n := l10n.int_frac_digits; -- returns 2 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -871,8 +871,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.mon"></a><h3>s := mon( p )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.mon"></a><h3>s := mon( p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the month for month number p.  The first month is 1.</p></td>
@@ -881,7 +881,7 @@ dimanche<br>
 <td><span class="code">s := l10n.mon( 2 ); -- returns "February" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -891,7 +891,7 @@ dimanche<br>
 </tr><tr>
 <td><span>p</span></td>
 <td><span>in</span></td>
-<td><span>positive (1..7)</span></td>
+<td><span>positive (1..12)</span></td>
 <td><span>required</span></td>
 <td><span>the month number</span></td>
 </tr>
@@ -905,7 +905,7 @@ dimanche<br>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The day number is out-of-range</p></td>
+<td><p>The month number is out-of-range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -915,8 +915,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.mon_decimal_point"></a><h3>s := mon_decimal_point</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.mon_decimal_point"></a><h3>s := mon_decimal_point</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the decimal point character for monetary amounts.</p></td>
@@ -925,7 +925,7 @@ dimanche<br>
 <td><span class="code">s := l10n.mon_decimal_point; -- returns "." (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -953,17 +953,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.mon_grouping"></a><h3>n := mon_grouping</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.mon_grouping"></a><h3>n := mon_grouping</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of digits to group in large monetary amounts.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := l10n.mon_grouping; -- returns 3 (or similar)</span></td>
+<td><span class="code">n := l10n.mon_grouping; -- returns 3 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -991,8 +991,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.mon_thousands_sep"></a><h3>s := mon_thouands_sep</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.mon_thousands_sep"></a><h3>s := mon_thousands_sep</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the thousands separator character for monetary amounts.</p></td>
@@ -1001,7 +1001,7 @@ dimanche<br>
 <td><span class="code">s := l10n.mon_thousands_sep; -- returns "," (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1029,17 +1029,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.n_cs_precedes"></a><h3>n := n_cs_precedes</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.n_cs_precedes"></a><h3>i := n_cs_precedes</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return 1 if the currency symbol precedes a negative monetary amount.  Return 0 if the symbol should follow the amount.  Return -1 if unspecified</p></td>
+<td><p>Return 1 if the currency symbol precedes a negative monetary amount.  Return 0 if the symbol should follow the amount.  Return -1 if unspecified.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.n_cs_precedes; -- returns 1 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1048,9 +1048,9 @@ dimanche<br>
 <td><span class="pkg_param">Description</span></td>
 </tr>
 <tr>
-<td><span>n</span></td>
+<td><span>i</span></td>
 <td><span>return value</span></td>
-<td><span>natural</span></td>
+<td><span>integer</span></td>
 <td><span>required</span></td>
 <td><span>a code representing the positioning</span></td>
 </tr>
@@ -1067,8 +1067,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.n_sep_by_space"></a><h3>n := n_sep_by_space</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.n_sep_by_space"></a><h3>n := n_sep_by_space</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return 1 if the currency symbol should be separated from the value of negative monetary amounts.  Return 0 if there should be no space.  Return -1 if unspecified.</p></td>
@@ -1077,7 +1077,7 @@ dimanche<br>
 <td><span class="code">s := l10n.n_sep_by_space; -- returns 0 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1105,17 +1105,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.n_sign_posn"></a><h3>n := n_sign_posn</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.n_sign_posn"></a><h3>n := n_sign_posn</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return 0 if parentheses surround the negative monetary quantity, 1 if the sign precedes it, 2 if the sign follows it, 3 if the sign immediately precedes it, 4 if the sign immediately follows it.  Return -1 if unspecified.</p></td>
+<td><p>Return 0 if parentheses surround the negative monetary quantity.  Return 1 if the sign precedes it.  Return 2 if the sign follows it. Return 3 if the sign immediately precedes it.  Return 4 if the sign immediately follows it.  Return -1 if unspecified.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.n_sign_posn; -- returns 1 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1143,8 +1143,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.negative_sign"></a><h3>s := negative_sign</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.negative_sign"></a><h3>s := negative_sign</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the negative sign for negative values.</p></td>
@@ -1153,7 +1153,7 @@ dimanche<br>
 <td><span class="code">s := l10n.negative_sign; -- returns "-" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1181,8 +1181,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.noexpr"></a><h3>s := noexpr</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.noexpr"></a><h3>s := noexpr</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the regular expression to recognize a "no" response for a yes/no question.</p></td>
@@ -1191,7 +1191,7 @@ dimanche<br>
 <td><span class="code">s := l10n.noexpr; -- returns "^[nN]" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1219,17 +1219,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.p_cs_precedes"></a><h3>n := p_cs_precedes</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.p_cs_precedes"></a><h3>i := p_cs_precedes</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return 1 if the currency symbol precedes a natural monetary amount.  Return 0 if the symbol should follow the amount.  Return -1 if unspecified</p></td>
+<td><p>Return 1 if the currency symbol precedes a natural monetary amount.  Return 0 if the symbol should follow the amount.  Return -1 if unspecified.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.p_cs_precedes; -- returns 1 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1238,9 +1238,9 @@ dimanche<br>
 <td><span class="pkg_param">Description</span></td>
 </tr>
 <tr>
-<td><span>n</span></td>
+<td><span>i</span></td>
 <td><span>return value</span></td>
-<td><span>natural</span></td>
+<td><span>integer</span></td>
 <td><span>required</span></td>
 <td><span>a code representing the positioning</span></td>
 </tr>
@@ -1257,8 +1257,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.p_sep_by_space"></a><h3>n := p_sep_by_space</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.p_sep_by_space"></a><h3>n := p_sep_by_space</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return 1 if the currency symbol should be separated from the value of natural monetary amounts.  Return 0 if there should be no space.  Return -1 if unspecified.</p></td>
@@ -1267,7 +1267,7 @@ dimanche<br>
 <td><span class="code">s := l10n.p_sep_by_space; -- returns 0 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1295,17 +1295,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.p_sign_posn"></a><h3>n := p_sign_posn</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.p_sign_posn"></a><h3>n := p_sign_posn</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return 0 if parentheses surround the natural monetary quantity, 1 if the sign precedes it, 2 if the sign follows it, 3 if the sign immediately precedes it, 4 if the sign immediately follows it.  Return -1 if unspecified.</p></td>
+<td><p>Return 0 if parentheses surround the natural monetary quantity.  Return 1 if the sign precedes it.  Return 2 if the sign follows it.  Return 3 if the sign immediately precedes it.  Return 4 if the sign immediately follows it.  Return -1 if unspecified.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.p_sign_posn; -- returns 1 (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1333,17 +1333,17 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.pmstr"></a><h3>s := pmstr</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.pmstr"></a><h3>s := pmstr</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the string for PM time.  It is blank if it is not used in this locale.</p></td>
+<td><p>Return the string for PM time.  Return an empty string if this locale does not use AM/PM notation.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">s := l10n.pmstr; -- returns "PM" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1371,8 +1371,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.positive_sign"></a><h3>s := positive_sign</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.positive_sign"></a><h3>s := positive_sign</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the positive sign for positive values.</p></td>
@@ -1381,7 +1381,7 @@ dimanche<br>
 <td><span class="code">s := l10n.positive_sign; -- returns "+" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1409,8 +1409,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.setlocale"></a><h3>s := setlocale( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.setlocale"></a><h3>s := setlocale( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign the locale name for the given locale category.  If the locale is unknown or not available, nothing is changed.</p></td>
@@ -1419,7 +1419,7 @@ dimanche<br>
 <td><span class="code">s := l10n.setlocale(l10n.lc_ctype, "en_CA.UTF-8");</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1454,8 +1454,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.thousands_sep"></a><h3>s := thouands_sep</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.thousands_sep"></a><h3>s := thouands_sep</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the thousands separator character.</p></td>
@@ -1464,7 +1464,7 @@ dimanche<br>
 <td><span class="code">s := l10n.thousands_sep; -- returns "," (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1492,8 +1492,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.t_fmt"></a><h3>s := t_fmt</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.t_fmt"></a><h3>s := t_fmt</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for the strftime C function time formatting.</p></td>
@@ -1502,7 +1502,7 @@ dimanche<br>
 <td><span class="code">s := l10n.t_fmt; -- returns "%H:%M:%S" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1515,7 +1515,7 @@ dimanche<br>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
-<td><span>the string for date and time format</span></td>
+<td><span>the string for time format</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -1530,8 +1530,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.t_fmt_ampm"></a><h3>s := t_fmt_ampm</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.t_fmt_ampm"></a><h3>s := t_fmt_ampm</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the string for strftime command time formatting for 12-hour time.</p></td>
@@ -1540,7 +1540,7 @@ dimanche<br>
 <td><span class="code">s := l10n.t_fmt_ampm; -- returns "PM" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1553,7 +1553,7 @@ dimanche<br>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
-<td><span>the string for date and time format</span></td>
+<td><span>the string for time format</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -1568,8 +1568,8 @@ dimanche<br>
 </tr>
 </table>
 
-<a name="l10n.yesexpr"></a><h3>s := yesexpr</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="l10n.yesexpr"></a><h3>s := yesexpr</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the regular expression to recognize a "yes" response for a yes/no question.</p></td>
@@ -1578,7 +1578,7 @@ dimanche<br>
 <td><span class="code">s := l10n.yesexpr; -- returns "^[yY]" (or similar)</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1609,7 +1609,7 @@ dimanche<br>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -1629,7 +1629,7 @@ dimanche<br>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_crc32.html">&nbsp;gnat.crc32</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hash_io.html">&nbsp;hash_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hmaps.html">&nbsp;hashed_maps</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_l10n.html">&nbsp;<b>l10n</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_l10n.html">&nbsp;<strong>l10n</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_lock_files.html">&nbsp;lock_files</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_logs.html">&nbsp;logs</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_memcache.html">&nbsp;memcache</a></p>

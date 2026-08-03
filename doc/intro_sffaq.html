@@ -8,27 +8,27 @@
 	<title>SparForte - Intro - FAQ</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html"><b>Intro</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="intro_compare.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_1.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html"><strong>Intro</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="intro_compare.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_1.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -154,7 +154,7 @@ program like this:</p>
 </pre>
 
 <p><img src="pictures/spar_on_vim.png" width="616" height="433" alt="[Screenshot of Sparforte script on vim]"><br>
-<b>Screenshot</b>: camel.sp script in Vim 7.3 using Sparforte mode</p>
+<strong>Screenshot</strong>: camel.sp script in Vim 7.3 using Sparforte mode</p>
 
 <h4>How Do I Use KDevelop with Sparforte?</h4>
 
@@ -163,7 +163,7 @@ highlighting and other features you are looking for.  This is located
 under Editor / Tools / Highlighting / Source menu.</p>
 
 <p><img src="pictures/spar_on_kdevelop.png" width="724" height="500" alt="[Screenshot of Sparforte script on KDevelop]"><br>
-<b>Screenshot</b>: camel.sp script in KDevelop 4.2 using Ada mode</p>
+<strong>Screenshot</strong>: camel.sp script in KDevelop 4.2 using Ada mode</p>
 
 <h4>How Do I Use Eclipse with Sparforte?</h4>
 
@@ -276,13 +276,13 @@ positive number.</p>
 <p><code>get_line</code> returns a universal type, not a string,
 so the returned value can saved to a string or numeric variable.</p>
 
-<p><tt>n : integer := get_line</tt></p>
+<p><code>n : integer := get_line</code></p>
 
-<p>You can also cast the result using <tt>numerics.value</tt> like this:</p>
+<p>You can also cast the result using <code>numerics.value</code> like this:</p>
 
-<p><tt>n := numerics.value( get_line );</tt></p>
+<p><code>n := numerics.value( get_line );</code></p>
 
-<h4>How do I format numbers like <tt>printf</tt>?</h4>
+<h4>How do I format numbers like <code>printf</code>?</h4>
 
 <p>The built-in <code>put</code> procedure (not <code>put_line</code>) can
 do this.  The optional final parameter is a picture string
@@ -298,7 +298,7 @@ section.</p>
   c_string2 : string := "This is a C string" &amp; Latin_1.NUL
 </pre>
 
-<h4>What does it mean when a type is <tt>limited</tt>?</h4>
+<h4>What does it mean when a type is <code>limited</code>?</h4>
 
 <p>A limited type is a type that cannot be assigned in an assignment
 statement.  It can still be used in parameters.  Typically a limited
@@ -307,17 +307,17 @@ Although Sparforte has no pointers and thus no shallow copying issues,
 limited types are used for sharing tokens or id numbers which should
 not be altered. An example is the <code>file_type</code> type.</p>
 
-<h4>How do I use an environment variable like <tt>LOGNAME</tt>?</h4>
+<h4>How do I use an environment variable like <code>LOGNAME</code>?</h4>
 
 <p>You have to import it first:</p>
 
-<p><tt>LOGNAME : string;</tt><br><tt>pragma import( shell, LOGNAME );</tt></p>
+<p><code>LOGNAME : string;</code><br><code>pragma import( shell, LOGNAME );</code></p>
 
 <p>If you want to make LOGNAME available to other programs as an
-environment variable, you'll also have to <tt>export</tt> it.</p>
+environment variable, you'll also have to <code>export</code> it.</p>
 
-<h4>What's the difference between an <tt>in</tt>, <tt>out</tt> and
-<tt>in out</tt> parameters?</h4>
+<h4>What's the difference between an <code>in</code>, <code>out</code> and
+<code>in out</code> parameters?</h4>
 
 <p>An <code>in</code> parameter is one that is used by a subprogram but
 will not be altered.  An <code>out</code> parameter is one that is
@@ -344,9 +344,9 @@ reference section.</p>
 a backslash at the end of a line as in a Bourne Shell.  For example,
 these commands are the same:</p>
 
-<span><tt>ls -l;</tt></span><br>
-<span><tt>ls</tt></span><br>
-<span><tt>-l;</tt></span><br>
+<span><code>ls -l;</code></span><br>
+<span><code>ls</code></span><br>
+<span><code>-l;</code></span><br>
 
 <h4>Why can I only import and export string variables?</h4>
 
@@ -494,7 +494,7 @@ be a cloud language.</p>
 of weak typing) and using "duck typing" when automatically declaring
 variables at the command prompt.</p>
 
-<h4>Why can't I undo <tt>pragma restriction</tt>, <tt>pragma ada_95</tt>, running in restricted shell mode, etc.?</h4>
+<h4>Why can't I undo <code>pragma restriction</code>, <code>pragma ada_95</code>, running in restricted shell mode, etc.?</h4>
 
 <p>As a general rule, when restrictions are enforced they cannot be undone.
 First, restrictions may be applied for security purposes.  Allowing them
@@ -531,7 +531,7 @@ globals can be safely used by tacit agreement between programmers.</p>
 Since AdaScript is a shell and scripting language, global variables are
 often useful.  They are also necessary for compatibility with Ada.</p>
 
-<h4>Why does AdaScript lack <tt>goto</tt> statements?  Some experts say they are bad.</h4>
+<h4>Why does AdaScript lack <code>goto</code> statements?  Some experts say they are bad.</h4>
 
 <p>AdaScript doesn't have a <code>goto</code> statements because of the
 complexity of implementing <code>goto</code>.</p>
@@ -679,7 +679,7 @@ the status quo.</p>
                                 <p class="rmt"><a class="rightmenutext" href="intro_preface.html">&nbsp;Preface</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="intro_whyworks.html">&nbsp;Why It Works</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="intro_compare.html">&nbsp;Comparisons</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="intro_sffaq.html">&nbsp;<b>FAQ</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="intro_sffaq.html">&nbsp;<strong>FAQ</strong></a></p>
 			</td>
 		</tr>
 		<tr>

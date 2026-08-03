@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Ifs and Loops (Flow of Control)</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_db.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_other.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_db.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_other.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -48,16 +48,16 @@
         <center>
         <div class="code">
                 <p class="code">
-<b>if</b> x &gt; y <b>then</b><br>
+<strong>if</strong> x &gt; y <strong>then</strong><br>
 &nbsp;&nbsp; put_line( "x is greater than y" );<br>
-<b>elsif</b> x = y <b>then</b><br>
+<strong>elsif</strong> x = y <strong>then</strong><br>
 &nbsp;&nbsp; put_line( "x is equal to y" );<br>
-<b>else</b><br>
+<strong>else</strong><br>
 &nbsp;&nbsp; put_line( "x is less than y" );<br>
-<b>end</b> <b>if</b>;
+<strong>end</strong> <strong>if</strong>;
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The If Statement
+                <strong>Example</strong>: The If Statement
         </div>
         </div>
         </center>
@@ -70,22 +70,22 @@
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> country <b>is</b> ( australia, u_k, brazil );<br>
+<strong>type</strong> country <strong>is</strong> ( australia, u_k, brazil );<br>
 c : country;<br>
 ...<br>
-<b>case</b> c <b>is</b><br>
-<b>when</b> australia =&gt;<br>
+<strong>case</strong> c <strong>is</strong><br>
+<strong>when</strong> australia =&gt;<br>
 &nbsp;&nbsp; put_line( "Australia" );<br>
-<b>when</b> u_k =&gt;<br>
+<strong>when</strong> u_k =&gt;<br>
 &nbsp;&nbsp; put_line( "United Kingdom" );<br>
-<b>when</b> brazil =&gt;<br>
+<strong>when</strong> brazil =&gt;<br>
 &nbsp;&nbsp; put_line( "Brazil" );<br>
-<b>when</b> others =&gt;<br>
+<strong>when</strong> others =&gt;<br>
 &nbsp;&nbsp; put_line( "Unexpected country" );<br>
-<b>end</b> <b>case</b>;
+<strong>end</strong> <strong>case</strong>;
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Case Statement
+                <strong>Example</strong>: The Case Statement
         </div>
         </div>
         </center>
@@ -94,7 +94,7 @@ c : country;<br>
 
         <center>
         <div class="code">
-                <p class="code"><b>when</b> brazil | u_k =&gt; -- brazil or U.K.</p>
+                <p class="code"><strong>when</strong> brazil | u_k =&gt; -- brazil or U.K.</p>
         </div>
         </center>
 
@@ -102,7 +102,7 @@ c : country;<br>
 The <code>when others</code> case is always required.  You can create a do nothing
 case by using the <code>null</code> statement.</p>
 
-<p><b>Ada</b>: The when others clause is optional in Ada.  It's required
+<p><strong>Ada</strong>: The when others clause is optional in Ada.  It's required
 in SparForte.</p>
 
 <h3>The Case Statement: Multiple Cases</h3>
@@ -114,24 +114,24 @@ to run.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>type</b> countries <b>is</b> ( canada, brazil );<br>
-<b>type</b> languages <b>is</b> ( english, french );<br>
+<strong>type</strong> countries <strong>is</strong> ( canada, brazil );<br>
+<strong>type</strong> languages <strong>is</strong> ( english, french );<br>
 country : countries;<br>
 language : languages;<br>
 ...<br>
-<b>case</b> country, language <b>is</b><br>
-<b>when</b> canada, english =&gt;<br>
+<strong>case</strong> country, language <strong>is</strong><br>
+<strong>when</strong> canada, english =&gt;<br>
 &nbsp;&nbsp; put_line( "Canadian English" );<br>
-<b>when</b> canada, french =&gt;<br>
+<strong>when</strong> canada, french =&gt;<br>
 &nbsp;&nbsp; put_line( "Canadian French" );<br>
-<b>when</b> brazil, &lt;&gt; =&gt;<br>
+<strong>when</strong> brazil, &lt;&gt; =&gt;<br>
 &nbsp;&nbsp; put_line( "Brazilian Portuguese" );<br>
-<b>when</b> others =&gt;<br>
+<strong>when</strong> others =&gt;<br>
 &nbsp;&nbsp; put_line( "Unexpected country and language" );<br>
-<b>end</b> <b>case</b>;
+<strong>end</strong> <strong>case</strong>;
 <br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Case Statement with Multiple Cases
+                <strong>Example</strong>: The Case Statement with Multiple Cases
         </div>
         </div>
         </center>
@@ -140,7 +140,7 @@ language : languages;<br>
 ignoring the value of that case identifier.  In the example above,
 we assume that everyone in Brazil speaks Portuguese.</p>
 
-<p><b>Ada</b>: <code>pragma ada_95</code> does not allow multiple case identifiers.</p>
+<p><strong>Ada</strong>: <code>pragma ada_95</code> does not allow multiple case identifiers.</p>
 
 <h3>The While Loop Statement</h3>
 
@@ -151,11 +151,11 @@ the first line of the loop is executed.</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>while</b> x &lt; y <b>loop</b><br>
+<strong>while</strong> x &lt; y <strong>loop</strong><br>
 &nbsp; x := @ + 1;<br>
-<b>end</b> <b>loop</b>;<br>&nbsp;<br></p>
+<strong>end</strong> <strong>loop</strong>;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The While Statement
+                <strong>Example</strong>: The While Statement
         </div>
         </div>
         </center>
@@ -175,12 +175,12 @@ a breakout prompt for debugging purposes.)</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>for</b> i <b>in</b> 1..10 <b>loop</b><br>
+<strong>for</strong> i <strong>in</strong> 1..10 <strong>loop</strong><br>
 &nbsp; put( "i is " );<br>
 &nbsp; put_line( i );<br>
-<b>end</b> <b>loop</b>;<br>&nbsp;<br></p>
+<strong>end</strong> <strong>loop</strong>;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The For Statement
+                <strong>Example</strong>: The For Statement
         </div>
         </div>
         </center>
@@ -196,13 +196,13 @@ a breakout prompt for debugging purposes.)</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>if</b> x &gt; 100 <b>then</b><br>
-&nbsp; <b>exit</b>;<br>
-<b>end</b> <b>if</b>;<br>
+<strong>if</strong> x &gt; 100 <strong>then</strong><br>
+&nbsp; <strong>exit</strong>;<br>
+<strong>end</strong> <strong>if</strong>;<br>
 &nbsp;<br>
-<b>exit</b> <b>when</b> x &gt; 100;<br>&nbsp;<br></p>
+<strong>exit</strong> <strong>when</strong> x &gt; 100;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Examples of the Exit Statement
+                <strong>Example</strong>: Examples of the Exit Statement
         </div>
         </div>
         </center>
@@ -216,12 +216,12 @@ a breakout prompt for debugging purposes.)</p>
         <center>
         <div class="code">
                 <p class="code">
-<b>loop</b><br>
+<strong>loop</strong><br>
 &nbsp; reply := get_line;<br>
-&nbsp; <b>exit</b> <b>when</b> reply = "exit";<br>
-<b>end</b> <b>loop</b>;<br>&nbsp;<br></p>
+&nbsp; <strong>exit</strong> <strong>when</strong> reply = "exit";<br>
+<strong>end</strong> <strong>loop</strong>;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: The Loop Statement
+                <strong>Example</strong>: The Loop Statement
         </div>
         </div>
         </center>
@@ -250,7 +250,7 @@ a breakout prompt for debugging purposes.)</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;Built-in Shell Commands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cd.html">&nbsp;The Current Directory</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_db.html">&nbsp;Database Commands</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_flow.html">&nbsp;<b>Ifs and Loops</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_flow.html">&nbsp;<strong>Ifs and Loops</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_other.html">&nbsp;Other Statements/ Subprograms</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_extcmds.html">&nbsp;External Commands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_subprograms.html">&nbsp;Block Statements and Subprograms</a></p>

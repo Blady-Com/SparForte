@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Command Line Options</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF">
+<body class="doc">
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_pragmas.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cmdref.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_pragmas.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cmdref.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -48,60 +48,60 @@ and executes scripts.</p>
  width="616">
 </center>
 <ul>
-  <li> <b>--break (or -b)</b> - allow breakout to a shell prompt on a
+  <li> <strong>--break (or -b)</strong> - allow breakout to a shell prompt on a
 SIGINT or a script error. (e.g. a control-c will give you a shell prompt.)
-Use <tt>return</tt> to continue execution or <tt>logout</tt> to terminate the script.  A
+Use <code>return</code> to continue execution or <code>logout</code> to terminate the script.  A
 breakout prompt will allow you to assign values to constants, such as
 a for loop index, with a warning.</li>
-  <li> <b>--check (or -c)</b> - check the syntax of a script but do
+  <li> <strong>--check (or -c)</strong> - check the syntax of a script but do
 not
 run the script.</li>
-  <li> <b>--coding (or -C)</b> - specify that this project is in the
+  <li> <strong>--coding (or -C)</strong> - specify that this project is in the
 development phase of the software development life cycle.  This option will
 adjust language features and diagnostics to this phase.</li>
-  <li> <b>--color (or --colour)</b> -&nbsp; enable colour in SparForte
+  <li> <strong>--color (or --colour)</strong> -&nbsp; enable colour in SparForte
 messages for systems that support it.</li>
-  <li> <b>--debug (or -d)</b> -&nbsp; enable pragma debug and
+  <li> <strong>--debug (or -d)</strong> -&nbsp; enable pragma debug and
 assert.&nbsp;
 Without this, pragma debug has no effect.</li>
-  <li> <b>--design (or -D)</b> -&nbsp; specify that this project is in the
+  <li> <strong>--design (or -D)</strong> -&nbsp; specify that this project is in the
 design phase of the software development life cycle.  This will adjust
 language features and diagnostics to this phase.</li>
-  <li> <b>--exec (or -e)</b> -&nbsp; the script path argument is treated
+  <li> <strong>--exec (or -e)</strong> -&nbsp; the script path argument is treated
 as the text of a script to execute.</li>
-  <li> <b>--gcc-errors (or -g)</b> - show simple GCC-style error
+  <li> <strong>--gcc-errors (or -g)</strong> - show simple GCC-style error
 messages to be compatible with IDEs and other tools. Also disables
 color, bold and inverse printing in error messages.</li>
-  <li> <b>--help (or -h)</b> - show help on command line options</li>
-  <li> <b>--import-all (or -n)</b> - declare and import all
+  <li> <strong>--help (or -h)</strong> - show help on command line options</li>
+  <li> <strong>--import-all (or -n)</strong> - declare and import all
 environment variables when SparForte starts.</li>
-  <li> <b>-L<i>d</i> or -L <i>d</i></b> - specify additional SPAR_LIBRARY_PATH directories (see below)</li>
-  <li> <b>--login (or -l)</b> - simulate a login shell.</li>
-  <li> <b>--maintenance (or -m)</b> -&nbsp; specify that this project is in the
+  <li> <strong>-L<i>d</i> or -L <i>d</i></strong> - specify additional SPAR_LIBRARY_PATH directories (see below)</li>
+  <li> <strong>--login (or -l)</strong> - simulate a login shell.</li>
+  <li> <strong>--maintenance (or -m)</strong> -&nbsp; specify that this project is in the
 maintenance phase of the software development life cycle.  That is, that the
 project has been installed in the production environment.  This will adjust
 language features and diagnostics to this phase.</li>
-  <li> <b>--pref (or -p)</b> - after the script runs, produce a report
+  <li> <strong>--pref (or -p)</strong> - after the script runs, produce a report
 on the static metrics (such as number of blocks) and run-time performance
 information (such as how many lines were executed).</li>
-  <li> <b>--profile (or -P)</b> - run the profile script even though not
+  <li> <strong>--profile (or -P)</strong> - run the profile script even though not
 logging in.</li>
-  <li> <b>--quiet or -q</b> - use brief error messages.</li>
-  <li> <b>--restricted (or -r)</b> - run as a restricted shell, where
+  <li> <strong>--quiet or -q</strong> - use brief error messages.</li>
+  <li> <strong>--restricted (or -r)</strong> - run as a restricted shell, where
 several features are disabled to create a more controlled environment.</li>
-  <li> <b>--session <i>session-name</i></b> - start a session with the given name.  Each session
+  <li> <strong>--session <i>session-name</i></strong> - start a session with the given name.  Each session
 uses a different profile and history file which includes the session name.</li>
-  <li> <b>--sbom (or -B)</b> - experimental feature. Output a software bill-of-materials and then exit.  Show a list of build dependencies, the O/S libraries that are
+  <li> <strong>--sbom (or -B)</strong> - experimental feature. Output a software bill-of-materials and then exit.  Show a list of build dependencies, the O/S libraries that are
 used by the SparForte interpreter.</li>
-  <li> <b>--test (or -t)</b> -&nbsp; specify that this project is in the
+  <li> <strong>--test (or -t)</strong> -&nbsp; specify that this project is in the
 testing phase of the software development life cycle.  This will enable/
 disable language features and errors suitable to this phase.
-It will enable <tt>pragma assert</tt> and <tt>pragma test</tt> and other
+It will enable <code>pragma assert</code> and <code>pragma test</code> and other
 test-related features.</li>
-  <li> <b>--trace (or -x)</b> - Turn on tracing, same as using the "trace true" command.</li>
-  <li> <b>--verbose (or -v)</b> - show interpreter progress.</li>
-  <li> <b>--version (or -V)</b> - show version of SparForte and exit.</li>
-  <li> <b>--</b> - explicitly end of shell options. Use this before specifying
+  <li> <strong>--trace (or -x)</strong> - Turn on tracing, same as using the "trace true" command.</li>
+  <li> <strong>--verbose (or -v)</strong> - show interpreter progress.</li>
+  <li> <strong>--version (or -V)</strong> - show version of SparForte and exit.</li>
+  <li> <strong>--</strong> - explicitly end of shell options. Use this before specifying
 files on the command line that contain a leading "-".</li>
 </ul>
 
@@ -111,13 +111,13 @@ files on the command line that contain a leading "-".</li>
 runs.</p>
 
 <ul>
-  <li><b>PATH</b> - the command search path (always imported)</li>
-  <li><b>PWD</b> - the present (current) working directory (always imported)</li>
-  <li><b>OLDPWD</b> - the last PWD (always imported)</li>
-  <li><b>HOME</b> - the user's home directory (always imported)</li>
-  <li><b>TERM</b> - the user's terminal emulation (always imported)</li>
-  <li><b>SHELL</b> - the user's shell (always imported)</li>
-  <li><b>SPAR_LIBRARY_PATH</b> - the search path for loadable components (always imported)</li>
+  <li><strong>PATH</strong> - the command search path (always imported)</li>
+  <li><strong>PWD</strong> - the present (current) working directory (always imported)</li>
+  <li><strong>OLDPWD</strong> - the last PWD (always imported)</li>
+  <li><strong>HOME</strong> - the user's home directory (always imported)</li>
+  <li><strong>TERM</strong> - the user's terminal emulation (always imported)</li>
+  <li><strong>SHELL</strong> - the user's shell (always imported)</li>
+  <li><strong>SPAR_LIBRARY_PATH</strong> - the search path for loadable components (always imported)</li>
 </ul>
 
 <h3>Restricted Shell Mode</h3>
@@ -131,15 +131,15 @@ restricted shell mode is not security but to provide a read-only environment
 when full shell capabilities are not required.  For example, web templates
 run in restricted shell mode.</p>
 
-<p><tt>System.Restricted_Shell</tt> will be true in a restricted shell.</p>
+<p><code>System.Restricted_Shell</code> will be true in a restricted shell.</p>
 
 <p>Some of the features disabled in restricted shell mode include:</p>
 
 <ul>
-<li>Changing directories with <tt>cd</tt></li>
-<li>Deleting variables with <tt>unset</tt></li>
-<li>Changing the variables <tt>PATH</tt>, <tt>SHELL</tt>, <tt>PWD</tt>, <tt>OLDPWD</tt>, <tt>HOME</tt> or <tt>SPAR_LIBRARY_PATH</tt> (these are treated as constants)</li>
-<li>Disabling command redirections (e.g. <tt>&gt;</tt>) that create new files</li>
+<li>Changing directories with <code>cd</code></li>
+<li>Deleting variables with <code>unset</code></li>
+<li>Changing the variables <code>PATH</code>, <code>SHELL</code>, <code>PWD</code>, <code>OLDPWD</code>, <code>HOME</code> or <code>SPAR_LIBRARY_PATH</code> (these are treated as constants)</li>
+<li>Disabling command redirections (e.g. <code>&gt;</code>) that create new files</li>
 <li>Using databases</li>
 </ul>
 
@@ -172,7 +172,7 @@ run in restricted shell mode.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_numberformat.html">&nbsp;Numeric Formatting with Put</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_tags.html">&nbsp;Value Meta Tags</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_pragmas.html">&nbsp;Interpreter Directives</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_cmdoptions.html">&nbsp;<b>Command Line Options</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cmdoptions.html">&nbsp;<strong>Command Line Options</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdref.html">&nbsp;Command Reference</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_charsets.html">&nbsp;ASCII and Latin_1 Character Sets</a></p>
 			</td>

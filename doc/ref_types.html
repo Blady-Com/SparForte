@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Fundamental Types</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_shellargs.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_typedecl.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_shellargs.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_typedecl.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -51,7 +51,7 @@ In scripts, all variables must be declared.</p>
 <hr>
 <p><img src="pictures/sparforte_type_tree.gif" alt="[SparForte Type Tree]"><br>
 &nbsp;<br>
-<b>Figure</b>: SparForte Predefined Scalar Data Types and their Relationships</p>
+<strong>Figure</strong>: SparForte Predefined Scalar Data Types and their Relationships</p>
 <hr>
 
 <h3>Identifier Names</h3>
@@ -70,15 +70,15 @@ are not practical in real scripts.  Some of these restrictions only
 apply to certain contexts.</p>
 
 <ul>
-<li>The lowercase <b>"l"</b> and uppercase <b>"o"</b> cannot be used as identifier
+<li>The lowercase <strong>"l"</strong> and uppercase <strong>"o"</strong> cannot be used as identifier
 names because they can be confused with the numbers zero and one.  This
 only applies to scripts: they are permitted on the command line.</li>
 <li>Identifier names that are equivalent to reserved words except
-for the letter case are not permitted.  For example, <b>"IF"</b> is
+for the letter case are not permitted.  For example, <strong>"IF"</strong> is
 not permitted.  This is done to prevent
 confusion, as well as to improve Ada compatibility.</li>
 <li>Variables or constants with ambiguous, meaningless names in
-English like <b>"stuff"</b>, <b>"data</b> or <b>"thing"</b> are not allowed.  This is done to
+English like <strong>"stuff"</strong>, <strong>"data</strong> or <strong>"thing"</strong> are not allowed.  This is done to
 promote descriptive names.  This only applies to scripts: they are
 permitted on the command line.</li>
 <li>Variables and constants checked for similar sound or
@@ -86,7 +86,7 @@ short-forms to prevent team member confusion over similar-sounding names.</li>
 <li>Subprogram names contain at least 3 characters.  This is to
 make the names descriptive.</li>
 <li>Program names that may conflict with built-in Bourne shell
-commands are not allowed, such as <b>"eval"</b>, <b>"exec"</b> or <b>"test"</b>.
+commands are not allowed, such as <strong>"eval"</strong>, <strong>"exec"</strong> or <strong>"test"</strong>.
 For example, if you name a program "test" and try to run it in
 a Bourne shell by typing "test", you'll run the built-in shell
 command instead of your program.  This prevents such confusion.</li>
@@ -97,7 +97,7 @@ as it looks like an incomplete name, and the underscore similar
 to a space character.</li>
 </ul>
 
-<p><b>Implementation Rationale</b>:  As much as possible, only
+<p><strong>Implementation Rationale</strong>:  As much as possible, only
 "common sense" style issues are implemented.  Some issues
 enforced by other languages or tools do not have evidence that
 they are effective: for example, single letter variables are
@@ -112,24 +112,24 @@ removed for the command prompt, where style is less important.</p>
 <table nosave="" bgcolor="#F3F5F7" border="1" cols="3" width="100%">
   <tbody>
     <tr>
-      <td><b>Type Name</b></td>
-      <td><b>Content</b></td>
-      <td><b>Usage</b></td>
+      <td><strong>Type Name</strong></td>
+      <td><strong>Content</strong></td>
+      <td><strong>Usage</strong></td>
 
     </tr>
     <tr>
-      <td><tt>universal_string</tt></td>
+      <td><code>universal_string</code></td>
       <td>unlimited length, 8-bit characters</td>
       <td>text</td>
     </tr>
     <tr>
 
-      <td><tt>universal_numeric</tt></td>
+      <td><code>universal_numeric</code></td>
       <td>double precision floating point values</td>
       <td>numbers</td>
     </tr>
     <tr>
-      <td><tt>universal_typeless</tt></td>
+      <td><code>universal_typeless</code></td>
       <td>same as universal_string/numeric</td>
 
       <td>text or numbers</td>
@@ -185,7 +185,7 @@ type at one time.</p>
 	</div>
 	</center>
 
-<p><b>Ada</b>: Ada has no usable universal types but the Ada
+<p><strong>Ada</strong>: Ada has no usable universal types but the Ada
 rationale uses universal types to describe the type system.</p>
 
 <h3>Predefined, Non-Universal Types</h3>
@@ -199,150 +199,150 @@ types:</p>
 <table nosave="" bgcolor="#F3F5F7" border="1" cols="4" width="100%">
   <tbody>
     <tr>
-      <td><b>Type Name</b></td>
-      <td><b>Base Type</b></td>
-      <td><b>Usage</b></td>
-      <td><b>GCC Ada Equivalent</b></td>
+      <td><strong>Type Name</strong></td>
+      <td><strong>Base Type</strong></td>
+      <td><strong>Usage</strong></td>
+      <td><strong>GCC Ada Equivalent</strong></td>
 
     </tr>
     <tr nosave="">
-      <td nosave=""><tt>integer</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td nosave=""><code>integer</code></td>
+      <td><code>universal_numeric</code></td>
       <td>number without a radix point</td>
-      <td><tt>integer</tt></td>
+      <td><code>integer</code></td>
     </tr>
 
     <tr>
-      <td><tt>natural</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>natural</code></td>
+      <td><code>universal_numeric</code></td>
       <td>0 or integer larger than zero</td>
-      <td><tt>natural</tt></td>
+      <td><code>natural</code></td>
     </tr>
     <tr>
 
-      <td><tt>positive</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>positive</code></td>
+      <td><code>universal_numeric</code></td>
       <td>integer larger than zero</td>
-      <td><tt>positive</tt></td>
+      <td><code>positive</code></td>
     </tr>
     <tr>
-      <td><tt>short_short_integer</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>short_short_integer</code></td>
+      <td><code>universal_numeric</code></td>
       <td>very small integer</td>
-      <td><tt>short_short_integer</tt></td>
+      <td><code>short_short_integer</code></td>
     </tr>
     <tr>
-      <td><tt>short_integer</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>short_integer</code></td>
+      <td><code>universal_numeric</code></td>
 
       <td>small integer</td>
-      <td><tt>long_integer</tt></td>
+      <td><code>long_integer</code></td>
     </tr>
     <tr>
-      <td><tt>long_integer</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>long_integer</code></td>
+      <td><code>universal_numeric</code></td>
       <td>large integer</td>
-      <td><tt>long_long_integer</tt></td>
+      <td><code>long_long_integer</code></td>
     </tr>
     <tr>
-      <td><tt>long_long_integer</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>long_long_integer</code></td>
+      <td><code>universal_numeric</code></td>
       <td>very large integer</td>
-      <td><tt>float</tt></td>
+      <td><code>float</code></td>
 
     </tr>
     <tr>
-      <td><tt>float</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>float</code></td>
+      <td><code>universal_numeric</code></td>
       <td>floating point number</td>
-      <td><tt>float</tt></td>
+      <td><code>float</code></td>
     </tr>
 
     <tr>
-      <td><tt>short_float</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>short_float</code></td>
+      <td><code>universal_numeric</code></td>
       <td>small floating point number</td>
-      <td><tt>short_float</tt></td>
+      <td><code>short_float</code></td>
     </tr>
     <tr>
 
-      <td><tt>long_float</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>long_float</code></td>
+      <td><code>universal_numeric</code></td>
       <td>large floating point number</td>
-      <td><tt>long_float</tt></td>
+      <td><code>long_float</code></td>
     </tr>
     <tr>
-      <td><tt>character</tt></td>
+      <td><code>character</code></td>
 
-      <td><tt>universal_string</tt></td>
+      <td><code>universal_string</code></td>
       <td>8-bit character</td>
-      <td><tt>character</tt></td>
+      <td><code>character</code></td>
     </tr>
     <tr>
-      <td><tt>string</tt></td>
-      <td><tt>universal_string</tt></td>
+      <td><code>string</code></td>
+      <td><code>universal_string</code></td>
 
       <td>unlimited length string</td>
-      <td>almost <tt>unbounded_string</tt></td>
+      <td>almost <code>unbounded_string</code></td>
     </tr>
     <tr>
-      <td><tt>unbounded_string</tt></td>
+      <td><code>unbounded_string</code></td>
       <td>universal_string</td>
 
       <td>unlimited length string</td>
-      <td>almost <tt>unbounded_string</tt></td>
+      <td>almost <code>unbounded_string</code></td>
     </tr>
     <tr>
-      <td><tt>json_string</tt></td>
+      <td><code>json_string</code></td>
       <td>string</td>
 
       <td>unlimited length string for JSON encoded data</td>
-      <td>almost <tt>unbounded_string</tt></td>
+      <td>almost <code>unbounded_string</code></td>
     </tr>
     <tr>
-      <td><tt>duration</tt></td>
-      <td><tt>universal_numeric</tt></td>
+      <td><code>duration</code></td>
+      <td><code>universal_numeric</code></td>
 
       <td>time, float seconds</td>
-      <td><tt>duration</tt></td>
+      <td><code>duration</code></td>
     </tr>
     <tr>
-      <td><tt>boolean</tt></td>
+      <td><code>boolean</code></td>
       <td>enumerated type</td>
-      <td><tt>true</tt> or <tt>false</tt></td>
+      <td><code>true</code> or <code>false</code></td>
 
-      <td><tt>boolean</tt></td>
+      <td><code>boolean</code></td>
     </tr>
     <tr>
-      <td><tt>file_mode</tt></td>
+      <td><code>file_mode</code></td>
       <td>enumerated type</td>
-      <td><tt>in_file</tt>, <tt>out_file</tt> or <tt>append_file</tt></td>
+      <td><code>in_file</code>, <code>out_file</code> or <code>append_file</code></td>
 
-      <td><tt>file_mode</tt></td>
+      <td><code>file_mode</code></td>
     </tr>
     <tr>
-      <td><tt>command</tt></td>
+      <td><code>command</code></td>
       <td>limited type</td>
       <td>alias for an operating system command</td>
       <td>&nbsp;-</td>
     </tr>
     <tr>
-      <td><tt>file_type</tt></td>
+      <td><code>file_type</code></td>
       <td>limited record type</td>
       <td>operating system files</td>
-      <td><tt>file_type</tt></td>
+      <td><code>file_type</code></td>
     </tr>
     <tr>
-      <td><tt>socket_type</tt></td>
+      <td><code>socket_type</code></td>
       <td>limited record type</td>
       <td>operating system sockets</td>
-      <td><tt>-</tt></td>
+      <td><code>-</code></td>
     </tr>
     <tr>
-      <td><tt>complex</tt></td>
+      <td><code>complex</code></td>
       <td>record type</td>
       <td>complex numbers</td>
-      <td><tt>complex</tt></td>
+      <td><code>complex</code></td>
     </tr>
   </tbody>
 </table>
@@ -372,8 +372,8 @@ into related types.</p>
 =&gt; f : float := 0<br>
 =&gt; f := i<br>
 f := i;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ type <b>float</b> is not compatible
-with type <b>integer</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ type <strong>float</strong> is not compatible
+with type <strong>integer</strong><br>
 =&gt; f := float(i) -- typecast<br>
 =&gt; ? f<br>
 5
@@ -422,14 +422,14 @@ i : integer := positive( n );<br>
         </div>
         </center>
 
-<p><b>Ada</b>: natural and positive are subranges of integers.  That is,
+<p><strong>Ada</strong>: natural and positive are subranges of integers.  That is,
 Ada sees them all the same except there are range restrictions on
 acceptable values.  Arithmetic is done by treating them all as integers.
  The range of acceptable values is only checked when a value is assigned
 to a variable or parameter.  SparForte cannot do this because it doesn't
 have subranges.</p>
 
-<p><b>C/C++/Java</b>: A natural is not the same as an unsigned type.  A
+<p><strong>C/C++/Java</strong>: A natural is not the same as an unsigned type.  A
 natural is an integer with a restricted set of values and the sign bit
 is not used for storing values.</p>
 
@@ -460,7 +460,7 @@ maximum integer of 999,999,999,999,999.</p>
 &nbsp;8<br>
 =&gt; ? System.Word_Size<br>
 &nbsp;64<br>
-=&gt; <b>type</b> my_array <b>is</b> <b>array</b>( 1..20 ) <b>of</b> integer<br>
+=&gt; <strong>type</strong> my_array <strong>is</strong> <strong>array</strong>( 1..20 ) <strong>of</strong> integer<br>
 =&gt; ? arrays.length( my_array )<br>
 &nbsp;20<br>
 =&gt; ? arrays.first( my_array )<br>
@@ -495,7 +495,7 @@ variable.
 		=&gt; c : character;<br>
 		=&gt; c := "hello"; -- confusing, perhaps stupid, but legal<br>
 		=&gt; s : string := c; -- ILLEGAL<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^ type <b>string</b> is not compatible with type <b>character</b><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^ type <strong>string</strong> is not compatible with type <strong>character</strong><br>
 		=&gt; c := character( "hello" ); -- explicitly typecast is not fooled<br>
 		c := character( "hello" );<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^ character value must be one character long</p>
@@ -600,7 +600,7 @@ some of the Ada complex number functions are not available.</p>
 
 <h3>Command Types</h3>
 
-<p>External operating system commands can be declared using <b>command</b>
+<p>External operating system commands can be declared using <strong>command</strong>
 variables. When a command is declared, SparForte will ensure that the
 command
 exists and can be run.
@@ -620,12 +620,12 @@ and are treated as strings)</li>
         <center>
         <div class="code">
                 <p class="code">
-=&gt; l : <b>limited</b> <b>command</b> := "/bin/ls"<br>
-=&gt; m : <b>limited</b> <b>command</b> := "/bin/lt"<br>
-m : <b>limited</b> <b>command</b> := "/bin/lt";<br>
+=&gt; l : <strong>limited</strong> <strong>command</strong> := "/bin/ls"<br>
+=&gt; m : <strong>limited</strong> <strong>command</strong> := "/bin/lt"<br>
+m : <strong>limited</strong> <strong>command</strong> := "/bin/lt";<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ "/bin/lt" is not an executable command<br>
-=&gt; n : <b>limited</b> <b>command</b> := l;<br>
-n : <b>limited</b> <b>command</b> := l;<br>
+=&gt; n : <strong>limited</strong> <strong>command</strong> := l;<br>
+n : <strong>limited</strong> <strong>command</strong> := l;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ type universal_string is inherently different from a command<br>
 
 =&gt; ? l &amp; " is the path"<br>
@@ -667,8 +667,8 @@ escapes are supported.</p>
 
 <table bgcolor="#F3F5F7" border="1" cols="3" width="100%">
 <tr>
-<td><b>JSON type</b></td>
-<td><b>SparForte type</b></td>
+<td><strong>JSON type</strong></td>
+<td><strong>SparForte type</strong></td>
 </tr>
 <tr>
 <td>boolean</td>
@@ -705,13 +705,13 @@ range</p></li>
 
         <center>
         <div class="code">
-                <p class="code"><b>type</b> a_sample_enum <b>is</b> ( e1, e2 , e3 );<br>
-<b>type</b> an_example_record <b>is</b> <b>record</b><br>
+                <p class="code"><strong>type</strong> a_sample_enum <strong>is</strong> ( e1, e2 , e3 );<br>
+<strong>type</strong> an_example_record <strong>is</strong> <strong>record</strong><br>
 &nbsp;&nbsp;&nbsp;s : string;<br>
 &nbsp;&nbsp;&nbsp;i : integer;<br>
 &nbsp;&nbsp;&nbsp;b : boolean;<br>
 &nbsp;&nbsp;&nbsp;e : a_sample_enum;<br>
-<b>end</b> <b>record</b>;<br>
+<strong>end</strong> <strong>record</strong>;<br>
 <br>
 r : an_example_record;<br>
 r.s := "aardvark";<br>
@@ -721,10 +721,10 @@ r.e := e2;<br>
 <br>
 js : json_string;<br>
 records.to_json( js, r );<br>
-<b>?</b> js; -- displays {"s":"aardvark","i": 54321,"b":true,"e": 1}<br>&nbsp;<br>
+<strong>?</strong> js; -- displays {"s":"aardvark","i": 54321,"b":true,"e": 1}<br>&nbsp;<br>
 </p>
         <div class="code_caption">
-                <b>Example</b>: Encoding a record as a JSON string
+                <strong>Example</strong>: Encoding a record as a JSON string
         </div>
         </div>
         </center>
@@ -732,8 +732,8 @@ records.to_json( js, r );<br>
         <center>
         <div class="code">
                 <p class="code">&lt;?php<br>
-$r = <b>json_decode</b>( '{"s":"aardvark","i": 54321,"b":true,"e": 1}' );<br>
-<b>var_dump</b>( $r );<br>
+$r = <strong>json_decode</strong>( '{"s":"aardvark","i": 54321,"b":true,"e": 1}' );<br>
+<strong>var_dump</strong>( $r );<br>
 <br>
 /* displays this:<br>
 object(stdClass)#1 (4) {<br>
@@ -749,7 +749,7 @@ object(stdClass)#1 (4) {<br>
 */<br>&nbsp;<br>
 </p>
         <div class="code_caption">
-                <b>Example</b>: Decoding JSON string into a PHP Object
+                <strong>Example</strong>: Decoding JSON string into a PHP Object
         </div>
         </div>
         </center>
@@ -769,12 +769,12 @@ fields and enumerated variables.  An exception cannot be renamed.</p>
         <div class="code">
                 <p class="code">=&gt; this_month : string := "October"<br>
 
-=&gt; m : string <b>renames</b> this_month<br>
+=&gt; m : string <strong>renames</strong> this_month<br>
 =&gt; ? m<br>
 October<br>
-=&gt; <b>type</b> fruit_array <b>is</b> <b>array</b>(1..4) <b>of</b> <b>fruit</b><br>
+=&gt; <strong>type</strong> fruit_array <strong>is</strong> <strong>array</strong>(1..4) <strong>of</strong> <strong>fruit</strong><br>
 =&gt; fruits : fruit_array := (berry, cherry, apple, apple)<br>
-=&gt; the_cherry : fruit <b>renames</b> fruits(2)<br>
+=&gt; the_cherry : fruit <strong>renames</strong> fruits(2)<br>
 =&gt; ? the_cherry<br>
 =&gt; cherry</p>
         </div>
@@ -801,7 +801,7 @@ limited must be renamed by another limited.</p>
 
         <center>
         <div class="code">
-                <p class="code">=&gt; q : constant character <b>renames</b> Latin_1.Quotation<br>
+                <p class="code">=&gt; q : constant character <strong>renames</strong> Latin_1.Quotation<br>
 ? q<br>
 "</p>
         </div>
@@ -815,24 +815,24 @@ renamings of renamings.</p>
         <div class="code">
                 <p class="code">=&gt;  title := "My Report"<br>
 =&gt; (Assuming title is a new universal_string variable)<br>
-=&gt; t1 : string <b>renames</b> title<br>
-=&gt; t2 : string <b>renames</b> t1<br>
+=&gt; t1 : string <strong>renames</strong> title<br>
+=&gt; t2 : string <strong>renames</strong> t1<br>
 =&gt; ? t2<br>
 My Report</p>
         </div>
         </center>
 
 
-<p>Commands that alter variables like <b>"unset"</b> and <b>"typeset"</b> will not work on
+<p>Commands that alter variables like <strong>"unset"</strong> and <strong>"typeset"</strong> will not work on
 variables referred to by existing renamings.  The renamings must be
 removed first.</p>
 
-<p>The <b>"env"</b> command, when used on a renaming, will show both the
+<p>The <strong>"env"</strong> command, when used on a renaming, will show both the
 renaming and the original variable.</p>
 
 <p>Types can be renamed with the <code>subtype</code> statement.</p>
 
-<p><b>Ada</b>: A constant renaming is not permitted in Ada.  When renaming
+<p><strong>Ada</strong>: A constant renaming is not permitted in Ada.  When renaming
 a constant in Ada, the keyword "constant" is not used.
 Since SparForte doesn't implement value ranges for subtypes, natural and
 positive,  subtypes of integer, are equivalent to integer for
@@ -841,7 +841,7 @@ with integer.</p>
 
 <h3>Copying</h3>
 
-<p>A variable's value can be copied in a declaration with <b>copies</b>.
+<p>A variable's value can be copied in a declaration with <strong>copies</strong>.
 The new variable will have the same value as the old variable.</p>
 
 <p>Limited variables cannot be copied.</p>
@@ -853,7 +853,7 @@ The new variable will have the same value as the old variable.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_comments.html">&nbsp;Comments</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;Literals</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;Bourne Shell Word Expansions</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;<b>Fundamental Types</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;<strong>Fundamental Types</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;User-defined Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;Enumerated Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_arrays.html">&nbsp;Arrays</a></p>

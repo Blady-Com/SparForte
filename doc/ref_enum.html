@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Enumerated Types</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_typedecl.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_arrays.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_typedecl.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_arrays.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -41,7 +41,7 @@
 	<!-- Content Area -->
 <h2><a name="3.9"></a>Enumerated Types</h2>
 
-<p>AdaScript also has an <b>enumerated type.</b> An enumerated type
+<p>AdaScript also has an <strong>enumerated type.</strong> An enumerated type
 is a type with a list of literal names.  Variables of the type can only
 be assigned one of the names in the list.</p>
 
@@ -49,13 +49,13 @@ be assigned one of the names in the list.</p>
 any other type.  They are not integers or strings and cannot be
 type cast into integers, strings or other enumerated types.</p>
 
-<p><b>Ada</b>: AdaScript doesn't (yet) have overloading so the items
+<p><strong>Ada</strong>: AdaScript doesn't (yet) have overloading so the items
 in the enumerated list cannot be overloaded with items from other
 enumerated types.  That is, the names must be unique.</p>
 
         <center>
         <div class="code">
-                <p class="code">=&gt; <b>type</b> fruit <b>is</b> (apple, blueberry, cherry);<br>
+                <p class="code">=&gt; <strong>type</strong> fruit <strong>is</strong> (apple, blueberry, cherry);<br>
 =&gt; f : fruit<br>
 =&gt; f := apple<br>
 =&gt; f := 5<br>
@@ -88,9 +88,9 @@ apple
 <p>There are two built-in enumerated types:</p>
 
 <ul>
-<li>The <b>boolean</b> type is a predefined enumerated type with values
+<li>The <strong>boolean</strong> type is a predefined enumerated type with values
 "false" and "true".</li>
-<li>The <b>file_mode</b> type has the values "in_file", "out_file" and
+<li>The <strong>file_mode</strong> type has the values "in_file", "out_file" and
 "append_file".</li>
 </ul>
 
@@ -108,7 +108,7 @@ apple
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;Bourne Shell Word Expansions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;Fundamental Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;User-defined Types</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;<b>Enumerated Types</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;<strong>Enumerated Types</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_arrays.html">&nbsp;Arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;Records</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;Basic Assignment</a></p>

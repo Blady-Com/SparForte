@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Literals</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_comments.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_shellargs.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_comments.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_shellargs.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -57,11 +57,11 @@ letter characters can be in upper or lower case.</p>
 <pre>=&gt; ? 16#FFFF#<br> 65535<br></pre>
 
 <ul>
-  <li><tt>5</tt> - the numeric value 5</li>
-  <li><tt>5.0</tt> - the numeric value 5.0</li>
-  <li><tt>10_000</tt> - the numeric value 10,000</li>
-  <li><tt>8#777#</tt> - the octal value 511</li>
-  <li><tt>16#ff#</tt> - the hexadecimal value 255</li>
+  <li><code>5</code> - the numeric value 5</li>
+  <li><code>5.0</code> - the numeric value 5.0</li>
+  <li><code>10_000</code> - the numeric value 10,000</li>
+  <li><code>8#777#</code> - the octal value 511</li>
+  <li><code>16#ff#</code> - the hexadecimal value 255</li>
 </ul>
 
 <p>All numeric literals are of type universal_numeric.</p>
@@ -71,8 +71,8 @@ character bracketed by two single quotes (also called apostrophes).  It
 cannot be empty.</p>
 
 <ul>
-  <li><tt>'''</tt> - the character single quote</li>
-  <li><tt>'a'</tt> - the character a</li>
+  <li><code>'''</code> - the character single quote</li>
+  <li><code>'a'</code> - the character a</li>
 </ul>
 
 <p>Strings are enclosed in double quotes.  They are a sequence of zero or
@@ -80,14 +80,14 @@ more graphic characters bracketed by two double quotes.  A double quote
 can be escaped using two double quotes.</p>
 
 <ul>
-  <li><tt>""</tt> - an empty string</li>
-  <li><tt>""""</tt> - string with one double quote</li>
-  <li><tt>"hello"</tt> - the string hello</li>
+  <li><code>""</code> - an empty string</li>
+  <li><code>""""</code> - string with one double quote</li>
+  <li><code>"hello"</code> - the string hello</li>
 </ul>
 
 <p>All string or character literals are of type universal_string.</p>
 
-<p><b>Ada</b>: In Ada, the
+<p><strong>Ada</strong>: In Ada, the
 number 5 is an integer and 5.0 is a real literal (float).  Here they are both
 universal_numeric.  In Ada, "hello" is a string and 'c' is a character.
 Both are universal_strings here.</p>
@@ -100,7 +100,7 @@ Both are universal_strings here.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_case.html">&nbsp;Case Sensitivity</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_reserved.html">&nbsp;Reserved Words</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_comments.html">&nbsp;Comments</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;<b>Literals</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;<strong>Literals</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;Bourne Shell Word Expansions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;Fundamental Types</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;User-defined Types</a></p>

@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - Redirection and Pipelines</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_cmdlineargs.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cmdline.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_cmdlineargs.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cmdline.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -50,24 +50,24 @@ familiar Bourne shell syntax is also supported.</p>
 <h3>Redirecting Standard Input, Output and Error</h3>
 
 <ul>
-  <li> <tt><b>&gt; f</b> </tt>- redirect standard output to
+  <li> <code><strong>&gt; f</strong> </code>- redirect standard output to
 file f,
 creating
 or overwriting f (not allowed in a restricted shell)</li>
-  <li> <tt><b>&gt;&gt; f</b> </tt>- redirect standard output to file
+  <li> <code><strong>&gt;&gt; f</strong> </code>- redirect standard output to file
 f,
 appending to
 f</li>
 
-  <li> <b><tt>&lt; f</tt> </b>- redirect input from file f</li>
-  <li> <b><tt>2&gt; f</tt></b> - redirect error output to file f,
+  <li> <strong><code>&lt; f</code> </strong>- redirect input from file f</li>
+  <li> <strong><code>2&gt; f</code></strong> - redirect error output to file f,
 creating
 or overwriting
 f (not allowed in a restricted shell)</li>
-  <li> <b><tt>2&gt;&gt; f</tt></b> - redirect error output to file f,
+  <li> <strong><code>2&gt;&gt; f</code></strong> - redirect error output to file f,
 appending to f</li>
 
-  <li> <b><tt>2&gt;&amp;1</tt></b> - redirect error output to standard
+  <li> <strong><code>2&gt;&amp;1</code></strong> - redirect error output to standard
 output (must appear
 after a standard output redirection to redirect both to the same file)</li>
 </ul>
@@ -76,7 +76,7 @@ after a standard output redirection to redirect both to the same file)</li>
 
         <center>
         <div class="code">
-                <p class="code"><b>=&gt;</b> ls &gt; list_output.txt 2&gt; list_errors.txt</p>
+                <p class="code"><strong>=&gt;</strong> ls &gt; list_output.txt 2&gt; list_errors.txt</p>
         </div>
         </center>
 
@@ -89,7 +89,7 @@ convenience.&nbsp;
 More powerful redirection is possible using the Text_IO package.
 </p>
 
-<p><b>Bourne shell</b>: SparForte doesn't use file descriptor numbers
+<p><strong>Bourne shell</strong>: SparForte doesn't use file descriptor numbers
 so redirecting arbitrary open files using the Bourne shell syntax is
 not possible.  Use the text_io package instead.</p>
 
@@ -101,7 +101,7 @@ the pipe (|) symbol.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>=&gt;</b> ls | grep ".txt"</p>
+                <p class="code"><strong>=&gt;</strong> ls | grep ".txt"</p>
         </div>
         </center>
 
@@ -125,7 +125,7 @@ through the pipe as input to the next command.</p>
 error message when giving an unrecognized option to the tr command:</p>
         <center>
         <div class="code">
-                <p class="code"><b>=&gt;</b> tr -z 2&gt;&amp;1 | wc -c</p>
+                <p class="code"><strong>=&gt;</strong> tr -z 2&gt;&amp;1 | wc -c</p>
         </div>
         </center>
 
@@ -146,7 +146,7 @@ error message when giving an unrecognized option to the tr command:</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;Basic Assignment</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_specials.html">&nbsp;The @ and % Operands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;Command Argument Shortcuts</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;<b>Redirection and Pipelines</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;<strong>Redirection and Pipelines</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdline.html">&nbsp;Command Line Interaction</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;Built-in Shell Commands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cd.html">&nbsp;The Current Directory</a></p>

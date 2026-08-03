@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Doubly Linked Lists</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_cgi.html" />
 	<link rel="next" href="pkg_cmdline.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_dirops.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_dht.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_dirops.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_dht.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,14 +42,14 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.14"></a>Doubly_Linked_Lists Package</h2>
+<h2><a id="4.11"></a>Doubly_Linked_Lists Package</h2>
 
-<p>The SparForte built-in doubly_linked_lists package contains subprograms
+<p>The SparForte built-in doubly_linked_lists package contains routines
 to create and manage ordered, unindexed, linked lists.</p>
 
-<p><u>Introduced</u>: SparForte 1.5<br>
+<p><span class="underline">Introduced</span>: SparForte 1.5</p>
 
-<p><u>GCC Ada Equivalent</u>: Ada.Containers.Doubly_Linked_Lists<br>
+<p><span class="underline">GCC Ada Equivalent</span>: Ada.Containers.Doubly_Linked_Lists</p>
 
         <center>
         <div class="code">
@@ -76,53 +76,53 @@ to create and manage ordered, unindexed, linked lists.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the doubly_linked_lists package
+        <strong>Help Command</strong>: Contents of the doubly_linked_lists package
         </div>
         </div>
         </center>
 
 <p>A list is a dynamic collection of list nodes.  Each node stores a value
 called an element.  Each list can only hold one kind of element (though it
-can be a universal type).  The programmer can traverse forward or reverse
-through the list.  List positions are designated by cursors.</p>
+can be a universal type).  The programmer can move through the list in either
+forward or reverse directions.  List positions are designated by cursors.</p>
 
 <p>This package includes four new types:</p>
 
 <ul>
-<li><b>containers.count_type</b></li>
-<li><b>containers.hash_type</b></li>
-<li><b>doubly_linked_lists.list( <i>type</i> )</b></li>
-<li><b>doubly_linked_lists.cursor( <i>type</i> )</b></li>
+<li><strong>containers.count_type</strong></li>
+<li><strong>containers.hash_type</strong></li>
+<li><strong>doubly_linked_lists.list( <i>type</i> )</strong></li>
+<li><strong>doubly_linked_lists.cursor( <i>type</i> )</strong></li>
 </ul>
 
         <center>
         <div class="code">
 <p class="code">
-<b>=&gt;</b> type fruit_string is new string<br>
-<b>=&gt;</b> fruit : doubly_linked_lists.list( fruit_string )<br>
-<b>=&gt;</b> doubly_linked_lists.append( fruit, "apple" );<br>
-<b>=&gt;</b> doubly_linked_lists.append( fruit, "blueberry" ) @ ( fruit, "cherry" )<br>
-<b>=&gt;</b> ? doubly_linked_lists.length( fruit )<br>
+<strong>=&gt;</strong> type fruit_string is new string<br>
+<strong>=&gt;</strong> fruit : doubly_linked_lists.list( fruit_string )<br>
+<strong>=&gt;</strong> doubly_linked_lists.append( fruit, "apple" );<br>
+<strong>=&gt;</strong> doubly_linked_lists.append( fruit, "blueberry" ) @ ( fruit, "cherry" )<br>
+<strong>=&gt;</strong> ? doubly_linked_lists.length( fruit )<br>
  3<br>
-<b>=&gt;</b> ? doubly_linked_lists.first_element( fruit )<br>
+<strong>=&gt;</strong> ? doubly_linked_lists.first_element( fruit )<br>
 apple<br>
-<b>=&gt;</b> ? doubly_linked_lists.contains( fruit, "pineapple" )<br>
+<strong>=&gt;</strong> ? doubly_linked_lists.contains( fruit, "pineapple" )<br>
 false<br>
-<b>=&gt;</b> c : doubly_linked_lists.cursor( fruit_string )<br>
-<b>=&gt;</b> doubly_linked_lists.first( fruit, c )<br>
-<b>=&gt;</b> doubly_linked_lists.next( c )<br>
-<b>=&gt;</b> ? doubly_linked_lists.element( c )<br>
+<strong>=&gt;</strong> c : doubly_linked_lists.cursor( fruit_string )<br>
+<strong>=&gt;</strong> doubly_linked_lists.first( fruit, c )<br>
+<strong>=&gt;</strong> doubly_linked_lists.next( c )<br>
+<strong>=&gt;</strong> ? doubly_linked_lists.element( c )<br>
 blueberry<br>
 </p>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Example</b>: Using doubly_linked_lists to create a list of fruit
+        <strong>Example</strong>: Using doubly_linked_lists to create a list of fruit
         </div>
         </div>
         </center>
 
-<a name="doubly_linked_lists.append"></a><h3>doubly_linked_lists.append( l, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.append"></a><h3>doubly_linked_lists.append( l, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Queue list element e at the end of the list.</p>
@@ -130,7 +130,7 @@ blueberry<br>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.append( l, "zebra" )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -167,18 +167,18 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.assemble"></a><h3>s := doubly_linked_lists.assemble( l [,d [,f]] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.assemble"></a><h3>s := doubly_linked_lists.assemble( l [,d [,f]] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Apply strings.image to each element in the list.  Concatenate the strings together to form a new string,
-separated by delimiter string d and ending with optional string f.  An list will result in an empty string
+separated by delimiter string d and ending with optional string f.  An empty list will result in an empty string
 (but f will be appended even if the string is empty).</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">echo( doubly_linked_lists.assemble( lines ) ) | wc;</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -227,8 +227,8 @@ separated by delimiter string d and ending with optional string f.  An list will
 </tr>
 </table>
 
-<a name="doubly_linked_lists.assign"></a><h3>doubly_linked_lists.assign( l1, l2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.assign"></a><h3>doubly_linked_lists.assign( l1, l2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Overwrite the contents of list l1 with a copy of l2.</p>
@@ -236,7 +236,7 @@ separated by delimiter string d and ending with optional string f.  An list will
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.assign( destination_list, source_list )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -273,8 +273,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.clear"></a><h3>doubly_linked_lists.clear( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.clear"></a><h3>doubly_linked_lists.clear( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete the contents of list l.</p>
@@ -282,7 +282,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.clear( animal_list )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -312,8 +312,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.contains"></a><h3>b := doubly_linked_lists.contains( l, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.contains"></a><h3>b := doubly_linked_lists.contains( l, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if the list contains list element e.</p>
@@ -321,7 +321,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if doubly_linked_lists.contains( animal_list, "hyena" ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -363,8 +363,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.delete"></a><h3>doubly_linked_lists.delete( l, c,[, n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.delete"></a><h3>doubly_linked_lists.delete( l, c,[, n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remove the list element at cursor position c from the list.  If n exists, remove n items instead of one</p>
@@ -372,7 +372,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.delete( animal_list, elephant_position )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -414,8 +414,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.delete_first"></a><h3>doubly_linked_lists.delete_first( l, [, n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.delete_first"></a><h3>doubly_linked_lists.delete_first( l, [, n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remove the list element from the start of the list.  If n exists, remove n items instead of one.</p>
@@ -423,7 +423,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.delete_first( animal_list )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -459,8 +459,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.delete_last"></a><h3>doubly_linked_lists.delete_last( l, [, n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.delete_last"></a><h3>doubly_linked_lists.delete_last( l, [, n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remove the list element from the end of the list.  If n exists, remove n items instead of one.</p>
@@ -468,7 +468,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.delete_last( animal_list )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -504,16 +504,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.disassemble"></a><h3>doubly_linked_lists.disassemble( s, l, [,d [,f]] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.disassemble"></a><h3>doubly_linked_lists.disassemble( s, l, [,d [,f]] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert the string to a list of strings.  Each string is delimited by string d (default line feed) and optional string f will be removed from the end of the string before processing.  An empty string will result in an empty list.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.disassemble( `ls;`, lines ) );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.disassemble( `ls;`, lines );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -522,13 +522,13 @@ An exception is raised if out of memory</p></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
 <td><span>s</span></td>
-<td><span>return value</span></td>
+<td><span>in</span></td>
 <td><span>universal_string</span></td>
 <td><span>required</span></td>
 <td><span>the string image of the list</span></td>
 </tr><tr>
 <td><span>l</span></td>
-<td><span>in</span></td>
+<td><span>return value</span></td>
 <td><span>doubly_linked_lists.list</span></td>
 <td><span>required</span></td>
 <td><span>the list</span></td>
@@ -562,8 +562,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.element"></a><h3>e := doubly_linked_lists.element( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.element"></a><h3>e := doubly_linked_lists.element( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the list element at the cursor.</p>
@@ -571,7 +571,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">put_line( doubly_linked_lists.element( orca_position ) );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -607,16 +607,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.find"></a><h3>doubly_linked_lists.find( l, e, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.find"></a><h3>doubly_linked_lists.find( l, e, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Move the cursor to the location of e in the list  Start from the beginning.  doubly_linked_lists.has_element will be false if the element is not found.</p>
+<td><p>Move the cursor to the location of e in the list.  Start from the beginning.  doubly_linked_lists.has_element will be false if the element is not found.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.find( animal_list, "bear" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -637,7 +637,7 @@ An exception is raised if out of memory</p></td>
 <td><span>the element to find</span></td>
 </tr><tr>
 <td><span>c</span></td>
-<td><span>int out</span></td>
+<td><span>in out</span></td>
 <td><span>doubly_linked_lists.cursor</span></td>
 <td><span>required</span></td>
 <td><span>the position of the element</span></td>
@@ -658,8 +658,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.first"></a><h3>doubly_linked_lists.first( l, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.first"></a><h3>doubly_linked_lists.first( l, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the first element in the list.  doubly_linked_lists.has_element will be false if the list is empty.</p>
@@ -667,7 +667,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.first( animal_list, the_cursor );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -690,7 +690,7 @@ An exception is raised if out of memory</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if the element type is the wrong type<br>
+<td><p>An exception is raised if the element type is the wrong type</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>doubly_linked_lists.last</p></td>
@@ -703,16 +703,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.first_element"></a><h3>e := doubly_linked_lists.first_element( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.first_element"></a><h3>e := doubly_linked_lists.first_element( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the first list element.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">animal := doubly_listed_lists.first_element( animal_list );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">animal := doubly_linked_lists.first_element( animal_list );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -748,16 +748,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.flip"></a><h3>doubly_linked_lists.flip( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.flip"></a><h3>doubly_linked_lists.flip( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reverse the order of the list elements.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_listed_lists.flip( animal_list );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.flip( animal_list );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -787,16 +787,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.has_element"></a><h3>b := doubly_linked_lists.has_element( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.has_element"></a><h3>b := doubly_linked_lists.has_element( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>True if the cursor is positioned at a list element.</p>
+<td><p>Return true if the cursor is positioned at a list element.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">if doubly_listed_lists.has_element( list_position ) then ...</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">if doubly_linked_lists.has_element( list_position ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -832,16 +832,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.insert_before"></a><h3>doubly_linked_lists.insert_before( l, c, e [, n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.insert_before"></a><h3>doubly_linked_lists.insert_before( l, c, e [, n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Insert element e before the cursor c.  If no element is given, a node is inserted with an unknown element.  If the cursor does not point at an element, the element is appended.  If n is given, insert n copies instead of one.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_listed_lists.insert_before( animal_list, porpose_position, "penguin" );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.insert_before( animal_list, porpoise_position, "penguin" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -853,7 +853,7 @@ An exception is raised if out of memory</p></td>
 <td><span>in out</span></td>
 <td><span>doubly_linked_lists.list</span></td>
 <td><span>required</span></td>
-<td><span>true if there's an element</span></td>
+<td><span>the list</span></td>
 </tr><tr>
 <td><span>c</span></td>
 <td><span>in</span></td>
@@ -889,16 +889,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.insert_before_and_mark"></a><h3>doubly_linked_lists.insert_before_and_mark( l, c, c2 [, n] ) | ( l, c, e, c2 [, n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.insert_before_and_mark"></a><h3>doubly_linked_lists.insert_before_and_mark( l, c, c2 [, n] ) | ( l, c, e, c2 [, n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Insert element e before the cursor c and position cursor c2 to the element inserted.  If no element is given, a node is inserted with an unknown element.  If the cursor does not point at an element, the element is appended.  If n is given, insert n copies instead of one.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_listed_lists.insert_before( animal_list, porpose_position, "penguin" );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.insert_before_and_mark( animal_list, porpoise_position, "penguin", penguin_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -910,7 +910,7 @@ An exception is raised if out of memory</p></td>
 <td><span>in out</span></td>
 <td><span>doubly_linked_lists.list</span></td>
 <td><span>required</span></td>
-<td><span>true if there's an element</span></td>
+<td><span>the list</span></td>
 </tr><tr>
 <td><span>c</span></td>
 <td><span>in</span></td>
@@ -952,8 +952,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.is_empty"></a><h3>b := doubly_linked_lists.is_empty( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.is_empty"></a><h3>b := doubly_linked_lists.is_empty( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if the list has no elements.</p>
@@ -961,7 +961,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if doubly_linked_lists.is_empty( animal_list ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -997,8 +997,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.last"></a><h3>doubly_linked_lists.last( l, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.last"></a><h3>doubly_linked_lists.last( l, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the last element in the list.  doubly_linked_lists.has_element will be false if the list is empty.</p>
@@ -1006,7 +1006,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.last( animal_list, the_cursor );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1029,29 +1029,29 @@ An exception is raised if out of memory</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if the element type is the wrong type<br>
+<td><p>An exception is raised if the element type is the wrong type</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>doubly_linked_lists.first</p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: Ada.Containers.Doubly_Linked_Lists.First</p></td>
+<td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Last</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
 <td><p>Ada version is a function.</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.last_element"></a><h3>e := doubly_linked_lists.last_element( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.last_element"></a><h3>e := doubly_linked_lists.last_element( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the last list element.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">animal := doubly_listed_lists.last_element( animal_list );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">animal := doubly_linked_lists.last_element( animal_list );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1087,16 +1087,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.length"></a><h3>n := doubly_linked_lists.length( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.length"></a><h3>n := doubly_linked_lists.length( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of elements in the list.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">if doubly_listed_lists.length( animal_list ) &gt; 10 then ...</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">if doubly_linked_lists.length( animal_list ) &gt; 10 then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1132,8 +1132,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.move"></a><h3>doubly_linked_lists.move( l1, l2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.move"></a><h3>doubly_linked_lists.move( l1, l2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Overwrite the contents of list l1 with a copy of l2 and erase l2.</p>
@@ -1141,7 +1141,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.move( destination_list, source_list )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1178,8 +1178,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.new_cursor"></a><h3>doubly_linked_lists.new_cursor( c, t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.new_cursor"></a><h3>doubly_linked_lists.new_cursor( c, t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>(No longer available) Initialize a new cursor, assigning the element type for the cursor.  The element type must be a scalar type, and it may be a universal type.</p>
@@ -1187,7 +1187,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.new_cursor( animal_position, string );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1226,16 +1226,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.new_list"></a><h3>doubly_linked_lists.new_list( l, t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.new_list"></a><h3>doubly_linked_lists.new_list( l, t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>(No longer available) Initialize a new list, assigning the element type for the list.  The element type must be a scalar type, and it may be a universal type.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.new_list( animal_position, string );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.new_list( animal_list, string );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1274,8 +1274,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.next"></a><h3>doubly_linked_lists.next( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.next"></a><h3>doubly_linked_lists.next( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the next element in the list.  doubly_linked_lists.has_element will be false if the end of the list is reached.  Moving when there is no element will not move the cursor.</p>
@@ -1283,7 +1283,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.next( animal_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1313,8 +1313,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.parcel"></a><h3>doubly_linked_lists.parcel( s, w, l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.parcel"></a><h3>doubly_linked_lists.parcel( s, w, l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Convert ("parcel out") the string to a list of strings.  Each string is length w except for the final string that has the remaining characters.  An empty string will result in an unchanged list.  If the list is not empty, the new strings will be appended.  The list can be converted to a string with doubly_linked_lists.assemble.</p>
@@ -1322,7 +1322,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.parcel( long_string, 72, parcel_list) );<br>-- a list of 72 character strings</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1368,8 +1368,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.prepend"></a><h3>doubly_linked_lists.prepend( l, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.prepend"></a><h3>doubly_linked_lists.prepend( l, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Push list element e on the front of the list.</p>
@@ -1377,7 +1377,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.prepend( l, "albatross" )</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1414,8 +1414,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.previous"></a><h3>doubly_linked_lists.previous( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.previous"></a><h3>doubly_linked_lists.previous( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the previous element in the list.  doubly_linked_lists.has_element will be false if the start of the list is reached.  Moving when there is no element will not move the cursor.</p>
@@ -1423,7 +1423,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.previous( animal_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1453,8 +1453,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.replace_element"></a><h3>doubly_linked_lists.replace_element( l, c, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.replace_element"></a><h3>doubly_linked_lists.replace_element( l, c, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Replace the list element at the cursor position with e.</p>
@@ -1462,7 +1462,7 @@ An exception is raised if out of memory</p></td>
 	<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.replace_element( animal_list, dog_position, "collie" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1491,7 +1491,7 @@ An exception is raised if out of memory</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if the element is the wrong type<br>
+<td><p>An exception is raised if the element is the wrong type</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -1504,16 +1504,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.reverse_elements"></a><h3>doubly_linked_lists.reverse_elements( l )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.reverse_elements"></a><h3>doubly_linked_lists.reverse_elements( l )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reverse the order of the list elements.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_listed_lists.reverse_elements( animal_list );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.reverse_elements( animal_list );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1543,8 +1543,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.reverse_find"></a><h3>doubly_linked_lists.reverse_find( l, e, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.reverse_find"></a><h3>doubly_linked_lists.reverse_find( l, e, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the location of e in the list.  Start from the end of the list.  doubly_linked_lists.has_element will be false if the element is not found.</p>
@@ -1552,7 +1552,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.reverse_find( animal_list, "bear", bear_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1573,7 +1573,7 @@ An exception is raised if out of memory</p></td>
 <td><span>the element to find</span></td>
 </tr><tr>
 <td><span>c</span></td>
-<td><span>int out</span></td>
+<td><span>in out</span></td>
 <td><span>doubly_linked_lists.cursor</span></td>
 <td><span>required</span></td>
 <td><span>the position of the element</span></td>
@@ -1594,16 +1594,16 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.splice"></a><h3>doubly_linked_lists.splice( l1, c, l2 [,c2] ) | ( l1, c, c2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.splice"></a><h3>doubly_linked_lists.splice( l1, c, l2 [,c2] ) | ( l1, c, c2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>For (l1, c, l2), move the all the elements of l2 to list l1 before cursor c.  If l1 and l2 are the same list, nothing happens.<br>For (l1, c, l2, c2), move the element of l2 at cursor c2 before cursor c in list l1. If both lists and cursors are the same, nothing happens.<br>For (l1, c, c2), move the element at cursor c2 in list l1 to new position c.  If both cursors are the same, nothing happens.</p>
+<td><p>For (l1, c, l2), move the all the elements of l2 to list l1 before cursor c.  If l1 and l2 are the same list, nothing happens.<br>For parameters (l1, c, l2, c2), move the element of l2 at cursor c2 before cursor c in list l1. If both lists and cursors are the same, nothing happens.<br>For parameters (l1, c, c2), move the element at cursor c2 in list l1 to new position c.  If both cursors are the same, nothing happens.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.splice( animal_list, cat_position, dog_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1651,8 +1651,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.swap"></a><h3>doubly_linked_lists.swap( l, c1, c2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.swap"></a><h3>doubly_linked_lists.swap( l, c1, c2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Swap the elements at cursor c1 and c2.</p>
@@ -1660,7 +1660,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.swap( animal_list, cat_position, dog_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1702,8 +1702,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="doubly_linked_lists.swap_links"></a><h3>doubly_linked_lists.swap_links( l, c1, c2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="doubly_linked_lists.swap_links"></a><h3>doubly_linked_lists.swap_links( l, c1, c2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Swap the elements at cursor c1 and c2 by swapping internal pointers.  This is usually faster than doubly_linked_lists.swap but causes the cursor positions to be swapped in the list as well.</p>
@@ -1711,7 +1711,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">doubly_linked_lists.swap_links( animal_list, cat_position, dog_position );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1756,7 +1756,7 @@ An exception is raised if out of memory</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -1767,7 +1767,7 @@ An exception is raised if out of memory</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_db.html">&nbsp;db/ postgresql</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dbm.html">&nbsp;dbm</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;directory_operations</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;<b>doubly_linked...</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;<strong>doubly_linked...</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;dynamic_hash_...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;enums</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;exceptions</a></p>

@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Exceptions</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_enums.html" />
 	<link rel="next" href="pkg_files.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_enums.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_files.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_enums.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_files.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,12 +42,12 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.14"></a>Exceptions Package</h2>
+<h2><a id="4.13"></a>Exceptions Package</h2>
 
-<p>The SparForte built-in exceptions package provides subprograms to manipulate
-exceptions.</p>
+<p>The SparForte built-in exceptions package contains routines to work with
+exceptions and SparForte errors.</p>
 
-<p><u>GCC Ada Equivalent</u>: Ada.Exceptions<br>
+<p><span class="underline">GCC Ada Equivalent</span>: Ada.Exceptions</p>
 
         <center>
         <div class="code">
@@ -57,21 +57,21 @@ exceptions.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the exceptions package
+        <strong>Help Command</strong>: Contents of the exceptions package
         </div>
         </div>
         </center>
 
-<a name="exceptions.exception_info"></a><h3>s := exceptions.exception_info</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="exceptions.exception_info"></a><h3>s := exceptions.exception_info</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the error message of the current exception, including the stack trace.  Outside of an exception handler, this returns an empty string.</p>
+<td><p>Return the error message of the current exception, including the stack trace.  Outside of an exception handler, this returns an empty string.</p></td>
 </tr><tr>
 	<td><p class="pkg_label">Example</p></td><td><p><span class="code">info := exceptions.exception_info</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -83,7 +83,7 @@ exceptions.</p>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
-<td><span>the info of the exception</span></td>
+<td><span>the exception information</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -97,13 +97,13 @@ exceptions.</p>
 <td><p>Ada: Ada.Exceptions.Exception_Info<br>PHP: N/A</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Notes</p></td>
-<td><p>The Ada subprograms have a saved exception occurrence.  The SparForte versions work with the current exception.</p>
-<p>When a template is used and the message can be in two different formats, the message will be in the format written to standard error, not the format written to output.</td>
+<td><p>The Ada version uses exception occurrences.  The SparForte package only works with the active exception.</p>
+<p>When a SparForte template is used, the message can be written in two formats. The message will be in GCC format written to current_error.  The message will be in the template format when written to current_output.  For example, in an HTML template, the message will be formatted for HTML on current_output</td>
 </tr>
 </table>
 
-<a name="exceptions.exception_name"></a><h3>s := exceptions.exception_name</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="exceptions.exception_name"></a><h3>s := exceptions.exception_name</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the name of the current exception.  Outside of an exception handler, this returns an empty string.</p>
@@ -111,7 +111,7 @@ exceptions.</p>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">name := exceptions.exception_name</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -136,21 +136,21 @@ exceptions.</p>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Exceptions.Exception_Name<br>PHP: N/A</p></td>
 </tr><tr>
-<td><p class="pkg_label">Implementation Note</p></td>
-<td><p>The Ada subprograms have a saved exception occurrence, and return the full name of the exception in dotted notation.  The SparForte versions work with the current exception and return the simple exception name.</p></td>
+<td><p class="pkg_label">Implementation Notes</p></td>
+<td><p>The Ada version uses a saved exception occurrence.  It returns the full name of the exception in dotted notation (e.g. "my_procedure.my_exception_error").  The SparForte versions work with the active exception and return the simple exception name (e.g. "my_exception_error").</p></td>
 </tr>
 </table>
 
-<a name="exceptions.exception_status_code"></a><h3>s := exceptions.exception_status_code</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="exceptions.exception_status_code"></a><h3>n := exceptions.exception_status_code</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the operating system status code to return if the current exception is not handled.  Outside of an exception handler, this returns zero.</p>
+<td><p>Return the operating system status code for an unhandled exception.  Outside of an exception handler, this returns zero.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">status := exceptions.exception_status_code</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -158,7 +158,7 @@ exceptions.</p>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>s</span></td>
+<td><span>n</span></td>
 <td><span>return value</span></td>
 <td><span>natural</span></td>
 <td><span>required</span></td>
@@ -180,7 +180,7 @@ exceptions.</p>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -194,7 +194,7 @@ exceptions.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;doubly_linked...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;dynamic_hash_...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;enums</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;<b>exceptions</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;<strong>exceptions</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_files.html">&nbsp;files</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_cgi.html">&nbsp;gnat.cgi</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_crc32.html">&nbsp;gnat.crc32</a></p>

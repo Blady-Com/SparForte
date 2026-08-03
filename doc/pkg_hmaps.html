@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Hashed Maps</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_cgi.html" />
 	<link rel="next" href="pkg_cmdline.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_hash_io.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_l10n.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_hash_io.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_l10n.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,15 +42,15 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.14"></a>Hashed Maps Package</h2>
+<h2><a id="4.18"></a>Hashed Maps Package</h2>
 
 <p>A collection of common routines for working with key-value tables (such as
   arrays in PHP, PERL hashes or dictionaries in Python).</p>
   
 
-<p><u>Introduced</u>: SparForte 2.5<br>
+<p><span class="underline">Introduced</span>: SparForte 2.5</p>
 
-<p><u>GCC Ada Equivalent</u>: Ada.Containers.Hashed_Maps<br>
+<p><span class="underline">GCC Ada Equivalent</span>: Ada.Containers.Hashed_Maps</p>
 
         <center>
         <div class="code">
@@ -68,59 +68,59 @@
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the hashed_maps package
+        <strong>Help Command</strong>: Contents of the hashed_maps package
         </div>
         </div>
         </center>
 
 <p>A hash map is a lookup table containing key-element (that is, key-value) pairs.  Keys are unique
-in the table.  The ken and element types must be scalar</p>
+in the table.  The key and element types must be scalar.</p>
 
 <p>This package includes new generic types:</p>
 
 <ul>
-<li><b>hashed_maps.cursor( <i>key type</i>, <i>element type</i> )</b></li>
-<li><b>hashed_maps.map( <i>key type</i>, <i>element type</i> )</b></li>
+<li><strong>hashed_maps.cursor( <i>key type</i>, <i>element type</i> )</strong></li>
+<li><strong>hashed_maps.map( <i>key type</i>, <i>element type</i> )</strong></li>
 </ul>
 
         <center>
         <div class="code">
 <p class="code">
-<b>=&gt;</b> <b>type</b> url_string <b>is</b> <b>new</b> string<br>
-<b>=&gt;</b> <b>type</b> website <b>is</b> <b>new</b> string<br>
-<b>=&gt;</b> urls : hashed_maps.map( website, url_string )<br>
-<b>=&gt;</b> hashed_maps.insert( urls, "google", "https://www.google.com" )<br>
-<b>=&gt;</b> hashed_maps.insert( urls, "yahoo", "https://www.yahoo.com" )<br>
-<b>=&gt;</b> hashed_maps.insert( urls, "amazon", "https://www.amazon" )<br>
-<b>=&gt;</b> hashed_maps.append( urls, "amazon", ".com" )<br>
-<b>=&gt;</b> ? hashed_maps.contains( urls, "amazon" )<br>
+<strong>=&gt;</strong> <strong>type</strong> url_string <strong>is</strong> <strong>new</strong> string<br>
+<strong>=&gt;</strong> <strong>type</strong> website <strong>is</strong> <strong>new</strong> string<br>
+<strong>=&gt;</strong> urls : hashed_maps.map( website, url_string )<br>
+<strong>=&gt;</strong> hashed_maps.insert( urls, "google", "https://www.google.com" )<br>
+<strong>=&gt;</strong> hashed_maps.insert( urls, "yahoo", "https://www.yahoo.com" )<br>
+<strong>=&gt;</strong> hashed_maps.insert( urls, "amazon", "https://www.amazon" )<br>
+<strong>=&gt;</strong> hashed_maps.append( urls, "amazon", ".com" )<br>
+<strong>=&gt;</strong> ? hashed_maps.contains( urls, "amazon" )<br>
 true<br>
-<b>=&gt;</b> ? hashed_maps.element( urls, "amazon" )<br>
+<strong>=&gt;</strong> ? hashed_maps.element( urls, "amazon" )<br>
 https://www.amazon.com<br>
-<b>=&gt;</b> c : hashed_maps.cursor( website, url_string )<br>
-<b>=&gt;</b> hashed_maps.first( urls, c )<br>
-<b>=&gt;</b> ? hashed_maps.has_element( c )<br>
+<strong>=&gt;</strong> c : hashed_maps.cursor( website, url_string )<br>
+<strong>=&gt;</strong> hashed_maps.first( urls, c )<br>
+<strong>=&gt;</strong> ? hashed_maps.has_element( c )<br>
 true<br>
-<b>=&gt;</b> ? hashed_maps.key( c )<br>
+<strong>=&gt;</strong> ? hashed_maps.key( c )<br>
 yahoo<br>
 </p>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Example</b>: Using dynamic_hash_tables to store URL's
+        <strong>Example</strong>: Using hash maps to store URLs
         </div>
         </div>
         </center>
 
-<a name="hashed_maps.append"></a><h3>hashed_maps.append( m, k, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.append"></a><h3>hashed_maps.append( m, k, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Append string element e to the value under key k in the hash map.  If the key does not exist, raise an exception.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.insert( fruit_unit, "apple", bushel" );<br>hashed_maps.append( fruit_unit, "apple", "s" ); -- changed to "bushels"</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.insert( fruit_unit, "apple", "bushel" );<br>hashed_maps.append( fruit_unit, "apple", "s" ); -- changed to "bushels"</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -164,12 +164,12 @@ An exception is raised if the element type is not a string</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This is in accordance with memcached.</p></td>
+<td><p>This is derived from memcached.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.assign"></a><h3>hashed_maps.assign( t, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.assign"></a><h3>hashed_maps.assign( t, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign source map s to target map t, overwriting the contents of t.  s is unchanged.</p>
@@ -177,7 +177,7 @@ An exception is raised if the element type is not a string</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.assign( old_fruit, updated_fruit );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -208,12 +208,12 @@ An exception is raised if out of memory</p></td>
 Java: HashMap.putAll()</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>Assign fails on CentOS 7 due to a Ada bug.</p></td>
+<td><p>Assign is not available on CentOS 7 due to GCC Ada issues.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.capacity"></a><h3>c := hashed_maps.capacity( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.capacity"></a><h3>c := hashed_maps.capacity( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the spare item capacity of map m.  This is the number of items that can be inserted before the map memory grows.</p>
@@ -221,7 +221,7 @@ Java: HashMap.putAll()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">c := hashed_maps.capacity( fruit_unit );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -251,8 +251,8 @@ Java: HashMap.putAll()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.clear"></a><h3>hashed_maps.clear( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.clear"></a><h3>hashed_maps.clear( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete the contents of the hash map.</p>
@@ -260,7 +260,7 @@ Java: HashMap.putAll()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.clear( fruit_unit );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -285,8 +285,8 @@ Java: HashMap.clear()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.contains"></a><h3>b := hashed_maps.contains( m, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.contains"></a><h3>b := hashed_maps.contains( m, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return true if key k is in the map m.</p>
@@ -294,7 +294,7 @@ Java: HashMap.clear()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if hashed_maps.contains( fruit_unit, "apple" ) then...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -325,8 +325,8 @@ Java: HashMap.containsKey()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.decrement"></a><h3>hashed_maps.decrement( m, k [,n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.decrement"></a><h3>hashed_maps.decrement( m, k [,n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Reduce the numeric value under key k in the hash map m by one (or n).  If the key does not exist, raise an exception.</p>
@@ -334,7 +334,7 @@ Java: HashMap.containsKey()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.decrement( fruit, "apples" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -378,12 +378,12 @@ An exception is raised if the key does not exist</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This is in accordance with memcached.</p></td>
+<td><p>This is derived from memcached.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.delete"></a><h3>hashed_maps.delete( m, k | c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.delete"></a><h3>hashed_maps.delete( m, k | c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Remove a key and the associated element from the hash map.  If a cursor is given instead of a key, delete the item at the cursor position.</p>
@@ -391,7 +391,7 @@ An exception is raised if the key does not exist</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.delete( fruit, "bad apples" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -426,7 +426,7 @@ An exception is raised if the key does not exist</p></td>
 <td><p>Not allowed with pragma ada_95</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.reset">hashed_maps.reset</a><br><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
+<td><p><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Delete</p></td>
@@ -436,16 +436,16 @@ An exception is raised if the key does not exist</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.element"></a><h3>hashed_maps.element( m, k ) | ( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.element"></a><h3>hashed_maps.element( m, k ) | ( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the value for key k in map m, or the value at cursor c.</p>
+<td><p>Return the value for key k in map m.  If the parameter is a cursor, return the value at cursor c.</p>
 </tr><tr>
 	<td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.insert( fruit_color, "apple", "red" )<br>f := hashed_maps.element( fruit_color, "apple" ); -- return red</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -480,13 +480,13 @@ An exception is raised if the key does not exist</p></td>
 <td><p><a href="#hashed_maps.find">hashed_maps.find</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: Ada.Containers.hashed_Maps.Element<br>
+<td><p>Ada: Ada.Containers.Hashed_Maps.Element<br>
 Java: HashMap.get()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.equal"></a><h3>b := hashed_maps.equal( m1, m2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.equal"></a><h3>b := hashed_maps.equal( m1, m2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the two maps have identical content.</p>
@@ -494,7 +494,7 @@ Java: HashMap.get()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if hashed_maps.equals( old_fruit, updated_fruit ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -533,8 +533,8 @@ Java: HashMap.get()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.exclude"></a><h3>hashed_maps.exclude( m, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.exclude"></a><h3>hashed_maps.exclude( m, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Delete the value v under key k in the hash map.  If the key does not exist, do nothing.</p>
@@ -542,7 +542,7 @@ Java: HashMap.get()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.exclude( fruit, "apple" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -569,27 +569,24 @@ Java: HashMap.get()</p></td>
 An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.remove">hashed_maps.remove</a></p></td>
+<td><p><a href="#hashed_maps.delete">hashed_maps.delete</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Exclude<br>
 Java: HashMap.remove()</p></td>
-</tr><tr>
-<td><p class="pkg_label">Implementation Note</p></td>
-<td><p>Ada uses "Insert" but insert is a reserved word in SparForte.  This may be renamed in the future.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.extract"></a><h3>e := hashed_maps.extract( m, k )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.extract"></a><h3>e := hashed_maps.extract( m, k )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Like remove, delete the value v under key k in the hash map but return it.  If the key does not exist, raise an exception.</p>
+<td><p>Like delete, delete the key k in the hash map but return the value under the key.  If the key does not exist, raise an exception.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.exclude( fruit, "apple" );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.extract( fruit, "apple" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -630,8 +627,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.find"></a><h3>e := hashed_maps.find( m, k, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.find"></a><h3>e := hashed_maps.find( m, k, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the position in the map for key k.  If the key does not exist, the cursor will have no element.</p>
@@ -639,7 +636,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.find( fruit_unit, "apple", cursor );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -663,7 +660,7 @@ An exception is raised if out of memory</p></td>
 <td><span>in out</span></td>
 <td><span>hashed_maps.cursor</span></td>
 <td><span>required</span></td>
-<td><span>the value</span></td>
+<td><span>the cursor</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -678,12 +675,12 @@ An exception is raised if out of memory</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Find</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>Ada's Find is a function.  SparForte's Find is a procedure because the result type is limited.</p></td>
+<td><p>Ada's Find is a function.  SparForte's Find is a procedure because a limited result type must be returned as an out or in out mode parameter.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.first"></a><h3>hashed_maps.first( m, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.first"></a><h3>hashed_maps.first( m, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the first item in the hashed map.</p>
@@ -691,7 +688,7 @@ An exception is raised if out of memory</p></td>
 	<td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.first( fruit, cursor );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -717,7 +714,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
-<td><p>-</p>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -730,8 +727,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.has_element"></a><h3>b := hashed_maps.has_element( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.has_element"></a><h3>b := hashed_maps.has_element( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if item under cursor has a value.</p>
@@ -739,7 +736,7 @@ An exception is raised if out of memory</p></td>
 	<td><p class="pkg_label">Example</p></td><td><p><span class="code">if hashed_maps.has_element( cursor ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -772,8 +769,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.include"></a><h3>hashed_maps.include( m, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.include"></a><h3>hashed_maps.include( m, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Insert the value v under key k in the hash map.  If the key exists, the value is overwritten.</p>
@@ -781,7 +778,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.include( fruit, "apples", 23 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -815,7 +812,7 @@ An exception is raised if out of memory<br>
 An exception is raised if the key does not exist</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.set">hashed_maps.set</a><br><a href="#hashed_maps.add">hashed_maps.add</a></p></td>
+<td><p><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Include<br>
@@ -823,8 +820,8 @@ Java: HashMap.put()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.increment"></a><h3>hashed_maps.increment( t, k [,n] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.increment"></a><h3>hashed_maps.increment( t, k [,n] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Increase the numeric value under key k in the hash table by one (or n).  If the key does not exist, do nothing.</p>
@@ -832,7 +829,7 @@ Java: HashMap.put()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.increment( fruit, "apples" );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -875,12 +872,12 @@ An exception is raised if the value type is not numeric</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This is in accordance with memcached.</p></td>
+<td><p>This is derived from memcached.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.insert"></a><h3>hashed_maps.insert( m, k, e ) | ( m, k, c, b ) | ( m, k, e, c, b )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.insert"></a><h3>hashed_maps.insert( m, k, e ) | ( m, k, c, b ) | ( m, k, e, c, b )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Insert the value v under key k in the hash map.  If b exists, b is true if the insert was successful.
@@ -890,7 +887,7 @@ If the key exists, raise an exception.</p>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.insert( fruit, "apples", 23 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -936,7 +933,7 @@ An exception is raised if out of memory<br>
 An exception is raised if the key exists</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.set">hashed_maps.set</a><br><a href="#hashed_maps.add">hashed_maps.add</a></p></td>
+<td><p><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Insert</p></td>
@@ -946,8 +943,8 @@ An exception is raised if the key exists</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.is_empty"></a><h3>b := hashed_maps.is_empty( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.is_empty"></a><h3>b := hashed_maps.is_empty( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>True if the hashed map has no items.</p>
@@ -955,7 +952,7 @@ An exception is raised if the key exists</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if hashed_maps.is_empty( fruit ) then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -989,8 +986,8 @@ Java: HashMap.is_empty()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.key"></a><h3>k := hashed_maps.key( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.key"></a><h3>k := hashed_maps.key( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the key at the cursor c.  If there is no key, raise an exception.</p>
@@ -998,7 +995,7 @@ Java: HashMap.is_empty()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">if hashed_maps.key( fruit_cursor ) = "apple" then ...</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1012,11 +1009,11 @@ Java: HashMap.is_empty()</p></td>
 <td><span>required</span></td>
 <td><span>the key</span></td>
 </tr><tr>
-<td><span>m</span></td>
+<td><span>c</span></td>
 <td><span>in out</span></td>
-<td><span>hashed_maps.map</span></td>
+<td><span>hashed_maps.cursor</span></td>
 <td><span>required</span></td>
-<td><span>the map</span></td>
+<td><span>the cursor</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -1031,8 +1028,8 @@ Java: HashMap.is_empty()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.length"></a><h3>n := hashed_maps.length( m )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.length"></a><h3>n := hashed_maps.length( m )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the number of elements in the map.</p>
@@ -1040,7 +1037,7 @@ Java: HashMap.is_empty()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">n := hashed_maps.length( fruit_unit );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1071,8 +1068,8 @@ Java: HashMap.size()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.move"></a><h3>hashed_maps.move( t, s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.move"></a><h3>hashed_maps.move( t, s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move source map s to target map t, overwriting the contents of t.  s is cleared.</p>
@@ -1080,7 +1077,7 @@ Java: HashMap.size()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.move( old_fruit, updated_fruit );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1110,12 +1107,12 @@ An exception is raised if out of memory</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Move</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>Move fails on CentOS 7 due to a Ada bug.</p></td>
+<td><p>Move is not available on CentOS 7 due to GCC Ada issues.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.next"></a><h3>hashed_maps.next( c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.next"></a><h3>hashed_maps.next( c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Move the cursor to the next element in the hashed map.  If there are no more items, do nothing.</p>
@@ -1123,7 +1120,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.next( cursor );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1143,7 +1140,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
-<td><p>-</p>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -1156,8 +1153,8 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.prepend"></a><h3>hashed_maps.prepend( m, k, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.prepend"></a><h3>hashed_maps.prepend( m, k, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Prepend string element e to the value under key k in the hash table.  If the key does not exist, raise an exception.</p>
@@ -1165,7 +1162,7 @@ An exception is raised if out of memory</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.insert( fruit_unit, "apples", "ushels" );<br>hashed_maps.prepend( fruit_unit, "apples", "b" ); -- value is bushels</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1209,12 +1206,12 @@ An exception is raised if the value type is not a string</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This is in accordance with memcached.</p></td>
+<td><p>This is derived from memcached.</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.replace"></a><h3>hashed_maps.replace( m, k, v )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.replace"></a><h3>hashed_maps.replace( m, k, v )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Replace the value v under key k in the hash map.  If the key does not exist, raise an exception.</p>
@@ -1222,7 +1219,7 @@ An exception is raised if the value type is not a string</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.replace( fruit, "apples", 23 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1256,7 +1253,7 @@ An exception is raised if out of memory<br>
 An exception is raised if the key does not exist</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.set">hashed_maps.set</a><br><a href="#hashed_maps.add">hashed_maps.add</a></p></td>
+<td><p><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Replace<br>
@@ -1264,8 +1261,8 @@ Java: HashMap.replace()</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.replace_element"></a><h3>hashed_maps.replace_element( m, c, e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.replace_element"></a><h3>hashed_maps.replace_element( m, c, e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Replace the element at cursor position c in the hash map.  If the key does not exist, raise an exception.</p>
@@ -1273,7 +1270,7 @@ Java: HashMap.replace()</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.replace_element( fruit_unit, cursor, "basket" ); -- changed value to "basket"</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1315,8 +1312,8 @@ An exception is raised if the element type is not a string</p></td>
 </tr>
 </table>
 
-<a name="hashed_maps.reserve_capacity"></a><h3>c := hashed_maps.reserve_capacity( m, c )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="hashed_maps.reserve_capacity"></a><h3>c := hashed_maps.reserve_capacity( m, c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Add enough memory to the map to handle at least c items.</p>
@@ -1324,7 +1321,7 @@ An exception is raised if the element type is not a string</p></td>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hashed_maps.reserve_capacity( fruit_unit, 20 );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" NOSAVE border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -1358,7 +1355,7 @@ An exception is raised if the element type is not a string</p></td>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -1377,7 +1374,7 @@ An exception is raised if the element type is not a string</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_cgi.html">&nbsp;gnat.cgi</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_crc32.html">&nbsp;gnat.crc32</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_hash_io.html">&nbsp;hash_io</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_hmaps.html"><b>&nbsp;hashed_maps</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_hmaps.html"><strong>&nbsp;hashed_maps</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_l10n.html">&nbsp;l10n</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_lock_files.html">&nbsp;lock_files</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_logs.html">&nbsp;logs</a></p>

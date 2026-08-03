@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Templates</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_teams.html" />
 	<link rel="next" href="pkg_text_io.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_teams.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_text_io.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_teams.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_text_io.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,7 +42,7 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<a NAME="4.4"></a><h3>Templates Package</h3>
+<a id="4.38"></a><h3>Templates Package</h3>
 <p>The SparForte Templates package contains additional features for templates.
 This includes controlling the HTTP result header.</p>
 
@@ -51,27 +51,27 @@ This includes controlling the HTTP result header.</p>
 <pre>
   <a href="#templates.has_put_template_header">b := has_put_template_header</a>
   <a href="#templates.put_template_header">put_template_header</a>
-  <a href="#templates.set_http_location">set_http_location( n )</a>
+  <a href="#templates.set_http_location">set_http_location( s )</a>
   <a href="#templates.set_http_status">set_http_status( i )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the Templates package
+        <strong>Help Command</strong>: Contents of the Templates package
         </div>
         </div>
         </center>
 
-<a name="templates.has_put_template_header"></a><h3>b := has_put_template_header</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="templates.has_put_template_header"></a><h3>b := has_put_template_header</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>True if the template header has already been written.</p></td>
+<td><p>Return true if SparForte has already written the template header.  With HTTP, the header cannot be changed once it has been written.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">if templates.has_put_template_header then<br>&nbsp;&nbsp;put_line( "Safe to write!");<br>end if;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -79,11 +79,11 @@ This includes controlling the HTTP result header.</p>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>s</span></td>
+<td><span>b</span></td>
 <td><span>return value</span></td>
 <td><span>boolean</span></td>
 <td><span>required</span></td>
-<td><span>True if the header has been written</span></td>
+<td><span>True if SparForte has written the header</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -98,20 +98,20 @@ This includes controlling the HTTP result header.</p>
 </tr>
 </table>
 
-<a name="templates.put_template_header"></a><h3>put_template_header</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="templates.put_template_header"></a><h3>put_template_header</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Write the HTTP result header.  If it has already been written, do
-nothing.  Normally, SparForte will write an HTTP header before processing
-a template.  Use this procedure to write it out earlier, used before any
+<td><p>Write the template header.  If it has already been written, this procedure
+has no effect.  With an HTML template, SparForte will write the HTTP header before processing
+the template.  Use this procedure to write it out earlier, used before any
 output from your script.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">templates.put_template_header;<br>-- Status: 200 OK<br>-- ... etc.</span></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception may be raised of pragma template is not called first.</p></td>
+<td><p>An exception may be raised if pragma template is not called first.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#templates.has_put_template_header">templates.has_put_template_header</a></p></td>
@@ -121,18 +121,18 @@ output from your script.</p></td>
 </tr>
 </table>
 
-<a name="templates.set_http_location"></a><h3>set_http_location( s )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="templates.set_http_location"></a><h3>set_http_location( s )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Set the template header HTTP location field to the URL string s.
-This is typically used with redirect HTTP responses.</p></td>
+Use this to redirect a web client to a new page.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">templates.set_http_status( 302 );<br>templates.set_http_location( "/redirect.html" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -149,7 +149,7 @@ This is typically used with redirect HTTP responses.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>It is an error to set an empty URL.</p></td>
+<td><p>An exception is raised if the URL is an empty string.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -159,8 +159,8 @@ This is typically used with redirect HTTP responses.</p></td>
 </tr>
 </table>
 
-<a name="templates.set_http_status"></a><h3>set_http_status( n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="templates.set_http_status"></a><h3>set_http_status( n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Set the template header HTTP status code to the natural n.
@@ -170,7 +170,7 @@ The default status for a template is 200 (OK).</p></td>
 <td><span class="code">templates.set_http_status( 404 ); -- not found</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -198,7 +198,7 @@ The default status for a template is 200 (OK).</p></td>
 </table>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -237,7 +237,7 @@ The default status for a template is 200 (OK).</p></td>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_system.html">&nbsp;System</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_tags.html">&nbsp;tags</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_teams.html">&nbsp;teams</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_templates.html"><b>&nbsp;templates</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_templates.html"><strong>&nbsp;templates</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_text_io.html">&nbsp;text_io</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_units.html">&nbsp;units</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_vectors.html">&nbsp;vectors</a></p>

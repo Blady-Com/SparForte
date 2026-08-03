@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Sound</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_sinfo.html" />
 	<link rel="next" href="pkg_stats.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_records.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_sinfo.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_sinfo.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_stats.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,9 +42,9 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.4"></a>Sound Package</h2>
+<h2><a id="4.32"></a>Sound Package</h2>
 <p>The SparForte sound package plays music and sounds and controls the sound hardware
-on your computer.  It currently uses gstreamer.</p>
+on the computer.  The package uses the gstreamer library.</p>
 
         <center>
         <div class="code">
@@ -55,22 +55,22 @@ on your computer.  It currently uses gstreamer.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the sound package
+        <strong>Help Command</strong>: Contents of the sound package
         </div>
         </div>
         </center>
 
-<a name="sound.play"></a><h3>sound.play( f [, p] )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="sound.play"></a><h3>sound.play( f [, p] )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Play a WAV or AU sound file through /dev/dsp.  If priority is given, use real-time scheduling to schedule the playback priority.</p></td>
+<td><p>Play a sound file using the gstreamer library.  The priority is ignored.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">sound.play( "waterfall.wav" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -101,11 +101,13 @@ on your computer.  It currently uses gstreamer.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
-</tr>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>This procedure originally used Warren Gay's AdaVOX library but now uses gstreamer.</p></td></tr>
 </table>
 
-<a name="sound.playcd"></a><h3>sound.playcd [( f )]</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="sound.playcd"></a><h3>sound.playcd [( f )]</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Play an audio CD in /dev/cdrom (or an alternative CD device if specified).</p></td>
@@ -114,7 +116,7 @@ on your computer.  It currently uses gstreamer.</p>
 <td><span class="code">sound.playcd;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -141,8 +143,8 @@ on your computer.  It currently uses gstreamer.</p>
 </tr>
 </table>
 
-<a name="sound.stopcd"></a><h3>sound.stopcd [( f )]</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="sound.stopcd"></a><h3>sound.stopcd</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Stop playing the current audio CD.</p></td>
@@ -165,7 +167,7 @@ on your computer.  It currently uses gstreamer.</p>
 </table>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -197,7 +199,7 @@ on your computer.  It currently uses gstreamer.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_pen.html">&nbsp;pen</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_pengl.html">&nbsp;pen (OpenGL)</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_records.html">&nbsp;records</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_sound.html">&nbsp;<b>sound</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_sound.html">&nbsp;<strong>sound</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_sinfo.html">&nbsp;source_info</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_stats.html">&nbsp;stats</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_strings.html">&nbsp;strings</a></p>

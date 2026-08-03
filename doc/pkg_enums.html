@@ -4,34 +4,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <META NAME="description" CONTENT="SparForte language documentation">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SparForte - Packages - Enums</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 	<link rel="index" href="packages.html" />
 	<link rel="prev" href="pkg_dirops.html" />
 	<link rel="next" href="pkg_exceptions.html" />
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html"><b>Packages</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="pkg_dht.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_exceptions.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html"><strong>Packages</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="pkg_dht.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="pkg_exceptions.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -42,12 +42,12 @@
 		<tr>
 			<td align="left" valign="top">
 	<!-- Content Area -->
-<h2><a NAME="4.22"></a>Enums Package</h2>
+<h2><a id="4.12"></a>Enums Package</h2>
 
-<p>The SparForte built-in enums package provides subprograms to manipulate
-enumerated values or values.</p>
+<p>The SparForte built-in enums package provides routines to work with
+enumerated items or values.</p>
 
-<p><u>GCC Ada Equivalent</u>: enumerated attributes<br>
+<p><span class="underline">GCC Ada Equivalent</span>: enumerated attributes</p>
 
         <center>
         <div class="code">
@@ -57,13 +57,13 @@ enumerated values or values.</p>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
-        <b>Help Command</b>: Contents of the enums package
+        <strong>Help Command</strong>: Contents of the enums package
         </div>
         </div>
         </center>
 
-<a name="enums.first"></a><h3>e := enums.first( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="enums.first"></a><h3>e := enums.first( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the first (lowest) item of the enumerated type.</p></td>
@@ -72,7 +72,7 @@ enumerated values or values.</p>
 <td><span class="code">e := enums.first( boolean ); -- returns false</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -106,8 +106,8 @@ enumerated values or values.</p>
 </tr>
 </table>
 
-<a name="enums.last"></a><h3>e := enums.last( t )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="enums.last"></a><h3>e := enums.last( t )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the last (highest) item of the enumerated type.</p></td>
@@ -116,7 +116,7 @@ enumerated values or values.</p>
 <td><span class="code">e := enums.last( boolean ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -150,17 +150,17 @@ enumerated values or values.</p>
 </tr>
 </table>
 
-<a name="enums.pos"></a><h3>n := enums.pos( e )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="enums.pos"></a><h3>n := enums.pos( e )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the ordinal position of item e of the enumerated type.</p></td>
+<td><p>Return the ordinal position of enumerated item e in its type.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">n := enums.pos( true ); -- returns 1</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -197,8 +197,8 @@ enumerated values or values.</p>
 </tr>
 </table>
 
-<a name="enums.pred"></a><h3>e := enums.pred( e2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="enums.pred"></a><h3>e := enums.pred( e2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the previous (lower ordinal) item of the enumerated type.</p></td>
@@ -207,7 +207,7 @@ enumerated values or values.</p>
 <td><span class="code">e := enums.pred( true ); -- returns false</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -226,7 +226,7 @@ enumerated values or values.</p>
 <td><span>return value</span></td>
 <td><span>enumerated item</span></td>
 <td><span>required</span></td>
-<td><span>the enumerated item predecessor to e2</span></td>
+<td><span>the enumerated item that is the predecessor to e2</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -241,8 +241,8 @@ enumerated values or values.</p>
 </tr>
 </table>
 
-<a name="enums.succ"></a><h3>e := enums.succ( e2 )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="enums.succ"></a><h3>e := enums.succ( e2 )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Return the successor (higher ordinal) item of the enumerated type.</p></td>
@@ -251,7 +251,7 @@ enumerated values or values.</p>
 <td><span class="code">e := enums.succ( false ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -270,7 +270,7 @@ enumerated values or values.</p>
 <td><span>return value</span></td>
 <td><span>enumerated item</span></td>
 <td><span>required</span></td>
-<td><span>the enumerated item successor to e2</span></td>
+<td><span>the enumerated item that is the successor to e2</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -285,17 +285,17 @@ enumerated values or values.</p>
 </tr>
 </table>
 
-<a name="enums.val"></a><h3>e := enums.val( t, n )</h3>
-<table cellspacing="0" cellpadding="0" width="98%" summary="package call">
+<a id="enums.val"></a><h3>e := enums.val( t, n )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return item of the enumerated type at the ordinal position n.</p></td>
+<td><p>Return the item of the enumerated type at the ordinal position n.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">e := enums.val( boolean, 1 ); -- returns true</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
-<td><table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" border="0" >
+<td><table class="subprogram_parameters" summary="subprogram parameters">
 <tr>
 <td><span class="pkg_param">Param</span></td>
 <td><span class="pkg_param">Mode</span></td>
@@ -335,7 +335,6 @@ enumerated values or values.</p>
 </tr><tr>
 <td><p class="pkg_label">Introduced</p></td>
 <td><p>val introduced with SparForte 3.0</p></td>
-</p></td>
 </tr>
 </table>
 
@@ -343,7 +342,7 @@ enumerated values or values.</p>
 &nbsp;<br>
 
 			</td>
-			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
                                 <p class="rmt"><a class="rightmenutext" href="packages.html">&nbsp;Summary</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_arrays.html">&nbsp;arrays</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_btree_io.html">&nbsp;btree_io</a></p>
@@ -356,7 +355,7 @@ enumerated values or values.</p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dirops.html">&nbsp;directory_operations</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_doubly.html">&nbsp;doubly_linked...</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_dht.html">&nbsp;dynamic_hash_...</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;<b>enums</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="pkg_enums.html">&nbsp;<strong>enums</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_exceptions.html">&nbsp;exceptions</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_files.html">&nbsp;files</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="pkg_gnat_cgi.html">&nbsp;gnat.cgi</a></p>

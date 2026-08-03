@@ -8,27 +8,27 @@
 	<title>SparForte - Reference - The Current Directory</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="ref_shellcmds.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_db.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html"><strong>Reference</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="ref_shellcmds.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_db.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -44,7 +44,7 @@
 <p>There are two built-in shell commands for managing your current
 directory:</p>
 
-<p><b>pwd</b></p>
+<p><strong>pwd</strong></p>
 
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="pwd command description">
@@ -52,9 +52,9 @@ directory:</p>
 <td align="left">
 <p>Display the path of the present (also called "current") working
 directory.</p>
-<u>Bash equivalent</u>: <tt>pwd</tt><br>
-<u>Perl equivalent</u>: <tt>Cwd::getcwd</tt><br>
-<u>PHP  equivalent</u>: <tt>getcwd</tt><br>
+<span class="underline">Bash equivalent</span>: <code>pwd</code><br>
+<span class="underline">Perl equivalent</span>: <code>Cwd::getcwd</code><br>
+<span class="underline">PHP  equivalent</span>: <code>getcwd</code><br>
 
 </td>
 </tr>
@@ -62,7 +62,7 @@ directory.</p>
 </center>
 &nbsp;<br>
 
-<p><b>cd</b></p>
+<p><strong>cd</strong></p>
 <center>
 <table border="0" cellspacing="0" cellpadding="0" width="90%" summary="cd command description">
 <tr>
@@ -73,24 +73,24 @@ The variable PWD will be set with the path of the
 current working directory.  The variable OLDPWD will be set to the
 previous value of PWD.  The cd command ignores the value of the CDPATH
 environment variable.</p>
-<p><u>Example</u></p>
+<p><span class="underline">Example</span></p>
 
 <pre>
-<b>=&gt;</b> pwd
+<strong>=&gt;</strong> pwd
 /home/ken/ada/spar/doc
-<b>=&gt;</b> cd ../src
-<b>=&gt;</b> pwd
+<strong>=&gt;</strong> cd ../src
+<strong>=&gt;</strong> pwd
 /home/ken/ada/spar/src
-<b>=&gt;</b> cd -
+<strong>=&gt;</strong> cd -
 /home/ken/ada/spar/doc
-<b>=&gt;</b> cd ~/src
-<b>=&gt;</b> pwd
+<strong>=&gt;</strong> cd ~/src
+<strong>=&gt;</strong> pwd
 /home/ken/src
 
 </pre>
-<u>Bash equivalent</u>: <tt>cd</tt><br>
-<u>Perl equivalent</u>: <tt>chdir</tt><br>
-<u>PHP  equivalent</u>: <tt>chdir</tt><br>
+<span class="underline">Bash equivalent</span>: <code>cd</code><br>
+<span class="underline">Perl equivalent</span>: <code>chdir</code><br>
+<span class="underline">PHP  equivalent</span>: <code>chdir</code><br>
 </td>
 </tr>
 </table>
@@ -117,7 +117,7 @@ environment variable.</p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;Redirection and Pipelines</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_cmdline.html">&nbsp;Command Line Interaction</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;Built-in Shell Commands</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="ref_cd.html">&nbsp;<b>The Current Directory</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cd.html">&nbsp;<strong>The Current Directory</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_db.html">&nbsp;Database Commands</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_flow.html">&nbsp;Ifs and Loops</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="ref_other.html">&nbsp;Other Statements/ Subprograms</a></p>

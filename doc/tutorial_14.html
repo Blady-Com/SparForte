@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Script Tutorial 3: Data Types</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_5.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_6.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_5.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_6.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -59,7 +59,7 @@ effectively writing quality software.</p>
 
 <p>As you saw in the earlier tutorials, every value has a data type.  Every
 variable or subprogram parameter must be declared with its type.  This means
-that SparForte is a language with <b>static typing</b> (although it has some
+that SparForte is a language with <strong>static typing</strong> (although it has some
 dynamic typing features which will be described below).  At the
 command prompt, you can assign values to new variable names and SparForte will
 automatically declare variables and give them the same data type as
@@ -72,7 +72,7 @@ them appropriate data types.  You can't change the type of a variable
 nor can you destroy a variable.  When a script runs, SparForte performs
 type checking before any commands execute, catching type errors early.</p>
 
-<p>SparForte is also a <b>strongly-typed</b> language, which means that there are
+<p>SparForte is also a <strong>strongly-typed</strong> language, which means that there are
 restrictions for how different types of data can be mixed.  Most strong typing
 languages will not allow strings to be mixed with numbers in an expression
 (they are treated as incompatible).  However, SparForte uses more strong
@@ -98,8 +98,8 @@ weight and distance.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>type</b> distance_km <b>is</b> <b>new</b> float;<br>
-<b>type</b> weight_kg <b>is</b> <b>new</b> float;<br>
+                <p class="code"><strong>type</strong> distance_km <strong>is</strong> <strong>new</strong> float;<br>
+<strong>type</strong> weight_kg <strong>is</strong> <strong>new</strong> float;<br>
         </div>
         </center>
 
@@ -138,8 +138,8 @@ name for an integer-based type like this.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>type</b> customer_id <b>is</b> <b>new</b> integer;<br>
-<b>subtype</b> cid <b>is</b> customer_id;<br>
+                <p class="code"><strong>type</strong> customer_id <strong>is</strong> <strong>new</strong> integer;<br>
+<strong>subtype</strong> cid <strong>is</strong> customer_id;<br>
         </div>
         </center>
 
@@ -150,7 +150,7 @@ assigned cid variable, or the other way around.</p>
 <h3>Type Casting</h3>
 
 <p>Any two structurally equivalent types can be explicitly treated the
-same by using a type name as a function.  This is called <b>type casting</b>.
+same by using a type name as a function.  This is called <strong>type casting</strong>.
 Use type casting to override type incompatibilities.</p>
 
 <p>For example, suppose you have two types, one for HTML encoded strings
@@ -158,10 +158,10 @@ and one for plain HTML strings.</p>
 
         <center>
         <div class="code">
-                <p class="code"><b>type</b> html_encoded_string <b>is</b> <b>new</b> string;<br>
-<b>type</b> html_plain_string <b>is</b> <b>new</b> string;<br>
+                <p class="code"><strong>type</strong> html_encoded_string <strong>is</strong> <strong>new</strong> string;<br>
+<strong>type</strong> html_plain_string <strong>is</strong> <strong>new</strong> string;<br>
 ...<br>
-title : <b>constant</b> html_plain_string := "My Page Title";<br>
+title : <strong>constant</strong> html_plain_string := "My Page Title";<br>
 web_page : html_encoded_string;<br>
         </div>
         </center>
@@ -242,11 +242,11 @@ properties of the universal type.  This shouldn't be much of an
 obstacle, since you use the universal types to avoid the type
 system.</p>
 
-<p>These types are similar to <b>weak typing</b>: a universal_typeless
+<p>These types are similar to <strong>weak typing</strong>: a universal_typeless
 variable is always contains a universal_typeless value, but the value
 is interpreted as a string or integer depending on the expression or
 context, implicitly type casting the value.  This is different from
-<b>dynamic typing</b>, where the type of a variable is unknown until the
+<strong>dynamic typing</strong>, where the type of a variable is unknown until the
 program runs.</p>
 
 <p>There is a trade-off when using universal types.  They can be
@@ -270,7 +270,7 @@ using the type and subtype statements just like any other type.</p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_3.html">&nbsp;Command Prompt Tutorial 3: Working with Databases</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_4.html">&nbsp;Script Tutorial 1: Basic Commands Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_5.html">&nbsp;Script Tutorial 2: Intermediate Program Scripts</a></p>
-				<p class="rmt"><a class="rightmenutext" href="tutorial_14.html"><b>&nbsp;Script Tutorial 3: Data Types</b></a></p>
+				<p class="rmt"><a class="rightmenutext" href="tutorial_14.html"><strong>&nbsp;Script Tutorial 3: Data Types</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_6.html">&nbsp;Template Tutorial 1: Basic Templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_7.html">&nbsp;Template Tutorial 2: Intermediate Templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_8.html">&nbsp;GCC Tutorial: Compiling SparForte Scripts</a></p>

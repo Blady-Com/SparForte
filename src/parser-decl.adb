@@ -133,7 +133,7 @@ end maybe_secret;
 -- legitimate use in production.  Only lower-case is checked.
 -----------------------------------------------------------------------------
 
-placeholders : constant unbounded_string := to_unbounded_string( " bar baz change-me example foo foobar not-real placeholder replace-me tba tbd val value " );
+placeholders : constant unbounded_string := to_unbounded_string( " bar baz change-me dummy fake example foo foobar not-real placeholder replace-me tba tbd val value " );
 
 function maybe_placeholder_value( field_name, str_val : unbounded_string ) return boolean is
 begin

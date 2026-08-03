@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Creating a Profile Script</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_9.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_11.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_9.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_11.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -69,65 +69,65 @@ This script should contain commands specific to a particular user.</p>
 -- ls, by default, has no color.&nbsp; ls_color is a script that turns
 -- on the ls --color flag before running ls.
 
-ls : <b>constant</b> <b>command</b> := "/home/ken/spar/ls_color";
+ls : <strong>constant</strong> <strong>command</strong> := "/home/ken/spar/ls_color";
 
 
 -----------------------------------------------
 -- Define various environment variables needed by other software
 
 PATH := "/usr/gnat/bin:/home/ken/bin:/usr/java/bin:" &amp; PATH;
-<b>pragma</b> export( shell, PATH );
+<strong>pragma</strong> export( shell, PATH );
 
 ASIS_DIR : string := "/usr/lib/asis";
-<b>pragma</b> export( shell, ASIS_DIR );
+<strong>pragma</strong> export( shell, ASIS_DIR );
 
 CLASSPATH : string := ".:/usr/lib/jgnat.jar";
-<b>pragma</b> export( shell, CLASSPATH );
+<strong>pragma</strong> export( shell, CLASSPATH );
 
 JGNAT_LIB : string := "/usr/lib/jgnat";
-<b>pragma</b> export( shell, JGNAT_LIB );
+<strong>pragma</strong> export( shell, JGNAT_LIB );
 
 KDEDIR : string := "/usr";
-<b>pragma</b> export( shell, KDEDIR );
+<strong>pragma</strong> export( shell, KDEDIR );
 
-LANG : <b>constant</b> string := "en_US";
-<b>pragma</b> export( shell, LANG );
+LANG : <strong>constant</strong> string := "en_US";
+<strong>pragma</strong> export( shell, LANG );
 
-LESSOPEN : <b>constant</b> string := "|/usr/bin/lesspipe.sh %s";
-<b>pragma</b> export( shell, LESSOPEN );
+LESSOPEN : <strong>constant</strong> string := "|/usr/bin/lesspipe.sh %s";
+<strong>pragma</strong> export( shell, LESSOPEN );
 
 LS_COLORS : string := "no=00:fi=00:di=01;34:ln=01;36:pi=40;33:<i>etc</i>";
-<b>pragma</b> export( shell, LS_COLORS );
+<strong>pragma</strong> export( shell, LS_COLORS );
 
 QTDIR : string :="/usr/lib/qt-2.3.1";
-<b>pragma</b> export( shell, QTDIR );
+<strong>pragma</strong> export( shell, QTDIR );
 
-SSH_ASKPASS : <b>constant</b> string := "/usr/libexec/openssh/gnome-ssh-askpass";
-<b>pragma</b> export( shell, SSH_ASKPASS );
+SSH_ASKPASS : <strong>constant</strong> string := "/usr/libexec/openssh/gnome-ssh-askpass";
+<strong>pragma</strong> export( shell, SSH_ASKPASS );
 
 -- export DISPLAY only if it exists
 DISPLAY : string := "undefined";
-<b>pragma</b> unchecked_import( shell, DISPLAY );
-<b>if</b> DISPLAY /= "undefined" <b>then</b>
-  <b>pragma</b> export( shell, DISPLAY );
-<b>end</b> <b>if</b>;
+<strong>pragma</strong> unchecked_import( shell, DISPLAY );
+<strong>if</strong> DISPLAY /= "undefined" <strong>then</strong>
+  <strong>pragma</strong> export( shell, DISPLAY );
+<strong>end</strong> <strong>if</strong>;
 
 -- disable automatic declarations if I don't like them
-<b>pragma</b> restriction( no_auto_declaractions );
+<strong>pragma</strong> restriction( no_auto_declaractions );
 
 -- declare company name, but don't export beyond shell session
-company : <b>constant</b> string := "Compu-Global-Mega-Corp Inc.";
+company : <strong>constant</strong> string := "Compu-Global-Mega-Corp Inc.";
 
 -- show the date and time with UNIX/Linux date command
 date;
 
 -- change my SparForte prompt
-<b>pragma</b> prompt_script( `pwd;echo "=&gt; ";` );
+<strong>pragma</strong> prompt_script( `pwd;echo "=&gt; ";` );
 
 -- end of .sparforte_profile
 </pre>
         <div class="code_caption">
-                <b>Example</b>: A Sample Profile Script
+                <strong>Example</strong>: A Sample Profile Script
         </div>
         </div>
         </center>
@@ -158,7 +158,7 @@ must be a regular file, not empty and also must not be world writable.</p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_7.html">&nbsp;Template Tutorial 2: Intermediate Templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_8.html">&nbsp;GCC Tutorial: Compiling SparForte Scripts</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_9.html">&nbsp;Debugging Tutorial - Using the SparForte Debugger</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_10.html">&nbsp;<b>Creating a Profile Script</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_10.html">&nbsp;<strong>Creating a Profile Script</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_11.html">&nbsp;Calling SparForte from C: A Tutorial</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_13.html">&nbsp;SparForte For PHP Developers</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_12.html">&nbsp;SparForte Best Practices</a></p>

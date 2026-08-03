@@ -8,27 +8,27 @@
 	<title>SparForte - Tutorials - Debugging Tutorial - Using the SparForte Debugger</title>
         <link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body bgcolor="#FFFFFF"><a name="top"></a>
+<body class="doc"><a name="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
-		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
-		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table class="borderless_menu" summary="top menu">
 			<tr>
 				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html"><b>Tutorials</b></a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
-				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
-				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
-				<td background="art/menu_border.png" align="center">&nbsp;</td>
-				<td background="art/menu_border.png" align="right"><a href="tutorial_8.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_10.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
-				<td background="art/menu_border.png">&nbsp;</td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="tutorial_1.html"><strong>Tutorials</strong></a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="ref_adascript.html">Reference</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center"><span class="menutext">|</span></td>
+				<td width="85" style="background-image: url(art/menu_border.png)" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td style="background-image: url(art/menu_border.png)" align="center">&nbsp;</td>
+				<td style="background-image: url(art/menu_border.png)" align="right"><a href="tutorial_8.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tutorial_10.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td style="background-image: url(art/menu_border.png)">&nbsp;</td>
 </tr></table></td></tr>
 	</table>
 	<noscript>
@@ -68,17 +68,17 @@ Suppose you want to trace the execution of the following script:
         <div class="code">
                 <p class="code">#!/usr/local/bin/spar<br>
 &nbsp;<br>
-<b>trace</b> <b>true</b>;<br>
+<strong>trace</strong> <strong>true</strong>;<br>
 &nbsp;<br>
-<b>procedure</b> main <b>is</b><br>
-&nbsp; <b>type</b> paint <b>is</b> ( black, white, blue );<br>
-<b>begin</b><br>
-&nbsp; <b>for</b> p <b>in</b> black..blue <b>loop</b><br>
+<strong>procedure</strong> main <strong>is</strong><br>
+&nbsp; <strong>type</strong> paint <strong>is</strong> ( black, white, blue );<br>
+<strong>begin</strong><br>
+&nbsp; <strong>for</strong> p <strong>in</strong> black..blue <strong>loop</strong><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; put_line( p );<br>
-&nbsp; <b>end loop</b>;<br>
-<b>end</b> main;<br>&nbsp;<br></p>
+&nbsp; <strong>end loop</strong>;<br>
+<strong>end</strong> main;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Using the trace command in a script
+                <strong>Example</strong>: Using the trace command in a script
         </div>
         </div>
         </center>
@@ -125,7 +125,7 @@ blue<br>
 =&gt; "End of File" [ 12]<br>
 =&gt; (Script exit status is 0)<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Example Output from the trace command
+                <strong>Example</strong>: Example Output from the trace command
         </div>
         </div>
         </center>
@@ -134,7 +134,7 @@ blue<br>
 
 <p>If a script is started with the <code>--break</code> (or <code>-b</code>)
 option,
-a SIGINT (e.g. a <tt class="key">control</tt> - <tt class="key">c</tt>) will pause the script and give the user a
+a SIGINT (e.g. a <tt class="key">control</code> - <tt class="key">c</code>) will pause the script and give the user a
 command
 prompt. This breakout prompt is identical to a normal interactive
 session
@@ -149,17 +149,17 @@ return command was executed.
         <center>
         <div class="code">
                 <p class="code">bash$ cat breakdemo.sp<br>
-		<b>for</b> i <b>in</b> 1..10000 <b>loop</b><br>
+		<strong>for</strong> i <strong>in</strong> 1..10000 <strong>loop</strong><br>
 		&nbsp;&nbsp;&nbsp;put_line( i );<br>
-		&nbsp;&nbsp;&nbsp;<b>delay</b> 1;<br>
-		<b>end</b> <b>loop</b>;<br>
+		&nbsp;&nbsp;&nbsp;<strong>delay</strong> 1;<br>
+		<strong>end</strong> <strong>loop</strong>;<br>
 		bash$ spar breakdemo.sp<br>
 		1<br>
 		2<br>
 		3<br>
                 $<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Control-C Used on a Script without --break
+                <strong>Example</strong>: Control-C Used on a Script without --break
         </div>
         </div>
         </center>
@@ -169,10 +169,10 @@ return command was executed.
         <center>
         <div class="code">
                 <p class="code">bash$ cat breakdemo.sp<br>
-		<b>for</b> i <b>in</b> 1..10000 <b>loop</b><br>
+		<strong>for</strong> i <strong>in</strong> 1..10000 <strong>loop</strong><br>
 		&nbsp;&nbsp;&nbsp;put_line( i );<br>
-		&nbsp;&nbsp;&nbsp;<b>delay</b> 1;<br>
-		<b>end</b> <b>loop</b>;<br>
+		&nbsp;&nbsp;&nbsp;<strong>delay</strong> 1;<br>
+		<strong>end</strong> <strong>loop</strong>;<br>
 		bash$ spar --break breakdemo.sp<br>
 		1<br>
 		2<br>
@@ -182,7 +182,7 @@ return command was executed.
 		^ <span class="code" style="background: black; color: white">Break: return to continue, logout to quit</span><br>
 		=&gt;<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: Breakout Prompt Appears when Control-C is used on a Script with --break
+                <strong>Example</strong>: Breakout Prompt Appears when Control-C is used on a Script with --break
         </div>
         </div>
         </center>
@@ -202,7 +202,7 @@ interactive prompt.</p>
 		 10000<br>
 		$<br>&nbsp;<br></p>
         <div class="code_caption">
-                <b>Example</b>: How to Change a Variable and Resume a Script from the Breakout Prompt
+                <strong>Example</strong>: How to Change a Variable and Resume a Script from the Breakout Prompt
         </div>
         </div>
         </center>
@@ -241,7 +241,7 @@ the program.</p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_6.html">&nbsp;Template Tutorial 1: Basic Templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_7.html">&nbsp;Template Tutorial 2: Intermediate Templates</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_8.html">&nbsp;GCC Tutorial: Compiling SparForte Scripts</a></p>
-                                <p class="rmt"><a class="rightmenutext" href="tutorial_9.html">&nbsp;<b>Debugging Tutorial - Using the SparForte Debugger</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="tutorial_9.html">&nbsp;<strong>Debugging Tutorial - Using the SparForte Debugger</strong></a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_10.html">&nbsp;Creating a Profile Script</a></p>
                                 <p class="rmt"><a class="rightmenutext" href="tutorial_11.html">&nbsp;Calling SparForte from C: A Tutorial</a></p>
 				<p class="rmt"><a class="rightmenutext" href="tutorial_13.html">&nbsp;SparForte For PHP Developers</a></p>
