@@ -41,11 +41,12 @@
 	<!-- Content Area -->
 <h2><a name="3.12"></a>Basic Assignment and Expressions</h2>
 
-<p>Values can be assigned in an assignment statement or in a declaration.</p>
+<p>Assignment statements assign values to variables.  Identifiers can also
+be assigned values in a declaration.</p>
 
 <h3>The Assignment Statement (:=)</h3>
 
-<p>Values are assigned to variables with the assignment statement (:=).
+<p>The assignment statement is a colon and a equal sign (:=).
 Unlike some languages, assignment is not an operator: it cannot be used
 in an expression.</p>
 
@@ -133,7 +134,7 @@ compute a result value.</p>
 <p>Expression operators are evaluated in the following order:</p>
 
 <ul>
-  <li> <strong>Factors</strong>: literals, constants/variables, unary +, unary -, subexpressions in parantheses</li>
+  <li> <strong>Factors</strong>: literals, constants/variables, unary +, unary -, subexpressions in parentheses</li>
   <li> <strong>Power Terms</strong>: **</li>
   <li> <strong>Terms</strong>: /, mod, rem, *, &amp;</li>
   <li> <strong>Simple Expressions</strong>: +, -</li>
@@ -146,8 +147,8 @@ compute a result value.</p>
 <p>If <code>pragma ada_95</code> is used, expression parentheses are required in certain
 cases.</p>
 
-<p><strong>Ada</strong>: SparForte has looser restrictions on parentheses unless
-<code>pragma ada_95</code> is used.</p>
+<p><strong>Ada</strong>: SparForte has fewer restrictions on parentheses.  Use
+<code>pragma ada_95</code> to enforce more restrictions.</p>
 
 <br>
 &nbsp;

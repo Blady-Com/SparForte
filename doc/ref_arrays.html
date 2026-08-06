@@ -8,7 +8,7 @@
 	<title>SparForte - Reference - Arrays</title>
 	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
 </head>
-<body class="doc">
+<body class="doc"><a id="top"></a>
 	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
 		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
 		<tr><td style="background-image: url(art/header_border.png)" height="10" colspan="2"></td></tr>
@@ -41,18 +41,20 @@
 	<!-- Content Area -->
 <h2><a name="3.10"></a>Arrays</h2>
 
-<p>Arrays are composite types that are lists of values of one type.</p>
+<p>Arrays are composite types that contain lists of components.  The
+values of the components are a single type.</p>
 
-<p>Individual values are accessed by an index.  The type of the index
-can be either numeric or an enumerated type.</p>
+<p>You access individual values an index.  The index uses a
+numeric or an enumerated type.</p>
 
-<p>Arrays are a fixed size and the size is determined by the range
-of values for the index.  The lower bound and
-upper bound of the array are set when the type is declared (or, in
-the case of an anonymous array, when it is used in a declaration).  It
+<p>Arrays have a fixed size.  The index range determines the size.
+The array type declaration sets lower and upper bounds of the array.
+Anonymous arrays, which do not have a type,
+set the bounds when the array is declared.  It
 is an error to access elements outside of the index's range.</p>
 
-<p>The built-in arrays package contains basic array subprograms.</p>
+<p>The built-in <a href="pkg_arrays.html">arrays package</a> contains
+basic array subprograms.</p>
 
 <h3>Anonymous Arrays</h3>
 
@@ -68,10 +70,8 @@ is an error to access elements outside of the index's range.</p>
         </center>
 
 
-<p>The first array contains 100 entries and each entry is a natural
-number.&nbsp;
-To assign values or to access array entries, put the index number in
-parentheses
+<p>The first array contains 100 components.  Each component is a natural
+number.&nbsp; To access array entries, use the index in parentheses
 after the array name.</p>
 
         <center>
@@ -104,9 +104,9 @@ after the array name.</p>
 
 <h3>Initial Values</h3>
 
-<p>When you declare an array, you can assign a list of initial values
-or copy the values of another identical array.  When providing initial
-values, provide a value for each component in the array.</p>
+<p>When you declare an array, initial values are optional.  You can
+supply initial values or copy the values of another array of the
+same type.  Supply initial values for every component.</p>
 
 <p><code>=&gt; type grocery_list is array(1..10) of string</code>
 
@@ -123,8 +123,8 @@ bananas
 
 <h3>Empty Arrays</h3>
 
-<p>An empty array can be created using 1..0 (or any case where the
-first bound is greater than the second bound).</p>
+<p>An empty array is created using an index of 1..0 or any range where the
+first bound is greater than the second bound.</p>
 
         <center>
         <div class="code">
@@ -132,13 +132,14 @@ first bound is greater than the second bound).</p>
         </div>
         </center>
 
-<p>SparForte does not support assigning one array to another in an
-assignment statement, unconstrained arrays or multi-dimensional arrays.</p>
+<p>SparForte does not copy one array to another in an
+assignment statement.  It does not support unconstrained arrays or
+multi-dimensional arrays.</p>
 
 <p><strong>Ada</strong>: SparForte does not (yet) implement arrays with
-multiple dimensions (arrays of arrays).  Character and indefinite
-indexes are not implemented.  Arrays cannot contain records.
-<code>others</code> is not yet implemented for assignment.</p>
+multiple dimensions (arrays of arrays) or arrays with records.
+Character and indefinite indexes are not implemented.
+The <code>others</code> keyword is not yet available for assignment.</p>
 
 <br>&nbsp;
 
