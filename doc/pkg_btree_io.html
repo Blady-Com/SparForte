@@ -63,11 +63,12 @@ to create and manage ordered data files.</p>
   <a href="#btree_io.decrement">decrement( f, k [,n] )</a>           <a href="#btree_io.open_cursor">open_cursor( f, c )</a>
   <a href="#btree_io.delete">delete( f )</a>                      <a href="#btree_io.prepend">prepend( f, k, v )</a>
   <a href="#btree_io.flush">flush( f )</a>                       <a href="#btree_io.raise_exceptions">raise_exceptions( f, b )</a>
-  <a href="#btree_io.get">v := get( f, k )</a>                 <a href="#btree_io.remove">remove( f, k )</a>
+  <a href="#btree_io.get">get( f, k, v )</a>                   <a href="#btree_io.remove">remove( f, k | c )</a>
   <a href="#btree_io.get_first">get_first( f, c, k, v )</a>          <a href="#btree_io.replace">replace( f, k, v )</a>
   <a href="#btree_io.get_last">get_last( f, c, k, v )</a>           <a href="#btree_io.set">set( f, k, v )</a>
   <a href="#btree_io.get_next">get_next( f, c, k, v )</a>           <a href="#btree_io.will_raise">b := will_raise( f )</a>
                                    <a href="#btree_io.truncate">truncate( f )</a>
+  <a href="#btree_io.recover">recover( f, p )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
@@ -1116,6 +1117,48 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
+<a id="btree_io.name"></a><h3>s := btree_io.name( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
+<tr>
+<td width="15%">&nbsp;</td>
+<td><p>Returns the filename of the database.</p>
+</tr><tr>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">name := btree_io.name( fruit_file );</span></p></td>
+</tr><tr>
+<td><p class="pkg_label">Parameters</p></td>
+<td><table class="subprogram_parameters" summary="subprogram parameters">
+<tr>
+<td><span class="pkg_param">Param</span></td>
+<td><span class="pkg_param">Mode</span></td>
+<td><span class="pkg_param">Type</span></td>
+<td><span class="pkg_param">Default</span></td>
+<td><span class="pkg_param">Description</span></td>
+</tr><tr>
+<td><span>s</span></td>
+<td><span>return value</span></td>
+<td><span>string</span></td>
+<td><span>required</span></td>
+<td><span>the filename</span></td>
+</tr><tr>
+<td><span>f</span></td>
+<td><span>in out</span></td>
+<td><span>btree_io.file</span></td>
+<td><span>required</span></td>
+<td><span>the database file</span></td>
+</tr>
+</table></td> 
+</tr><tr> 
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>-</p></td>
+</tr><tr>
+<td><p class="pkg_label">See Also</p></td>
+<td><p>Ada: N/A (AdaScript extension)</p></td>
+</tr><tr>
+<td><p class="pkg_label">Compare With</p></td>
+<td><p>-</p></td>
+</tr>
+</table>
+
 <a id="btree_io.new_cursor"></a><h3>btree_io.new_cursor( c, t )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
@@ -1410,11 +1453,60 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
-<a id="btree_io.remove"></a><h3>btree_io.remove( f, k )</h3>
+<a id="btree_io.recover"></a><h3>btree_io.recover( f, p )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Delete a key and the associated value from the file.</p>
+<td><p>Repair database f with pathname p after an unexpected failure.
+</tr><tr>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">btree_io.recover( fruit, "fruit.db" );</span></p></td>
+</tr><tr>
+<td><p class="pkg_label">Parameters</p></td>
+<td><table class="subprogram_parameters" summary="subprogram parameters">
+<tr>
+<td><span class="pkg_param">Param</span></td>
+<td><span class="pkg_param">Mode</span></td>
+<td><span class="pkg_param">Type</span></td>
+<td><span class="pkg_param">Default</span></td>
+<td><span class="pkg_param">Description</span></td>
+</tr><tr>
+<td><span>f</span></td>
+<td><span>in</span></td>
+<td><span>btree_io.file</span></td>
+<td><span>required</span></td>
+<td><span>the file</span></td>
+</tr><tr>
+<td><span>p</span></td>
+<td><span>in</span></td>
+<td><span>string</span></td>
+<td><span>required</span></td>
+<td><span>the name of the database</span></td>
+</tr>
+</table></td>
+</tr><tr>
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>-</p></td>
+</tr><tr>
+<td><p class="pkg_label">Restrictions</p></td>
+<td><p>Not allowed in a restricted shell</p>
+</tr><tr>
+<td><p class="pkg_label">See Also</p></td>
+<td><p><a href="#btree_io.clear">btree_io.clear</a><br><a href="#btree_io.set">btree_io.set</a></p></td>
+</tr><tr>
+<td><p class="pkg_label">Compare With</p></td>
+<td><p>Ada: N/A (AdaScript extension)</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>-</p></td>
+</tr>
+</table>
+
+<a id="btree_io.remove"></a><h3>btree_io.remove( f, k | c )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
+<tr>
+<td width="15%">&nbsp;</td>
+<td><p>Delete a key and the associated value from the file.  If a cursor is supplied,
+delete the item at the cursor position.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">btree_io.remove( fruit, "bad apples" );</span></p></td>
 </tr><tr>
@@ -1438,6 +1530,12 @@ An exception is raised if out of memory</p></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
 <td><span>the key to delete</span></td>
+</tr><tr>
+<td><span>c</span></td>
+<td><span>in</span></td>
+<td><span>btree_io.cursor</span></td>
+<td><span>required</span></td>
+<td><span>the location to delete</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -1561,7 +1659,7 @@ An exception is raised if out of memory</p></td>
 <td><p><a href="#btree_io.add">btree_io.add</a><br><a href="#btree_io.replace">btree_io.replace</a><br><a href="#btree_io.remove">btree_io.remove</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: DB-&gt;put</p></td>
+<td><p>C: DB-&gt;put</p></td>
 </tr>
 </table>
 

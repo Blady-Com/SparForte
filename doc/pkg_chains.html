@@ -45,9 +45,10 @@
 <h2><a id="4.5"></a>Chains Package</h2>
 
 <p>The SparForte built-in chains package provides subprograms that return
-information about procedure chains.  Use this to find out if your procedure is in a
-chain and the position in the chain.  This package currently only applies to user-defined
-procedures.</p>
+information about procedure chains.  A chain is a series of procedure calls
+to the same procedure using an at-sign ("@") operator.  Use this to find out if your
+procedure is in a chain and the position in the chain.  This package only
+applies to user-defined procedure chains.</p>
 
 <p><span class="underline">Introduced</span>: SparForte 1.5</p>
 
@@ -141,13 +142,13 @@ chain.</p>
 <td><p>An exception is thrown if this is not in a chain</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#chains.chain_context">chains.chain_context"</a><br><a href="#chains.in_chain">chains.in_chain</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This currently only works for built-in procedure chains.</p></td>
+<td><p>This function does not work with O/S command chains.</p></td>
 </tr>
 </table>
 
@@ -159,7 +160,7 @@ chain.</p>
 This is useful when combined with a case statement to handle initialization or finalization for the
 chain.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">position := chains.chains_context</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">position := chains.chain_context</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -182,13 +183,13 @@ chain.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#chains.chain_count">chains.chain_count"</a><br><a href="#chains.in_chain">chains.in_chain</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-<br>PHP: N/A</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Note</p></td>
-<td><p>This currently only works for built-in procedure chains.</p></td>
+<td><p>This function does not work with O/S command chains.</p></td>
 </tr>
 </table>
 
@@ -222,7 +223,7 @@ chains.chain_context /= chains.not_in_chain</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#chains.chain_count">chains.chain_count"</a><br><a href="#chains.chain_context">chains.chain_context</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A (AdaScript extension)<br>PHP: N/A</p></td>

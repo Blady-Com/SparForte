@@ -66,11 +66,12 @@ ordered randomly.</p>
   <a href="#hash_io.decrement">decrement( f, k [,n] )</a>           <a href="#hash_io.open_cursor">open_cursor( f, c )</a>
   <a href="#hash_io.delete">delete( f )</a>                      <a href="#hash_io.prepend">prepend( f, k, v )</a>
   <a href="#hash_io.flush">flush( f )</a>                       <a href="#hash_io.raise_exceptions">raise_exceptions( f, b )</a>
-  <a href="#hash_io.get">v := get( f, k, v )</a>              <a href="#hash_io.remove">remove( f, k )</a>
+  <a href="#hash_io.get">get( f, k, v )</a>                   <a href="#hash_io.remove">remove( f, k )</a>
   <a href="#hash_io.get_first">get_first( f, c, k, v )</a>          <a href="#hash_io.replace">replace( f, k, v )</a>
   <a href="#hash_io.get_last">get_last( f, c, k, v )</a>           <a href="#hash_io.set">set( f, k, v )</a>
   <a href="#hash_io.get_next">get_next( f, c, k, v )</a>           <a href="#hash_io.truncate">truncate( f )</a>
                                    <a href="#hash_io.will_raise">b := will_raise( f )</a>
+  <a href="#hash_io.recover">recover( f, p )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
@@ -311,7 +312,7 @@ PHP: dba_close</p></td>
 <td width="15%">&nbsp;</td>
 <td><p>Close the cursor c associated with file f.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">hash_io.close( fruit, fruit_cursor );</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">hash_io.close_cursor( fruit, fruit_cursor );</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -355,7 +356,7 @@ C: DB-&gt;c_close</p></td>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Create a new B-tree file f named p.  Maximum key length is kl bytes and maximum value length is vl bytes.  If the database exists, it is overwritten.  If --verbose is used, BDB verbose error messages are enabled.  If the file name is an empty string, the B-tree will be stored in memory and any supporting files will be stored in the current directory.</p>
+<td><p>Create a new hash file f named p.  Maximum key length is kl bytes and maximum value length is vl bytes.  If the database exists, it is overwritten.  If --verbose is used, BDB verbose error messages are enabled.  If the file name is an empty string, the hash file will be stored in memory and any supporting files will be stored in the current directory.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hash_io.create( fruit, "fruit.hash", 80, 80 );</span></p></td>
 </tr><tr>
@@ -775,7 +776,7 @@ PHP: dbm_fetch</p></td>
 <td><p>Not allowed in a restricted shell</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hash_io.get_next">hash_io.get_next</a></p></td>
+<td><p><a href="#hash_io.get_previous">hash_io.get_previous</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: bdb.get</p></td>
@@ -1033,6 +1034,48 @@ An exception is raised if the value type is not numeric</p></td>
 </tr>
 </table>
 
+<a id="hash_io.name"></a><h3>s := hash_io.name( f )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
+<tr>
+<td width="15%">&nbsp;</td>
+<td><p>Returns the filename of the database.</p>
+</tr><tr>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">name := hash_io.name( fruit_file );</span></p></td>
+</tr><tr>
+<td><p class="pkg_label">Parameters</p></td>
+<td><table class="subprogram_parameters" summary="subprogram parameters">
+<tr>
+<td><span class="pkg_param">Param</span></td> 
+<td><span class="pkg_param">Mode</span></td>
+<td><span class="pkg_param">Type</span></td>
+<td><span class="pkg_param">Default</span></td>
+<td><span class="pkg_param">Description</span></td>
+</tr><tr>
+<td><span>s</span></td>
+<td><span>return value</span></td>
+<td><span>string</span></td>
+<td><span>required</span></td>
+<td><span>the filename</span></td>
+</tr><tr>
+<td><span>f</span></td>
+<td><span>in out</span></td>
+<td><span>hash_io.file</span></td>
+<td><span>required</span></td>
+<td><span>the database file</span></td>
+</tr>
+</table></td> 
+</tr><tr> 
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>-</p></td>
+</tr><tr>
+<td><p class="pkg_label">See Also</p></td>
+<td><p>Ada: N/A (AdaScript extension)</p></td>
+</tr><tr>
+<td><p class="pkg_label">Compare With</p></td>
+<td><p>-</p></td>
+</tr>
+</table>
+
 <a id="hash_io.new_cursor"></a><h3>hash_io.new_cursor( c, t )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
@@ -1127,7 +1170,7 @@ An exception is raised if the value type is not numeric</p></td>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Open a new B-tree file f named p.  Maximum key length is kl bytes and maximum value length is vl bytes.  If no database exists, an exception is raised.  If --verbose is used, BDB verbose error messages are enabled.</p>
+<td><p>Open a new hash file f named p.  Maximum key length is kl bytes and maximum value length is vl bytes.  If no database exists, an exception is raised.  If --verbose is used, BDB verbose error messages are enabled.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td><td><p><span class="code">hash_io.open( fruit, "fruit.hash", 80, 80 );</span></p></td>
 </tr><tr>
@@ -1327,6 +1370,54 @@ An exception is raised if out of memory</p></td>
 </tr>
 </table>
 
+<a id="hash_io.recover"></a><h3>hash_io.recover( f, p )</h3>
+<table class="package_subprogram" summary="description of this package subprogram">
+<tr>
+<td width="15%">&nbsp;</td>
+<td><p>Repair database f with pathname p after an unexpected failure.
+</tr><tr>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">hash_io.recover( fruit, "fruit.db" );</span></p></td>
+</tr><tr>
+<td><p class="pkg_label">Parameters</p></td>
+<td><table class="subprogram_parameters" summary="subprogram parameters">
+<tr>
+<td><span class="pkg_param">Param</span></td>
+<td><span class="pkg_param">Mode</span></td>
+<td><span class="pkg_param">Type</span></td>
+<td><span class="pkg_param">Default</span></td>
+<td><span class="pkg_param">Description</span></td>
+</tr><tr>
+<td><span>f</span></td>
+<td><span>in</span></td>
+<td><span>hash_io.file</span></td>
+<td><span>required</span></td>
+<td><span>the file</span></td>
+</tr><tr>
+<td><span>p</span></td>
+<td><span>in</span></td>
+<td><span>string</span></td>
+<td><span>required</span></td>
+<td><span>the name of the database</span></td>
+</tr>
+</table></td>
+</tr><tr>
+<td><p class="pkg_label">Exceptions</p></td>
+<td><p>-</p></td>
+</tr><tr>
+<td><p class="pkg_label">Restrictions</p></td>
+<td><p>Not allowed in a restricted shell</p>
+</tr><tr>
+<td><p class="pkg_label">See Also</p></td>
+<td><p><a href="#hash_io.clear">hash_io.clear</a><br><a href="#hash_io.set">hash_io.set</a></p></td>
+</tr><tr>
+<td><p class="pkg_label">Compare With</p></td>
+<td><p>Ada: N/A (AdaScript extension)</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>-</p></td>
+</tr>
+</table>
+
 <a id="hash_io.remove"></a><h3>hash_io.remove( f, k )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
@@ -1478,7 +1569,7 @@ An exception is raised if out of memory</p></td>
 <td><p><a href="#hash_io.add">hash_io.add</a><br><a href="#hash_io.replace">hash_io.replace</a><br><a href="#hash_io.remove">hash_io.remove</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: DB-&gt;put</p></td>
+<td><p>C: DB-&gt;put</p></td>
 </tr>
 </table>
 

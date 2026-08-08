@@ -26,6 +26,7 @@
 with
     Ada.Containers,
     ada.strings.unbounded,
+    spar_os,
     pegasoft,
     world,
     symbol_table,
@@ -39,6 +40,7 @@ with
     parser_containers;
 use
     ada.strings.unbounded,
+    spar_os,
     pegasoft,
     world,
     symbol_table,
@@ -56,9 +58,6 @@ package body parser_doubly is
 ------------------------------------------------------------------------------
 -- Doubly Linked Lists package identifiers
 ------------------------------------------------------------------------------
-
--- doubly_list_t          : identifier;
--- doubly_cursor_t        : identifier;
 
 doubly_clear_t         : identifier;
 doubly_is_empty_t      : identifier;
@@ -185,13 +184,16 @@ end insertTypesOk;
 ------------------------------------------------------------------------------
 
 
-------------------------------------------------------------------------------
---  CLEAR
+-----------------------------------------------------------------------------
+--  PARSE DOUBLY CLEAR                                   (built-in procedure)
 --
--- Syntax: doubly_linked_list.clear( l );
--- Ada:    doubly_linked_list.clear( l );
+-- AdaScript Syntax: doubly_linked_list.clear( l );
+--       Ada Target: Ada.Containers.Doubly_Linked_List.Clear( l );
+--   GNAT Spec File: a-cdlili.ads
+--   SparForte Docs: doc/pkg_doubly.html#doubly_linked_lists.clear
+--
 -- Delete the contents of list l.
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 
 procedure ParseDoublyClear is
   listRef  : reference;
@@ -271,8 +273,8 @@ end ParseDoublyLength;
 ------------------------------------------------------------------------------
 --  APPEND
 --
--- Syntax: doubly_linked_list.append( l, s [,c] );
--- Ada:    doubly_linked_list.append( l, s [,c] );
+-- Syntax: doubly_linked_list.append( l, e [,c] );
+-- Ada:    doubly_linked_list.append( l, e [,c] );
 -- Queue list element e at the end of the list (not the end of an element).
 ------------------------------------------------------------------------------
 
@@ -324,8 +326,8 @@ end ParseDoublyAppend;
 ------------------------------------------------------------------------------
 --  PREPEND
 --
--- Syntax: doubly_linked_list.prepend( l, s );
--- Ada:    doubly_linked_list.prepend( l, s );
+-- Syntax: doubly_linked_list.prepend( l, e [, n] );
+-- Ada:    doubly_linked_list.prepend( l, e [, n] );
 -- Push list element e on the front of the list. (not the front of an element).
 ------------------------------------------------------------------------------
 
@@ -366,7 +368,7 @@ begin
           Doubly_Linked_Storage_Lists.Prepend( theList.dlslList, itemExpr );
        end if;
      exception when constraint_error =>
-       err( +"append count must be a natural integer" );
+       err( +"prepend count must be a natural integer" );
      when storage_error =>
        err( +"storage error raised" );
      end;
@@ -597,7 +599,7 @@ begin
 end ParseDoublyFirst;
 
 procedure ParseDoublyLast is
-  -- Syntax: doubly_linked_list.delete_last( l, c );
+  -- Syntax: doubly_linked_list.last( l, c );
   -- Ada:    c := doubly_linked_list.last( l );
   -- Move the cursor to the last element in the list.
   -- doubly_linked_lists.has_element will be false if the list is empty.
@@ -1291,7 +1293,7 @@ end ParseDoublyFlip;
 procedure ParseDoublyAssign is
   sourceListRef : reference;
   theSourceList : resPtr;
-  targetlistRef : reference;
+  targetListRef : reference;
   sourceListResId: storage;
   theTargetList : resPtr;
   targetListResId: storage;
@@ -1307,10 +1309,10 @@ begin
      declare
        sourceCursor : Doubly_Linked_Storage_Lists.Cursor;
      begin
-       getParameterValue( sourcelistRef, sourceListResId );
        getParameterValue( targetlistRef, targetListResId );
-       findResource( to_resource_id( sourceListResId.value ), theTargetList );
-       findResource( to_resource_id( targetListResId.value ), theSourceList );
+       getParameterValue( sourcelistRef, sourceListResId );
+       findResource( to_resource_id( targetListResId.value ), theTargetList );
+       findResource( to_resource_id( sourceListResId.value ), theSourceList );
        -- this is only available starting in GCC Ada 4.7 or 4.8 or newer
        --Doubly_Linked_Storage_Lists.Assign( theTargetList.dlslList, theSourceList.dlslList );
        -- we'll write our own
@@ -1336,12 +1338,12 @@ end ParseDoublyAssign;
 ------------------------------------------------------------------------------
 
 procedure ParseDoublyMove is
-  sourceListRef  : reference;
-  theSourceList  : resPtr;
-  sourceListResId: storage;
   targetListRef  : reference;
   theTargetList  : resPtr;
   targetListResId: storage;
+  sourceListRef  : reference;
+  theSourceList  : resPtr;
+  sourceListResId: storage;
   subprogramId : constant identifier := doubly_move_t;
 begin
   expect( subprogramId );
@@ -1354,10 +1356,10 @@ begin
   end if;
   if isExecutingCommand then
      begin
-       getParameterValue( sourceListRef, sourceListResId );
        getParameterValue( targetListRef, targetListResId );
-       findResource( to_resource_id( sourceListResId.value ), theTargetList );
-       findResource( to_resource_id( targetListResId.value ), theSourceList );
+       getParameterValue( sourceListRef, sourceListResId );
+       findResource( to_resource_id( targetListResId.value ), theTargetList );
+       findResource( to_resource_id( sourceListResId.value ), theSourceList );
        Doubly_Linked_Storage_Lists.Move( theTargetList.dlslList, theSourceList.dlslList );
      end;
   end if;
@@ -1378,10 +1380,10 @@ procedure ParseDoublySwap is
   listResId      : storage;
   firstCursRef   : reference;
   theFirstCursor : resPtr;
-  firstcursResId : storage;
+  firstCursResId : storage;
   secondCursRef  : reference;
   theSecondCursor: resPtr;
-  secondcursResId : storage;
+  secondCursResId : storage;
   subprogramId : constant identifier := doubly_swap_t;
 begin
   expect( subprogramId );
@@ -1695,8 +1697,7 @@ begin
         firstElement : boolean := true;
      begin
        if not hasDelim then
-          -- TODO: the eol delimiter should be based on the operating system
-          delimExpr := storage'( to_unbounded_string( "" & ASCII.LF ), noMetaTag, noMetaTags );
+          delimExpr := storage'( to_unbounded_string( eol_characters ), noMetaTag, noMetaTags );
        end if;
        getParameterValue( listRef, listResId );
        findResource( to_resource_id( listResId.value), theList );
@@ -1715,7 +1716,7 @@ begin
              if metaTagOk( subprogramId, result, elementStore ) then
                 -- TODO: DATA META LABEL: when combining list items into a string,
                 -- the items could have different security levels but the
-                -- string has only one.  Should resolve differences, if any
+                -- string has only one.  Should resolve differences, if any.
                 result.value := result.value & elementStore.value;
              end if;
              Doubly_Linked_Storage_Lists.Next( curs );
@@ -1736,7 +1737,7 @@ end ParseDoublyAssemble;
 -----------------------------------------------------------------------------
 --  DISASSEMBLE
 --
--- Syntax: doubly_linked_lists.dissemble( s, l [,d [,f]] );
+-- Syntax: doubly_linked_lists.disassemble( s, l [,d [,f]] );
 -- Ada:    N/A
 -- The inverse of assemble.  Take a string and convert it to a list of
 -- strings.  Strip off the final suffix, if it exists.  Use d as the
@@ -1789,8 +1790,7 @@ begin
      begin
        -- default delimiter if none supplied
        if not hasDelim then
-          -- TODO: the eol delimiter should be based on the operating system
-          delimExpr := storage'( null_unbounded_string & ASCII.LF, noMetaTag, noMetaTags );
+          delimExpr := storage'( to_unbounded_string( eol_characters ), noMetaTag, noMetaTags );
        end if;
        -- remove final part, if it exists and is defined
        if hasFinal then

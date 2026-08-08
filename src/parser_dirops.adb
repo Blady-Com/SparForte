@@ -21,7 +21,7 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
---with text_io;use text_io;
+--with ada.text_io;use ada.text_io;
 
 with gnat.directory_operations,
     Ada.Directories,
@@ -142,14 +142,16 @@ begin
         -- will corrupt the environment variables.  When changing directories,
         -- we update the current working directory.  This is copied from the cd
         -- builtin.
-        current_working_directory := expr.value;
-        findident( to_unbounded_string( "PWD" ), pwdId );
-        findident( to_unbounded_string( "OLDPWD" ), oldPwdId );
-        if pwdId /= eof_t then
-           if oldPwdId /= eof_t then
-              identifiers( oldPwdId ).store.value := identifiers( pwdId ).store.value;
+        if not error_found then
+           current_working_directory := expr.value;
+           findident( to_unbounded_string( "PWD" ), pwdId );
+           findident( to_unbounded_string( "OLDPWD" ), oldPwdId );
+           if pwdId /= eof_t then
+              if oldPwdId /= eof_t then
+                 identifiers( oldPwdId ).store.value := identifiers( pwdId ).store.value;
+              end if;
+              identifiers( pwdId ).store.value := current_working_directory;
            end if;
-           identifiers( pwdId ).store.value := current_working_directory;
         end if;
      end if;
   end if;
@@ -211,7 +213,8 @@ begin
   if token = symbol_t and identifiers( token ).store.value = "," then
      ParseLastEnumParameter( subprogramId, expr2, expr_type2, boolean_t );
   else
-     expect( symbol_t, ")" );
+      expr2.value := to_unbounded_string( "0" );
+      expect( symbol_t, ")" );
   end if;
 
   if isExecutingCommand then
@@ -230,12 +233,12 @@ begin
 end ParseDirOpsRemoveDir;
 
 -----------------------------------------------------------------------------
---  PARSE DIR OPS REMOVE DIR                             (built-in procedure)
+--  PARSE DIR OPS GET CURRENT DIR                        (built-in procedure)
 --
--- AdaScript Syntax: directory_operations.remove_dir( p [, r] )
---       Ada Target: GNAT.Directory_Operations.Remove_Dir
+-- AdaScript Syntax: p := directory_operations.get_current_dir;
+--       Ada Target: GNAT.Directory_Operations.Get_Current_Dir
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.remove_dir
+--   SparForte Docs: doc/pkg_dirops.html#directory_operations.get_current_dir
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsGetCurrentDir( result : out storage; kind : out identifier ) is
@@ -441,7 +444,7 @@ begin
         declare
           style : path_style := system_default;
         begin
-             -- TODO: not very elegant
+             -- TODO: not very elegant.  Should look up the path styles for values.
              if expr2.value = to_unbounded_string( "0" ) then
                 style := UNIX;
              elsif expr2.value = to_unbounded_string( "1" ) then
@@ -602,7 +605,7 @@ end ParseDirOpsClose;
 --  PARSE DIR OPS IS OPEN                                 (built-in function)
 --
 -- AdaScript Syntax: directory_operations.is_open( d )
---       Ada Target: GNAT.Directory_Operations.Close
+--       Ada Target: GNAT.Directory_Operations.Is_Open
 --   GNAT Spec File: g-dirope.ads
 --   SparForte Docs: doc/pkg_dirops.html#directory_operations.is_open
 -----------------------------------------------------------------------------
@@ -667,8 +670,9 @@ begin
         begin
           findResource( to_resource_id( dir.value ), theDir );
           Read( theDir.dir, s, last );
-          AssignParameter( strRef, storage'( to_unbounded_string( s(1..Last) ),
-             noMetaTag, dir.policyMetaTags ) );
+          AssignParameter( strRef, storage'( to_unbounded_string( s(1..last) ),
+                                             noMetaTag, dir.policyMetaTags ) );
+
           --AssignParameter( lastRef, to_unbounded_string( last'img ) ); -- STRIP?
         exception when DIRECTORY_ERROR =>
           err( +"directory is not open" );
@@ -691,7 +695,7 @@ begin
   declareNamespace( "directory_operations" );
   declareIdent( dirops_dir_name_str_t, "directory_operations.dir_name_dir",
      string_t, subClass );
-  declareIdent( dirops_absolute_dir_name_str_t, "directory_operations.absoute_dir_name_dir",
+  declareIdent( dirops_absolute_dir_name_str_t, "directory_operations.absolute_dir_name_dir",
      string_t, subClass );
   declareIdent( dirops_dir_type_t, "directory_operations.dir_type_id",
      positive_t, typeClass );

@@ -788,10 +788,12 @@ begin
      content( e, "delete( f )","prepend( f, k, v )" );
      content( e, "flush( f )","raise_exceptions( f, b )" );
      content( e, "get( f, k, v )","remove( f, k )" );
-     content( e, "get_first( f, c, k, v )","replace( f, k, v )" );
+     content( e, "get_first( f, c, k, v )", "get_last( f, c, k, v )" );
+     content( e, "recover( f, p )", "replace( f, k, v )" );
      content( e, "get_last( f, c, k, v )","set( f, k, v )" );
      content( e, "get_next( f, c, k, v )","truncate( f )" );
      content( e, "recover( f, p )", "b := will_raise( f )" );
+     content( e, "s := name( f )" );
      seeAlso( e, "doc/pkg_btree_io.html" );
      endHelp( e );
    if HTMLoutput then
@@ -946,6 +948,7 @@ begin
      content( e, "get_last( f, c, k, v )","set( f, k, v )" );
      content( e, "get_next( f, c, k, v )","truncate( f )" );
      content( e, "recover( f, p )", "b := will_raise( f )" );
+     content( e, "s := name( f )" );
      seeAlso( e, "doc/pkg_hash_io.html" );
      endHelp( e );
    if HTMLoutput then
@@ -1475,7 +1478,7 @@ begin
      description( e, "A collection of common routines for web programming and cookies.  " &
          "Based on the ADACGI project.  See also gnat.cgi.");
      content( e, "n := argument_count", "m := cgi_method", "n := cookie_count" );
-     content( e, "s := cookie_value( c [, p] )", "h := html_encode( s )", "b := input_received" );
+     content( e, "s := cookie_value( c [, p][, b] )", "h := html_encode( s )", "b := input_received" );
      content( e, "b := is_index", "s := key( p )", "n := key_count( k )" );
      content( e, "b := key_exists( k, i )", "s := key_value( p )", "b := key_value_exists( k, s )" );
      content( e, "l := line( v, p )", "n := line_count( s )", "n := line_count_of_value( v )" );
@@ -1686,7 +1689,7 @@ begin
      createdOn( e, "v1.5");
      categoryPackage( e );
      description( e, "A collection of common routines using bi-directional lists." );
-     content( e, "append( l, e )","s := assemble( l [,d [,f]] )" );
+     content( e, "append( l, e [, n] )","s := assemble( l [,d [,f]] )" );
      content( e, "assign( l1, l2 )","clear( l )" );
      content( e, "b := contains( l, e )","delete( l, c [,n] )" );
      content( e, "delete_first( l [,n] )","delete_last( l [,n] )" );
@@ -1699,7 +1702,7 @@ begin
      content( e, "b := is_empty( l )" );
      content( e, "e := last_element( l )","n := length( l )" );
      content( e, "move( l1, l2 )","next( c )" );
-     content( e, "parcel( s, w, l )","prepend( l, e )","previous( c )" );
+     content( e, "parcel( s, w, l )","prepend( l, e [, n] )","previous( c )" );
      content( e, "replace_element( l, c, e )","reverse_elements( l )" );
      content( e, "reverse_find( l, e, c )" );
      content( e, "splice( l1, c, l2 [,c2] ) | ( l1, c, c2 )" );

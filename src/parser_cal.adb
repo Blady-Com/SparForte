@@ -80,15 +80,10 @@ procedure ParseCalClock( result : out storage; kind : out identifier ) is
 begin
   kind := cal_time_t;
   expect( cal_clock_t );
-  --if token = tagged_t then
-  --   ParseMetaTagSuffix( result.policyMetaTags );
-  --else
   result.unitMetaTag := noMetaTag;
   result.policyMetaTags := sparMetaTags;
-  --end if;
   result.value := to_unbounded_string( clock'img );
 end ParseCalClock;
-
 
 -----------------------------------------------------------------------------
 --  PARSE CAL YEAR
@@ -120,7 +115,6 @@ begin
   end if;
 end ParseCalYear;
 
-
 -----------------------------------------------------------------------------
 --  PARSE CAL MONTH
 --
@@ -150,7 +144,6 @@ begin
      end if;
   end if;
 end ParseCalMonth;
-
 
 -----------------------------------------------------------------------------
 --  PARSE CAL DAY
@@ -182,7 +175,6 @@ begin
   end if;
 end ParseCalDay;
 
-
 -----------------------------------------------------------------------------
 --  PARSE CAL SECONDS
 --
@@ -213,7 +205,6 @@ begin
      end if;
   end if;
 end ParseCalSeconds;
-
 
 -----------------------------------------------------------------------------
 --  PARSE CAL SPLIT
@@ -255,7 +246,6 @@ begin
      end if;
   end if;
 end ParseCalSplit;
-
 
 -----------------------------------------------------------------------------
 --  PARSE CAL TIME OF
@@ -304,7 +294,6 @@ begin
   end if;
 end ParseCalTimeOf;
 
-
 -----------------------------------------------------------------------------
 --  PARSE CAL TO JULIAN
 --
@@ -326,7 +315,7 @@ begin
          -- Communications of the ACM, October 1968
          Year   : year_number;
          Month  : month_number;
-         day    : day_number;
+         Day    : day_number;
          DayDur : day_duration;
          I      : long_float;
          J      : long_float;
@@ -359,7 +348,6 @@ begin
      end if;
   end if;
 end ParseCalToJulian;
-
 
 -----------------------------------------------------------------------------
 --  PARSE CAL TO TIME
@@ -414,7 +402,6 @@ begin
   end if;
 end ParseCalToTime;
 
-
 -----------------------------------------------------------------------------
 --  PARSE CAL DAY OF WEEK
 --
@@ -449,6 +436,9 @@ begin
   end if;
 end ParseCalDayOfWeek;
 
+
+-----------------------------------------------------------------------------
+-- Housekeeping
 -----------------------------------------------------------------------------
 
 procedure StartupCalendar is

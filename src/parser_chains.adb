@@ -25,6 +25,7 @@
 
 with
     ada.strings.unbounded,
+    gnat.source_info,
     world,
     symbol_table,
     message_strings,
@@ -58,13 +59,14 @@ chains_in_chain_t       : identifier;
 chains_chain_context_t  : identifier;
 chains_chain_count_t    : identifier;
 
-
-------------------------------------------------------------------------------
---  IN CHAIN
+-----------------------------------------------------------------------------
+--  PARSE IN CHAIN                                        (built-in function)
 --
--- Syntax: s := chains.in_chain
--- Ada:    N/A
-------------------------------------------------------------------------------
+-- AdaScript Syntax: s := chains.in_chain
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_chains#in_chain
+-----------------------------------------------------------------------------
 
 procedure ParseChainsInChain( result : out storage; kind : out identifier ) is
 begin
@@ -75,15 +77,17 @@ begin
   end if;
 end ParseChainsInChain;
 
-
-------------------------------------------------------------------------------
---  CHAIN CONTEXT
+-----------------------------------------------------------------------------
+--  PARSE CHAIN CONTEXT                                   (built-in function)
 --
--- Syntax: s := chains.chain_context
--- Ada:    N/A
-------------------------------------------------------------------------------
+-- AdaScript Syntax: s := chains.chain_context
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_chains#chain_context
+-----------------------------------------------------------------------------
 
 procedure ParseChainsChainContext( result : out storage; kind : out identifier ) is
+  subprogramId : identifier := chains_chain_context_t;
 begin
   kind := chain_context_t;
   expect( chains_chain_context_t );
@@ -94,34 +98,52 @@ begin
         case chain_context is
         when first =>
            result := storage'( to_unbounded_string( "0" ), noMetaTag, sparMetaTags );
+        when middle =>
+            result := storage'( to_unbounded_string( "1" ), noMetaTag, sparMetaTags );
         when last =>
            result := storage'( to_unbounded_string( "2" ), noMetaTag, sparMetaTags );
         when others =>
-           result := storage'( to_unbounded_string( "1" ), noMetaTag, sparMetaTags );
+          err( contextNotes => pl( "At " & gnat.source_info.source_location &
+                                   " while in " ) &
+                                   em( to_string( identifiers( subprogramId ).name ) ),
+               subjectNotes => subjectInterpreter,
+               reason => +"had an internal error because ",
+               obstructorNotes => em( "an unexpected chain context " & chain_context'img )
+             );
         end case;
      end if;
   end if;
 end ParseChainsChainContext;
 
-
-------------------------------------------------------------------------------
---  CHAIN COUNT
+-----------------------------------------------------------------------------
+--  PARSE CHAIN COUNT                                     (built-in function)
 --
--- Syntax: s := chains.chain_count
--- Ada:    N/A
-------------------------------------------------------------------------------
+-- AdaScript Syntax: s := chains.chain_count
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_chains#chain_context
+-----------------------------------------------------------------------------
 
 procedure ParseChainsChainCount( result : out storage; kind : out identifier ) is
   chain_count_id : identifier;
+  subprogramId : identifier := chains_chain_count_t;
 begin
   kind := positive_t;
-  expect( chains_chain_count_t );
+  result := storage'( to_unbounded_string( "0" ), noMetaTag, sparMetaTags );
+  expect( subprogramId );
   if isExecutingCommand then
      if in_chain = none then
-        err( +"not in a chain" );
+       err(
+            context=> subprogramId,
+            subjectNotes => subjectProgram,
+            reason => +"is not in a chain",
+            obstructorNotes => nullMessageStrings
+          );
      else
-        findIdent( chain_count_str, chain_count_id );
-        result := storage'( identifiers( chain_count_id ).store.value, noMetaTag, sparMetaTags );
+       findIdent( chain_count_str, chain_count_id );
+       if chain_count_id /= eof_t then -- this should never happen
+          result.value := identifiers( chain_count_id ).store.value;
+       end if;
      end if;
   end if;
 end ParseChainsChainCount;
@@ -143,7 +165,7 @@ begin
 
   declareFunction( chains_in_chain_t, "chains.in_chain", ParseChainsInChain'access );
   declareFunction( chains_chain_context_t, "chains.chain_context", ParseChainsChainContext'access );
-  declareFunction( chains_chain_count_t, "chains.chain_count",ParseChainsChainCount'access );
+  declareFunction( chains_chain_count_t, "chains.chain_count", ParseChainsChainCount'access );
   declareNamespaceClosed( "chains" );
 end StartupChains;
 

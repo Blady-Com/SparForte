@@ -108,7 +108,6 @@ begin
   end if;
 end ParseParsing_Errors;
 
-
 -----------------------------------------------------------------------------
 --  PARSE INPUT RECEIVED                                  (built-in function)
 --
@@ -129,7 +128,6 @@ begin
   end if;
 end ParseInput_Received;
 
-
 -----------------------------------------------------------------------------
 --  PARSE IS INDEX                                        (built-in function)
 --
@@ -149,7 +147,6 @@ begin
      result := storage'( to_spar_boolean( cgi.is_index ), noMetaTag, sparMetaTags );
   end if;
 end ParseIs_Index;
-
 
 -----------------------------------------------------------------------------
 --  PARSE CGI METHOD                                      (built-in function)
@@ -172,11 +169,10 @@ begin
   end if;
 end ParseCGI_Method;
 
-
 -----------------------------------------------------------------------------
 --  PARSE VALUE                                           (built-in function)
 --
--- AdaScript Syntax: s := cgi.value( v, i, b )
+-- AdaScript Syntax: s := cgi.value( k [, i][, b] )
 --       Ada Target: CGI.Value
 --   GNAT Spec File: adacgi-1.6/cgi.ads
 --   SparForte Docs: doc/pkg_cgi.html#cgi.value
@@ -213,7 +209,7 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) and metaTagOk( subprogramId, idxExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) and metaTagOK( subprogramId, idxExpr ) then
         begin
           result := storage'( cgi.Value( keyExpr.value,
             positive'value( to_string( idxExpr.value ) ),
@@ -226,7 +222,6 @@ begin
      end if;
   end if;
 end ParseValue;
-
 
 -----------------------------------------------------------------------------
 --  PARSE KEY EXISTS                                      (built-in function)
@@ -250,15 +245,13 @@ begin
   ParseLastNumericParameter( subprogramId, idxExpr, idxtype, positive_t );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) and metaTagOK( subprogramId, idxExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) and metaTagOK( subprogramId, idxExpr ) then
         result := storage'( to_spar_boolean(
              cgi.key_exists( keyExpr.value, positive'value( to_string( idxExpr.value ) ) )
            ), noMetaTag, sparMetaTags );
--- RESULT SHOULD BE NUMERIC BOOLEAN, NOT STRING.  UTIL FUNCTION FOR THIS?
      end if;
   end if;
 end ParseKey_Exists;
-
 
 -----------------------------------------------------------------------------
 --  PARSE KEY COUNT                                       (built-in function)
@@ -279,13 +272,12 @@ begin
   ParseSingleStringParameter( subprogramId, keyExpr, keyType );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) then
         result := storage'( to_unbounded_string( cgi.key_count( keyExpr.value )'img ),
            noMetaTag, sparMetaTags );
      end if;
   end if;
 end ParseKey_Count;
-
 
 -----------------------------------------------------------------------------
 --  CGI ARGUMENT COUNT                                    (built-in function)
@@ -306,7 +298,6 @@ begin
      result := storage'( to_unbounded_string( natural'image( cgi.Argument_Count )), noMetaTag, sparMetaTags );
   end if;
 end ParseCGIArgument_Count;
-
 
 -----------------------------------------------------------------------------
 --  PARSE KEY                                             (built-in function)
@@ -341,7 +332,6 @@ begin
   end if;
 end ParseKey;
 
-
 -----------------------------------------------------------------------------
 --  PARSE KEY VALUE                                       (built-in function)
 --
@@ -365,7 +355,7 @@ begin
   end if;
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, posExpr ) then
+     if metaTagOK( subprogramId, posExpr ) then
         begin
           result := storage'( cgi.value( positive( to_numeric( posExpr.value ) ) ), noMetaTag, sparMetaTags );
         exception when constraint_error =>
@@ -412,7 +402,7 @@ begin
   end if;
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) and metaTagOk( subprogramId, keyValueExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) and metaTagOK( subprogramId, keyValueExpr ) then
         result := storage'( to_spar_boolean( cgi.key_value_exists( keyExpr.value, keyValueExpr.value ) ),
           noMetaTag, sparMetaTags );
      end if;
@@ -451,7 +441,7 @@ begin
   end if;
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, identifiers( standard_output_t ).sstorage ) then
+     if metaTagOK( subprogramId, identifiers( standard_output_t ).sstorage ) then
         begin
           cgi.put_cgi_header( to_string( headerExpr.value ) );
         exception when others =>
@@ -460,7 +450,6 @@ begin
      end if;
   end if;
 end ParsePut_CGI_Header;
-
 
 -----------------------------------------------------------------------------
 --  PARSE PUT HTML HEAD                                  (built-in procedure)
@@ -497,8 +486,8 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, webPageTitleExpr ) and metaTagOk( subprogramId, mailToExpr ) and
-        metaTagOk( subprogramId, identifiers( standard_output_t ).sstorage ) then
+     if metaTagOK( subprogramId, webPageTitleExpr ) and metaTagOK( subprogramId, mailToExpr ) and
+        metaTagOK( subprogramId, identifiers( standard_output_t ).sstorage ) then
            begin
              cgi.put_HTML_head( to_string( webPageTitleExpr.value ), to_string( mailToExpr.value ) );
            exception when others =>
@@ -507,7 +496,6 @@ begin
      end if;
   end if;
 end ParsePut_HTML_Head;
-
 
 -----------------------------------------------------------------------------
 --  PARSE PUT HTML HEADING                               (built-in procedure)
@@ -538,8 +526,8 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, titleExpr ) and metaTagOk( subprogramId, levelExpr ) and
-        metaTagOk( subprogramId, identifiers( standard_output_t ).sstorage ) then
+     if metaTagOK( subprogramId, titleExpr ) and metaTagOK( subprogramId, levelExpr ) and
+        metaTagOK( subprogramId, identifiers( standard_output_t ).sstorage ) then
            begin
               cgi.put_HTML_heading( to_string( titleExpr.value ),
                  positive( to_numeric( levelExpr.value ) ) );
@@ -549,7 +537,6 @@ begin
      end if;
   end if;
 end ParsePut_HTML_Heading;
-
 
 -----------------------------------------------------------------------------
 --  PARSE PUT HTML TAIL                                  (built-in procedure)
@@ -566,7 +553,7 @@ begin
   expect( subprogramId );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, identifiers( standard_output_t ).sstorage ) then
+     if metaTagOK( subprogramId, identifiers( standard_output_t ).sstorage ) then
         begin
            cgi.put_HTML_tail;
         exception when others =>
@@ -576,14 +563,13 @@ begin
   end if;
 end ParsePut_HTML_Tail;
 
-
 -----------------------------------------------------------------------------
 --  PARSE PUT ERROR MESSAGE                              (built-in procedure)
 --
--- AdaScript Syntax: cgi.put_html_tail
+-- AdaScript Syntax: cgi.put_error_message
 --       Ada Target: CGI.Put_Error_Message
 --   GNAT Spec File: adacgi-1.6/cgi.ads
---   SparForte Docs: doc/pkg_cgi.html#cgi.put_html_tail
+--   SparForte Docs: doc/pkg_cgi.html#cgi.put_error_message
 -----------------------------------------------------------------------------
 
 procedure ParsePut_Error_Message is
@@ -600,7 +586,7 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, messageExpr ) and metaTagOk( subprogramId, identifiers( standard_output_t ).sstorage ) then
+     if metaTagOK( subprogramId, messageExpr ) and metaTagOK( subprogramId, identifiers( standard_output_t ).sstorage ) then
         begin
            cgi.put_error_message( to_string( messageExpr.value ) );
         exception when others =>
@@ -609,7 +595,6 @@ begin
      end if;
   end if;
 end ParsePut_Error_Message;
-
 
 -----------------------------------------------------------------------------
 --  PARSE PUT VARIABLES                                  (built-in procedure)
@@ -626,7 +611,7 @@ begin
   expect( subprogramId );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, identifiers( standard_output_t ).sstorage ) then
+     if metaTagOK( subprogramId, identifiers( standard_output_t ).sstorage ) then
         begin
            cgi.put_variables;
         exception when others =>
@@ -696,7 +681,7 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) then
         begin
            result := storage'( to_unbounded_string( cgi.line_count( to_string(keyExpr.value))'img),
               noMetaTag, keyExpr.policyMetaTags );
@@ -706,7 +691,6 @@ begin
      end if;
   end if;
 end ParseLine_Count;
-
 
 -----------------------------------------------------------------------------
 --  PARSE LINE COUNT OF VALUE                             (built-in function)
@@ -731,7 +715,7 @@ begin
   end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) then
         begin
            result := storage'( to_unbounded_string( cgi.line_count_of_value(
              to_string(keyExpr.value))'img), noMetaTag, keyExpr.policyMetaTags );
@@ -740,8 +724,7 @@ begin
         end;
      end if;
   end if;
-end ParseLine_Count_of_Value;
-
+end ParseLine_Count_Of_Value;
 
 -----------------------------------------------------------------------------
 --  PARSE CGI LINE                                        (built-in function)
@@ -773,7 +756,7 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOk( subprogramId, keyExpr ) and metaTagOk( subprogramId, posExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) and metaTagOK( subprogramId, posExpr ) then
         begin
            result := storage'( to_unbounded_string( cgi.line( to_string( keyExpr.value ),
               positive( to_numeric( posExpr.value ) ) ) ),
@@ -785,7 +768,6 @@ begin
      end if;
   end if;
 end ParseCGILine;
-
 
 -----------------------------------------------------------------------------
 --  PARSE VALUE OF LINE                                   (built-in function)
@@ -881,7 +863,6 @@ begin
   end if;
 end ParseURL_Decode;
 
-
 -----------------------------------------------------------------------------
 --  PARSE URL ENCODE                                      (built-in function)
 --
@@ -915,17 +896,18 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     begin
-        result := storage'( cgi.URL_Encode( dataExpr.value, boolExpr.value = identifiers( true_t
+    if metaTagOK( subprogramId, dataExpr ) then
+       begin
+         result := storage'( cgi.URL_Encode( dataExpr.value, boolExpr.value = identifiers( true_t
 ).store.value ),
-           noMetaTag,
-           resolveEffectiveMetaTags( kind, dataExpr, boolExpr ) );
-     exception when others =>
-        err_exception_raised;
-     end;
+            noMetaTag,
+            resolveEffectiveMetaTags( kind, dataExpr, boolExpr ) );
+      exception when others =>
+         err_exception_raised;
+      end;
+    end if;
   end if;
 end ParseURL_Encode;
-
 
 -----------------------------------------------------------------------------
 --  PARSE HTML ENCODE                                     (built-in function)
@@ -1049,11 +1031,10 @@ begin
   end if;
 end ParseSet_Cookie;
 
-
 -----------------------------------------------------------------------------
 --  PARSE COOKIE VALUE                                    (built-in function)
 --
--- AdaScript Syntax: s := cgi.cookie_value( c [, p] )
+-- AdaScript Syntax: s := cgi.cookie_value( c [, p] [, b] )
 --       Ada Target: CGI.Cookie_Value
 --   GNAT Spec File: adacgi-1.6/cgi.ads
 --   SparForte Docs: doc/pkg_cgi.html#cgi.cookie_value
@@ -1090,7 +1071,7 @@ begin
   expect( symbol_t, ")" );
 
   if isExecutingCommand then
-     if metaTagOK( subprogramId, keyExpr ) and metaTagOk( subprogramId, posExpr ) then
+     if metaTagOK( subprogramId, keyExpr ) and metaTagOK( subprogramId, posExpr ) then
         begin
            result := storage'( cgi.cookie_value( keyExpr.value,
               positive( to_numeric( posExpr.value ) ),
@@ -1103,7 +1084,6 @@ begin
      end if;
   end if;
 end ParseCookie_Value;
-
 
 -----------------------------------------------------------------------------
 --  PARSE COOKIE COUNT                                    (built-in function)

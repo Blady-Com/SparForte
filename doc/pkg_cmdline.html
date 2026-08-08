@@ -70,7 +70,7 @@ line option switches.</p>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return a command line argument (the same as $n where n is a number).  The arguments do not include option switches processed by SparForte.</p></td>
+<td><p>Return a command line argument (the same as shell $n where n is a number).  The arguments do not include option switches processed by SparForte.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">put_line( "First argument is " &amp; command_line.argument( 1 ) );</span></td>
@@ -103,7 +103,7 @@ line option switches.</p>
 <td><p>An exception is raised on a bad argument number.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#command_line.argument_count">command_line.argument_count</a><br><a href="#command_line.command_name">command_line.command_name</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Command_Line.Argument<br>PHP: argv</p></td>
@@ -140,7 +140,7 @@ line option switches.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#command_line.argument">command_line.argument</a><br><a href="#command_line.command_name">command_line.command_name</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Command_Line.Argument_Count</p></td>
@@ -151,7 +151,7 @@ line option switches.</p>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the path of the script or SparForte interpreter used to run the script (the same as $0).  For example, with "/bin/spar myscript.sp" this will be
+<td><p>Return the path of the script or SparForte interpreter used to run the script (the same as shell $0).  For example, with "/bin/spar myscript.sp" this will be
 "/bin/spar".  With "/usr/local/myscript.sp foo" this will be "/usr/local/myscript.sp".</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
@@ -178,7 +178,7 @@ line option switches.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#command_line.argument">command_line.argument</a><br><a href="#command_line.argument_count">command_line.argument_count</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Command_Line.Command_Name<br>PHP: argv[0]</p></td>
@@ -192,7 +192,7 @@ line option switches.</p>
 <td><p>Return the number of variables in the operating system environment.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">for i in 1..command_line.environment.environment_count loop <br>-- loop through all environment variables</span></td>
+<td><span class="code">for i in 1..command_line.environment.environment_count loop... <br>-- loop through all environment variables</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -215,10 +215,10 @@ line option switches.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#command_line.environment.environment_value">command_line.environment.environment_value</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>Ada: Ada.Command_Line.Environment.Environment_Count<br>PHP: argc</p></td>
+<td><p>Ada: Ada.Command_Line.Environment.Environment_Count</p></td>
 </tr>
 </table>
 
@@ -259,7 +259,7 @@ line option switches.</p>
 <td><p>An exception is raised on a bad environment value number.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#command_line.environment.environment_count">command_line.environment.environment_countargument_count</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Command_Line.Environment.Environment_Value<br>PHP: $_ENV / getenv</p></td>
@@ -270,7 +270,7 @@ line option switches.</p>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Set the status code to be returned by the script to the calling program.</p></td>
+<td><p>Set the status code to be returned by the script to the calling program.  A zero represents success and 1..255 represent error codes.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">command_line.set_exit_status( 0 ); -- success, no error</span></td>
@@ -288,7 +288,7 @@ line option switches.</p>
 <td><span>in</span></td>
 <td><span>short_short_integer</span></td>
 <td><span>required</span></td>
-<td><span>the status code to return (0 for no error)</span></td>
+<td><span>the status code to return</span></td>
 </tr>
 </table></td>
 </tr><tr>

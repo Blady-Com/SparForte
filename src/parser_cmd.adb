@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Strings Package Parser                                                   --
+-- Command Line Package Parser                                              --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ use ada.command_line,
     scanner.communications,
     parser;
 
-pragma warnings( off );               -- suppress GNAT interal package warning
+pragma warnings( off );               -- suppress GNAT internal package warning
 with  ada.command_line.environment;
 use   ada.command_line.environment;
 pragma warnings( on );
@@ -60,12 +60,14 @@ cmd_envcnt_t      : identifier;
 cmd_envval_t      : identifier;
 
 
-------------------------------------------------------------------------------
---  ARGUMENT
+-----------------------------------------------------------------------------
+--  PARSE ARGUMENT                                        (built-in function)
 --
--- Syntax: s := command_line.argument( p )
--- Ada: Command_Line.Argument
-------------------------------------------------------------------------------
+-- AdaScript Syntax: s := command_line.argument( p )
+--       Ada Target: Command_Line.Argument
+--   GNAT Spec File: a-comlin.ads
+--   SparForte Docs: doc/pkg_cmdline.html#command_line.argument
+-----------------------------------------------------------------------------
 
 procedure ParseArgument( result : out storage; kind : out identifier ) is
   expr  : storage;
@@ -98,13 +100,14 @@ begin
   end if;
 end ParseArgument;
 
-
-------------------------------------------------------------------------------
---  ARGUMENT COUNT
+-----------------------------------------------------------------------------
+--  PARSE ARGUMENT COUNT                                  (built-in function)
 --
--- Syntax: s := command_line.argument_count
--- Ada: Command_Line.Argument_Cont
-------------------------------------------------------------------------------
+-- AdaScript Syntax: s := command_line.argument_count
+--       Ada Target: Command_Line.Argument_Count
+--   GNAT Spec File: a-comlin.ads
+--   SparForte Docs: doc/pkg_cmdline.html#command_line.argument_count
+-----------------------------------------------------------------------------
 
 procedure ParseArgument_Count( result : out storage; kind : out identifier ) is
   subprogramId : constant identifier := cmd_argcount_t;
@@ -118,13 +121,14 @@ begin
   end if;
 end ParseArgument_Count;
 
-
-------------------------------------------------------------------------------
---  COMMAND NAME
+-----------------------------------------------------------------------------
+--  PARSE COMMAND NAME                                    (built-in function)
 --
--- Syntax: s := command_line.command_name
--- Ada: Command_Line.Command_Name
-------------------------------------------------------------------------------
+-- AdaScript Syntax: s := command_line.command_name
+--       Ada Target: Command_Line.Command_Name
+--   GNAT Spec File: a-comlin.ads
+--   SparForte Docs: doc/pkg_cmdline.html#command_line.command_name
+-----------------------------------------------------------------------------
 
 procedure ParseCommand_Name( result : out storage; kind : out identifier ) is
   subprogramId : constant identifier := cmd_commandname_t;
@@ -137,13 +141,14 @@ begin
   end if;
 end ParseCommand_Name;
 
-
-------------------------------------------------------------------------------
---  SET EXIT STATUS
+-----------------------------------------------------------------------------
+--  PARSE SET EXIT STATUS                                (built-in procedure)
 --
--- Syntax: s := command_line.set_exit_status( i )
--- Ada: Command_Line.Set_Exit_Status
-------------------------------------------------------------------------------
+-- AdaScript Syntax: command_line.set_exit_status( i )
+--       Ada Target: Command_Line.Set_Exit_Status
+--   GNAT Spec File: a-comlin.ads
+--   SparForte Docs: doc/pkg_cmdline.html#command_line.set_exit_status
+-----------------------------------------------------------------------------
 
 procedure ParseSetExitStatus is
   statusExpr  : storage;
@@ -173,13 +178,14 @@ begin
   end if;
 end ParseSetExitStatus;
 
-
-------------------------------------------------------------------------------
---  ENVIRONMENT COUNT
+-----------------------------------------------------------------------------
+--  PARSE ENVIRONMENT COUNT                               (built-in function)
 --
--- Syntax: s := command_line.environment_count
--- Ada: Command_Line.Environment_Count
-------------------------------------------------------------------------------
+-- AdaScript Syntax: command_line.environment_count
+--       Ada Target: Command_Line.Environment_Count
+--   GNAT Spec File: a-comlin.ads
+--   SparForte Docs: doc/pkg_cmdline.html#command_line.environment_count
+-----------------------------------------------------------------------------
 
 procedure ParseEnvironment_Count( result : out storage; kind : out identifier ) is
   subprogramId : constant identifier := cmd_envcnt_t;
@@ -193,13 +199,14 @@ begin
   end if;
 end ParseEnvironment_Count;
 
-
-------------------------------------------------------------------------------
---  ENVIRONMENT VALUE
+-----------------------------------------------------------------------------
+--  PARSE ENVIRONMENT VALUE                               (built-in function)
 --
--- Syntax: s := command_line.environment_value( p )
--- Ada: Command_Line.Environment_Value
-------------------------------------------------------------------------------
+-- AdaScript Syntax: command_line.environment_value( p )
+--       Ada Target: Command_Line.Environment_Value
+--   GNAT Spec File: a-comlin.ads
+--   SparForte Docs: doc/pkg_cmdline.html#command_line.environment_value
+-----------------------------------------------------------------------------
 
 procedure ParseEnvironment_Value( result : out storage; kind : out identifier ) is
   expr  : storage;
@@ -220,11 +227,19 @@ begin
      begin
         result := storage'( to_unbounded_string( Environment_Value( integer'value(
            to_string( expr.value ) ) ) ), noMetaTag, sparMetaTags );
-     exception when others =>
-        err_exception_raised;
+     exception when constraint_error =>
+       err( context => subprogramId,
+            subjectNotes => pl( "position " ) & em_value( trim( expr.value, both ) ),
+            reason => +"is not in range",
+            obstructorNotes => pl( "1 .." ) & pl( integer'image( Environment_Count ) ),
+            seeAlso => + "doc/pkg_cmdline.html"
+          );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseEnvironment_Value;
+
 
 ------------------------------------------------------------------------------
 -- Housekeeping

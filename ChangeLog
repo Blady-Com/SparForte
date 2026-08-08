@@ -34,7 +34,7 @@ CHANGES SINCE 3.0
 
 13. Fix: no bug report is displayed if a forked process fails (e.g. bad bang path).
 
-14. Fix: Sturges formula, reverse of ln2/ln10 constants fixed in parser_numerics.  Fixed documentation for shannon_entropy_of and modulus.
+14. Fix: Sturges formula, reverse of ln2/ln10 constants fixed in parser_numerics.
 
 15. Change: added GNU readline version 9 detection to configure script.
 
@@ -52,11 +52,28 @@ CHANGES SINCE 3.0
 
 22. Fix: in the unusual case of a SparForte message with a 1-character string, it should capitalize without an exception (though there are currently no strings this short).
 
-23. Fix: general documentation review and cleanup of spelling and grammar.
+23. Fix: documentation review and cleanup of spelling, grammar, structure.  Package documentation cross-referenced with source code.
 
 24. Fix: perl_match tests moved to third-party tests.
 
-25. Fix: buildDate reference fixed in pegasoft-userio package.
+25. New: Ubuntu 26.04 support [PCRE2 not complete].
 
-26. New: Ubuntu 26.04 support [PCRE2 not complete].
+26. Fix: arrays.shuffle modified slightly to better fit classic Fisher-Yates method.
+
+27. Fix: The btree_io package has some error messages corrected.
+
+28. Fix: More thorough exception handling on btree_io/hash_io open and create.
+
+29. Fix: Missing meta tag check on URL encode.
+
+30. Fix: command_line.environment.environment_value has a better error message when the position is out-of-range.
+
+31. Fix: The btree_io and hash_io support path separators besides UNIX "/".
+
+32. Fix: Spelling of directory_operations.absolute_dir_name_dir corrected.
+
+33. Fix: Fixed swapped parameters for doubly_linked_lists.assign and move.
+
+34. Change: doubly_linked_lists.assemble/disassemble now use O/S-specific EOL characters rather than an ASCII.LF.
+
 

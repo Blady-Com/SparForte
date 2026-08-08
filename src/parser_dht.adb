@@ -51,12 +51,9 @@ use
 package body parser_dht is
 
 ------------------------------------------------------------------------------
--- Dynmaic Hash Tables package identifiers
+-- Dynamic Hash Tables package identifiers
 ------------------------------------------------------------------------------
 
---dht_table_t         : identifier;
-
---dht_new_table_t     : identifier;
 dht_set_t           : identifier;
 dht_reset_t         : identifier;
 dht_get_t           : identifier;
@@ -72,9 +69,6 @@ dht_replace_t       : identifier;
 dht_increment_t     : identifier;
 dht_decrement_t     : identifier;
 
---dht_assemble_t      : identifier;
---dht_disassemble_t   : identifier;
-
 
 ------------------------------------------------------------------------------
 -- Parser subprograms
@@ -82,11 +76,14 @@ dht_decrement_t     : identifier;
 
 
 -----------------------------------------------------------------------------
---  RESET
+--  PARSE DHT RESET                                      (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.reset( t );
--- Source: dynamic_hash_tables.reset( t );
--- Delete all keys and associated values in the hash table..
+-- AdaScript Syntax: dynamic_hash_tables.reset( t );
+--       Ada Target: GNAT.Dynamic_HTables.reset( t );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.reset
+--
+-- Resets the hash table by releasing all memory associated with it.
 -----------------------------------------------------------------------------
 
 procedure ParseDHTReset is
@@ -103,15 +100,20 @@ begin
        Dynamic_Storage_Hash_Tables.Reset( theTable.dsht );
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTReset;
 
 -----------------------------------------------------------------------------
---  SET
+--  PARSE DHT SET                                        (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.set( t, s, e );
--- Source: dynamic_hash_tables.set( t, s, e );
+-- AdaScript Syntax: dynamic_hash_tables.set( t, s, e );
+--       Ada Target: GNAT.Dynamic_HTables.set( t, s, e );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.set
+--
 -- Assign the value v to the key k in the hash table. If the key does not
 -- exist, create it.
 -----------------------------------------------------------------------------
@@ -134,7 +136,8 @@ begin
      getParameterValue( tableRef, tableResId );
      begin
        findResource( to_resource_id( tableResId.value ), theTable );
-       -- the key, value and existing value must all be checked.
+       -- the meta tags for the key, value and existing value (oldElem) must
+       -- all be checked before set can store a new value.
        oldElem := Dynamic_Storage_Hash_Tables.Get( theTable.dsht, keyExpr );
        if oldElem /= nullStorage then
           if metaTagOK( dht_set_t, oldElem ) and
@@ -152,15 +155,20 @@ begin
        end if;
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTSet;
 
 -----------------------------------------------------------------------------
---  GET
+--  PARSE DHT GET                                         (built-in function)
 --
--- Syntax: e := doubly_linked_list.get( t, s );
--- Source: e := doubly_linked_list.get( t, s );
+-- AdaScript Syntax: e := dynamic_hash_tables.get( t, s );
+--       Ada Target: e := GNAT.Dynamic_HTables.get( t, s );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.get
+--
 -- Get the value under key k in the hash table.
 -----------------------------------------------------------------------------
 
@@ -184,15 +192,20 @@ begin
        if metaTagOk( dht_get_t, oldElem ) then
           result := oldElem;
        end if;
-     end;
+     exception when others =>
+       err_exception_raised;
+    end;
   end if;
 end ParseDHTGet;
 
 -----------------------------------------------------------------------------
---  HAS ELEMENT
+--  PARSE DHT HAS ELEMENT                                 (built-in function)
 --
--- Syntax: e := dynamic_hash_tables.has_element( t, s );
--- Source: N/A
+-- AdaScript Syntax: b := dynamic_hash_tables.has_element( t, k );
+--       Ada Target: b := GNAT.Dynamic_HTables.Has_Element( t, k );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.has_element
+--
 -- Return true if key k is in the hash table.
 -----------------------------------------------------------------------------
 
@@ -212,15 +225,22 @@ begin
      begin
        findResource( to_resource_id( tableResId.value ), theTable );
        result := storage'( to_spar_boolean( Dynamic_Storage_Hash_Tables.Get( theTable.dsht, keyExpr ) /= nullStorage ), noMetaTag, noMetaTags );
+     exception when storage_error =>
+       err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTHasElement;
 
 -----------------------------------------------------------------------------
---  REMOVE
+--  PARSE DHT REMOVE                                     (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.remove( t, s );
--- Source: dynamic_hash_tables.remove( t, s );
+-- AdaScript Syntax: dynamic_hash_tables.remove( t, k );
+--       Ada Target: b := GNAT.Dynamic_HTables.Remove( t, k );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.remove
+--
 -- Delete a key and the associated value from the hash table.
 -----------------------------------------------------------------------------
 
@@ -245,15 +265,20 @@ begin
        end if;
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTRemove;
 
 -----------------------------------------------------------------------------
---  GET FIRST
+--  PARSE DHT GET FIRST                                  (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.get_first( t, e, eof );
--- Source: e := dynamic_hash_tables.get_first( t );
+-- AdaScript Syntax: dynamic_hash_tables.get_first( t, v, f );
+--       Ada Target: v := GNAT.Dynamic_HTables.get_first( t );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.get_first
+--
 -- Iterate through the hash table. Return the first value in the table. Order
 -- of the values is not predictable.
 -----------------------------------------------------------------------------
@@ -282,15 +307,20 @@ begin
           AssignParameter( itemRef, s );
        end if;
        AssignParameter( eofRef, storage'( to_spar_boolean( s = nullStorage ), noMetaTag, noMetaTags ) );
+     exception when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTGetFirst;
 
 -----------------------------------------------------------------------------
---  GET NEXT
+--  PARSE DHT GET NEXT                                   (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.get_next( t, e, eof );
--- Source: e := dynamic_hash_tables.get_next( t );
+-- AdaScript Syntax: dynamic_hash_tables.get_next( t, v, f );
+--       Ada Target: v := GNAT.Dynamic_HTables.get_next( t );
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.get_next
+--
 -- Iterate through the hash table. Return the next value in the table. Order
 -- of the values is not predictable. Use get_first to start iterating. If
 -- iteration breaks if the table is altered.
@@ -320,15 +350,20 @@ begin
           AssignParameter( itemRef, s );
        end if;
        AssignParameter( eofRef, storage'( to_spar_boolean( s = nullStorage ), noMetaTag, noMetaTags ) );
-     end;
+    exception when others =>
+       err_exception_raised;
+    end;
   end if;
 end ParseDHTGetNext;
 
 -----------------------------------------------------------------------------
---  ADD
+--  PARSE DHT ADD                                        (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.add( t, s, e );
--- Source: N/A
+-- AdaScript Syntax: dynamic_hash_tables.add( t, k, v )
+--       Ada Target: N/A
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.add
+--
 -- Put value v under key k in the hash table. If the key already exists, do
 -- nothing.
 -----------------------------------------------------------------------------
@@ -359,15 +394,20 @@ begin
        end if;
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTAdd;
 
 -----------------------------------------------------------------------------
---  REPLACE
+--  PARSE DHT REPLACE                                    (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.replace( t, s, e );
--- Source: N/A
+-- AdaScript Syntax: dynamic_hash_tables.replace( t, k, v )
+--       Ada Target: N/A
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.replace
+--
 -- Replace the value v under key k in the hash table. If the key does not
 -- exist, do nothing.
 -----------------------------------------------------------------------------
@@ -399,15 +439,20 @@ begin
        end if;
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTReplace;
 
 -----------------------------------------------------------------------------
---  APPEND
+--  PARSE DHT APPEND                                     (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.append( t, s, e );
--- Source: N/A
+-- AdaScript Syntax: dynamic_hash_tables.append( t, k, v )
+--       Ada Target: N/A
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.append
+--
 -- Append string value v to the value under key k in the hash table. If the key
 -- does not exist, do nothing.
 -----------------------------------------------------------------------------
@@ -443,15 +488,20 @@ begin
        end if;
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTAppend;
 
 -----------------------------------------------------------------------------
---  PREPEND
+--  PARSE DHT PREPEND                                    (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.prepend( t, s, e );
--- Source:    N/A
+-- AdaScript Syntax: dynamic_hash_tables.prepend( t, k, v )
+--       Ada Target: N/A
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.prepend
+--
 -- Prepend string value v to the value under key k in the hash table. If the
 -- key does not exist, do nothing.
 -----------------------------------------------------------------------------
@@ -487,15 +537,20 @@ begin
        end if;
      exception when storage_error =>
        err( +"storage error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTPrepend;
 
 -----------------------------------------------------------------------------
---  INCREMENT
+--  PARSE DHT INCREMENT                                  (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.increment( t, s [,n] );
--- Source: N/A
+-- AdaScript Syntax: dynamic_hash_tables.increment( t, k [,n] )
+--       Ada Target: N/A
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.increment
+--
 -- Increase the numeric value under key k in the hash table by one (or n). If
 -- the key does not exist, do nothing.
 -----------------------------------------------------------------------------
@@ -551,15 +606,20 @@ begin
        err( +"storage error raised" );
      when constraint_error =>
        err( +"constraint error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTIncrement;
 
 -----------------------------------------------------------------------------
---  DECREMENT
+--  PARSE DHT DECREMENT                                  (built-in procedure)
 --
--- Syntax: dynamic_hash_tables.decrement( t, s [,n] );
--- Ada:    N/A
+-- AdaScript Syntax: dynamic_hash_tables.decrement( t, k [,n] )
+--       Ada Target: N/A
+--   GNAT Spec File: g-dynhta.ads
+--   SparForte Docs: doc/pkg_dht.html#dynamic_hash_tables.decrement
+--
 -- Reduce the numeric value under key k in the hash table by one (or n). If the
 -- key does not exist, do nothing.
 -----------------------------------------------------------------------------
@@ -613,11 +673,17 @@ begin
        err( +"storage error raised" );
      when constraint_error =>
        err( +"constraint error raised" );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseDHTDecrement;
 
 
+-----------------------------------------------------------------------------
+--
+-- HOUSEKEEPING
+--
 -----------------------------------------------------------------------------
 
 procedure StartupDHT is
@@ -642,9 +708,6 @@ begin
   declareProcedure( dht_prepend_t, "dynamic_hash_tables.prepend", ParseDHTPrepend'access );
   declareProcedure( dht_increment_t, "dynamic_hash_tables.increment", ParseDHTIncrement'access );
   declareProcedure( dht_decrement_t, "dynamic_hash_tables.decrement", ParseDHTDecrement'access );
-
-  --declareProcedure( dht_assemble_t, "dynamic_hash_tables.", 'access );
-  --declareProcedure( dht_disassemble_t, "dynamic_hash_tables.", 'access );
 
   declareNamespaceClosed( "dynamic_hash_tables" );
 

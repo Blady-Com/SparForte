@@ -26,7 +26,9 @@ use  symbol_table;
 
 package body parser_containers is
 
--- There are no AdaScript procedures or functions in this package
+  -- There are no AdaScript procedures or functions in this package.
+  -- Ada.Containers only defines Hash_Type, Count_Type and Capacity_Error.
+  -- GNAT Spec File: a-contai.ads
 
 -----------------------------------------------------------------------------
 -- Housekeeping
@@ -35,7 +37,12 @@ package body parser_containers is
 procedure StartupContainers is
 begin
   declareNamespace( "containers" );
-  -- These two are actually mod types but we don't support that yet
+  -- These two are actually mod types rather than natural.  However,
+  -- SparForte mod types require contracts and I have not implemented
+  -- contracts for built-in types.
+  --
+  -- These are provided in AdaScript for compatibility with Ada.  These
+  -- AdaScript versions may not be used.
   declareIdent( containers_count_type_t, "containers.count_type", natural_t, typeClass );
   declareIdent( containers_hash_type_t, "containers.hash_type", natural_t, typeClass );
   declareNamespaceClosed( "containers" );

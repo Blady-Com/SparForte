@@ -60,7 +60,7 @@ array and reordering the components in the array.</p>
   <a href="#arrays.shuffle">shuffle( a )</a>             <a href="#arrays.flip">flip( a )</a>
   <a href="#arrays.shift_left">shift_left( a )</a>          <a href="#arrays.shift_right">shift_right( a )</a>
   <a href="#arrays.rotate_left">rotate_left( a )</a>         <a href="#arrays.rotate_right">rotate_right( a )</a>
-  <a href="#arrays.to_array">to_array( s, a )</a>         <a href="#arrays.to_json">to_json( s, a )</a>
+  <a href="#arrays.to_array">to_array( a, s )</a>         <a href="#arrays.to_json">to_json( s, a )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
@@ -100,6 +100,9 @@ depending on the component type.</p>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>The array components must have assigned values<br>
+The array must not be too large<br>
+The array element types must be sortable (string, numeric or enumerated)<br>
+The system does not run out of memory<br>
 The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
@@ -140,6 +143,9 @@ The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>The array components must have assigned values<br>
+The array must not be too large<br>
+The array element types must be sortable (string, numeric or enumerated)<br>
+The system does not run out of memory<br>
 The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
@@ -226,7 +232,10 @@ strings or numbers depending on the component type.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>The components must have assigned values<br>
+<td><p>The array components must have assigned values<br>
+The array must not be too large<br>
+The array element types must be sortable (string, numeric or enumerated)<br>
+The system does not run out of memory<br>
 The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
@@ -268,6 +277,9 @@ strings or numbers depending on the component type.</p>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>The array components must have assigned values<br>
+The array must not be too large<br>
+The array element types must be sortable (string, numeric or enumerated)<br>
+The system does not run out of memory<br>
 The components must be writable</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
@@ -328,7 +340,8 @@ The components must be writable</p></td>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the number of components in the array (last index - first index + 1).</p>
+<td><p>Return the number of components in the array (last index - first index + 1).
+Return 0 if the array is a null array.</p>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">n := arrays.length( sales_array );</span></td>

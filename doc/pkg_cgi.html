@@ -50,7 +50,7 @@ It provides form processing, string encoding, and cookie operations.</p>
         <div class="code">
 <pre>
   <a href="#cgi.argument_count">n := argument_count</a>            <a href="#cgi.cgi_method">m := cgi_method</a>           <a href="#cgi.cookie_count">n := cookie_count</a>
-  <a href="#cgi.cookie_value">s := cookie_value( c [, p] )</a>   <a href="#cgi.html_encode">h := html_encode( s )</a>     <a href="#cgi.input_received">b := input_received</a>
+  <a href="#cgi.cookie_value">s := cookie_value( c [, p][, b] )</a>   <a href="#cgi.html_encode">h := html_encode( s )</a>     <a href="#cgi.input_received">b := input_received</a>
   <a href="#cgi.is_index">b := is_index</a>                  <a href="#cgi.key">s := key( p )</a>             <a href="#cgi.key_count">n := key_count( k )</a>
   <a href="#cgi.key_exists">b := key_exists( k, i )</a>        <a href="#cgi.key_value">s := key_value( p )</a>       <a href="#cgi.key_value_exists">b := key_value_exists( k, s )</a>
   <a href="#cgi.line">l := line( v, p )</a>              <a href="#cgi.line_count">n := line_count( s )</a>      <a href="#cgi.line_count_of_value">n := line_count_of_value( v )</a>
@@ -174,7 +174,7 @@ you would with any other package declaration.</p>
 same name.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">-</span></td>
+<td><span class="code">cnt := cgi.argument_count;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -197,7 +197,7 @@ same name.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.key">cgi.key</a><br><a href="#cgi.key_count">cgi.key_count</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Argument_Count</p></td>
@@ -212,7 +212,7 @@ same name.</p></td>
 script (cgi.get, cgi.post or cgi.unknown).</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">-</span></td>
+<td><span class="code">method := cgi.cgi_method;</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -265,7 +265,7 @@ script (cgi.get, cgi.post or cgi.unknown).</p></td>
 </tr>
 </table>
 
-<a id="cgi.cookie_value"></a><h3>s := cgi.cookie_value( c [, p] )</h3>
+<a id="cgi.cookie_value"></a><h3>s := cgi.cookie_value( c [, p][, b] )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
@@ -302,6 +302,13 @@ script (cgi.get, cgi.post or cgi.unknown).</p></td>
 <td><span>positive</span></td>
 <td><span>1</span></td>
 <td><span>the instance of the cookie name</span></td>
+</tr>
+<tr>
+<td><span>b</span></td>
+<td><span>in</span></td>
+<td><span>boolean</span></td>
+<td><span>false</span></td>
+<td><span>raise an exception if missing variable</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -354,7 +361,7 @@ becomes '&amp;gt;').</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.url_encode">cgi.url_encode</a><br><a href="#cgi.url_decode">cgi.url_decode</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.HTML_Encode</p></td>
@@ -568,7 +575,7 @@ with the given name.</p></td>
 <tr>
 <td><span>i</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span>positive</span></td>
 <td><span>required</span></td>
 <td><span>which variable</span></td>
 </tr>
@@ -578,7 +585,7 @@ with the given name.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.value">cgi.value</a><br><a href="#cgi.key_count">cgi.key_count</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Key_Exists</p></td>
@@ -761,7 +768,7 @@ with the given name.</p></td>
 <td><p>A bad line number raises an exception.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.line_count">cgi.line_count</a><br><a href="#cgi.value_of_line">cgi.value_of_line</a><br><a href="#cgi.line_count_of_value">cgi.line_count_of_value</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Line</p></td>
@@ -805,7 +812,7 @@ with the given name.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.line">cgi.line</a><br><a href="#cgi.value_of_line">cgi.value_of_line</a><br><a href="#cgi.line_count_of_value">cgi.line_count_of_value</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Line_Count</p></td>
@@ -819,7 +826,7 @@ with the given name.</p></td>
 <td><p>Return the number of lines in the value of key v, or 0 when the variable is empty.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">-</span></td>
+<td><span class="code">numlines := cgi.line_count_of_value( customer_address );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -850,6 +857,7 @@ with the given name.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
+<td><p><a href="#cgi.line">cgi.line</a><br><a href="cgi.line_count">cgi.line_count</a><br><a href="#cgi.value_of_line">cgi.value_of_line</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Line_Count_Of_Value</p></td>
@@ -937,7 +945,7 @@ with the given name.</p></td>
 <td><p>Write a short HTML document containing an error message. Use cgi.put_cgi_header before calling this function.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">-</span></td>
+<td><span class="code">cgi.put_error_message( "Operation failed!" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -975,7 +983,7 @@ with the given name.</p></td>
 optional mailto link to the page author.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">-</span></td>
+<td><span class="code">cgi_put_html_head( "page title", "support@myorg.org" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -1005,7 +1013,7 @@ optional mailto link to the page author.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.put_html_tail">cgi.put_html_tail</a><br><a href="#cgi.put_cgi_header">cgi.put_cgi_header</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Put_HTML_Head</p></td>
@@ -1072,7 +1080,7 @@ optional mailto link to the page author.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.put_html_head">cgi.put_html_head</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Put_HTML_Tail</p></td>
@@ -1267,7 +1275,7 @@ characters.  If b is true, translate spaces to plus signs.</p></td>
 <td><span>b</span></td>
 <td><span>in</span></td>
 <td><span>boolean</span></td>
-<td><span>true</span></td>
+<td><span>false</span></td>
 <td><span>translate plus signs to spaces if true</span></td>
 </tr>
 </table></td>
@@ -1351,7 +1359,7 @@ is no variable if b is true.</p></td>
 <td><p>Return the p-th line of the value of CGI variable v.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">second_line := cgi.line( "address", 2 );</span></td>
+<td><span class="code">second_line := cgi.value_of_line( "address", 2 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -1388,7 +1396,7 @@ is no variable if b is true.</p></td>
 <td><p>A bad line number raises an exception.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#cgi.line">cgi.line</a><br><a href="cgi.line_count">cgi.line_count</a><br><a href="#cgi.line_count_of_value">cgi.line_count_of_value</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: CGI.Value_Of_Line</p></td>

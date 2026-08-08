@@ -210,12 +210,12 @@ slash or back slash).</li>
 <td><p>An error occurs if the directory does not exist or is not accessible.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.get_current_dir">p := get_current_dir</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.Change_Dir<br>PHP:chdir</p></td>
 </tr><tr>
-<td><p class="pkg_label">Compare With</p></td>
+<td><p class="pkg_label">Implementation Note</p></td>
 <td><p>As of SparForte 3.0, the PWD and OLDPWD variables are updated
 to prevent corruption when mixing cd and Change_Dir.  Ada's version does
 not affect the PWD and OLDPWD variables.</p></td>
@@ -338,7 +338,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.format_pathname">directory_operations.format_pathname</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.Dir_Separator<br>PHP: DIRECTORY_SEPARATOR</p></td>
@@ -372,7 +372,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <tr>
 <td><span>t</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span>directory_operations.environment_style</span></td>
 <td><span>environment_style.system_default</span></td>
 <td><span>the style of operating system substitutions </span></td>
 </tr>
@@ -389,7 +389,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.format_pathname">directory_operations.format_pathname</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.Expand_Path</p></td>
@@ -433,7 +433,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.base_name">directory_operations.base_name</a><br><a href="#directory_operations.file_name">directory_operations.file_name</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.File_Extension<br>PHP: pathinfo</p></td>
@@ -477,7 +477,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.file_extension">directory_operations.file_extension</a><br><a href="#directory_operations.file_name">directory_operations.file_name</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.File_Name<br>PHP: pathinfo</p></td>
@@ -511,7 +511,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <tr>
 <td><span>t</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span>directory_operations.path_style</span></td>
 <td><span>path_style.system_default</span></td>
 <td><span>the operating system to convert to</span></td>
 </tr>
@@ -528,7 +528,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.expand_path">directory_operations.expand_path</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.Format_Pathname<br>PHP: realpath</p></td>
@@ -645,7 +645,7 @@ that is not case-sensitive (such as Windows), the path is not case-sensitive.</p
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.open">directory_operations.open</a><br><a href="#directory_operations.close">directory_operations.close</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.Is_Open</p></td>
@@ -705,7 +705,8 @@ with the first entry.</p></td>
 <td width="15%">&nbsp;</td>
 <td><p>Read the next entry from the directory and return the name
 as s.  This list will contain the "." and ".." directory entries.  If s is empty,
-then the end of the directory has been reached.</p></td>
+then the end of the directory has been reached.  Directory names longer than the
+maximum length for this procedure will be truncated.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">directory_operations.read( dir, filename );</span></td>
@@ -740,7 +741,7 @@ then the end of the directory has been reached.</p></td>
 <td><p>The directory entry is limited to 1024 characters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#directory_operations.open">directory_operations.open</a><br><a href="#directory_operations.close">directory_operations.close</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.Directory_Operations.Read</p></td>

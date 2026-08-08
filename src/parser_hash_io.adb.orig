@@ -185,29 +185,41 @@ end isVerifiedOpenFile;
 --
 -- Berkeley puts the files in the current directory, though you can
 -- move the env because it is shared.  To put the project in a specific
--- directory, you have you configure it.  A sophisiticated setup would
+-- directory, you have you configure it.  A sophisticated setup would
 -- place all of these in different directories.
 --
 -- For our purposes (simple files), keep everything in one directory
 -----------------------------------------------------------------------------
 
-procedure configureBDBEnv( env : in out bdb.berkeley_environment; dirname : string ) is
+procedure configureBDBEnv( subId : identifier; env : in out bdb.berkeley_environment; dirname : string ) is
 begin
    if dirname'length > 0 then
       begin
          set_data_dir( env, dirname );
       exception when msg: berkeley_error =>
-         err( pl( exception_message( msg ) & " on setting the data directory" ) );
+        err( context => subId,
+             subjectNotes => pl("the hash package" ),
+             reason => +"failed to assign the BDB data directory because",
+             obstructorNotes => pl( exception_message( msg ) )
+           );
       end;
       begin
          set_tmp_dir( env, dirname );
       exception when msg: berkeley_error =>
-         err( pl( exception_message( msg ) & " on setting the temp directory") );
+        err( context => subId,
+             subjectNotes => pl("the hash package" ),
+             reason => +"failed to assign the BDB temp directory because",
+             obstructorNotes => pl( exception_message( msg ) )
+           );
       end;
       begin
          set_lg_dir( env, dirname );
       exception when msg: berkeley_error =>
-         err( pl( exception_message( msg ) & " on setting the logging directory" ) );
+        err( context => subId,
+             subjectNotes => pl("the hash package" ),
+             reason => +"failed to assign the BDB logging directory because",
+             obstructorNotes => pl( exception_message( msg ) )
+           );
       end;
       begin
          if verboseOpt then
@@ -217,7 +229,11 @@ begin
             set_verbose( env, DB_VERB_WAITSFOR, 1 );
          end if;
       exception when msg: berkeley_error =>
-         err( pl( exception_message( msg ) & " on changing verbose setting" ) );
+        err( context => subId,
+             subjectNotes => pl("the hash package" ),
+             reason => +"failed to change the BDB verbose because",
+             obstructorNotes => pl( exception_message( msg ) )
+           );
       end;
    end if;
 end configureBDBEnv;
@@ -263,8 +279,8 @@ begin
      begin
        -- close the file / environment, if they are still open.  This doesn't
        -- close any cursors.
-       getParameterValue( fileRef, fileResid );
-       findResource( to_resource_id( fileResid.value ), theFile );
+       getParameterValue( fileRef, fileResId );
+       findResource( to_resource_id( fileResId.value ), theFile );
        if theFile.hash.isOpen then
           Close( theFile.hash.session );
           Close( theFile.hash.env );
@@ -311,12 +327,12 @@ begin
         dirname2 : unbounded_string;
         pwdId : identifier;
      begin
-        getParameterValue( fileRef, fileResid );
+        getParameterValue( fileRef, fileResId );
         findResource( to_resource_id( fileResId.value ), theFile );
         init( theFile.hash.env );
 
         -- berkeley db paths must be absolute paths when creating (opening
-        -- an exisiting data file is OK for relative paths)
+        -- an existing data file is OK for relative paths)
 
         dirname2 := to_unbounded_string( dirname );
         if dirname = "." then
@@ -329,7 +345,7 @@ begin
            put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
         end if;
 
-        configureBDBEnv( theFile.hash.env, to_string( dirname2 ) );
+        configureBDBEnv( hash_recover_t, theFile.hash.env, to_string( dirname2 ) );
 
         -- To recover, open a new environment in recovery mode.  Transactions
         -- must be enabled.  This will recreate the environment files.
@@ -360,7 +376,7 @@ procedure ParseHashRecover renames not_configured;
 procedure ParseHashCreate is
   -- Syntax: hash.create( f, path, keyLen, valLen );
   -- Ada:    hash.create( f, path, keyLen, valLen );
-  -- this is impacted by --verbse
+  -- this is impacted by --verbose
   fileRef    : reference;
   theFile    : resPtr;
   fileResId : storage;
@@ -403,7 +419,7 @@ begin
         pwdId : identifier;
      begin
         getParameterValue( fileRef, fileResId );
-        findResource( to_resource_id( fileResid.value ), theFile );
+        findResource( to_resource_id( fileResId.value ), theFile );
 
         init( theFile.hash.env );
 
@@ -421,7 +437,7 @@ begin
            put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
         end if;
 
-        configureBDBEnv( theFile.hash.env, to_string( dirname2 ) );
+        configureBDBEnv( hash_create_t, theFile.hash.env, to_string( dirname2 ) );
 
         -- Create an environment
 
@@ -440,21 +456,27 @@ begin
                    DB_E_OPEN_INIT_MPOOL,
                    0 );
               theFile.hash.envhome := dirname2;
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on creating the environment" ) );
-              end;
+           exception when msg: berkeley_error =>
+              err( pl( exception_message( msg ) & " on creating the environment" ) );
+           end;
 
            -- Create the file
-           new_berkeley_session(
-              theFile.hash.session,
-              theFile.hash.env,
-              keyLen,
-              valLen );
-           begin
-              create( theFile.hash.session, filename, "", DB_HASH, 0, 0 );
-           exception when msg: berkeley_error =>
-              err( pl( exception_message( msg ) & " on creating the data file" ) );
-           end;
+           if not error_found then
+              begin
+                 new_berkeley_session(
+                    theFile.hash.session,
+                    theFile.hash.env,
+                    keyLen,
+                    valLen );
+                 create( theFile.hash.session, filename, "", DB_HASH, 0, 0 );
+              exception when storage_error =>
+                 err( pl( "out of memory" ) );
+              when msg: berkeley_error =>
+                 err( pl( exception_message( msg ) & " on creating the data file" ) );
+              when others =>
+                 err_exception_raised;
+              end;
+           end if;
 
            -- Do not truncate if create failed
 
@@ -487,8 +509,8 @@ procedure ParseHashCreate renames not_configured;
 #if BDB
 
 procedure ParseHashClose is
-  -- Syntax: hash.create( f );
-  -- Ada:    hash.create( f );
+  -- Syntax: hash_io.create( f );
+  -- Ada:    hash_io.create( f );
   fileRef    : reference;
   theFile    : resPtr;
   fileResId : storage;
@@ -525,7 +547,7 @@ procedure ParseHashClose renames not_configured;
 procedure ParseHashOpen is
   -- Syntax: hash.open( f, path, keyLen, valLen );
   -- Ada:    hash.open( f, path, keyLen, valLen );
-  -- this is impacted by --verbse
+  -- this is impacted by --verbose
   fileRef    : reference;
   theFile    : resPtr;
   fileResId : storage;
@@ -587,10 +609,10 @@ begin
            dirname2 := identifiers( pwdId ).store.value & "/" & dirname;
         end if;
         if trace then
-           put_trace( "Base directory is '" & toSecuredata( to_string( toEscaped( dirname2 ) ) ) & "'" );
+           put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
         end if;
 
-        configureBDBEnv( theFile.hash.env, to_string( dirname2 ) );
+        configureBDBEnv( hash_open_t, theFile.hash.env, to_string( dirname2 ) );
 
         if theFile.hash.isOpen then
            -- TODO: this (and others like it) do not indicate the array position
@@ -609,12 +631,12 @@ begin
                    DB_E_OPEN_INIT_MPOOL,
                    0 );
               theFile.hash.envhome := dirname2;
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on opening the environment" ) );
-              end;
+           exception when msg: berkeley_error =>
+              err( pl( exception_message( msg ) & " on opening the environment" ) );
+           end;
 
+           -- Create the file
            if not error_found then
-              -- Create the file
               new_berkeley_session(
                  theFile.hash.session,
                  theFile.hash.env,
@@ -625,8 +647,12 @@ begin
                  open( theFile.hash.session, filename, "", DB_HASH, 0, 0 );
                  theFile.hash.isOpen := true;
                  theFile.hash.name := fnameExpr.value;
-              exception when msg: berkeley_error =>
+              exception when storage_error =>
+                 err( pl( "out of memory" ) );
+              when msg: berkeley_error =>
                  err( pl( exception_message( msg ) & " on opening the data file" ) );
+              when others =>
+                 err_exception_raised;
               end;
            end if;
         end if;
@@ -729,7 +755,7 @@ begin
         begin
            -- TODO: pathname handling
            getParameterValue( fileRef, fileResId );
-           findResource( to_resource_id( fileResid.value ), theFile );
+           findResource( to_resource_id( fileResId.value ), theFile );
 
            -- Create an environment
            init( theFile.hash.env );
@@ -752,7 +778,7 @@ begin
               put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
            end if;
 
-           configureBDBEnv( theFile.hash.env, to_string( dirname2 ) );
+           configureBDBEnv( hash_delete_t, theFile.hash.env, to_string( dirname2 ) );
         end;
         begin
            open( theFile.hash.env,
@@ -909,7 +935,7 @@ procedure ParseHashGet is
   -- from a function)
   fileRef    : reference;
   theFile    : resPtr;
-  fileResId : storage;
+  fileResId  : storage;
   keyExpr    : storage;
   keyType    : identifier;
   itemRef    : reference;
@@ -954,7 +980,7 @@ begin
            identifiers( identifiers( itemRef.id ).field_of ).writtenByFlow := getDataFlowName;
         else
            identifiers( itemRef.id ).wasWritten := true;
-           identifiers( itemRef.id ).wasWritten := true;
+           identifiers( itemRef.id ).writtenByFlow := getDataFlowName;
         end if;
      end if;
   else
@@ -1088,17 +1114,17 @@ begin
   expect( hash_remove_t );
   ParseFirstFileParameter( hash_remove_t, fileRef );
   expectParameterComma;
-  if getbaseType( identifiers( token ).kind ) = hash_cursor_t then
+  if getBaseType( identifiers( token ).kind ) = hash_cursor_t then
      ParseInOutInstantiatedParameter( hash_remove_t, cursRef, hash_cursor_t );
      genTypesOk( identifiers( fileRef.Id ).genKind, identifiers( cursRef.Id ).genKind );
   else
      ParseExpression( keyExpr, keyType );
-     baseTypesOk( keyType, uni_string_t );
+     baseTypesOK( keyType, uni_string_t );
   end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
      getParameterValue( fileRef, fileResId );
-     findResource( to_resource_id( fileResid.value ), theFile );
+     findResource( to_resource_id( fileResId.value ), theFile );
      if isVerifiedOpenFile( fileRef.Id, theFile ) then
         if cursRef.Id /= eof_t then
            begin
@@ -1221,7 +1247,7 @@ begin
   expect( hash_decrement_t );
   ParseFirstFileParameter( hash_decrement_t, fileRef );
   if getUniType( identifiers( fileRef.Id ).genKind ) /= uni_numeric_t then
-     err( +"increment requires a numeric item type" );
+     err( +"decrement requires a numeric item type" );
   end if;
   ParseNextStringParameter( hash_decrement_t, keyExpr, keyType, uni_string_t );
   if token = symbol_t and identifiers( token ).store.value = "," then
@@ -1410,12 +1436,12 @@ begin
   expect( hash_replace_t );
   ParseFirstFileParameter( hash_replace_t, fileRef );
   expectParameterComma;
-  if getbaseType( identifiers( token ).kind ) = hash_cursor_t then
+  if getBaseType( identifiers( token ).kind ) = hash_cursor_t then
      ParseInOutInstantiatedParameter( hash_replace_t, cursRef, hash_cursor_t );
      genTypesOk( identifiers( fileRef.Id ).genKind, identifiers( cursRef.Id ).genKind );
   else
      ParseExpression( keyExpr, keyType );
-     baseTypesOk( keyType, uni_string_t );
+     baseTypesOK( keyType, uni_string_t );
   end if;
   expectParameterComma;
   genKindId := identifiers( fileRef.Id ).genKind;
@@ -1700,7 +1726,7 @@ procedure ParseHashPrepend renames not_configured;
 
 procedure ParseHashFlush is
   -- Syntax: hash.flush( f, flags );
-  -- Ada:    bbd.sync( f, flags );
+  -- Ada:    bdb.sync( f, flags );
   fileRef    : reference;
   theFile    : resPtr;
   fileResId : storage;
@@ -2589,7 +2615,9 @@ begin
            raise_exceptions( theFile.hash.session, raise_them, boolean( traceOpt ) );
         end if;
      exception when msg: berkeley_error =>
-        err( pl( exception_message( msg ) ) );
+       err( pl( exception_message( msg ) ) );
+     when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseHashRaiseExceptions;

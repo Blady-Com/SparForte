@@ -219,7 +219,6 @@ begin
   end if;
 end ParseArraysFirst;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS LAST                                     (built-in function)
 --
@@ -277,7 +276,6 @@ begin
   end if;
 end ParseArraysLast;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS LENGTH                                   (built-in function)
 --
@@ -326,15 +324,15 @@ end ParseArraysLength;
 --
 -- Stuff for Sorting with GNAT packages
 -- I'm concerned that GNAT uses integers for indexes in sorts...may not
--- work with long_integer arrays on some platforms...assuming peole would
--- have such friggin' huge arrays in the first place.
+-- work with long_integer arrays on some platforms...assuming people would
+-- have such huge arrays in the first place.
 --
 -------------------------------------------------------------------------------
+
 
 offsetArrayBeingSorted : long_integer;
 ZeroElement            : storage;
 arrayBeingSortedId     : identifier;
-
 
 -----------------------------------------------------------------------------
 --  MOVE ELEMENT
@@ -356,7 +354,6 @@ begin
      identifiers( arrayBeingSortedId ).aStorage( long_integer(To)+offsetArrayBeingSorted ) := data;
    end if;
 end moveElement;
-
 
 -----------------------------------------------------------------------------
 --  LT STRING
@@ -382,7 +379,6 @@ begin
   return data1.value < data2.value;
 end Lt_string;
 
-
 -----------------------------------------------------------------------------
 --  LT STRING DESCENDING
 --
@@ -406,7 +402,6 @@ begin
   end if;
   return data1.value > data2.value;
 end Lt_string_descending;
-
 
 -----------------------------------------------------------------------------
 --  LT NUMERIC
@@ -441,7 +436,6 @@ begin
   end;
   return result;
 end Lt_numeric;
-
 
 -----------------------------------------------------------------------------
 --  LT NUMERIC DESCENDING
@@ -483,6 +477,7 @@ end Lt_numeric_descending;
 -- The Sorts
 --
 -----------------------------------------------------------------------------
+
 
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS BUBBLE SORT                             (built-in procedure)
@@ -548,7 +543,6 @@ begin
   end if;
 end ParseArraysBubbleSort;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS BUBBLE SORT DESCENDING                  (built-in procedure)
 --
@@ -613,7 +607,6 @@ begin
   end if;
 end ParseArraysBubbleSortDescending;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS HEAP SORT                               (built-in procedure)
 --
@@ -667,7 +660,6 @@ begin
      end if;
   end if;
 end ParseArraysHeapSort;
-
 
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS HEAP SORT DESCENDING                    (built-in procedure)
@@ -725,7 +717,6 @@ begin
   end if;
 end ParseArraysHeapSortDescending;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS SHUFFLE                                 (built-in procedure)
 --
@@ -761,15 +752,20 @@ begin
      identifiers( var_id ).writtenOn := perfStats.lineCnt;
      len   := identifiers( var_id ).aStorage'length;
      begin
-        for i in identifiers( var_id ).aStorage'range loop
+        -- Simply shuffling each item from first to last may cause a biased
+        -- distribution, as the last items are shuffled more often than the
+        -- first items.
+        for i in reverse identifiers( var_id ).aStorage'range loop
             -- unfortunately, ada random numbers are 0..1, so they can be too
             -- large if 1...repeat if that happens
             loop
-                newpos := long_integer( long_float'truncation( long_float( len ) *
-                    long_float( Ada.Numerics.Float_Random.Random( random_generator
+                newpos := long_integer( long_float'truncation(
+                  long_float(i - identifiers(var_id).aStorage'first + 1 ) *
+                  long_float( Ada.Numerics.Float_Random.Random( random_generator
 ) ) ) );
             newpos := newpos + identifiers( var_id ).aStorage'first;
-            exit when newpos <= identifiers( var_id ).aStorage'last;
+            exit when newpos <= i;
+            -- exit when newpos <= identifiers( var_id ).aStorage'last;
             end loop;
             tmp := identifiers( var_id ).aStorage( i );
             -- Newer version of Ada will raise an exception on a no-op
@@ -795,7 +791,6 @@ begin
      end;
   end if;
 end ParseArraysShuffle;
-
 
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS FLIP                                    (built-in procedure)
@@ -865,7 +860,6 @@ begin
   end if;
 end ParseArraysFlip;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS SHIFT RIGHT                             (built-in procedure)
 --
@@ -917,7 +911,6 @@ begin
   end if;
 end ParseArraysShiftRight;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS SHIFT LEFT                              (built-in procedure)
 --
@@ -935,7 +928,7 @@ begin
   expect( symbol_t, "(" );
   ParseIdentifier( var_id );
   if not (class_ok( var_id, varClass ) and identifiers( var_id ).list) then
-     expectArrayOrArrayType( subprogramId, var_id );
+     expectArray( subprogramId, var_id );
   end if;
   expectWritableItems( subprogramId, var_id );
   expect( symbol_t, ")" );
@@ -969,7 +962,6 @@ begin
   end if;
 end ParseArraysShiftLeft;
 
-
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS ROTATE RIGHT                            (built-in procedure)
 --
@@ -988,7 +980,7 @@ begin
   expect( symbol_t, "(" );
   ParseIdentifier( var_id );
   if not (class_ok( var_id, varClass ) and identifiers( var_id ).list) then
-     expectArrayOrArrayType( subprogramId, var_id );
+     expectArray( subprogramId, var_id );
   end if;
   expectWritableItems( subprogramId, var_id );
   expect( symbol_t, ")" );
@@ -1012,7 +1004,7 @@ begin
         --moveElement( 0, 1 );
      exception when CONSTRAINT_ERROR =>
         err( contextNotes => pl( "At " & gnat.source_info.source_location &
-                " while rotate right" ),
+                " while rotating right" ),
              subject => var_id,
              subjectType => identifiers( var_id ).kind,
              reason => pl( "an index out of range " &
@@ -1026,7 +1018,6 @@ begin
      end;
   end if;
 end ParseArraysRotateRight;
-
 
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS ROTATE LEFT                             (built-in procedure)
@@ -1046,7 +1037,7 @@ begin
   expect( symbol_t, "(" );
   ParseIdentifier( var_id );
   if not (class_ok( var_id, varClass ) and identifiers( var_id ).list) then
-     expectArrayOrArrayType( subprogramId, var_id );
+     expectArray( subprogramId, var_id );
   end if;
   expectWritableItems( subprogramId, var_id );
   expect( symbol_t, ")" );
@@ -1069,7 +1060,7 @@ begin
         end if;
      exception when CONSTRAINT_ERROR =>
         err( contextNotes => pl( "At " & gnat.source_info.source_location &
-                " while rotate left" ),
+                " while rotating left" ),
              subject => var_id,
              subjectType => identifiers( var_id ).kind,
              reason => pl( "an index out of range " &
@@ -1083,7 +1074,6 @@ begin
      end;
   end if;
 end ParseArraysRotateLeft;
-
 
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS TO ARRAY                                 (built-in function)
@@ -1143,7 +1133,6 @@ begin
      end if;
   end if;
 end ParseArraysToArray;
-
 
 -----------------------------------------------------------------------------
 --  PARSE ARRAYS TO JSON                                  (built-in function)

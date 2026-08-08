@@ -1,10 +1,10 @@
 ------------------------------------------------------------------------------
--- Database Package Parser                                                  --
+-- PostgreSQL Database Package Parser                                       --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---            Copyright (C) 2001-2025 Free Software Foundation              --
+--            Copyright (C) 2001-2026 Free Software Foundation              --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -1888,7 +1888,8 @@ begin
                     ", a.attnotnull as " & '"' & "Not Null" & '"' &
                     ", a.atthasdef as " & '"' & "Default" & '"' &
                     "from pg_attribute a, pg_class c, pg_type t where a.attrelid = c.oid and t.oid = a.atttypid and a.attisdropped = 'f' and (a.atttypid < 26 or a.atttypid > 29) and c.relname='" &
-                     to_string( expr.value ) & "' order by a.attnum" );
+                    to_string( expr.value ) & "' order by a.attnum" );
+                    -- PostgreSQL escaping required but not available in APQ library
         execute( Q, C );
 
         -- No result? Then table was not found.

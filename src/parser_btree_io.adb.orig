@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Berekeley BTree Files Package Parser                                     --
+-- Berkeley BTree Files Package Parser                                      --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
@@ -32,6 +32,7 @@ with
     gnat.source_info,
     pegasoft,
     pegasoft.strings,
+    spar_os,
     world,
     symbol_table,
     message_strings,
@@ -56,6 +57,7 @@ use
     gnat.directory_operations,
     pegasoft,
     pegasoft.strings,
+    spar_os,
     world,
     symbol_table,
     message_strings,
@@ -360,9 +362,9 @@ begin
         dirname2 := to_unbounded_string( dirname );
         if dirname = "." then
            dirname2 := null_unbounded_string;
-        elsif element( dirname2, 1 ) /= '/' then
+        elsif element( dirname2, 1 ) /= directory_delimiter then
            findIdent( to_unbounded_string( "PWD" ), pwdId );
-           dirname2 := identifiers( pwdId ).store.value & "/" & dirname;
+           dirname2 := identifiers( pwdId ).store.value & directory_delimiter & dirname;
         end if;
         if trace then
            put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
@@ -408,7 +410,7 @@ procedure ParseBTreeRecover renames not_configured;
 --
 -- Syntax: btree.create( f, path, keyLen, valLen );
 -- Ada:    btree.create( f, path, keyLen, valLen );
--- this is impacted by --verbse
+-- this is impacted by --verbose
 -----------------------------------------------------------------------------
 
 procedure ParseBTreeCreate is
@@ -462,9 +464,9 @@ begin
         dirname2 := to_unbounded_string( dirname );
         if dirname = "." then
            dirname2 := null_unbounded_string;
-        elsif element( dirname2, 1 ) /= '/' then
+        elsif element( dirname2, 1 ) /= directory_delimiter then
            findIdent( to_unbounded_string( "PWD" ), pwdId );
-           dirname2 := identifiers( pwdId ).store.value & "/" & dirname;
+           dirname2 := identifiers( pwdId ).store.value & directory_delimiter & dirname;
         end if;
         if trace then
            put_trace( "Base directory is '" & toSecuredata( to_string( toEscaped( dirname2 ) ) ) & "'" );
@@ -493,17 +495,23 @@ begin
                  err( pl( exception_message( msg ) & " on creating the environment" ) );
               end;
 
-           -- Create the file
-           new_berkeley_session(
-              theFile.btree.session,
-              theFile.btree.env,
-              keyLen,
-              valLen );
-           begin
-              create( theFile.btree.session, filename, "", DB_BTREE, 0, 0 );
-           exception when msg: berkeley_error =>
-              err( pl( exception_message( msg ) & " on creating the data file" ) );
-           end;
+           if not error_found then
+              -- Create the file
+              new_berkeley_session(
+                 theFile.btree.session,
+                 theFile.btree.env,
+                 keyLen,
+                 valLen );
+              begin
+                 create( theFile.btree.session, filename, "", DB_BTREE, 0, 0 );
+              exception when storage_error =>
+                 err( pl( "out of memory" ) );
+              when msg: berkeley_error =>
+                 err( pl( exception_message( msg ) & " on creating the data file" ) );
+              when others =>
+                 err_exception_raised;
+              end;
+           end if;
 
            -- Do not truncate if create failed
 
@@ -582,7 +590,7 @@ procedure ParseBTreeClose renames not_configured;
 --
 -- Syntax: btree.open( f, path, keyLen, valLen );
 -- Ada:    btree.open( f, path, keyLen, valLen );
--- this is impacted by --verbse
+-- this is impacted by --verbose
 -----------------------------------------------------------------------------
 
 procedure ParseBTreeOpen is
@@ -642,9 +650,9 @@ begin
         elsif rshOpt then
            -- TODO: probably could be in directories in current PATH as well
            err( +"file must be in current directory in a " & em( "restricted shell" ) );
-        elsif element( dirname2, 1 ) /= '/' then
+        elsif element( dirname2, 1 ) /= directory_delimiter then
            findIdent( to_unbounded_string( "PWD" ), pwdId );
-           dirname2 := identifiers( pwdId ).store.value & "/" & dirname;
+           dirname2 := identifiers( pwdId ).store.value & directory_delimiter & dirname;
         end if;
         if trace then
            put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
@@ -667,24 +675,28 @@ begin
                    DB_E_OPEN_INIT_MPOOL,
                    0 );
               theFile.btree.envhome := dirname2;
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on opening the environment" ) );
-              end;
+           exception when msg: berkeley_error =>
+              err( pl( exception_message( msg ) & " on opening the environment" ) );
+           end;
 
            if not error_found then
-              -- Create the file
-              new_berkeley_session(
-                 theFile.btree.session,
-                 theFile.btree.env,
-                 keyLen,
-                 valLen );
-
               begin
+                 -- Create the file
+                 new_berkeley_session(
+                    theFile.btree.session,
+                    theFile.btree.env,
+                    keyLen,
+                    valLen );
+
                  open( theFile.btree.session, filename, "", DB_BTREE, 0, 0 );
                  theFile.btree.isOpen := true;
                  theFile.btree.name := fnameExpr.value;
-              exception when msg: berkeley_error =>
+              exception when storage_error =>
+                 err( pl( "out of memory" ) );
+              when msg: berkeley_error =>
                  err( pl( exception_message( msg ) & " on opening the data file" ) );
+              when others =>
+                 err_exception_raised;
               end;
            end if;
         end if;
@@ -819,12 +831,9 @@ begin
            elsif rshOpt then
               -- TODO: probably could be in directories in current PATH as well
               err( +"file must be in current directory in a " & em( "restricted shell" ) );
-           elsif element( dirname2, 1 ) /= '/' then
+           elsif element( dirname2, 1 ) /=  directory_delimiter then
               findIdent( to_unbounded_string( "PWD" ), pwdId );
-              dirname2 := identifiers( pwdId ).store.value & "/" & dirname;
-           end if;
-           if trace then
-              put_trace( "Base directory is '" & toSecureData( to_string( toEscaped( dirname2 ) ) ) & "'" );
+              dirname2 := identifiers( pwdId ).store.value & directory_delimiter & dirname;
            end if;
 
            -- Berkeley puts the files in the current directory, though you can
@@ -834,30 +843,32 @@ begin
            --
            -- For our purposes (simple files), keep everything in one directory
 
-           if length( dirname2 ) > 0 then
-              begin
-                 set_data_dir( theFile.btree.env, to_string( dirname2 ) );
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on setting the data directory" ) );
-              end;
-              begin
-                 set_tmp_dir( theFile.btree.env, to_string( dirname2 ) );
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on setting the temp directory" ) );
-              end;
-              begin
-                 set_lg_dir( theFile.btree.env, to_string( dirname2 ) );
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on setting the logging directory" ) );
-              end;
-              begin
-                 if verboseOpt then
-                    set_verbose( theFile.btree.env, 1, 1 );
-                 end if;
-              exception when msg: berkeley_error =>
-                 err( pl( exception_message( msg ) & " on changing verbose setting" ) );
-              end;
-           end if;
+           -- if length( dirname2 ) > 0 then
+           --    begin
+           --       set_data_dir( theFile.btree.env, to_string( dirname2 ) );
+           --    exception when msg: berkeley_error =>
+           --       err( pl( exception_message( msg ) & " on setting the data directory" ) );
+           --    end;
+           --    begin
+           --       set_tmp_dir( theFile.btree.env, to_string( dirname2 ) );
+           --    exception when msg: berkeley_error =>
+           --       err( pl( exception_message( msg ) & " on setting the temp directory" ) );
+           --    end;
+           --    begin
+           --       set_lg_dir( theFile.btree.env, to_string( dirname2 ) );
+           --    exception when msg: berkeley_error =>
+           --       err( pl( exception_message( msg ) & " on setting the logging directory" ) );
+           --    end;
+           --    begin
+           --       if verboseOpt then
+           --          set_verbose( theFile.btree.env, 1, 1 );
+           --       end if;
+           --    exception when msg: berkeley_error =>
+           --       err( pl( exception_message( msg ) & " on changing verbose setting" ) );
+           --    end;
+           -- end if;
+           configureBDBEnv( subprogramId, theFile.btree.env, to_string( dirname2 ) );
+
         end;
 
         begin
@@ -1235,7 +1246,7 @@ begin
         if cursRef.Id /= eof_t then
            begin
              getParameterValue( cursRef, cursResId );
-             findResource( to_resource_id( cursResid.value ), theCurs );
+             findResource( to_resource_id( cursResId.value ), theCurs );
              delete( theFile.btree.session, theCurs.btree_cur.cursor );
            exception when msg: berkeley_error =>
                err( pl( exception_message( msg ) ) );
@@ -1271,7 +1282,7 @@ procedure ParseBTreeRemove renames not_configured;
 -- Ada:    N/A
 -----------------------------------------------------------------------------
 
-procedure ParseBtreeIncrement is
+procedure ParseBTreeIncrement is
   fileRef     : reference;
   theFile    : resPtr;
   fileResId  : storage;
@@ -1345,7 +1356,7 @@ procedure ParseBTreeIncrement renames not_configured;
 -- Ada:    N/A
 -----------------------------------------------------------------------------
 
-procedure ParseBtreeDecrement is
+procedure ParseBTreeDecrement is
   fileRef     : reference;
   theFile    : resPtr;
   fileResId  : storage;
@@ -1362,7 +1373,7 @@ begin
   expect( subprogramId );
   ParseFirstFileParameter( subprogramId, fileRef );
   if getUniType( identifiers( fileRef.id ).genKind ) /= uni_numeric_t then
-     err( +"increment requires a numeric item type" );
+     err( +"decrement requires a numeric item type" );
   end if;
   ParseNextStringParameter( subprogramId, keyExpr, keyType, uni_string_t );
   if token = symbol_t and identifiers( token ).store.value = "," then
@@ -1419,7 +1430,7 @@ procedure ParseBTreeDecrement renames not_configured;
 -- Ada:    N/A
 -----------------------------------------------------------------------------
 
-procedure ParseBtreeAdd is
+procedure ParseBTreeAdd is
   fileRef     : reference;
   theFile  : resPtr;
   fileResId  : storage;
@@ -1548,7 +1559,7 @@ procedure ParseBTreeAdd renames not_configured;
 -- Note: the key will not be overwritten if a cursor is used
 -----------------------------------------------------------------------------
 
-procedure ParseBtreeReplace is
+procedure ParseBTreeReplace is
   fileRef     : reference;
   theFile  : resPtr;
   fileResId  : storage;
@@ -1609,7 +1620,7 @@ begin
                  temp_string : unbounded_string;
               begin
                 getParameterValue( cursRef, cursResId );
-                findResource( to_resource_id( cursResid.value ), theCurs );
+                findResource( to_resource_id( cursResId.value ), theCurs );
                 get( theFile.btree.session,
                    theCurs.btree_cur.cursor,
                    temp_key,
@@ -1780,7 +1791,7 @@ procedure ParseBTreeReplace renames not_configured;
 -- Ada:    N/A
 -----------------------------------------------------------------------------
 
-procedure ParseBtreeAppend is
+procedure ParseBTreeAppend is
   fileRef     : reference;
   theFile  : resPtr;
   fileResId  : storage;
@@ -1833,7 +1844,7 @@ procedure ParseBTreeAppend renames not_configured;
 -- Ada:    N/A
 -----------------------------------------------------------------------------
 
-procedure ParseBtreePrepend is
+procedure ParseBTreePrepend is
   fileRef     : reference;
   theFile  : resPtr;
   fileResId  : storage;
@@ -1992,7 +2003,7 @@ begin
         end if;
      end if;
   end if;
-end ParseBtreeOpenCursor;
+end ParseBTreeOpenCursor;
 
 #else
 
@@ -2184,7 +2195,7 @@ begin
                err( contextNotes => pl( "At " & gnat.source_info.source_location &
                   " while reading the array" ),
                   subject => subprogramId,
-                  reason => +"had an internal error because of an exception:",
+                  reason => +"had an internal error because of an unexpected exception:",
                   obstructorNotes => pl( exception_message( msg ) )
                );
            end;
@@ -2861,7 +2872,7 @@ begin
         err_exception_raised;
      end;
   end if;
-end ParseBtreeRaiseExceptions;
+end ParseBTreeRaiseExceptions;
 
 #else
 

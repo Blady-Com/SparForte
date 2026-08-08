@@ -78,7 +78,7 @@ returning the current date and time, calculating dates and similar capabilities.
 <strong>calendar.day_duration</strong> - a floating point number of seconds</li>
 
 <li>
-<strong>calendar.time</strong> - a point in time</li>
+<strong>calendar.time</strong> - a point in time under the local time zone</li>
 
 <li>
 <strong>calendar.julian_date</strong> - a Julian date</li>
@@ -149,7 +149,7 @@ timestamp for this moment in time) as a calendar.time value.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#calendar.time_of">calendar.time_of</a><br><a href="#calendar.split">calendar.split</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Calendar.Clock<br />PHP: time</p></td>
@@ -193,7 +193,7 @@ timestamp for this moment in time) as a calendar.time value.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#calendar.year">calendar.year</a><br><a href="#calendar.month">calendar.month</a><br><a href="#calendar.seconds">calendar.seconds</a><br><a href="#calendar.split">calendar.split</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Calendar.Day<br />PHP: date</p></td>
@@ -282,7 +282,7 @@ Sunday, an integer between 0 and 6.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#calendar.year">calendar.year</a><br><a href="#calendar.day">calendar.day</a><br><a href="#calendar.seconds">calendar.seconds</a><br><a href="#calendar.split">calendar.split</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Calendar.Month<br />PHP: date</p></td>
@@ -327,7 +327,7 @@ number between 0.0 and 86,400.0.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#calendar.year">calendar.year</a><br><a href="#calendar.day">calendar.day</a><br><a href="#calendar.month">calendar.month</a><br><a href="#calendar.split">calendar.split</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Calendar.Seconds<br />PHP: date</p></td>
@@ -403,7 +403,9 @@ number between 0.0 and 86,400.0.</p></td>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Create a time from year, month, day and seconds values.</p></td>
+<td><p>Create a time from year, month, day and seconds values.  If Daylight
+Savings Time comes into effect, the time may not be identical to an earlier
+calendar.split.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">the_time := calendar.time_of( 2002, 3, 15, 125.6 );</span></td>
@@ -454,7 +456,8 @@ number between 0.0 and 86,400.0.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The time value is not legitimate<br>
+One of the parameter values is out of range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="#calendar.split">calendar.split</a></p></td>
@@ -595,13 +598,12 @@ and 2099.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#calendar.seconds">calendar.seconds</a><br><a href="#calendar.day">calendar.day</a><br><a href="#calendar.month">calendar.month</a><br><a href="#calendar.split">calendar.split</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Calendar.Year<br />PHP: date</p></td>
 </tr>
 </table>
-
 
 			</td>
 			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a id="submenu"></a>
