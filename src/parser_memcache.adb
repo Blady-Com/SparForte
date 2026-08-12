@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Memcache Parckage Parser                                                 --
+-- Memcache Package Parser                                  -               --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ end ">=";
 
 function "="( left, right : aMemcacheClusterEntry ) return boolean is
 begin
-   return left.id >= right.id;
+   return left.id = right.id;
 end "=";
 
 package memcacheClusterList is new pegasoft.gen_list( aMemcacheClusterEntry, "=", ">=" );
@@ -176,7 +176,7 @@ end ">=";
 
 function "="( left, right : aMemcacheDualClusterEntry ) return boolean is
 begin
-   return left.id >= right.id;
+   return left.id = right.id;
 end "=";
 
 -- TODO: KB: 17/02/12: rewrite to use resources
@@ -219,9 +219,16 @@ end checkMemcacheRestriction;
 ----------------------------------------------------------------------------
 
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE IS VALID MEMCACHE KEY                  (built-in function)
+--
+-- AdaScript Syntax: b := memcache.is_valid_memcache_key( k )
+--       Ada Target: PegaSock.Memcache.isValidMemcacheKey
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.is_valid_memcache_key
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheIsValidMemcacheKey( result : out storage; kind : out identifier ) is
-  -- Syntax: pegasock.is_valid_memcache_key
-  -- Source: PegaSock.Memcache.isValidMemcacheKey
   expr : storage;
   expr_type : identifier;
   subprogramId : constant identifier := memcache_is_valid_memcache_key_t;
@@ -242,9 +249,16 @@ begin
   end if;
 end ParseMemcacheIsValidMemcacheKey;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE NEW CLUSTER                            (built-in function)
+--
+-- AdaScript Syntax: cl := memcache.new_cluster( k )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.new_cluster
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheNewCluster( result : out storage; kind : out identifier ) is
--- Syntax: cluster := new_cluster;
--- Source: n/a
   cluster_entry : aMemcacheClusterEntry;
   cluster_id_value : aMemcacheClusterID;
   subprogramId : constant identifier := memcache_new_cluster_t;
@@ -267,9 +281,16 @@ begin
   end if;
 end ParseMemcacheNewCluster;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE REGISTER SERVER                       (built-in procedure)
+--
+-- AdaScript Syntax: memcache.register_server( cl, h, p )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.register_server
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheRegisterServer is
--- Syntax: register_server( cluster, host, port )
--- Source: pegasock.memcache.register_server
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -305,9 +326,16 @@ begin
   end if;
 end ParseMemcacheRegisterServer;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE CLEAR SERVERS                         (built-in procedure)
+--
+-- AdaScript Syntax: memcache.clear_servers( cl )
+--       Ada Target: PegaSock.Memcache.ClearServers
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.clear_servers
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheClearServers is
--- Syntax: clear_servers( cluster )
--- Source: pegasock.memcache.clear_servers
   cluster_entry : aMemcacheClusterEntry;
   clusterRef : reference;
   cluster    : storage;
@@ -1017,7 +1045,7 @@ begin
      if metaTagOk( subprogramId, cluster ) and metaTagOk( subprogramId, expr ) and metaTagOk( subprogramId, cluster, expr2 ) then
         declare
            theCluster : constant aMemcacheDualClusterID := aMemcacheDualClusterID( to_numeric( cluster.value ) );
-           clusterIndex : memcacheClusterList.aListIndex;
+           clusterIndex : memcacheDualClusterList.aListIndex;
         begin
            GetCluster( theCluster, cluster_entry, clusterIndex );
            if clusterIndex /= 0 then
@@ -1402,6 +1430,8 @@ begin
   declareProcedure( highread_clear_servers_t, "memcache.highread.clear_servers", ParseHighreadClearServers'access );
   declareProcedure( highread_set_cluster_name_t, "memcache.highread.set_cluster_name", ParseHighreadSetClusterName'access );
   declareProcedure( highread_set_cluster_type_t, "memcache.highread.set_cluster_type", ParseHighreadSetClusterType'access );
+  -- TODO: Nested namespaces have not been tested.
+  -- declareNamespace( "memcache.highread" );
   declareProcedure( highread_set_t, "memcache.highread.set", ParseHighreadSet'access );
   declareProcedure( highread_add_t, "memcache.highread.add", ParseHighreadAdd'access );
   declareProcedure( highread_replace_t, "memcache.highread.replace", ParseHighreadReplace'access );
@@ -1412,12 +1442,15 @@ begin
   declareFunction(  highread_stats_t, "memcache.highread.stats", ParseHighreadStats'access );
   declareFunction(  highread_version_t, "memcache.highread.version", ParseHighreadVersion'access );
   declareProcedure( highread_flush_t, "memcache.highread.flush", ParseHighreadFlush'access );
+  -- declareNamespaceClosed( "memcache.highread" );
   declareNamespaceClosed( "memcache" );
 end StartupMemcache;
 
 procedure ShutdownMemcache is
 begin
+  ParseMemcacheClearServers;
   memcacheClusterList.clear( memcacheCluster );
+  ParseHighreadClearServers;
   memcacheDualClusterList.clear( memcacheDualCluster );
 end ShutdownMemcache;
 

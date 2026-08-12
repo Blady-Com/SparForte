@@ -93,13 +93,16 @@ dependencies.</p>
 
 <p>When you record an event in a log, the message may not be written
 immediately to the log.  The message may be buffered.  The logs package
-checks for duplicate messages.</p>
+checks for duplicate messages and replaces them with a message
+"..repeated n times" where n is the number of times.</p>
 
 <p><strong>Chaining Messages</strong></p>
 
 <p>logs.ok and the other logging message functions may be run in a chain
 with "@".  The messages will be concatenated together to form the
-full message.</p>
+full message.  The following writes one line to the log file:</p>
+
+<p><code>logs.info( "Connecting to " ) @ ( service );</code></p>
 
 <p><strong>Format of the Log File</strong></p>
 
@@ -152,7 +155,7 @@ to show how messages relate to one another.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>the log is already closed</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -587,14 +590,20 @@ is ignored.</p></td>
 </tr><tr>
 <td><span>w</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span>positive</span></td>
 <td><span>1</span></td>
 <td><span>the minimum width of the header</span></td>
 </tr>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td>
+<p>log is already open<br>
+log path is an empty string<br>
+log path should be an empty string<br>
+log path is a directory<br>
+log path does not exists<br>
+no permission to write the log file</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -623,7 +632,7 @@ This does not perform the rotation.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>the logs are already rotating</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>
@@ -650,7 +659,7 @@ This does not perform the rotation.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>the logs are not rotating</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>

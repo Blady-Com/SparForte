@@ -96,10 +96,10 @@ enumerated items or values.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The type is not an enumerated type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#enums.last">enums.last</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: 'first attribute</p></td>
@@ -140,10 +140,10 @@ enumerated items or values.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The type is not an enumerated type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#enums.first">enums.first</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: 'last attribute</p></td>
@@ -184,10 +184,10 @@ enumerated items or values.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The type is not an enumerated type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#enums.val">enums.val</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: 'pos attribute</p></td>
@@ -204,7 +204,8 @@ enumerated items or values.</p>
 <td><p>Return the previous (lower ordinal) item of the enumerated type.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">e := enums.pred( true ); -- returns false</span></td>
+<td><span class="code">type day is (sunday, monday, tuesday<br>
+e := enums.pred( monday ); -- returns sunday</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -231,10 +232,11 @@ enumerated items or values.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The type is not an enumerated type<br>
+The enumerated item is the first item of the type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#enums.succ">enums.succ</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: 'pred attribute</p></td>
@@ -248,7 +250,8 @@ enumerated items or values.</p>
 <td><p>Return the successor (higher ordinal) item of the enumerated type.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">e := enums.succ( false ); -- returns true</span></td>
+<td><span class="code">type day is (sunday, monday, tuesday<br>
+e := enums.succ( monday ); -- returns tuesday</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -275,10 +278,11 @@ enumerated items or values.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The type is not an enumerated type<br>
+The enumerated item is the last item of the type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#enums.pred">enums.pred</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: 'succ attribute</p></td>
@@ -325,10 +329,11 @@ enumerated items or values.</p>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if the position is out-of-range</p></td>
+<td><p>The type is not an enumerated type<br>
+An exception is raised if the position is out-of-range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#enums.pos">enums.pos</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: 'val attribute</p></td>

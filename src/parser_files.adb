@@ -104,9 +104,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_exists_t, fileExpr ) then
-     result := storage'( to_spar_boolean( File_Exists( to_string( fileExpr.value ) ) ),
-        noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( File_Exists( to_string( fileExpr.value ) ) );
      end if;
   end if;
 end ParseFileExists;
@@ -132,9 +132,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_absolute_path_t, fileExpr ) then
-        result := storage'( to_spar_boolean( Is_Absolute_Path( to_string( fileExpr.value ) ) ),
-           noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( Is_Absolute_Path( to_string( fileExpr.value ) ) );
      end if;
   end if;
 end ParseIsAbsolutePath;
@@ -160,9 +160,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     if metaTagOk( files_is_regular_file_t, fileExpr ) then
-        result := storage'( to_spar_boolean( Is_Regular_File( to_string( fileExpr.value ) ) ),
-           noMetaTag, noMetaTags );
+    result := nullStorage;
+    if metaTagOk( files_is_regular_file_t, fileExpr ) then
+        result.value := to_spar_boolean( Is_Regular_File( to_string( fileExpr.value ) ) );
      end if;
   end if;
 end ParseIsRegularFile;
@@ -188,9 +188,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     if metaTagOk( files_is_directory_t, fileExpr ) then
-        result := storage'( to_spar_boolean( Is_Directory( to_string( fileExpr.value ) ) ),
-           noMetaTag, noMetaTags );
+    result := nullStorage;
+    if metaTagOk( files_is_directory_t, fileExpr ) then
+        result.value := to_spar_boolean( Is_Directory( to_string( fileExpr.value ) ) );
      end if;
   end if;
 end ParseIsDirectory;
@@ -216,9 +216,10 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_writable_file_t, fileExpr ) then
-        result := storage'( to_spar_boolean( Is_Writable_File( to_string( fileExpr.value ) )
-          and Is_Regular_File( to_string( fileExpr.value ) ) ), noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( Is_Writable_File( to_string( fileExpr.value ) )
+          and Is_Regular_File( to_string( fileExpr.value ) ) );
      end if;
   end if;
 end ParseIsWritableFile;
@@ -244,9 +245,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_writable_t, fileExpr ) then
-        result := storage'( to_spar_boolean( Is_Writable_File( to_string( fileExpr.value ) ) ),
-           noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( Is_Writable_File( to_string( fileExpr.value ) ) );
      end if;
   end if;
 end ParseIsWritable;
@@ -256,7 +257,7 @@ end ParseIsWritable;
 --
 -- AdaScript Syntax: files.is_executable_file( path );
 --       Ada Target: N/A
---   GNAT Spec File: g-os_lib.ads (renames s-os_lib.ads)
+--   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_files.html#files.is_executable_file
 -----------------------------------------------------------------------------
 
@@ -272,9 +273,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_executable_file_t, fileExpr ) then
-        result := storage'( to_spar_boolean( C_Is_Executable_File( to_string( fileExpr.value ) & ASCII.NUL ) ),
-           noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( C_Is_Executable_File( to_string( fileExpr.value ) & ASCII.NUL ) );
      end if;
   end if;
 end ParseIsExecutableFile;
@@ -284,7 +285,7 @@ end ParseIsExecutableFile;
 --
 -- AdaScript Syntax: files.is_executable( path );
 --       Ada Target: N/A
---   GNAT Spec File: g-os_lib.ads (renames s-os_lib.ads)
+--   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_files.html#files.is_executable
 -----------------------------------------------------------------------------
 
@@ -300,9 +301,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_executable_t, fileExpr ) then
-        result := storage'( to_spar_boolean( C_Is_Executable( to_string( fileExpr.value ) & ASCII.NUL ) ),
-           noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( C_Is_Executable( to_string( fileExpr.value ) & ASCII.NUL ) );
      end if;
   end if;
 end ParseIsExecutable;
@@ -312,7 +313,7 @@ end ParseIsExecutable;
 --
 -- AdaScript Syntax: files.is_readable_file( path );
 --       Ada Target: N/A
---   GNAT Spec File: g-os_lib.ads (renames s-os_lib.ads)
+--   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_files.html#files.is_readable_file
 -----------------------------------------------------------------------------
 
@@ -328,9 +329,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_readable_file_t, fileExpr ) then
-        result := storage'( to_spar_boolean( C_Is_Readable_File( to_string( fileExpr.value ) & ASCII.NUL ) ),
-           noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( C_Is_Readable_File( to_string( fileExpr.value ) & ASCII.NUL ) );
      end if;
   end if;
 end ParseIsReadableFile;
@@ -356,9 +357,9 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_readable_t, fileExpr ) then
-        result := storage'( to_spar_boolean( C_Is_Readable( to_string( fileExpr.value ) & ASCII.NUL ) ),
-            noMetaTag, noMetaTags );
+        result.value := to_spar_boolean( C_Is_Readable( to_string( fileExpr.value ) & ASCII.NUL ) );
      end if;
   end if;
 end ParseIsReadable;
@@ -385,6 +386,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_size_t, fileExpr ) then
         filesize := C_File_Length( to_string( fileExpr.value ) & ASCII.NUL );
         if filesize >= 0 then
@@ -401,7 +403,7 @@ end ParseFileSize;
 --  BASENAME                                              (built-in function)
 --
 -- AdaScript Syntax: files.basename( path );
---       Ada Target: N/A
+--       Ada Target: Pegasoft.strings.basename
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_files.html#files.basename
 --          Compare: directory_operations.base_name
@@ -419,6 +421,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_basename_t, fileExpr ) then
         result := storage'( basename( fileExpr.value ), noMetaTag, fileExpr.policyMetaTags );
      end if;
@@ -429,9 +432,9 @@ end ParseBasename;
 --  DIRNAME                                               (built-in function)
 --
 -- AdaScript Syntax: files.dirname( path );
---       Ada Target: N/A
+--       Ada Target: Pegasoft.strings.basename
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_files.html#files.basename
+--   SparForte Docs: doc/pkg_files.html#files.dirname
 --          Compare: directory_operations.dirname
 -----------------------------------------------------------------------------
 
@@ -447,6 +450,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_dirname_t, fileExpr ) then
         result := storage'( dirname( fileExpr.value ), noMetaTag, fileExpr.policyMetaTags );
      end if;
@@ -474,6 +478,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_is_waiting_file_t, fileExpr ) then
         result := storage'( to_spar_boolean( C_Is_Waiting_File( to_string( fileExpr.value ) & ASCII.NUL ) ),
            noMetaTag, noMetaTags );
@@ -503,6 +508,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_last_modified_t, fileExpr ) then
         C_File_Modify_Time( to_string( fileExpr.value ) & ASCII.NUL, year, month, day, seconds );
         if year >= 0 then
@@ -541,6 +547,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_last_changed_t, fileExpr ) then
         C_File_Change_Time( to_string( fileExpr.value ) & ASCII.NUL, year, month, day, seconds );
         if year >= 0 then
@@ -548,7 +555,7 @@ begin
               result := storage'( to_unbounded_string( time'image( time_of( year, month, day, day_duration( seconds ) ) ) ),
                  noMetaTag, fileExpr.policyMetaTags );
            exception when others =>
-              err( +"execption raised when getting file modified time" );
+              err( +"exception raised when getting file changed time" );
            end;
         else
            err( pl( "unable to get file change time: " & OSError( spar_os.C_errno ) ) );
@@ -579,6 +586,7 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
+     result := nullStorage;
      if metaTagOk( files_last_accessed_t, fileExpr ) then
         C_File_Access_Time( to_string( fileExpr.value ) & ASCII.NUL, year, month, day, seconds );
         if year >= 0 then
@@ -586,7 +594,7 @@ begin
               result := storage'( to_unbounded_string( time'image( time_of( year, month, day, day_duration( seconds ) ) ) ),
                  noMetaTag, fileExpr.policyMetaTags );
            exception when others =>
-              err( +"execption raised when getting file modified time" );
+              err( +"exception raised when getting file access time" );
            end;
         else
            err( pl( "unable to get file access time: " & OSError( spar_os.C_errno ) ) );

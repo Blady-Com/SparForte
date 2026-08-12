@@ -289,7 +289,7 @@ flushed from memcached.</p></td>
 <td><p>Remove key k from memcache cluster cl, discarding the key's value.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><p><span class="code">memcache.highread.delete( mc_cluster, "company_name", "PegaSoft" );<br>-- company_name no longer exists</span></p></td>
+<td><p><span class="code">memcache.highread.delete( mc_cluster, "company_name" );<br>-- company_name no longer exists</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -449,7 +449,7 @@ servers and manage connections.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -524,7 +524,7 @@ memcache cluster cl.</p></td>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Identify a new server to use in the memcache cluster.  The server is
+<td><p>Identify a server to use in the primary memcache cluster.  The server is
 identified by hostname h and TCP/IP port p.  The servers should always be
 registered in the same order for this cluster.  No network connection is
 opened: network connections are opened when data is read or written.  Do not
@@ -580,7 +580,7 @@ register the same server twice.</p></td>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Identify a new server to use in the memcache cluster.  The server is
+<td><p>Identify a server to use in the secondary memcache cluster.  The server is
 identified by hostname h and TCP/IP port p.  The servers should always be
 registered in the same order for this cluster.  No network connection is
 opened: network connections are opened when data is read or written.  Do not
@@ -773,7 +773,7 @@ some error messages.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>
@@ -820,7 +820,7 @@ memcache.memcache_cluster_type.normal.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in either cluster within the dual cluster</p></td>
+<td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with the no_memcache restriction</p>

@@ -66,7 +66,7 @@ and destroy lock files.  These should work under any operating system.</p>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Create a lock file named <i>file</i> in directory <i>dir</i>. Retry up to <i>retries</i> (natural) times, waiting for <i>wait</i> (duration) seconds between retries. Default for wait is 1.0 second and retry the largest possible integer value (almost forever) times.</p></td>
+<td><p>Create a lock file named <i>file</i> in directory <i>dir</i>. Retry up to <i>retries</i> (natural) times, waiting for <i>wait</i> (duration) seconds between retries. Default for wait is 1.0 second and retry the largest possible integer value (almost forever) times.  The lock must be unlocked when the lock is no longer necessary: it does not automatically unlock when a script ends.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">lock_files.lock_file( "test_lock.lck" );</span></td>

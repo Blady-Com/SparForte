@@ -51,13 +51,20 @@ package body parser_lock is
 locks_lock_t      : identifier;
 locks_unlock_t    : identifier;
 
+-----------------------------------------------------------------------------
+--  PARSE LOCK LOCK FILE                                 (built-in procedure)
+--
+-- AdaScript Syntax: lock_file( dir, file [,wait [,retry] ) | ( file, [,wait [,retry] ] )
+--       Ada Target: GNAT.Lock_Files.Lock_File
+--   GNAT Spec File: g-locfil.ads
+--   SparForte Docs: pkg_lock_files.html#lock_files.lock_file
+-----------------------------------------------------------------------------
+
 procedure ParseLockLockFile is
-  -- Syntax: Lock_File( dir, file [,wait [,retry] ) or
-  --         Lock_File( file, [,wait [,retry] ] )
   expr   : storage;
   expr_type  : identifier;
-  dirExpr    : storage;
-  fileExpr   : storage;
+  dirExpr    : storage := nullStorage;
+  fileExpr   : storage := nullStorage;
   waitExpr   : storage := storage'( to_unbounded_string( "1.0" ), noMetaTag, noMetaTags );
   retryExpr  : storage := storage'( to_unbounded_string( natural'last'img ), noMetaTag, noMetaTags );
 begin
@@ -123,15 +130,24 @@ begin
        end if;
      exception when lock_error =>
        err( +"File cannot be locked" );
+     when constraint_error =>
+       err( +"value out of range" );
      when others =>
        err_exception_raised;
      end;
   end if;
 end ParseLockLockFile;
 
+-----------------------------------------------------------------------------
+--  PARSE LOCK UNLOCK FILE                               (built-in procedure)
+--
+-- AdaScript Syntax: lock_files.unlock_file( file ) |  dir, file )
+--       Ada Target: GNAT.Lock_Files.Unlock_File
+--   GNAT Spec File: g-locfil.ads
+--   SparForte Docs: pkg_lock_files.html#lock_files.unlock_file
+-----------------------------------------------------------------------------
+
 procedure ParseLockUnlockFile is
-  -- Syntax: unlock_file( file ) or
-  --         unlock_file( dir, file )
   dirExpr    : storage := nullStorage;
   fileExpr   : storage;
   expr_type  : identifier;
@@ -163,6 +179,11 @@ begin
      end if;
   end if;
 end ParseLockUnlockFile;
+
+
+-----------------------------------------------------------------------------
+-- HOUSEKEEPING
+-----------------------------------------------------------------------------
 
 procedure StartupLockFiles is
 begin

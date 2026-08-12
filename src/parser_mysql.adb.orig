@@ -1333,6 +1333,13 @@ begin
      if is_connected( C ) then
         execute( Q, C );
 
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
+
         -- Initially, the columns widths are the widths of the headings
 
         for i in 1..columns( Q ) loop
@@ -1537,6 +1544,13 @@ begin
            execute( Q, C );
         end;
 
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
+
         -- Initially, the columns widths are the widths of the headings
 
         for i in 1..columns( Q ) loop
@@ -1740,7 +1754,7 @@ begin
         --            "from pg_attribute a, pg_class c, pg_type t where a.attrelid = c.oid and t.oid = a.atttypid and a.attisdropped = 'f' and (a.atttypid < 26 or a.atttypid > 29) and c.relname='" &
         --             to_string( exprVal ) & "' order by a.attnum" );
 
-        prepare( Q, "show column_name, data_type, is_nullable, column_default from information_schema.columns where table_name = '" & to_string( expr.value ) & "'" );
+        prepare( Q, "select column_name, data_type, is_nullable, column_default from information_schema.columns where table_name = '" & to_string( expr.value ) & "'" );
 
         -- MySQL 5.0.x has information_schema.  Older versions must fall back
         -- to a show query.
@@ -1758,6 +1772,13 @@ begin
            err( +"Did not find any relation named " &
               unb_em( expr.value ) );
            return;
+        end if;
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
         end if;
 
         -- Initially, the columns widths are the widths of the headings
@@ -2010,6 +2031,13 @@ begin
                     " order by User;" );
         execute( Q, C );
 
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
+
         -- Initially, the columns widths are the widths of the headings
 
         for i in 1..columns( Q ) loop
@@ -2215,6 +2243,13 @@ begin
            prepare( Q, "show databases" );
            execute( Q, C );
         end;
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
 
         -- Initially, the columns widths are the widths of the headings
 

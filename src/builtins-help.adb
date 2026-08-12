@@ -790,10 +790,9 @@ begin
      content( e, "get( f, k, v )","remove( f, k )" );
      content( e, "get_first( f, c, k, v )", "get_last( f, c, k, v )" );
      content( e, "recover( f, p )", "replace( f, k, v )" );
-     content( e, "get_last( f, c, k, v )","set( f, k, v )" );
+     content( e, "set( f, k, v )", "s := name( f )" );
      content( e, "get_next( f, c, k, v )","truncate( f )" );
-     content( e, "recover( f, p )", "b := will_raise( f )" );
-     content( e, "s := name( f )" );
+     content( e, "b := will_raise( f )" );
      seeAlso( e, "doc/pkg_btree_io.html" );
      endHelp( e );
    if HTMLoutput then
@@ -2249,7 +2248,7 @@ begin
      content( e, "clear_servers( cl )","replace( cl, k, v )" );
      content( e, "delete( cl, k )","set( cl, k, v )" );
      content( e, "flush( cl )","set_cluster_name( cl, s )" );
-     content( e, "is_valid_memcache_key( k )","set_cluster_type( cl, e )" );
+     content( e, "b := is_valid_memcache_key( k )","set_cluster_type( cl, e )" );
      content( e, "v := get( cl, k )","s := stats( cl )" );
      content( e, "cl := new_cluster","s := version( cl )" );
      section( e, "memcache.highread" );

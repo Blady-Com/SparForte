@@ -21,8 +21,9 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
--- GCC Ada 4.3.1 will throw an exception if BUSH isn't running as a CGI program
--- (This is, of course, a mistake in the design of Gnat.CGI, not BUSH.)
+-- GCC Ada 4.3.1 will throw an exception if SparForte isn't running as a
+-- CGI program. (This is, of course, a mistake in the design of Gnat.CGI, that
+-- it assumes that a CGI program is only a CGI program and nothing else.)
 --with gnat.cgi;
 
 package parser_gnat_cgi is

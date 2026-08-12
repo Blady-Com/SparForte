@@ -206,7 +206,9 @@ begin
        getParameterValue( mapRef, mapResId );
        findResource( to_resource_id( mapResId.value ), theMap );
        Storage_Hashed_Maps.Clear( theMap.shmMap );
-     end;
+     exception when others =>
+       err_exception_raised;
+    end;
   end if;
 end ParseHashedMapsClear;
 
@@ -233,7 +235,9 @@ begin
        getParameterValue( mapRef, mapResId );
        findResource( to_resource_id( mapResId.value ), theMap );
        result := storage'( to_spar_boolean( Storage_Hashed_Maps.Is_Empty( theMap.shmMap ) ), noMetaTag, noMetaTags );
-     end;
+     exception when others =>
+       err_exception_raised;
+  end;
   end if;
 end ParseHashedMapsIsEmpty;
 
@@ -260,7 +264,9 @@ begin
        getParameterValue( mapRef, mapResId );
        findResource( to_resource_id( mapResId.value ), theMap );
        result := storage'( to_unbounded_string( Storage_Hashed_Maps.Capacity( theMap.shmMap )'img ), noMetaTag, noMetaTags );
-     end;
+     exception when others =>
+       err_exception_raised;
+  end;
   end if;
 end ParseHashedMapsCapacity;
 
@@ -558,7 +564,8 @@ begin
   ParseFirstInOutInstantiatedParameter( subprogramId, mapRef, hashed_maps_map_t );
   expectParameterComma;
   if identifiers( token ).class = varClass and then
-     getUniType( identifiers( token ).kind ) = hashed_maps_cursor_t then
+    getUniType( identifiers( token ).kind ) = hashed_maps_cursor_t then
+     -- TODO: probably should be In not in out.
      ParseInOutInstantiatedParameter( subprogramId, cursorRef, hashed_maps_cursor_t );
   else
      ParseGenItemParameter( keyExpr, keyType, identifiers( mapRef.Id ).genKind );
@@ -627,7 +634,9 @@ begin
              Storage_Hashed_Maps.Contains( theMap.shmMap, keyExpr )
           ),
           noMetaTag, noMetaTags );
-     end;
+     exception when others =>
+       err_exception_raised;
+  end;
   end if;
 end ParseHashedMapsContains;
 
@@ -724,7 +733,7 @@ begin
           findResource( to_resource_id( mapResId.value ), theMap );
           oldElem := Storage_Hashed_Maps.Element( theMap.shmMap, keyExpr );
           if metaTagOK( subprogramId, keyExpr ) and metaTagOK( subprogramId, oldElem ) then
-             result := Storage_Hashed_Maps.Element( theMap.shmMap, keyExpr );
+             result := oldElem;
           end if;
        end if;
      exception when constraint_error =>
@@ -758,7 +767,9 @@ begin
        getParameterValue( mapRef, mapResId );
        findResource( to_resource_id( mapResId.value ), theMap );
        result := storage'( to_unbounded_string( Storage_Hashed_Maps.Length( theMap.shmMap )'img ), noMetaTag, noMetaTags );
-     end;
+     exception when others =>
+       err_exception_raised;
+    end;
   end if;
 end ParseHashedMapsLength;
 
@@ -1259,7 +1270,7 @@ begin
   ParseFirstInOutInstantiatedParameter( subprogramId, mapRef, hashed_maps_map_t );
   ParseNextGenItemParameter( subprogramId, keyExpr, keyType, identifiers( mapRef.Id ).genKind );
   ParseLastInOutInstantiatedParameter( subprogramId, cursorRef, hashed_maps_cursor_t );
- -- TODO: not really in out
+ -- TODO: the cursor is not really in out but out but not out is not supported yet
   if isExecutingCommand then
      begin
        getParameterValue( mapRef, mapResId );
@@ -1346,7 +1357,9 @@ begin
        getParameterValue( cursorRef, cursResId );
        findResource( to_resource_id( cursResId.value ), theCursor );
        result := storage'( to_spar_boolean( Storage_Hashed_Maps.Has_Element( theCursor.shmCursor ) ), noMetaTag, noMetaTags );
-     end;
+     exception when others =>
+       err_exception_raised;
+  end;
   end if;
 end ParseHashedMapsHasElement;
 

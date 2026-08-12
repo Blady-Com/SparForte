@@ -6063,7 +6063,7 @@ crc : gnat.crc32.crc32;
 gnat.crc32.initialize( crc );
 gnat.crc32.update( crc, "abc" );
 i := gnat.crc32.get_value( crc );
-pragma assert( i = 3403398717 );
+pragma assert( i = 891568578 );
 
 -- Other packages: units
 

@@ -14,8 +14,6 @@ Long term Ongoing Work
 - Ubuntu 26.04
   - c_pcre.c must be entirely rewritten for PCRE2
 
-- regenerate btree_io and hash_io package summary for help changes
-
 - to catch 2>;, I need "redirectFileNumber" the way I have redirectAmpersand
   but maybe I will have to push it up to the parser to avoid adding more states
   flags to the compiler.
@@ -42,6 +40,8 @@ Long term Ongoing Work
   of tags and ensuring they are not overwritten.
 - sound.play and CD support should be removed
 - doubly_linked_lists documentation - links are missing on See Also items
+- review schema/list functions in database packages for SQL escaping.  Using
+  APQ correctly to ensure values are escaped.
 
 - value meta labels project
   - NOTE: left off recreation of good testing of value meta labels with arrays package

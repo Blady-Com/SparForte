@@ -350,7 +350,7 @@ Java: HashMap.containsKey()</p></td>
 </tr><tr>
 <td><span>k</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span><i>map key type</i></span></td>
 <td><span>required</span></td>
 <td><span>the key</span></td>
 </tr><tr>
@@ -558,7 +558,7 @@ Java: HashMap.get()</p></td>
 </tr><tr>
 <td><span>k</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span><i>map key type</i></span></td>
 <td><span>required</span></td>
 <td><span>the key</span></td>
 </tr>
@@ -620,14 +620,14 @@ An exception is raised if the key is the wrong type<br>
 An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.remove">hashed_maps.remove</a></p></td>
+<td><p><a href="#hashed_maps.delete">hashed_maps.delete</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p></td>
 </tr>
 </table>
 
-<a id="hashed_maps.find"></a><h3>e := hashed_maps.find( m, k, c )</h3>
+<a id="hashed_maps.find"></a><h3>hashed_maps.find( m, k, c )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
@@ -812,7 +812,7 @@ An exception is raised if out of memory<br>
 An exception is raised if the key does not exist</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
+<td><p><a href="#hashed_maps.exclude">hashed_maps.exclude</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Include<br>
@@ -845,7 +845,7 @@ Java: HashMap.put()</p></td>
 </tr><tr>
 <td><span>k</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span><i>map key type</i></span></td>
 <td><span>required</span></td>
 <td><span>the key</span></td>
 </tr><tr>
@@ -903,7 +903,7 @@ If the key exists, raise an exception.</p>
 </tr><tr>
 <td><span>k</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span><i>map key type</i></span></td>
 <td><span>required</span></td>
 <td><span>the key</span></td>
 </tr><tr>
@@ -1249,11 +1249,10 @@ An exception is raised if the value type is not a string</p></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>An exception is raised if the value is the wrong type<br>
-An exception is raised if out of memory<br>
-An exception is raised if the key does not exist</p></td>
+An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#hashed_maps.set">hashed_maps.set</a></p></td>
+<td><p><a href="#hashed_maps.insert">hashed_maps.insert</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Hashed_Maps.Replace<br>
@@ -1312,7 +1311,7 @@ An exception is raised if the element type is not a string</p></td>
 </tr>
 </table>
 
-<a id="hashed_maps.reserve_capacity"></a><h3>c := hashed_maps.reserve_capacity( m, c )</h3>
+<a id="hashed_maps.reserve_capacity"></a><h3>hashed_maps.reserve_capacity( m, c )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>

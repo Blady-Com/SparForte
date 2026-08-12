@@ -4,7 +4,7 @@
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---              Copyright (C) 2001-2025 Free Software Foundation            --
+--              Copyright (C) 2001-2026 Free Software Foundation            --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -28,15 +28,23 @@ with gnat.cgi,
      gnat.cgi.cookie,
      gnat.cgi.debug;
 #end if;
-with world,
-    symbol_table,
+with ada.strings.unbounded,
+     world,
+     symbol_table,
+     value_conversion,
     message_strings,
-    scanner.communications;
-use world,
+    scanner.communications,
+    parser,
+    parser_params;
+use ada.strings.unbounded,
+    world,
     symbol_table,
+    value_conversion,
     message_strings,
     scanner,
-    scanner.communications;
+    scanner.communications,
+    parser,
+    parser_params;
 
 package body parser_gnat_cgi is
 
@@ -105,8 +113,6 @@ gnat_cgi_cookie_set_t : identifier;
 gnat_cgi_debug_text_output_t : identifier;
 gnat_cgi_debug_html_output_t : identifier;
 
---right_bracket : constant unbounded_string := to_unbounded_string( ")" );
-
 --procedure ParseSingleStringExpression( expr : out unbounded_string;
 --  expr_type : out identifier ) is
 --begin
@@ -122,29 +128,34 @@ gnat_cgi_debug_html_output_t : identifier;
 ------------------------------------------------------------------------------
 
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI PUT HEADER                            (built-in procedure)
+--
+-- AdaScript Syntax: gnat.cgi.put_header [(f) | (h [,f])]
+--       Ada Target: GNAT.CGI.Put_Header
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIPutHeader is
-  -- gnat.cgi.put_header
-  -- gnat.cgi.put_header( header [, force] )
-  -- gnat.cgi.put_header( force )
   expr  : storage;
   expr_type : identifier;
   expr2Expr  : storage;
   expr2_type : identifier;
   Header : unbounded_string := to_unbounded_string( GNAT.CGI.Default_Header );
-  Force  : boolean := false;
-bt : identifier;
-b : boolean;
+  force  : boolean := false;
+  bt : identifier;
+  subprogramId : constant identifier := gnat_cgi_put_header_t;
 begin
-  expect( gnat_cgi_put_header_t );
-  if token = symbol_t and identifiers( token ).value.all = "(" then
+  expect( subprogramId );
+  if token = symbol_t and identifiers( token ).store.value = "(" then
      expect( symbol_t, "(" );
      ParseExpression( expr, expr_type );
      bt := getBaseType( expr_type );
      if bt = string_t or bt = uni_string_t or bt = universal_t then
-        b := baseTypesOK( expr_type, string_t );
-        header := expr;
-        if token = symbol_t and identifiers( token ).value.all = "," then
+        baseTypesOK( expr_type, string_t );
+        header := expr.value;
+        if token = symbol_t and identifiers( token ).store.value = "," then
            expect( symbol_t, "," );
            ParseExpression( expr2Expr, expr2_type );
            if baseTypesOK( expr2_type, boolean_t ) then
@@ -153,7 +164,7 @@ begin
         end if;
         expect( symbol_t, ")" );
      elsif bt = boolean_t then
-        b := baseTypesOK( expr_type, boolean_t );
+        baseTypesOK( expr_type, boolean_t );
         force := "1" = to_string( expr.value );
 
         expect( symbol_t, ")" );
@@ -164,7 +175,7 @@ begin
 
   if isExecutingCommand then
      begin
-       Gnat.CGI.Put_Header( to_string( Header ), Force );
+       Gnat.CGI.Put_Header( to_string( header ), force );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -192,15 +203,23 @@ end ParseGnatCGIPutHeader;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI OK                                     (built-in function)
+--
+-- AdaScript Syntax: bool := gnat.cgi.ok
+--       Ada Target: GNAT.CGI.OK
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIOK( result : out storage; kind : out identifier ) is
-  -- bool := gnat.cgi.ok
+  subprogramId : constant identifier := gnat_cgi_ok_t;
 begin
   kind := boolean_t;
-  expect( gnat_cgi_ok_t );
+  expect( subprogramId );
   if isExecutingCommand then
      begin
-       result := storage'( to_bush_boolean( gnat.cgi.ok ), noMetaTag );
+       result := storage'( to_spar_boolean( gnat.cgi.ok ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when others =>
@@ -218,13 +237,21 @@ end ParseGnatCGIOK;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI METHOD                                 (built-in function)
+--
+-- AdaScript Syntax: method := gnat.cgi.method
+--       Ada Target: GNAT.CGI.Method
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIMethod( result : out storage; kind : out identifier ) is
-  -- method := gnat.cgi.method
   mt : gnat.cgi.method_type;
+  subprogramId : constant identifier := gnat_cgi_method_t;
 begin
   kind := gnat_cgi_method_type_t;
-  expect( gnat_cgi_method_t );
+  expect( subprogramId );
   if isExecutingCommand then
      begin
        mt := gnat.cgi.method;
@@ -232,7 +259,7 @@ begin
                    integer'image(
                       gnat.cgi.method_type'pos( mt )
                    )(2)&""
-                 ), noMetaTag );
+                 ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -252,34 +279,41 @@ end ParseGnatCGIMethod;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI METAVARIABLE                           (built-in function)
+--
+-- AdaScript Syntax: value := gnat.cgi.metavariable( key [, required] )
+--       Ada Target: GNAT.CGI.Metavariable
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIMetavariable( result : out storage; kind : out identifier ) is
-  -- gnat.cgi.metavariable( key [, required] )
   metaExpr   : storage;
   meta_type  : identifier;
-  bool_val   : unbounded_string := identifiers( false_t ).value.all;
+  boolExpr   : storage;
   bool_type  : identifier := boolean_t;
+  subprogramId : constant identifier := gnat_cgi_metavariable_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_metavariable_t );
+  expect( subprogramId );
   expect( symbol_t, "(" );
   ParseExpression( metaExpr, meta_type );
   if baseTypesOk( meta_type, gnat_cgi_metavariable_name_t ) then
-     if token = symbol_t and identifiers( token ).value.all = "," then
+     if token = symbol_t and identifiers( token ).store.value = "," then
         expect( symbol_t, "," );
         ParseExpression( boolExpr, bool_type );
-        if baseTypesOk( bool_type, boolean_t ) then
-           null;
-        end if;
+        baseTypesOk( bool_type, boolean_t );
      end if;
   end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
+     boolExpr.value := identifiers( false_t ).store.value;
      begin
        result := storage'( to_unbounded_string( Gnat.Cgi.Metavariable(
           gnat.cgi.metavariable_name'val( integer'value( " " & to_string( metaExpr.value ) ) ),
-          bool_val = identifiers( true_t ).value.all
-       ) ), noMetaTag );
+          boolExpr.value = identifiers( true_t ).store.value
+       ) ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -299,30 +333,36 @@ end ParseGnatCGIMetavariable;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI METAVARIABLE EXISTS                    (built-in function)
+--
+-- AdaScript Syntax: bool := gnat.cgi.metavariable_exists( key )
+--       Ada Target: GNAT.CGI.Metavariable_Exists
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIMetavariableExists( result : out storage; kind : out identifier ) is
-  -- gnat.cgi.metavariable_exists( key )
   metaExpr   : storage;
   meta_type  : identifier;
   bool       : boolean := false;
+  subprogramId : constant identifier := gnat_cgi_metavariable_exists_t;
 begin
   kind := boolean_t;
-  expect( gnat_cgi_metavariable_exists_t );
+  expect( subprogramId );
   expect( symbol_t, "(" );
   ParseExpression( metaExpr, meta_type );
-  if baseTypesOk( meta_type, gnat_cgi_metavariable_name_t ) then
-     null;
-  end if;
+  baseTypesOk( meta_type, gnat_cgi_metavariable_name_t );
   expect( symbol_t, ")" );
   if isExecutingCommand then
      begin
-       result := storage'( to_bush_boolean(
+       result := storage'( to_spar_boolean(
           Gnat.Cgi.Metavariable_Exists(
              Gnat.Cgi.metavariable_name'val(
                 integer'value(
                    " " & to_string (
-                      metaExpr
-       ) ) ) ) ), noMetaTag );
+                      metaExpr.value
+       ) ) ) ) ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -342,13 +382,22 @@ end ParseGnatCGIMetavariableExists;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI URL                                    (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.url
+--       Ada Target: GNAT.CGI.URL
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIURL( result : out storage; kind : out identifier ) is
+  subprogramId : constant identifier := gnat_cgi_url_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_url_t );
+  expect( subprogramId );
   if isExecutingCommand then
-     result := storage'( to_unbounded_string( gnat.cgi.url ), noMetaTag );
+     result := storage'( to_unbounded_string( gnat.cgi.url ), noMetaTag, sparMetaTags );
   end if;
 end ParseGnatCGIURL;
 
@@ -361,15 +410,23 @@ end ParseGnatCGIURL;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI ARGUMENT COUNT                         (built-in function)
+--
+-- AdaScript Syntax: n := gnat.cgi.argument_count
+--       Ada Target: GNAT.CGI.Argument_Count
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIArgumentCount( result : out storage; kind : out identifier ) is
-  -- gnat.cgi.argument_count
+  subprogramId : constant identifier := gnat_cgi_argument_count_t;
 begin
   kind := natural_t;
-  expect( gnat_cgi_argument_count_t );
+  expect( subprogramId );
   if isExecutingCommand then
      begin
-       result := storage'( to_unbounded_string( natural'image( gnat.cgi.argument_count ) ), noMetaTag );
+       result := storage'( to_unbounded_string( natural'image( gnat.cgi.argument_count ) ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -389,26 +446,34 @@ end ParseGnatCGIArgumentCount;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI VALUE                                  (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.value( key [,required] ) | ( pos )
+--       Ada Target: GNAT.CGI.Value
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIValue( result : out storage; kind : out identifier ) is
-  -- gnat.cgi.value( key [,required] )
-  -- gnat.cgi.value( pos )
   expr  : storage;
   expr_type : identifier;
   base_type : identifier;
-  bool_val  : unbounded_string := identifiers( false_t ).value.all;
+  boolExpr  : storage;
   bool_type : identifier := boolean_t;
   key_version : boolean := false;
+  subprogramId : constant identifier := gnat_cgi_value_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_value_t );
+  boolExpr.value := identifiers( false_t ).store.value;
+  expect( subprogramId );
   expect( symbol_t, "(" );
   ParseExpression( expr, expr_type );
   base_type := getBaseType( expr_type );
   if base_type = string_t or base_type = uni_string_t or base_type = universal_t then
      key_version := true;
      if baseTypesOk( expr_type, string_t ) then
-        if token = symbol_t and identifiers( token ).value.all = "," then
+        if token = symbol_t and identifiers( token ).store.value = "," then
            expect( symbol_t, "," );
            ParseExpression( boolExpr, bool_type );
            if baseTypesOk( bool_type, boolean_t ) then
@@ -418,32 +483,32 @@ begin
      end if;
   elsif base_type = positive_t or base_type = uni_numeric_t then
      key_version := false;
-     if baseTypesOk( expr_type, positive_t ) then
-        null;
-     end if;
+     baseTypesOk( expr_type, positive_t );
   else
-     err( +"postive or string expected" );
+     err( +"positive or string expected" );
   end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
-     begin
-       if key_version then
-          result := storage'( to_unbounded_string( gnat.cgi.value(
-            to_string( expr.value ),
-            bool_val = identifiers( true_t ).value.all
-          ) ), noMetaTag );
-       else
-          result := storage'( to_unbounded_string( gnat.cgi.value(
-            positive'value( " " & to_string( expr.value ) )
-          ) ), noMetaTag );
-       end if;
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( +"parameter_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+    if metaTagOK( subprogramId, expr ) then
+       begin
+         if key_version then
+            result := storage'( to_unbounded_string( gnat.cgi.value(
+              to_string( expr.value ),
+              boolExpr.value = identifiers( true_t ).store.value
+            ) ), noMetaTag, expr.policyMetaTags );
+         else
+            result := storage'( to_unbounded_string( gnat.cgi.value(
+              positive'value( " " & to_string( expr.value ) )
+            ) ), noMetaTag, sparMetaTags );
+         end if;
+       exception when Gnat.Cgi.Data_Error =>
+         err( +"data_error exception" );
+       when Gnat.Cgi.Parameter_Not_Found =>
+         err( +"parameter_not_found exception" );
+       when others =>
+         err_exception_raised;
+       end;
+    end if;
   end if;
 end ParseGnatCGIValue;
 
@@ -456,27 +521,37 @@ end ParseGnatCGIValue;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI KEY EXISTS                             (built-in function)
+--
+-- AdaScript Syntax: bool := gnat.cgi.key_exists( key )
+--       Ada Target: GNAT.CGI.Key_Exists
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIKeyExists( result : out storage; kind : out identifier ) is
-  -- bool := gnat.cgi.key_exists( key )
   keyExpr : storage;
   key_type : identifier;
+  subprogramId : constant identifier := gnat_cgi_key_exists_t;
 begin
   kind := boolean_t;
-  expect( gnat_cgi_key_exists_t );
-  ParseSingleStringExpression( keyExpr, key_type );
+  expect( subprogramId );
+  ParseSingleStringParameter( subprogramId, keyExpr, key_type );
   if isExecutingCommand then
-     begin
-       result := storage'( to_bush_boolean(
-         gnat.cgi.key_exists( to_string( keyExpr.value ))
-       ), noMetaTag );
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( _"parameter_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+    if metaTagOK( subprogramId, keyExpr ) then
+       begin
+         result := storage'( to_spar_boolean(
+           gnat.cgi.key_exists( to_string( keyExpr.value ))
+           ), noMetaTag, sparMetaTags );
+       exception when Gnat.Cgi.Data_Error =>
+         err( +"data_error exception" );
+       when Gnat.Cgi.Parameter_Not_Found =>
+         err( +"parameter_not_found exception" );
+       when others =>
+         err_exception_raised;
+       end;
+    end if;
   end if;
 end ParseGnatCGIKeyExists;
 
@@ -489,14 +564,22 @@ end ParseGnatCGIKeyExists;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI KEY                                    (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.key( position )
+--       Ada Target: GNAT.CGI.Key
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIKey( result : out storage; kind : out identifier ) is
-  -- s := key( position )
   posExpr  : storage;
   pos_type : identifier;
+  subprogramId : constant identifier := gnat_cgi_key_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_key_t );
+  expect( subprogramId );
   expect( symbol_t, "(" );
   ParseExpression( posExpr, pos_type );
   if baseTypesOK( pos_type, positive_t ) then
@@ -507,7 +590,7 @@ begin
      begin
        result := storage'( to_unbounded_string(
          gnat.cgi.key( positive'value( " " & to_string( posExpr.value ) ) )
-       ), noMetaTag );
+       ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -526,32 +609,39 @@ begin
 end ParseGnatCGIKey;
 
 #end if;
-#if GCGI
 
 -- Cookies to be added here
 
+#if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI COOKIE PUT HEADER                      (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.cookie_put_header [(f) | (h [,f])]
+--       Ada Target: GNAT.CGI.Cookie_Put_Header
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
+
 procedure ParseGnatCGICookiePutHeader is
-  -- gnat.cgi.cookie.put_header
-  -- gnat.cgi.cookie.put_header( header [, force] )
-  -- gnat.cgi.cookie.put_header( force )
   expr  : storage;
   expr_type : identifier;
   expr2Expr  : storage;
   expr2_type : identifier;
   Header : unbounded_string := to_unbounded_string( GNAT.CGI.Default_Header );
   Force  : boolean := false;
-bt : identifier;
-b : boolean;
+  bt : identifier;
+  b : boolean;
+  subprogramId : constant identifier := gnat_cgi_cookie_put_header_t;
 begin
-  expect( gnat_cgi_cookie_put_header_t );
-  if token = symbol_t and identifiers( token ).value.all = "(" then
+  expect( subprogramId );
+  if token = symbol_t and identifiers( token ).store.value = "(" then
      expect( symbol_t, "(" );
      ParseExpression( expr, expr_type );
      bt := getBaseType( expr_type );
      if bt = string_t or bt = uni_string_t or bt = universal_t then
         b := baseTypesOK( expr_type, string_t );
-        header := expr;
-        if token = symbol_t and identifiers( token ).value.all = "," then
+        header := expr.value;
+        if token = symbol_t and identifiers( token ).store.value = "," then
            expect( symbol_t, "," );
            ParseExpression( expr2Expr, expr2_type );
            if baseTypesOK( expr2_type, boolean_t ) then
@@ -571,7 +661,7 @@ begin
 
   if isExecutingCommand then
      begin
-       Gnat.CGI.Cookie.Put_Header( to_string( Header ), Force );
+       Gnat.CGI.Cookie.Put_Header( to_string( header ), Force );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -593,15 +683,23 @@ end ParseGnatCGICookiePutHeader;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI COOKIE OK                              (built-in function)
+--
+-- AdaScript Syntax: bool := gnat.cgi.cookie.ok
+--       Ada Target: GNAT.CGI.Cookie_OK
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGICookieOK( result : out storage; kind : out identifier ) is
-  -- bool := gnat.cgi.cookie.ok
+  subprogramId : constant identifier := gnat_cgi_cookie_ok_t;
 begin
   kind := boolean_t;
-  expect( gnat_cgi_cookie_ok_t );
+  expect( subprogramId );
   if isExecutingCommand then
      begin
-       result := storage'( to_bush_boolean( gnat.cgi.cookie.ok ), noMetaTag );
+       result := storage'( to_spar_boolean( gnat.cgi.cookie.ok ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when others =>
@@ -619,15 +717,23 @@ end ParseGnatCGICookieOK;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI COOKIE COUNT                           (built-in function)
+--
+-- AdaScript Syntax: n := gnat.cgi.cookie_count
+--       Ada Target: GNAT.CGI.Cookie_Count
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGICookieCount( result : out storage; kind : out identifier ) is
-  -- gnat.cgi.cookie.count
+  subprogramId : constant identifier := gnat_cgi_cookie_count_t;
 begin
   kind := natural_t;
-  expect( gnat_cgi_cookie_count_t );
+  expect( subprogramId );
   if isExecutingCommand then
      begin
-       result := storage'( to_unbounded_string( natural'image( gnat.cgi.cookie.count ) ), noMetaTag );
+       result := storage'( to_unbounded_string( natural'image( gnat.cgi.cookie.count ) ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -649,26 +755,34 @@ end ParseGnatCGICookieCount;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI COOKIE VALUE                           (built-in function)
+--
+-- AdaScript Syntax: s:= gnat.cgi.cookie.value( key [,required] ) | ( pos )
+--       Ada Target: GNAT.CGI.Cookie_Value
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGICookieValue( result : out storage; kind : out identifier ) is
-  -- gnat.cgi.cookie.value( key [,required] )
-  -- gnat.cgi.cookie.value( pos )
   expr  : storage;
   expr_type : identifier;
   base_type : identifier;
-  bool_val  : unbounded_string := identifiers( false_t ).value.all;
+  boolExpr  : storage;
   bool_type : identifier := boolean_t;
   key_version : boolean := false;
+  subprogramId : constant identifier := gnat_cgi_cookie_value_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_cookie_value_t );
+  boolExpr.value := identifiers( false_t ).store.value;
+  expect( subprogramId );
   expect( symbol_t, "(" );
   ParseExpression( expr, expr_type );
   base_type := getBaseType( expr_type );
   if base_type = string_t or base_type = uni_string_t or base_type = universal_t then
      key_version := true;
      if baseTypesOk( expr_type, string_t ) then
-        if token = symbol_t and identifiers( token ).value.all = "," then
+        if token = symbol_t and identifiers( token ).store.value = "," then
            expect( symbol_t, "," );
            ParseExpression( boolExpr, bool_type );
            if baseTypesOk( bool_type, boolean_t ) then
@@ -678,34 +792,34 @@ begin
      end if;
   elsif base_type = positive_t or base_type = uni_numeric_t then
      key_version := false;
-     if baseTypesOk( expr_type, positive_t ) then
-        null;
-     end if;
+     baseTypesOk( expr_type, positive_t );
   else
-     err( +"postive or string expected" );
+     err( +"positive or string expected" );
   end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
-     begin
-       if key_version then
-          result := storage'( to_unbounded_string( gnat.cgi.cookie.value(
-            to_string( expr.value ),
-            bool_val = identifiers( true_t ).value.all
-          ) ), noMetaTag );
-       else
-          result := storage'( to_unbounded_string( gnat.cgi.cookie.value(
-            positive'value( " " & to_string( expr.value ) )
-          ) ), noMetaTag );
-       end if;
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( +"parameter_not_found exception" );
-     when Gnat.Cgi.Cookie.Cookie_Not_Found =>
-       err( +"cookie_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+    if metaTagOK( subprogramId, expr ) then
+       begin
+         if key_version then
+            result := storage'( to_unbounded_string( gnat.cgi.cookie.value(
+              to_string( expr.value ),
+              boolExpr.value = identifiers( true_t ).store.value
+              ) ), noMetaTag, expr.policyMetaTags  );
+         else
+             result := storage'( to_unbounded_string( gnat.cgi.cookie.value(
+               positive'value( " " & to_string( expr.value ) )
+               ) ), noMetaTag, sparMetaTags );
+         end if;
+       exception when Gnat.Cgi.Data_Error =>
+         err( +"data_error exception" );
+       when Gnat.Cgi.Parameter_Not_Found =>
+         err( +"parameter_not_found exception" );
+       when Gnat.Cgi.Cookie.Cookie_Not_Found =>
+         err( +"cookie_not_found exception" );
+       when others =>
+         err_exception_raised;
+       end;
+    end if;
   end if;
 end ParseGnatCGICookieValue;
 
@@ -718,29 +832,39 @@ end ParseGnatCGICookieValue;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI COOKIE EXISTS                          (built-in function)
+--
+-- AdaScript Syntax: bool := gnat.cgi.cookie.exists( key )
+--       Ada Target: GNAT.CGI.Cookie_Exists
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGICookieExists( result : out storage; kind : out identifier ) is
-  -- bool := gnat.cgi.cookie.exists( key )
   keyExpr : storage;
   key_type : identifier;
+  subprogramId : constant identifier := gnat_cgi_cookie_exists_t;
 begin
   kind := boolean_t;
-  expect( gnat_cgi_cookie_exists_t );
-  ParseSingleStringExpression( keyExpr, key_type );
+  expect( subprogramId );
+  ParseSingleStringParameter( gnat_cgi_cookie_exists_t, keyExpr, key_type );
   if isExecutingCommand then
-     begin
-       result := storage'( to_bush_boolean(
-         gnat.cgi.cookie.exists( to_string( keyExpr.value ))
-       ), noMetaTag );
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( +"parameter_not_found exception" );
-     when Gnat.Cgi.Cookie.Cookie_Not_Found =>
-       err( +"cookie_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+    if metaTagOK( subprogramId, keyExpr ) then
+       begin
+         result := storage'( to_spar_boolean(
+           gnat.cgi.cookie.exists( to_string( keyExpr.value ))
+           ), noMetaTag, sparMetaTags );
+       exception when Gnat.Cgi.Data_Error =>
+         err( +"data_error exception" );
+       when Gnat.Cgi.Parameter_Not_Found =>
+         err( +"parameter_not_found exception" );
+       when Gnat.Cgi.Cookie.Cookie_Not_Found =>
+         err( +"cookie_not_found exception" );
+       when others =>
+         err_exception_raised;
+       end;
+    end if;
   end if;
 end ParseGnatCGICookieExists;
 
@@ -753,14 +877,22 @@ end ParseGnatCGICookieExists;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI COOKIE KEY                             (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.cookie.key( pos )
+--       Ada Target: GNAT.CGI.Cookie_Key
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGICookieKey( result : out storage; kind : out identifier ) is
-  -- s := key( position )
   posExpr  : storage;
   pos_type : identifier;
+  subprogramId : constant identifier := gnat_cgi_cookie_key_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_cookie_key_t );
+  expect( subprogramId );
   expect( symbol_t, "(" );
   ParseExpression( posExpr, pos_type );
   if baseTypesOK( pos_type, positive_t ) then
@@ -771,7 +903,7 @@ begin
      begin
        result := storage'( to_unbounded_string(
          gnat.cgi.cookie.key( positive'value( " " & to_string( posExpr.value ) ) )
-       ), noMetaTag );
+       ), noMetaTag, sparMetaTags );
      exception when Gnat.Cgi.Data_Error =>
        err( +"data_error exception" );
      when Gnat.Cgi.Parameter_Not_Found =>
@@ -793,26 +925,41 @@ end ParseGnatCGICookieKey;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI SET COOKIE                             (built-in function)
+--
+-- AdaScript Syntax: gnat.cgi.cookie.set( k [,v [,c [,d [,m [,p [,s] ] ] ] ] ] )
+--       Ada Target: GNAT.CGI.Cookie_Set
+--   GNAT Spec File: g-cgi.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGICookieSet is
   keyExpr  : storage;
   key_type : identifier;
   valExpr  : storage;
   val_type : identifier;
-  comExpr  : unbounded_string := null_unbounded_string;
+  comExpr  : storage;
   com_type : identifier;
-  domExpr  : unbounded_string := null_unbounded_string;
+  domExpr  : storage;
   dom_type : identifier;
-  age_val  : unbounded_string := to_unbounded_string( " " & natural'last'img );
+  ageExpr  : storage;
   age_type : identifier;
-  path_val  : unbounded_string := to_unbounded_string("/");
+  pathExpr : storage;
   path_type : identifier;
   secExpr  : storage;
   sec_type : identifier;
   base_type : identifier;
   secure   : boolean := false;
+  right_bracket : constant unbounded_string := to_unbounded_string( ")" );
+  subprogramId : constant identifier := gnat_cgi_cookie_set_t;
 begin
-  expect( gnat_cgi_cookie_set_t );
+  ageExpr.value := to_unbounded_string( " " & natural'last'img );
+  pathExpr.value := to_unbounded_string("/");
+  comExpr.value := null_unbounded_string;
+  domExpr.value := null_unbounded_string;
+
+  expect( subprogramId );
   expect( symbol_t, "(" );
 
   -- Is this universal_t handling necessary?  That this should be automatic...
@@ -826,28 +973,28 @@ begin
         -- all other parameters optional .  This presents a problem in SparForte
         -- since we don't have named parameters.  We can only assume the they
         -- are optional to the end of the positions.
-        if token = symbol_t and identifiers( token ).value.all /= right_bracket then
+        if token = symbol_t and identifiers( token ).store.value /= right_bracket then
            expect( symbol_t, "," );
            ParseExpression( comExpr, com_type ); -- comment
            base_type := getBaseType( com_type );
            if base_type = string_t or base_type = uni_string_t or base_type = universal_t then
-              if token = symbol_t and identifiers( token ).value.all /= right_bracket  then
+              if token = symbol_t and identifiers( token ).store.value /= right_bracket  then
                  expect( symbol_t, "," );
                  ParseExpression( domExpr, dom_type ); -- domain
                  base_type := getBaseType( dom_type );
                  if base_type = string_t or base_type = uni_string_t or base_type = universal_t then
-                    if token = symbol_t and identifiers( token ).value.all /= right_bracket then
+                    if token = symbol_t and identifiers( token ).store.value /= right_bracket then
                        expect( symbol_t, "," );
                        ParseExpression( ageExpr, age_type ); -- max-age
                        base_type := getBaseType( age_type );
                        --if intTypesOK( age_type, natural_t ) or base_type = uni_numeric_t or base_type = universal_t then
                        if base_type = natural_t or base_type = uni_numeric_t or base_type = universal_t then
-                          if token = symbol_t and identifiers( token ).value.all /= right_bracket then
+                          if token = symbol_t and identifiers( token ).store.value /= right_bracket then
                              expect( symbol_t, "," );
                              ParseExpression( pathExpr, path_type ); -- path
                              base_type := getBaseType( path_type );
                              if base_type = string_t or base_type = uni_string_t or base_type = universal_t then
-                                if token = symbol_t and identifiers( token ).value.all /= right_bracket then
+                                if token = symbol_t and identifiers( token ).store.value /= right_bracket then
                                    expect( symbol_t, "," );
                                    ParseExpression( secExpr, sec_type ); -- max-age
                                    base_type := getBaseType( sec_type );
@@ -867,25 +1014,32 @@ begin
   end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
-     begin
-       Gnat.Cgi.Cookie.Set(
-          to_string( keyExpr.value ),
-          to_string( valExpr.value ),
-          to_string( comExpr.value ),
-          to_string( domExpr.value ),
-          natural'value( " " & to_string( ageExpr.value ) ),
-          to_string( pathExpr.value ),
-          secure
-       );
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( +"parameter_not_found exception" );
-     when Gnat.Cgi.Cookie.Cookie_Not_Found =>
-       err( +"cookie_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+    if metaTagOK( subprogramId, keyExpr ) and
+      metaTagOK( subprogramId, valExpr ) and
+      metaTagOK( subprogramId, comExpr ) and
+      metaTagOK( subprogramId, domExpr ) and
+      metaTagOK( subprogramId, ageExpr ) and
+      metaTagOK( subprogramId, pathExpr ) then
+       begin
+          Gnat.Cgi.Cookie.Set(
+             to_string( keyExpr.value ),
+             to_string( valExpr.value ),
+             to_string( comExpr.value ),
+             to_string( domExpr.value ),
+             natural'value( " " & to_string( ageExpr.value ) ),
+             to_string( pathExpr.value ),
+             secure
+          );
+       exception when Gnat.Cgi.Data_Error =>
+          err( +"data_error exception" );
+       when Gnat.Cgi.Parameter_Not_Found =>
+          err( +"parameter_not_found exception" );
+       when Gnat.Cgi.Cookie.Cookie_Not_Found =>
+          err( +"cookie_not_found exception" );
+       when others =>
+          err_exception_raised;
+       end;
+    end if;
   end if;
 end ParseGnatCGICookieSet;
 
@@ -898,23 +1052,36 @@ end ParseGnatCGICookieSet;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI DEBUG TEXT OUTPUT                      (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.debug_text_output
+--       Ada Target: GNAT.CGI.Debug_Text_Output
+--   GNAT Spec File: g-cgideb.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+--
+-- Returns a plain text version of the CGI runtime environment
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIDebugTextOutput( result : out storage; kind : out identifier ) is
+  subprogramId : constant identifier := gnat_cgi_debug_text_output_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_debug_text_output_t );
+  expect( subprogramId );
   if isExecutingCommand then
-     begin
-       result := storage'( to_unbounded_string( Gnat.Cgi.Debug.Text_Output ), noMetaTag );
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( +"parameter_not_found exception" );
-     when Gnat.Cgi.Cookie.Cookie_Not_Found =>
-       err( +"cookie_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+     if maintenanceOpt then
+       err( +"not allowed in maintenance mode" );
+     else
+       begin
+         result := storage'( to_unbounded_string( Gnat.Cgi.Debug.Text_Output ), noMetaTag, sparMetaTags );
+       exception when Gnat.Cgi.Data_Error =>
+         err( +"data_error exception" );
+       when Gnat.Cgi.Parameter_Not_Found =>
+         err( +"parameter_not_found exception" );
+       when others =>
+         err_exception_raised;
+       end;
+     end if;
   end if;
 end ParseGnatCGIDebugTextOutput;
 
@@ -927,23 +1094,36 @@ end ParseGnatCGIDebugTextOutput;
 
 #end if;
 #if GCGI
+-----------------------------------------------------------------------------
+--  PARSE GNAT CGI DEBUG HTML OUTPUT                      (built-in function)
+--
+-- AdaScript Syntax: s := gnat.cgi.debug_html_output
+--       Ada Target: GNAT.CGI.Debug_HTML_Output
+--   GNAT Spec File: g-cgideb.ads
+--   SparForte Docs: doc/pkg_gnat_cgi.html
+--
+-- Returns a plain text version of the CGI runtime environment
+-----------------------------------------------------------------------------
 
 procedure ParseGnatCGIDebugHTMLOutput( result : out storage; kind : out identifier ) is
+  subprogramId : constant identifier := gnat_cgi_debug_html_output_t;
 begin
   kind := string_t;
-  expect( gnat_cgi_debug_html_output_t );
+  expect( subprogramId );
   if isExecutingCommand then
-     begin
-       result := storage'( to_unbounded_string( Gnat.Cgi.Debug.HTML_Output ), noMetaTag );
-     exception when Gnat.Cgi.Data_Error =>
-       err( +"data_error exception" );
-     when Gnat.Cgi.Parameter_Not_Found =>
-       err( +"parameter_not_found exception" );
-     when Gnat.Cgi.Cookie.Cookie_Not_Found =>
-       err( +"cookie_not_found exception" );
-     when others =>
-       err_exception_raised;
-     end;
+    if maintenanceOpt then
+      err( +"not allowed in maintenance mode" );
+    else
+      begin
+         result := storage'( to_unbounded_string( Gnat.Cgi.Debug.HTML_Output ), noMetaTag, sparMetaTags );
+      exception when Gnat.Cgi.Data_Error =>
+        err( +"data_error exception" );
+      when Gnat.Cgi.Parameter_Not_Found =>
+        err( +"parameter_not_found exception" );
+      when others =>
+        err_exception_raised;
+      end;
+    end if;
   end if;
 end ParseGnatCGIDebugHTMLOutput;
 

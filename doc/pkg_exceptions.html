@@ -68,7 +68,22 @@ exceptions and SparForte errors.</p>
 <td width="15%">&nbsp;</td>
 <td><p>Return the error message of the current exception, including the stack trace.  Outside of an exception handler, this returns an empty string.</p></td>
 </tr><tr>
-	<td><p class="pkg_label">Example</p></td><td><p><span class="code">info := exceptions.exception_info</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><pre>procedure t is
+   my_exception : exception with "this is my exception" use 5;
+begin
+  raise my_exception;
+exception when others =&gt;
+  ? exceptions.exception_info;
+end t;
+
+</pre>
+<p>Displays:</p>
+<pre>t: 4: 22: 43%: in t
+begin
+  raise my_exception;
+                     ^ raised my_exception: this is my exception
+</pre>
+</td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -91,14 +106,15 @@ exceptions and SparForte errors.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#exceptions.exception_name">exceptions.exception_name</a><br>
+<a href="#exceptions.exception_status_code">exceptions.exception_status_code</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Exceptions.Exception_Info<br>PHP: N/A</p></td>
 </tr><tr>
 <td><p class="pkg_label">Implementation Notes</p></td>
 <td><p>The Ada version uses exception occurrences.  The SparForte package only works with the active exception.</p>
-<p>When a SparForte template is used, the message can be written in two formats. The message will be in GCC format written to current_error.  The message will be in the template format when written to current_output.  For example, in an HTML template, the message will be formatted for HTML on current_output</td>
+<p>When a SparForte template is used, the message can be written in two formats. The message will be in GCC format written to current_error.  The message will be in the template format when written to current_output.  For example, in an HTML template, the message will be formatted for HTML on current_output.</td>
 </tr>
 </table>
 
@@ -108,7 +124,14 @@ exceptions and SparForte errors.</p>
 <td width="15%">&nbsp;</td>
 <td><p>Return the name of the current exception.  Outside of an exception handler, this returns an empty string.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">name := exceptions.exception_name</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><pre>procedure t is
+   my_exception : exception;
+begin
+  raise my_exception;
+exception when others =&gt;
+  ? exceptions.exception_name; -- displays my_exception
+end t;
+</pre></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -131,7 +154,8 @@ exceptions and SparForte errors.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#exceptions.exception_status_code">exceptions.exception_status_code</a><br>
+<a href="#exceptions.exception_info">exceptions.exception_info</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Exceptions.Exception_Name<br>PHP: N/A</p></td>
@@ -147,7 +171,14 @@ exceptions and SparForte errors.</p>
 <td width="15%">&nbsp;</td>
 <td><p>Return the operating system status code for an unhandled exception.  Outside of an exception handler, this returns zero.</p>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">status := exceptions.exception_status_code</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><pre>procedure t is
+   my_exception : exception with "this is my exception" use 5;
+begin
+  raise my_exception;
+exception when others =&gt;
+  ? exceptions.exception_status_code; -- displays 5
+end t;
+</pre></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -170,7 +201,8 @@ exceptions and SparForte errors.</p>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#exceptions.exception_name">exceptions.exception_name</a><br>
+<a href="#exceptions.exception_info">exceptions.exception_info</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A (AdaScript extension)<br>PHP: N/A</p></td>

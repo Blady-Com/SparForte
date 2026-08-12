@@ -1,10 +1,10 @@
 ------------------------------------------------------------------------------
--- Berekeley Hash Files Package Parser                                      --
+-- Berkeley Hash Files Package Parser                                       --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---            Copyright (C) 2001-2025 Free Software Foundation              --
+--            Copyright (C) 2001-2026 Free Software Foundation              --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -1693,7 +1693,7 @@ begin
   expect( hash_prepend_t );
   ParseFirstFileParameter( hash_prepend_t, fileRef );
   if getUniType( identifiers( fileRef.Id ).genKind ) /= uni_string_t then
-     err( +"append requires a string item type" );
+     err( +"preppend requires a string item type" );
   end if;
   ParseNextStringParameter( hash_prepend_t, keyExpr, keyType, uni_string_t );
   ParseLastGenItemParameter( hash_prepend_t, itemExpr, itemType, identifiers( fileRef.Id ).genKind );
@@ -1725,8 +1725,8 @@ procedure ParseHashPrepend renames not_configured;
 #if BDB
 
 procedure ParseHashFlush is
-  -- Syntax: hash.flush( f, flags );
-  -- Ada:    bdb.sync( f, flags );
+  -- Syntax: hash.flush( f );
+  -- Ada:    bdb.sync( f );
   fileRef    : reference;
   theFile    : resPtr;
   fileResId : storage;

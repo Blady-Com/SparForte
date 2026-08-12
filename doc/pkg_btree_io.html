@@ -54,21 +54,16 @@ to create and manage ordered data files.</p>
         <center>
         <div class="code">
 <pre>
-  <a href="#btree_io.add">add( f, k, v )</a>                   <a href="#btree_io.get_previous">get_previous( f, c, k, v )</a>
-  <a href="#btree_io.append">append( f, k, v )</a>                <a href="#btree_io.has_element">b := has_element( f, k )</a>
-  <a href="#btree_io.clear">clear( f )</a>                       <a href="#btree_io.increment">increment( f, k [,n] )</a>
-  <a href="#btree_io.close">close( f )</a>                       <a href="#btree_io.is_open">b := is_open( f )</a>
-  <a href="#btree_io.close_cursor">close_cursor( f, c )</a>             <a href="#btree_io.last_error">e := last_error( f )</a>
-  <a href="#btree_io.create">create( f, p, kl, vl )</a>           <a href="#btree_io.open">open( f, p, kl, vl )</a>
-  <a href="#btree_io.decrement">decrement( f, k [,n] )</a>           <a href="#btree_io.open_cursor">open_cursor( f, c )</a>
-  <a href="#btree_io.delete">delete( f )</a>                      <a href="#btree_io.prepend">prepend( f, k, v )</a>
-  <a href="#btree_io.flush">flush( f )</a>                       <a href="#btree_io.raise_exceptions">raise_exceptions( f, b )</a>
-  <a href="#btree_io.get">get( f, k, v )</a>                   <a href="#btree_io.remove">remove( f, k | c )</a>
-  <a href="#btree_io.get_first">get_first( f, c, k, v )</a>          <a href="#btree_io.replace">replace( f, k, v )</a>
-  <a href="#btree_io.get_last">get_last( f, c, k, v )</a>           <a href="#btree_io.set">set( f, k, v )</a>
-  <a href="#btree_io.get_next">get_next( f, c, k, v )</a>           <a href="#btree_io.will_raise">b := will_raise( f )</a>
-                                   <a href="#btree_io.truncate">truncate( f )</a>
-  <a href="#btree_io.recover">recover( f, p )</a>
+  <a href="#btree_io.add">add( f, k, v )</a>             <a href="#btree_io.append">append( f, k, v )</a>          <a href="#btree_io.clear">clear( f )</a>
+  <a href="#btree_io.close">close( f )</a>                 <a href="#btree_io.close_cursor">close_cursor( f, c )</a>       <a href="#btree_io.create">create( f, p, kl, vl )</a>
+  <a href="#btree_io.decrement">decrement( f, k [,n] )</a>     <a href="#btree_io.delete">delete( f )</a>                <a href="#btree_io.flush">flush( f )</a>
+  <a href="#btree_io.get">get( f, k, v )</a>             <a href="#btree_io.get_first">get_first( f, c, k, v )</a>    <a href="#btree_io.get_last">get_last( f, c, k, v )</a>
+  <a href="#btree_io.get_next">get_next( f, c, k, v ) </a>    <a href="#btree_io.get_previous">get_previous( f, c, k, v )</a> <a href="#btree_io.has_element">b := has_element( f, k )</a>
+  <a href="#btree_io.increment">increment( f, k [,n] )</a>     <a href="#btree_io.is_open">b := is_open( f )</a>          <a href="#btree_io.last_error">e := last_error( f )</a>
+  <a href="#btree_io.name">s := name( f )</a>             <a href="#btree_io.open">open( f, p, kl, vl )</a>       <a href="#btree_io.open_cursor">open_cursor( f, c )</a>
+  <a href="#btree_io.prepend">prepend( f, k, v )</a>         <a href="#btree_io.raise_exceptions">raise_exceptions( f, b )</a>   <a href="#btree_io.recover">recover( f, p )</a>
+  <a href="#btree_io.remove">remove( f, k )</a>             <a href="#btree_io.replace">replace( f, k, v )</a>         <a href="#btree_io.set">set( f, k, v )</a>
+  <a href="#btree_io.truncate">truncate( f )</a>              <a href="#btree_io.will_raise">b := will_raise( f )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">

@@ -306,7 +306,8 @@ end resetLog;
 
 --  LOG INDENT MESSAGE
 --
--- Add the indent field to a log message.
+-- Add the indent field to a log message by adding a field of spaces with
+-- delimiters.
 -----------------------------------------------------------------------------
 
 procedure log_indent_message( msg : in out unbounded_string; clear_indent : boolean ) is
@@ -612,8 +613,16 @@ end resolveLogMetaTags;
 ------------------------------------------------------------------------------
 
 
+-----------------------------------------------------------------------------
+--  PARSE LEVEL BEGIN                                    (built-in procedure)
+--
+-- AdaScript Syntax: logs.level_begin( l )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.level_begin
+-----------------------------------------------------------------------------
+
 procedure ParseLevelBegin is
-  -- Syntax: level_begin( lvl );
   ref : reference;
 begin
   --kind := log_level_t;
@@ -633,6 +642,15 @@ begin
      end if;
   end if;
 end ParseLevelBegin;
+
+-----------------------------------------------------------------------------
+--  PARSE LEVEL END                                      (built-in procedure)
+--
+-- AdaScript Syntax: logs.level_end( l )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.level_end
+-----------------------------------------------------------------------------
 
 procedure ParseLevelEnd is
   -- Syntax: level_end( lvl );
@@ -654,6 +672,15 @@ begin
      end if;
   end if;
 end ParseLevelEnd;
+
+-----------------------------------------------------------------------------
+--  PARSE OK                                             (built-in procedure)
+--
+-- AdaScript Syntax: logs.ok( m )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.ok
+-----------------------------------------------------------------------------
 
 procedure ParseOK is
   msgExpr    : storage;
@@ -724,6 +751,15 @@ begin
   end if;
 end ParseOK;
 
+-----------------------------------------------------------------------------
+--  PARSE INFO                                           (built-in procedure)
+--
+-- AdaScript Syntax: logs.info( m )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.info
+-----------------------------------------------------------------------------
+
 procedure ParseInfo is
   msgExpr    : storage;
   msgType    : identifier;
@@ -792,6 +828,15 @@ begin
      goto repeat_info;
   end if;
 end ParseInfo;
+
+-----------------------------------------------------------------------------
+--  PARSE WARNING                                        (built-in procedure)
+--
+-- AdaScript Syntax: logs.warning( m )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.warning
+-----------------------------------------------------------------------------
 
 procedure ParseWarning is
   msgExpr    : storage;
@@ -862,6 +907,15 @@ begin
   end if;
 end ParseWarning;
 
+-----------------------------------------------------------------------------
+--  PARSE ERROR                                          (built-in procedure)
+--
+-- AdaScript Syntax: logs.error( m )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.error
+-----------------------------------------------------------------------------
+
 procedure ParseError is
   msgExpr    : storage;
   msgType    : identifier;
@@ -931,11 +985,20 @@ begin
   end if;
 end ParseError;
 
+-----------------------------------------------------------------------------
+--  PARSE OPEN                                           (built-in procedure)
+--
+-- AdaScript Syntax: logs.open( path, mode [, width] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.open
+--
+-- This does not actually open the file.  It sets the paramters for the
+-- log file, which will be open and closed when required.
+-- In a restricted shell, you cannot create logs.
+-----------------------------------------------------------------------------
+
 procedure ParseOpen is
-  -- Syntax: logs.open( "program", "path", mode [,width] );
-  -- This does not actually open the file.  It sets the paramters for the
-  -- log file, which will be open and closed when required.
-  -- In a restricted shell, you cannot create logs.
   pathExpr : storage;
   pathType : identifier;
   modeExpr : storage;
@@ -984,8 +1047,16 @@ begin
   end if;
 end ParseOpen;
 
+-----------------------------------------------------------------------------
+--  PARSE CLOSE                                          (built-in procedure)
+--
+-- AdaScript Syntax: logs.close
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.close
+-----------------------------------------------------------------------------
+
 procedure ParseClose is
--- Syntax: logs.close
 begin
   expect( logs_close_t );
   if isExecutingCommand then
@@ -993,13 +1064,21 @@ begin
         err( +"log is already closed" );
      elsif metaTagOk( logs_close_t, log_path ) then
         closeLog;
+        resetLog;
      end if;
   end if;
-  resetLog;
 end ParseClose;
 
+-----------------------------------------------------------------------------
+--  PARSE IS OPEN                                         (built-in function)
+--
+-- AdaScript Syntax: b := logs.is_open
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.is_open
+-----------------------------------------------------------------------------
+
 procedure ParseIsOpen( result : out storage; kind : out identifier ) is
-  -- Syntax: b := logs.is_open
 begin
   result := nullStorage;
   kind := boolean_t;
@@ -1011,8 +1090,16 @@ begin
   end if;
 end ParseIsOpen;
 
+-----------------------------------------------------------------------------
+--  PARSE IS MODE                                         (built-in function)
+--
+-- AdaScript Syntax: m := logs.mode
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.mode
+-----------------------------------------------------------------------------
+
 procedure ParseMode( result : out storage; kind : out identifier ) is
-  -- Syntax: m := logs.mode
 begin
   result := nullStorage;
   if isExecutingCommand then
@@ -1038,8 +1125,16 @@ end ParseMode;
 --  expect( logs_level_t );
 --end ParseLevel;
 
+-----------------------------------------------------------------------------
+--  PARSE WIDTH                                           (built-in function)
+--
+-- AdaScript Syntax: w := logs.width
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.width
+-----------------------------------------------------------------------------
+
 procedure ParseWidth( result : out storage; kind : out identifier ) is
-  -- Syntax: w := logs.width
 begin
   if isExecutingCommand then
      if logMetaTagOk( logs_width_t ) then
@@ -1051,8 +1146,16 @@ begin
   expect( logs_width_t );
 end ParseWidth;
 
+-----------------------------------------------------------------------------
+--  PARSE ROTATE BEGIN                                   (built-in procedure)
+--
+-- AdaScript Syntax: logs.rotate_begin
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.rotate_begin
+-----------------------------------------------------------------------------
+
 procedure ParseRotateBegin is
-  -- Syntax: logs.rotate_begin;
 begin
   expect( logs_rotate_begin_t );
   if isExecutingCommand then
@@ -1068,8 +1171,16 @@ begin
   end if;
 end ParseRotateBegin;
 
+-----------------------------------------------------------------------------
+--  PARSE ROTATE END                                     (built-in procedure)
+--
+-- AdaScript Syntax: logs.rotate_end
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.rotate_end
+-----------------------------------------------------------------------------
+
 procedure ParseRotateEnd is
-  -- Syntax: logs.rotate_end;
 begin
   expect( logs_rotate_end_t );
   if isExecutingCommand then
@@ -1085,8 +1196,16 @@ begin
   end if;
 end ParseRotateEnd;
 
+-----------------------------------------------------------------------------
+--  PARSE IS ROTATING                                      (built-in function)
+--
+-- AdaScript Syntax: b := logs.is_rotating
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.is_rotating
+-----------------------------------------------------------------------------
+
 procedure ParseIsRotating( result : out storage; kind : out identifier ) is
-  -- Syntax: b := logs.is_rotating
 begin
   result := nullStorage;
   kind := boolean_t;
@@ -1099,8 +1218,16 @@ begin
   end if;
 end ParseIsRotating;
 
+-----------------------------------------------------------------------------
+--  PARSE METRICS                                        (built-in procedure)
+--
+-- AdaScript Syntax: logs.metrics
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.metrics
+-----------------------------------------------------------------------------
+
 procedure ParseMetrics is
-  -- Syntax: logs.metrics
   ok_ref      : reference;
   info_ref    : reference;
   warning_ref : reference;
@@ -1125,8 +1252,16 @@ begin
   end if;
 end ParseMetrics;
 
+-----------------------------------------------------------------------------
+--  PARSE CHECKPOINT                                     (built-in procedure)
+--
+-- AdaScript Syntax: logs.checkpoint
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_logs.html#logs.checkpoint
+-----------------------------------------------------------------------------
+
 procedure ParseCheckpoint is
-  -- Syntax: logs.clear_metrics
 begin
   expect( logs_checkpoint_t );
   if isExecutingCommand then
@@ -1137,6 +1272,9 @@ begin
   end if;
 end ParseCheckpoint;
 
+
+-----------------------------------------------------------------------------
+-- Housekeeping
 -----------------------------------------------------------------------------
 
 procedure StartupLogs is

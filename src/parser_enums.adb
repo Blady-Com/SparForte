@@ -64,9 +64,16 @@ enums_val_t          : identifier;
 -- enums tags bring significant business value.
 ---------------------------------------------------------
 
+-----------------------------------------------------------------------------
+--  PARSE ENUMS FIRST                                     (built-in function)
+--
+-- AdaScript Syntax: enums.first( enumType );
+--       Ada Target: enumtype'first
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_enums.html#enums.first
+-----------------------------------------------------------------------------
+
 procedure ParseEnumsFirst( result : out storage; kind : out identifier ) is
-  -- Syntax: enums.first( enumType );
-  -- Source: enumtype'first
   var_id   : identifier;
 begin
   expect( enums_first_t );
@@ -91,9 +98,16 @@ begin
   end if;
 end ParseEnumsFirst;
 
+-----------------------------------------------------------------------------
+--  PARSE ENUMS LAST                                      (built-in function)
+--
+-- AdaScript Syntax: enums.last( enumType );
+--       Ada Target: enumtype'last
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_enums.html#enums.last
+-----------------------------------------------------------------------------
+
 procedure ParseEnumsLast( result : out storage; kind : out identifier ) is
-  -- Syntax: enums.last( enumType );
-  -- Source: enumtype'last
   var_id   : identifier;
   best     : integer;
   candidate: integer;
@@ -136,9 +150,16 @@ begin
   end if;
 end ParseEnumsLast;
 
+-----------------------------------------------------------------------------
+--  PARSE ENUMS PRED                                      (built-in function)
+--
+-- AdaScript Syntax: enums.prev enumType );
+--       Ada Target: enumtype'prev
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_enums.html#enums.last
+-----------------------------------------------------------------------------
+
 procedure ParseEnumsPred( result: out storage; kind : out identifier ) is
---  -- Syntax: enums.prev( arraytypeorvar );
---  -- Source: enumvar'prev
   var_id   : identifier;
   item     : natural;
 begin
@@ -166,7 +187,9 @@ begin
            --f := to_unbounded_string( s(2..s'last) );
            result := storage'( to_unbounded_string( s ), noMetaTag, noMetaTags );
         end;
-     exception when others =>
+     exception when constraint_error =>
+        err( +"no predecessor");
+     when others =>
         err_exception_raised;
      end;
   elsif syntax_check then
@@ -174,9 +197,16 @@ begin
   end if;
 end ParseEnumsPred;
 
+-----------------------------------------------------------------------------
+--  PARSE ENUMS SUCC                                      (built-in function)
+--
+-- AdaScript Syntax: enums.succ enumType );
+--       Ada Target: enumtype'succ
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_enums.html#enums.succ
+-----------------------------------------------------------------------------
+
 procedure ParseEnumsSucc( result : out storage; kind : out identifier ) is
-  -- Syntax: enums.succ( arraytypeorvar );
-  -- Source: enumvar'succ
   var_id   : identifier;
   item     : natural;
 begin
@@ -201,7 +231,7 @@ begin
      begin
         item := item + 1;
         for id in reverse keywords_top..identifiers_top-1 loop
-           if identifiers( id ).kind = kind then
+          if identifiers( id ).kind = kind then
               if identifiers( id ).class = enumClass then
                  candidate := integer( to_numeric( identifiers( id ).store.value ) );
                  if candidate = item then
@@ -219,20 +249,32 @@ begin
         declare
            s : constant string := item'img;
         begin
-           --f := to_unbounded_string( s(2..s'last) );
-           result := storage'( to_unbounded_string( s ), noMetaTag, noMetaTags );
+          if s(1) = ' ' then
+            result := storage'( to_unbounded_string( s(2..s'last) ), noMetaTag, noMetaTags );
+          else
+              result := storage'( to_unbounded_string( s ), noMetaTag, noMetaTags );
+          end if;
         end;
-     exception when others =>
-        err( +"exception thrown" );
-     end;
+     exception when constraint_error =>
+       err( +"no successor");
+     when others =>
+       err_exception_raised;
+    end;
   elsif syntax_check then
      kind := universal_t; -- type is unknown during syntax check
   end if;
 end ParseEnumsSucc;
 
+-----------------------------------------------------------------------------
+--  PARSE ENUMS POS                                       (built-in function)
+--
+-- AdaScript Syntax: enums.pos enumVar );
+--       Ada Target: enumvar'pos
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_enums.html#enums.pos
+-----------------------------------------------------------------------------
+
 procedure ParseEnumsPos( result : out storage; kind : out identifier ) is
-  -- Syntax: enums.pos( enum_item );
-  -- Source: enumvar'pos
   var_id   : identifier;
   item     : natural;
 begin
@@ -279,16 +321,24 @@ begin
            --f := to_unbounded_string( s(2..s'last) );
            result := storage'( to_unbounded_string( s ), noMetaTag, noMetaTags );
         end;
-     exception when others =>
-        err( +"exception thrown" );
-raise;
+     exception when constraint_error =>
+       err( +"no such value" );
+     when others =>
+       err_exception_raised;
      end;
    end if;
 end ParseEnumsPos;
 
+-----------------------------------------------------------------------------
+--  PARSE ENUMS VAL                                       (built-in function)
+--
+-- AdaScript Syntax: enums.val enumVar );
+--       Ada Target: enumvar'val
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_enums.html#enums.val
+-----------------------------------------------------------------------------
+
 procedure ParseEnumsVal( result : out storage; kind : out identifier ) is
-  -- Syntax: enums.val( enum_type, enum_item );
-  -- Source: enumvar'val
   enumTypeId : identifier;
   expr       : storage;
   exprKind   : identifier;
@@ -312,18 +362,10 @@ begin
   kind := enumTypeId;
   expectSymbol( "," );
   ParseExpression( expr, exprKind );
-  --kind := identifiers( var_id ).kind;
-  --if identifiers( var_id ).class /= enumClass then
-  --   err( +"Enumerated item expected" );
-  --else
-  --   kind := getBaseType( identifiers( var_id ).kind );
-  --   if identifiers( kind ).kind /= root_enumerated_t then
-  --      err( +"Enumerated item expected" );
-  --   end if;
-  --end if;
   expect( symbol_t, ")" );
   if isExecutingCommand then
-     begin
+    result := nullStorage;
+    begin
         item := natural( to_numeric( expr.value ) );
         -- we need to confirm that there is such an enum value
         -- TODO: this does not account for namespaces

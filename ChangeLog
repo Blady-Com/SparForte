@@ -76,4 +76,19 @@ CHANGES SINCE 3.0
 
 34. Change: doubly_linked_lists.assemble/disassemble now use O/S-specific EOL characters rather than an ASCII.LF.
 
+35. Fix: removed debugging "raise" from enums.pos.
+
+36. Fix: enum.succ returns built-in enumerated items as well as user-defined ones.
+
+37. Fix: gnat.cgi fixed. [not tested]
+
+38. Fix: gnat.crc32.get_value performs the final XOR.
+
+39. Fix: l10n.t_fmt_ampm returns results of t_fmt_ampm instead of the pm string. era_t_fmt now returns era_t_fmt instead of era_d_fmt.
+
+40. Fix: removed memory leak when a script ends without clearing the memcache/memcache.highread servers.
+
+41. Fix: searching the lists of memcache/memcache.highread cluster servers corrected (= vs. >= in the search).
+
+42. Fix: msyql.schema fixed to do a "select" rather than "show" query.
 

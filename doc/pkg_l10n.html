@@ -86,7 +86,7 @@ languages and countries.  This is a binding to the GNU locale functions.</p>
 <li>l10n.lc_time - for date and time</li>
 </ul>
 
-<p>The GNU extensions to locale catagories are not included for portability across operating systems.</p>
+<p>The GNU extensions to locale categories are not included for portability across operating systems.</p>
 
 <p>You may need to install additional languages on your operating system to use their locales.  On Ubuntu Linux, these are located in Preferences / Languages.</p>
 
@@ -161,7 +161,7 @@ dimanche<br>
 <td><p>The day number is out-of-range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.day">l10n.day</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -205,7 +205,7 @@ dimanche<br>
 <td><p>The month number is out of range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.mon">l10n.mon</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -319,7 +319,7 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.int_curr_symbol">l10n.int_curr_symbol</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -357,7 +357,8 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.d_t_fmt">l10n.d_t_fmt</a><br>
+<a href="#l10n.t_fmt">l10n.t_fmt</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -395,7 +396,8 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.d_fmt">l10n.d_fmt</a><br>
+<a href="#l10n.t_fmt">l10n.t_fmt</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -439,7 +441,7 @@ dimanche<br>
 <td><p>The day number is out-of-range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.abday">l10n.abday</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -477,7 +479,7 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.thousands_sep">l10n.thousands_sep</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -488,10 +490,12 @@ dimanche<br>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the locale's alternate era (e.g. the name of a king).</p></td>
+<td><p>Return the locale's alternate era (e.g. the name of a king).  This applies
+locales such as Japan and China.  If there is no era for this locale, return
+an empty string.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := l10n.era; -- returns "" (or similar)</span></td>
+<td><span class="code">s := l10n.era;  -- returns the era</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -522,7 +526,7 @@ dimanche<br>
 </tr>
 </table>
 
-<a id="l10n.era_year"></a><h3>n := era_year</h3>
+<a id="l10n.era_year"></a><h3>s := era_year</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
@@ -750,10 +754,10 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.setlocale">l10n.setlocale</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
-<td><p>C: setlocale<br>PHP: setlocale</p></td>
+<td><p>C: getlocale<br>PHP: getlocale</p></td>
 </tr>
 </table>
 
@@ -826,7 +830,7 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.currency_symbol">l10n.currency_symbol</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -908,7 +912,7 @@ dimanche<br>
 <td><p>The month number is out-of-range</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.abmon">l10n.abmon</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -946,7 +950,8 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.mon_grouping">l10n.mon_grouping</a><br>
+<a href="#l10n.mon_thousands_sep">l10n.mon_thousands_sep</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -984,7 +989,8 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.mon_decimal_point">l10n.mon_decimal_point</a><br>
+<a href="#l10n.mon_thousands_sep">l10n.mon_thousands_sep</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -1022,7 +1028,8 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.mon_decimal_point">l10n.mon_decimal_point</a><br>
+<a href="#l10n.mon_grouping">l10n.mon_grouping</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -1409,14 +1416,14 @@ dimanche<br>
 </tr>
 </table>
 
-<a id="l10n.setlocale"></a><h3>s := setlocale( c )</h3>
+<a id="l10n.setlocale"></a><h3>setlocale( c, s )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Assign the locale name for the given locale category.  If the locale is unknown or not available, nothing is changed.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">s := l10n.setlocale(l10n.lc_ctype, "en_CA.UTF-8");</span></td>
+<td><span class="code">l10n.setlocale(l10n.lc_ctype, "en_CA.UTF-8");</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -1447,14 +1454,14 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.getlocale">l10n.getlocale</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: setlocale<br>PHP: setlocale</p></td>
 </tr>
 </table>
 
-<a id="l10n.thousands_sep"></a><h3>s := thouands_sep</h3>
+<a id="l10n.thousands_sep"></a><h3>s := thousands_sep</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
@@ -1485,7 +1492,7 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.decimal_point">l10n.decimal_point</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>
@@ -1523,7 +1530,8 @@ dimanche<br>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#l10n.d_fmt">l10n.d_fmt</a><br>
+<a href="#l10n.d_t_fmt">l10n.d_t_fmt</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>C: nl_langinfo<br>PHP: nl_langinfo</p></td>

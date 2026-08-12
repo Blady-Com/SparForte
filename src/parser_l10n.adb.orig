@@ -124,14 +124,17 @@ begin
 end not_configured;
 #end if;
 
+#if L10N
 -----------------------------------------------------------------------------
---  PARSE L10N SETLOCALE
+--  PARSE L10N SETLOCALE                                 (built-in procedure)
 --
--- Syntax: l10n.setlocale;
--- Source: N/A
+-- AdaScript Syntax: l10n.setlocale( c, s )
+--       Ada Target: N/A
+--         C Target: setlocale
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.setlocale
 -----------------------------------------------------------------------------
 
-#if L10N
 procedure ParseL10NSetLocale is
   catExpr : storage;
   cat_kind :identifier;
@@ -143,10 +146,10 @@ begin
   ParseLastStringParameter( l10n_setlocale_t, locExpr,loc_kind );
   if isExecutingCommand then
      if metaTagOk( l10n_setlocale_t, locExpr ) then
-        -- checking errno is not reliable.  On first attempt to use an invalid
+        -- TODO: checking errno is not reliable.  On first attempt to use an invalid
         -- locale, errono will be 2 (file not found), probably because of another
         -- function called by setlocale.  However, setlocale itself does not
-        -- return an error number.
+        -- return an error number but a C NULL (not an Ada null).
         setlocale( locale_category( to_numeric( catExpr.value ) ), to_string( locExpr.value ) );
      end if;
   end if;
@@ -155,15 +158,17 @@ end ParseL10NSetLocale;
 procedure ParseL10NSetLocale renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N GETLOCALE
---
--- Syntax: l10n.getlocale;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N GETLOCALE                                   (built-in function)
+--
+-- AdaScript Syntax: s := l10n.getlocale( c )
+--       Ada Target: N/A
+--         C Target: getlocale
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.getlocale
+-----------------------------------------------------------------------------
+
 procedure ParseL10NGetLocale( result : out storage; kind : out identifier ) is
   catExpr : storage;
   cat_kind :identifier;
@@ -180,14 +185,17 @@ end ParseL10NGetLocale;
 procedure ParseL10NGetLocale( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
+#if L10N
 -----------------------------------------------------------------------------
---  PARSE L10N CODESET
+--  PARSE L10N CODE SET                                   (built-in function)
 --
--- Syntax: l10n.codeset;
--- Source: N/A
+-- AdaScript Syntax: s := l10n.codeset
+--       Ada Target: N/A
+--         C Target: codeset
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.codeset
 -----------------------------------------------------------------------------
 
-#if L10N
 procedure ParseL10NCodeSet( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -198,14 +206,17 @@ end ParseL10NCodeSet;
 procedure ParseL10NCodeSet( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
+#if L10N
 -----------------------------------------------------------------------------
---  PARSE L10N D T FMT (Date and Time Format)
+--  PARSE L10N D T FMT                                    (built-in function)
 --
--- Syntax: l10n.d_fmt;
--- Source: N/A
+-- AdaScript Syntax: s := l10n.d_t_fmt
+--       Ada Target: N/A
+--         C Target: d_t_fmt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.d_t_fmt
 -----------------------------------------------------------------------------
 
-#if L10N
 procedure ParseL10NDTFmt( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -219,14 +230,17 @@ procedure ParseL10NDTFmt( result : out storage; kind : out identifier ) renames 
 #end if;
 
 
+#if L10N
 -----------------------------------------------------------------------------
---  PARSE L10N D FMT (Date Format)
+--  PARSE L10N D FMT                                      (built-in function)
 --
--- Syntax: l10n.d_fmt;
--- Source: N/A
+-- AdaScript Syntax: s := l10n.d_fmt
+--       Ada Target: N/A
+--         C Target: d_fmt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.d_fmt
 -----------------------------------------------------------------------------
 
-#if L10N
 procedure ParseL10NDFmt( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -239,16 +253,17 @@ end ParseL10NDFmt;
 procedure ParseL10NDFmt( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
-
------------------------------------------------------------------------------
---  PARSE L10N T FMT (Time Format)
---
--- Syntax: l10n.t_fmt;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N T FMT                                      (built-in function)
+--
+-- AdaScript Syntax: s := l10n.t_fmt
+--       Ada Target: N/A
+--         C Target: t_fmt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.t_fmt
+-----------------------------------------------------------------------------
+
 procedure ParseL10NTFmt( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -261,15 +276,17 @@ end ParseL10NTFmt;
 procedure ParseL10NTFmt( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N DAY (Day of Week)
---
--- Syntax: l10n.day( d );
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N DAY (Day of Week)                          (built-in function)
+--
+-- AdaScript Syntax: s := l10n.day( p )
+--       Ada Target: N/A
+--         C Target: day_1..day_7
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.day
+-----------------------------------------------------------------------------
+
 procedure ParseL10NDay( result : out storage; kind : out identifier ) is
   dayExpr : storage;
   dayKind : identifier;
@@ -304,15 +321,17 @@ end ParseL10NDay;
 procedure ParseL10NDay( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N AB DAY (Abbreviated Day of Week)
---
--- Syntax: l10n.abday( d );
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N AB DAY (Abbreviated Day of Week)           (built-in function)
+--
+-- AdaScript Syntax: s := l10n.abday( p )
+--       Ada Target: N/A
+--         C Target: abday_1..abday_7
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.abday
+-----------------------------------------------------------------------------
+
 procedure ParseL10NAbDay( result : out storage; kind : out identifier ) is
   dayExpr : storage;
   dayKind : identifier;
@@ -347,15 +366,17 @@ end ParseL10NAbDay;
 procedure ParseL10NAbDay( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N MON (Month)
---
--- Syntax: l10n.mon( d );
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N MON (Month)                                (built-in function)
+--
+-- AdaScript Syntax: s := l10n.mon( p )
+--       Ada Target: N/A
+--         C Target: mon_1..mon_12
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.mon
+-----------------------------------------------------------------------------
+
 procedure ParseL10NMon( result : out storage; kind : out identifier ) is
   monExpr : storage;
   monKind : identifier;
@@ -395,15 +416,17 @@ end ParseL10NMon;
 procedure ParseL10NMon( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N AB MON (Abbreviated Month)
---
--- Syntax: l10n.abmon( d );
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N AB MON (Abbreviated Month)                 (built-in function)
+--
+-- AdaScript Syntax: s := l10n.abmon( p )
+--       Ada Target: N/A
+--         C Target: abmon_1..abmon_12
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.abmon
+-----------------------------------------------------------------------------
+
 procedure ParseL10NAbMon( result : out storage; kind : out identifier ) is
   monExpr : storage;
   monKind : identifier;
@@ -444,14 +467,17 @@ procedure ParseL10NAbMon( result : out storage; kind : out identifier ) renames 
 #end if;
 
 
+#if L10N
 -----------------------------------------------------------------------------
---  PARSE L10N DECIMAL POINT
+--  PARSE L10N DECIMAL POINT                              (built-in function)
 --
--- Syntax: l10n.decimal_point;
--- Source: N/A
+-- AdaScript Syntax: s := l10n.decimal_point
+--       Ada Target: N/A
+--         C Target: decimal_point
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.decimal_point
 -----------------------------------------------------------------------------
 
-#if L10N
 procedure ParseL10NDecimalPoint( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -462,15 +488,17 @@ end ParseL10NDecimalPoint;
 procedure ParseL10NDecimalPoint( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N THOUSANDS SEP (Thousands Separator)
---
--- Syntax: l10n.thousands_sep;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N THOUSANDS SEP (Thousands Separator)        (built-in function)
+--
+-- AdaScript Syntax: s := l10n.thousands_sep
+--       Ada Target: N/A
+--         C Target: thousands_sep
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.thousands_sep
+-----------------------------------------------------------------------------
+
 procedure ParseL10NThousandsSep( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -481,15 +509,17 @@ end ParseL10NThousandsSep;
 procedure ParseL10NThousandsSep( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N YES EXPR (Yes Expression)
---
--- Syntax: l10n.yesexpr;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N YES EXPR (Yes Expression)                  (built-in function)
+--
+-- AdaScript Syntax: s := l10n.yesexpr
+--       Ada Target: N/A
+--         C Target: yesexpr
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.yesexpr
+-----------------------------------------------------------------------------
+
 procedure ParseL10NYesExpr( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -500,15 +530,17 @@ end ParseL10NYesExpr;
 procedure ParseL10NYesExpr( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N NO EXPR (No Expression)
---
--- Syntax: l10n.noexpr;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N NO EXPR (No Expression)                    (built-in function)
+--
+-- AdaScript Syntax: s := l10n.noexpr
+--       Ada Target: N/A
+--         C Target: noexpr
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.noexpr
+-----------------------------------------------------------------------------
+
 procedure ParseL10NNoExpr( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -519,15 +551,17 @@ end ParseL10NNoExpr;
 procedure ParseL10NNoExpr( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N CURRENCY SYMBOL
---
--- Syntax: l10n.currency_symbol
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N CURRENCY SYMBOL                            (built-in function)
+--
+-- AdaScript Syntax: s := l10n.currency_symbol
+--       Ada Target: N/A
+--         C Target: currency_symbol
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.currency_symbol
+-----------------------------------------------------------------------------
+
 procedure ParseL10NCurrencySymbol( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -538,15 +572,17 @@ end ParseL10NCurrencySymbol;
 procedure ParseL10NcurrencySymbol( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N AM STR
---
--- Syntax: l10n.amstr;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N AM STR                                     (built-in function)
+--
+-- AdaScript Syntax: s := l10n.amstr
+--       Ada Target: N/A
+--         C Target: amstr
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.amstr
+-----------------------------------------------------------------------------
+
 procedure ParseL10NAmStr( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -557,15 +593,17 @@ end ParseL10NAmStr;
 procedure ParseL10NAmStr( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N PM STR
---
--- Syntax: l10n.pmstr;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N PM STR                                     (built-in function)
+--
+-- AdaScript Syntax: s := l10n.pmstr
+--       Ada Target: N/A
+--         C Target: pmstr
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.pmstr
+-----------------------------------------------------------------------------
+
 procedure ParseL10NPmStr( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -576,34 +614,38 @@ end ParseL10NPmStr;
 procedure ParseL10NPmStr( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N T FMT AM PM
---
--- Syntax: l10n.t_fmt_ampm
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N T FMT AM PM                                (built-in function)
+--
+-- AdaScript Syntax: s := l10n.t_fmt_ampm
+--       Ada Target: N/A
+--         C Target: t_fmt_ampm
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.t_fmt_ampm
+-----------------------------------------------------------------------------
+
 procedure ParseL10NTFmtAmPm( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
   expect( l10n_t_fmt_ampm_t );
-  result := storage'( pmstr, noMetaTag, sparMetaTags );
+  result := storage'( t_fmt_ampm, noMetaTag, sparMetaTags );
 end ParseL10NTFmtAmPm;
 #else
 procedure ParseL10NTFmtAmPm( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N POSITIVE SIGN
---
--- Syntax: l10n.positive_sign
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N POSITIVE SIGN                              (built-in function)
+--
+-- AdaScript Syntax: s := l10n.positive_sign
+--       Ada Target: N/A
+--         C Target: positive_sign
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.positive_sign
+-----------------------------------------------------------------------------
+
 procedure ParseL10NPositiveSign( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -614,15 +656,17 @@ end ParseL10NPositiveSign;
 procedure ParseL10NPositiveSign( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N NEGATIVE SIGN
---
--- Syntax: l10n.negative_sign
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N NEGATIVE SIGN                              (built-in function)
+--
+-- AdaScript Syntax: s := l10n.negative_sign
+--       Ada Target: N/A
+--         C Target: negative_sign
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.negative_sign
+-----------------------------------------------------------------------------
+
 procedure ParseL10NNegativeSign( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -633,15 +677,17 @@ end ParseL10NNegativeSign;
 procedure ParseL10NNegativeSign( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N INT CURR SYMBOL
---
--- Syntax: l10n.int_curr_symbol
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N INT CURR SYMBOL                            (built-in function)
+--
+-- AdaScript Syntax: s := l10n.int_curr_symbol
+--       Ada Target: N/A
+--         C Target: int_curr_symbol
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.int_curr_symbol
+-----------------------------------------------------------------------------
+
 procedure ParseL10NIntCurrSymbol( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -652,15 +698,17 @@ end ParseL10NIntCurrSymbol;
 procedure ParseL10NIntCurrSymbol( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N GROUPING (number of characters)
---
--- Syntax: l10n.grouping
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N GROUPING (number of characters)            (built-in function)
+--
+-- AdaScript Syntax: s := l10n.grouping
+--       Ada Target: N/A
+--         C Target: grouping
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.grouping
+-----------------------------------------------------------------------------
+
 procedure ParseL10NGrouping( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -671,15 +719,17 @@ end ParseL10NGrouping;
 procedure ParseL10NGrouping( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N FRAC DIGITS
---
--- Syntax: l10n.frac_digits
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N FRAC DIGITS                                (built-in function)
+--
+-- AdaScript Syntax: n := l10n.frac_digits
+--       Ada Target: N/A
+--         C Target: frac_digits
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.frac_digits
+-----------------------------------------------------------------------------
+
 procedure ParseL10NFracDigits( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -690,15 +740,17 @@ end ParseL10NFracDigits;
 procedure ParseL10NFracDigits( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N INT FRAC DIGITS
---
--- Syntax: l10n.int_frac_digits
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N INT FRAC DIGITS                            (built-in function)
+--
+-- AdaScript Syntax: n := l10n.int_frac_digits
+--       Ada Target: N/A
+--         C Target: int_frac_digits
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.int_frac_digits
+-----------------------------------------------------------------------------
+
 procedure ParseL10NIntFracDigits( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -709,15 +761,17 @@ end ParseL10NIntFracDigits;
 procedure ParseL10NIntFracDigits( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N P(ositive monetary value) CS (Currency Symbol) PRECEDES
---
--- Syntax: l10n.p_cs_precedes
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N P(ositive monetary value) CS (Currency Symbol) PRECEDES (built-in function)
+--
+-- AdaScript Syntax: i := l10n.p_cs_precedes
+--       Ada Target: N/A
+--         C Target: p_cs_precedes
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.p_cs_precedes
+-----------------------------------------------------------------------------
+
 procedure ParseL10NPCSPrecedes( result : out storage; kind : out identifier ) is
 begin
   kind := integer_t;
@@ -728,15 +782,17 @@ end ParseL10NPCSPrecedes;
 procedure ParseL10NPCSPrecedes( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N P(ositive monetary value) SEP (arated) BY SPACE
---
--- Syntax: l10n.p_sep_by_space
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N P(ositive monetary value) SEP (arated) BY SPACE (built-in function)
+--
+-- AdaScript Syntax: n := l10n.p_sep_by_space
+--       Ada Target: N/A
+--         C Target: p_sep_by_space
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.p_sep_by_space
+-----------------------------------------------------------------------------
+
 procedure ParseL10NPSepBySpace( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -747,15 +803,17 @@ end ParseL10NPSepBySpace;
 procedure ParseL10NPSepBySpace( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N P(ositive monetary value) SIGN POSN (position)
---
--- Syntax: l10n.p_sign_posn
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N P(ositive monetary value) SIGN POSN (position) (built-in function)
+--
+-- AdaScript Syntax: n := l10n.p_sign_posn
+--       Ada Target: N/A
+--         C Target: p_sign_posn
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.p_sign_posn
+-----------------------------------------------------------------------------
+
 procedure ParseL10NPSignPosn( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -766,15 +824,17 @@ end ParseL10NPSignPosn;
 procedure ParseL10NPSignPosn( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N N(egative monetary value) CS (Currency Symbol) PRECEDES
---
--- Syntax: l10n.n_cs_precedes
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N N(egative monetary value) CS (Currency Symbol) PRECEDES (built-in function)
+--
+-- AdaScript Syntax: i := l10n.n_cs_precedes
+--       Ada Target: N/A
+--         C Target: n_cs_precedes
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.n_cs_precedes
+-----------------------------------------------------------------------------
+
 procedure ParseL10NNCSPrecedes( result : out storage; kind : out identifier ) is
 begin
   kind := integer_t;
@@ -785,15 +845,17 @@ end ParseL10NNCSPrecedes;
 procedure ParseL10NNCSPrecedes( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N N(egative monetary value) SEP (arated) BY SPACE
---
--- Syntax: l10n.n_sep_by_space
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N N(egative monetary value) SEP (arated) BY SPACE (built-in function)
+--
+-- AdaScript Syntax: n := l10n.n_sep_by_space
+--       Ada Target: N/A
+--         C Target: n_sep_by_space
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.n_sep_by_space
+-----------------------------------------------------------------------------
+
 procedure ParseL10NNSepBySpace( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -804,15 +866,17 @@ end ParseL10NNSepBySpace;
 procedure ParseL10NNSepBySpace( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N N(egative monetary value) SIGN POSN (position)
---
--- Syntax: l10n.n_sign_posn
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N N(egative monetary value) SIGN POSN (position) (built-in function)
+--
+-- AdaScript Syntax: n := l10n.n_sign_posn
+--       Ada Target: N/A
+--         C Target: n_sign_posn
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.n_sign_posn
+-----------------------------------------------------------------------------
+
 procedure ParseL10NNSignPosn( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -823,15 +887,17 @@ end ParseL10NNSignPosn;
 procedure ParseL10NNSignPosn( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N MON(etary) DECIMAL POINT
---
--- Syntax: l10n.mon_decimal_point;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N MON(etary) DECIMAL POINT (built-in function)
+--
+-- AdaScript Syntax: s := l10n.mon_decimal_point
+--       Ada Target: N/A
+--         C Target: mon_decimal_point
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.mon_decimal_point
+-----------------------------------------------------------------------------
+
 procedure ParseL10NMonDecimalPoint( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -842,15 +908,17 @@ end ParseL10NMonDecimalPoint;
 procedure ParseL10NMonDecimalPoint( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N MON(etary) THOUSANDS SEP (Thousands Separator)
---
--- Syntax: l10n.mon_thousands_sep;
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N MON(etary) THOUSANDS SEP (Thousands Separator) (built-in function)
+--
+-- AdaScript Syntax: s := l10n.mon_thousands_sep
+--       Ada Target: N/A
+--         C Target: mon_thousands_sep
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.mon_thousands_sep
+-----------------------------------------------------------------------------
+
 procedure ParseL10NMonThousandsSep( result : out storage; kind : out identifier ) is
 begin
   kind := uni_string_t;
@@ -861,15 +929,17 @@ end ParseL10NMonThousandsSep;
 procedure ParseL10NMonThousandsSep( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N MON(etary) GROUPING (number of characters)
---
--- Syntax: l10n.mon_grouping
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N MON(etary) GROUPING (number of characters) (built-in function)
+--
+-- AdaScript Syntax: n := l10n.mon_grouping
+--       Ada Target: N/A
+--         C Target: mon_grouping
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.mon_grouping
+-----------------------------------------------------------------------------
+
 procedure ParseL10NMonGrouping( result : out storage; kind : out identifier ) is
 begin
   kind := natural_t;
@@ -880,15 +950,17 @@ end ParseL10NMonGrouping;
 procedure ParseL10NMonGrouping( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N (Alternate) ERA
---
--- Syntax: l10n.era
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N Alternate) ERA                             (built-in function)
+--
+-- AdaScript Syntax: n := l10n.era
+--       Ada Target: N/A
+--         C Target: era
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.era
+-----------------------------------------------------------------------------
+
 procedure ParseL10NEra( result : out storage; kind : out identifier ) is
 begin
   kind := string_t;
@@ -899,15 +971,17 @@ end ParseL10NEra;
 procedure ParseL10NEra( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N (Alternate) ERA YEAR
---
--- Syntax: l10n.era_year
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N (Alternate) ERA YEAR                       (built-in function)
+--
+-- AdaScript Syntax: s := l10n.era_year
+--       Ada Target: N/A
+--         C Target: era_year
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.era_year
+-----------------------------------------------------------------------------
+
 procedure ParseL10NEraYear( result : out storage; kind : out identifier ) is
 begin
   kind := string_t;
@@ -918,15 +992,17 @@ end ParseL10NEraYear;
 procedure ParseL10NEraYear( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N (Alternate) D(ate) T(ime) FMT (format)
---
--- Syntax: l10n.era_d_t_fmt
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N (Alternate) D(ate) T(ime) FMT (format)     (built-in function)
+--
+-- AdaScript Syntax: s := l10n.era_d_t_fmt
+--       Ada Target: N/A
+--         C Target: era_d_t_fmt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.era_d_t_fmt
+-----------------------------------------------------------------------------
+
 procedure ParseL10NEraDTFmt( result : out storage; kind : out identifier ) is
 begin
   kind := string_t;
@@ -937,15 +1013,17 @@ end ParseL10NEraDTFmt;
 procedure ParseL10NEraDTFmt( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N (Alternate) D(ate) FMT (format)
---
--- Syntax: l10n._era_d_fmt
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N (Alternate) D(ate) FMT (format)            (built-in function)
+--
+-- AdaScript Syntax: s := l10n.era_d_fmt
+--       Ada Target: N/A
+--         C Target: era_d_fmt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.era_d_fmt
+-----------------------------------------------------------------------------
+
 procedure ParseL10NEraDFmt( result : out storage; kind : out identifier ) is
 begin
   kind := string_t;
@@ -956,20 +1034,22 @@ end ParseL10NEraDFmt;
 procedure ParseL10NEraDFmt( result : out storage; kind : out identifier ) renames not_configured;
 #end if;
 
-
------------------------------------------------------------------------------
---  PARSE L10N (Alternate) T(ime) FMT (format)
---
--- Syntax: l10n.era_t_fmt
--- Source: N/A
------------------------------------------------------------------------------
-
 #if L10N
+-----------------------------------------------------------------------------
+--  PARSE L10N (Alternate) T(ime) FMT (format)            (built-in function)
+--
+-- AdaScript Syntax: s := l10n.era_t_fmt
+--       Ada Target: N/A
+--         C Target: era_t_fmt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_l10n.html#l10n.era_t_fmt
+-----------------------------------------------------------------------------
+
 procedure ParseL10NEraTFmt( result : out storage; kind : out identifier ) is
 begin
   kind := string_t;
   expect( l10n_era_t_fmt_t );
-  result := storage'( era_d_fmt, noMetaTag, sparMetaTags );
+  result := storage'( era_t_fmt, noMetaTag, sparMetaTags );
 end ParseL10NEraTFmt;
 #else
 procedure ParseL10NEraTFmt( result : out storage; kind : out identifier ) renames not_configured;

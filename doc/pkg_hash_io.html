@@ -57,21 +57,16 @@ ordered randomly.</p>
         <center>
         <div class="code">
 <pre>
-  <a href="#hash_io.add">add( f, k, v )</a>                   <a href="#hash_io.get_previous">get_previous( f, c, k, v )</a>
-  <a href="#hash_io.append">append( f, k, v )</a>                <a href="#hash_io.has_element">b := has_element( f, k )</a>
-  <a href="#hash_io.clear">clear( f )</a>                       <a href="#hash_io.increment">increment( f, k [,n] )</a>
-  <a href="#hash_io.close">close( f )</a>                       <a href="#hash_io.is_open">b := is_open( f )</a>
-  <a href="#hash_io.close_cursor">close_cursor( f, c )</a>             <a href="#hash_io.last_error">e := last_error( f )</a>
-  <a href="#hash_io.create">create( f, p, kl, vl )</a>           <a href="#hash_io.open">open( f, p, kl, vl )</a>
-  <a href="#hash_io.decrement">decrement( f, k [,n] )</a>           <a href="#hash_io.open_cursor">open_cursor( f, c )</a>
-  <a href="#hash_io.delete">delete( f )</a>                      <a href="#hash_io.prepend">prepend( f, k, v )</a>
-  <a href="#hash_io.flush">flush( f )</a>                       <a href="#hash_io.raise_exceptions">raise_exceptions( f, b )</a>
-  <a href="#hash_io.get">get( f, k, v )</a>                   <a href="#hash_io.remove">remove( f, k )</a>
-  <a href="#hash_io.get_first">get_first( f, c, k, v )</a>          <a href="#hash_io.replace">replace( f, k, v )</a>
-  <a href="#hash_io.get_last">get_last( f, c, k, v )</a>           <a href="#hash_io.set">set( f, k, v )</a>
-  <a href="#hash_io.get_next">get_next( f, c, k, v )</a>           <a href="#hash_io.truncate">truncate( f )</a>
-                                   <a href="#hash_io.will_raise">b := will_raise( f )</a>
-  <a href="#hash_io.recover">recover( f, p )</a>
+  <a href="#hash_io.add">add( f, k, v )</a>             <a href="#hash_io.append">append( f, k, v )</a>          <a href="#hash_io.clear">clear( f )</a>
+  <a href="#hash_io.close">close( f )</a>                 <a href="#hash_io.close_cursor">close_cursor( f, c )</a>       <a href="#hash_io.create">create( f, p, kl, vl )</a>
+  <a href="#hash_io.decrement">decrement( f, k [,n] )</a>     <a href="#hash_io.delete">delete( f )</a>                <a href="#hash_io.flush">flush( f )</a>
+  <a href="#hash_io.get">get( f, k, v )</a>             <a href="#hash_io.get_first">get_first( f, c, k, v )</a>    <a href="#hash_io.get_last">get_last( f, c, k, v )</a>
+  <a href="#hash_io.get_next">get_next( f, c, k, v )</a>     <a href="#hash_io.get_previous">get_previous( f, c, k, v )</a> <a href="#hash_io.has_element">b := has_element( f, k )</a>
+  <a href="#hash_io.increment">increment( f, k [,n] )</a>     <a href="#hash_io.open">b := is_open( f )</a>          <a href="#hash_io.last_error">e := last_error( f )</a>
+  <a href="#hash_io.name">s := name( f )</a>             <a href="#hash_io.open">open( f, p, kl, vl )</a>       <a href="#hash_io.open_cursor">open_cursor( f, c )</a>
+  <a href="#hash_io.prepend">prepend( f, k, v )</a>         <a href="#hash_io.raise_exceptions">raise_exceptions( f, b )</a>   <a href="#hash_io.recover">recover( f, p )</a>
+  <a href="#hash_io.remove">remove( f, k )</a>             <a href="#hash_io.replace">replace( f, k, v )</a>         <a href="#hash_io.set">set( f, k, v )</a>
+  <a href="#hash_io.truncate">truncate( f )</a>              <a href="#hash_io.will_raise">b := will_raise( f )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
@@ -148,7 +143,7 @@ returned.</p>
 <td><p>An exception is raised if the value is the wrong type<br>
 An exception is raised for a deadlock<br>
 An exception is raised if the files are read-only access<br>
-An exception is raised if the B-Tree is too large</p></td>
+An exception is raised if the hash file is too large</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell</p>
@@ -650,7 +645,7 @@ PHP: dbm_fetch</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>?</p></td>
+<td><p>The cursor is not open<br>Out-of-memory (storage error)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell</p>
@@ -710,7 +705,7 @@ PHP: dbm_fetch</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>?</p></td>
+<td><p>The cursor is not open<br>Out-of-memory (storage error)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell</p>
@@ -770,7 +765,7 @@ PHP: dbm_fetch</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>?</p></td>
+<td><p>The cursor is not open<br>Out-of-memory (storage error)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell</p>
@@ -830,7 +825,7 @@ PHP: dbm_fetch</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>?</p></td>
+<td><p>The cursor is not open<br>Out-of-memory (storage error)</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell</p>

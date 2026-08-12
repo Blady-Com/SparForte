@@ -1490,6 +1490,13 @@ begin
      if is_connected( C ) then
         execute( Q, C );
 
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
+
         -- Initially, the columns widths are the widths of the headings
 
         for i in 1..columns( Q ) loop
@@ -1688,6 +1695,13 @@ begin
           ", u.usename as " &  '"' & "Owner" & '"' &
           " from pg_class c, pg_user u, pg_namespace n where u.usesysid = c.relowner and n.oid = c.relnamespace and c.relkind <> 't' and c.relkind <> 'i' and u.usesysid <> 1 order by c.relname" );
         execute( Q, C );
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
 
         -- Initially, the columns widths are the widths of the headings
 
@@ -1898,6 +1912,13 @@ begin
            err( +"Did not find any relation named " &
               unb_em( expr.value ) );
            return;
+        end if;
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
         end if;
 
         -- Initially, the columns widths are the widths of the headings
@@ -2148,6 +2169,13 @@ begin
                     ", usecreatedb from pg_user order by usename" );
         execute( Q, C );
 
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
+
         -- Initially, the columns widths are the widths of the headings
 
         for i in 1..columns( Q ) loop
@@ -2346,6 +2374,13 @@ begin
                     ", u.usename as " & '"' & "Owner" & '"' &
                     " from pg_database d, pg_user u where u.usesysid = d.datdba order by d.datname" );
         execute( Q, C );
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
 
         -- Initially, the columns widths are the widths of the headings
 

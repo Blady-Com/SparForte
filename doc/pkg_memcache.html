@@ -57,7 +57,7 @@
   <a href="#memcache.clear_servers">clear_servers( cl )</a>          <a href="#memcache.replace">replace( cl, k, v )</a>
   <a href="#memcache.delete">delete( cl, k )</a>              <a href="#memcache.set">set( cl, k, v )</a>
   <a href="#memcache.flush">flush( cl )</a>                  <a href="#memcache.set_cluster_name">set_cluster_name( cl, s )</a>
-  <a href="#memcache.is_valid_memcache_key">is_valid_memcache_key( k )</a>   <a href="#memcache.set_cluster_type">set_cluster_type( cl, e )</a>
+  <a href="#memcache.is_valid_memcache_key">b := is_valid_memcache_key( k )</a>   <a href="#memcache.set_cluster_type">set_cluster_type( cl, e )</a>
   <a href="#memcache.get">v := get( cl, k )</a>            <a href="#memcache.stats">s := stats( cl )</a>
   <a href="#memcache.new_cluster">cl := new_cluster</a>            <a href="#memcache.version">s := version( cl )</a>
 </pre>
@@ -389,7 +389,7 @@ between 1 and 250 characters and not contain spaces or control characters.</p></
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in the cluster</p>
+<td><p>-</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p>
@@ -479,7 +479,7 @@ servers and manage connections.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in the cluster</p>
+<td><p>-</p>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with no_memcache restriction</p>
@@ -748,7 +748,7 @@ some error messages.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in the cluster</p>
+<td><p>-</p>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with no_memcache restriction</p>
@@ -795,7 +795,7 @@ memcache.memcache_cluster_type.normal.</p></td>
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>An exception is raised if no servers are defined in the cluster</p>
+<td><p>-</p>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell or with no_memcache restriction</p>

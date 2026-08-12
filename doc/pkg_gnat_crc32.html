@@ -76,7 +76,7 @@ used to verify the integrity of a string.</p>
 =&gt; crc := gnat.crc32.get_value( c )<br>
 =&gt; (Assuming crc is a new integer variable)<br>
 =&gt; ? crc<br>
-&nbsp;3245118365<br>
+&nbsp;1049848930<br>
 </p>
         <div class="code_caption">
         <strong>Example</strong>: Using the gnat.crc32 package
@@ -106,7 +106,7 @@ used to verify the integrity of a string.</p>
 </tr><tr>
 <td><span>c</span></td>
 <td><span>out</span></td>
-<td><span>gnat.crc32.gnatcrc32</span></td>
+<td><span>gnat.crc32.crc32</span></td>
 <td><span>required</span></td>
 <td><span>the CRC32 counter</span></td>
 </tr>
@@ -143,7 +143,7 @@ used to verify the integrity of a string.</p>
 </tr><tr>
 <td><span>c</span></td>
 <td><span>in out</span></td>
-<td><span>gnat.crc32.gnatcrc32</span></td>
+<td><span>gnat.crc32.crc32</span></td>
 <td><span>required</span></td>
 <td><span>the CRC32 counter</span></td>
 </tr><tr>
@@ -186,7 +186,7 @@ used to verify the integrity of a string.</p>
 </tr><tr>
 <td><span>c</span></td>
 <td><span>in</span></td>
-<td><span>gnat.crc32.gnatcrc32</span></td>
+<td><span>gnat.crc32.crc32</span></td>
 <td><span>required</span></td>
 <td><span>the CRC32 counter</span></td>
 </tr><tr>
@@ -194,7 +194,7 @@ used to verify the integrity of a string.</p>
 <td><span>return value</span></td>
 <td><span>integer</span></td>
 <td><span>required</span></td>
-<td><span>the partial result</span></td>
+<td><span>the current checsum value</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -206,6 +206,9 @@ used to verify the integrity of a string.</p>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: GNAT.CRC32.Get_Value<br>PHP: crc32</p></td>
+</tr><tr>
+<td><p class="pkg_label">Implementation Note</p></td>
+<td><p>Prior to SparForte 3.0.1, the final XOR was not performed.</p></td>
 </tr>
 </table>
 

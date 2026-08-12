@@ -48,9 +48,17 @@ exceptions_exception_name_t : identifier;
 exceptions_exception_info_t : identifier;
 exceptions_exception_status_code_t : identifier;
 
+
+-----------------------------------------------------------------------------
+--  PARSE EXCEPTIONS EXCEPTION NAME                      (built-in procedure)
+--
+-- AdaScript Syntax: s := exceptions.exception_name;
+--       Ada Target: s := Ada.Exceptions.Exception_Name( id/occur )
+--   GNAT Spec File: a-except.ads
+--   SparForte Docs: doc/pkg_exceptions.html#exceptions.exception_name
+-----------------------------------------------------------------------------
+
 procedure ParseExceptionsExceptionName( result : out storage; kind : out identifier ) is
-  -- Syntax: s := exceptions.exception_name
-  -- Ada:    s := exceptions.exception_name( id/occur )
 begin
   kind := string_t;
   expect( exceptions_exception_name_t );
@@ -63,9 +71,16 @@ begin
   end if;
 end ParseExceptionsExceptionName;
 
+-----------------------------------------------------------------------------
+--  PARSE EXCEPTIONS EXCEPTION INFO                      (built-in procedure)
+--
+-- AdaScript Syntax: s := Exception_info();
+--       Ada Target: s := Ada.Exceptions.Exception_Info( id/occur )
+--   GNAT Spec File: a-except.ads
+--   SparForte Docs: doc/pkg_exceptions.html#exceptions.exception_info
+-----------------------------------------------------------------------------
+
 procedure ParseExceptionsExceptionInfo( result : out storage; kind : out identifier ) is
-  -- Syntax: s := Exception_info();
-  -- Ada:    s := exceptions.exception_info( occur )
 begin
   kind := string_t;
   expect( exceptions_exception_info_t );
@@ -78,20 +93,47 @@ begin
   end if;
 end ParseExceptionsExceptionInfo;
 
+-----------------------------------------------------------------------------
+--  PARSE EXCEPTIONS EXCEPTION STATUS CODE               (built-in procedure)
+--
+-- AdaScript Syntax: s := exceptions.exception_name;
+--       Ada Target: N/A
+--   GNAT Spec File: a-except.ads
+--   SparForte Docs: doc/pkg_exceptions.html#exceptions.exception_status_code
+-----------------------------------------------------------------------------
+
 procedure ParseExceptionsExceptionStatusCode( result : out storage; kind : out identifier ) is
-  -- Syntax: s := exceptions.exception_status_code
-  -- Ada:    N/A
 begin
   kind := natural_t;
   expect( exceptions_exception_status_code_t );
   if isExecutingCommand then
-     if err_exception.deleted then
-        result := storage'( to_unbounded_string( "0" ), noMetaTag, sparMetaTags );
-     else
-        result := storage'( to_unbounded_string( numericValue( character'pos( element( err_exception.store.value, 1 ) ) ) ), noMetaTag, sparMetaTags );
-     end if;
+     begin
+        if err_exception.deleted then
+           result := storage'( to_unbounded_string( "0" ), noMetaTag, sparMetaTags );
+        else
+          result := storage'(
+             to_unbounded_string(
+                 numericValue(
+                    character'pos(
+                                   element( err_exception.store.value, 1 )
+                                 )
+                             )
+            ), noMetaTag, sparMetaTags );
+        end if;
+     exception when others =>
+       -- this should not be possible but this is included for completeness
+       err_exception_raised;
+     end;
   end if;
 end ParseExceptionsExceptionStatusCode;
+
+
+-----------------------------------------------------------------------------
+--
+-- HOUSEKEEPING
+--
+-----------------------------------------------------------------------------
+
 
 procedure StartupExceptions is
 begin

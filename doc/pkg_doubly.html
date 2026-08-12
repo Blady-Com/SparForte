@@ -54,7 +54,7 @@ to create and manage ordered, unindexed, linked lists.</p>
         <center>
         <div class="code">
 <pre>
-  <a href="#doubly_linked_lists.append">append( l, e [, n] )</a>                                         <a href="#doubly_linked_lists.assemble">s := assemble( l [,d [,f]] )</a>
+  <a href="#doubly_linked_lists.append">append( l, e [, n] )</a>                                   <a href="#doubly_linked_lists.assemble">s := assemble( l [,d [,f]] )</a>
   <a href="#doubly_linked_lists.assign">assign( l1, l2 )</a>                                       <a href="#doubly_linked_lists.clear">clear( l )</a>
   <a href="#doubly_linked_lists.contains">b := contains( l, e )</a>                                  <a href="#doubly_linked_lists.delete">delete( l, c [,n] )</a>
   <a href="#doubly_linked_lists.delete_first">delete_first( l [,n] )</a>                                 <a href="#doubly_linked_lists.delete_last">delete_last( l [,n] )</a>
@@ -68,7 +68,7 @@ to create and manage ordered, unindexed, linked lists.</p>
   <a href="#doubly_linked_lists.last_element">e := last_element( l )</a>                                 <a href="#doubly_linked_lists.length">n := length( l )</a>
   <a href="#doubly_linked_lists.move">move( l1, l2 )</a>                                         <a href="#doubly_linked_lists.next">next( c )</a>
   <a href="#doubly_linked_lists.parcel">parcel( s, w, l )</a>
-  <a href="#doubly_linked_lists.prepend">prepend( l, e [, n] )</a>                                        <a href="#doubly_linked_lists.previous">previous( c )</a>
+  <a href="#doubly_linked_lists.prepend">prepend( l, e [, n] )</a>                                  <a href="#doubly_linked_lists.previous">previous( c )</a>
   <a href="#doubly_linked_lists.replace_element">replace_element( l, c, e )</a>                             <a href="#doubly_linked_lists.reverse_elements">reverse_elements( l )</a>
   <a href="#doubly_linked_lists.reverse_find">reverse_find( l, e, c )</a>
   <a href="#doubly_linked_lists.splice">splice( l1, c, l2 [,c2] ) | ( l1, c, c2 )</a>
@@ -163,7 +163,7 @@ blueberry<br>
 An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.prepend</p></td>
+<td><p><a href="#doubly_linked_lists.prepend">doubly_linked_lists.prepend</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Append</p></td>
@@ -222,7 +222,7 @@ separated by delimiter string d and ending with optional string f.  An empty lis
 <td><p>An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.disassemble</p></td>
+<td><p><a href="#doubly_linked_lists.disassemble">doubly_linked_lists.disassemble</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p>
@@ -269,7 +269,7 @@ separated by delimiter string d and ending with optional string f.  An empty lis
 An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.move</p></td>
+<td><p><a href="#doubly_linked_lists.move">doubly_linked_lists.move</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Assign</p></td>
@@ -359,7 +359,9 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element is the wrong type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.find<br>doubly_linked_lists.reverse_find</p></td>
+<td><p>
+<a href="#doubly_linked_lists.find">doubly_linked_lists.find</a><br>
+<a href="#doubly_linked_lists.reverse_find">doubly_linked_lists.reverse_find</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Contains</p></td>
@@ -410,7 +412,8 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element type does not match</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.delete_first<br>doubly_linked_lists.delete_last</p></td>
+<td><p><a href="#doubly_linked_lists.delete_first">doubly_linked_lists.delete_first</a><br>
+<a href="#doubly_linked_lists.delete_last">doubly_linked_lists.delete_last</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Delete</p></td>
@@ -455,7 +458,8 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if there are no more elements.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.delete<br>doubly_linked_lists.delete_last</p></td>
+<td><p><a href="#doubly_linked_lists.delete">doubly_linked_lists.delete</a><br>
+<a href="#doubly_linked_lists.delete_last">doubly_linked_lists.delete_last</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Delete_First</p></td>
@@ -500,7 +504,8 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if there are no more elements.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.delete<br>doubly_linked_lists.delete_first</p></td>
+<td><p><a href="#doubly_linked_lists.delete">doubly_linked_lists.delete</a><br>
+<a href="#doubly_linked_lists.delete_first">doubly_linked_lists.delete_first</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Delete_Last</p></td>
@@ -557,7 +562,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.assemble</p></td>
+<td><p><a href="#doubly_linked_lists.assemble">doubly_linked_lists.assemble</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p>
@@ -603,7 +608,9 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if there is no element</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.first_element<br>doubly_linked_lists.last_element<br>doubly_linked_lists.replace_element</p></td>
+<td><p><a href="#doubly_linked_lists.first_element">doubly_linked_lists.first_element</a><br>
+<a href="#doubly_linked_lists.last_element">doubly_linked_lists.last_element</a><br>
+<a href="#doubly_linked_lists.replace_element">doubly_linked_lists.replace_element</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Element</p></td>
@@ -654,7 +661,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element is the wrong type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.reverse_find</p></td>
+<td><p><a href="#doubly_linked_lists.reverse_find">doubly_linked_lists.reverse_find</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Find</p></td>
@@ -699,7 +706,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element type is the wrong type</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.last</p></td>
+<td><p><a href="#doubly_linked_lists.last">doubly_linked_lists.last</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.First</p></td>
@@ -744,7 +751,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if there is no element</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.last_element</p></td>
+<td><p><a href="#doubly_linked_lists.last_element">doubly_linked_lists.last_element</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.First_Element</p></td>
@@ -783,7 +790,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.reverse_elements</p></td>
+<td><p><a href="#doubly_linked_lists.reverse_elements">doubly_linked_lists.reverse_elements</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Reverse_Elements</p></td>
@@ -885,7 +892,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.insert_before_and_mark</p></td>
+<td><p><a href="#doubly_linked_lists.insert_before_and_mark">doubly_linked_lists.insert_before_and_mark</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Insert</p></td>
@@ -948,7 +955,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.insert_before</p></td>
+<td><p><a href="#doubly_linked_lists.insert_before">doubly_linked_lists.insert_before</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Insert</p></td>
@@ -993,7 +1000,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.contains</p></td>
+<td><p><a href="#doubly_linked_lists.contains">doubly_linked_lists.contains</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Is_Empty</p></td>
@@ -1038,7 +1045,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element type is the wrong type</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.first</p></td>
+<td><p><a href="#doubly_linked_lists.first">doubly_linked_lists.first</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Last</p></td>
@@ -1083,7 +1090,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if there is no element</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.first_element</p></td>
+<td><p><a href="#doubly_linked_lists.first_element">doubly_linked_lists.first_element</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Last_Element</p></td>
@@ -1128,7 +1135,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.is_empty</p></td>
+<td><p><a href="#doubly_linked_lists.is_empty">doubly_linked_lists.is_empty</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Length</p></td>
@@ -1174,7 +1181,7 @@ An exception is raised if out of memory</p></td>
 An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.assign</p></td>
+<td><p><a href="#doubly_linked_lists.assign">doubly_linked_lists.assign</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Move</p></td>
@@ -1309,7 +1316,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.previous</p></td>
+<td><p><a href="#doubly_linked_lists.previous">doubly_linked_lists.previous</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Next</p></td>
@@ -1363,7 +1370,7 @@ An exception is raised if out of memory</p></td>
 <td><p>SparForte 2.4</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.disassemble</p></td>
+<td><p><a href="#doubly_linked_lists.disassemble">doubly_linked_lists.disassemble</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: N/A (AdaScript extension)</p>
@@ -1416,7 +1423,7 @@ An exception is raised if out of memory</p></td>
 An exception is raised if out of memory</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.append</p></td>
+<td><p><a href="#doubly_linked_lists.append">doubly_linked_lists.append</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Prepend</p></td>
@@ -1455,7 +1462,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.next</p></td>
+<td><p><a href="#doubly_linked_lists.next">doubly_linked_lists.next</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Previous</p></td>
@@ -1506,7 +1513,8 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element is the wrong type</p>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.element<br>doubly_linked_lists.swap</p></td>
+<td><p><a href="#doubly_linked_lists.element">doubly_linked_lists.element</a><br>
+<a href="#doubly_linked_lists.swap">doubly_linked_lists.swap</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Replace_Element</p></td>
@@ -1545,7 +1553,7 @@ An exception is raised if out of memory</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.flip</p></td>
+<td><p><a href="#doubly_linked_lists.flip">doubly_linked_lists.flip</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Reverse_Elements</p></td>
@@ -1596,7 +1604,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element is the wrong type</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.find</p></td>
+<td><p><a href="#doubly_linked_lists.find">doubly_linked_lists.find</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Reverse_Find</p></td>
@@ -1653,7 +1661,9 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element type is the wrong type.  The element types must be the same for all lists and cursors.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.assign<br>doubly_linked_lists.move<br>doubly_linked_lists.delete</p></td>
+<td><p><a href="#doubly_linked_lists.assign">doubly_linked_lists.assign</a><br>
+<a href="#doubly_linked_lists.move">doubly_linked_lists.move</a><br>
+<a href="#doubly_linked_lists.delete">doubly_linked_lists.delete</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Splice</p></td>
@@ -1704,7 +1714,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element type is the wrong type.<br>An exception is raised if a cursor points at no element</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.swap_links</p></td>
+<td><p><a href="#doubly_linked_lists.swap_links">doubly_linked_lists.swap_links</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Swap</p></td>
@@ -1755,7 +1765,7 @@ An exception is raised if out of memory</p></td>
 <td><p>An exception is raised if the element type is the wrong type.<br>An exception is raised if a cursor points at no element.</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>doubly_linked_lists.swap</p></td>
+<td><p><a href="#doubly_linked_lists.swap">doubly_linked_lists.swap</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>Ada: Ada.Containers.Doubly_Linked_Lists.Swap_Links</p></td>

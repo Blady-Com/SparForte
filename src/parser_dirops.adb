@@ -89,7 +89,7 @@ dirops_read_t          : identifier;
 -- AdaScript Syntax: c := directory_operations.dir_separator
 --       Ada Target: GNAT.Directory_Operations.Dir_Separator
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.dir_separator
+--   SparForte Docs: pkg_dirops.html#directory_operations.dir_separator
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsDirSeparator( result : out storage; kind : out identifier ) is
@@ -114,7 +114,7 @@ end ParseDirOpsDirSeparator;
 -- AdaScript Syntax: directory_operations.change_dir( p )
 --       Ada Target: GNAT.Directory_Operations.Change_Dir
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.change_dir
+--   SparForte Docs: pkg_dirops.html#directory_operations.change_dir
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsChangeDir is
@@ -163,7 +163,7 @@ end ParseDirOpsChangeDir;
 -- AdaScript Syntax: directory_operations.make_dir( p )
 --       Ada Target: GNAT.Directory_Operations.Make_Dir
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.make_dir
+--   SparForte Docs: pkg_dirops.html#directory_operations.make_dir
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsMakeDir is
@@ -198,7 +198,7 @@ end ParseDirOpsMakeDir;
 -- AdaScript Syntax: directory_operations.remove_dir( p [, r] )
 --       Ada Target: GNAT.Directory_Operations.Remove_Dir
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.remove_dir
+--   SparForte Docs: pkg_dirops.html#directory_operations.remove_dir
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsRemoveDir is
@@ -238,7 +238,7 @@ end ParseDirOpsRemoveDir;
 -- AdaScript Syntax: p := directory_operations.get_current_dir;
 --       Ada Target: GNAT.Directory_Operations.Get_Current_Dir
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.get_current_dir
+--   SparForte Docs: pkg_dirops.html#directory_operations.get_current_dir
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsGetCurrentDir( result : out storage; kind : out identifier ) is
@@ -264,7 +264,7 @@ end ParseDirOpsGetCurrentDir;
 -- AdaScript Syntax: s := directory_operations.absolute_dir_name( p )
 --       Ada Target: Ada.Directories.Full_Name
 --   GNAT Spec File: a-direct.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.absolute_dir_name
+--   SparForte Docs: pkg_dirops.html#directory_operations.absolute_dir_name
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsAbsoluteDirName( result : out storage; kind : out identifier ) is
@@ -294,7 +294,7 @@ end ParseDirOpsAbsoluteDirName;
 -- AdaScript Syntax: s := directory_operations.dir_name( p )
 --       Ada Target: GNAT.Directory_Operations.Dir_Name
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.dir_name
+--   SparForte Docs: pkg_dirops.html#directory_operations.dir_name
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsDirName( result : out storage; kind : out identifier ) is
@@ -324,7 +324,7 @@ end ParseDirOpsDirName;
 -- AdaScript Syntax: s := directory_operations.base_name( p [, f] )
 --       Ada Target: GNAT.Directory_Operations.Base_Name
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.base_name
+--   SparForte Docs: pkg_dirops.html#directory_operations.base_name
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsBaseName( result : out storage; kind : out identifier ) is
@@ -361,7 +361,7 @@ end ParseDirOpsBaseName;
 -- AdaScript Syntax: s := directory_operations.file_extension( p )
 --       Ada Target: GNAT.Directory_Operations.File_Extension
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.file_extension
+--   SparForte Docs: pkg_dirops.html#directory_operations.file_extension
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsFileExtension( result : out storage; kind : out identifier ) is
@@ -390,7 +390,7 @@ end ParseDirOpsFileExtension;
 -- AdaScript Syntax: s := directory_operations.file_name( p )
 --       Ada Target: GNAT.Directory_Operations.File_Name
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.file_name
+--   SparForte Docs: pkg_dirops.html#directory_operations.file_name
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsFileName( result : out storage; kind : out identifier ) is
@@ -420,7 +420,7 @@ end ParseDirOpsFileName;
 -- AdaScript Syntax: s := directory_operations.format_pathname( p [,t] )
 --       Ada Target: GNAT.Directory_Operations.Format_Pathname
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.format_pathname
+--   SparForte Docs: pkg_dirops.html#directory_operations.format_pathname
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsFormatPathname( result : out storage; kind : out identifier ) is
@@ -469,7 +469,7 @@ end ParseDirOpsFormatPathname;
 -- AdaScript Syntax: s := directory_operations.expand_path( p [,t] )
 --       Ada Target: GNAT.Directory_Operations.Format_Pathname
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.expand_path
+--   SparForte Docs: pkg_dirops.html#directory_operations.expand_path
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsExpandPath( result : out storage; kind : out identifier ) is
@@ -520,7 +520,7 @@ end ParseDirOpsExpandPath;
 -- AdaScript Syntax: directory_operations.open( d, p )
 --       Ada Target: GNAT.Directory_Operations.Open
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.open
+--   SparForte Docs: pkg_dirops.html#directory_operations.open
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsOpen is
@@ -570,7 +570,7 @@ end ParseDirOpsOpen;
 -- AdaScript Syntax: directory_operations.close( d )
 --       Ada Target: GNAT.Directory_Operations.Close
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.close
+--   SparForte Docs: pkg_dirops.html#directory_operations.close
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsClose is
@@ -607,7 +607,7 @@ end ParseDirOpsClose;
 -- AdaScript Syntax: directory_operations.is_open( d )
 --       Ada Target: GNAT.Directory_Operations.Is_Open
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.is_open
+--   SparForte Docs: pkg_dirops.html#directory_operations.is_open
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsIsOpen( result : out storage; kind : out identifier ) is
@@ -646,7 +646,7 @@ end ParseDirOpsIsOpen;
 -- AdaScript Syntax: directory_operations.read( d, s )
 --       Ada Target: GNAT.Directory_Operations.Read
 --   GNAT Spec File: g-dirope.ads
---   SparForte Docs: doc/pkg_dirops.html#directory_operations.read
+--   SparForte Docs: pkg_dirops.html#directory_operations.read
 -----------------------------------------------------------------------------
 
 procedure ParseDirOpsRead is
