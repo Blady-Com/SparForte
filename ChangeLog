@@ -14,7 +14,7 @@ CHANGES SINCE 3.0
 
 3. Change: when a hash-able command (e.g. "foo") is not found but a file exists without executable permission, an error message describes this condition rather than describing it as not found. When a command path (e.g. "/bin/foo") cannot be run when the file exists without executable permission, an error describes this condition rather than describing it as not found.
 
-4. pragma annotate( assisted ) for automation generated source code as per Linux kernel standards. [docs needed]
+4. pragma annotate( generator ) for automation generated source code as per Linux kernel standards. [docs needed]
 
 5. Fix: certain edge cases in subprogram parameter names like names already in use, duplicate parameter names, a parameter with the name of the subprogram should now work correctly.
 
@@ -90,5 +90,5 @@ CHANGES SINCE 3.0
 
 41. Fix: searching the lists of memcache/memcache.highread cluster servers corrected (= vs. >= in the search).
 
-42. Fix: msyql.schema fixed to do a "select" rather than "show" query.
+42. Fix: mysql.schema and mysqlm.schema fixed to do a "select" rather than "show" query.
 

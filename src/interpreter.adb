@@ -762,6 +762,7 @@ begin
 
 <<error>>
   if error_found then                              -- was there an error?
+     token := eof_t;                               -- then at end-of-file
      if last_status = 0 then                       -- no last command status?
         set_exit_status( Failure );                -- just set to 1
         if trace then

@@ -77,6 +77,7 @@
         </div>
         </center>
 
+<p>Some enumerated types are shared with the db package.</p>
 
 <p>There is an enumerated type in the db package that controls the detail level of tracing:
         <center>
@@ -174,7 +175,7 @@
 <td><p>Append text s to the SQL query and start a new line.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">mysql.append_line( s, "where customer_no &gt; 5" );</span></td>
+<td><span class="code">mysql.append_line( "where customer_no &gt; 5" );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -540,7 +541,7 @@
 <tr>
 <td><span>p</span></td>
 <td><span>in</span></td>
-<td><span>string</span></td>
+<td><span>integer</span></td>
 <td><span>default port</span></td>
 <td><span>network socket port</span></td>
 </tr>
@@ -712,7 +713,7 @@ is the same as MySQL "show databases".</p></td>
 <td><span class="pkg_param">Default</span></td>
 <td><span class="pkg_param">Description</span></td>
 </tr><tr>
-<td><span>b</span></td>
+<td><span>s</span></td>
 <td><span>return value</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
@@ -1065,8 +1066,8 @@ same as MySQL's "show tables".</p></td>
 </tr><tr>
 <td><span>m</span></td>
 <td><span>in</span></td>
-<td><span>mysql.trace_mode_type</span></td>
-<td><span>mysql.trace_apq</span></td>
+<td><span>db.trace_mode_type</span></td>
+<td><span>db.trace_apq</span></td>
 <td><span>trace type</span></td>
 </tr>
 </table></td>
@@ -1360,7 +1361,7 @@ necessary) and disconnect.  mysql.disconnect is recommended for normal use.</p><
 </table></td>
 </tr><tr>
 <td><p class="pkg_label">Exceptions</p></td>
-<td><p>-</p></td>
+<td><p>The table does not exist.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
 <td><p>Not allowed in a restricted shell<br>Not allowed with no_mysql_database restriction</p>
@@ -1434,7 +1435,7 @@ necessary) and disconnect.  mysql.disconnect is recommended for normal use.</p><
 <td><span>b</span></td>
 <td><span>in</span></td>
 <td><span>boolean</span></td>
-<td><span>true</span></td>
+<td><span>required</span></td>
 <td><span>whether or not tracing will occur</span></td>
 </tr>
 </table></td>

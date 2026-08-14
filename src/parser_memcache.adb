@@ -285,7 +285,7 @@ end ParseMemcacheNewCluster;
 --  PARSE MEMCACHE REGISTER SERVER                       (built-in procedure)
 --
 -- AdaScript Syntax: memcache.register_server( cl, h, p )
---       Ada Target: N/A
+--       Ada Target: PegaSock.Memcache.RegisterServer
 --   GNAT Spec File: N/A
 --   SparForte Docs: pkg_memcache.html#memcache.register_server
 -----------------------------------------------------------------------------
@@ -364,9 +364,16 @@ begin
   end if;
 end ParseMemcacheClearServers;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE SET CLUSTER NAME                      (built-in procedure)
+--
+-- AdaScript Syntax: memcache.set_cluster_name( cl, s )
+--       Ada Target: PegaSock.Memcache.SetClusterName
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.set_cluster_name
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheSetClusterName is
--- Syntax: set_cluster_name( cluster, name )
--- Source: pegasock.memcache.set_cluster_name
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -398,10 +405,17 @@ begin
   end if;
 end ParseMemcacheSetClusterName;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE SET CLUSTER TYPE                      (built-in procedure)
+--
+-- AdaScript Syntax: memcache.set_cluster_type( cl, e )
+--       Ada Target: PegaSock.Memcache.SetClusterType
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.set_cluster_type
+--          Example: memcache.set_cluster_type( c, memcache.memcache_cluster_type.normal )
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheSetClusterType is
--- Syntax: set_cluster_type( cluster, name )
--- Source: pegasock.memcache.set_cluster_type
--- Example:memcache.set_cluster_type( c, memcache.memcache_cluster_type.normal )
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -441,9 +455,16 @@ begin
   end if;
 end ParseMemcacheSetClusterType;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE SET                                   (built-in procedure)
+--
+-- AdaScript Syntax: memcache.set( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Set
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.set
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheSet is
--- Syntax: set( cluster, key, value )
--- Source: pegasock.memcache.set
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -480,9 +501,16 @@ begin
   end if;
 end ParseMemcacheSet;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE ADD                                   (built-in procedure)
+--
+-- AdaScript Syntax: memcache.add( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Add
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.add
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheAdd is
--- Syntax: add( cluster, key, value )
--- Source: pegasock.memcache.add
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -519,9 +547,16 @@ begin
   end if;
 end ParseMemcacheAdd;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE REPLACE                               (built-in procedure)
+--
+-- AdaScript Syntax: memcache.replace( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Replace
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.replace
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheReplace is
--- Syntax: replace( cluster, key, value )
--- Source: pegasock.memcache.replace
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -558,9 +593,16 @@ begin
   end if;
 end ParseMemcacheReplace;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE REPLACE                               (built-in procedure)
+--
+-- AdaScript Syntax: memcache.append( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Append
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.append
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheAppend is
--- Syntax: append( cluster, key, value )
--- Source: pegasock.memcache.append
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -595,9 +637,16 @@ begin
   end if;
 end ParseMemcacheAppend;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE PREPEND                               (built-in procedure)
+--
+-- AdaScript Syntax: memcache.prepend( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Prepend
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.prepend
+-----------------------------------------------------------------------------
+
 procedure ParseMemcachePrepend is
--- Syntax: prepend( cluster, key, value )
--- Source: pegasock.memcache.prepend
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -631,6 +680,15 @@ begin
      end if;
   end if;
 end ParseMemcachePrepend;
+
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE GET                                    (built-in function)
+--
+-- AdaScript Syntax: v := get( cl, k )
+--       Ada Target: PegaSock.Memcache.Get
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.get
+-----------------------------------------------------------------------------
 
 procedure ParseMemcacheGet( result : out storage; kind : out identifier ) is
 -- Syntax: value := get( cluster, key )
@@ -671,9 +729,16 @@ begin
   end if;
 end ParseMemcacheGet;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE DELETE                                (built-in procedure)
+--
+-- AdaScript Syntax: memcache.delete( cl, k )
+--       Ada Target: PegaSock.Memcache.Delete
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.delete
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheDelete is
--- Syntax: delete( cluster, key )
--- Source: pegasock.memcache.delete
   cluster_entry : aMemcacheClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -707,9 +772,16 @@ begin
   end if;
 end ParseMemcacheDelete;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE STATS                                  (built-in function)
+--
+-- AdaScript Syntax: s := memcache.stats( cl )
+--       Ada Target: PegaSock.Memcache.Stats
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.stats
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheStats( result : out storage; kind : out identifier ) is
--- Syntax: stats( cluster )
--- Source: pegasock.memcache.stats
   cluster_entry : aMemcacheClusterEntry;
   clusterRef : reference;
   cluster    : storage;
@@ -741,9 +813,16 @@ begin
   end if;
 end ParseMemcacheStats;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE STATS                                  (built-in function)
+--
+-- AdaScript Syntax: s := version( cl )
+--       Ada Target: PegaSock.Memcache.Version
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.version
+-----------------------------------------------------------------------------
+
 procedure ParseMemcacheVersion( result : out storage; kind : out identifier ) is
--- Syntax: version( cluster )
--- Source: pegasock.memcache.version
   cluster_entry : aMemcacheClusterEntry;
   clusterRef : reference;
   cluster    : storage;
@@ -776,6 +855,15 @@ begin
      end if;
   end if;
 end ParseMemcacheVersion;
+
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE FLUSH                                 (built-in procedure)
+--
+-- AdaScript Syntax: flush( cl )
+--       Ada Target: PegaSock.Memcache.Flush
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#flush
+-----------------------------------------------------------------------------
 
 procedure ParseMemcacheFlush is
 -- Syntax: flush( cluster )
@@ -814,9 +902,16 @@ end ParseMemcacheFlush;
 ----------------------------------------------------------------------------
 
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD NEW CLUSTER                   (built-in function)
+--
+-- AdaScript Syntax: cl := new_cluster
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.new_cluster
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadNewCluster( result : out storage; kind : out identifier ) is
--- Syntax: cluster := new_cluster;
--- Source: n/a
   cluster_entry : aMemcacheDualClusterEntry;
   cluster_id_value : aMemcacheDualClusterID;
   subprogramId : constant identifier := highread_new_cluster_t;
@@ -838,9 +933,16 @@ begin
   end if;
 end ParseHighreadNewCluster;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD REGISTER ALPHA SERVER        (built-in procedure)
+--
+-- AdaScript Syntax: register_alpha_server( cl, h, p )
+--       Ada Target: PegaSock.Memcache.Highread.RegisterAlphaServer
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.register_alpha_server
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadRegisterAlphaServer is
--- Syntax: register_alpha_server( cluster, host, port )
--- Source: pegasock.memcache.highread.registerAlphaServer
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -876,9 +978,16 @@ begin
   end if;
 end ParseHighreadRegisterAlphaServer;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD REGISTER BETA SERVER         (built-in procedure)
+--
+-- AdaScript Syntax: register_beta_server( cl, h, p )
+--       Ada Target: PegaSock.Memcache.Highread.RegisterBetaServer
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.register_beta_server
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadRegisterBetaServer is
--- Syntax: register_beta_server( cluster, host, port )
--- Source: pegasock.memcache.highread.register_beta.server
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -914,9 +1023,16 @@ begin
   end if;
 end ParseHighreadRegisterBetaServer;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD CLEAR SERVERS                (built-in procedure)
+--
+-- AdaScript Syntax: clear_server( cl, h, p )
+--       Ada Target: PegaSock.Memcache.Highread.ClearServers
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.clear_servers
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadClearServers is
--- Syntax: clear_servers( cluster )
--- Source: pegasock.memcache.highread.clear_servers
   cluster_entry : aMemcacheDualClusterEntry;
   clusterRef : reference;
   cluster    : storage;
@@ -945,9 +1061,16 @@ begin
   end if;
 end ParseHighreadClearServers;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD SET CLUSTER NAME             (built-in procedure)
+--
+-- AdaScript Syntax: set_cluster_name( cl, s )
+--       Ada Target: PegaSock.Memcache.Highread.SetClusterName
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.set_cluster_name
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadSetClusterName is
--- Syntax: set_cluster_name( cluster, name )
--- Source: pegasock.memcache.highread.set_cluster_name
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -979,10 +1102,17 @@ begin
   end if;
 end ParseHighreadSetClusterName;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD SET CLUSTER TYPE             (built-in procedure)
+--
+-- AdaScript Syntax: set_cluster_type( cl, e )
+--       Ada Target: PegaSock.Memcache.Highread.SetClusterType
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.set_cluster_type
+--          Example: memcache.highread.set_cluster_type( c, memcache.memcache_cluster_type.normal )
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadSetClusterType is
--- Syntax: set_cluster_type( cluster, name )
--- Source: pegasock.memcache.set_cluster_type
--- Example:memcache.highread.set_cluster_type( c, memcache.memcache_cluster_type.normal )
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1022,9 +1152,16 @@ begin
   end if;
 end ParseHighreadSetClusterType;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD SET                          (built-in procedure)
+--
+-- AdaScript Syntax: set( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Highread.Set
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.set
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadSet is
--- Syntax: set( cluster, key, value )
--- Source: pegasock.memcache.highread.set
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1061,9 +1198,16 @@ begin
   end if;
 end ParseHighreadSet;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD SET                          (built-in procedure)
+--
+-- AdaScript Syntax: add( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Highread.Add
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.add
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadAdd is
--- Syntax: add( cluster, key, value )
--- Source: pegasock.memcache.highread.add
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1100,9 +1244,16 @@ begin
   end if;
 end ParseHighreadAdd;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD REPLACE                      (built-in procedure)
+--
+-- AdaScript Syntax: replace( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Highread.Replace
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.replace
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadReplace is
--- Syntax: replace( cluster, key, value )
--- Source: pegasock.memcache.highread.replace
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1137,9 +1288,16 @@ begin
   end if;
 end ParseHighreadReplace;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD APPEND                       (built-in procedure)
+--
+-- AdaScript Syntax: append( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Highread.Append
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.append
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadAppend is
--- Syntax: append( cluster, key, value )
--- Source: pegasock.memcache.highread.append
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1174,9 +1332,16 @@ begin
   end if;
 end ParseHighreadAppend;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD PREPEND                      (built-in procedure)
+--
+-- AdaScript Syntax: prepend( cl, k, v )
+--       Ada Target: PegaSock.Memcache.Highread.Prepend
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.prepend
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadPrepend is
--- Syntax: prepend( cluster, key, value )
--- Source: pegasock.memcache.highread.prepend
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1211,9 +1376,16 @@ begin
   end if;
 end ParseHighreadPrepend;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD GET                           (built-in function)
+--
+-- AdaScript Syntax: v := get( cl, k )
+--       Ada Target: PegaSock.Memcache.Highread.Get
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.get
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadGet( result : out storage; kind : out identifier ) is
--- Syntax: value := get( cluster, key )
--- Source: pegasock.memcache.highread.get
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1250,9 +1422,16 @@ begin
   end if;
 end ParseHighreadGet;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD DELETE                       (built-in procedure)
+--
+-- AdaScript Syntax: delete( cl, k )
+--       Ada Target: PegaSock.Memcache.Highread.Delete
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.delete
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadDelete is
--- Syntax: delete( cluster, key )
--- Source: pegasock.memcache.highread.delete
   cluster_entry : aMemcacheDualClusterEntry;
   expr : storage;
   expr_type : identifier;
@@ -1286,9 +1465,16 @@ begin
   end if;
 end ParseHighreadDelete;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD STATS                         (built-in function)
+--
+-- AdaScript Syntax: s := stats( cl )
+--       Ada Target: PegaSock.Memcache.Highread.Stats
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.stats
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadStats( result : out storage; kind : out identifier ) is
--- Syntax: stats( cluster )
--- Source: pegasock.memcache.highread.stats
   cluster_entry : aMemcacheDualClusterEntry;
   clusterRef : reference;
   cluster    : storage;
@@ -1320,9 +1506,16 @@ begin
   end if;
 end ParseHighreadStats;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD VERSION                       (built-in function)
+--
+-- AdaScript Syntax: s := version( cl )
+--       Ada Target: PegaSock.Memcache.Highread.Version
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.version
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadVersion( result : out storage; kind : out identifier ) is
--- Syntax: version( cluster )
--- Source: pegasock.memcache.highread.version
   cluster_entry : aMemcacheDualClusterEntry;
   clusterRef : reference;
   cluster    : storage;
@@ -1356,9 +1549,16 @@ begin
   end if;
 end ParseHighreadVersion;
 
+-----------------------------------------------------------------------------
+--  PARSE MEMCACHE HIGHREAD FLUSH                        (built-in procedure)
+--
+-- AdaScript Syntax: flush( cl )
+--       Ada Target: PegaSock.Memcache.Highread.Flush
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_memcache.html#memcache.highread.flush
+-----------------------------------------------------------------------------
+
 procedure ParseHighreadFlush is
--- Syntax: flush( cluster )
--- Source: pegasock.memcache.highread.flush
   cluster_entry : aMemcacheDualClusterEntry;
   clusterRef : reference;
   cluster    : storage;

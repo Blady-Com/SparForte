@@ -295,45 +295,45 @@ procedure ParseMySQLEngineOf( result : out storage; kind : out identifier ) rena
 #if MYSQL
 
 -- TODO: this is not visible
-procedure ParseMySQLPrepare( result : out storage ) is
-  -- Syntax: mysql.prepare( sqlstmt [,after] );
-  sqlExpr   : storage;
-  sqlType   : identifier;
-  afterExpr : storage;
-  afterType : identifier;
-  hasAfter  : boolean := false;
-begin
-  expect( mysql_prepare_t );
-  expect( symbol_t, "(" );
-  ParseExpression( sqlExpr, sqlType );
-  if baseTypesOK( string_t, sqlType ) then
-     if token = symbol_t and identifiers( token ).store.value = "," then
-        expectParameterComma;
-        ParseExpression( afterExpr, afterType );
-        if baseTypesOK( string_t, sqlType ) then
-           hasAfter := true;
-        end if;
-     end if;
-  end if;
-  expect( symbol_t, ")" );
-  if isExecutingCommand then
-     result := storage'( to_spar_boolean( true ), noMetaTag, noMetaTags );
-     begin
-       Clear( Q );
-       if hasAfter then
-          Prepare( Q, to_string( sqlExpr.value ), to_string( afterExpr.value ) );
-       else
-          Prepare( Q, to_string( sqlExpr.value ) );
-       end if;
-     exception when others =>
-       result := storage'( to_spar_boolean( false ), noMetaTag, noMetaTags );
-     end;
-  end if;
-end ParseMySQLPrepare;
+--procedure ParseMySQLPrepare( result : out storage ) is
+--  -- Syntax: mysql.prepare( sqlstmt [,after] );
+--  sqlExpr   : storage;
+--  sqlType   : identifier;
+--  afterExpr : storage;
+--  afterType : identifier;
+--  hasAfter  : boolean := false;
+--begin
+--  expect( mysql_prepare_t );
+--  expect( symbol_t, "(" );
+--  ParseExpression( sqlExpr, sqlType );
+--  if baseTypesOK( string_t, sqlType ) then
+--     if token = symbol_t and identifiers( token ).store.value = "," then
+--        expectParameterComma;
+--        ParseExpression( afterExpr, afterType );
+--        if baseTypesOK( string_t, sqlType ) then
+--          hasAfter := true;
+--        end if;
+--     end if;
+--  end if;
+--  expect( symbol_t, ")" );
+--  if isExecutingCommand then
+--     result := storage'( to_spar_boolean( true ), noMetaTag, noMetaTags );
+--     begin
+--       Clear( Q );
+--       if hasAfter then
+--          Prepare( Q, to_string( sqlExpr.value ), to_string( afterExpr.value ) );
+--       else
+--          Prepare( Q, to_string( sqlExpr.value ) );
+--       end if;
+--     exception when others =>
+--       result := storage'( to_spar_boolean( false ), noMetaTag, noMetaTags );
+--     end;
+--  end if;
+--end ParseMySQLPrepare;
 
 #else
 
-procedure ParseMySQLPrepare( result : out storage ) renames not_configured;
+--procedure ParseMySQLPrepare( result : out storage ) renames not_configured;
 
 #end if;
 #if MYSQL
@@ -1521,18 +1521,12 @@ begin
      begin
      if is_connected( C ) then
         -- Show tablename and kind, lookup owner from another table.
--- Owner not implemented yet - DEBUG
+        -- Owner not implemented yet - DEBUG
+        -- TODO: verify APQ handles SQL injection risk or do I
 
         prepare( Q, "select table_name, table_type, engine from " &
                     "information_schema.tables where table_schema = '" &
                     DB_Name( C ) & "' order by table_name desc" );
-
-        -- This is the PostgreSQL query...
-        -- prepare( Q, "select n.nspname as " & '"' & "Schema" & '"' &
-        --   ", c.relname as " & '"' & "Name" & '"' &
-        --   ", c.relkind as " & '"' & "Type" & '"' &
-        --   ", u.usename as " &  '"' & "Owner" & '"' &
-        --   " from pg_class c, pg_user u, pg_namespace n where u.usesysid = c.relowner and n.oid = c.relnamespace and c.relkind <> 't' and c.relkind <> 'i' and u.usesysid <> 1 order by c.relname" );
 
         -- MySQL 5.0.x has information_schema.  Older versions must fall back
         -- to a show query.
@@ -1745,14 +1739,7 @@ begin
      if is_connected( C ) then
         -- Find column name, type, type length, not null and default flags
         -- Don't show dropped columns, columns with system types (oid, etc).
-        -- The PostgreSQL query.
-        -- prepare( Q, "select a.attname as " & '"' & "Column" & '"' &
-        --            ", t.typname as " & '"' & "Type" & '"' &
-        --            ", a.atttypmod-4 as " & '"' & "Length" & '"' &
-        --            ", a.attnotnull as " & '"' & "Not Null" & '"' &
-        --            ", a.atthasdef as " & '"' & "Default" & '"' &
-        --            "from pg_attribute a, pg_class c, pg_type t where a.attrelid = c.oid and t.oid = a.atttypid and a.attisdropped = 'f' and (a.atttypid < 26 or a.atttypid > 29) and c.relname='" &
-        --             to_string( exprVal ) & "' order by a.attnum" );
+        -- TODO: verify APQ handles SQL injection risk or do I
 
         prepare( Q, "select column_name, data_type, is_nullable, column_default from information_schema.columns where table_name = '" & to_string( expr.value ) & "'" );
 
@@ -1951,6 +1938,7 @@ begin
      new_line_retry;
 
      -- List of indexes: not available yet through information_schema
+     -- TODO: verify APQ handles SQL injection risk or do I
 
      prepare( Q, "show index from " & to_string( expr.value ) );
      execute( Q, C );
@@ -2227,10 +2215,6 @@ begin
      if is_connected( C ) then
         -- Show tablename and kind, lookup owner from another table.
         -- Don't show tables owned by postgres (user 1), TOAST tables or indexes
-        -- PostgreSQL query
-        -- prepare( Q, "select d.datname as " & '"' & "Name" & '"' &
-        --             ", u.usename as " & '"' & "Owner" & '"' &
-        --             " from pg_database d, pg_user u where u.usesysid = d.datdba order by d.datname" );
 
         prepare( Q, "select schema_name as 'Database' from information_schema.schemata" );
 
@@ -2465,16 +2449,8 @@ begin
   declareIdent( mysql_tuple_count_type_t, "mysql.tuple_count_type",
     mysql_tuple_index_type_t, subClass );
 
---  declareIdent( mysql_trace_mode_type_t, "mysql.trace_mode_type",
---    root_enumerated_t, typeClass );
---  declareStandardConstant( mysql_trace_none_t, "mysql.trace_none",
---    mysql_trace_mode_type_t, "0" );
---  declareStandardConstant( mysql_trace_db_t, "mysql.trace_db",
---    mysql_trace_mode_type_t, "1" );
---  declareStandardConstant( mysql_trace_apq_t, "mysql.trace_apq",
---    mysql_trace_mode_type_t, "2" );
---  declareStandardConstant( mysql_trace_full_t, "mysql.trace_full",
---    mysql_trace_mode_type_t, "3" );
+  -- db.trace_mode_type is found in the db package and is shared with
+  -- this package.
 
   declareIdent( mysql_mode_type_t, "mysql.mode_type",
     root_enumerated_t, typeClass );
@@ -2485,25 +2461,11 @@ begin
   declareStandardConstant( mysql_read_write_t, "mysql.read_write",
     mysql_mode_type_t, "2" );
 
---  declareIdent( mysql_fetch_mode_type_t, "mysql.fetch_mode_type",
---    root_enumerated_t, typeClass );
---  declareStandardConstant( mysql_sequential_fetch_t, "mysql.sequential_fetch",
---    mysql_fetch_mode_type_t, "0" );
---  declareStandardConstant( mysql_random_fetch_t, "mysql.random_fetch",
---    mysql_fetch_mode_type_t, "1" );
+  -- db.fetch_mode_type is found in the db package and is shared with
+  -- this package.
 
---  declareIdent( mysql_database_type_t, "mysql.database_type",
---    root_enumerated_t, typeClass );
---  declareStandardConstant( mysql_engine_postgresql_t, "mysql.engine_postgresql",
---    mysql_database_type_t, "0" );
---  declareStandardConstant( mysql_engine_mysql_t, "mysql.engine_mysql",
---    mysql_database_type_t, "1" );
---  declareStandardConstant( mysql_engine_oracle_t, "mysql.engine_oracle",
---    mysql_database_type_t, "2" );
---  declareStandardConstant( mysql_engine_sybase_t, "mysql.engine_sybase",
---    mysql_database_type_t, "3" );
---  declareStandardConstant( mysql_engine_db2_t, "mysql.engine_db2",
---    mysql_database_type_t, "4" );
+  -- db.database_type is found in the db package and is shared with
+  -- this package.
 
   declareProcedure( mysql_connect_t, "mysql.connect", ParseMySQLConnect'access );
   declareProcedure( mysql_disconnect_t, "mysql.disconnect", ParseMySQLDisconnect'access );

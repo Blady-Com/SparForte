@@ -51,7 +51,7 @@ package body reports.help is
 
   procedure clearHelp( e : in out aHelpEntry ) is
   begin
-    e.assistedBy := null_unbounded_string;
+    e.generator := null_unbounded_string;
     e.author := null_unbounded_string;
     contentList.Clear( e.accounts );
     contentList.Clear( e.bugs );
@@ -120,10 +120,10 @@ package body reports.help is
     e.author := to_unbounded_string( s );
   end author;
 
-  procedure assistedBy( e : in out aHelpEntry; s : string ) is
+  procedure generator( e : in out aHelpEntry; s : string ) is
   begin
-    e.assistedBy := to_unbounded_string( s );
-  end assistedBy;
+    e.generator := to_unbounded_string( s );
+  end generator;
 
   procedure authorKen( e : in out aHelpEntry ) is
   begin
@@ -416,7 +416,7 @@ package body reports.help is
      renderBulletList( r, e.errors, "Errors" );
 
      renderText( r, "Author", e.author );
-     renderText( r, "Assisted By", e.assistedBy );
+     renderText( r, "Generator", e.generator );
      renderText( r, "Created", e.createdOn );
      renderText( r, "Modified", e.modified );
      renderText( r, "Release Date", e.releaseDate );
@@ -483,7 +483,7 @@ package body reports.help is
      renderBulletList( r, e.errors, "Errors" );
 
      renderText( r, "Author", e.author );
-     renderText( r, "Assisted By", e.assistedBy );
+     renderText( r, "Generator", e.generator );
      renderText( r, "Created", e.createdOn );
      renderText( r, "Modified", e.modified );
      renderText( r, "Release Date", e.releaseDate );
@@ -569,7 +569,7 @@ package body reports.help is
      renderBulletList( r, e.errors, "Errors" );
 
      renderText( r, "Author", e.author );
-     renderText( r, "Assisted By", e.assistedBy );
+     renderText( r, "Generator", e.generator );
      renderText( r, "Created", e.createdOn );
      renderText( r, "Modified", e.modified );
      renderText( r, "Release Date", e.releaseDate );

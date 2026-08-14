@@ -115,7 +115,6 @@ package body builtins.help is
        refactor_str : constant unbounded_string := to_unbounded_string( "refactor" );
 
        accounts_str    : constant unbounded_string := to_unbounded_string( "accounts" );
-       assisted_str    : constant unbounded_string := to_unbounded_string( "assisted" );
        author_str      : constant unbounded_string := to_unbounded_string( "author" );
        bugs_str        : constant unbounded_string := to_unbounded_string( "bugs" );
        created_str     : constant unbounded_string := to_unbounded_string( "created" );
@@ -126,6 +125,7 @@ package body builtins.help is
        examples_str    : constant unbounded_string := to_unbounded_string( "examples" );
        exceptions_str  : constant unbounded_string := to_unbounded_string( "exceptions" );
        footer_str      : constant unbounded_string := to_unbounded_string( "footer" );
+       generator_str   : constant unbounded_string := to_unbounded_string( "generator" );
        icon_str        : constant unbounded_string := to_unbounded_string( "icon" );
        modified_str    : constant unbounded_string := to_unbounded_string( "modified" );
        param_str       : constant unbounded_string := to_unbounded_string( "param" );
@@ -309,8 +309,6 @@ package body builtins.help is
                   --      end if;
                   --   end if;
                   --end if;
-               elsif annotationKind = assisted_str then
-                  assistedBy( e, to_string(expr.value) );
                elsif annotationKind = bugs_str then
                   bugs( e, to_string(expr.value)  );
                elsif annotationKind = created_str then
@@ -329,6 +327,8 @@ package body builtins.help is
                   exceptions( e, to_string(expr.value)  );
                elsif annotationKind = footer_str then
                   footer( e, to_string(expr.value)  );
+               elsif annotationKind = generator_str then
+                  generator( e, to_string(expr.value) );
                elsif annotationKind = icon_str then
                   icon( e, to_string(expr.value)  );
                elsif annotationKind = modified_str then
@@ -1036,7 +1036,7 @@ begin
      content( e, "append( q, s [, a] )","prepare( q, s [, a] )" );
      content( e, "append_line( q, s )","append_quoted( q, c, s [, a] )" );
      content( e, "execute( q, c )","execute_checked( q, c [, s ] )" );
-     content( e, "disconnect( c )","is_connected( c )" );
+     content( e, "disconnect( c )","b := is_connected( c )" );
      content( e, "reset( c )","s := error_message( c )" );
      content( e, "databases( c )","b := in_abort_state( c )" );
      content( e, "s := options( c )","set_rollback_on_finalize( c, b )" );

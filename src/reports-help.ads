@@ -51,7 +51,7 @@ package reports.help is
        rationaleWidth : positive := 1;
        -- TODO: see also should be a list.
        seeAlso       : unbounded_string;
-       assistedBy    : unbounded_string;
+       generator     : unbounded_string;
        author        : unbounded_string;
        modified      : unbounded_string;
        returns       : unbounded_string;
@@ -84,7 +84,7 @@ package reports.help is
 
   procedure accounts( e : in out aHelpEntry; s : string );
 
-  procedure assistedBy( e : in out aHelpEntry; s : string );
+  procedure generator( e : in out aHelpEntry; s : string );
 
   procedure author( e : in out aHelpEntry; s : string );
   procedure authorKen( e : in out aHelpEntry );

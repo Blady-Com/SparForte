@@ -144,7 +144,7 @@ procedure findConnection( connectRef : reference; connection : in out resPtr ) i
 begin
   GetParameterValue( connectRef, expr );
   if length( expr.value ) = 0 then
-     err( em( "new_connnection" ) & pl( " has not been called to initialize the connection" ) );
+     err( em( "new_connection" ) & pl( " has not been called to initialize the connection" ) );
   else
      findResource( to_resource_id( expr.value ), connection );
   end if;
@@ -161,8 +161,16 @@ begin
   end if;
 end findQuery;
 
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) CONNECT                       (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.connect( c, d [, u, w ][, h][, p] )
+--       Ada Target: APQ.Connect and related APQ subprograms
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.connect
+-----------------------------------------------------------------------------
+
 procedure ParseMySQLMConnect is
-  -- Syntax: mysqlm.connect( C, dbname [,user ,passwd [,host [,port ] ] ] );
   connectRef : reference;
   dbnameExpr : storage;
   dbnameType : identifier;
@@ -285,10 +293,16 @@ procedure ParseMySQLMConnect renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) ENGINE OF                      (built-in function)
+--
+-- AdaScript Syntax: e := mysqlm.engine_of( c )
+--       Ada Target: APQ.Engine_Of
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.engine_of
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMEngineOf( result : out storage; kind : out identifier ) is
-  -- Syntax: t := mysqlm.engine_of( C );
-  -- Source: APQ.Engine_Of
   connectRef : reference;
   connection : resPtr;
 begin
@@ -315,58 +329,18 @@ end ParseMySQLMEngineOf;
 procedure ParseMySQLMEngineOf( result : out storage; kind : out identifier ) renames not_configured;
 
 #end if;
---#if MYSQL
---
---procedure ParseMySQLMPrepare( result : out storage ) is
----- TODO: this not implemented
---  -- Syntax: r := mysql.prepare( query, sqlstmt [,after] );
---  sqlExpr   : unbounded_string;
---  sqlType   : identifier;
---  afterExpr : unbounded_string;
---  afterType : identifier;
---  hasAfter  : boolean := false;
---  queryExpr : unbounded_string;
---  queryType : identifier;
---  query : resPtr;
---begin
---  expect( mysqlm_prepare_t );
---  ParseFirstNumericParameter( queryExpr, queryType, mysqlm_query_t );
---  ParseExpression( sqlExpr, sqlType );
---  if baseTypesOK( string_t, sqlType ) then
---     if token = symbol_t and identifiers( token ).value = "," then
---        expect( symbol_t, "," );
---        ParseExpression( afterExpr, afterType );
---        if baseTypesOK( string_t, sqlType ) then
---           hasAfter := true;
---        end if;
---     end if;
---  end if;
---  expect( symbol_t, ")" );
---  if isExecutingCommand then
---     result := storage'( to_bush_boolean( true ), noMetaTag, noMetaTags );
---     begin
---       findQuery( queryExpr, query );
---       Clear( query.Q );
---       if hasAfter then
---          Prepare( query.Q, to_string( sqlExpr ), to_string( afterExpr ) );
---       else
---          Prepare( query.Q, to_string( sqlExpr ) );
---       end if;
---     exception when others =>
---       result := storage'( to_bush_boolean( false ), noMetaTag, noMetaTags );
---     end;
---  end if;
---end ParseMySQLMPrepare;
---
---#else
---
---procedure ParseMySQLMPrepare( result : out storage ) renames not_configured;
---
---#end if;
+
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) PREPARE                       (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.prepare( q, s [, a] )
+--       Ada Target: APQ.Prepare
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.prepare
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMPrepare is
-  -- Syntax: mysqlm.prepare( Q, sqlstmt [,after] );
   sqlExpr   : storage;
   sqlType   : identifier;
   afterExpr : storage;
@@ -403,9 +377,16 @@ procedure ParseMySQLMPrepare renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) APPEND                        (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.append( q, s [, a] )
+--       Ada Target: APQ.Append
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.append
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMAppend is
-  -- Syntax: mysqlm.append( query, sqlstmt [,after] );
   sqlExpr   : storage;
   sqlType   : identifier;
   afterExpr : storage;
@@ -442,9 +423,16 @@ procedure ParseMySQLMAppend renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) APPEND LINE                   (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.append_line( q, s )
+--       Ada Target: APQ.Append_Line
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.append_line
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMAppendLine is
-  -- Syntax: mysqlm.append_line( query, sqlstmt );
   sqlExpr   : storage;
   sqlType   : identifier;
   queryRef  : reference;
@@ -469,9 +457,16 @@ procedure ParseMySQLMAppendLine renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) APPEND QUOTED                 (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.append_quoted( q, c, s [, a] )
+--       Ada Target: APQ.Append_Quoted
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.append_quoted
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMAppendQuoted is
-  -- Syntax: mysqlm.append_quoted( query, connect, sqlstmt [,after] );
   sqlExpr   : storage;
   sqlType   : identifier;
   afterExpr : storage;
@@ -512,9 +507,16 @@ procedure ParseMySQLMAppendQuoted renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) EXECUTE                       (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.execute( q, c )
+--       Ada Target: APQ.Execute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.execute
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMExecute is
-  -- execute( Q, C );
   queryRef  : reference;
   query : resPtr;
   connectRef : reference;
@@ -546,9 +548,16 @@ procedure ParseMySQLMExecute renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) EXECUTE CHECKED               (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.execute_checked( q, c [, s ] )
+--       Ada Target: APQ.Execute_Checked
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.execute_checked
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMExecuteChecked is
-  -- Syntax: mysqlm.execute_checked( Q, C [, msg ] );
   msgExpr   : storage;
   msgType   : identifier;
   hasMsg    : boolean := false;
@@ -604,6 +613,14 @@ procedure ParseMySQLMExecuteChecked renames not_configured;
 --  result := nullStorage;
 --end ParseDBFetchrow;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) DISCONNECT                    (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.disconnect( c )
+--       Ada Target: APQ.Disconnect
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.disconnect
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMDisconnect is
   -- Syntax: mysqlm.disconnect;
@@ -632,9 +649,16 @@ procedure ParseMySQLMDisconnect renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) IS CONNECTED                   (built-in function)
+--
+-- AdaScript Syntax: b := mysqlm.is_connected( c )
+--       Ada Target: APQ.Is_Connected
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.is_connected
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMIsConnected( result : out storage; kind : out identifier ) is
-  -- Syntax: mysqlm.is_connected
   connectRef : reference;
   connection : resPtr;
 begin
@@ -657,10 +681,16 @@ procedure ParseMySQLMIsConnected( result : out storage; kind : out identifier ) 
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) RESET                         (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.reset( c )
+--       Ada Target: APQ.Reset
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.reset
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMReset is
-  -- Syntax: mysqlm.reset( c )
-  -- Source: APQ.Reset
   connectRef  : reference;
   connection : resPtr;
 begin
@@ -682,10 +712,16 @@ procedure ParseMySQLMReset renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) ERROR MESSAGE                  (built-in function)
+--
+-- AdaScript Syntax: s := mysqlm.error_message( c )
+--       Ada Target: APQ.Error_Message
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.error_message
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMErrorMessage( result : out storage; kind : out identifier ) is
-  -- Syntax: mysqlm.error_message
-  -- Source: APQ.Error_Message
   connectRef : reference;
   connection : resPtr;
 begin
@@ -722,10 +758,16 @@ procedure ParseMySQLMErrorMessage( result : out storage; kind : out identifier )
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) IN ABORT STATE                 (built-in function)
+--
+-- AdaScript Syntax: b := mysqlm.in_abort_state( c )
+--       Ada Target: APQ.In_Abort_State
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.in_abort_state
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMInAbortState( result : out storage; kind : out identifier ) is
-  -- Syntax: mysqlm.in_abort_state( c )
-  -- Source: APQ.In_Abort_State
   connectRef : reference;
   connection : resPtr;
 begin
@@ -750,10 +792,16 @@ procedure ParseMySQLMInAbortState( result : out storage; kind : out identifier )
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) OPTIONS                        (built-in function)
+--
+-- AdaScript Syntax: s := mysqlm.options( c )
+--       Ada Target: APQ.Options
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.options
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMOptions( result : out storage; kind : out identifier ) is
-  -- Syntax: mysqlm.options( c )
-  -- Source: APQ.Options
   connectRef : reference;
   connection : resPtr;
 begin
@@ -776,10 +824,16 @@ procedure ParseMySQLMOptions( result : out storage; kind : out identifier ) rena
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) SET ROLLBACK ON FINALIZE      (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.set_rollback_on_finalize( c, b )
+--       Ada Target: APQ.Set_Rollback_On_Finalize
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.set_rollback_on_finalize
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMSetRollbackOnFinalize is
-  -- Syntax: mysqlm.set_rollback_on_finalize( C, b );
-  -- Source: APQ.Set_Rollback_On_Finalize
   rollExpr : storage;
   rollType : identifier;
   connectRef : reference;
@@ -806,10 +860,16 @@ procedure ParseMySQLMSetRollbackOnFinalize renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) WILL ROLLBACK ON FINALIZE      (built-in function)
+--
+-- AdaScript Syntax: b := mysqlm.will_rollback_on_finalize( c )
+--       Ada Target: APQ.Will_Rollback_On_Finalize
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.will_rollback_on_finalize
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMWillRollbackOnFinalize( result : out storage; kind : out identifier ) is
-  -- Syntax: b := mysqlm.will_rollback_on_finalize( C );
-  -- Source: APQ.Will_Rollback_On_Finalize
   connectRef : reference;
   connection : resPtr;
 begin
@@ -832,10 +892,16 @@ procedure ParseMySQLMWillRollbackOnFinalize( result : out storage; kind : out id
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) OPEN DB TRACE                 (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.open_db_trace( c, f [, m] )
+--       Ada Target: APQ.Open_DB_Trace
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.open_db_trace
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMOpenDBTrace is
-  -- Syntax: mysqlm.open_db_trace( C, f [,m] );
-  -- Source: APQ.Open_DB_Trace
   fnameExpr : storage;
   fnameType : identifier;
   modeExpr  : storage;
@@ -880,10 +946,16 @@ procedure ParseMySQLMOpenDBTrace renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) CLOSE DB TRACE                (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.close_db_trace( c )
+--       Ada Target: APQ.Close_DB_Trace
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.close_db_trace
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMCloseDBTrace is
-  -- Syntax: mysqlm.close_db_trace( C );
-  -- Source: APQ.Close_DB_Trace
   connectRef : reference;
   connection : resPtr;
 begin
@@ -905,10 +977,16 @@ procedure ParseMySQLMCloseDBTrace renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) SET TRACE                     (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.set_trace( c, b )
+--       Ada Target: APQ.Set_Trace
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.set_trace
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMSetTrace is
-  -- Syntax: mysqlm.set_trace( C, b );
-  -- Source: APQ.Set_Trace
   traceExpr : storage;
   traceType : identifier;
   connectRef : reference;
@@ -935,10 +1013,16 @@ procedure ParseMySQLMSetTrace renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) IS TRACE                       (built-in function)
+--
+-- AdaScript Syntax: b := mysqlm.is_trace( c )
+--       Ada Target: APQ.Is_Trace
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.is_trace
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMIsTrace( result : out storage; kind : out identifier ) is
-  -- Syntax: b := mysqlm.is_trace( C );
-  -- Source: APQ.Is_Trace
   connectRef : reference;
   connection : resPtr;
 begin
@@ -961,10 +1045,16 @@ procedure ParseMySQLMIsTrace( result : out storage; kind : out identifier ) rena
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) CLEAR                         (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.clear( q )
+--       Ada Target: APQ.Clear
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.is_trace
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMClear is
-  -- Syntax: mysql.clear( Q );
-  -- Source: APQ.Clear
   queryRef   : reference;
   query : resPtr;
 begin
@@ -988,10 +1078,16 @@ procedure ParseMySQLMClear renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) RAISE EXCEPTIONS              (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.raise_exceptions( q [, b ] )
+--       Ada Target: APQ.Raise_Exceptions
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.raise_exceptions
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMRaiseExceptions is
-  -- Syntax: mysqlm.raise_exceptions( Q, [ b ] );
-  -- Source: APQ.Raise_Exceptions
   raiseExpr : storage;
   raiseType : identifier;
   queryRef   : reference;
@@ -1023,6 +1119,14 @@ procedure ParseMySQLMRaiseExceptions renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) REPORT ERRORS                 (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.report_errors( q, b )
+--       Ada Target: APQ.Report_Errors
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.report_errors
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMReportErrors is
   -- Syntax: mysqlm.report_errors( Q, b );
@@ -1058,10 +1162,16 @@ procedure ParseMySQLMReportErrors renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) BEGIN WORK                    (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.begin_work( q, c )
+--       Ada Target: APQ.Begin_Work
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.begin_work
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMBeginWork is
-  -- Syntax: mysqlm.begin_work(Q, C );
-  -- Source: APQ.Begin_Work
   queryRef   : reference;
   query : resPtr;
   connectRef : reference;
@@ -1091,10 +1201,16 @@ procedure ParseMySQLMBeginWork renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) ROLLBACK WORK                 (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.rollback_work( q, c )
+--       Ada Target: APQ.Rollback_Work
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.rollback_work
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMRollbackWork is
-  -- Syntax: mysqlm.rollback_work( Q, C );
-  -- Source: APQ.Rollback_Work
   queryRef   : reference;
   query : resPtr;
   connectRef : reference;
@@ -1124,10 +1240,16 @@ procedure ParseMySQLMRollbackWork renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) COMMIT WORK                   (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.commit_work( q, c )
+--       Ada Target: APQ.Commit_Work
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.commit_work
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMCommitWork is
-  -- Syntax: mysqlm.commit_work( Q, C );
-  -- Source: APQ.Commit_Work
   queryRef   : reference;
   query : resPtr;
   connectRef : reference;
@@ -1157,6 +1279,14 @@ procedure ParseMySQLMCommitWork renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) REWIND                        (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.rewind( q )
+--       Ada Target: APQ.Rewind
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.rewind
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMRewind is
   -- Syntax: mysqlm.rewind( Q );
@@ -1182,6 +1312,14 @@ procedure ParseMySQLMRewind renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) REWIND                        (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.fetch( q [, i] )
+--       Ada Target: APQ.Fetch
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.fetch
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMFetch is
   -- Syntax: mysqlm.fetch( q [,i] )
@@ -1223,10 +1361,16 @@ procedure ParseMySQLMFetch renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) END OF QUERY                   (built-in function)
+--
+-- AdaScript Syntax: s := mysqlm.error_message( c )
+--       Ada Target: APQ.Fetch
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.fetch
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMEndOfQuery( result : out storage; kind : out identifier ) is
-  -- Syntax: b := mysqlm.end_of_query( Q );
-  -- Source: APQ.End_Of_Query
   queryRef : reference;
   query : resPtr;
 begin
@@ -1249,10 +1393,16 @@ procedure ParseMySQLMEndOfQuery( result : out storage; kind : out identifier ) r
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) TUPLE                          (built-in function)
+--
+-- AdaScript Syntax: n := mysqlm.tuple( q, t )
+--       Ada Target: APQ.Tuple
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.tuple
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMTuple( result : out storage; kind : out identifier ) is
-  -- Syntax: t := mysql.tuple( Q );
-  -- Source: APQ.Tuple
   queryRef : reference;
   query : resPtr;
 begin
@@ -1277,10 +1427,16 @@ procedure ParseMySQLMTuple( result : out storage; kind : out identifier ) rename
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) TUPLES                         (built-in function)
+--
+-- AdaScript Syntax: n := mysqlm.tuples( q )
+--       Ada Target: APQ.Tuples
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.tuples
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMTuples( result : out storage; kind : out identifier ) is
-  -- Syntax: n := mysqlm.tuples( Q );
-  -- Source: APQ.Tuples
   queryRef : reference;
   query : resPtr;
 begin
@@ -1305,10 +1461,16 @@ procedure ParseMySQLMTuples( result : out storage; kind : out identifier ) renam
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) COLUMNS                        (built-in function)
+--
+-- AdaScript Syntax: n := mysqlm.columns( q )
+--       Ada Target: APQ.Columns
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.columns
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMColumns( result : out storage; kind : out identifier ) is
-  -- Syntax: n := mysqlm.columns( Q );
-  -- Source: APQ.Columns
   queryRef : reference;
   query : resPtr;
 begin
@@ -1333,10 +1495,17 @@ procedure ParseMySQLMColumns( result : out storage; kind : out identifier ) rena
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) COLUMN NAME                    (built-in function)
+--
+-- AdaScript Syntax: s := mysqlm.column_name( q, i )
+--       Ada Target: APQ.Column_Name
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.column_name
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMColumnName( result : out storage; kind : out identifier ) is
-  -- Syntax: n := mysqlm.column_Name( Q, c );
-  -- Source: APQ.Column_Name;
+
   expr : storage;
   exprType : identifier;
   queryRef : reference;
@@ -1366,10 +1535,16 @@ procedure ParseMySQLMColumnName( result : out storage; kind : out identifier ) r
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) COLUMN INDEX                   (built-in function)
+--
+-- AdaScript Syntax: i := mysqlm.column_index( q, s )
+--       Ada Target: APQ.Column_Index
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.column_index
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMColumnIndex( result : out storage; kind : out identifier ) is
-  -- Syntax: n := mysqlm.column_index( Q, s );
-  -- Source: APQ.Column_Index
   expr : storage;
   exprType : identifier;
   queryRef : reference;
@@ -1428,9 +1603,16 @@ procedure ParseMySQLMColumnIndex( result : out storage; kind : out identifier ) 
   --end if;
 --end ParseDBColumnType;
 
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) IS NULL                        (built-in function)
+--
+-- AdaScript Syntax: b := is_null( q, i )
+--       Ada Target: APQ.Is_Null
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.is_null
+-----------------------------------------------------------------------------
+
 procedure ParseMySQLMIsNull( result : out storage; kind : out identifier ) is
-  -- Syntax: n := mysqlm.is_null( Q, i );
-  -- Source: APQ.Is_Null;
   expr : storage;
   exprType : identifier;
   queryRef : reference;
@@ -1463,10 +1645,16 @@ procedure ParseMySQLMIsNull( result : out storage; kind : out identifier ) renam
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) VALUE                          (built-in function)
+--
+-- AdaScript Syntax: s := mysqlm.value( q, i )
+--       Ada Target: APQ.Value
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.value
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMValue( result : out storage; kind : out identifier ) is
-  -- Syntax: n := mysqlm.value( Q );
-  -- Source: APQ.Value;
   expr  : storage;
   exprType : identifier;
   queryRef  : reference;
@@ -1501,9 +1689,13 @@ procedure ParseMySQLMValue( result : out storage; kind : out identifier ) rename
 #end if;
 
 #if MYSQL
+-----------------------------------------------------------------------------
+--  SHOW IT
+--
+-- Run SQL command and display results in tabular format
+-----------------------------------------------------------------------------
 
 procedure MySQLMShowIt( Q : in out APQ.MySQL.Client.Query_Type; C : resPtr ) is
--- run SQL command and display results in tabular format
   tabularDisplay : boolean := false;
   headingWidth   : integer := 0;
   wasNull        : boolean := false;
@@ -1515,6 +1707,13 @@ begin
      begin
      if is_connected( C.C ) then
         execute( Q, C.C );
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
 
         -- Initially, the columns widths are the widths of the headings
 
@@ -1667,9 +1866,16 @@ begin
   end if;
 end MySQLMShowIt;
 
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) SHOW                          (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.show( q, c )
+--       Ada Target: MySQLMShowIt
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.show
+-----------------------------------------------------------------------------
+
 procedure ParseMySQLMShow is
-  -- Syntax: mysqlm.show( Q, C );
-  -- Source: N/A
   queryRef : reference;
   query : resPtr;
   connectionRef : reference;
@@ -1691,10 +1897,16 @@ procedure ParseMySQLMShow renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) LIST                          (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.list( c )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.list
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMList is
-  -- Syntax: mysqlm.list( C )
-  -- Source: N/A
   tabularDisplay : boolean := false;
   headingWidth   : integer := 0;
   wasNull        : boolean := false;
@@ -1715,6 +1927,7 @@ begin
         -- Show tablename and kind, lookup owner from another table.
         -- the database name is table_schema column
         -- Owner not implemented yet - DEBUG
+       -- TODO: verify APQ handles SQL injection risk or do I
 
         prepare( Q, "select table_name, table_type, engine from " &
                     "information_schema.tables where table_schema = '" &
@@ -1736,6 +1949,13 @@ begin
            prepare( Q, "show tables" );
            execute( Q, connection.C );
         end;
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
 
         -- Initially, the columns widths are the widths of the headings
 
@@ -1907,6 +2127,14 @@ procedure ParseMySQLMList renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) SCHEMA                        (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.schema( c, t )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.schema
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMSchema is
   -- Syntax: mysqlm.schema( C, "table" );
@@ -1940,8 +2168,9 @@ begin
         --            ", a.atthasdef as " & '"' & "Default" & '"' &
         --            "from pg_attribute a, pg_class c, pg_type t where a.attrelid = c.oid and t.oid = a.atttypid and a.attisdropped = 'f' and (a.atttypid < 26 or a.atttypid > 29) and c.relname='" &
         --             to_string( exprVal ) & "' order by a.attnum" );
+       -- TODO: verify APQ handles SQL injection risk or do I
 
-        prepare( Q, "show column_name, data_type, is_nullable, column_default from information_schema.columns where table_name = '" & to_string( expr.value ) & "'" );
+        prepare( Q, "select column_name, data_type, is_nullable, column_default from information_schema.columns where table_name = '" & to_string( expr.value ) & "'" );
 
         -- MySQL 5.0.x has information_schema.  Older versions must fall back
         -- to a show query.
@@ -1959,6 +2188,13 @@ begin
            err( +"Did not find any relation named " &
               unb_em( expr.value ) );
            return;
+        end if;
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
         end if;
 
         -- Initially, the columns widths are the widths of the headings
@@ -2183,6 +2419,14 @@ procedure ParseMySQLMSchema renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) USERS                         (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.users( c )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.users
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMUsers is
   -- Syntax: mysqlm.users( c )
@@ -2215,6 +2459,13 @@ begin
                     "Repl_slave_priv, Repl_client_priv from mysql.user" &
                     " order by User;" );
         execute( Q, connection.C );
+
+        -- Maximum 32 columns
+
+        if columns(Q) > 32 then
+          err( +"query returns too many columns to display (max 32)");
+          return;
+        end if;
 
         -- Initially, the columns widths are the widths of the headings
 
@@ -2388,10 +2639,16 @@ procedure ParseMySQLMUsers renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) DATABASES                     (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.databases( c )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.databases
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMDatabases is
-  -- Syntax: mysqlm.databases( c )
-  -- Source: N/A
   tabularDisplay : boolean := false;
   headingWidth   : integer := 0;
   wasNull        : boolean := false;
@@ -2621,6 +2878,15 @@ procedure ParseMySQLMDatabases renames not_configured;
 --  end if;
 --end DoMySQLSQLStatement;
 
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) NEW CONNECTION                (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.new_connection( c )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.new_connection
+-----------------------------------------------------------------------------
+
 procedure ParseMySQLMNewConnection is
   -- Syntax: mysqlm.new_connection( c )
   -- Source: N/A
@@ -2657,10 +2923,16 @@ procedure ParseMySQLMNewConnection renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) NEW QUERY                     (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.new_query( q )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.new_query
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMNewQuery is
-  -- Syntax: mysqlm.new_connection( q )
-  -- Source: N/A
   resId : resHandleId;
   ref : reference;
 begin
@@ -2694,12 +2966,20 @@ procedure ParseMySQLMNewQuery renames not_configured;
 
 #end if;
 #if MYSQL
-
-procedure ParseMySQLMFetchValues is
--- mysqlm.fetch_values( Q, C, r );
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) FETCH VALUES                  (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.fetch_values( q, c, r )
+--       Ada Target: APQ.Fetch
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.fetch_values
+--
 -- Fetch a row, reading all values into record r.  The column names must match
 -- the fields in the record (the record fields need not be in the same order
 -- as the query results).
+-----------------------------------------------------------------------------
+
+procedure ParseMySQLMFetchValues is
   queryRef : reference;
   query : resPtr;
   connectionRef : reference;
@@ -2830,11 +3110,19 @@ procedure ParseMySQLMFetchValues renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) APPEND FOR INSERT                    (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.append_for_insert( q, c, r )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.append_for_insert
+--
+-- Append the fields of record r to the query in the format of an ANSI SQL insert
+-- " ( a, b, ... ) VALUES ( 'a', 'b', ... )"
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMAppendForInsert is
--- mysqlm.append_for_insert( Q, C, r );
--- append the fields of record r to the query in the format of an ANSI SQL insert
--- " ( a, b, ... ) VALUES ( 'a', 'b', ... )"
   queryRef : reference;
   query : resPtr;
   connectionRef : reference;
@@ -2949,11 +3237,19 @@ procedure ParseMySQLMAppendForInsert renames not_configured;
 
 #end if;
 #if MYSQL
+-----------------------------------------------------------------------------
+--  PARSE MYSQL M(ultiple) APPEND FOR INSERT                    (built-in procedure)
+--
+-- AdaScript Syntax: mysqlm.append_for_update( q, c, r )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_mysqlm.html#mysqlm.append_for_insert
+--
+-- Append the fields of record r to the query in the format of an ANSI SQL update
+-- " SET a = 'a', b = 'b', ..."
+-----------------------------------------------------------------------------
 
 procedure ParseMySQLMAppendForUpdate is
--- mysqlm.append_for_update( Q, C, r );
--- append the fields of record r to the query in the format of an ANSI SQL update
--- " SET a = 'a', b = 'b', ..."
   queryRef : reference;
   query : resPtr;
   connectionRef : reference;
