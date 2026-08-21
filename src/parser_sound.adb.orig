@@ -4,7 +4,7 @@
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---            Copyright (C) 2001-2025 Free Software Foundation              --
+--            Copyright (C) 2001-2026 Free Software Foundation              --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -45,6 +45,15 @@ package body parser_sound is
 
 alreadyStarted : boolean := false;
 
+-----------------------------------------------------------------------------
+--  PARSE PLAY                                           (built-in procedure)
+--
+-- AdaScript Syntax: sound.play( "path" [,pri] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_sound.html#sound.play
+-----------------------------------------------------------------------------
+
 procedure ParsePlay is
   expr  : storage;
   expr_type : identifier;
@@ -56,7 +65,9 @@ begin
   ParseExpression( expr, expr_type );
   if uniTypesOK( expr_type, uni_string_t ) then
      if token = symbol_t and identifiers( token ).store.value = "," then
-        getNextToken;
+       getNextToken;
+        -- It was originally used by the adavox library.  We now use
+        -- gstreamer.  priority is not used by gstreamer.
         ParseExpression( priExpr, pri_type );
         if uniTypesOK( pri_type, uni_numeric_t ) then
            null;
@@ -69,7 +80,7 @@ begin
      -- play must have full path (gstreamer requirement)
      if length( expr.value ) > 0 then
         if element( expr.value, 1 ) /= '/' then
-           expr.value := current_working_directory & "/" & expr.value;
+           expr.value := current_working_directory & directory_delimiter & expr.value;
         end if;
      end if;
      if metaTagOk( sound_play_t, expr ) then
@@ -114,6 +125,15 @@ begin
   end if;
 end ParsePlay;
 
+-----------------------------------------------------------------------------
+--  PARSE PLAY CD                                        (built-in procedure)
+--
+-- AdaScript Syntax: sound.playcd [( "path" )]
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_sound.html#sound.playcd
+-----------------------------------------------------------------------------
+
 procedure ParsePlayCD is
   devNameExpr : storage := nullStorage;
   dev_kind : identifier;
@@ -122,9 +142,8 @@ begin
   if token = symbol_t and identifiers( token ).store.value = "(" then
      expect( symbol_t, "(" );
      ParseExpression( devNameExpr, dev_kind );
-     if baseTypesOK( dev_kind, string_t ) then
-        expect( symbol_t, ")" );
-     end if;
+     baseTypesOK( dev_kind, string_t );
+     expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
      if metaTagOk( sound_playcd_t, devNameExpr ) then
@@ -136,6 +155,15 @@ begin
      end if;
   end if;
 end ParsePlayCD;
+
+-----------------------------------------------------------------------------
+--  PARSE STOP CD                                        (built-in procedure)
+--
+-- AdaScript Syntax: sound.stopcd
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_sound.html#sound.stopcd
+-----------------------------------------------------------------------------
 
 procedure ParseStopCD is
 begin
@@ -173,12 +201,17 @@ end ParseStopCD;
 --  end if;
 --end ParseUnmute;
 
+
+-----------------------------------------------------------------------------
+-- HOUSEKEEPING
+-----------------------------------------------------------------------------
+
 procedure StartupSound is
 begin
 #if SOUND
   if not alreadyStarted then
      startup_gstreamer;
-     alreadyStarted := false;
+     alreadyStarted := true;
   end if;
 #end if;
   declareNamespace( "sound" );

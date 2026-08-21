@@ -25,7 +25,7 @@
 
 with
     ada.strings.unbounded,
-    pegasoft,
+    pegasoft.strings,
     world,
     symbol_table,
     message_strings,
@@ -34,8 +34,10 @@ with
     parser_params,
     parser_tio;
 use
+    ada.strings,
     ada.strings.unbounded,
     pegasoft,
+    pegasoft.strings,
     world,
     symbol_table,
     message_strings,
@@ -60,10 +62,18 @@ templates_has_put_template_header_t : identifier;
 -- Template package subprograms
 ------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------
+--  PARSE TEMPLATES SET HTTP STATUS                      (built-in procedure)
+--
+-- AdaScript Syntax: templates.set_http_status( n )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_templates.html#set_http_status
+--
+-- Set the HTTP result code (e.g. 200 OK)
+-----------------------------------------------------------------------------
+
 procedure ParseTemplatesSetHTTPStatus is
-  -- Set the HTTP result code (e.g. 200 OK)
-  -- Syntax: templates.set_http_status( n );
-  -- Ada:    N/A
   expr : storage;
   exprKind : identifier;
 begin
@@ -87,38 +97,65 @@ begin
   end if;
 end ParseTemplatesSetHTTPStatus;
 
+-----------------------------------------------------------------------------
+--  PARSE TEMPLATES SET HTTP LOCATION                    (built-in procedure)
+--
+-- AdaScript Syntax: templates.set_http_location( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_templates.html#set_http_location
+--
+-- Set the HTTP result location field
+-----------------------------------------------------------------------------
+
 procedure ParseTemplatesSetHTTPLocation is
-  -- Set the HTTP result location field
-  -- Syntax: templates.set_http_location( s );
-  -- Ada:    N/A
   expr : storage;
   exprKind : identifier;
+  protocol : unbounded_string;
 begin
   expect( templates_set_http_location_t );
   ParseSingleStringParameter( templates_set_http_location_t, expr, exprKind );
   baseTypesOK( exprKind, string_t );
   if isExecutingCommand then
-     if metaTagOk( templates_set_http_location_t, expr ) then
-        if templateHeader.templateHeaderSent then
-           err( +"HTTP header already sent" );
-        elsif length( expr.value ) = 0 then
-           err( +"HTTP location string is empty" );
-        else
-           begin
-              templateHeader.location := expr.value;
-           exception when storage_error =>
-              err( +"out of memory" );
-           when others =>
-             err_exception_raised;
-           end;
-        end if;
+    if metaTagOk( templates_set_http_location_t, expr ) then
+       -- From what I determined, the protocol can technically be any URL
+       -- protocol but the behaviour is undefined if it's not http/https
+       -- or empty (defaulting to http/https).  As a precaution, we'll
+       -- explicitly check for javascript, email and tel protocols.  This
+       -- may not be necessary.
+       protocol := ToLower( trim( expr.value, both ) );
+       protocol := head( protocol, index( protocol, ":" ) );
+       if protocol = to_unbounded_string( "javascript:" ) or
+            protocol = to_unbounded_string( "mailto:" ) or
+            protocol = to_unbounded_string( "tel:" ) then
+          err( +"protocol is not supported" );
+       elsif templateHeader.templateHeaderSent then
+          err( +"HTTP header already sent" );
+       elsif length( expr.value ) = 0 then
+          err( +"HTTP location string is empty" );
+       else
+          begin
+            templateHeader.location := expr.value;
+          exception when storage_error =>
+            err( +"out of memory" );
+          when others =>
+            err_exception_raised;
+          end;
+       end if;
      end if;
   end if;
 end ParseTemplatesSetHTTPLocation;
 
+-----------------------------------------------------------------------------
+--  PARSE TEMPLATES PUT TEMPLATE HEADER                  (built-in procedure)
+--
+-- AdaScript Syntax: templates.put_template_header
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_templates.html#put_template_header
+-----------------------------------------------------------------------------
+
 procedure ParseTemplatesPutTemplateHeader is
-  -- Syntax: templates.put_template_header
-  -- Ada:    N/A
 begin
   expect( templates_put_template_header_t );
   if isExecutingCommand then
@@ -134,10 +171,17 @@ begin
   end if;
 end ParseTemplatesPutTemplateHeader;
 
+-----------------------------------------------------------------------------
+--  PARSE TEMPLATES HAS PUT TEMPLATE HEADER               (built-in function)
+--
+-- AdaScript Syntax: b := templates.has_put_template_header
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_templates.html#has_put_template_header
+-----------------------------------------------------------------------------
+
 procedure ParseTemplatesHasPutTemplateHeader( result : out storage;
   kind : out identifier ) is
-  -- Syntax: b := templates.has_put_template_header
-  -- Ada:    N/A
 begin
   expect( templates_has_put_template_header_t );
   kind := boolean_t;

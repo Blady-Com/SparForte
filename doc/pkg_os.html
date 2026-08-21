@@ -49,6 +49,7 @@
         <div class="code">
 <pre>
   <a href="#os.error_string">s := error_string( i )</a>
+  <a href="#os.last_child">n := last_child</a>
   <a href="#os.pid">i := pid</a>
   <a href="#os.status">i := status</a>
   <a href="#os.system">system( s )</a>
@@ -108,7 +109,8 @@
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Return the process id of the last child background process.</p></td>
+<td><p>Return the process id of the last child background process.  If there was no
+child, return zero.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">pid := os.last_child;</span></td>
@@ -221,7 +223,9 @@ of the SparForte interpreter).</p></td>
 <tr>
 <td width="15%">&nbsp;</td>
 <td><p>Run an operating system command in the default shell.  This is the same as
-the C system() function.  Use os.status to determine the exit status.</p></td>
+the C system() function.  Use os.status to determine the exit status. The command
+is passed without escaping special characters.  It is up to the programmer to
+protect against a command injection attack, if necessary.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
 <td><span class="code">os.system( "ls" );</span></td>
@@ -247,7 +251,9 @@ the C system() function.  Use os.status to determine the exit status.</p></td>
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">Restrictions</p></td>
-<td><p>SparForte will raise an exception in a restricted shell</p></td>
+<td><p>Not allowed in a restricted shell<br>
+Not allowed with pragma restriction no_external_commands<br>
+The command policy meta tags are not compatible with standard input, output and error</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p>-</p></td>

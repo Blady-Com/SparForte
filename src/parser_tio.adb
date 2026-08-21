@@ -90,7 +90,7 @@ begin
 
   -- First, unassign the current renaming.  When this is first run by the
   -- interpreter, there won't be an existing naming so this step can be
-  -- skpped.  Reduce the renaming counter on the old canonical variable.
+  -- skipped.  Reduce the renaming counter on the old canonical variable.
   -- This is based on deleteIdent().
 
   if identifiers( current_file_id ).renaming_of /= identifiers'first then
@@ -267,7 +267,8 @@ begin
 end ParseOpenFileOrSocket;
 
 procedure ParseClosedFile( r : out reference ) is
-  -- user file, must be closed (ie. value of variable not null)
+  -- expect that the reference is to a closed user file and report an error
+  -- if it is open (ie. value of variable not an empty string for a user file)
   theFileRec : storage;
   ref : reference;
 begin
@@ -308,8 +309,9 @@ begin
 end ParseClosedFile;
 
 procedure ParseClosedSocket( r : out reference ) is
-  -- user file, must be closed (ie. value of variable not null)
-  --id : identifier;
+  -- expect that the reference is to a closed user socket and report an error
+  -- if it is open (ie. value of variable not an empty string for a
+  -- user-defined socket)
   theSocketRec : storage;
   ref : reference;
 begin
@@ -387,10 +389,20 @@ begin
   end if;
 end ParseClosedFileOrSocket;
 
+-----------------------------------------------------------------------------
+-- The SparForte Text_IO Package
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+--  PARSE IS OPEN                                         (built-in function)
+--
+-- AdaScript Syntax: b := is_open d )
+--       Ada Target: Ada.Text_IO.Is_Open
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#is_open
+-----------------------------------------------------------------------------
 
 procedure ParseIsOpen( result : out storage ) is
-  -- is_open( file )
-  -- Ada.Text_IO.Is_Open
   openFileRef : reference;
   openFileKind : identifier;
   theOpenFileRec : storage;
@@ -410,7 +422,7 @@ begin
            openFileRef.id := identifier( to_numeric( identifiers( current_input_t ).store.value ) );
         elsif openFileRef.id = current_output_t then
            openFileRef.id := identifier( to_numeric( identifiers( current_output_t ).store.value ) );
-        elsif openFileRef.id = current_output_t then
+        elsif openFileRef.id = current_error_t then
            openFileRef.id := identifier( to_numeric( identifiers( current_error_t ).store.value ) );
         end if;
         -- No declare block with exception handler because we're not actually
@@ -424,9 +436,16 @@ begin
   end if;
 end ParseIsOpen;
 
+-----------------------------------------------------------------------------
+--  PARSE END OF FILE                                     (built-in function)
+--
+-- AdaScript Syntax: b := end_of_file( f )
+--       Ada Target: Ada.Text_IO.End_Of_File
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#end_of_file
+-----------------------------------------------------------------------------
+
 procedure ParseEndOfFile( result : out storage; kind : out identifier ) is
-  -- Syntax: End_of_file( f )
-  -- Source: Ada.Text_IO.End_Of_File
   openFileRef : reference;
   openFileKind : identifier;
   theOpenFileRec : storage;
@@ -467,9 +486,16 @@ begin
   end if;
 end ParseEndOfFile;
 
+-----------------------------------------------------------------------------
+--  PARSE END OF LINE                                     (built-in function)
+--
+-- AdaScript Syntax: b := end_of_line( open-file )
+--       Ada Target: Ada.Text_IO.End_Of_Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html.end_of_line
+-----------------------------------------------------------------------------
+
 procedure ParseEndOfLine( result : out storage; kind : out identifier ) is
-  -- Syntax: end_of_line( open-file )
-  -- Source: Ada.Text_IO.End_Of_Line
   fileRef    : reference;
   theFileRec : storage;
   subprogramId : constant identifier := end_of_line_t;
@@ -488,9 +514,16 @@ begin
   end if;
 end ParseEndOfLine;
 
+-----------------------------------------------------------------------------
+--  PARSE LINE                                            (built-in function)
+--
+-- AdaScript Syntax: i := line( open-file )
+--       Ada Target: Ada.Text_IO.Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#line
+-----------------------------------------------------------------------------
+
 procedure ParseLine( result : out storage; kind : out identifier ) is
-  -- Syntax: line( open-file )
-  -- Source: Ada.Text_IO.Line
   file_ref : reference;
   theFileRec : storage;
   subprogramId : constant identifier := line_t;
@@ -510,9 +543,16 @@ begin
   end if;
 end ParseLine;
 
+-----------------------------------------------------------------------------
+--  PARSE NAME                                            (built-in function)
+--
+-- AdaScript Syntax: s := name( open-file )
+--       Ada Target: Ada.Text_IO.Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#name
+-----------------------------------------------------------------------------
+
 procedure ParseName( result : out storage; kind : out identifier ) is
-  -- Syntax: name( open-file )
-  -- Source: Ada.Text_IO.Name
   file_ref : reference;
   theFileRec : storage;
   subprogramId : constant identifier := name_t;
@@ -532,9 +572,16 @@ begin
   end if;
 end ParseName;
 
+-----------------------------------------------------------------------------
+--  PARSE MODE                                            (built-in function)
+--
+-- AdaScript Syntax: s := mode( open-file )
+--       Ada Target: Ada.Text_IO.Mode
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#mode
+-----------------------------------------------------------------------------
+
 procedure ParseMode( result : out storage; kind : out identifier ) is
-  -- Syntax: mode( open-file )
-  -- Source: Ada.Text_IO.Mode
   file_ref : reference;
   theFileRec : storage;
   subprogramId : constant identifier := mode_t;
@@ -579,9 +626,16 @@ begin
   end if;
 end ParseMode;
 
+-----------------------------------------------------------------------------
+--  PARSE INKEY                                           (built-in function)
+--
+-- AdaScript Syntax: c := inkey( open-file )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_text_io.html.#inkey
+-----------------------------------------------------------------------------
+
 procedure ParseInkey( result : out storage; kind : out identifier ) is
-  -- Syntax: inkey
-  -- Source: Ada.Text_IO.Inkey
   ch : character;
   subprogramId : constant identifier := inkey_t;
 begin
@@ -595,11 +649,19 @@ begin
   end if;
 end ParseInkey;
 
+-----------------------------------------------------------------------------
+--  PARSE GET LINE                                        (built-in function)
+--
+-- AdaScript Syntax: s := get_line( [ (open-file) ]
+--       Ada Target: Ada.Text_IO.Get_Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#get_line
+--
+-- Note: Gnat get_line can't be used here because it does something
+-- odd with file descriptor 0
+-----------------------------------------------------------------------------
+
 procedure ParseGetLine( result : out storage; kind : out identifier ) is
-  -- Syntax: get_line [ (open-file) ]
-  -- Source: Ada.Text_IO.Get_Line
-  -- Note: Gnat get_line can't be used here because it does something
-  -- odd with file descriptor 0
   file_ref : reference;
   file_kind : identifier;
   ch   : character;
@@ -647,7 +709,7 @@ begin
            end if;
         exception when msg : others =>
           err( contextNotes => pl( "At " & gnat.source_info.source_location &
-                 " while looking up the file mode" ),
+                 " while reading a line" ),
              subject => subprogramId,
              reason => +"had an internal error because",
              obstructorNotes => pl( "an unexpected exception " ) &
@@ -673,12 +735,16 @@ end ParseGetLine;
 -- TODO: "DO" procedures should be moved to parser_aux.
 
 
+-----------------------------------------------------------------------------
+--  PARSE OPEN                                           (built-in procedure)
+--
+-- AdaScript Syntax: open( closed-file, mode, name ) | create( closed-file [,mode] [,name] )
+--       Ada Target: Ada.Text_IO.Open and Ada.Text_IO.Create
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#open
+-----------------------------------------------------------------------------
 
 procedure ParseOpen( create : boolean := false ) is
-  -- Syntax: open( closed-file, mode, name );
-  -- Syntax: create( closed-file [,mode] [,name] );
-  -- Source: Ada.Text_IO.Open
-  -- Source: Ada.Text_IO.Create
   file_ref : reference;
   mode : identifier;
   fileName : storage;
@@ -800,9 +866,16 @@ begin
   end if;
 end ParseOpen;
 
+-----------------------------------------------------------------------------
+--  PARSE RESET                                          (built-in procedure)
+--
+-- AdaScript Syntax: reset( open-file [,mode] )
+--       Ada Target: Ada.Text_IO.Reset
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#reset
+-----------------------------------------------------------------------------
+
 procedure ParseReset is
-  -- Syntax: reset( open-file [,mode] )
-  -- Source: Ada.Text_IO.Reset
   file_ref: reference;
   mode    : identifier := eof_t;
   name    : unbounded_string;
@@ -868,9 +941,16 @@ begin
   end if;
 end ParseReset;
 
+-----------------------------------------------------------------------------
+--  PARSE CLOSE                                          (built-in procedure)
+--
+-- AdaScript Syntax: close( open-file )
+--       Ada Target: Ada.Text_IO.Close
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#close
+-----------------------------------------------------------------------------
+
 procedure ParseClose is
-  -- Syntax: close( open-file )
-  -- Source: Ada.Text_IO.Close
   file_ref : reference;
   fd   : aFileDescriptor;
   kind : identifier;
@@ -889,9 +969,9 @@ begin
            fd := aFileDescriptor'value( to_string( stringField( file_ref, fd_field ) ) );
            if fd = currentStandardInput then
               err( +"this file is the current input file" );
-           elsif fd = currentStandardInput then
+           elsif fd = currentStandardOutput then
               err( +"this file is the current output file" );
-           elsif fd = currentStandardInput then
+           elsif fd = currentStandardError then
               err( +"this file is the current error file" );
            else
 <<retry>>
@@ -920,9 +1000,16 @@ begin
   end if;
 end ParseClose;
 
+-----------------------------------------------------------------------------
+--  PARSE DELETE                                         (built-in procedure)
+--
+-- AdaScript Syntax: delete( open-file )
+--       Ada Target: Ada.Text_IO.Delete
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#delete
+-----------------------------------------------------------------------------
+
 procedure ParseDelete is
-  -- Syntax: delete( open-file )
-  -- Source: Ada.Text_IO.Delete
   file_ref : reference;
   name : unbounded_string;
   fd   : aFileDescriptor;
@@ -945,9 +1032,9 @@ begin
           fd := aFileDescriptor'value( to_string( stringField( file_ref, fd_field ) ) );
           if fd = currentStandardInput then
              err( +"this file is the current input file" );
-          elsif fd = currentStandardInput then
+          elsif fd = currentStandardOutput then
              err( +"this file is the current output file" );
-          elsif fd = currentStandardInput then
+          elsif fd = currentStandardError then
              err( +"this file is the current error file" );
           else
              name := stringField( file_ref, name_field );
@@ -980,9 +1067,16 @@ begin
   end if;
 end ParseDelete;
 
+-----------------------------------------------------------------------------
+--  PARSE DELETE                                         (built-in procedure)
+--
+-- AdaScript Syntax: skip_line [ (open-file) ]
+--       Ada Target: Ada.Text_IO.Skip_Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#skip_line
+-----------------------------------------------------------------------------
+
 procedure ParseSkipLine is
-  -- Syntax: skip_line [ (open-file) ]
-  -- Source: Ada.Text_IO.Skip_Line
   file_ref : reference;
   ch     : character;
   result : size_t;
@@ -1060,11 +1154,19 @@ begin
   end if;
 end ParseSkipLine;
 
+-----------------------------------------------------------------------------
+--  PARSE GET                                            (built-in procedure)
+--
+-- AdaScript Syntax: get [ (open-file), ch ]
+--       Ada Target: Ada.Text_IO.Get
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#get
+--
+-- Note: Gnat get can't be used here because it does something
+-- odd with file descriptor 0
+-----------------------------------------------------------------------------
+
 procedure ParseGet is
-  -- Syntax: get [ (open-file), ch ]
-  -- Source: Ada.Text_IO.Get
-  -- Note: Gnat get can't be used here because it does something
-  -- odd with file descriptor 0
   file_ref  : reference;
   kind      : identifier;
   fd        : aFileDescriptor;
@@ -1159,9 +1261,16 @@ begin
   end if;
 end ParseGet;
 
+-----------------------------------------------------------------------------
+--  PARSE PUT LINE                                       (built-in procedure)
+--
+-- AdaScript Syntax: put_line( [file,] expression )
+--       Ada Target: Ada.Text_IO.Put_Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#put_line
+-----------------------------------------------------------------------------
+
 procedure ParsePutLine is
-  -- Syntax: put_line( [file,] expression )
-  -- Source: Ada.Text_IO.Put_Line
   target_ref: reference;
   kind      : identifier := file_type_t;
   expr      : storage;
@@ -1197,7 +1306,7 @@ begin
      target_ref.id := standard_output_t;
   end if;
   ParseExpression( expr, expr_type );
-  -- this sould be moved to an image function
+  -- this should be moved to an image function
   if getUniType( expr_type ) = root_enumerated_t then
      -- In newer versions of GCC Ada, expr_val cannot be used twice
      findEnumImage( expr.value, expr_type, temp );
@@ -1287,9 +1396,16 @@ begin
   end if;
 end ParsePutLine;
 
+-----------------------------------------------------------------------------
+--  PARSE QUESTION                                       (built-in procedure)
+--
+-- AdaScript Syntax: "?" expression
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_text_io.html#question_mark
+-----------------------------------------------------------------------------
+
 procedure ParseQuestion is
-  -- Syntax: "?" expression
-  -- Source: SparForte built-in
   expr      : storage;
   expr_type : identifier;
   temp      : unbounded_string;
@@ -1383,7 +1499,7 @@ begin
   end if;
   if isExecutingCommand then -- fix this for no output on error!
      begin
-        -- this sould be moved to an image function
+        -- this should be moved to an image function
         uni_type := getUniType( expr_type );
         if uni_type = root_enumerated_t then
            -- In newer versions of GCC Ada, expr_val cannot be used twice.
@@ -1454,9 +1570,16 @@ begin
   end if;
 end ParseQuestion;
 
+-----------------------------------------------------------------------------
+--  PARSE PUT                                            (built-in procedure)
+--
+-- AdaScript Syntax: put( [open-file,] expression [, picture] )
+--       Ada Target: Ada.Text_IO.Put
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#put
+-----------------------------------------------------------------------------
+
 procedure ParsePut is
-  -- Syntax: put( [open-file,] expression [, picture] )
-  -- Source: Ada.Text_IO.Editing.Put
   target_ref: reference;
   kind      : identifier;
   expr      : storage;
@@ -1592,9 +1715,16 @@ begin
   end if;
 end ParsePut;
 
+-----------------------------------------------------------------------------
+--  PARSE NEW LINE                                       (built-in procedure)
+--
+-- AdaScript Syntax: new_line
+--       Ada Target: Ada.Text_IO.New_Line
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#new_line
+-----------------------------------------------------------------------------
+
 procedure ParseNewLine is
-  -- Syntax: new_line
-  -- Source: Ada.Text_IO.New_Line
   target_ref : reference;
   kind   : identifier;
   fd     : aFileDescriptor;         -- Linux file descriptor of output file
@@ -1647,9 +1777,16 @@ begin
   end if;
 end ParseNewLine;
 
+-----------------------------------------------------------------------------
+--  PARSE SET INPUT                                      (built-in procedure)
+--
+-- AdaScript Syntax: set_input( open-file )
+--       Ada Target: Ada.Text_IO.Set_Input
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#set_input
+-----------------------------------------------------------------------------
+
 procedure ParseSetInput is
-  -- Syntax: set_input( open-file )
-  -- Source: Ada.Text_IO.Set_Input
   inputFile_ref : reference;            -- open file to read input from
   fd            : aFileDescriptor;      -- Linux file descriptor of input file
   result        : aFileDescriptor := 0; -- result of dup2
@@ -1721,9 +1858,16 @@ begin
   end if;
 end ParseSetInput;
 
+-----------------------------------------------------------------------------
+--  PARSE SET OUTPUT                                     (built-in procedure)
+--
+-- AdaScript Syntax: set_output( open-file )
+--       Ada Target: Ada.Text_IO.Set_Output
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#set_output
+-----------------------------------------------------------------------------
+
 procedure ParseSetOutput is
-  -- Syntax: set_output( open-file )
-  -- Source: Ada.Text_IO.Set_Output
   outputFile_ref : reference;             -- open file to write output to
   fd             : aFileDescriptor;       -- Linux file descriptor of output file
   result         : aFileDescriptor := 0;  -- result of dup2
@@ -1751,7 +1895,7 @@ begin
      err( em( "current_input" ) & pl( " cannot be assigned for " ) &
           em( "output" ) );
   elsif not syntax_check then
-     if to_string(stringField(outputFile_ref.id, mode_field)) = in_file_t'img then
+     if to_string(stringField(outputFile_ref, mode_field)) = in_file_t'img then
         err( +"not an out_file or append_file file" );
      end if;
   end if;
@@ -1789,9 +1933,16 @@ begin
   end if;
 end ParseSetOutput;
 
+-----------------------------------------------------------------------------
+--  PARSE SET ERROR                                      (built-in procedure)
+--
+-- AdaScript Syntax: set_error( open-file )
+--       Ada Target: Ada.Text_IO.Set_Error
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#set_error
+-----------------------------------------------------------------------------
+
 procedure ParseSetError is
-  -- Syntax: set_error( open-file )
-  -- Source: Ada.Text_IO.Set_Error
   errorOutputFile_ref : reference;            -- open file to write error output to
   result              : aFileDescriptor := 0; -- Linux file descriptor of output file
   fd                  : aFileDescriptor;      -- result of dup2
@@ -1857,9 +2008,16 @@ begin
   end if;
 end ParseSetError;
 
+-----------------------------------------------------------------------------
+--  PARSE GET IMMEDIATE                                  (built-in procedure)
+--
+-- AdaScript Syntax: get_immediate( [file,] ch [, bool] )
+--       Ada Target: Ada.Text_IO.Get_Immediate
+--   GNAT Spec File: a-textio.ads
+--   SparForte Docs: pkg_text_io.html#get_immediate
+-----------------------------------------------------------------------------
+
 procedure ParseGetImmediate is
-  -- Syntax: get_immediate( [file,] ch [, bool] )
-  -- Source: Ada.Text_IO.Get_Immediate
   file_ref  : reference;
   kind      : identifier;
   fd        : aFileDescriptor;
@@ -1934,9 +2092,8 @@ begin
               err( +"get_immediate for files are not yet implemented" );
            end if;
         exception when msg : others =>
-           err( contextNotes => pl( "At " & gnat.source_info.source_location &
-                 " while redirecting" ),
-                 subjectNotes => pl( qp( "current error output" ) ),
+           err( contextNotes => pl( "At " & gnat.source_info.source_location ),
+                 subjectNotes => pl( qp( "reading immediate input" ) ),
                 reason => +"had an internal error because",
                 obstructorNotes => pl( "an unexpected exception " ) &
                    em_value( to_unbounded_string( Exception_Message( msg ) ) )
@@ -2025,6 +2182,11 @@ end ParseGetImmediate;
 --      end if;
 --  end if;
 --end ParseLookAhead;
+
+
+-----------------------------------------------------------------------------
+-- Housekeeping
+-----------------------------------------------------------------------------
 
 procedure StartupTextIO is
 begin

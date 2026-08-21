@@ -52,7 +52,7 @@ and character values.  Character positions are numbered from 1.</p>
         <div class="code">
 <pre>
   <a href="#strings.compare">i := compare( s, t [, c [, l] ] )</a>          <a href="#strings.count">n := count( s, p )</a>
-  <a href="#strings.csv_field">r := csv_field( s, c [, d [, q]] )</a>         <a href="#strings.csv_replace">r := csv_replace( s, f, t, [, d [, q]] )</a>
+  <a href="#strings.csv_field">r := csv_field( s, c [, d [, q]] )</a>         <a href="#strings.csv_replace">csv_replace( s, f, t, [, d [, q]] )</a>
   <a href="#strings.delete">r := delete( s, l, h )</a>                     <a href="#strings.element">c := element( s, p )</a>
   <a href="#strings.ends_with">b := ends_with( s, t [,c] )</a>                <a href="#strings.field">r := field( s, c [, d] )</a>
   <a href="#strings.glob">b := glob( e, s )</a>                          <a href="#strings.head">r := head( s, c [, p] )</a>
@@ -80,6 +80,7 @@ and character values.  Character positions are numbered from 1.</p>
   <a href="#strings.to_upper">r := to_upper( s )</a>                         <a href="#strings.trim">r := trim( s [, e] )</a>
   <a href="#strings.unbounded_slice">r := unbounded_slice(s, l, h)</a>              <a href="#strings.val">c := val( n )</a>
   <a href="#strings.word_count">n := word_count( s )</a>
+  <a href="#strings.perl_match">strings.perl_match( s, e )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
@@ -1922,7 +1923,7 @@ padded using character p</p></td>
 </tr>
 </table>
 
-<a id="strings.perl_match"></a><h3>b := strings.perl_match( e, s )</h3>
+<a id="strings.perl_match"></a><h3>b := strings.perl_match( s, e )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
@@ -1944,16 +1945,15 @@ This function has more features than the Ada-based strings.match.</p>
 </tr><tr>
 <td><span>s</span></td>
 <td><span>in</span></td>
-<td><span>universal_string</span></td>
-<td><span>required</span></td>
-<td><span>the string to search</span></td>
-</tr>
-<tr>
-<td><span>e</span></td>
-<td><span>in</span></td>
 <td><span>string</span></td>
 <td><span>required</span></td>
 <td><span>the PCRE regular expression</span></td>
+</tr><tr>
+<td><span>e</span></td>
+<td><span>in</span></td>
+<td><span>universal_string</span></td>
+<td><span>required</span></td>
+<td><span>the string to search</span></td>
 </tr>
 <tr>
 <td><span>b</span></td>

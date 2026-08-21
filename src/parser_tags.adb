@@ -86,7 +86,7 @@ end ParseTagsHasUnit;
 -----------------------------------------------------------------------------
 --  PARSE TAGS CONTAINS UNIT                              (built-in function)
 --
--- AdaScript Syntax: b := tags.contains_unit( x, t ));
+-- AdaScript Syntax: b := tags.contains_unit( x, t );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_tags.html#tags.contains_unit
@@ -106,7 +106,7 @@ begin
   -- contain a limited variable, such as file or directory resource, and
   -- those also need to be checked.  Abstract variables do not exist.
   if identifiers( token ).usage = limitedUsage then
-     Parseidentifier( limitedVarId );
+     ParseIdentifier( limitedVarId );
      expr := identifiers( limitedVarId ).store.all;
   else
      ParseExpression( expr, expr_type );
@@ -127,7 +127,7 @@ end ParseTagsContainsUnit;
 -----------------------------------------------------------------------------
 --  PARSE TAGS GET UNIT IMAGE                             (built-in function)
 --
--- AdaScript Syntax: b := tags.get_unit_image( x );
+-- AdaScript Syntax: s := tags.get_unit_image( x );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_tags.html#tags.get_unit_image
@@ -144,7 +144,11 @@ begin
   ParseExpression( expr, expr_type );
   expectParameterClose( subprogramId );
   if isExecutingCommand then
-     result := storage'( identifiers( expr.unitMetaTag ).name, noMetaTag, noMetaTags );
+    if expr.unitMetaTag = noMetaTag then
+      result := storage'( null_unbounded_string, noMetaTag, noMetaTags );
+    else
+      result := storage'( identifiers( expr.unitMetaTag ).name, noMetaTag, noMetaTags );
+    end if;
   end if;
 end ParseTagsGetUnitImage;
 
@@ -177,7 +181,7 @@ end ParseTagsHasPolicies;
 -----------------------------------------------------------------------------
 --  PARSE TAGS CONTAINS POLICY                            (built-in function)
 --
--- AdaScript Syntax: b := tags.contains_policy( x, t ));
+-- AdaScript Syntax: b := tags.contains_policy( x, t );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_tags.html#tags.contains_policy
@@ -197,7 +201,7 @@ begin
   -- contain a limited variable, such as file or directory resource, and
   -- those also need to be checked.  Abstract variables do not exist.
   if identifiers( token ).usage = limitedUsage then
-     Parseidentifier( limitedVarId );
+     ParseIdentifier( limitedVarId );
      expr := identifiers( limitedVarId ).store.all;
   else
      ParseExpression( expr, expr_type );
@@ -218,7 +222,7 @@ end ParseTagsContainsPolicy;
 -----------------------------------------------------------------------------
 --  PARSE TAGS GET POLICIES IMAGE                         (built-in function)
 --
--- AdaScript Syntax: b := tags.get_policies_image( x );
+-- AdaScript Syntax: s := tags.get_policies_image( x );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_tags.html#tags.get_policies_image
@@ -235,7 +239,11 @@ begin
   ParseExpression( expr, expr_type );
   expectParameterClose( subprogramId );
   if isExecutingCommand then
-     result := storage'( image( expr.policyMetaTags ), noMetaTag, noMetaTags );
+    if expr.policyMetaTags = noMetaTags then
+      result := storage'( null_unbounded_string, noMetaTag, noMetaTags );
+    else
+      result := storage'( image( expr.policyMetaTags ), noMetaTag, noMetaTags );
+    end if;
   end if;
 end ParseTagsGetPoliciesImage;
 

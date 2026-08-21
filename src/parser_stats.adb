@@ -58,10 +58,20 @@ stats_variance_t : identifier;
 -- PARSE THE STATS PACKAGE
 ---------------------------------------------------------
 
+-----------------------------------------------------------------------------
+--  PARSE STATS MAX                                       (built-in function)
+--
+-- AdaScript Syntax: r := stats.max( a )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_stats.html#stats.max
+--
+-- TODO: The calculations should be moved to Pegasoft.Numerics.
+-----------------------------------------------------------------------------
+
 procedure ParseStatsMax( result : out storage; kind : out identifier ) is
   var_id : identifier;
   first, last : long_integer;
-  -- array_id : arrayID;
   max : numericValue;
   max_string : unbounded_string;
 begin
@@ -76,7 +86,6 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     -- array_id := arrayID( to_numeric( identifiers( var_id ).value ) );
      kind   := identifiers( identifiers( var_id ).kind ).kind;
      begin
         first := identifiers( var_id ).aStorage'first;
@@ -108,17 +117,27 @@ begin
            err( +"array is empty" );
         end if;
      exception when CONSTRAINT_ERROR =>
-        err( pl( "constraint_error : index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
+        err( pl( "constraint_error : malformed value or index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
      when STORAGE_ERROR =>
-        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when maxing array" ) );
+        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when finding the maximum value" ) );
      end;
   end if;
 end ParseStatsMax;
 
+-----------------------------------------------------------------------------
+--  PARSE STATS MIN                                       (built-in function)
+--
+-- AdaScript Syntax: r := stats.min( a )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_stats.html#stats.min
+--
+-- TODO: The calculations should be moved to Pegasoft.Numerics.
+-----------------------------------------------------------------------------
+
 procedure ParseStatsMin( result : out storage; kind : out identifier ) is
   var_id : identifier;
   first, last : long_integer;
-  -- array_id : arrayID;
   min : numericValue;
   min_string : unbounded_string;
 begin
@@ -164,18 +183,28 @@ begin
            err( +"array is empty" );
         end if;
      exception when CONSTRAINT_ERROR =>
-        err( pl( "constraint_error : index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
+        err( pl( "constraint_error : malformed value or index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
      when STORAGE_ERROR =>
-        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when minning array" ) );
+        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when finding the minimum value" ) );
      end;
      kind := identifiers( identifiers( var_id ).kind ).kind;
   end if;
 end ParseStatsMin;
 
+-----------------------------------------------------------------------------
+--  PARSE STATS SUM                                       (built-in function)
+--
+-- AdaScript Syntax: r := stats.sum( a )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_stats.html#stats.sum
+--
+-- TODO: The calculations should be moved to Pegasoft.Numerics.
+-----------------------------------------------------------------------------
+
 procedure ParseStatsSum( result : out storage; kind : out identifier ) is
   var_id : identifier;
   first, last : long_integer;
-  -- array_id : arrayID;
   sum : numericValue;
 begin
   kind := universal_t;
@@ -189,7 +218,6 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     -- array_id := arrayID( to_numeric( identifiers( var_id ).value ) );
      begin
         first := identifiers( var_id ).aStorage'first;
         last  := identifiers( var_id ).aStorage'last;
@@ -216,19 +244,29 @@ begin
            err( +"array is empty" );
         end if;
      exception when CONSTRAINT_ERROR =>
-        err( pl( "constraint_error : index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
+        err( pl( "constraint_error : malformed value or index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
      when STORAGE_ERROR =>
-        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when minning array" ) );
+        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when finding the sum" ) );
      end;
      kind := identifiers( identifiers( var_id ).kind ).kind;
   end if;
 end ParseStatsSum;
 
+-----------------------------------------------------------------------------
+--  PARSE STATS AVERAGE                                   (built-in function)
+--
+-- AdaScript Syntax: r := stats.average( a )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_stats.html#stats.average
+--
+-- TODO: The calculations should be moved to Pegasoft.Numerics.
+-----------------------------------------------------------------------------
+
 procedure ParseStatsAverage( result : out storage; kind : out identifier ) is
   var_id : identifier;
   first, last : long_integer;
   len    : long_integer;
-  --array_id : arrayID;
   sum : numericValue;
 begin
   kind := universal_t;
@@ -242,7 +280,6 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     --array_id := arrayID( to_numeric( identifiers( var_id ).value ) );
      begin
         first := identifiers( var_id ).aStorage'first;
         last  := identifiers( var_id ).aStorage'last;
@@ -270,19 +307,29 @@ begin
            err( +"array is empty" );
         end if;
      exception when CONSTRAINT_ERROR =>
-        err( pl( "constraint_error : index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
+        err( pl( "constraint_error : malformed value or index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
      when STORAGE_ERROR =>
-        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when summing array" ) );
+        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when finding the average" ) );
      end;
      kind   := identifiers( identifiers( var_id ).kind ).kind;
   end if;
 end ParseStatsAverage;
 
+-----------------------------------------------------------------------------
+--  PARSE STATS VARIANCE                                  (built-in function)
+--
+-- AdaScript Syntax: r := stats.variance( a )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_stats.html#stats.variance
+--
+-- TODO: The calculations should be moved to Pegasoft.Numerics.
+-----------------------------------------------------------------------------
+
 procedure ParseStatsVariance( result : out storage; kind : out identifier ) is
   var_id   : identifier;
   first, last : long_integer;
   len      : long_integer;
-  -- array_id : arrayID;
   sum      : numericValue;
   diff     : numericValue;
   mean     : numericValue;
@@ -299,7 +346,6 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     -- array_id := arrayID( to_numeric( identifiers( var_id ).value ) );
      begin
         first := identifiers( var_id ).aStorage'first;
         last  := identifiers( var_id ).aStorage'last;
@@ -335,20 +381,30 @@ begin
            err( +"array is empty or one element" );
         end if;
      exception when CONSTRAINT_ERROR =>
-        err( pl( "constraint_error : index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
+        err( pl( "constraint_error : malformed value or index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
      when STORAGE_ERROR =>
-        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when calculating variance" ) );
+        err( pl( gnat.source_info.source_location & ": internal error : storage error raised when finding the variance" ) );
      end;
      -- kind   := identifiers( var_id ).kind;
      kind := identifiers( identifiers( var_id ).kind ).kind;
   end if;
 end ParseStatsVariance;
 
+-----------------------------------------------------------------------------
+--  PARSE STATS STANDARD DEVIATION                        (built-in function)
+--
+-- AdaScript Syntax: r := stats.standard_deviation( a )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_stats.html#stats.standard_deviation
+--
+-- TODO: The calculations should be moved to Pegasoft.Numerics.
+-----------------------------------------------------------------------------
+
 procedure ParseStatsStandardDeviation( result : out storage; kind : out identifier ) is
   var_id   : identifier;
   first, last : long_integer;
   len      : long_integer;
-  -- array_id : arrayID;
   sum      : numericValue;
   diff     : numericValue;
   mean     : numericValue;
@@ -364,43 +420,50 @@ begin
      expect( symbol_t, ")" );
   end if;
   if isExecutingCommand then
-     -- array_id := arrayID( to_numeric( identifiers( var_id ).value ) );
-     first := identifiers( var_id ).aStorage'first;
-     last  := identifiers( var_id ).aStorage'last;
-     len   := last-first+1;
-     sum := 0.0;
-     kind   := identifiers( identifiers( var_id ).kind ).kind;
-     -- a deviation on one item will result in divide by zero
-     if last > first then
-        if metaTagOk( stats_standard_deviation_t, identifiers( var_id ).aStorage( first ) ) then
-           -- if the initial meta label is not set, the resolve will throw an
-           -- exception.  So skip the main loops if we cannot access the first
-           -- element of the array.
-           result.unitMetaTag := identifiers( var_id ).aStorage( first ).unitMetaTag;
-           result.policyMetaTags := identifiers( var_id ).aStorage( first ).policyMetaTags;
-           for i in first..last loop
-               if metaTagOk( stats_standard_deviation_t, identifiers( var_id ).aStorage( i ) ) then
-                  sum := sum + to_numeric( identifiers( var_id ).aStorage( i ).value );
-                  result.unitMetaTag := identifiers( var_id ).aStorage( i ).unitMetaTag;
-                  result.policyMetaTags := resolveEffectiveMetaTags(
-                     kind,
-                     result,
-                     identifiers( var_id ).aStorage( i )
-                  );
-               end if;
-           end loop;
-           mean := sum / numericValue( len );
-           sum_diff_sq := 0.0;
-           for i in first..last loop
-               diff := to_numeric( identifiers( var_id ).aStorage( i ).value) - mean;
-               sum_diff_sq := sum_diff_sq + diff * diff;
-           end loop;
-        end if;
-        result.value := to_unbounded_string( sqrt( sum_diff_sq / numericValue( len-1 ) ) );
-     else
-        result := storage'( to_unbounded_string( 0 ), noMetaTag, noMetaTags );
-        err( +"array is empty or one element" );
-     end if;
+     begin
+       first := identifiers( var_id ).aStorage'first;
+       last  := identifiers( var_id ).aStorage'last;
+       len   := last-first+1;
+       sum := 0.0;
+       kind   := identifiers( identifiers( var_id ).kind ).kind;
+       -- a deviation on one item will result in divide by zero
+       if last > first then
+          if metaTagOk( stats_standard_deviation_t, identifiers( var_id ).aStorage( first ) ) then
+             -- if the initial meta label is not set, the resolve will throw an
+             -- exception.  So skip the main loops if we cannot access the first
+             -- element of the array.
+             result.unitMetaTag := identifiers( var_id ).aStorage( first ).unitMetaTag;
+             result.policyMetaTags := identifiers( var_id ).aStorage( first ).policyMetaTags;
+             for i in first..last loop
+                 if metaTagOk( stats_standard_deviation_t, identifiers( var_id ).aStorage( i ) ) then
+                    sum := sum + to_numeric( identifiers( var_id ).aStorage( i ).value );
+                    result.unitMetaTag := identifiers( var_id ).aStorage( i ).unitMetaTag;
+                    result.policyMetaTags := resolveEffectiveMetaTags(
+                       kind,
+                       result,
+                       identifiers( var_id ).aStorage( i )
+                    );
+                 end if;
+             end loop;
+             mean := sum / numericValue( len );
+             sum_diff_sq := 0.0;
+             for i in first..last loop
+                 diff := to_numeric( identifiers( var_id ).aStorage( i ).value) - mean;
+                 sum_diff_sq := sum_diff_sq + diff * diff;
+             end loop;
+          end if;
+          result.value := to_unbounded_string( sqrt( sum_diff_sq / numericValue( len-1 ) ) );
+       else
+         result := storage'( to_unbounded_string( 0 ), noMetaTag, noMetaTags );
+         err( +"array is empty or one element" );
+       end if;
+     exception when CONSTRAINT_ERROR =>
+       err( pl( "constraint_error : malformed value or index out of range " & identifiers( var_id ).aStorage'first'img & " .. " & identifiers( var_id ).aStorage'last'img ) );
+     when STORAGE_ERROR =>
+       err( pl( gnat.source_info.source_location & ": internal error : storage error raised when finding the standard deviation" ) );
+     when others =>
+       err_exception_raised;
+     end;
   elsif syntax_check then
      kind := universal_t; -- type is not known during syntax check
   end if;

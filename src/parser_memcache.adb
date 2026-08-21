@@ -1648,10 +1648,29 @@ end StartupMemcache;
 
 procedure ShutdownMemcache is
 begin
-  ParseMemcacheClearServers;
-  memcacheClusterList.clear( memcacheCluster );
-  ParseHighreadClearServers;
-  memcacheDualClusterList.clear( memcacheDualCluster );
+
+  -- Deallocate memory for all memcache clusters
+
+  declare
+    clusterEntry : aMemcacheClusterEntry;
+  begin
+    while not memcacheClusterList.isEmpty( memcacheCluster ) loop
+      memcacheClusterList.Pull( memcacheCluster, clusterEntry );
+      ClearServers( clusterEntry.cluster );
+    end loop;
+  end;
+
+  -- Deallocate memory for all memcache highread dual clusters
+
+  declare
+    clusterEntry : aMemcacheDualClusterEntry;
+  begin
+    while not memcacheDualClusterList.isEmpty( memcacheDualCluster ) loop
+      memcacheDualClusterList.Pull( memcacheDualCluster, clusterEntry );
+      ClearServers( clusterEntry.cluster );
+    end loop;
+  end;
+
 end ShutdownMemcache;
 
 end parser_memcache;

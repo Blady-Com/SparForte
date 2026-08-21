@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Numerics Parckage Parser                                                 --
+-- Numerics Package Parser                                                  --
 --                                                                          --
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
@@ -148,9 +148,16 @@ shannon_entropy_of_t : identifier;
 
 -----------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS RANDOM                                 (built-in function)
+--
+-- AdaScript Syntax: f := numerics.random
+--       Ada Target: Ada.Numerics.Float_Random.Random
+--   GNAT Spec File: a-nuflra.ads
+--   SparForte Docs: pkg_numerics.html#numerics.random
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRandom( result : out storage; kind : out identifier ) is
-  -- Syntax: random
-  -- Source: Ada.Numerics.Float_Random.Random
   subprogramId : constant identifier := random_t;
 begin
   kind := float_t;
@@ -164,9 +171,16 @@ begin
   end if;
 end ParseNumericsRandom;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHIFT LEFT                             (built-in function)
+--
+-- AdaScript Syntax: i := numerics.shift_left( e, b )
+--       Ada Target: Interfaces.Shift_Left
+--   GNAT Spec File: interfac.ads
+--   SparForte Docs: pkg_numerics.html#numerics.shift_left
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsShiftLeft( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.shift_left( x, b )
-  -- Source: Interfaces
   expr_st   : storage;
   expr_type : identifier;
   amt_st    : storage;
@@ -191,9 +205,16 @@ begin
   end;
 end ParseNumericsShiftLeft;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHIFT RIGHT                            (built-in function)
+--
+-- AdaScript Syntax: i := numerics.shift_right( e, b )
+--       Ada Target: Interfaces.Shift_Right
+--   GNAT Spec File: interfac.ads
+--   SparForte Docs: pkg_numerics.html#numerics.shift_right
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsShiftRight( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.shift_right( x, b )
-  -- Source: Interfaces
   expr_st   : storage;
   expr_type : identifier;
   amt_st    : storage;
@@ -218,9 +239,16 @@ begin
   end;
 end ParseNumericsShiftRight;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ROTATE LEFT                            (built-in function)
+--
+-- AdaScript Syntax: i := numerics.rotate_left( e, b )
+--       Ada Target: Interfaces.Rotate_Left
+--   GNAT Spec File: interfac.ads
+--   SparForte Docs: pkg_numerics.html#numerics.rotate_left
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRotateLeft( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.rotate_left( x, b )
-  -- Source: Interfaces
   expr_st   : storage;
   expr_type : identifier;
   amt_st    : storage;
@@ -245,9 +273,16 @@ begin
   end;
 end ParseNumericsRotateLeft;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ROTATE RIGHT                           (built-in function)
+--
+-- AdaScript Syntax: i := numerics.rotate_right( e, b )
+--       Ada Target: Interfaces.Rotate_Right
+--   GNAT Spec File: interfac.ads
+--   SparForte Docs: pkg_numerics.html#numerics.rotate_right
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRotateRight( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.rotate_right( x, b )
-  -- Source: Interfaces
   expr_st   : storage;
   expr_type : identifier;
   amt_st    : storage;
@@ -271,6 +306,15 @@ begin
      err_exception_raised;
   end;
 end ParseNumericsRotateRight;
+
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHIFT RIGHT ARITHMETIC                 (built-in function)
+--
+-- AdaScript Syntax: i := numerics.shift_right_arithmetic( x, b )
+--       Ada Target: Interfaces.Shift_Right_Arithmetic
+--   GNAT Spec File: interfac.ads
+--   SparForte Docs: pkg_numerics.html#numerics.shift_right_arithmetic
+-----------------------------------------------------------------------------
 
 procedure ParseNumericsASR( result : out storage; kind : out identifier ) is
   -- Syntax: numerics.shift_right_arithmetic( x, b )
@@ -299,9 +343,16 @@ begin
   end;
 end ParseNumericsASR;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SQRT                                   (built-in function)
+--
+-- AdaScript Syntax: f := numerics.sqrt( e )
+--       Ada Target: Ada.Numerics.Long_Elementary_Functions.Sqrt
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.sqrt
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSqrt( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sqrt( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Sqrt
   expr_st   : storage;
   expr_type : identifier;
   subprogramId : constant identifier := sqrt_t;
@@ -321,9 +372,16 @@ begin
   end;
 end ParseNumericsSqrt;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS LOG                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.log( e [,b] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Log
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.log
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsLog( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.log( expr [,base] )
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Log
   expr_st   : storage;
   expr_type : identifier;
   base_st   : storage;
@@ -355,9 +413,16 @@ begin
   end;
 end ParseNumericsLog;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS EXP                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.exp( x )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Exp
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.exp
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsExp( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.exp( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Exp
   expr_st   : storage;
   expr_type : identifier;
   subprogramId : constant identifier := exp_t;
@@ -384,9 +449,16 @@ begin
   end;
 end ParseNumericsExp;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SIN                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.sin( e [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Sin
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.sin
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSin( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sin( expr, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Sin
   expr_st    : storage;
   expr_type  : identifier;
   cycle_st   : storage;
@@ -425,9 +497,16 @@ begin
   end;
 end ParseNumericsSin;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS COS                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.cos( e [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Cos
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.cos
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsCos( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.cos( expr, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Cos
   expr_st    : storage;
   expr_type  : identifier;
   cycle_st   : storage;
@@ -466,9 +545,16 @@ begin
   end;
 end ParseNumericsCos;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS TAN                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.tan( e [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Tan
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.tan
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsTan( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.tan( expr, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Tan
   expr_st    : storage;
   expr_type  : identifier;
   cycle_st   : storage;
@@ -514,9 +600,16 @@ begin
   end;
 end ParseNumericsTan;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS COT                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.cot( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Cot
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.cot
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsCot( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.cot( expr, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Cot
   expr_st    : storage;
   expr_type  : identifier;
   cycle_st   : storage;
@@ -562,9 +655,16 @@ begin
   end;
 end ParseNumericsCot;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCSIN                                 (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arcsin( e [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arcsin
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arcsin
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcSin( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.ArcSin( expr, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.ArcSin
   expr_st   : storage;
   expr_type   : identifier;
   cycle_st   : storage;
@@ -612,9 +712,16 @@ begin
   end;
 end ParseNumericsArcSin;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCCOS                                 (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arccos( x [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arccos
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arccos
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcCos( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.ArcCos( expr [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.ArcCos
   expr_st    : storage;
   expr_type  : identifier;
   cycle_st   : storage;
@@ -662,10 +769,17 @@ begin
   end;
 end ParseNumericsArcCos;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCTAN                                 (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arctan( x, y [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arctan
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arctan
+-- note: second parameter is not optional in mine but is in Ada
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcTan( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.ArcTan( expr, expr2, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.ArcTan
-  -- note: second parameter is not optional in mine but is in Ada
   expr_st    : storage;
   expr_type  : identifier;
   expr2_st   : storage;
@@ -702,7 +816,7 @@ begin
   exception when ada.numerics.argument_error =>
         err( context => subprogramId,
           subjectNotes => pl( "the expression value " ) & em_value( expr_st.value ) &
-            pl( " and " ) & em_value( expr_st.value ),
+            pl( " and " ) & em_value( expr2_st.value ),
           subjectType => expr_type,
           reason  => +"both cannot be zero because",
           obstructorNotes => pl( "argument_error was raised" )
@@ -719,10 +833,18 @@ begin
   end;
 end ParseNumericsArcTan;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCCOT                                 (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arccot( x, y [,cycle] )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arccot
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arccot
+--
+-- note: second parameter is not optional in mine but is in Ada
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcCot( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.ArcCot( expr, expr2, [,cycle] );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.ArcCot
-  -- note: second parameter is not optional in mine but is in Ada
   expr_st    : storage;
   expr_type  : identifier;
   expr2_st   : storage;
@@ -758,9 +880,16 @@ begin
   end;
 end ParseNumericsArcCot;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SINH                                   (built-in function)
+--
+-- AdaScript Syntax: f := numerics.sinh( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Sinh
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.sinh
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSinH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sinh( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Sinh
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := sinh_t;
@@ -780,9 +909,16 @@ begin
   end;
 end ParseNumericsSinH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS COSH                                   (built-in function)
+--
+-- AdaScript Syntax: f := numerics.cosh( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Cosh
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.cosh
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsCosH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.cosh( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Cosh
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := cosh_t;
@@ -802,9 +938,16 @@ begin
   end;
 end ParseNumericsCosH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS TANH                                   (built-in function)
+--
+-- AdaScript Syntax: f := numerics.tanh( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Tanh
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.tanh
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsTanH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.Tanh( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Tanh
   expr_st   : storage;
   expr_type : identifier;
   subprogramId : constant identifier := tanh_t;
@@ -824,9 +967,16 @@ begin
   end;
 end ParseNumericsTanH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS COTH                                   (built-in function)
+--
+-- AdaScript Syntax: f := numerics.coth( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Coth
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.coth
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsCoth( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.coth( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Coth
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := coth_t;
@@ -853,9 +1003,16 @@ begin
   end;
 end ParseNumericsCotH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCSINH                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arcsinh( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arcsinh
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arcsinh
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcSinH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.arcsinh( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Arcsinh
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := arcsinh_t;
@@ -875,9 +1032,16 @@ begin
   end;
 end ParseNumericsArcSinH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCCOSH                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arccosh( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arccosh
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arccosh
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcCosH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.arccosh( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Arccosh
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := arccosh_t;
@@ -911,9 +1075,16 @@ begin
   end;
 end ParseNumericsArcCosH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCTANH                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arctanh( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arctanh
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arctanh
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcTanH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.arctanh( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Arctanh
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := arctanh_t;
@@ -947,9 +1118,16 @@ begin
   end;
 end ParseNumericsArcTanH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARCCOTH                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.arccoth( e )
+--       Ada Target: Pegasoft.Numerics.Elementary_Functions.Arccoth
+--   GNAT Spec File: a-ngelfu.ads
+--   SparForte Docs: pkg_numerics.html#numerics.arccoth
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsArcCotH( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.arccoth( expr );
-  -- Source: Ada.Numerics.Long_Elementary_Functions.Arccosh
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := arccoth_t;
@@ -983,9 +1161,16 @@ begin
   end;
 end ParseNumericsArcCotH;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS FLOOR                                  (built-in function)
+--
+-- AdaScript Syntax: f := numerics.floor( e )
+--       Ada Target: 'floor attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.floor
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsFloor( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.floor( expr );
-  -- Source: Ada 'floor attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := floor_t;
@@ -1005,9 +1190,16 @@ begin
   end;
 end ParseNumericsFloor;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS CEILING                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.ceiling( e )
+--       Ada Target: 'ceiling attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.ceiling
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsCeiling( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.ceiling( expr );
-  -- Source: Ada 'ceiling attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := ceiling_t;
@@ -1027,9 +1219,16 @@ begin
   end;
 end ParseNumericsCeiling;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ROUNDING                               (built-in function)
+--
+-- AdaScript Syntax: f := numerics.rounding( e )
+--       Ada Target: 'rounding attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.rounding
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRounding( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.rounding( expr );
-  -- Source: Ada 'rounding attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := rounding_t;
@@ -1049,9 +1248,16 @@ begin
   end;
 end ParseNumericsRounding;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS UNBIASED ROUNDING                      (built-in function)
+--
+-- AdaScript Syntax: f := numerics.unbiased_rounding( e )
+--       Ada Target: 'unbiased_rounding attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.unbiased_rounding
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsUnbiasedRounding( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.unbiased_rounding( expr );
-  -- Source: Ada 'unbiased_rounding attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := unbiased_rounding_t;
@@ -1071,9 +1277,16 @@ begin
   end;
 end ParseNumericsUnbiasedRounding;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS TRUNCATION                             (built-in function)
+--
+-- AdaScript Syntax: f := numerics.truncation( e )
+--       Ada Target: 'truncation attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.truncation
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsTruncation( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.truncation( expr );
-  -- Source: Ada 'truncation attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := truncation_t;
@@ -1093,9 +1306,16 @@ begin
   end;
 end ParseNumericsTruncation;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS REMAINDER                              (built-in function)
+--
+-- AdaScript Syntax: f := numerics.remainder( x, y )
+--       Ada Target: 'remainder attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.remainder
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRemainder( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.remainder( expr, expr2 );
-  -- Source: Ada 'remainder attribute
   expr_st : storage;
   expr_type : identifier;
   expr2_st : storage;
@@ -1108,7 +1328,7 @@ begin
   ParseLastNumericParameter( subprogramId, expr2_st, expr2_type );
   begin
      if isExecutingCommand then
-       if metaTagOk( subprogramId, expr_st ) and metaTagOk( remainder_t, expr2_st )  then
+       if metaTagOk( subprogramId, expr_st ) and metaTagOk( subprogramId, expr2_st )  then
           result := storage'( to_unbounded_string( numericValue'remainder( to_numeric( expr_st.value ),
             to_numeric( expr2_st.value ) ) ), noMetaTag, expr_st.policyMetaTags );
         end if;
@@ -1118,9 +1338,16 @@ begin
   end;
 end ParseNumericsRemainder;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS EXPONENT                               (built-in function)
+--
+-- AdaScript Syntax: f := numerics.exponent( e )
+--       Ada Target: 'exponent attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.exponent
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsExponent( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.exponent( expr );
-  -- Source: Ada 'exponent attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := exponent_t;
@@ -1140,9 +1367,16 @@ begin
   end;
 end ParseNumericsExponent;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS FRACTION                               (built-in function)
+--
+-- AdaScript Syntax: f := numerics.fraction( e )
+--       Ada Target: 'fraction attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.fraction
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsFraction( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.fraction( expr );
-  -- Source: Ada 'fraction attribute
   expr_st : storage;
   expr_type : identifier;
   subprogramId : constant identifier := fraction_t;
@@ -1162,9 +1396,16 @@ begin
   end;
 end ParseNumericsFraction;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS LEADING PART                           (built-in function)
+--
+-- AdaScript Syntax: f := numerics.leading_part( x, y )
+--       Ada Target: 'leading_part attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.leading_part
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsLeadingPart( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.leading_part( expr, expr2 );
-  -- Source: Ada 'leading_part attribute
   expr_st : storage;
   expr_type : identifier;
   expr2_st : storage;
@@ -1187,9 +1428,16 @@ begin
   end;
 end ParseNumericsLeadingPart;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS COPY SIGN                              (built-in function)
+--
+-- AdaScript Syntax: f := numerics.copy_sign( x, y )
+--       Ada Target: 'copy_sign attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.copy_sign
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsCopySign( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.copy_sign( expr, expr2 );
-  -- Source: Ada 'copy_sign attribute
   expr_st : storage;
   expr_type : identifier;
   expr2_st : storage;
@@ -1212,9 +1460,16 @@ begin
   end;
 end ParseNumericsCopySign;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS STURGES                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.sturges( l, h, t )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.sturges
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSturges( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sturges( low, high, total );
-  -- Source: SparForte builtin, Sturge's method
   lo_st : storage;
   lo_type : identifier;
   hi_st : storage;
@@ -1247,9 +1502,16 @@ begin
   end;
 end ParseNumericsSturges;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS MAX                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.max( x, y )
+--       Ada Target: 'max attribute'
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.max
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsMax( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.max( expr, expr2 );
-  -- Source: Ada 'max attribute
   expr_st : storage;
   expr_type : identifier;
   expr2_st : storage;
@@ -1272,9 +1534,16 @@ begin
   end;
 end ParseNumericsMax;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS MIN                                    (built-in function)
+--
+-- AdaScript Syntax: f := numerics.min( x, y )
+--       Ada Target: 'min attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.min
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsMin( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.max( expr, expr2 );
-  -- Source: Ada 'max attribute
   expr_st : storage;
   expr_type : identifier;
   expr2_st : storage;
@@ -1297,9 +1566,16 @@ begin
   end;
 end ParseNumericsMin;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS MACHINE                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.machine( e )
+--       Ada Target: 'machine attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.machine
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsMachine( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.machine( expr );
-  -- Source: Ada 'machine attribute
   expr_st    : storage;
   expr_type  : identifier;
   subprogramId : constant identifier := machine_t;
@@ -1319,9 +1595,16 @@ begin
   end;
 end ParseNumericsMachine;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SCALING                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.scaling( x, y )
+--       Ada Target: 'scaling attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.scaling
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsScaling( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.scaling( expr, expr2 );
-  -- Source: Ada 'scaling attribute
   expr_st    : storage;
   expr_type  : identifier;
   expr2_st   : storage;
@@ -1345,9 +1628,16 @@ begin
   end;
 end ParseNumericsScaling;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS VALUE                                  (built-in function)
+--
+-- AdaScript Syntax: f := numerics.value( s )
+--       Ada Target: 'value attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.value
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsValue( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.value( expr );
-  -- Source: Ada 'value attribute
   expr_st    : storage;
   expr_type  : identifier;
   subprogramId : constant identifier := value_t;
@@ -1395,9 +1685,16 @@ begin
   end;
 end ParseNumericsValue;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS POS                                    (built-in function)
+--
+-- AdaScript Syntax: p := numerics.pos( c )
+--       Ada Target: 'pos attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.pos
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsPos( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.pos( character );
-  -- Source: Ada 'pos attribute
   expr_st    : storage;
   expr_type  : identifier;
   subprogramId : constant identifier := pos_t;
@@ -1417,9 +1714,16 @@ begin
   end;
 end ParseNumericsPos;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ABS                                    (built-in function)
+--
+-- AdaScript Syntax: p := abs( e )
+--       Ada Target: abs
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#abs
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsAbs( result : out storage ) is
-  -- Syntax: abs( n );
-  -- Source: Ada abs function
   expr_st    : storage;
   expr_type  : identifier;
   subprogramId : constant identifier := abs_t;
@@ -1440,9 +1744,16 @@ begin
   end;
 end ParseNumericsAbs;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS MD5                                    (built-in function)
+--
+-- AdaScript Syntax: r := numerics.md5( s )
+--       Ada Target: MD5.Disgest_To_Text
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.md5
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsMd5( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.md5( s );
-  -- Source: MD5.Disgest_To_Text
   expr_st    : storage;
   expr_type  : identifier;
   C          : Context;
@@ -1467,9 +1778,16 @@ begin
   end;
 end ParseNumericsMd5;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SERIAL                                 (built-in function)
+--
+-- AdaScript Syntax: f := numerics.serial
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.serial
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSerial( result : out storage; kind : out identifier ) is
-  -- Syntax: serial
-  -- Source: N/A
   subprogramId : constant identifier := serial_t;
 begin
   kind := natural_t;
@@ -1485,9 +1803,16 @@ begin
   end if;
 end ParseNumericsSerial;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS RND                                    (built-in function)
+--
+-- AdaScript Syntax: r := numerics.rnd( p )
+--       Ada Target: PegaSoft.Numerics.RND
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.rnd
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRnd( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.rnd( n );
-  -- Source: N/A
   expr_st     : storage;
   expr_type   : identifier;
   subprogramId : constant identifier := rnd_t;
@@ -1508,9 +1833,16 @@ begin
   end;
 end ParseNumericsRnd;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ODD                                    (built-in function)
+--
+-- AdaScript Syntax: b := numerics.odd( i )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.odd
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsOdd( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.odd( n );
-  -- Source: N/A
   expr_st    : storage;
   expr_type  : identifier;
   subprogramId : constant identifier := odd_t;
@@ -1530,9 +1862,16 @@ begin
   end;
 end ParseNumericsOdd;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS EVEN                                   (built-in function)
+--
+-- AdaScript Syntax: b := numerics.even( i )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.even
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsEven( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.even( n );
-  -- Source: N/A
   expr_st    : storage;
   expr_type  : identifier;
   subprogramId : constant identifier := even_t;
@@ -1552,9 +1891,16 @@ begin
   end;
 end ParseNumericsEven;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS RE                                     (built-in function)
+--
+-- AdaScript Syntax: b := numerics.re( complex )
+--       Ada Target: Pegasoft.Numerics.Complex_Types.Re
+--   GNAT Spec File: a-ngcoty.ads
+--   SparForte Docs: pkg_numerics.html#numerics.re
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsRe( result : out storage; kind : out identifier ) is
-  -- Syntax: r := numerics.re( n );
-  -- Source: N/A
   record_id : identifier;
   c : complex;
   real_t      : identifier;
@@ -1584,9 +1930,16 @@ begin
   end;
 end ParseNumericsRe;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS IM                                     (built-in function)
+--
+-- AdaScript Syntax: b := numerics.im( complex )
+--       Ada Target: Pegasoft.Numerics.Complex_Types.Im
+--   GNAT Spec File: a-ngcoty.ads
+--   SparForte Docs: pkg_numerics.html#numerics.im
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsIm( result : out storage; kind : out identifier ) is
-  -- Syntax: r := numerics.im( n );
-  -- Source: N/A
   record_id : identifier;
   c : complex;
   real_t      : identifier;
@@ -1616,9 +1969,16 @@ begin
   end;
 end ParseNumericsIm;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SET RE                                (built-in procedure)
+--
+-- AdaScript Syntax: numerics.set_re( complex, f )
+--       Ada Target: Pegasoft.Numerics.Complex_Types.Set_Re
+--   GNAT Spec File: a-ngcoty.ads
+--   SparForte Docs: Not yet implemented
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSetRe is
-  -- Syntax: numerics.set_re( n );
-  -- Source: N/A
   expr_st : storage;
   expr_type : identifier;
   record_id : identifier;
@@ -1656,9 +2016,16 @@ begin
   end;
 end ParseNumericsSetRe;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SET IM                                (built-in procedure)
+--
+-- AdaScript Syntax: numerics.set_im( complex, f )
+--       Ada Target: Pegasoft.Numerics.Complex_Types.Set_Im
+--   GNAT Spec File: a-ngcoty.ads
+--   SparForte Docs: Not yet implemented
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSetIm is
-  -- Syntax: numerics.set_im( n );
-  -- Source: N/A
   expr_st     : storage;
   expr_type   : identifier;
   record_id   : identifier;
@@ -1686,7 +2053,7 @@ begin
           c.re := to_numeric( identifiers( real_t ).store.value );
           c.im := to_numeric( identifiers( img_t ).store.value );
           Set_Im( c, to_numeric( expr_st.value ) );
-          identifiers( img_t ).store.value := to_unbounded_string( numericValue( c.Im ) );
+          identifiers( img_t ).store.value := to_unbounded_string( numericValue( c.im ) );
           identifiers( img_t ).store.unitMetaTag := expr_st.unitMetaTag;
           identifiers( img_t ).store.policyMetaTags := expr_st.policyMetaTags;
        end if;
@@ -1698,8 +2065,8 @@ end ParseNumericsSetIm;
 
 -- Can't return a new complex expression
 --
---procedure ParseNumericsSetComposeFromCartisian( result : out storage ) is
-  -- Syntax: r := numerics.compose_from_cartisian( r [, i] );
+--procedure ParseNumericsSetComposeFromCartesian( result : out storage ) is
+  -- Syntax: r := numerics.compose_from_cartesian( r [, i] );
   -- Source: N/A
   --expr_st   : unbounded_string;
   --expr_type  : identifier;
@@ -1719,9 +2086,18 @@ end ParseNumericsSetIm;
   --end;
 --end ParseNumericsComposeFromCartisian;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS MODULUS                                (built-in function)
+--
+-- AdaScript Syntax: f := numerics.modulus( complex )
+--       Ada Target: Pegasoft.Numerics.Complex_Types.Modulus
+--   GNAT Spec File: a-ngcoty.ads
+--   SparForte Docs: Not yet implemented
+--
+-- In Ada, abs is a renaming of modulus
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsModulus( result : out storage; kind : out identifier ) is
-  -- Syntax: r := numerics.modulus( n );
-  -- Source: N/A
   record_id   : identifier;
   c : complex;
   real_t      : identifier;
@@ -1757,11 +2133,16 @@ begin
   end;
 end ParseNumericsModulus;
 
--- abs is a renaming of modulus
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS ARGUMENT                               (built-in function)
+--
+-- AdaScript Syntax: f := numerics.argument( complex [, cycle] )
+--       Ada Target: Pegasoft.Numerics.Complex_Types.Argument
+--   GNAT Spec File: a-ngcoty.ads
+--   SparForte Docs: Not yet implemented
+-----------------------------------------------------------------------------
 
 procedure ParseNumericsArgument( result : out storage; kind : out identifier ) is
-  -- Syntax: r := numerics.argument( n [,c] );
-  -- Source: N/A
   record_id   : identifier;
   cycle_st    : storage;
   cycle_type  : identifier;
@@ -1860,8 +2241,16 @@ end ParseNumericsArgument;
   --end;
 --end ParseNumericsConjugate;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS HASH OF                                (built-in function)
+--
+-- AdaScript Syntax: n := numerics.hash_of( s, l )
+--       Ada Target: PegaSoft.Numerics.Hash_Of
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.hash_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsHashOf( result : out storage; kind : out identifier) is
-  -- Syntax: numerics.hash_of( s, l )
   expr1_st    : storage;
   expr1_type  : identifier;
   expr2_st    : storage;
@@ -1888,8 +2277,16 @@ begin
   end;
 end ParseNumericsHashOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SDBM HASH OF                           (built-in function)
+--
+-- AdaScript Syntax: n := numerics.sdbm_hash_of( s, l )
+--       Ada Target: PegaSoft.Numerics.SDBM_Hash_Of
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.sdbm_hash_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSdbmHashOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sdbm_hash_of( s, l )
   expr1_st    : storage;
   expr1_type  : identifier;
   expr2_st    : storage;
@@ -1916,8 +2313,16 @@ begin
   end;
 end ParseNumericsSdbmHashOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS FNV HASH OF                            (built-in function)
+--
+-- AdaScript Syntax: n := numerics.fnv_hash_of( s, l )
+--       Ada Target: PegaSoft.Numerics.FNV_Hash_Of
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.fnv_hash_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsFnvHashOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.fnv_hash_of( s, l )
   expr1_st    : storage;
   expr1_type  : identifier;
   expr2_st    : storage;
@@ -1944,8 +2349,16 @@ begin
   end;
 end ParseNumericsFnvHashOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS MURMUR HASH OF                         (built-in function)
+--
+-- AdaScript Syntax: n := numerics.murmur_hash_of( s, l )
+--       Ada Target: PegaSoft.Numerics.Murmur_Hash_Of
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.murmur_hash_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsMurmurHashOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.murmur_hash_of( s, l )
   expr1_st    : storage;
   expr1_type  : identifier;
   expr2_st    : storage;
@@ -1972,9 +2385,16 @@ begin
   end;
 end ParseNumericsMurmurHashOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHA1 DIGEST OF                         (built-in function)
+--
+-- AdaScript Syntax: d := numerics.sha1_digest_of( s )
+--       Ada Target: GNAT.SHA1.Digest
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.sha1_digest_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSHA1DigestOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sha1_digest_of( s );
-  -- Source: GNAT.SHA1.Digest
   src_st   : storage;
   src_type : identifier;
   subprogramId : constant identifier := sha1_digest_of_t;
@@ -1991,9 +2411,16 @@ begin
   end if;
 end ParseNumericsSHA1DigestOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHA224 DIGEST OF                       (built-in function)
+--
+-- AdaScript Syntax: d := numerics.sha224_digest_of( s )
+--       Ada Target: GNAT.SHA224.Digest
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.sha224_digest_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSHA224DigestOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sha224_digest_of( s );
-  -- Source: GNAT.SHA224.Digest
   src_st   : storage;
   src_type : identifier;
   subprogramId : constant identifier := sha224_digest_of_t;
@@ -2010,9 +2437,16 @@ begin
   end if;
 end ParseNumericsSHA224DigestOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHA256 DIGEST OF                       (built-in function)
+--
+-- AdaScript Syntax: d := numerics.sha256_digest_of( s )
+--       Ada Target: GNAT.SHA256.Digest
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.sha256_digest_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSHA256DigestOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sha256_digest_of( s );
-  -- Source: GNAT.SHA256.Digest
   src_st   : storage;
   src_type : identifier;
   subprogramId : constant identifier := sha256_digest_of_t;
@@ -2029,9 +2463,16 @@ begin
   end if;
 end ParseNumericsSHA256DigestOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHA512 DIGEST OF                       (built-in function)
+--
+-- AdaScript Syntax: d := numerics.sha512_digest_of( s )
+--       Ada Target: GNAT.SHA512.Digest
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.sha512_digest_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsSHA512DigestOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.sha512_digest_of( s );
-  -- Source: GNAT.SHA512.Digest
   src_st   : storage;
   src_type : identifier;
   subprogramId : constant identifier := sha512_digest_of_t;
@@ -2048,9 +2489,16 @@ begin
   end if;
 end ParseNumericsSHA512DigestOf;
 
+-----------------------------------------------------------------------------
+--  PARSE NUMERICS SHANNON ENTROPY OF                     (built-in function)
+--
+-- AdaScript Syntax: f := numerics.shannon_entropy_of( s )
+--       Ada Target: PegaSoft.Numerics.Shannon_Entropy_Of
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_numerics.html#numerics.shannon_entropy_of
+-----------------------------------------------------------------------------
+
 procedure ParseNumericsShannonEntropyOf( result : out storage; kind : out identifier ) is
-  -- Syntax: numerics.shannon_entropy_of( s );
-  -- Source: N/A
   src_st   : storage;
   src_type : identifier;
   subprogramId : constant identifier := shannon_entropy_of_t;
@@ -2066,6 +2514,11 @@ begin
      end if;
   end if;
 end ParseNumericsShannonEntropyOf;
+
+
+-----------------------------------------------------------------------------
+-- HOUSEKEEPING
+-----------------------------------------------------------------------------
 
 procedure StartupNumerics is
 begin
@@ -2146,7 +2599,7 @@ begin
       "1.4426950408889634074" );
   declareStandardConstant( numerics_log10_e_t, "numerics.log10_e", long_float_t,
       "0.43429448190325182765" );
-  declareStandardConstant( numerics_ln2_t, "numerics.ln1", long_float_t,
+  declareStandardConstant( numerics_ln2_t, "numerics.ln2", long_float_t,
       "0.69314718055994530942" );
   declareStandardConstant( numerics_ln10_t, "numerics.ln10", long_float_t,
       "2.30258509299404568402" );

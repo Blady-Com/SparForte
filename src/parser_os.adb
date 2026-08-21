@@ -48,8 +48,19 @@ use ada.strings.unbounded,
 
 package body parser_os is
 
+-----------------------------------------------------------------------------
+--  PARSE DIR OS SYSTEM                                  (built-in procedure)
+--
+-- AdaScript Syntax: os.system( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_os.html#os.system
+--
+-- The command is passed without escaping special characters.  It is up to
+-- the programmer to protect against a command injection.
+-----------------------------------------------------------------------------
+
 procedure ParseOSSystem is
-  -- Syntax: os.system( string );
   expr   : storage;
   expr_type  : identifier;
 begin
@@ -77,8 +88,16 @@ begin
   end if;
 end ParseOSSystem;
 
+-----------------------------------------------------------------------------
+--  PARSE DIR OS STATUS                                   (built-in function)
+--
+-- AdaScript Syntax: i := os.status
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_os.html#os.status
+-----------------------------------------------------------------------------
+
 procedure ParseOSStatus( result : out storage; kind : out identifier ) is
-  -- Syntax: os.status
 begin
   kind := integer_t;
   expect( os_status_t );
@@ -87,8 +106,16 @@ begin
   end if;
 end ParseOSStatus;
 
+-----------------------------------------------------------------------------
+--  PARSE DIR OS PID                                      (built-in function)
+--
+-- AdaScript Syntax: n := os.pid
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_os.html#os.pid
+-----------------------------------------------------------------------------
+
 procedure ParseOSPid( result : out storage; kind : out identifier ) is
-  -- Syntax: os.pid
 begin
   kind := natural_t;
   expect( os_pid_t );
@@ -97,8 +124,16 @@ begin
   end if;
 end ParseOSPid;
 
+-----------------------------------------------------------------------------
+--  PARSE DIR OS ERROR STRING                             (built-in function)
+--
+-- AdaScript Syntax: s := os.error_string( i )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_os.html#os.pid
+-----------------------------------------------------------------------------
+
 procedure ParseOSErrorString( result : out storage; kind : out identifier ) is
-  -- Syntax: os.error_string
   expr   : storage;
   expr_type  : identifier;
 begin
@@ -117,8 +152,16 @@ begin
   end if;
 end ParseOSErrorString;
 
+-----------------------------------------------------------------------------
+--  PARSE DIR OS LAST CHILD                               (built-in function)
+--
+-- AdaScript Syntax: n := os.last_child
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_os.html#os.pid
+-----------------------------------------------------------------------------
+
 procedure ParseOSLastChild( result : out storage; kind : out identifier ) is
-  -- Syntax: os.last_child
 begin
   kind := natural_t;
   expect( os_last_child_t );
@@ -126,6 +169,11 @@ begin
      result := storage'( to_unbounded_string( aPID'image( lastChild ) ), noMetaTag, sparMetaTags );
   end if;
 end ParseOSLastChild;
+
+
+-----------------------------------------------------------------------------
+-- HOUSEKEEPING
+-----------------------------------------------------------------------------
 
 procedure StartupSparOS is
 begin

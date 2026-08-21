@@ -107,8 +107,8 @@ else
 endif
 	@echo
 	@echo "---------------------------------------------------------------"
-	@echo " Making SparForte"
-	@echo "   http://www.sparforte.com"
+	@echo "  Making SparForte"
+	@echo "    https://www.sparforte.com"
 	@echo "---------------------------------------------------------------"
 	@echo
 	# Use the following line for aggressive linting

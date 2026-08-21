@@ -56,7 +56,7 @@
   <a href="#units.g2troz">r := g2troz( f )</a>         <a href="#units.gal2l">r := gal2l( f )</a>        <a href="#units.grams2oz">r := grams2oz( f )</a>
   <a href="#units.hectares2acres">r := hectares2acres( f )</a> <a href="#units.inches2mm">r := inches2mm( f )</a>    <a href="#units.k2c">r := k2c( f )</a>
   <a href="#units.kg2lb">r := kg2lb( f )</a>          <a href="#units.km2miles">r := km2miles( f )</a>     <a href="#units.l2gal">r := l2gal( f )</a>
-  <a href="#units.l2quarts">r := l2quarts( f )</a>       <a href="#units.l2usdryoz">r := l2usdryoz( f )</a>    <a href="#units.l2usliqoz">r := l2usliqoz( f )</a>
+  <a href="#units.l2quarts">r := l2quarts( f )</a>       <a href="#units.l2usdrygal">r := l2usdrygal( f )</a>    <a href="#units.l2usliqgal">r := l2usliqgal( f )</a>
   <a href="#units.lb2kg">r := lb2kg( f )</a>          <a href="#units.ly2pc">r := ly2pc( f )</a>        <a href="#units.m2yards">r := m2yards( f )</a>
   <a href="#units.mb2bytes">r := mb2bytes( f )</a>       <a href="#units.miles2km">r := miles2km( f )</a>     <a href="#units.ml2floz">r := ml2floz( f )</a>
   <a href="#units.ml2usfloz">r := ml2usfloz( f )</a>      <a href="#units.mm2inches">r := mm2inches( f )</a>    <a href="#units.pc2ly">r := pc2ly( f )</a>
@@ -64,7 +64,7 @@
   <a href="#units.sqft2sqm">r := sqft2sqm( f )</a>       <a href="#units.sqin2sqcm">r := sqin2sqcm( f )</a>    <a href="#units.sqkm2sqmiles">r := sqkm2sqmiles( f )</a>
   <a href="#units.sqm2sqft">r := sqm2sqft( f )</a>       <a href="#units.sqm2sqyd">r := sqm2sqyd( f )</a>     <a href="#units.sqmiles2sqkm">r := sqmiles2sqkm( f )</a>
   <a href="#units.sqyd2sqm">r := sqyd2sqm( f )</a>       <a href="#units.tonnes2tons">r := tonnes2tons( f )</a>  <a href="#units.tons2tonnes">r := tons2tonnes( f )</a>
-  <a href="#units.troz2g">r := troz2g( f )</a>         <a href="#units.usdryoz2l">r := usdryoz2l( f )</a>    <a href="#units.usliqoz2l">r := usliqoz2l( f )</a>
+  <a href="#units.troz2g">r := troz2g( f )</a>         <a href="#units.usdrygal2l">r := usdrygal2l( f )</a>    <a href="#units.usliqgal2l">r := usliqgal2l( f )</a>
   <a href="#units.usfloz2cucm">r := usfloz2cucm( f )</a>    <a href="#units.usfloz2floz">r := usfloz2floz( f )</a>  <a href="#units.usfloz2ml">r := usfloz2ml( f )</a>
   <a href="#units.yards2m">r := yards2m( f )</a>
 </pre>
@@ -273,7 +273,7 @@
 <td><span>return value</span></td>
 <td><span>long float</span></td>
 <td><span>required</span></td>
-<td><span>the number of feet</span></td>
+<td><span>the number of inches</span></td>
 </tr>
 <tr>
 <td><span>f</span></td>
@@ -999,14 +999,14 @@
 </tr>
 </table>
 
-<a id="units.l2usdryoz"></a><h3>r := units.l2usdryoz( f )</h3>
+<a id="units.l2usdrygal"></a><h3>r := units.l2usdrygal( f )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Convert metric liters to U.S. dry ounces.</p></td>
+<td><p>Convert metric liters to U.S. dry gallons.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">oz := units.l2usdryoz( 5.5 );</span></td>
+<td><span class="code">oz := units.l2usdrygal( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -1021,7 +1021,7 @@
 <td><span>return value</span></td>
 <td><span>long float</span></td>
 <td><span>required</span></td>
-<td><span>the number of U.S. dry ounces</span></td>
+<td><span>the number of U.S. dry gallons</span></td>
 </tr>
 <tr>
 <td><span>f</span></td>
@@ -1036,21 +1036,21 @@
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#units.usdryoz2l">units.usdryoz2l</a></p></td>
+<td><p><a href="#units.usdrygal2l">units.usdrygal2l</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
 </tr>
 </table>
 
-<a id="units.l2usliqoz"></a><h3>r := units.l2usliqoz( f )</h3>
+<a id="units.l2usliqgal"></a><h3>r := units.l2usliqgal( f )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Convert metric liters to U.S. liquid ounces.</p></td>
+<td><p>Convert metric liters to U.S. liquid gallons.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">oz := units.l2usliqoz( 5.5 );</span></td>
+<td><span class="code">oz := units.l2usliqgal( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -1065,7 +1065,7 @@
 <td><span>return value</span></td>
 <td><span>long float</span></td>
 <td><span>required</span></td>
-<td><span>the number of U.S. liquid ounces</span></td>
+<td><span>the number of U.S. liquid gallons</span></td>
 </tr>
 <tr>
 <td><span>f</span></td>
@@ -1080,7 +1080,7 @@
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#units.usliqoz2l">units.usliqoz2l</a></p></td>
+<td><p><a href="#units.usliqgal2l">units.usliqgal2l</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
@@ -1784,7 +1784,7 @@
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p>-</p></td>
+<td><p><a href="#units.sqmiles2sqkm">r := sqmiles2sqkm( f )</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
@@ -2099,14 +2099,14 @@
 </tr>
 </table>
 
-<a id="units.usdryoz2l"></a><h3>r := units.usdryoz2l( f )</h3>
+<a id="units.usdrygal2l"></a><h3>r := units.usdrygal2l( f )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Convert U.S. dry ounces to liters.</p></td>
+<td><p>Convert U.S. dry gallons to liters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">liters := units.usdryoz2l( 5.5 );</span></td>
+<td><span class="code">liters := units.usdrygal2l( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -2128,7 +2128,7 @@
 <td><span>in</span></td>
 <td><span>long float</span></td>
 <td><span>required</span></td>
-<td><span>the number of U.S. dry ounces</span></td>
+<td><span>the number of U.S. dry gallons</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -2136,21 +2136,21 @@
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#units.l2usdryoz">units.l2usdryoz</a></p></td>
+<td><p><a href="#units.l2usdrygal">units.l2usdrygal</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>
 </tr>
 </table>
 
-<a id="units.usliqoz2l"></a><h3>r := units.usliqoz2l( f )</h3>
+<a id="units.usliqgal2l"></a><h3>r := units.usliqgal2l( f )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>
-<td><p>Convert U.S. liquid ounces to metric liters.</p></td>
+<td><p>Convert U.S. liquid gallons to metric liters.</p></td>
 </tr><tr>
 <td><p class="pkg_label">Example</p></td>
-<td><span class="code">liters := units.usliqoz2l( 5.5 );</span></td>
+<td><span class="code">liters := units.usliqgal2l( 5.5 );</span></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">
@@ -2172,7 +2172,7 @@
 <td><span>in</span></td>
 <td><span>long float</span></td>
 <td><span>required</span></td>
-<td><span>the number of U.S. liquid ounces</span></td>
+<td><span>the number of U.S. liquid gallons</span></td>
 </tr>
 </table></td>
 </tr><tr>
@@ -2180,7 +2180,7 @@
 <td><p>-</p></td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
-<td><p><a href="#units.l2usliqoz">units.l2usliqoz</a></p></td>
+<td><p><a href="#units.l2usliqgal">units.l2usliqgal</a></p></td>
 </tr><tr>
 <td><p class="pkg_label">Compare With</p></td>
 <td><p>-</p></td>

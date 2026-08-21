@@ -56,7 +56,7 @@ use
     parser_params,
     parser_containers;
 
---with text_io;use text_io;
+with text_io;use text_io;
 
 package body parser_vectors is
 
@@ -355,7 +355,7 @@ begin
   end if;
 
   effectiveLeftType := getBasetype( leftType );
-  effectiverightType := getBasetype( identifiers( rightVectorItem ).genKind );
+  effectiveRightType := getBasetype( identifiers( rightVectorItem ).genKind );
 
   -- Something derivedfrom universalnumeric also matches a numeric index
   if effectiveLeftType = uni_numeric_t and uni_numeric_t = getUnitype( identifiers( rightVectorItem ).genKind )  then
@@ -527,7 +527,7 @@ begin
              obstructorNotes => pl( "the vector index should not be a string" )
          );
       else
-         -- for an enumerated, asuume it starts at zero
+         -- for an enumerated, assume it starts at zero
          convertedIdx := vector_index( UserIdx );
       end if;
    exception when constraint_error =>
@@ -597,7 +597,7 @@ begin
              obstructorNotes => pl( "the vector index should not be a string" )
          );
       else
-         -- for an enumerated, asuume it starts at zero
+         -- for an enumerated, assume it starts at zero
          convertedIdx := long_long_integer( realIdx );
       end if;
    exception when constraint_error =>
@@ -2260,7 +2260,6 @@ begin
        findResource( to_resource_id( cursResId.value ), theCursor );
        getParameterValue( cursor2Ref, curs2ResId );
        findResource( to_resource_id( curs2ResId.value ), theCursor2 );
-       -- TODO: the cursor may not exist
 
        if hasCnt then
           begin
@@ -2575,11 +2574,11 @@ end ParseVectorsSwap;
 ------------------------------------------------------------------------------
 
 procedure ParseVectorsFind is
-  vectorRef     : reference;
-  itemExpr      : storage;
-  itemType      : identifier;
-  startCursorRef : reference;
-  positionCursorRef : reference;
+  vectorRef          : reference;
+  itemExpr           : storage;
+  itemType           : identifier;
+  startCursorRef     : reference;
+  positionCursorRef  : reference;
   subprogramId : constant identifier := vectors_find_t;
 begin
   expect( subprogramId );
@@ -2607,36 +2606,25 @@ begin
 
   if isExecutingCommand then
      declare
-        theVector  : resPtr;
-        vecResId   : storage;
-        theCursor  : resPtr;
-        startCursResId  : storage;
+        theVector     : resPtr;
+        vecExpr       : storage;
+        theCursor     : resPtr;
+        startCursExpr : storage;
+        positionCursExpr : storage;
         --
         positionCursorResourceId : resHandleId;
         thePositionCursor : resPtr;
      begin
-        getParameterValue( vectorRef, vecResId );
-        findResource( to_resource_id( vecResId.value ), theVector );
-        getParameterValue( startCursorRef, startCursResId );
-        findResource( to_resource_id( startCursResId.value ), theCursor );
-
-        -- the second cursor is the out parameter.  Declare it.  Then fetch it.
-        -- TODO: if out is overwriting a resource, delete old resource(s)
-        identifiers( positionCursorRef.id ).resource := true;
-        declareResource(
-            positionCursorResourceId,
-            vector_storage_list_cursor,
-            getIdentifierBlock( positionCursorRef.id )
-        );
-        AssignParameter(
-            positionCursorRef,
-            storage'( to_unbounded_string( positionCursorResourceId ), noMetaTag, noMetaTags )
-        );
-        findResource( positionCursorResourceId, thePositionCursor );
+        getParameterValue( vectorRef, vecExpr);
+        findResource( to_resource_id( vecExpr.value ), theVector );
+        getParameterValue( startCursorRef, startCursExpr );
+        findResource( to_resource_id( startCursExpr.value ), theCursor );
+        getParameterValue( positionCursorRef, positionCursExpr );
+        findResource( to_resource_id( positionCursExpr.value ), thePositionCursor );
 
         if metaTagOk( subprogramId, itemExpr ) then
-        thePositionCursor.vslCursor := Vector_Storage_Lists.Find( theVector.vslVector,
-           itemExpr, theCursor.vslCursor );
+           thePositionCursor.vslCursor := Vector_Storage_Lists.Find( theVector.vslVector,
+              itemExpr, theCursor.vslCursor );
         else
            thePositionCursor.vslCursor := Vector_Storage_Lists.No_Element;
         end if;
@@ -2692,32 +2680,21 @@ begin
 
   if isExecutingCommand then
      declare
-        theVector : resPtr;
-        theCursor : resPtr;
-        vecResId   : storage;
-        startCursResId  : storage;
+        theVector     : resPtr;
+        theCursor     : resPtr;
+        vecExpr       : storage;
+        startCursExpr : storage;
+        positionCursExpr : storage;
         --
         positionCursorResourceId : resHandleId;
         thePositionCursor : resPtr;
      begin
-        getParameterValue( vectorRef, vecResId );
-        findResource( to_resource_id( vecResId.value ), theVector );
-        getParameterValue( startCursorRef, startCursResId );
-        findResource( to_resource_id( startCursResId.value ), theCursor );
-
-        -- the second cursor is the out parameter.  Declare it.  Then fetch it.
-        -- TODO: if out is overwriting a resource, delete old resource(s)
-        identifiers( positionCursorRef.id ).resource := true;
-        declareResource(
-            positionCursorResourceId,
-            vector_storage_list_cursor,
-            getIdentifierBlock( positionCursorRef.id )
-        );
-        AssignParameter(
-            positionCursorRef,
-            storage'( to_unbounded_string( positionCursorResourceId ), noMetaTag, noMetaTags )
-        );
-        findResource( positionCursorResourceId, thePositionCursor );
+        getParameterValue( vectorRef, vecExpr );
+        findResource( to_resource_id( vecExpr.value ), theVector );
+        getParameterValue( startCursorRef, startCursExpr );
+        findResource( to_resource_id( startCursExpr.value ), theCursor );
+        getParameterValue( positionCursorRef, positionCursExpr );
+        findResource( to_resource_id( positionCursExpr.value ), thePositionCursor );
 
         if metaTagOk( subprogramId, itemExpr ) then
            thePositionCursor.vslCursor := Vector_Storage_Lists.Reverse_Find(
@@ -2834,14 +2811,13 @@ begin
         if metaTagOk( subprogramId, itemExpr ) then
            positionIdx := Vector_Storage_Lists.Reverse_Find_Index( theVector.vslVector,
               itemExpr, startIdx );
+           positionValue := to_unbounded_string( numericValue( toUserVectorIndex(
+              subprogramId, vectorRef.Id, positionIdx ) ) );
+           AssignParameter(
+              positionIdxRef,
+              storage'( positionValue, noMetaTag, noMetaTags )
+          );
         end if;
-        positionvalue := to_unbounded_string( numericValue( toUserVectorIndex(
-           subprogramId, vectorRef.Id, positionIdx ) ) );
-
-        AssignParameter(
-            positionIdxRef,
-            storage'( positionValue, noMetaTag, noMetaTags )
-        );
      exception when constraint_error =>
         err_index( subprogramId, startIdxExpr );
      when others =>
@@ -3024,7 +3000,7 @@ begin
          end;
          getParameterValue( vectorRef, vecResId );
          findResource( to_resource_id( vecResId.value ), theVector );
-         idx := toRealVectorIndex( subprogramId, vectorRef.Id, long_long_integer( to_numeric( idxExpr.value ) ) );
+         --idx := toRealVectorIndex( subprogramId, vectorRef.Id, long_long_integer( to_numeric( idxExpr.value ) ) );
          -- Decrement( theVector.vslVector, idx, floatVal );
          declare
            the_string : storage;
@@ -3125,6 +3101,8 @@ begin
             long_long_integer'image( convertedIdx )
          ),
          noMetaTag, noMetaTags );
+     exception when others =>
+       err_exception_raised;
      end;
   end if;
 end ParseVectorsToIndex;

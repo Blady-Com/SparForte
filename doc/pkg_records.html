@@ -44,7 +44,7 @@
 	<!-- Content Area -->
 <h2><a id="4.30"></a>Records Package</h2>
 
-<p>The SparForte built-in records package continues routines for working with
+<p>The SparForte built-in records package contains routines for working with
 record variables or types.</p>
 
 <p><span class="underline">GCC Ada Equivalent</span>: None<br>
@@ -52,7 +52,7 @@ record variables or types.</p>
         <center>
         <div class="code">
 <pre>
-  <a href="#records.to_json">to_json( s, r )</a>       <a href="#records.to_record">to_record( s, r )</a>
+  <a href="#records.to_json">to_json( s, r )</a>       <a href="#records.to_record">to_record( r, s )</a>
 </pre>
         &nbsp;<br>
         <div class="code_caption">
@@ -100,6 +100,9 @@ records.to_json( j, r ); -- j is {"s":"foo"}</span></p></td>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>For more details and exceptions, see the Reference Manual section
 <a href="ref_types.html">JSON and SparForte Types</a>.</p></td>
+</tr><tr>
+<td><p class="pkg_label">Restrictions</p></td>
+<td>-</td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="pkg_arrays.html#arrays.to_array">arrays.to_array</a><br><a href="pkg_arrays.html#arrays.to_json">arrays.to_json</a><br><a href="#records.to_record">records.to_record</a><br><a href="pkg_strings.html#strings.to_string">strings.to_string</a><br><a href="pkg_strings.html#strings.to_json">strings.to_json</a></p>
@@ -150,6 +153,9 @@ records.to_record( r, j ); -- r.x is "foo"</span></p></td>
 <td><p class="pkg_label">Exceptions</p></td>
 <td><p>For more details and exceptions, see the Reference Manual section
 <a href="ref_types.html">JSON and SparForte Types</a>.</p></td>
+</tr><tr>
+<td><p class="pkg_label">Restrictions</p></td>
+<td>-</td>
 </tr><tr>
 <td><p class="pkg_label">See Also</p></td>
 <td><p><a href="pkg_arrays.html#arrays.to_array">arrays.to_array</a><br><a href="pkg_arrays.html#arrays.to_json">arrays.to_json</a><br><a href="#records.to_json">records.to_json</a><br><a href="pkg_strings.html#strings.to_string">strings.to_string</a><br><a href="pkg_strings.html#strings.to_json">strings.to_json</a></p>

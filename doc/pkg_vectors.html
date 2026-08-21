@@ -59,8 +59,8 @@
   <a href="#vectors.contains">b := contains( v, e )</a>                       <a href="#vectors.decrement">decrement( v, i [,n] )</a>
   <a href="#vectors.delete">delete( v, c ) | ( v, i [, n] )</a>             <a href="#vectors.delete_first">delete_first( v, n )</a>
   <a href="#vectors.delete_last">delete_last( v, n )</a>                         <a href="#vectors.element">e := element( c ) | ( v, i )</a>
-  <a href="#vectors.equal">b := equal( v1, v2 )</a>                        <a href="#vectors.find">find( v, e, c1, c2 )</a>
-  <a href="#vectors.find_index">find_index( v, e, v1, i2 )</a>                  <a href="#vectors.first">first( v, c )</a>
+  <a href="#vectors.equal">b := equal( v1, v2 )</a>                        <a href="#vectors.find">find( v, e , c1, c2 )</a>
+  <a href="#vectors.find_index">find_index( v, e, i1, i2 )</a>                  <a href="#vectors.first">first( v, c )</a>
   <a href="#vectors.first_element">e := first_element( v )</a>                     <a href="#vectors.first_index">i := first_index( v )</a>
   <a href="#vectors.flip">flip( v )</a>                                   <a href="#vectors.has_element">b := has_element( c )</a>
   <a href="#vectors.increment">increment( v, i [,n] )</a>                      <a href="#vectors.insert">insert( v, i, e [, n] )</a>
@@ -73,7 +73,7 @@
   <a href="#vectors.next">next( c )</a>                                   <a href="#vectors.prepend">prepend( v, e [,n] )</a>
   <a href="#vectors.prepend_elements">prepend_elements( v, e [,n] )</a>               <a href="#vectors.previous">previous( c )</a>
   <a href="#vectors.reserve_capacity">reserve_capacity( v, n )</a>                    <a href="#vectors.reverse_elements">reverse_elements( v )</a>
-  <a href="#vectors.reverse_find">reverse_find( v, e, c1, c2 )</a>                <a href="#vectors.reverse_find_index">reverse_find_index( v, e, v1, i2 )</a>
+  <a href="#vectors.reverse_find">reverse_find( v, e, c1, c2 )</a>                <a href="#vectors.reverse_find_index">reverse_find_index( v, e, i1, i2 )</a>
   <a href="#vectors.set_length">set_length( v, n )</a>                          <a href="#vectors.swap">swap( v, i1, i2 | v, c1, c2 )</a>
   <a href="#vectors.to_index">l := to_index( v, c )</a>                       <a href="#vectors.to_vector">to_vector( v, e, n )</a>
 </pre>
@@ -109,12 +109,28 @@ type based on positive will start at index 1.</p>
 
         <center>
         <div class="code">
-<pre>
-
-</pre>
+<p class="code">
+<strong>=&gt;</strong> horse_colours : vectors.vector( positive, string )
+<strong>=&gt;</strong> vectors.append_elements( horse_colours, "bay" )
+<strong>=&gt;</strong> vectors.append_elements( horse_colours, "chestnut" )
+<strong>=&gt;</strong> vectors.append_elements( horse_colours, "gray" )
+<strong>=&gt;</strong> vectors.append_elements( horse_colours, "dun" )
+<strong>=&gt;</strong> ? vectors.length( horse_colours )
+ 4
+<strong>=&gt;</strong> ? vectors.first_element( horse_colours )
+bay
+<strong>=&gt;</strong> starting_pos : vectors.cursor( positive, string )
+<strong>=&gt;</strong> vectors.first( horse_colours, starting_pos )
+<strong>=&gt;</strong> ? vectors.element( starting_pos )
+bay
+<strong>=&gt;</strong> vectors.find( horse_colours, "chestnut", starting_pos, colour_pos )
+<strong>=&gt;</strong> (Assuming colour_pos is a new vectors.cursor variable)
+<strong>=&gt; ?</strong> vectors.element( colour_pos )
+chestnut
+</p>
         &nbsp;<br>
         <div class="code_caption">
-        <strong>Example</strong>: To be created
+        <strong>Example</strong>: Command line example using vectors to create a list of horse colours
         </div>
         </div>
         </center>
@@ -125,7 +141,7 @@ type based on positive will start at index 1.</p>
 <td width="15%">&nbsp;</td>
 <td><p>Append string element e to the value at index i in the vector. If the index does not exist, raise an exception.</p></td>
 </tr><tr>
-<td><p class="pkg_label">Example</p></td><td><p><span class="code">vectors.insert( fruit_unit, "apple", bushel" );<br>vectors.append( fruit_unit, "apple", "s" ); -- changed to "bushels"</span></p></td>
+<td><p class="pkg_label">Example</p></td><td><p><span class="code">vectors.insert( fruit_unit, "apple", "bushel" );<br>vectors.append( fruit_unit, "apple", "s" ); -- changed to "bushels"</span></p></td>
 </tr><tr>
 <td><p class="pkg_label">Parameters</p></td>
 <td><table class="subprogram_parameters" summary="subprogram parameters">

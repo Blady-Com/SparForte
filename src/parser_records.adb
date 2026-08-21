@@ -75,9 +75,16 @@ end expectRecord;
 -- PARSE THE RECORDS PACKAGE
 ---------------------------------------------------------
 
+-----------------------------------------------------------------------------
+--  PARSE RECORDS TO JSON                                (built-in procedure)
+--
+-- AdaScript Syntax: records.to_json( s, r )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_records.html#to_json
+-----------------------------------------------------------------------------
+
 procedure ParseRecordsToJson is
-  -- Syntax: records.to_json( str, rec );
-  -- Source: N/A
   target_ref    : reference;
   source_var_id : identifier;
   jsonStore     : storage;
@@ -99,10 +106,16 @@ begin
   end if;
 end ParseRecordsToJson;
 
+-----------------------------------------------------------------------------
+--  PARSE RECORDS TO RECORD                              (built-in procedure)
+--
+-- AdaScript Syntax: records.to_record( r, s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_records.html#to_record
+-----------------------------------------------------------------------------
+
 procedure ParseRecordsToRecord is
-  -- Syntax: str := records.to_record( rec, str );
-  -- Source: N/A
-  --target_var_id : identifier;
   target_ref    : reference;
   sourceStore   : storage;
   sourceType    : identifier;
@@ -136,9 +149,8 @@ begin
   end if;
   expectParameterComma;
   ParseExpression( sourceStore, sourceType );
-  if baseTypesOK( sourceType, json_string_t ) then
-     expect( symbol_t, ")" );
-  end if;
+  baseTypesOK( sourceType, json_string_t );
+  expect( symbol_t, ")" );
   if isExecutingCommand then
      if metaTagOk( subprogramId, sourceStore ) then
         begin
@@ -158,6 +170,7 @@ begin
      end if;
   end if;
 end ParseRecordsToRecord;
+
 
 -------------------------------------------------------------------------------
 -- Housekeeping

@@ -157,10 +157,12 @@ index_set_t     : identifier;
 
 
 ------------------------------------------------------------------------------
---  PARSE STRINGS GLOB
+--  PARSE STRINGS GLOB                                     (built-in function)
 --
--- Syntax: glob( expr, string )
--- Source: GNAT.RegExp.Match
+-- AdaScript Syntax: b := strings.glob( e, s )
+--       Ada Target: GNAT.RegExp.Match
+--   GNAT Spec File: g-regexp.ads
+--   SparForte Docs: pkg_strings.html#strings.glob
 ------------------------------------------------------------------------------
 
 procedure ParseStringsGlob( result : out storage; kind : out identifier ) is
@@ -203,12 +205,13 @@ begin
   end if;
 end ParseStringsGlob;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS MATCH
+--  PARSE STRINGS MATCH                                    (built-in function)
 --
--- Syntax: match( pat, expr )
--- Source: GNAT.RegPat.Match
+-- AdaScript Syntax: b := strings.match( e, s )
+--       Ada Target: GNAT.RegExp.Match
+--   GNAT Spec File: g-regexp.ads
+--   SparForte Docs: pkg_strings.html#strings.match
 ------------------------------------------------------------------------------
 
 procedure ParseStringsMatch( result : out storage; kind : out identifier ) is
@@ -264,12 +267,13 @@ begin
   end if;
 end ParseStringsMatch;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS ELEMENT
+--  PARSE STRINGS ELEMENT                                  (built-in function)
 --
--- Syntax: element( s, i )
--- Source: Ada.Strings.Unbounded.Element
+-- AdaScript Syntax: c := strings.element( s, p )
+--       Ada Target: Ada.Strings.Unbounded.Element
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.element
 ------------------------------------------------------------------------------
 
 procedure ParseStringsElement( result : out storage; kind : out identifier ) is
@@ -295,12 +299,13 @@ begin
   end;
 end ParseStringsElement;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS SLICE
+--  PARSE STRINGS SLICE                                    (built-in function)
 --
--- Syntax: slice( s, l, h )
--- Source: Ada.Strings.Unbounded.Slice
+-- AdaScript Syntax: r := strings.slice( s, l, h )
+--       Ada Target: Ada.Strings.Unbounded.Slice
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.slice
 ------------------------------------------------------------------------------
 
 procedure ParseStringsSlice( result : out storage; kind : out identifier ) is
@@ -331,12 +336,13 @@ begin
   end;
 end ParseStringsSlice;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS INDEX
+--  PARSE STRINGS INDEX                                    (built-in function)
 --
--- Syntax: strings.index( s, p [,d] )
--- Source: Ada.Strings.Unbounded.Index
+-- AdaScript Syntax: n := strings.index( s, p [, d] )
+--       Ada Target: Ada.Strings.Unbounded.Index
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.index
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIndex( result : out storage; kind : out identifier ) is
@@ -385,12 +391,13 @@ begin
   end;
 end ParseStringsIndex;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS INDEX NON BLANK
+--  PARSE STRINGS INDEX NON BLANK                          (built-in function)
 --
--- Syntax: strings.index_non_blank( s [, d] )
--- Source: Ada.Strings.Unbounded.Index_Non_Blank
+-- AdaScript Syntax: n := strings.index_non_blank( s, [, d] )
+--       Ada Target: Ada.Strings.Unbounded.Index_Non_Blank
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.index_non_blank
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIndexNonBlank( result : out storage; kind : out identifier ) is
@@ -428,12 +435,13 @@ begin
   end;
 end ParseStringsIndexNonBlank;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS INDEX SET
+--  PARSE STRINGS INDEX SET                                (built-in function)
 --
--- Syntax: strings.index_set( s, t [, f [, m [, d]]] )
--- Source: Ada.Strings.Unbounded.Index
+-- AdaScript Syntax: n := strings.index_set( s, t [, f [, m [, d] ] ] )
+--       Ada Target: Ada.Strings.Unbounded.Index
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.index_set
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIndexSet( result : out storage; kind : out identifier ) is
@@ -499,12 +507,13 @@ begin
   end;
 end ParseStringsIndexSet;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS COUNT
+--  PARSE STRINGS INDEX COUNT                              (built-in function)
 --
--- Syntax: strings.count( s, p )
--- Source: Ada.Strings.Unbounded.Count
+-- AdaScript Syntax: n := strings.count( s, p )
+--       Ada Target: Ada.Strings.Unbounded.Count
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.count
 ------------------------------------------------------------------------------
 
 procedure ParseStringsCount( result : out storage; kind : out identifier ) is
@@ -530,12 +539,13 @@ begin
   end;
 end ParseStringsCount;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS REPLACE SLICE
+--  PARSE STRINGS REPLACE SLICE                            (built-in function)
 --
--- Syntax: strings.replace_slice( s, l, h, b )
--- Source: Ada.Strings.Unbounded.Replace_Slice
+-- AdaScript Syntax: n := strings.replace_slice( s, p )
+--       Ada Target: Ada.Strings.Unbounded.Replace_Slice
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.replace_slice
 ------------------------------------------------------------------------------
 
 procedure ParseStringsReplaceSlice( result : out storage; kind : out identifier ) is
@@ -570,12 +580,13 @@ begin
   end;
 end ParseStringsReplaceSlice;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS REPLACE ALL
+--  PARSE STRINGS REPLACE ALL                              (built-in function)
 --
--- Syntax: strings.replace_all( s, n, r, b )
--- Source: N/A
+-- AdaScript Syntax: r := strings.replace_all( s, n, t [, c] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.replace_slice
 ------------------------------------------------------------------------------
 
 procedure ParseStringsReplaceAll( result : out storage; kind : out identifier ) is
@@ -615,12 +626,13 @@ begin
   end;
 end ParseStringsReplaceAll;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS INSERT
+--  PARSE STRINGS INSERT                                   (built-in function)
 --
--- Syntax: strings.insert( s, b, n )
--- Source: Ada.Strings.Unbounded.Replace_Slice
+-- AdaScript Syntax: r := strings.insert( s, b, n )
+--       Ada Target: Ada.Strings.Unbounded.Insert
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.insert
 ------------------------------------------------------------------------------
 
 procedure ParseStringsInsert( result : out storage; kind : out identifier ) is
@@ -650,12 +662,13 @@ begin
   end;
 end ParseStringsInsert;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS OVERWRITE
+--  PARSE STRINGS OVERWRITE                                (built-in function)
 --
--- Syntax: strings.overwrite( s, p, n )
--- Source: Ada.Strings.Unbounded.Overwrite
+-- AdaScript Syntax: r := strings.overwrite( s, p, n )
+--       Ada Target: Ada.Strings.Unbounded.Overwrite
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.overwrite
 ------------------------------------------------------------------------------
 
 procedure ParseStringsOverwrite( result : out storage; kind : out identifier ) is
@@ -685,12 +698,13 @@ begin
   end;
 end ParseStringsOverwrite;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS DELETE
+--  PARSE STRINGS DELETE                                   (built-in function)
 --
--- Syntax: strings.delete( s, l, h )
--- Source: Ada.Strings.Unbounded.Delete
+-- AdaScript Syntax: r := strings.delete( s, l, h )
+--       Ada Target: Ada.Strings.Unbounded.Delete
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.delete
 ------------------------------------------------------------------------------
 
 procedure ParseStringsDelete( result : out storage; kind : out identifier ) is
@@ -720,12 +734,13 @@ begin
   end if;
 end ParseStringsDelete;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TRIM
+--  PARSE STRINGS TRIM                                     (built-in function)
 --
--- Syntax: strings.trim( s , e )
--- Source: Ada.Strings.Unbounded.Trim
+-- AdaScript Syntax: r := strings.trim( s [, e] )
+--       Ada Target: Ada.Strings.Unbounded.Trim
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.trim
 ------------------------------------------------------------------------------
 
 procedure ParseStringsTrim( result : out storage; kind : out identifier ) is
@@ -768,12 +783,13 @@ begin
   end;
 end ParseStringsTrim;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TRIM
+--  PARSE STRINGS LENGTH                                   (built-in function)
 --
--- Syntax: strings.trim( s )
--- Source: Ada.Strings.Unbounded.Trim
+-- AdaScript Syntax: n := strings.length( s )
+--       Ada Target: Ada.Strings.Unbounded.Length
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.length
 ------------------------------------------------------------------------------
 
 procedure ParseStringsLength( result : out storage; kind : out identifier ) is
@@ -794,12 +810,13 @@ begin
   end;
 end ParseStringsLength;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS HEAD
+--  PARSE STRINGS HEAD                                     (built-in function)
 --
--- Syntax: strings.head( s, c [,p] )
--- Source: Ada.Strings.Unbounded.Head
+-- AdaScript Syntax: r := strings.head( s, c [, p] )
+--       Ada Target: Ada.Strings.Unbounded.Head
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.head
 ------------------------------------------------------------------------------
 
 procedure ParseStringsHead( result : out storage; kind : out identifier ) is
@@ -837,12 +854,13 @@ begin
   end;
 end ParseStringsHead;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TAIL
+--  PARSE STRINGS TAIL                                     (built-in function)
 --
--- Syntax: strings.tail( s, c [, p] )
--- Source: Ada.Strings.Unbounded.Tail
+-- AdaScript Syntax: r := strings.tail( s, c [, p] )
+--       Ada Target: Ada.Strings.Unbounded.Tail
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.tail
 ------------------------------------------------------------------------------
 
 procedure ParseStringsTail( result : out storage; kind : out identifier ) is
@@ -880,12 +898,13 @@ begin
   end;
 end ParseStringsTail;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS STARTS WITH
+--  PARSE STRINGS STARTS WITH                              (built-in function)
 --
--- Syntax: strings.starts_with( s, t [,c] )
--- Source: N/A
+-- AdaScript Syntax: b := strings.starts_with( s, t [, c] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.starts_with
 ------------------------------------------------------------------------------
 
 procedure ParseStringsStartsWith( result : out storage; kind : out identifier ) is
@@ -935,12 +954,13 @@ begin
   end;
 end ParseStringsStartsWith;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS ENDS WITH
+--  PARSE STRINGS ENDS WITH                                (built-in function)
 --
--- Syntax: strings.ends_with( s, t [,c] )
--- Source: N/A
+-- AdaScript Syntax: b := strings.ends_with( s, t [,c] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.ends_with
 ------------------------------------------------------------------------------
 
 procedure ParseStringsEndsWith( result : out storage; kind : out identifier ) is
@@ -984,12 +1004,13 @@ begin
   end;
 end ParseStringsEndsWith;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS FIELD
+--  PARSE STRINGS FIELD                                    (built-in function)
 --
--- Syntax: strings.field( s, c [, d] )
--- Source: N/A
+-- AdaScript Syntax: r := strings.field( s, c [, d] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.field
 ------------------------------------------------------------------------------
 
 procedure ParseStringsField( result : out storage; kind : out identifier ) is
@@ -1029,12 +1050,13 @@ begin
   end;
 end ParseStringsField;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS CSV FIELD
+--  PARSE STRINGS CSV FIELD                                (built-in function)
 --
--- Syntax: strings.csv_field( s, c [, d [, q]] )
--- Source: N/A
+-- AdaScript Syntax: r := strings.csv_field( s, c [, d [, q]] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.csv_field
 ------------------------------------------------------------------------------
 
 procedure ParseStringsCSVField( result : out storage; kind : out identifier ) is
@@ -1091,12 +1113,13 @@ begin
   end;
 end ParseStringsCSVField;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS MKTEMP
+--  PARSE STRINGS MKTEMP                                   (built-in function)
 --
--- Syntax: strings.mktemp
--- Source: SparForte builtin
+-- AdaScript Syntax: r := strings.mktemp( p )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.mktemp
 ------------------------------------------------------------------------------
 
 procedure ParseStringsMkTemp( result : out storage; kind : out identifier ) is
@@ -1119,7 +1142,7 @@ begin
           if mkstemp_result < 0 then
              err( pl( "mkstemp failed " & OSError( C_errno ) ) );
           else
-             -- not the best.  mkstemp is secure because it leaves the
+             -- TODO: not the best.  mkstemp is secure because it leaves the
              -- file open but we're closing it anyway.
 <<retry>> closeResult := close( mkstemp_result );
              if closeResult < 0 then
@@ -1138,12 +1161,13 @@ begin
   end if;
 end ParseStringsMkTemp;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS VAL
+--  PARSE STRINGS VAL                                      (built-in function)
 --
--- Syntax: strings.val( natural );
--- Source: Ada 'val attribute
+-- AdaScript Syntax: c := strings.val( n )
+--       Ada Target: Ada 'val attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.val
 ------------------------------------------------------------------------------
 
 procedure ParseStringsVal( result : out storage; kind : out identifier ) is
@@ -1165,12 +1189,13 @@ begin
   end;
 end ParseStringsVal;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS VAL
+--  PARSE STRINGS IMAGE                                    (built-in function)
 --
--- Syntax: strings.image( x );
--- Source: Ada 'image attribute
+-- AdaScript Syntax: r := strings.image( n )
+--       Ada Target: Ada 'image attribute
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.image
 ------------------------------------------------------------------------------
 
 procedure ParseStringsImage( result : out storage; kind : out identifier ) is
@@ -1219,12 +1244,13 @@ begin
   end;
 end ParseStringsImage;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO STRING
+--  PARSE STRINGS TO STRING                                (built-in function)
 --
--- Syntax: strings.to_string( x );
--- Source: Ada.Strings.Unbounded.To_String
+-- AdaScript Syntax: r := strings.to_string( n )
+--       Ada Target: Ada.Strings.Unbounded.To_String
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.to_string
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToString( result : out storage; kind : out identifier ) is
@@ -1264,7 +1290,7 @@ procedure ParseStringsToString( result : out storage; kind : out identifier ) is
    when status_error =>
      err( +"internal_error: status error - cannot open file" );
    when name_error =>
-     err( +"internal_error: name error - cannot open fie" );
+     err( +"internal_error: name error - cannot open file" );
    when end_error =>
      err( +"internal_error: end error - end of file reached" );
    when others =>
@@ -1301,12 +1327,13 @@ begin
   end;
 end ParseStringsToString;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO UNBOUNDED STRING
+--  PARSE STRINGS TO UNBOUNDED STRING                      (built-in function)
 --
--- Syntax: strings.to_unbounded_string( x ); or strings.to_unbounded_string( n );
--- Source: Ada.Strings.Unbounded.To_Unbounded_String
+-- AdaScript Syntax: u := strings.to_unbounded_string( s )
+--       Ada Target: Ada.Strings.Unbounded.To_Unbounded_String
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.to_unbounded_string
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToUString( result : out storage; kind : out identifier ) is
@@ -1327,12 +1354,13 @@ begin
   end;
 end ParseStringsToUString;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS LOOKUP
+--  PARSE STRINGS LOOKUP                                   (built-in function)
 --
--- Syntax: strings.lookup( s, t [, d] );
--- Source: N/A
+-- AdaScript Syntax: r := strings.lookup( s, k [, d] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.lookup
 ------------------------------------------------------------------------------
 
 procedure ParseStringsLookup( result : out storage; kind : out identifier ) is
@@ -1372,12 +1400,13 @@ begin
   end;
 end ParseStringsLookup;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS LOOKUP
+--  PARSE STRINGS REPLACE                                 (built-in procedure)
 --
--- Syntax: strings.replace( s, f, t, [,d] );
--- Source: N/A
+-- AdaScript Syntax: strings.replace( s, f, t [, d] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.replace
 ------------------------------------------------------------------------------
 
 procedure ParseStringsReplace is
@@ -1428,12 +1457,13 @@ begin
   end;
 end ParseStringsReplace;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS CSV REPLACE
+--  PARSE STRINGS CSV REPLACE                             (built-in procedure)
 --
--- Syntax: strings.csv_replace( s, f, t, [,d] [,q] );
--- Source: N/A
+-- AdaScript Syntax: strings.csv_replace( s, f, t, [, d [, q]] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.csv_replace
 ------------------------------------------------------------------------------
 
 procedure ParseStringsCSVReplace is
@@ -1501,12 +1531,13 @@ begin
   end;
 end ParseStringsCSVReplace;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO UPPER
+--  PARSE STRINGS TO UPPER                                 (built-in function)
 --
--- Syntax: strings.to_upper( s );
--- Source: Ada.Characters.Handling.To_Upper
+-- AdaScript Syntax: r := strings.to_upper( s )
+--       Ada Target: Ada.Characters.Handling.To_Upper
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.to_upper
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToUpper( result : out storage; kind : out identifier ) is
@@ -1523,12 +1554,13 @@ begin
   end if;
 end ParseStringsToUpper;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO LOWER
+--  PARSE STRINGS TO LOWER                                 (built-in function)
 --
--- Syntax: strings.to_lower( s );
--- Source: Ada.Characters.Handling.To_Lower
+-- AdaScript Syntax: r := strings.to_lower( s )
+--       Ada Target: Ada.Characters.Handling.To_Lower
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.to_lower
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToLower( result : out storage; kind : out identifier ) is
@@ -1545,12 +1577,13 @@ begin
   end if;
 end ParseStringsToLower;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO PROPER
+--  PARSE STRINGS TO PROPER                                (built-in function)
 --
--- Syntax: strings.to_proper( s );
--- Source: N/A
+-- AdaScript Syntax: r := strings.to_proper( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.to_proper
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToProper( result : out storage; kind : out identifier ) is
@@ -1567,12 +1600,13 @@ begin
   end if;
 end ParseStringsToProper;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO BASIC
+--  PARSE STRINGS TO BASIC                                 (built-in function)
 --
--- Syntax: strings.to_basic( s );
--- Source: Ada.Characters.Handling.To_Basic
+-- AdaScript Syntax: r := strings.to_basic( s )
+--       Ada Target: Ada.Characters.Handling.To_Basic
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.to_basic
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToBasic( result : out storage; kind : out identifier ) is
@@ -1589,12 +1623,13 @@ begin
   end if;
 end ParseStringsToBasic;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO ESCAPED
+--  PARSE STRINGS TO ESCAPED                               (built-in function)
 --
--- Syntax: strings.to_escaped( s );
--- Source: N/A
+-- AdaScript Syntax: r := strings.to_escaped( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.to_escaped
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToEscaped( result : out storage; kind : out identifier ) is
@@ -1615,12 +1650,13 @@ begin
   end if;
 end ParseStringsToEscaped;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS SPLIT
+--  PARSE STRINGS SPLIT                                   (built-in procedure)
 --
--- Syntax: strings.split( s, l, r [,d] )
--- Source: N/A (GNAT.Case_Util sort of)
+-- AdaScript Syntax: strings.split( s, l, r , p )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.split
 ------------------------------------------------------------------------------
 
 procedure ParseStringsSplit is
@@ -1656,12 +1692,13 @@ begin
   end;
 end ParseStringsSplit;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS CONTROL
+--  PARSE STRINGS TO CONTROL                               (built-in function)
 --
--- Syntax: strings.is_control( x );
--- Source: Ada.Characters.Handling.Is_Control (except for string)
+-- AdaScript Syntax: b := strings.is_control( s )
+--       Ada Target: Ada.Characters.Handling.Is_Control (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_control
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsControl( result : out storage; kind : out identifier ) is
@@ -1682,12 +1719,13 @@ begin
   end;
 end ParseStringsIsControl;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS GRAPHIC
+--  PARSE STRINGS IS GRAPHIC                               (built-in function)
 --
--- Syntax: strings.is_graphic( x );
--- Source: Ada.Characters.Handling.Is_Graphic (except for string)
+-- AdaScript Syntax: b := strings.is_graphic( s )
+--       Ada Target: Ada.Characters.Handling.Is_Graphic (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_graphic
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsGraphic( result : out storage; kind : out identifier ) is
@@ -1708,12 +1746,13 @@ begin
   end;
 end ParseStringsIsGraphic;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS LETTER
+--  PARSE STRINGS IS LETTER                                (built-in function)
 --
--- Syntax: strings.is_letter( x );
--- Source: Ada.Characters.Handling.Is_Letter (except for string)
+-- AdaScript Syntax: b := strings.is_letter( s )
+--       Ada Target: Ada.Characters.Handling.Is_Letter (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_letter
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsLetter( result : out storage; kind : out identifier ) is
@@ -1734,12 +1773,13 @@ begin
   end;
 end ParseStringsIsLetter;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS LOWER
+--  PARSE STRINGS IS LOWER                                 (built-in function)
 --
--- Syntax: strings.is_lower( x );
--- Source: Ada.Characters.Handling.Is_Lower (except for string)
+-- AdaScript Syntax: b := strings.is_lower( s )
+--       Ada Target: Ada.Characters.Handling.Is_Lower (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_lower
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsLower( result : out storage; kind : out identifier ) is
@@ -1760,12 +1800,13 @@ begin
   end;
 end ParseStringsIsLower;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS UPPER
+--  PARSE STRINGS IS UPPER                                 (built-in function)
 --
--- Syntax: strings.is_upper( x );
--- Source: Ada.Characters.Handling.Is_Upper (except for string)
+-- AdaScript Syntax: b := strings.is_upper( s )
+--       Ada Target: Ada.Characters.Handling.Is_Upper (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_upper
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsUpper( result : out storage; kind : out identifier ) is
@@ -1786,12 +1827,13 @@ begin
   end;
 end ParseStringsIsUpper;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS BASIC
+--  PARSE STRINGS IS BASIC                                 (built-in function)
 --
--- Syntax: strings.is_basic( x );
--- Source: Ada.Characters.Handling.Is_Basic (except for string)
+-- AdaScript Syntax: b := strings.is_basic( s )
+--       Ada Target: Ada.Characters.Handling.Is_Basic (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_basic
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsBasic( result : out storage; kind : out identifier ) is
@@ -1812,12 +1854,13 @@ begin
   end;
 end ParseStringsIsBasic;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS DIGIT
+--  PARSE STRINGS IS DIGIT                                 (built-in function)
 --
--- Syntax: strings.is_digit( x );
--- Source: Ada.Characters.Handling.Is_Digit (except for string)
+-- AdaScript Syntax: b := strings.is_digit( s )
+--       Ada Target: Ada.Characters.Handling.Is_Digit (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_digit
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsDigit( result : out storage; kind : out identifier ) is
@@ -1838,12 +1881,13 @@ begin
   end;
 end ParseStringsIsDigit;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS HEXADECIMAL DIGIT
+--  PARSE STRINGS IS HEXADECIMAL DIGIT                     (built-in function)
 --
--- Syntax: strings.is_hexadecimal_digit( x );
--- Source: Ada.Characters.Handling.Is_Hexadecimal_Digit (except for string)
+-- AdaScript Syntax: b := strings.is_hexadecimal_digit( s )
+--       Ada Target: Ada.Characters.Handling.Is_Hexadecimal_Digit (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_hexadecimal_digit
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsHexDigit( result : out storage; kind : out identifier ) is
@@ -1864,12 +1908,13 @@ begin
   end;
 end ParseStringsIsHexDigit;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS ALPHANUMERIC
+--  PARSE STRINGS IS ALPHANUMERIC                          (built-in function)
 --
--- Syntax: strings.is_alphanumeric( x );
--- Source: Ada.Characters.Handling.Is_Alphanumeric (except for string)
+-- AdaScript Syntax: b := strings.is_alphanumeric( s )
+--       Ada Target: Ada.Characters.Handling.Is_Alphanumeric (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_alphanumeric
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsAlphanumeric( result : out storage; kind : out identifier ) is
@@ -1890,12 +1935,13 @@ begin
   end;
 end ParseStringsIsAlphanumeric;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS SPECIAL
+--  PARSE STRINGS IS SPECIAL                               (built-in function)
 --
--- Syntax: strings.is_special( x );
--- Source: Ada.Characters.Handling.Is_Special (except for string)
+-- AdaScript Syntax: b := strings.is_special( s )
+--       Ada Target: Ada.Characters.Handling.Is_Special (adapted for string)
+--   GNAT Spec File: a-chahan.ads
+--   SparForte Docs: pkg_strings.html#strings.is_special
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsSpecial( result : out storage; kind : out identifier ) is
@@ -1916,12 +1962,13 @@ begin
   end;
 end ParseStringsIsSpecial;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS SLASHED DATE
+--  PARSE STRINGS IS SLASHED DATE                          (built-in function)
 --
--- Syntax: strings.is_slashed_date( x );
--- Source: N/A
+-- AdaScript Syntax: b := strings.is_slashed_date( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.is_slashed_date
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsSlashedDate( result : out storage; kind : out identifier ) is
@@ -1942,12 +1989,13 @@ begin
   end;
 end ParseStringsIsSlashedDate;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS FIXED
+--  PARSE STRINGS IS FIXED                                 (built-in function)
 --
--- Syntax: strings.is_fixed( x );
--- Source: N/A
+-- AdaScript Syntax: b := strings.is_fixed( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.is_fixed
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsFixed( result : out storage; kind : out identifier ) is
@@ -1968,12 +2016,13 @@ begin
   end;
 end ParseStringsIsFixed;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO BASE64
+--  PARSE STRINGS TO BASE64                                (built-in function)
 --
--- Syntax: strings.to_base64( s )
--- Source: base64.encode_stream
+-- AdaScript Syntax: r := strings.to_base64( s )
+--       Ada Target: base64.encode_stream
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.to_base64
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToBase64( result : out storage; kind : out identifier ) is
@@ -2022,7 +2071,7 @@ begin
   when status_error =>
     err( +"internal_error: status error - cannot open file" );
   when name_error =>
-    err( +"internal_error: name error - cannot open fie" );
+    err( +"internal_error: name error - cannot open file" );
   when end_error =>
     err( +"internal_error: end error - end of file reached" );
   when others =>
@@ -2030,12 +2079,13 @@ begin
   end;
 end ParseStringsToBase64;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS IS TYPO OF
+--  PARSE STRINGS IS TYPO OF                               (built-in function)
 --
--- Syntax: strings.is_typo_of( x, y );
--- Source: N/A
+-- AdaScript Syntax: b := strings.is_typo_of( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.is_typo_of
 ------------------------------------------------------------------------------
 
 procedure ParseStringsIsTypoOf( result : out storage; kind : out identifier ) is
@@ -2059,12 +2109,13 @@ begin
   end;
 end ParseStringsIsTypoOf;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS UNBOUNDED SLICE
+--  PARSE STRINGS UNBOUNDED SLICE                          (built-in function)
 --
--- Syntax: unbounded_slice( s, l, h )
--- Source: Ada.Strings.Unbounded.Unbounded_Slice
+-- AdaScript Syntax: strings.unbounded_slice(s, l, h)
+--       Ada Target: Ada.Strings.Unbounded.Unbounded_Slice
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.unbounded_slice
 ------------------------------------------------------------------------------
 
 procedure ParseStringsUnboundedSlice( result : out storage; kind : out identifier ) is
@@ -2095,13 +2146,13 @@ begin
   end;
 end ParseStringsUnboundedSlice;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS SET UNBOUNDED STRING
+--  PARSE STRINGS SET UNBOUNDED SLICE                     (built-in procedure)
 --
--- Syntax: strings.set_unbounded_string( u, s );
--- Source: ada.strings.unbounded.set_storage
--- Ada 2005
+-- AdaScript Syntax: strings.set_unbounded_string( u, s )
+--       Ada Target: Ada.Strings.Unbounded.Set_Storage
+--   GNAT Spec File: a-strunb.ads
+--   SparForte Docs: pkg_strings.html#strings.unbounded_slice
 ------------------------------------------------------------------------------
 
 procedure ParseStringsSetUnboundedString is
@@ -2126,12 +2177,13 @@ begin
   end;
 end ParseStringsSetUnboundedString;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO JSON
+--  PARSE STRINGS TO JSON                                  (built-in function)
 --
--- Syntax: strings.to_json( x );
--- Source: N/A
+-- AdaScript Syntax: r := strings.to_json( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.to_json
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToJSON( result : out storage; kind : out identifier ) is
@@ -2152,12 +2204,13 @@ begin
   end;
 end ParseStringsToJSON;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS PERL MATCH
+--  PARSE STRINGS PERL MATCH                               (built-in function)
 --
--- Syntax: perl_match( s, e )
--- Source: N/A
+-- AdaScript Syntax: b := strings.perl_match( s, e )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.perl_match
 ------------------------------------------------------------------------------
 
 procedure ParseStringsPerlMatch( result : out storage; kind : out identifier ) is
@@ -2165,12 +2218,13 @@ begin
   parser_strings_pcre.ParseStringsPerlMatch( result, kind );
 end ParseStringsPerlMatch;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS TO HEX DIGITS
+--  PARSE STRINGS TO HEX DIGITS                            (built-in function)
 --
--- Syntax: to_hexadecimal_digits( n )
--- Source: N/A
+-- AdaScript Syntax: b := strings.to_hexadecimal_digits( s, e )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.to_hexadecimal_digits
 ------------------------------------------------------------------------------
 
 procedure ParseStringsToHexDigits( result : out storage; kind : out identifier ) is
@@ -2209,12 +2263,13 @@ begin
   end if;
 end ParseStringsToHexDigits;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS LEVENSHTEIN
+--  PARSE STRINGS LEVENSHTEIN                              (built-in function)
 --
--- Syntax: levenshtein( s1, s2 )
--- Source: N/A
+-- AdaScript Syntax: n := strings.levenshtein( s1, s2 )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.levenshtein
 ------------------------------------------------------------------------------
 
 procedure ParseStringsLevenshtein( result : out storage; kind : out identifier ) is
@@ -2241,12 +2296,13 @@ begin
   end if;
 end ParseStringsLevenshtein;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS SOUNDEX
+--  PARSE STRINGS SOUNDEX                                  (built-in function)
 --
--- Syntax: soundex( s )
--- Source: N/A
+-- AdaScript Syntax: n := strings.soundex( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.soundex
 ------------------------------------------------------------------------------
 
 procedure ParseStringsSoundex( result : out storage; kind : out identifier ) is
@@ -2267,12 +2323,13 @@ begin
   end if;
 end ParseStringsSoundex;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS WORD COUNT
+--  PARSE STRINGS WORD COUNT                               (built-in function)
 --
--- Syntax: word_count( s )
--- Source: N/A
+-- AdaScript Syntax: n := strings.word_count( s )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.word_count
 ------------------------------------------------------------------------------
 
 procedure ParseStringsWordCount( result : out storage; kind : out identifier ) is
@@ -2293,12 +2350,13 @@ begin
   end if;
 end ParseStringsWordCount;
 
-
 ------------------------------------------------------------------------------
---  PARSE STRINGS COMPARE
+--  PARSE STRINGS COMPARE                                  (built-in function)
 --
--- Syntax: i := compare( s, t [,c [,l] ] )
--- Source: N/A
+-- AdaScript Syntax: i := strings.compare( s, t [, c [, l] ] )
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: pkg_strings.html#strings.compare
 ------------------------------------------------------------------------------
 
 procedure ParseStringsCompare( result : out storage; kind : out identifier ) is

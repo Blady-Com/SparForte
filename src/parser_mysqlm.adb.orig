@@ -1313,7 +1313,7 @@ procedure ParseMySQLMRewind renames not_configured;
 #end if;
 #if MYSQL
 -----------------------------------------------------------------------------
---  PARSE MYSQL M(ultiple) REWIND                        (built-in procedure)
+--  PARSE MYSQL M(ultiple) FETCH                         (built-in procedure)
 --
 -- AdaScript Syntax: mysqlm.fetch( q [, i] )
 --       Ada Target: APQ.Fetch

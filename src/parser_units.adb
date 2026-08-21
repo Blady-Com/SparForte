@@ -59,6 +59,7 @@ units_sqcm2sqin_t  : identifier;
 units_sqm2sqft_t   : identifier;
 units_sqm2sqyd_t   : identifier;
 units_sqkm2sqmiles_t : identifier;
+units_sqmiles2sqkm_t : identifier;
 units_hectares2acres_t : identifier;
 units_oz2grams_t   : identifier;
 units_lb2kg_t      : identifier;
@@ -278,7 +279,7 @@ end ParseUnitsM2Yards;
 -----------------------------------------------------------------------------
 --  PARSE UNITS KM 2 MILES                                (built-in function)
 --
--- AdaScript Syntax: units.m2yards( expr );
+-- AdaScript Syntax: units.km2miles( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_units.html#units.km2miles
@@ -413,7 +414,7 @@ end ParseUnitsSqCm2SqIn;
 -- AdaScript Syntax: units.sqm2sqft( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.sqcm2sqin
+--   SparForte Docs: doc/pkg_units.html#units.sqm2sqft
 --       Conversion: sq m * 10.7639
 -----------------------------------------------------------------------------
 
@@ -458,7 +459,7 @@ end ParseUnitsSqM2SqYd;
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_units.html#units.sqkm2sqmiles
---       Conversion: sq km * 0.38611
+--       Conversion: sq km * 0.386102
 -----------------------------------------------------------------------------
 
 procedure ParseUnitsSqKm2SqMiles( result : out storage; kind : out identifier ) is
@@ -469,8 +470,30 @@ begin
   kind := long_float_t;
   expect( subprogramId );
   ParseSingleNumericParameter( subprogramId, expr, expr_type );
-  ParseSimpleConversion( subprogramId, result, expr, 0.38611 );
+  ParseSimpleConversion( subprogramId, result, expr, 0.386102 );
 end ParseUnitsSqKm2SqMiles;
+
+
+-----------------------------------------------------------------------------
+--  PARSE UNITS SQ MILES 2 SQ KM                          (built-in function)
+--
+-- AdaScript Syntax: units.sqmiles2sqkm( expr );
+--       Ada Target: N/A
+--   GNAT Spec File: N/A
+--   SparForte Docs: doc/pkg_units.html#units.sqmiles2sqkm
+--       Conversion: sq miles * 2.58998
+-----------------------------------------------------------------------------
+
+procedure ParseUnitsSqMiles2SqKm( result : out storage; kind : out identifier ) is
+  expr : storage;
+  expr_type : identifier;
+  subprogramId : constant identifier := units_sqmiles2sqkm_t;
+begin
+  kind := long_float_t;
+  expect( subprogramId );
+  ParseSingleNumericParameter( subprogramId, expr, expr_type );
+  ParseSimpleConversion( subprogramId, result, expr, 2.58998 );
+end ParseUnitsSqMiles2SqKm;
 
 
 -----------------------------------------------------------------------------
@@ -606,12 +629,12 @@ end ParseUnitsTons2Tonnes;
 
 
 -----------------------------------------------------------------------------
---  PARSE UNITS TONNES 2 TONS                             (built-in function)
+--  PARSE UNITS GRAMS 2 OZ                                (built-in function)
 --
--- AdaScript Syntax: units.tonnes2tons( expr );
+-- AdaScript Syntax: units.grams2oz( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.tonnes2tons
+--   SparForte Docs: doc/pkg_units.html#units.grams2oz
 --       Conversion: tonnes * 0.3527
 -----------------------------------------------------------------------------
 
@@ -674,7 +697,7 @@ end ParseUnitsTonnes2Tons;
 -----------------------------------------------------------------------------
 --  PARSE UNITS FL OZ 2 ML                                (built-in function)
 --
--- AdaScript Syntax: units.floz2mls( expr );
+-- AdaScript Syntax: units.floz2ml( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_units.html#units.floz2ml
@@ -696,10 +719,10 @@ end ParseUnitsFlOz2Ml;
 -----------------------------------------------------------------------------
 --  PARSE UNITS US FL OZ 2 ML                             (built-in function)
 --
--- AdaScript Syntax: units.floz2mls( expr );
+-- AdaScript Syntax: units.floz2ml( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.floz2mls
+--   SparForte Docs: doc/pkg_units.html#units.floz2ml
 --       Conversion: U.S. fl oz * 29.57
 -----------------------------------------------------------------------------
 
@@ -832,7 +855,7 @@ end ParseUnitsMl2USFlOz;
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_units.html#units.floz2usfloz
---       Conversion: ml * 0.961
+--       Conversion: floz * 0.961
 -----------------------------------------------------------------------------
 
 procedure ParseUnitsFlOz2USFlOz( result : out storage; kind : out identifier ) is
@@ -898,7 +921,7 @@ end ParseUnitsL2Gal;
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_units.html#units.f2c
---       Conversion: f = 5/9*(c-32)
+--       Conversion: c = 9/5f+32
 -----------------------------------------------------------------------------
 
 procedure ParseUnitsF2C( result : out storage; kind : out identifier ) is
@@ -928,7 +951,7 @@ end ParseUnitsF2C;
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_units.html#units.c2f
---       Conversion: c = 9/5f+32
+--       Conversion: f = 5/9*(c-32)
 -----------------------------------------------------------------------------
 
 procedure ParseUnitsC2F( result : out storage; kind : out identifier ) is
@@ -1061,7 +1084,7 @@ end ParseUnitsL2USDryGal;
 -- AdaScript Syntax: units.usliqgal2l( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.usliqgal2l
+--   SparForte Docs: doc/pkg_units.html#units.usliqgal2l
 --       Conversion: lg * 3.7854
 -----------------------------------------------------------------------------
 
@@ -1105,7 +1128,7 @@ end ParseUnitsL2USLiqGal;
 -- AdaScript Syntax: units.troz2g( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.troz2g
+--   SparForte Docs: doc/pkg_units.html#units.troz2g
 --       Conversion: toz * 31.1035
 -----------------------------------------------------------------------------
 
@@ -1128,7 +1151,7 @@ end ParseUnitsTrOz2G;
 -- AdaScript Syntax: units.g2troz( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.g2troz
+--   SparForte Docs: doc/pkg_units.html#units.g2troz
 --       Conversion: g * 0.03215
 -----------------------------------------------------------------------------
 
@@ -1150,7 +1173,7 @@ end ParseUnitsG2TrOz;
 -- AdaScript Syntax: units.cucm2floz( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.cucm2floz
+--   SparForte Docs: doc/pkg_units.html#units.cucm2floz
 --       Conversion: cucm * 0.03519
 -----------------------------------------------------------------------------
 
@@ -1172,7 +1195,7 @@ end ParseUnitsCuCm2FlOz;
 -- AdaScript Syntax: units.floz2cucm( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.floz2cucm
+--   SparForte Docs: doc/pkg_units.html#units.floz2cucm
 --       Conversion: oz * 28.413
 -----------------------------------------------------------------------------
 
@@ -1189,12 +1212,12 @@ end ParseUnitsFlOz2CuCm;
 
 
 -----------------------------------------------------------------------------
---  PARSE UNITS FL OZ 2 US FL OZ                          (built-in function)
+--  PARSE UNITS CU CM 2 US FL OZ                          (built-in function)
 --
--- AdaScript Syntax: units.floz2usfloz( expr );
+-- AdaScript Syntax: units.cucm2usfloz( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.floz2usfloz
+--   SparForte Docs: doc/pkg_units.html#units.cucm2usfloz
 --       Conversion: floz * 0.3381
 -----------------------------------------------------------------------------
 
@@ -1216,7 +1239,7 @@ end ParseUnitsCuCm2USFlOz;
 -- AdaScript Syntax: units.usfloz2cucm( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.usfloz2cucm
+--   SparForte Docs: doc/pkg_units.html#units.usfloz2cucm
 --       Conversion: floz * 29.5735
 -----------------------------------------------------------------------------
 
@@ -1238,7 +1261,7 @@ end ParseUnitsUSFlOz2CuCm;
 -- AdaScript Syntax: units.bytes2mb( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.bytes2mb
+--   SparForte Docs: doc/pkg_units.html#units.bytes2mb
 --       Conversion: bytes / 1024 / 1024
 -----------------------------------------------------------------------------
 
@@ -1268,7 +1291,7 @@ end ParseUnitsBytes2MB;
 -- AdaScript Syntax: units.mb2bytes( expr );
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
---   SparForte Docs: doc/pkg_units.html#units.units.mb2bytes
+--   SparForte Docs: doc/pkg_units.html#units.mb2bytes
 --       Conversion: mb * 1024 * 1024
 -----------------------------------------------------------------------------
 
@@ -1310,6 +1333,7 @@ begin
   declareFunction( units_sqm2sqft_t, "units.sqm2sqft", ParseUnitsSqM2SqFt'access );
   declareFunction( units_sqm2sqyd_t, "units.sqm2sqyd", ParseUnitsSqM2SqYd'access );
   declareFunction( units_sqkm2sqmiles_t, "units.sqkm2sqmiles", ParseUnitsSqKm2SqMiles'access );
+  declareFunction( units_sqmiles2sqkm_t, "units.sqmiles2sqkm", ParseUnitsSqMiles2SqKm'access );
   declareFunction( units_hectares2acres_t, "units.hectares2acres", ParseUnitsHectares2Acres'access );
   declareFunction( units_oz2grams_t, "units.oz2grams", ParseUnitsOz2Grams'access );
   declareFunction( units_lb2kg_t, "units.lb2kg", ParseUnitsLb2Kg'access );

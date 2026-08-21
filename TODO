@@ -42,6 +42,7 @@ Long term Ongoing Work
 - doubly_linked_lists documentation - links are missing on See Also items
 - review schema/list functions in database packages for SQL escaping.  Using
   APQ correctly to ensure values are escaped.
+- record.field_index (as perk DK request)
 
 - value meta labels project
   - NOTE: left off recreation of good testing of value meta labels with arrays package

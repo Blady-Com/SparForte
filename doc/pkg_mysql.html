@@ -50,9 +50,9 @@
 <pre>
   <a href="#mysql.connect">connect( d [, u, w ][, h][, p] )</a>
   <a href="#mysql.append">append( s [, a] )</a>           <a href="#mysql.prepare">prepare( s [, a] )</a>
-  <a href="#mysql.append_line">append_line( s )</a>            <a href="#mysql.append_quoted">append_quoted( s )</a>
+  <a href="#mysql.append_line">append_line( s )</a>            <a href="#mysql.append_quoted">append_quoted( s [, a] )</a>
   <a href="#mysql.execute">execute</a>                     <a href="#mysql.execute_checked">execute_checked( [ s ] )</a>
-  <a href="#mysql.disconnect">disconnect</a>                  <a href="#mysql.is_connected">is_connected</a>
+  <a href="#mysql.disconnect">disconnect</a>                  <a href="#mysql.b := is_connected">is_connected</a>
   <a href="#mysql.reset">reset</a>                       <a href="#mysql.error_message">s := error_message</a>
   <a href="#mysql.databases">databases</a>                   <a href="#mysql.in_abort_state">b := in_abort_state</a>
   <a href="#mysql.options">s := options</a>                <a href="#mysql.set_rollback_on_finalize">set_rollback_on_finalize( b )</a>
@@ -208,7 +208,7 @@
 </tr>
 </table>
 
-<a id="mysql.append_quoted"></a><h3>mysql.append_quoted( s )</h3>
+<a id="mysql.append_quoted"></a><h3>mysql.append_quoted( s [, a] )</h3>
 <table class="package_subprogram" summary="description of this package subprogram">
 <tr>
 <td width="15%">&nbsp;</td>

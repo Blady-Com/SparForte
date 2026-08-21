@@ -92,3 +92,15 @@ CHANGES SINCE 3.0
 
 42. Fix: mysql.schema and mysqlm.schema fixed to do a "select" rather than "show" query.
 
+43. Fix: sound package no longer restarts gstreamer if reinitialized more than once.
+
+44. Fix: text_io is_open fixed for current_error.
+
+45. Fix: text_io close and delete will not close/delete current output or current error.
+
+46. Fix: units.sqmiles2sqkm was documented was missing but now implemented.
+
+47. Fix: units package documentation dry and liquid ounces corrected to dry and liquid gallons.
+
+48. Fix: fixed TODO for vectors package find/reverse_find memory leak.
+
