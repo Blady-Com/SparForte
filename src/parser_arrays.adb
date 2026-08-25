@@ -354,6 +354,7 @@ begin
      identifiers( arrayBeingSortedId ).aStorage( long_integer(To)+offsetArrayBeingSorted ) := data;
    end if;
 end moveElement;
+pragma inline( moveElement );
 
 -----------------------------------------------------------------------------
 --  LT STRING
@@ -378,6 +379,7 @@ begin
   end if;
   return data1.value < data2.value;
 end Lt_string;
+pragma inline( Lt_string );
 
 -----------------------------------------------------------------------------
 --  LT STRING DESCENDING
@@ -402,6 +404,7 @@ begin
   end if;
   return data1.value > data2.value;
 end Lt_string_descending;
+pragma inline( Lt_string_descending );
 
 -----------------------------------------------------------------------------
 --  LT NUMERIC
@@ -436,6 +439,7 @@ begin
   end;
   return result;
 end Lt_numeric;
+pragma inline( Lt_numeric );
 
 -----------------------------------------------------------------------------
 --  LT NUMERIC DESCENDING
@@ -470,6 +474,7 @@ begin
   end;
   return result;
 end Lt_numeric_descending;
+pragma inline( Lt_numeric_descending );
 
 
 -----------------------------------------------------------------------------
@@ -724,6 +729,9 @@ end ParseArraysHeapSortDescending;
 --       Ada Target: N/A
 --   GNAT Spec File: N/A
 --   SparForte Docs: doc/pkg_arrays.html#arrays.shuffle
+--
+-- The random number generator is defined in the world package and is reset
+-- in the interpretor package.
 -----------------------------------------------------------------------------
 
 procedure ParseArraysShuffle is

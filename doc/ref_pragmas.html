@@ -1,0 +1,1611 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/transitional.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <META NAME="description" CONTENT="SparForte language documentation">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SparForte - Reference - Interpreter Directives</title>
+	<link rel="StyleSheet" type="text/css" media="screen" href="art/sparforte.css">
+</head>
+<body bgcolor="#FFFFFF"><a name="top"></a>
+	<table width="100%" cellspacing="0" cellpadding="0" summary="page layout">
+		<tr><td align="left"><img src="art/sparforte.png" alt="[SparForte]"></td><td align="right"><img src="art/header_cloud.png" alt="[Banner]"></td></tr>
+		<tr><td background="art/header_border.png" height="10" colspan="2"></td></tr>
+		<tr><td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0" summary="top menu">
+			<tr>
+				<td width="10"><img src="art/menu_left.png" alt="[Top Main Menu]"></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="intro_preface.html">Intro</a></td>
+				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="tutorial_1.html">Tutorials</a></td>
+				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="ref_adascript.html"><b>Reference</b></a></td>
+				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="packages.html">Packages</a></td>
+				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="../examples/index.html">Examples</a></td>
+				<td background="art/menu_border.png" align="center"><span class="menutext">|</span></td>
+				<td width="85" background="art/menu_border.png" align="center"><a class="menutext" href="cont_vision.html">Contributors</a></td>
+				<td background="art/menu_border.png" align="center">&nbsp;</td>
+				<td background="art/menu_border.png" align="right"><a href="ref_numberformat.html"><img src="art/left_arrow.png" width="27" height="24" alt="[Back Page]" border="0"></a><span class="menutext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="ref_cmdoptions.html"><img src="art/right_arrow.png" width="27" height="24" alt="[Next Page]" border="0"></a></td>
+				<td background="art/menu_border.png">&nbsp;</td>
+</tr></table></td></tr>
+	</table>
+	<noscript>
+	<a href="#submenu">[Jump to Submenu]</a>
+	<hr />
+	</noscript>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="content and right submenu">
+		<tr>
+			<td align="left" valign="top">
+	<!-- Content Area -->
+<h2><a name="3.26"></a>Interpreter Directives</h2>
+
+<p>Pragmas, or interpreter directives, provide additional instructions to
+AdaScript.  This section also contains information on importing variables to
+and exporting variables from other software, such as the operating system
+environment.</p>
+
+<h3>The Pragmas</h3>
+
+        <center>
+        <div class="code">
+<pre>
+  <b>pragma</b> ada_95
+  <b>pragma</b> advise( from, message )
+  <b>pragma</b> affinity( affinity [,weight] )
+  <b>pragma</b> annotate( [type,]"text" )
+  <b>pragma</b> assert( condition )
+  <b>pragma</b> assumption( applied | factor | used | written, var )
+  <b>pragma</b> clarify( from, message )
+  <b>pragma</b> constraint( constraint, name [,weight] )
+  <b>pragma</b> debug( `commands` )
+  <b>pragma</b> declare_affinity( mode, affinity [,limit] )
+  <b>pragma</b> declare_constraint( mode, constraint, name [,limit] )
+  <b>pragma</b> depreciated/deprecated( "newscript" )
+  <b>pragma</b> dispute( from, message )
+  <b>pragma</b> error( "message" )
+  <b>pragma</b> export( shell | local_memcache | memcache | session , var )
+  <b>pragma</b> export_json( shell | local_memcache | memcache | session , var )
+  <b>pragma</b> gcc_errors
+  <b>pragma</b> import( shell | cgi | local_memcache | memcache | session, var )
+  <b>pragma</b> import_json( shell | cgi | local_memcache | memcache | session, var )
+  <b>pragma</b> inspect( var )
+  <b>pragma</b> inspection_peek
+  <b>pragma</b> inspection_point
+  <b>pragma</b> license( license_name [, extra] )
+  <b>pragma</b> no_command_hash
+  <b>pragma</b> prompt_script( `commands` )
+  <b>pragma</b> prompt_idle_script( `commands` )
+  <b>pragma</b> prompt_idle_speed( interval )
+  <b>pragma</b> propose( from, message )
+  <b>pragma</b> refactor( from, message )
+  <b>pragma</b> restriction( no_annotate_todos )
+  <b>pragma</b> restriction( annotations_not_optional )
+  <b>pragma</b> restriction( no_auto_declarations )
+  <b>pragma</b> restriction( no_external_commands )
+  <b>pragma</b> restriction( no_memcache )
+  <b>pragma</b> restriction( no_mysql_database )
+  <b>pragma</b> restriction( no_postgresql_database )
+  <b>pragma</b> restriction( no_prompt_history )
+  <b>pragma</b> restriction( no_risky_side_effects )
+  <b>pragma</b> restriction( no_unused_identifiers )
+  <b>pragma</b> restriction( no_volatiles )
+  <b>pragma</b> session_export_script( `commands` )
+  <b>pragma</b> session_import_script( `commands` )
+  <b>pragma</b> software_model( model_name )
+  <b>pragma</b> suppress( word_quoting )
+  <b>pragma</b> suppress( all_todos_on_release )
+  <b>pragma</b> suppress( low_priority_todos_for_release )
+  <b>pragma</b> suppress( no_empty_command_substitutions )
+  <b>pragma</b> template( css|html|js|json|text|toml|wml|xml|yaml [, path] )
+  <b>pragma</b> todo( to, story, measure, units, priority, units [, ticket] )
+  <b>pragma</b> test( condition [, "description" )
+  <b>pragma</b> test_report( text|xml [, "filepath"] )
+  <b>pragma</b> test_result( condition )
+  <b>pragma</b> unchecked_import( shell | cgi | local_memcache | memcache | session, var )
+  <b>pragma</b> unchecked_volatile( var [,ttl] )
+  <b>pragma</b> uninspect( var )
+  <b>pragma</b> unrestricted_template( css|html|js|json|text|toml|wml|xml|yaml [, path] )
+  <b>pragma</b> volatile( var [,ttl] )
+</pre>
+                <br>
+        <div class="code_caption">
+                <b>Help Command</b>: The List of Pragmas</span>
+        </div>
+        </div>
+	</center>
+
+<p>The name of the pragma, and any argument identifier not in quote
+marks, are not treated as constants and do not have to be declared.
+The arguments are specific to the pragmas they refer to.</p>
+
+<p>If a pragma is not recognized, it is treated as an error.</p>
+
+<p><b>Ada</b>: If a pragma is not recognized, it is ignored by Ada.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> annotate( summary, "arraysum" );<br>
+<b>pragma</b> annotate( description, "Compute the sum and product of an array of integers." );<br>
+<b>pragma</b> annotate( see_also, "http://rosettacode.org/wiki/Sum_and_product_of_an_array" );<br>
+<b>pragma</b> annotate( author, "Ken O. Burtch" );<br>
+<br>
+<b>pragma</b> license( unrestricted );<br>
+<br>
+<b>pragma</b> software_model( shell_script );<br>
+<b>pragma</b> restriction( no_external_commands );<br>&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: An example of pragmas</span>
+        </div>
+        </div>
+        </center>
+
+<h4>Pragma Expressions</h4>
+
+<p>Some pragmas may use an expression.  Depending on the pragma, the expression
+can be either a normal expression or a static expression.</p>
+
+<p>If the pragma takes effect when a script is loaded, or if the pragma may be
+interpreted by the help command, the expression must be static.  A static
+expression is one that can be computed before the program is loaded, one that
+uses only literals or system-defined constants.  User-defined variables,
+constants and functions cannot be used since those things don't yet exist.</p>
+
+<p>If the pragma takes effect when a script is running, and it is not
+interpreted by the help command, the expression can be a normal expression.
+User-defined variables, constants and functions can be used.</p>
+
+<h4>Pragma Blocks</h4>
+
+<p>A group of consecutive pragmas can be declared in a pragma block.  A
+pragma block starts with "pragma is" and ends with "end pragma".</p>
+
+<h4>Pragma Chains</h4>
+
+<p>Pragmas can be repeated by chaining them together using @.  Chains can
+be used with both standalone pragmas and pragma blocks.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> <b>is</b><br>
+&nbsp;&nbsp;annotate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;( summary, "arraysum" ) @<br>
+&nbsp;&nbsp;&nbsp;&nbsp;( description, "Compute the sum and product of an array of integers." )@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;( see_also, "http://rosettacode.org/wiki/Sum_and_product_of_an_array" )@<br>
+&nbsp;&nbsp;&nbsp;&nbsp;( author, "Ken O. Burtch" );<br>
+<br>
+&nbsp;&nbsp;license( unrestricted );<br>
+<br>
+&nbsp;&nbsp;software_model( shell_script );<br>
+&nbsp;&nbsp;restriction( no_external_commands );<br>
+<b>end</b> <b>pragma</b>;<br>&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: An example of pragma block with a pragma chain</span>
+        </div>
+        </div>
+        </center>
+
+<h4>Design Pragmas</h4>
+
+<p><b>Introduced</b>: SparForte 2.3.1</p>
+
+<p>Design constraint describe real-world concerns that affect
+the design of a project.  The idea is like sticky notes attached
+to the source code, identifying where the source code may be
+"network-bound", where reliability is important, financial
+issues, team dynamics, where there
+is uncertainty in the requirements and so forth.  This
+assists in the design phase or in refactoring source code
+later in the project's life cycle.</p>
+
+<p>When design constraints conflict, an error will occur.  Either
+a constraint must be removed, or the work must be split into
+separate files.  For example, if a file contains both network-bound
+routines (physical/network) and CPU-bound routines (physical/cpu),
+SparForte will report a physical constraint conflict: the network-bound
+routines and the CPU-bound routines must be placed in different files
+to resolve the conflict</p>
+
+<p>Design constraints represent real-world issues.  SparForte provides
+some basic constraints, but there is a pragma to declare custom
+constraints that your project needs.</p>
+
+<ul>
+  <li> <b>declare_constraint( mode, constraint,  name|"name" [, limit] )</b> - declares a
+new design constraint and value pair.  There is an optional float weight limit.
+Each pair has an associated mode: unique, file or subprogram.</li>
+  <li> <b>constraint( constraint,  name|"name" [, weight] )</b> - enforces a design constraint
+with the given value for the current file.  There is an optional float weight
+which is added to the constraint each time it is used.  There will be an
+error if the total weight exceeds the weight limit.
+The affect of the constraint depends on the constraint mode:</li>
+<li><ul>
+<li> <b>unique</b>  If the constraint is declared as a unique constraint,
+it cannot be enforced twice in a file or an error will occur.</li>
+<li><b>file</b> If the constraint is declared as a file
+constraint, it can only be constrained to one value within
+a file.  The same constraint can be repeated.  If the
+constraint is enforced twice each to a different value, an
+error will occur.</li>
+<li> <b>subprogram</b>  If the constraint is declared as a subprogram constraint,
+it is enforced in the scope of the subprogram where it is used.</li>
+</ul>
+</li></ul>
+
+<p>These are the predefined constraint/value pairs are:</p>
+
+<ul>
+  <li>physical / cpu - a file constraint. This is CPU-bound, heavily uses CPU.</li>
+  <li>physical / memory - a file constraint. This is memory-bound, heavily uses memory.</li>
+  <li>physical / network - a file constraint. This is network-bound, heavily uses networking.</li>
+  <li>physical / storage - a file constraint. This is storage-bound, heavily uses storage.</li>
+  <li>physical / uncertain - a unique constraint. uncertain physical requirements</li>
+  <li>optimization / complexity - a file constraint. This section of source code encapsulates complexity.</li>
+  <li>optimization / maintenance- a file constraint. This section of should be easy to maintain.</li>
+  <li>optimization / performance - a file constraint.  This section must execute quickly.</li>
+  <li>optimization / reliability - a file constraint.  This section must be few bugs.</li>
+  <li>optimization / reusable - a file constraint.  This section must be reusable.</li>
+  <li>optimization / scalability - a file constraint. This section of source code must be scalable.</li>
+  <li>optimization / size - a file constraint.  This section must use resources efficiently.</li>
+  <li>optimization / uncertain - a unique constraint.  There is uncertainty over how this section should be optmized.</li>
+  <li>knowledge / uncertain - a unique constraint.  There is research before this section can be implemented.  The design is a "black box".</li>
+</ul>
+
+<p>With a file constraint, only one value is allowed in a source file.
+In this next example, you can use scalability optimization all that
+you want, but you cannot have two types of optimization in one source
+file.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> constraint( optimization, scalability ); -- this source code file must be scalable<br />
+...<br />
+<b>pragma</b> constraint( optimization, scalability ); -- may be used more than once in one file<br />
+<b>pragma</b> constraint( optimization, size ); -- error: different values not allowed in one file<br />
+&nbsp;<br>
+        <div class="code_caption">
+                <b>Example</b>: File Design Constraints</span>
+        </div>
+        </div>
+        </center>
+
+<p>Unique constraints can only be used once in a source file,
+even if the values are the same.  In this case, uncertainty should be isolated
+in separate files.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> constraint( physical, uncertain ); -- physical impacts for this source code file are uncertain<br />
+...<br />
+<b>pragma</b> constraint( physical, uncertain ); -- error: each uncertain part should be in a separate file<br />
+&nbsp;<br>
+        <div class="code_caption">
+                <b>Example</b>: Unique Design Constraints</span>
+        </div>
+        </div>
+        </center>
+
+<p>This next example shows how to define your own constraints.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> declare_constraint( file, development_team, "Team A" ); -- defining development teams<br />
+<b>pragma</b> declare_constraint( file, development_team, team_b ); -- defining development teams<br />
+<b>pragma</b> declare_constraint( file, quota, network_bandwidth, 100 ); -- limit on network use<br />
+...<br />
+<b>pragma</b> constraint( development_team, "Team A" ); -- this source code file owned by Team A<br />
+<b>pragma</b> constraint( quota, network_bandwidth, 10 ); -- spend 10 from network bandwidth quota<br />
+<b>pragma</b> constraint( development_team, team_b ); -- error: two teams assigned to one source file<br />
+&nbsp;<br>
+        <div class="code_caption">
+                <b>Example</b>: Examples of custom design constraints</span>
+        </div>
+        </div>
+        </center>
+
+<p>This next example shows limits and weights.  Suppose that your project has
+two budgets.  You can define the budget amounts and spend portions of the
+budget in your design.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> declare_constraint( file, financing, app_budget, 10000 ); -- a $10,000 budget the application<br />
+<b>pragma</b> declare_constraint( file, financing, db_budget,  5000 ); -- a $5,000 budget for databases<br />
+...<br />
+<b>pragma</b> constraint( financing, app_budget, 1000 ); -- spend 1000 dollars of the app budget<br />
+<b>pragma</b> constraint( financing, app_budget, 1000 ); -- spend another 1000 dollars<br />
+<b>pragma</b> constraint( financing, app_budget, 8000 ); -- error: exceeded our app budget<br />
+<b>pragma</b> constraint( financing, db_budget,  1000 ); -- error: conflict because two different budgets used within one source file<br />
+&nbsp;<br>
+        <div class="code_caption">
+                <b>Example</b>: Design constraints with Weights</span>
+        </div>
+        </div>
+        </center>
+
+<p>Design affinities are the opposite of design constraints.  They indicate when
+parts of the projects should be drawn together into one place.  Affinities can
+have an optional maximum limit.</p>
+
+<ul>
+  <li> <b>declare_affinity( mode, affinity [, limit] )</b> - declares a
+new design affinity.  There is an optional float weight limit.
+Each affinity has an associated mode: file or local.</li>
+  <li> <b>affinity( affinity [, weight] )</b> - enforces a design affinity
+for the current file.  There is an optional float weight
+which is added to the affinity each time it is used.  There will be an
+error if the total weight is more than the weight limit.
+The affect of the affinity depends on the affinity mode:</li>
+<li><ul>
+<li><b>file</b> If the affinity is declared as a file
+affinity, every use must be in the same file.  If the
+affinity is enforced in two different files, an error will occur.</li>
+<li><b>subprogram</b> If the affinity is declared as a subprogram
+affinity, every use must be in the same procedure or function.  If the
+affinity is enforced in two different subprograms, an error will occur.</li>
+</ul>
+</li></ul>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> define_affinity( file, accounting_server ); -- the accounting stuff will be collected into one server<br />
+<b>pragma</b> define_affinity( file, inventory_pod ); -- the inventory stuff will be collected into one container/pod<br />
+<b>pragma</b> affinity( accounting_server );<br />
+... and in another with separate file...<br />
+<b>pragma</b> affinity( accounting_server ); -- error: file affinity: stuff labelled for accounting_server should be defined in the same file<br />
+&nbsp;<br>
+        <div class="code_caption">
+                <b>Example</b>: File Design Affinities</span>
+        </div>
+        </div>
+        </center>
+
+
+<p>Weight and limits can use static expressions (that is, expressions that don't
+require user variables).</p>
+
+<p>Constraints and affinities cannot be used at the command prompt.</p>
+
+<p>For performance reasons, constraints and affinities are not applied in maintenance phase mode.</p>
+
+<h4>Architectural Pragmas</h4>
+
+<p>Interpreter directives addressing business concerns, data design,
+application design, technical design / use-of-hardware or the overall
+vision of a project.  This includes portability, standards compliance,
+licensing and feature restriction.</p>
+
+<ul>
+  <li> <b>pragma ada_95 </b>- requires the script syntax be as close
+  to Ada 95 as possible, otherwise errors will occur.</li>
+  <li><b>pragma deprecated( "newscript" )</b>
+- another name for pragma depreciated.<br>
+  </li>
+  <li> <b>pragma depreciated( "newscript" )</b> - when script finishes
+execution,
+SparForte will warn that the script is obsolete and has been superseded for
+"newscript".  The script name can be a static string expression.  If
+running in design mode, the message will be reported as an error.</li>
+  <li><b>pragma license( license_name [, "extra"] )</b> - declare the
+license for the script.  license_name can be:<br>
+<ul>
+<li><b>agpl</b> - Affero GPL</li>
+<li><b>apache</b> - Apache Software License v1.0</li>
+<li><b>apache_2</b> - Apache Software License v2.0</li>
+<li><b>artistic</b> - Artistic License</li>
+<li><b>bsd_original</b> - BSD License (Original)</li>
+<li><b>bsd_revised</b> - BSD License (Revised)</li>
+<li><b>commercial</b> - A commercial license</li>
+<li><b>freeware</b>- A freeware license</li>
+<li><b>gpl</b> - GNU General Public License</li>
+<li><b>gplv2</b> - GNU General Public License v2.0</li>
+<li><b>gplv3</b> - GNU General Public License v3.0</li>
+<li><b>mit</b> - MIT License</li>
+<li><b>public_domain</b> - Public Domain</li>
+<li><b>restricted</b> - An restricted license</li>
+<li><b>shareware</b> - A shareware license</li>
+<li><b>unrestricted</b> - An unrestricted license</li>
+</ul>
+If extra exists, it is a string further describing the license (for example,
+commercial/"trial license" or commercial/"15 users".  The extra string
+can also be a URL to a complex license.
+Only one license is permitted.  The name can be read from the
+System package.<br>
+<u>GCC Ada</u>: unrestricted, gpl and unrestricted are recognized by Ada.  It
+doesn't support the extra string.  It treats these as levels and will
+try to validate license compatibility where possible.</li>
+  <li> <b>pragma restriction( annotations_not_options )</b> - if no pragma
+annotate's are in the script, report an error after the script runs.
+This is intended as a way to require developers to write
+documentation.</li>
+  <li> <b>pragma restriction( no_annotate_todos )</b> - if pragma
+annotate todo is used, report an error after the script runs.  This
+is intended for use in UAT or production environments where all
+"todo" work should be completed earlier.</li>
+  <li> <b>pragma restriction( no_auto_declarations )</b> - disable
+automatic declaration
+at the command prompt</li>
+  <li> <b>pragma restriction( no_external_commands )</b> - disable
+operating system
+commands. Provides portability by ensuring no commands besides SparForte's
+built-in
+commands are executed. Useful for applications using SparForte as a run-time
+scripting language and not for shell scripting.</li>
+  <li> <b>pragma restriction( no_memcache )</b> - disable
+connections to Memcached.  Doesn't prevent other programs from using
+Memcached.</li>
+  <li> <b>pragma restriction( no_mysql_database )</b> - disable
+connections to a MySQL database.  Doesn't prevent the mysql client or
+other programs from using MySQL.</li>
+  <li> <b>pragma restriction( no_postgresql_database )</b> - disable
+connections to a PostgreSQL database.  Doesn't prevent the psql client or
+other programs from using PostgreSQL.</li>
+  <li> <b>pragma restriction( no_prompt_history )</b> - when this
+pragma is used, the interactive prompt history will not be saved when
+SparForte is shutting down.  Perhaps useful for admin users to prevent
+confidential information from being saved in clear text.</li>
+other programs from using PostgreSQL.</li>
+  <li> <b>pragma restriction( no_risky_side_effects )</b> - enable
+checking for some common risky side-effect behaviours.  It also makes
+contracts run in restricted shell mode.  This may reduce performance.
+It should be enabled for high-integrity applications.</li>
+  <li> <b>pragma restriction( no_unused_identifiers )</b> - normally in
+testing mode,
+SparForte will not check enumerated types to see if they are mentioned.
+Often the type name is not used, or not all item names are explicitly
+used.  However, using this pragma will check to ensure every enumerated
+type and item is used at least one time.</li>
+  <li> <b>pragma software_model( model_name )</b> - declare the general
+software pattern or model best describing this script. model_name can
+be:<br>
+<ul>
+<li><b>application_desktop</b> - a mouse-and-windows application</li>
+<li><b>application_mobile</b> - application for a small device</li>
+<li><b>application_realtime</b> - an application with strict time constraints</li>
+<li><b>application_realtime_ravenscar</b> - an application with strict time constraints adhering to the Ravenscar model</li>
+<li><b>daemon</b> - a server that is not an HTTP server</li>
+<li><b>daemon_proxy</b> - a server proxy that is not an HTTP proxy</li>
+<li><b>http_framework</b> - a web development library</li>
+<li><b>http_service_external</b> - public facing web service</li>
+<li><b>http_service_internal</b> - private web service</li>
+<li><b>http_site_external</b> - public facing web site or page</li>
+<li><b>http_site_internal</b> - private/intranet web site or page</li>
+<li><b>http_proxy</b> - a web service to direct or cache requests</li>
+<li><b>http_form</b> - a web script to do data entry</li>
+<li><b>package</b> - a library</li>
+<li><b>shell_batch</b> - a script to control a process</li>
+<li><b>shell_filter_script</b> - a script that uses standard input and output to transform data</li>
+<li><b>shell_report_script</b> - a script generating text reports</li>
+<li><b>shell_script</b> - that is, a command script</li>
+<li><b>multimedia</b> - media players or games</li>
+<li><b>nonstandard</b> - a custom type of software not covered by other models</li>
+<li><b>etl</b> - extract, transform, load.  that is, data conversion</li>
+<li><b>monitor</b> - a service that monitors activity</li>
+<li><b>driver</b> - a device driver</li>
+</ul>
+Only one software model is permitted.  The name can be read from the
+System package.</li>
+<li><b>pragma suppress( low_priority_todos_for_release )</b> - allow
+a project with low priority pragma todo's to pass in testing and
+maintenance SDLC modes.  Otherwise, any todo's with non-zero
+priorities or sizes are not allowed in these modes.</li>
+<li><b>pragma suppress( all_todos_on_release )</b> - allow
+all todo's to pass in testing and maintenance SDLC modes.  This
+was mainly added to aid testing the language.</li>
+</ul><br>
+
+<h4>Debugging Pragmas</h4>
+
+<p>Interpreter directives used to investigate problems in the source
+code or used with SparForte's breakout prompt, or directives to
+suppress certain error messages.</p>
+
+<ul>
+  <li> <b>pragma assert( expression )</b> - evaluates the expression.
+If it isn't true, the program stops and "assertion failed" is displayed.
+Use this to check the expected results during development.
+Requires --debug or --test options or asserts will have no effect.</li>
+  <li> <b>pragma assumption( applied, var )</b> - assume a concrete type
+was used, even if it isn't, for abstract type errors.  This is to be used
+as a work-around if the language makes a mistake.</li>
+  <li> <b>pragma assumption( factor, var )</b> - assume a variable was
+was used in an expression, even if it isn't, for limited access errors.
+This is to be used as a work-around if the language makes a mistake.</li>
+  <li> <b>pragma assumption( used, var )</b> - assume a variable is
+used in the source code, even if it isn't, for unused variable
+errors.  This is to be used as a work-around if the language makes a
+mistake.</li>
+  <li> <b>pragma assumption( written, var )</b> - assume a variable is
+written to in the source code, even if it isn't, for constant/variable
+errors.  This is to be used as a work-around if the language makes a
+mistake.</li>
+  <li> <b>pragma debug( `commands` )</b> - these are a set of
+debugging commands to run when debugging mode (the --debug option)
+is turned on with --debug.&nbsp; Make sure the final command ends with
+a semi-colon.  Without a parameter, same as --debug (turn on debugging).
+The debugging commands are run in restricted shell mode.  Because this
+is a pragma, it can be placed in variable declarations or other places
+executable statements are not normally allowed.</li>
+  <li><span style="font-weight: bold;">pragma gcc_errors</span> - same
+as --gcc-errors.&nbsp; Show simplified GCC-style errors.<br>
+  </li>
+  <li> <b>pragma inspect( var )</b> - show a variable's description
+(as if
+'env var' was used) whenever a user breaks to a command prompt. Has no
+effect if --break option isn't used.  It is not allowed in test or
+maintenance phase mode.</li>
+  <li> <b>pragma inspection_peek</b> - like inspection_point, displaying
+inspect variables, except it doesn't break to a command prompt.  It is
+not allowed in test or maintenance phase mode unless run in breakout
+mode.</li>
+  <li> <b>pragma inspection_point</b> - break to a command prompt as if
+SIGINT (control-C) was received, displaying the call stack and any
+variables marked for inspection with pragma inspect. Has no effect if
+--break option isn't used. A "break point".  It is not allowed in test
+or maintenance phase modes.</li>
+<li><b>pragma suppress( no_empty_command_substitutions )</b> - the
+Bourne shell normally runs empty commands such as `` or $() without
+an error.  For reliability purposes, AdaScript treats this as an error,
+in the same way an empty if statement is an error.  Use this pragma
+to allow empty substitutions.</li>
+<li><b>pragma suppress( word_quoting )</b> - disable style errors when
+dollar variables expansions are not double-quoted.  Dollar expansions
+should almost always be quoted to prevent whitespace from creating
+extra shell words.  However, when porting shell scripts, it can be helpful
+to allow unquoted expansions. (e.g. "echo $HOME" will no longer be
+reported as an error.)
+</li>
+  <li> <b>pragma uninspect( var )</b> - undo a pragma inspect. Don't
+show
+a
+variable's description whenever a user breaks to a command prompt. Has
+no
+effect if --break option isn't used.</li>
+</ul>
+
+<h4>Testing Pragmas</h4>
+
+<p>When running in SDLC test mode (spar -t), SparForte will run any
+testing pragmas in the script and produce a test report.  
+(Starting in SparForte 2.2.1, test mode is the default mode.)  In any
+other SDLC mode, the testing pragmas will not run.</p>
+
+<p><b>pragma test_report</b> selects the format and file path for the
+report.  The file path is a static static expression.  By default,
+the report will be in text format and written to standard output.</p>
+
+<p><b>pragma test</b> runs a test cases and gives it an optional
+description.  While running a test, there will be full access on
+assignment to limited and constant variables.  This is to make
+testing easier.</p>
+
+<p><b>pragma test_result</b>
+evaluates a Boolean expression to check to see if the test ran
+correctly.  A test case or test_result expression is an "error" if
+the test case had an error when it ran.  Otherwise, a test result
+is either successful or a failure.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+pragma test_report( text );<br />
+pragma test( `i := 1;`, "Example test case" ); -- a test case<br />
+pragma test_result( i = 1 ); -- should be successful<br />
+        <div class="code_caption">
+                <b>Example</b>: A example of a simple test</span>
+        </div>
+        </div>
+        </center>
+
+<p>Text reports are written to standard output when the script finishes
+running.  Only failed test cases are shown.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+(script finishes running...)
+End of File<br />
+^---------^ tests failed<br />
+<br />
+Test t_1: <br />
+ * Description: deliberate fail<br />
+ * Class: undefined<br />
+ * File: t<br />
+ * Line:  4<br />
+ * Test_Result's:  0<br />
+ * Failures:  0<br />
+ * Errors:  1<br />
+ * Time:  0.003516000<br />
+ * Error: t: 1: 6: in script[# 10]i := ;[# 10]     ^ operand expected<br />
+<br />
+Test t_2: <br />
+ * Description: <br />
+ * Class: undefined<br />
+ * File: t<br />
+ * Line:  6<br />
+ * Test_Result's:  2<br />
+ * Failures:  1<br />
+ * Errors:  0<br />
+ * Time:  0.000315000<br />
+ * Failure: pragma test_result( i = 0 );<br />
+<br />
+Suite Summary for t: <br />
+ * File: t<br />
+ * Tests:  1<br />
+ * Test_Result's:  3<br />
+ * Failures:  1<br />
+ * Errors:  1<br />
+ * Time:  0.004157000<br />
+        <div class="code_caption">
+                <b>Example</b>: An example of a text test report for "t.sp"</span>
+        </div>
+        </div>
+        </center>
+
+<p>XML reports are written to a file in JUnit format when the script
+finishes running.  All tests, failed or successful, are included.
+SparForte treats each file as a JUnit test suite, and each <b>pragma
+test</b> as a JUnit test case.  Each <b>pragma test_result</b> is
+treated as a JUnit assertion.  The default path for the JUnit file
+is "sparforte_test.xml".</p>
+
+<p>If any test fails (or is in error), a "tests failed" error will be
+raised when the script finishes running.</p>
+
+<p>Tests should not be used at the command prompt or in configuring
+files like a profile file.</p>
+
+<ul>
+  <li> <b>pragma test( `commands` [, "description"] )</b> -
+these are a set of testing commands to run when test mode (the --test
+option) is used.  For example, this can be used to help with unit testing.
+Because this is a pragma, it can be placed in variable declarations or
+other places executable statements are not normally allowed.  Make
+sure the final command ends with a semi-colon.  The description
+is an optional explanation of the test.</li>
+  <li> <b>pragma test_report( text|xml [, "filepath" ] )</b> - select the
+format of the test/test_result test report, and the path to the
+report file.  The path is a static expression so it can use constants.</li>
+  <li> <b>pragma test_result( expression )</b> - evaluates the Boolean
+expression.
+If it isn't true, a "test failed" message is written to standard error.
+(The format of the message is affected by --gcc-errors.) Use this to check
+the results in automated tests.
+Requires --test option or asserts will have no effect.</li>
+</ul>
+
+<p><b>pragma manual_test( owner, name, objective, description, category, preconditions, steps, postconditions, unit of work, work estimate, work priority type, work priority, ticket)</b>
+describes a test case which is not automated.  A quality testing person must
+perform this test.  This pragma documents what the testing person should do.</p>
+
+<ul>
+<li> <b>owner</b> - (teams.member) a person who manages this test</li>
+<li> <b>name</b> - (string) the name of the test</li>
+<li> <b>objective</b> - (string) the purpose of the test</li>
+<li> <b>description</b> - (string) an overall description of the test</li>
+<li> <b>category</b> - (string) a category name for the test (e.g. regression, functional, etc.)</li>
+<li> <b>environment</b> - (string) where this test may be performed (e.g. Dev, QA, UAT, Prod, etc.)</li>
+<li> <b>preconditions</b> - (string) what is required to perform the test</li>
+<li> <b>steps</b> - (string) the actions to perform and the expected results</li>
+<li> <b>postconditions</b> - (string) what to do to clean up the environment</li>
+<li> <b>unit of work</b> - (teams.work_measure) what the effort is measured by.  This is the same format as pragma todo's work estimate.</li>
+<li> <b>work estimate</b> - (work estimate) the amount of effort.  This is the same format as pragma todo's work estiamte.</li>
+<li> <b>work priority type </b> - (teams.work_priority) what the priority is measured by.  This is the same format as pragma todo's work priority.</li>
+<li> <b>work priority</b> - (work priority) the priority of the test.  This is the same format as pragma todo's work priority.</li>
+<li> <b>ticket</b> - the ID of the work ticket or user story being tested</li>
+</ul>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> manual_test(<br />
+&nbsp;&nbsp;testing_team,                       -- owner<br />
+&nbsp;&nbsp;"Login Test",                       -- name<br />
+&nbsp;&nbsp;"Ensure that users can login",      -- objective<br />
+&nbsp;&nbsp;"Attempt to log into the website",  -- description<br />
+&nbsp;&nbsp;"QA",                               -- environment<br />
+&nbsp;&nbsp;"Functional",                       -- category<br />
+&nbsp;&nbsp;"The user should not be logged in", -- preconditions<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"1) Enter the user name.  " &amp; -- steps<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"2) Enter the password" &amp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"3) User home page should appear",<br />
+&nbsp;&nbsp;"Log out of the website",           -- postconditions<br />
+&nbsp;&nbsp;work_measure.size,                  -- unit of work<br />
+&nbsp;&nbsp;"s",                                -- work estimate (small size)<br />
+&nbsp;&nbsp;work_priority.level,                -- unit of priority<br />
+&nbsp;&nbsp;'h',                                -- priority (high level)<br />
+&nbsp;&nbsp;"ID1234"                            -- ticket reference<br />
+);<br />
+        <div class="code_caption">
+                <b>Example</b>: An example of manual test case</span>
+        </div>
+        </div>
+        </center>
+
+<p><b>pragma manual_test_result( tester, date, screenshots, notes, status [,defect_id])</b> is the
+manual equivalent of pragma test_result.  This pragma is filled in by a
+testing person, recording the result of a manual test.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>pragma</b> manual_test_result(<br />
+&nbsp;&nbsp;ken,                                -- the tester (type teams.member)<br />
+&nbsp;&nbsp;"Sept 12/20xx",                     -- the date this was recorded<br />
+&nbsp;&nbsp;"/screenshots/test_example",        -- path to any screenshots<br />
+&nbsp;&nbsp;"No notes",                         -- any notes<br />
+&nbsp;&nbsp;false,                              -- test result (pass = true, fail = false)<br />
+&nbsp;&nbsp;"ID1234"                            -- related ticket id (optional)<br />
+);<br />
+        <div class="code_caption">
+                <b>Example</b>: An example of manual test result</span>
+        </div>
+        </div>
+        </center>
+
+<h4>Documentation Pragmas</h4>
+
+<p>Interpreter directives used to describe a project, particularly real
+world concerns that are not expressed in the source code.</p>
+
+<ul>
+  <li> <b>pragma annotate( [type,] text )</b> - embed a comment. The
+contents of any or all annotate pragmas are shown when you use the help
+command on a script.  The text is a static string expression.  Type type of
+annotation field can be:
+<ul>
+<li><b>accounts</b> - project names, funding codes, or other identifiers.</li>
+<li><b>author</b> - who wrote the script. (This cannot be a team.member
+variable.)</li>
+<li><b>bugs</b> - known bugs.  It may be used multiple times.</li>
+<li><b>created</b> - when the script was first released</li>
+<li><b>category</b> - a user string to organize scripts into groups</li>
+<li><b>content</b> - listing of subprograms or other item contained inside.
+Use once for each item.  Use an empty string followed by a second annotation
+with a subheading to show a subheading.</li>
+<li><b>description</b> - a detailed description of what the script does.
+It may be used multiple times to build a longer description.</li>
+<li><b>errors</b> - errors returned from the script.  It may be used multiple times.</li>
+<li><b>examples</b> - examples of use.  It may be used multiple times.</li>
+<li><b>exceptions</b> - exceptions used in the script.  It may be used multiple times.</li>
+<li><b>footer</b> - a footer for the annotations.</li>
+<li><b>generator</b> - the name of a tool used to provide source code.</li>
+<li><b>icon</b> - the location of an icon for the script</li>
+<li><b>modified</b> - when the script was last modified</li>
+<li><b>param</b> - description of a parameter to the script.  It may be used multiple times.</li>
+<li><b>rationale</b> - the reasons behind a design decision.  It may be used multiple times.</li>
+<li><b>return</b> - return value</li>
+<li><b>screenshot</b> - the location of a screenshot for the script</li>
+<li><b>see_also</b> - a reference to another document or script</li>
+<li><b>summary</b> - a short description of what the script does</li>
+<li><b>todo</b> - unfinished work.  It may be used multiple times.</li>
+<li><b>version</b> - the version of the script</li>
+</ul></li>
+</ul>
+<p>Annotations are used by the help command to produce documentation.</p>
+
+<p><b>Implementation Note</b>: author cannot be a team.member variable
+because the help command scans to source for pragmas and doesn't actually
+perform variable declarations.</p>
+
+<h4>Teamwork Pragmas</h4>
+
+<p>These pragmas assist in team communication and code reviews.  They
+act as comments and have no effect on the executing of the program.</p>
+
+<ul>
+<li><b>advise</b> - a request by a developer for assistance or advice from another developer or the team</li>
+<li><b>blocked</b> - the developer informs the team that progress is blocked pending the completion of another requirements or availability of a resource</li>
+<li><b>clarify</b> - a request for clarification or explanation to a developer or the team</li>
+<li><b>dispute</b> - a disagreement by a programmer to be discussed by the team</li>
+<li><b>propose</b> - suggest discussion on a new feature or another program change</li>
+<li><b>refactor</b> - a request to optimize existing, working programming, or the removal of dead/obsolete programming</li>
+</ul>
+
+<p>These pragmas all take three parameters.  The first identifies who placed
+the pragma (a variable of type team.member).  The second is the person to whom
+it is addressed (a variable of type team.member).  The third is a static
+string expression containing the message.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+&nbsp;&nbsp;team : team.member;<br />
+&nbsp;&nbsp;amy  : team.member;<br />
+&nbsp;&nbsp;ken  : team.member;<br />
+&nbsp;&nbsp;...<br />
+&nbsp;&nbsp;pragma advise( ken, team, "i need some advice on memcached" );<br />&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: An example of pragma advise</span>
+        </div>
+        </div>
+        </center>
+
+<p>During a code review, new work can be marked in the source code
+with <b>pragma todo</b>.</p>
+
+<ul>
+<li>The first parameter is the person to whom the task is assigned</li>
+<li>The second parameter is a static string expression describing the task</li>
+<li>The third parameter is the unit of work (of type team.work_measure)</li>
+<li>The fourth parameter is the amount of work</li>
+<li>The fifth parameter is the unit of priority (of the type team.work_priority)</li>
+<li>The sixth parameter is the priority rating</li>
+<li>The seventh parameter, optional, is the ticket id for an external work tracking system.</li>
+</ul>
+
+        <center>
+        <div class="code">
+                <p class="code">
+&nbsp;&nbsp;team : team.member;<br />
+&nbsp;&nbsp;amy  : team.member;<br />
+&nbsp;&nbsp;ken  : team.member;<br />
+&nbsp;&nbsp;...<br />
+&nbsp;&nbsp;pragma todo( amy, "save the user session state", work_measure.story_points, 2, work_priority.severity, 3 );<br />&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: An example of pragma todo</span>
+        </div>
+        </div>
+        </center>
+
+<p>work_measure.size must use a string literal with a legitimate size ( "s", "m", etc.).</p>
+<p>work_priority.level must use a character literal with a legitimate level ( 'l', 'm', etc.).</p>
+<p>work_priority.severity must be in the range 1..5</p>
+<p>work_priority.risk is a natural amount of money</p>
+<p>work_priority.cvss is a float score in the range 0.0..10.0</p>
+<p>work_measure.unknown or work_priority.unknown must have an amount/ranking of zero.</p>
+<p>Negative values are not allowed.</p>
+
+<p>For the SDLC, test mode or maintenance mode will report an error ("priority todo task not yet completed")
+for any todo with a known size and priority that isn't finished.  If you use pragma suppress( low_priority_todos_for_release ),
+only moderate or high priority todo's will produce this error.  These are todo's with:</p>
+
+<ul>
+<li>a priority level greater than low</li>
+<li>a priority severity greater than 2</li>
+<li>a priority risk greater than 0 (AdaScript doesn't know how much financial risk is acceptable)</li>
+<li>a priority CVSS score greater than 4.0</li>
+</ul>
+
+<p>pragma suppress( all_todos_for_release ) stops checking for all todo's.</p>
+
+<p>Teamwork and work estimation pragmas can be displayed using the <b>help</b> command.</p>
+
+<p><b>Implementation Note</b>: This feature is experimental.  The parameters
+may be changed to improve these features.</p>
+
+<h4>Interfacing Pragmas</h4>
+
+<p>Interpreter directives that affect SparForte's environment or how it 
+interacts with other software.</p>
+
+<ul>
+  <li> <b>pragma export( shell | local_memcache | memcache | session, var )</b> -
+export a string variable to the O/S environment or Memcached.</li>
+  <li> <b>pragma export_json( shell | local_memcache | memcache | session, var )</b> -
+export a string, numeric, enumerated item,  array or record variable
+as a JSON string to the O/S environment or Memcached.</li>
+  <li> <b>pragma import( shell | cgi | local_memcache | memcache | session, var )</b> -
+import a variable.  For shell, from the O/S environment.  For cgi
+and if pragma template/unrestricted_template was used previously,
+a HTTP CGI variable from the O/S environment.  For local_memcache,
+get the value of the variable from a Memcached server running on
+locahost port 11211.  Put the value in the SparForte variable.
+If the environment variable doesn't exist, then
+the SparForte will report an error (see unchecked_import).</li>
+  <li> <b>pragma import_json( shell | cgi | local_memcache | memcache | session, var )</b> -
+import a JSON string, converting it to a string, numeric, enumerated item,
+array or record variable.</li>
+  <li><span style="font-weight: bold;">pragma no_command_hash</span> -
+SparForte normally remembers the location of a command once it has found
+it.&nbsp; This pragma forces SparForte to search for the location of the
+command, ignoring the previous location.<br>
+  <li> <b>pragma register_memcache_server( host, port )</b> - add a
+Memcached server which will be used with memcache method imports/exports</li>
+  <li> <b>pragma session_export_script( `script` )</b> - define a callback to write a session variable.  The callback will be run as required by the language for all session export variables.  Two temporary variables, session_variable_name and session_variable_value will be defined for the script to use.</li>
+  <li> <b>pragma session_import_script( `script` )</b> - define a callback to read a session variable.  The callback will be run as required by the language for all session import variables.  Two temporary variables, session_variable_name and session_variable_value will be defined for the script to use.  Update the value in session_variable_value.</li>
+  <li> <b>pragma template( css|html|js|json|text|wml|xml [, template] )</b> - SparForte
+will act like a template processor (like PHP). When the script finishes
+executing, SparForte will open a file called "file.tmpl" where file is the
+name of the script.  If an alternate file path is included in the pragma,
+that file is used as the template instead. A HTTP header is written and
+SparForte parses the template along with any embedded scripts. For security,
+the embedded scripts in the template will be run in a restricted shell and
+with the no_external_commands restriction. Errors shown in the output are
+affected by --gcc-errors, but errors written to standard error are always
+in --gcc-errors.  Errors occurring in a template are shown
+using the line number in the template as the line number for the
+error.  The first parameter is the template type: "css" (a style sheet),
+"html" (HTML web page), "js" (JavaScript script), "json" (JSON encoded
+text), "text" (plain text), "wml" (WML text) or "xml" (XML text).
+The position of this pragma affects how errors are reported: SparForte
+doesn't know the script has a template until this pragma is read so
+while it can be placed anywhere it is best to place it early in a script.</li>
+  <li> <b>pragma unchecked_import( shell | cgi | local_memcache | memcache | session, var )</b> -
+import a variable.  For shell, from the O/S environment.  For cgi
+and if pragma template/unrestricted_template was used previously,
+a HTTP CGI variable from the O/S environment.  For local_memcache,
+get the value of the variable from a Memcached server running on
+locahost port 11211.  Put the value in the SparForte variable.
+If the import variable doesn't exist, then
+the SparForte variable is unchanged.</li>
+  <li> <b>pragma unchecked_import_json( shell | cgi | local_memcache | memcache | session, var )</b> - the same as import_json execpt that there is no existence check.
+If the import variable doesn't exist, then
+the SparForte variable is unchanged.</li>
+  <li><b>pragma unchecked_volatile( var [,ttl] )</b> - like volatile, but
+allows the variable to be used in expressions. Side-effects will
+still raise exceptions.</li>
+  <li> <b>pragma unrestricted_template( css|html|js|json|text|wml|xml [, template] )</b> -
+SparForte will act like a template processor (like PHP). This pragma is
+the same as pragma template except that the embedded scripts are executed
+in a normal shell with no security restrictions.  The type parameter
+is described under pragma template.</li>
+  <li> <b>pragma volatile( var [,ttl] )</b> - the variable is assumed to be
+an variable which may change unexpectedly during the script's execution.
+If the variable is imported, the variable's value will be updated each
+time it is referenced. Volatile variable acts like a limited so they are
+not used in an expression.  Otherwise, expressions may have
+"side-effects" as the volatile values can change unexpectedly in the
+middle of a calculation.  If a TTL duration is given, the volatile variable
+will only be imported every TTL seconds.</li>
+</ul>
+
+<h4>Miscellaneous Pragmas</h4>
+
+<p>Interpreter directives that don't fit in any other category.</p>
+
+<ul>
+  <li> <b>pragma prompt_script( `commands` )</b>
+<p>This pragma specifies a set of commands to run that will draw the
+command prompt.  The commands run in a restricted shell.  By default,
+the prompt will be in boldface.  (Boldface is currently not working with
+GNU readline but will be fixed in the future.)</p>
+
+<p>There are no special escape sequences like those used by Bash.
+Instead, the prompt is created by running normal AdaScript commands.
+Some common tasks:</p>
+
+<ul>
+<li>Your username - import LOGNAME or USER from the O/S environment.</li>
+<li>Your current directory - use the <code>pwd</code> command or the <code>PWD</code> variable</li>
+<li>No boldface - use <code>tput sgr0</code></li>
+<li>To use colour - use the character codes for your terminal (usually ANSI)</li>
+<li>To restore the default prompt - use an empty command list</li>
+</ul>
+
+<p>For a short example, suppose you want to use that standard "$ " prompt used
+by Bourne shells.  The Text_IO's put procedure will write the prompt without
+starting a new line.  (You could also use echo.)</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+-- Several ways of printing a Bourne shell prompt<br />
+put( "$ " ); -- using Text_IO<br />
+echo -n '$ '; -- using echo as a Bourne shell command (escaping the dollar sign)<br />
+echo( "-n", "$ " ); -- using echo with AdaScript style parameters<br />
+                </p>
+        </div>
+        </center>
+
+<p>To make "$ " your prompt, put the command in a backquoted string in the
+pragma.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>=&gt;</b> pragma prompt_script( `put( "$ ");` );<br />
+                </p>
+        </div>
+        </center>
+
+<p>This prompt script will be performed each time the prompt is displayed.
+The prompt may change each time.  For example, the date command shows the
+current time.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>=&gt;</b> pragma prompt_script( `date;` );<br />
+                </p>
+        </div>
+        </center>
+
+<p>Now your prompt will be the current date and time.  It will change each time
+a prompt is displayed.</p>
+
+<p>The two commands can be combined to give you the data and a "$ " for your
+prompt.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>=&gt;</b> pragma prompt_script( `date; put( "$ " );` );<br />
+                </p>
+        </div>
+        </center>
+
+<p>This will be a two-line prompt because the date command starts a new line
+after displaying the date.</p>
+
+<p>Here are some examples:</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+<b>=&gt;</b> pragma prompt_script( `put( "$ ");` );<br />
+<b>$</b> <br />
+<b>$</b> type import_string is new string;<br />
+<b>$</b> LOGNAME : import_string;<br />
+<b>$</b> pragma import(shell, LOGNAME )<br />
+<b>$</b> pragma prompt_script( `put( LOGNAME ) @ ( "$ ");` );<br />
+<b>ken$</b> <br />
+<b>ken$</b> pragma prompt_script( `put( PWD ); new_line; put( LOGNAME ) @ ( "$ " );` );<br />
+<b>/home/ken</b><br />
+<b>ken$</b><br />
+<b>/home/ken</b><br />
+<b>ken$</b> ANSI_RED : constant string := ASCII.ESC &amp; "[0;31m";<br />
+<b>/home/ken</b><br />
+<b>ken$</b> ANSI_DEFAULT : constant string := ASCII.ESC &amp; "[0m";<br />
+<b>/home/ken</b><br />
+<b>ken$</b> pragma prompt_script( `new_line; put( ANSI_RED ); date; put( ANSI_DEFAULT ) @ ("$ " );` );<br />
+<br />
+<b><span style="color:red">Sat Jan  2 21:52:59 EST 2016</span></b><br>
+<b>$ </b><br>
+<br />
+<b><span style="color:red">Sat Jan  2 21:53:05 EST 2016</span></b><br>
+<b>$</b> pragma prompt_script( `` );<br />
+<b>=&gt;</b> <br />&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: Examples of pragma prompt_script</span>
+        </div>
+        </div>
+        </center>
+
+<p>Make sure the final command ends with a semi-colon. Changing your
+prompt will also change the title of your terminal window.</p>
+
+<p>Of course, the pragma can be placed in a profile file so it is
+set each time you start SparForte.</p>
+
+  </li>
+  <li><b>pragma prompt_idle_script( `commands` )</b> - commands to run when command prompt is idle</li>
+  <li><b>pragma prompt_idle_speed( interval )</b> - how often to run the prompt idle script when command prompt is idle.  The interval is a duration type.</li>
+  <li> <b>pragma error( static-expression )</b> - always raise an error
+with the static expression in the message.</li>
+</ul>
+
+<h3>Shell Variables</h3>
+
+<p>UNIX-like operating systems have environment variables.  These are
+variables that the operating system assign to your running program.</p>
+
+<p>You can also read environment variables using the command_line package.</p>
+
+<h4>Importing Shell Environment Variables</h4>
+
+<p>Normally, SparForte will not copy your environment variables into
+SparForte.  Instead, you request the variables using <b>pragma import</b>.
+SparForte will examine the environment variables and, if it finds one
+with the same name, the SparForte variable will have the same value
+as the environment variable.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; JAVA_HOME : import_string<br>
+		=&gt; <b>pragma</b> import( shell, JAVA_HOME )<br>
+		=&gt; ? JAVA_HOME<br>
+		/usr/lib64/jvm/java<br>&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: Importing an environment variable on the command line</span>
+        </div>
+        </div>
+        </center>
+
+<p>A few variables are automatically imported when SparForte runs.  These
+variables are needed for the proper functioning of the shell (for
+example, HOME).  You can also use the <b>--import-all</b> command line
+option to import all the environment variables.  However, --import-all is
+meant to be a convenience or debugging tool: it is a better technique to
+import only what your script needs to run.</p>
+
+<p>You can examine a variable with <b>env</b> to see if it is imported
+or exported.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; <b>env</b> HOME<br>
+		HOME := "/home/ken"; -- imported shell environment identifier of the type string
+		</p>
+        </div>
+        </center>
+
+<p>If the variable doesn't exist, SparForte will report an error.
+This behaviour can be overridden using <b>pragma unchecked_import</b>:
+if the variable doesn't exist in the environment, the value will
+be unchanged.  It is a good idea to assign a default value.</p>
+
+<p>With SparForte 2.0, the type of the variable must not be a
+predefined type (or a subtype of one).  SparForte assumes that the
+data being imported should be considered untrusted and not validated.
+You should use a new data type for the variable and not convert it
+to a predefined type unless the value has been checked and
+approved.  This restriction is not on an unchecked_import.</p>
+
+<p>If you are using SparForte as your login shell, there is nothing
+to import: there's no previous shell to import variable from to
+put them into SparForte.</p>
+
+<h4>Exporting Shell Environment Variables</h4>
+
+<p>To make your SparForte variables available to other programs, such
+as external commands, you must export the variable into the
+operating system environment variables with <b>pragma export</b>.
+This exporting process occurs whenever an external command is
+executed, the standard technique in shells.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; JAVA_HOME : string := "/usr/lib64/jvm/java"<br>
+		=&gt; <b>pragma</b> export( shell, JAVA_HOME )<br>
+		=&gt; eclipse &amp; -- a command that needs JAVA_HOME<br>
+		</p>
+        </div>
+        </center>
+
+<p>If you use SparForte as your login shell, variables like JAVA_HOME can
+be set up in your SparForte profile file so they are created and exported
+whenever you log in.</p>
+
+<h4>Both Importing and Exporting, and Volatile Shell Environment Variables</h4>
+
+<p>Environment variables can be both imported and exported by using
+both pragmas.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; DISPLAY : string;<br>
+		=&gt; <b>pragma</b> import( shell, DISPLAY )<br>
+		=&gt; <b>pragma</b> export( shell, DISPLAY )<br>
+		=&gt; <b>env</b> DISPLAY<br>
+		DISPLAY := ":0.0"; -- imported exported shell environment identifier of the type string<br>&nbsp;<br>
+		</p>
+        <div class="code_caption">
+                <b>Example</b>: Importing and Exporting the X Windows DISPLAY variable</span>
+        </div>
+        </div>
+        </center>
+
+<p><b>Pragma volatile</b> will mark a variable as "volatile", meaning that its
+value can change unexpectedly and SparForte should reload the value from the
+environment whenever it is referenced.  Although you can make volatile
+environment variables imported by pragma import( shell,...), it probably
+won't be useful: these variables are owned by the running process, which is
+SparForte, so it is virtually impossible to change their values except using
+the SparForte or the script itself.</p>
+
+<p>As a special exception, volatiles not declared as limited are not required
+to be limited when since no volatile can be used in expressions anyway.</p>
+
+<h3>CGI Variables</h3>
+
+<p>CGI variables are the HTTP FORM tag variables submitted from a web
+page.  If you are in a web template (if you used <b>pragma template</b> or
+<b>pragma unrestricted_template</b>), you can read the variables using
+<b>pragma import</b>.</p>
+
+<p>If the variable doesn't exist, SparForte will report an error.
+This behaviour can be overridden using <b>pragma unchecked_import</b>:
+if the variable doesn't exist in the environment, the value will
+be unchanged.  It is a good idea to assign a default value.</p>
+
+<p>You cannot export CGI variables: there's nowhere to export the values
+to.</p>
+
+<p><b>Pragma volatile</b> can be used, but like shell variables, it
+has no meaningful effect: the CGI variables will not change while in
+a template.</p>
+
+<p>You can also read CGI variables using the CGI package.</p>
+
+<h3>Session Variables</h3>
+
+<p>Session variables are variables that specific to a user's session.
+These are typically used to define session for web applications.</p>
+
+<p>Since session variables can be stored in many different ways (files or
+databases, for example), AdaScript does not implement the storage
+mechanism.  Instead, it will run user callback scripts whenever it
+needs to read or write a session variable.  The scripts are responsible
+for loading or saving the variable.</p>
+
+<p>For a typical web application, you will want create and manage
+some kind of session identifier, the variable name, value and when
+the session was started (so you can automatically expire old sessions.)</p>
+
+<p>To use session variables, define the import and export callback
+scripts using <b>pragma session_export_script</b> and <b>pragma
+session_import_script</b>.  There can be only one callback of each
+type in a program.  Defining a session variable before these are
+defined may cause an error.  Keep in mind these callbacks may be
+executed for global variables before the main program is run,
+or before all variables are initialized.</p>
+
+<p>When the callbacks are run, there are two variables in
+the sessions package that are used as parameters:
+sessions.session_variable_name and sessions.session_variable_value.
+The first contains the name of the variable to be updated.  The
+second contains the current value (on export) or can be written to
+to save the value (on import).</p>
+
+<p>Then create your session variables using an import-type or
+export-type pragma, using an import method of "session".</p>
+
+<p><b>pragma unchecked_import</b> behaves the same as <b>pragma
+import</b> since SparForte isn't able to check itself for the
+variable's existence.</p>
+
+<p><b>pragma volatile</b> can be used to re-read the value whenever
+the variable is referenced.</p>
+
+<h3>Local Memcached Variables</h3>
+
+<p><b>Memcached</b> (or the Memcache Daemon) is a general-purpose
+networked memory caching system that
+was originally developed by Danga Interactive for LiveJournal, but is now
+used by many other sites. It is often used to speed up dynamic
+database-driven websites by caching data and objects in RAM to reduce the
+number of times an external data source (such as a database or API) must
+be read.  Memcached has been used by web sites including YouTube,
+Facebook and Twitter.</p>
+
+<p>SparForte supports Memcached natively (that is, you don't need to
+use a special package to access Memcached.)
+The Memcached support is built on the PegaSoft <b>PegaSock</b>
+socket library, which supports local Memcached caching as well as
+distributed, redundant Memcached caching clusters.</p>
+
+<p>One important rule: PegaSock expects a non-empty string for all
+variable values (it uses an empty string to represent a cache miss.)</p>
+
+<p>When importing or exporting to local_memcache, the variables will be
+imported or exported from your local machine.  SparForte expects to
+find a Memcached server running on <b>localhost and port 11211</b> (the default
+Memcached port).</p>
+
+<p>All SparForte scripts running on the same server can access the
+memcache variables.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; s : string := "test"<br>
+		=&gt; <b>pragma</b> export( local_memcache, s )<br>
+		=&gt; <b>env</b> s<br>
+		s := "test"; -- exported local memcache identifier of the type string<br>
+		=&gt; <b>unset</b> s<br>
+		=&gt; s : string := "not test"<br>
+		=&gt; <b>pragma</b> import( local_memcache, s )<br>
+		=&gt; ? s<br>
+		test<br>&nbsp;<br>
+                </p>
+        <div class="code_caption">
+                <b>Example</b>: A simple command line example of local_memcache</span>
+        </div>
+        </div>
+	</center>
+
+<h4>Importing from Memcached</h4>
+
+<p>When importing, The variable will be read from Memcached when <b>pragma
+import</b> is used.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; user_count : string<br>
+		=&gt; <b>pragma</b> import( local_memcache, user_count )<br>
+		=&gt; <b>env</b> user_count<br>
+		user_count := " 3"; -- imported local memcache identifier of the type string<br>&nbsp;<br>
+        <div class="code_caption">
+                <b>Example</b>: Importing a Memcached variable on the command line</span>
+        </div>
+        </div>
+        </center>
+
+<p>(For example, if you import a variable named "user_count", SparForte
+will request the value of "user_count" from Memcached hash table on
+the localhost using a Memcached GET command.)</p>
+
+<p>If the variable doesn't exist, SparForte will report an error.
+This behaviour can be overridden using <b>pragma unchecked_import</b>:
+if the variable doesn't exist in the environment, the value will
+be unchanged.  It is a good idea to assign a default value.</p>
+
+<p>The variable will normally be read at the time of importing,
+though this behaviour can be changed with pragma volatile (see below).</p>
+
+<p>You can use a <b>declare block</b> to get the value at your discretion
+by using an imported variable.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		<b>declare</b><br>
+        	&nbsp;&nbsp;-- Get current value from memcached<br>
+    		&nbsp;&nbsp;status : string;<br>
+    		&nbsp;&nbsp;<b>pragma</b> import( local_memcache, status );<br>
+  		<b>begin</b><br>
+    		&nbsp;&nbsp;-- do something with status<br>
+  		<b>end</b>;<br>&nbsp;<br>
+                </p>
+        <div class="code_caption">
+                <b>Example</b>: Using declare to import on demand</span>
+        </div>
+        </div>
+        </center>
+
+<h4>Exporting to Memcached</h4>
+
+<p>When exporting, the variable's final value will be stored in Memcached
+with the Memcached SET command when the variable goes out of scope or
+is destroyed with unset.</p>
+
+<p>You can update the value at any time using a declare block and an
+exported variable:</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+  		new_status_value := "good";<br>
+  		<b>declare</b><br>
+    		&nbsp;&nbsp;-- Push out new value to memcached<br>
+    		&nbsp;&nbsp;status : string := new_status_value;<br>
+    		&nbsp;&nbsp;<b>pragma</b> export( local_memcache, status );<br>
+  		<b>begin</b><br>
+    		&nbsp;&nbsp;<b>null</b>; -- do nothing<br>
+  		<b>end</b>; -- before discarding status, write it to memcached<br>&nbsp;<br>
+                </p>
+        <div class="code_caption">
+                <b>Example</b>: Using declare to export on demand</span>
+        </div>
+        </div>
+        </center>
+
+<h4>Importing, Exporting and Volatile with Memcached</h4>
+
+<p>It is possible to declare a variable as both imported and
+exported using both import/export pragmas.</p>
+
+<p><b>Pragma volatile</b> will mark a variable as "volatile", meaning that its
+value can change unexpectedly and SparForte should reload the value from
+Memcached whenever it is referenced.</p>
+
+<p>You can declare a variable as import, export and volatile at the same time.
+For example:</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		<b>declare</b><br>
+		&nbsp;&nbsp;user_count : limited string;<br>
+		&nbsp;&nbsp;<b>pragma</b> import( local_memcache, user_count );<br>
+		&nbsp;&nbsp;<b>pragma</b> export( local_memcache, user_count );<br>
+		&nbsp;&nbsp;<b>pragma</b> volatile( user_count );<br>
+		<b>begin</b><br>
+		-- do some other work here<br>
+		&nbsp;&nbsp;user_count := strings.image( integer( numerics.value( @ ) + 1 ) );<br>
+  		<b>end</b>;<br>&nbsp;<br>
+                </p>
+        <div class="code_caption">
+                <b>Example</b>: Using import, export and volatile</span>
+        </div>
+        </div>
+        </center>
+
+<p>In this example, the assignment statement will get the latest value for
+user_count, convert it to a number, add 1 and convert the result back to
+a string.  When the declare block ends, the value of user_count will be
+stored in Memcached.</p>
+
+<p>Bear in mind that this kind of operation is not atomic: another script
+could try to update user_count in Memcached before the first script
+can write the result.  If you want to lock access to the variable to
+guarantee exclusive access, you will need to use the lock_file package
+or a similar approach.</p>
+
+<h4>Handling Server Failures</h4>
+
+<p>PegaSock uses a countdown system when a Memcached server cannot
+be found.  If it cannot connect, it marks the server as off-line
+and will return cache misses for several commands.  After enough
+commands have passed, it will attempt to reconnect to Memcached.
+These "back offs" are escalating: each failed reconnect attempt
+will result in a longer back off period.  This is done for
+performance reasons: establishing new network connections is a
+very slow operation.</p>
+
+<p>If you don't have Memcached running on your local machine, it
+will have the same effect.</p>
+
+<p>You'll periodically see warning messages from PegaSock because
+it is unable to establish a connection.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; s : string<br>
+		=&gt; <b>pragma</b> import( local_memcache, s )<br>
+		pegasock-memcache.adb:81: server localhost 11211 error - backing off for 8 tries<br>&nbsp;<br>
+</p>
+        <div class="code_caption">
+                <b>Example</b>: The Memcached server is not running or cannot be accessed</span>
+        </div>
+        </div>
+        </center>
+
+<h3>Distributed Memcached Variables</h3>
+
+<p>If you have Memcached running on two or more servers, you can create a
+redundant distributed cache using the "memcache" method instead of
+"local_memcache".
+In order to use a distributed cache, inform SparForte of what servers to
+use with pragma register_memcache_server.</p>
+
+        <center>
+        <div class="code">
+                <p class="code">
+		=&gt; <b>pragma</b> register_memcache_server( "cachehost1", 11211 );<br>
+		=&gt; <b>pragma</b> register_memcache_server( "cachehost2", 11211 );<br>
+		=&gt; company_name : string<br>
+		=&gt; <b>pragma</b> import( memcache, company_name )<br>
+		=&gt; ? company_name<br>
+		PegaSoft Canada<br>
+		=&gt; <b>env</b> company_name<br>
+		company_name := "PegaSoft Canada"; -- imported memcache identifier of the type string<br>&nbsp;<br></p>
+        <div class="code_caption">
+                <b>Example</b>: Importing a variable stored on two hosts</span>
+        </div>
+        </div>
+        </center>
+
+<p>With more than one server, SparForte will store the variable on two servers.
+If one server should fail, it will retrieve the variable value from the other.</p>
+
+<h3>Managing Script Licenses</h3>
+
+<p>Tracking and keeping accurate information about licenses is important for
+large companies and organizations.  Such groups may run third-party license
+management software which scans source code and tries to guess at what license
+applies.  However, typos and copying errors putting license info into comments
+makes this an imperfect task.  Software may be bundled together with multiple
+licenses.  Licenses are further qualified by server limits,
+user limits, evaluation periods or other real world or legal concerns.</p>
+
+<p>SparForte can help manage licenses with the license pragma.  This pragma
+declares the license for a script in a structured way.  This approach assists
+in automating license compliance, helps to make the best use of licenses while
+reducing the risk from a license audit.  Since there are thousands
+of licenses, SparForte doesn't attempt to know, enforce or reconcile every
+license&mdash;it leaves these concerns for specialized license software.
+However, many of the most popular licenses are known by SparForte.</p>
+
+<p>For example, if myscript.sp contains this pragma:</p>
+
+	<center>
+        <div class="code">
+	<b>pragma</b> license( public_domain );<br>
+	</div>
+	</center>
+
+<p>then you can use the help command to see the license without running the script.</p>
+
+	<center>
+        <div class="code">
+	$ spar -e "help -l myscript.sp;"<br>
+	public_domain<br>
+	</div>
+	</center>
+
+<p>If you use license management software, configure it to run the spar help
+command to get an accurate license name.</p>
+
+<p>If you have a commercial license, declare it as commercial and include
+more details in the second parameter, or use the second parameter as a
+URL to the text of the license.</p>
+
+	<center>
+        <div class="code">
+	<b>pragma</b> license( commercial, "bogodb license" );<br>
+	</div>
+	</center>
+
+<p>The help command will show the license with the additional text.</p>
+
+	<center>
+        <div class="code">
+	$ spar -e "help -l myscript.sp;"<br>
+	commercial: bogodb license<br>
+	</div>
+	</center>
+
+<p>A script may only have one license pragma.</p>
+
+<p>Other examples:</p>
+
+	<center>
+        <div class="code">
+	<b>pragma</b> license( gpl );<br>
+	<b>pragma</b> license( freeware, "2 week evaluation" );<br>
+	<b>pragma</b> license( gplv2, "LGPL" );<br>
+	<b>pragma</b> license( commercial, "bogodb license: 15 users" );<br>
+	</div>
+	</center>
+
+<p>Running scripts may check the license string with System.Script_License.</p>
+
+	<center>
+        <div class="code">
+	=&gt; <b>pragma</b> license(bsd_original)<br>
+	=&gt; ? System.Script_License<br>
+	bsd_original<br>
+	</div>
+	</center>
+
+&nbsp;<br>
+			</td>
+			<td bgcolor="#d3c7f8" width="150" align="right" valign="top"><noscript><hr /></noscript><img src="art/right_menu_top.png" width="150" height="24" alt="[Right Submenu]"><br><a name="submenu"></a>
+                                <p class="rmt"><a class="rightmenutext" href="ref_adascript.html">&nbsp;AdaScript versus GCC</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_case.html">&nbsp;Case Sensitivity</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_reserved.html">&nbsp;Reserved Words</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_comments.html">&nbsp;Comments</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_literals.html">&nbsp;Literals</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_shellargs.html">&nbsp;Bourne Shell Word Expansions</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_types.html">&nbsp;Fundamental Types</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_typedecl.html">&nbsp;User-defined Types</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_enum.html">&nbsp;Enumerated Types</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_arrays.html">&nbsp;Arrays</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_records.html">&nbsp;Records</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_assign.html">&nbsp;Basic Assignment</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_specials.html">&nbsp;The @ and % Operands</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cmdlineargs.html">&nbsp;Command Argument Shortcuts</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_redirection.html">&nbsp;Redirection and Pipelines</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cmdline.html">&nbsp;Command Line Interaction</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_shellcmds.html">&nbsp;Built-in Shell Commands</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cd.html">&nbsp;The Current Directory</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_db.html">&nbsp;Database Commands</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_flow.html">&nbsp;Ifs and Loops</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_other.html">&nbsp;Other Statements/ Subprograms</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_extcmds.html">&nbsp;External Commands</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_subprograms.html">&nbsp;Block Statements and Subprograms</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_sockets.html">&nbsp;TCP/IP Sockets</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_numberformat.html">&nbsp;Numeric Formatting with Put</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_pragmas.html">&nbsp;<b>Interpreter Directives</b></a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cmdoptions.html">&nbsp;Command Line Options</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_cmdref.html">&nbsp;Command Reference</a></p>
+                                <p class="rmt"><a class="rightmenutext" href="ref_charsets.html">&nbsp;ASCII and Latin_1 Character Sets</a></p>
+			</td>
+
+		</tr>
+		<tr>
+			<td bgcolor="#d3c7f8" align="left" valign="middle"><a href="#top"><img src="art/up_arrow.png" width="24" height="27" border="0" alt="[Back to Top]"><span>&nbsp;Back To Top</span></a></td>
+			<td bgcolor="#d3c7f8" align="center" valign="middle"><img src="art/forte_small.png" width="26" height="32" border="0" alt="[Small Forte Symbol]"></td>
+	       	</tr>
+
+	</table>
+
+</body>
+</html>
+

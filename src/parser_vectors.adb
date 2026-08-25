@@ -2566,7 +2566,7 @@ end ParseVectorsSwap;
 ------------------------------------------------------------------------------
 --  FIND
 --
--- Syntax: find( v, e, ,c1 ,c2 );
+-- Syntax: find( v, e, c1 ,c2 );
 -- Ada:    find( v, e, [,c1], c2 );
 -- Move the cursor c2 to the position in the vector for element e. Start at the
 -- position of cursor c1. If the element does not exist, the cursor c2 will
@@ -2612,7 +2612,6 @@ begin
         startCursExpr : storage;
         positionCursExpr : storage;
         --
-        positionCursorResourceId : resHandleId;
         thePositionCursor : resPtr;
      begin
         getParameterValue( vectorRef, vecExpr);
@@ -2686,7 +2685,6 @@ begin
         startCursExpr : storage;
         positionCursExpr : storage;
         --
-        positionCursorResourceId : resHandleId;
         thePositionCursor : resPtr;
      begin
         getParameterValue( vectorRef, vecExpr );

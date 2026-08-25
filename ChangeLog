@@ -4,7 +4,7 @@ Objective: Fixes before foundation for value meta labels (Phase 2)
 
 Known Issues
 
-SparForte will run slower because of the value meta labels checking at run-time.
+Ubuntu 26.04: PCRE2 is not supported.
 
 CHANGES SINCE 3.0
 
@@ -14,93 +14,91 @@ CHANGES SINCE 3.0
 
 3. Change: when a hash-able command (e.g. "foo") is not found but a file exists without executable permission, an error message describes this condition rather than describing it as not found. When a command path (e.g. "/bin/foo") cannot be run when the file exists without executable permission, an error describes this condition rather than describing it as not found.
 
-4. pragma annotate( generator ) for automation generated source code as per Linux kernel standards. [docs needed]
+4. pragma annotate( generator ) for automation generated source code as per Linux kernel standards.
 
 5. Fix: certain edge cases in subprogram parameter names like names already in use, duplicate parameter names, a parameter with the name of the subprogram should now work correctly.
 
 6. Fix: most declarations now include the declaration location for error messages (such as enum type items, for example).
 
-7. Fix: better error message for missing filenames on a shell redirect (e.g. echo >;). [Needs Fixing]
+7. New: constant values are checked for placeholder values in testing and maintenance modes.
 
-8. New: constant values are checked for placeholder values in testing and maintenance modes.
+8. Fix: -C / --coding disables the default testing mode flag instead of enabling both.
 
-9. Fix: -C / --coding disables the default testing mode flag instead of enabling both.
+9. Fix: case statments can now test array elements as well as scalar variables.
 
-10. Fix: case statments can now test array elements as well as scalar variables.
+10. Fix: using an parent meta tag to declare a child tag no longer has an unreferenced error.
 
-11. Fix: using an parent meta tag to declare a child tag no longer has an unreferenced error.
+11. Change: general cleanup of provision script.  Support for os-release file when detecting your O/S.
 
-12. Change: general cleanup of provision script.  Support for os-release file when detecting your O/S.
+12. Fix: no bug report is displayed if a forked process fails (e.g. bad bang path).
 
-13. Fix: no bug report is displayed if a forked process fails (e.g. bad bang path).
+13. Fix: Sturges formula, reverse of ln2/ln10 constants fixed in parser_numerics.
 
-14. Fix: Sturges formula, reverse of ln2/ln10 constants fixed in parser_numerics.
+14. Change: added GNU readline version 9 detection to configure script.
 
-15. Change: added GNU readline version 9 detection to configure script.
+15. Change: strings.is_fixed allows a leading space or minus sign.
 
-16. Change: strings.is_fixed allows a leading space or minus sign.
+16. Fix: when cleanup up background processes, fixed a issue where the cleanup could be delayed by one command line.
 
-17. Fix: when cleanup up background processes, fixed a issue where the cleanup could be delayed by one command line.
+17. Fix: when parsing command paths for the command hash table, ~ is replaced with the value of HOME rather than the current working directory.
 
-18. Fix: when parsing command paths for the command hash table, ~ is replaced with the value of HOME rather than the current working directory.
+18. Fix: arrays.length correctly returns zero for any first bound larger than the last bound on an array type or subtype.
 
-19. Fix: arrays.length correctly returns zero for any first bound larger than the last bound on an array type or subtype.
+19. Fix: besides arrays of 1..0, any first bound greater than a last bound will  be treated as empty by the array package sort functions.
 
-20. Fix: besides arrays of 1..0, any first bound greater than a last bound will  be treated as empty by the array package sort functions.
+20. Change: added colour output for HTML messages corresponding to the console colours that appear when --colour/--color is used.  The HTML colours remain even if --colour/--color is not used.
 
-21. Change: added colour output for HTML messages corresponding to the console colours that appear when --colour/--color is used.  The HTML colours remain even if --colour/--color is not used.
+21. Fix: in the unusual case of a SparForte message with a 1-character string, it should capitalize without an exception (though there are currently no strings this short).
 
-22. Fix: in the unusual case of a SparForte message with a 1-character string, it should capitalize without an exception (though there are currently no strings this short).
+22. Fix: documentation review and cleanup of spelling, grammar, structure.  Package documentation cross-referenced with source code.
 
-23. Fix: documentation review and cleanup of spelling, grammar, structure.  Package documentation cross-referenced with source code.
+23. Fix: perl_match tests moved to third-party tests.
 
-24. Fix: perl_match tests moved to third-party tests.
+24. New: Ubuntu 26.04 support. PCRE2 not complete.
 
-25. New: Ubuntu 26.04 support [PCRE2 not complete].
+25. Fix: arrays.shuffle modified slightly to better fit classic Fisher-Yates method.
 
-26. Fix: arrays.shuffle modified slightly to better fit classic Fisher-Yates method.
+26. Fix: The btree_io package has some error messages corrected.
 
-27. Fix: The btree_io package has some error messages corrected.
+27. Fix: More thorough exception handling on btree_io/hash_io open and create.
 
-28. Fix: More thorough exception handling on btree_io/hash_io open and create.
+28. Fix: Missing meta tag check on URL encode.
 
-29. Fix: Missing meta tag check on URL encode.
+29. Fix: command_line.environment.environment_value has a better error message when the position is out-of-range.
 
-30. Fix: command_line.environment.environment_value has a better error message when the position is out-of-range.
+30. Fix: The btree_io and hash_io support path separators besides UNIX "/".
 
-31. Fix: The btree_io and hash_io support path separators besides UNIX "/".
+31. Fix: Spelling of directory_operations.absolute_dir_name_dir corrected.
 
-32. Fix: Spelling of directory_operations.absolute_dir_name_dir corrected.
+32. Fix: Fixed swapped parameters for doubly_linked_lists.assign and move.
 
-33. Fix: Fixed swapped parameters for doubly_linked_lists.assign and move.
+33. Change: doubly_linked_lists.assemble/disassemble now use O/S-specific EOL characters rather than an ASCII.LF.
 
-34. Change: doubly_linked_lists.assemble/disassemble now use O/S-specific EOL characters rather than an ASCII.LF.
+34. Fix: removed debugging "raise" from enums.pos.
 
-35. Fix: removed debugging "raise" from enums.pos.
+35. Fix: enum.succ returns built-in enumerated items as well as user-defined ones.
 
-36. Fix: enum.succ returns built-in enumerated items as well as user-defined ones.
+36. Fix: gnat.cgi fixed.
 
-37. Fix: gnat.cgi fixed. [not tested]
+37. Fix: gnat.crc32.get_value performs the final XOR.
 
-38. Fix: gnat.crc32.get_value performs the final XOR.
+38. Fix: l10n.t_fmt_ampm returns results of t_fmt_ampm instead of the pm string. era_t_fmt now returns era_t_fmt instead of era_d_fmt.
 
-39. Fix: l10n.t_fmt_ampm returns results of t_fmt_ampm instead of the pm string. era_t_fmt now returns era_t_fmt instead of era_d_fmt.
+39. Fix: removed memory leak when a script ends without clearing the memcache/memcache.highread servers.
 
-40. Fix: removed memory leak when a script ends without clearing the memcache/memcache.highread servers.
+40. Fix: searching the lists of memcache/memcache.highread cluster servers corrected (= vs. >= in the search).
 
-41. Fix: searching the lists of memcache/memcache.highread cluster servers corrected (= vs. >= in the search).
+41. Fix: mysql.schema and mysqlm.schema fixed to do a "select" rather than "show" query.
 
-42. Fix: mysql.schema and mysqlm.schema fixed to do a "select" rather than "show" query.
+42. Fix: sound package no longer restarts gstreamer if reinitialized more than once.
 
-43. Fix: sound package no longer restarts gstreamer if reinitialized more than once.
+43. Fix: text_io is_open fixed for current_error.
 
-44. Fix: text_io is_open fixed for current_error.
+44. Fix: text_io close and delete will not close/delete current output or current error.
 
-45. Fix: text_io close and delete will not close/delete current output or current error.
+45. Fix: units.sqmiles2sqkm was documented was missing but now implemented.
 
-46. Fix: units.sqmiles2sqkm was documented was missing but now implemented.
+46. Fix: units package documentation dry and liquid ounces corrected to dry and liquid gallons.
 
-47. Fix: units package documentation dry and liquid ounces corrected to dry and liquid gallons.
-
-48. Fix: fixed TODO for vectors package find/reverse_find memory leak.
+47. Fix: completed TODO for vectors package find/reverse_find memory leak.
 
