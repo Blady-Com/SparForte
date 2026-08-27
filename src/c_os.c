@@ -585,7 +585,7 @@ int C_install_sigterm_handler( int *flag_address ) {
   sigfillset( &signalmask );                     // block all during handling
   sa.sa_handler = sigterm_handler;               // what to do on signal
   sa.sa_mask    = signalmask;                    // mask all signals
-  sa.sa_flags   |= SA_RESTART;                   // trap zombie children
+  sa.sa_flags   = SA_RESTART;                    // trap zombie children
 	                                             // SA_RESTART => no EINTR (Bash 4)
 
   res = sigaction( SIGTERM, &sa, &old_sigterm ); // setup signal trap
@@ -612,7 +612,7 @@ int C_install_sigchld_handler( int *flag_address ) {
   sigfillset( &signalmask );                     // block all during handling
   sa.sa_handler = sigchld_handler;               // what to do on signal
   sa.sa_mask    = signalmask;                    // mask all signals
-  sa.sa_flags   |= SA_RESTART;                   // trap zombie children
+  sa.sa_flags   = SA_RESTART;                    // trap zombie children
 	                                             // SA_RESTART => no EINTR (Bash 4)
   res = sigaction( SIGCHLD, &sa, &old_sigchld ); // setup signal trap
   if ( res == 0 )                                // OK?
@@ -637,7 +637,7 @@ int C_install_sigwinch_handler( int *flag_address ) {
   sigfillset( &signalmask );                     // block all during handling
   sa.sa_handler = sigwinch_handler;              // what to do on signal
   sa.sa_mask    = signalmask;                    // mask all signals
-  sa.sa_flags   |= SA_RESTART;                   // trap zombie children
+  sa.sa_flags   = SA_RESTART;                    // trap zombie children
 	                                             // SA_RESTART => no EINTR (Bash 4)
   res = sigaction( SIGWINCH, &sa, &old_sigwinch ); // setup signal trap
   if ( res == 0 )                                // OK?
