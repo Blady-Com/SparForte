@@ -1442,36 +1442,69 @@ fi
 #
 # PCREFLAG is the C pre-processor flag to enable PCRE support.
 # It will be non-blank if PCRE is detected.
+#
+# There are two different API versions of PCRE.
 
 HAS_PCRE=
+HAS_PCRE2=
 if [ -z "$NO_PCRE" ] ; then
-   echo -n "checking for libpcre (ldconfig -p, Linux)... "
-   TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libpcre`
+   echo -n "checking for libpcre2 (ldconfig -p, Linux)... "
+   TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libpcre2`
    if [ -z "$TMP" ] ; then
       echo "no"
-      echo -n "checking for libpcre (ldconfig -r, FreeBSD)... "
-      TMP=`/sbin/ldconfig -r 2>/dev/null | grep libpcre`
+      echo -n "checking for libpcre2 (ldconfig -r, FreeBSD)... "
+      TMP=`/sbin/ldconfig -r 2>/dev/null | grep libpcre2`
       if [ -z "$TMP" ] ; then
          echo "no"
-         echo -n "checking for libpcre (locate, Darwin, Alpine)... "
+         echo -n "checking for libpcre2 (locate, Darwin, Alpine)... "
          if [ ! -z "$LOCATE" ] ; then
-            TMP=`"$LOCATE" libpcre`
+            TMP=`"$LOCATE" libpcre2`
          else
-            TMP=`"$FINDLIB" -name 'libpcre*' -print`
+            TMP=`"$FINDLIB" -name 'libpcre2*' -print`
          fi
          if [ ! -z "$TMP" ] ; then
-             HAS_PCRE=1
+             HAS_PCRE2=1
              echo "yes"
          else
              echo "no"
          fi
      else
-         HAS_PCRE=1
+         HAS_PCRE2=1
          echo "yes"
      fi
   else
-     HAS_PCRE=1
+     HAS_PCRE2=1
      echo "yes"
+  fi
+  if [ -z "$HAS_PCRE2" ] ; then
+     echo -n "checking for libpcre (ldconfig -p, Linux)... "
+     TMP=`$LDCONFIG_SUDO /sbin/ldconfig -p 2>/dev/null | grep libpcre`
+     if [ -z "$TMP" ] ; then
+        echo "no"
+        echo -n "checking for libpcre (ldconfig -r, FreeBSD)... "
+        TMP=`/sbin/ldconfig -r 2>/dev/null | grep libpcre`
+        if [ -z "$TMP" ] ; then
+           echo "no"
+           echo -n "checking for libpcre (locate, Darwin, Alpine)... "
+           if [ ! -z "$LOCATE" ] ; then
+              TMP=`"$LOCATE" libpcre`
+           else
+              TMP=`"$FINDLIB" -name 'libpcre*' -print`
+           fi
+           if [ ! -z "$TMP" ] ; then
+               HAS_PCRE=1
+               echo "yes"
+           else
+               echo "no"
+           fi
+       else
+           HAS_PCRE=1
+           echo "yes"
+       fi
+    else
+       HAS_PCRE=1
+       echo "yes"
+    fi
   fi
 fi
 
@@ -1597,7 +1630,7 @@ if [ -z "$NO_BDB" ] ; then
 else
    GNATPREP_OPTS="$GNATPREP_OPTS -DBDB=false"
 fi
-if [ -n "$HAS_PCRE" ] ; then
+if [ -n "$HAS_PCRE" -o -n "$HAS_PCRE2" ] ; then
    GNATPREP_OPTS="$GNATPREP_OPTS -DPCRE=true"
 else
    GNATPREP_OPTS="$GNATPREP_OPTS -DPCRE=false"
@@ -1763,7 +1796,12 @@ else
    RLINCL=
    RLLIBS=
 fi
-if [ -n "$HAS_PCRE" ] ; then
+SPARFORTEPCRE2=
+if [ -n "$HAS_PCRE2" ] ; then
+   PCRELIBS=-"lpcre2-8"
+   PCREOBJ="c_pcre.o"
+   SPARFORTEPCRE2="-DSPARFORTEPCRE2=1"
+elif [ -n "$HAS_PCRE" ] ; then
    PCRELIBS=-"lpcre"
    PCREOBJ="c_pcre.o"
 else
@@ -1798,7 +1836,7 @@ cd ..
 
 echo "Creating...src/GNUmakefile"
 
-sed "s/GMAKEJOBSSUB/$GMAKE_JOBS/g;s/CPUFLAG/$CPU_FLAG/g;s/CCTYPE/$CC/g;s/CPUTYPE/$ARCH/g;s/MANPREFIXSUB/$MANPREFIX/g;s/PREFIXSUB/$PREFIX/g;s/GMAKETYPE/$GMAKETYPE/g;s/SDLLIBSTYPE/$SDLLIBSTYPE/g;s/SDLINCLTYPE/$SDLINCLTYPE/g;s/CFLAGSTYPE/$CFLAGSTYPE/g;s/PGLIBSSUB/$PGLIBSSUB/g;s/MYSQLLIBSSUB/$MYSQLLIBSSUB/g;s/APQLIBSSUB/$APQLIBSSUB/g;s/APQINCLSSUB/$APQINCLSSUB/g;s/SDLINCLSSUB/$SDLINCLSSUB/g;s/APQMAKESUB/$APQMAKESUB/g;s/FASTCGISUB/$FASTCGISUB/g;s/GSTREAMERLIBSSUB/$GSTREAMERLIBS/g;s/GSTREAMERFLAGSUB/$GSTREAMERFLAG/g;s/GSTREAMEROBJSUB/$GSTREAMEROBJ/g;s/MESAINCLSUB/$MESAINCLTYPE/g;s/MESALIBSSUB/$MESALIBSTYPE/g;s/BDBSUB/$BDBLIBS/g;s/BDBINCLSUB/$BDBINCL/g;s/RLINCLSUB/$RLINCL/g;s/RLLIBSSUB/$RLLIBS/g;s/PCRELIBSSUB/$PCRELIBS/g;s/PCREOBJSUB/$PCREOBJ/g;s/PCREFLAGSUB/$PCREFLAG/g;s/RLFLAGSUB/$RLFLAG/g;s/L10NFLAGSUB/$L10NFLAG/g;s/L10NLIBSSUB/$L10NLIBS/g" < GNUmakefile.orig > GNUmakefile
+sed "s/GMAKEJOBSSUB/$GMAKE_JOBS/g;s/CPUFLAG/$CPU_FLAG/g;s/CCTYPE/$CC/g;s/CPUTYPE/$ARCH/g;s/MANPREFIXSUB/$MANPREFIX/g;s/PREFIXSUB/$PREFIX/g;s/GMAKETYPE/$GMAKETYPE/g;s/SDLLIBSTYPE/$SDLLIBSTYPE/g;s/SDLINCLTYPE/$SDLINCLTYPE/g;s/CFLAGSTYPE/$CFLAGSTYPE/g;s/PGLIBSSUB/$PGLIBSSUB/g;s/MYSQLLIBSSUB/$MYSQLLIBSSUB/g;s/APQLIBSSUB/$APQLIBSSUB/g;s/APQINCLSSUB/$APQINCLSSUB/g;s/SDLINCLSSUB/$SDLINCLSSUB/g;s/APQMAKESUB/$APQMAKESUB/g;s/FASTCGISUB/$FASTCGISUB/g;s/GSTREAMERLIBSSUB/$GSTREAMERLIBS/g;s/GSTREAMERFLAGSUB/$GSTREAMERFLAG/g;s/GSTREAMEROBJSUB/$GSTREAMEROBJ/g;s/MESAINCLSUB/$MESAINCLTYPE/g;s/MESALIBSSUB/$MESALIBSTYPE/g;s/BDBSUB/$BDBLIBS/g;s/BDBINCLSUB/$BDBINCL/g;s/RLINCLSUB/$RLINCL/g;s/RLLIBSSUB/$RLLIBS/g;s/PCRELIBSSUB/$PCRELIBS/g;s/PCREOBJSUB/$PCREOBJ/g;s/PCREFLAGSUB/$PCREFLAG/g;s/RLFLAGSUB/$RLFLAG/g;s/L10NFLAGSUB/$L10NFLAG/g;s/L10NLIBSSUB/$L10NLIBS/g;s/SPARFORTEPCRE2SUB/$SPARFORTEPCRE2/g" < GNUmakefile.orig > GNUmakefile
 
 cd ..
 echo "Creating...GNUmakefile"

@@ -54,7 +54,7 @@ CHANGES SINCE 3.0
 
 23. Fix: perl_match tests moved to third-party tests.
 
-24. New: Ubuntu 26.04 support. PCRE2 not complete.
+24. New: Ubuntu 26.04 support.
 
 25. Fix: arrays.shuffle modified slightly to better fit classic Fisher-Yates method.
 

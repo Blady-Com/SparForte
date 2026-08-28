@@ -46,6 +46,7 @@ L10NLIBS=L10NLIBSSUB
 #PCREINCL=PCREINCLSUB
 PCRELIBS=PCRELIBSSUB
 PCREOBJ=PCREOBJSUB
+SPARFORTEPCRE2=SPARFORTEPCRE2SUB
 
 # Libraries and Paths
 
@@ -174,7 +175,7 @@ endif
 
 c_pcre.o: c_pcre.c
 ifneq ($(strip $(PCRELIBS)),)
-	$(CC) $(CFLAGS) $(PCRELIBS) -Wall -Werror -fstack-protector -O1 -D_FORTIFY_SOURCE=2 -c c_pcre.c
+	$(CC) $(CFLAGS) ${SPARFORTEPCRE2} $(PCRELIBS) -Wall -Werror -fstack-protector -O1 -D_FORTIFY_SOURCE=2 -c c_pcre.c
 else
 	@echo "PCRE disabled"
 endif
