@@ -4,7 +4,7 @@
 -- Part of SparForte                                                        --
 ------------------------------------------------------------------------------
 --                                                                          --
---            Copyright (C) 2001-2022 Free Software Foundation              --
+--            Copyright (C) 2001-2026 Free Software Foundation              --
 --                                                                          --
 -- This is free software;  you can  redistribute it  and/or modify it under --
 -- terms of the  GNU General Public License as published  by the Free Soft- --
@@ -28,7 +28,8 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-with Interfaces.C, System.Address_To_Access_Conversions;
+with Interfaces.C.Pointers,
+     System.Address_To_Access_Conversions;
 use  Interfaces.C;
 
 package spar_os is
@@ -501,6 +502,8 @@ pragma import( C, connect );
 pragma import_valued_procedure( connect );
 -- connect to a (Internet) server.  0 if successful
 
+-- getHostByName is deprecated in favor of getAddrInfo
+
 package addrListPtrs is new System.Address_To_Access_Conversions( System.Address );
 -- We need to use C pointers with the address list because this is
 -- a pointer to a pointer in C.  This will allow us to dereference
@@ -529,6 +532,52 @@ use HEptrs;
 function getHostByName( cname : string ) return aHEptr;
 pragma import( C, getHostByName );
 -- look up a host by it's name, returning the IP number (deprecated)
+
+--type socklen_t is new unsigned;
+--
+--type anAddrInfo is record
+--      ai_flags      : int;
+--      ai_family     : int;
+--      ai_socktype   : int;
+--      ai_protocol   : int;
+--      ai_addrlen    : socklen_t;
+--      ai_addr       : System.Address; -- struct sockaddr
+--      ai_canonname  : System.Address; -- C string
+--      ai_next       : System.Address; -- struct addinfo
+--end record;
+--type anAddrInfoList is array( Interfaces.C.size_t range <>) of aliased anAddrInfo;
+--anAddrInfoNull is record
+--  ai_flags      : int;
+--  ai_family     : int;
+--  ai_socktype   : int;
+--  ai_protocol   : int;
+--  ai_addrlen    : socklen_t;
+--  ai_addr       : System.Address; -- struct sockaddr
+--  ai_canonname  : System.Address; -- C string
+--  ai_next       : System.Address; -- struct addinfo
+--end record;
+--
+--package addrInfoPtrs is
+--  new Interfaces.C.Pointers (
+--                   Index              => Interfaces.C.size_t,
+--                  Element            => anAddrInfo,
+--                   Element_Array      => anAddrInfoList,
+--                   Default_Terminator => Interfaces.C.nul);
+-- use aAddrInfoPtrs;
+-- use makes = (equals) visible
+--nullAddrInfoPtr : constant addrInfoPtrs.Pointer := null;
+
+--type char_array_ptr is access all char_array;
+--subtype charArrayPtr is System.Address;
+
+--function getAddrInfo(
+--  node     : charArrayPtr;
+--  service  : charArrayPtr;
+--  hints    : addrInfoPtrs.Pointer;
+--  addrinfo : addrInfoPtrs.Pointer ) return int;
+--pragma import( C, getAddrInfo );
+
+-- also need free
 
 function htons( s : unsigned_short ) return unsigned_short;
 pragma import( C, htons );
