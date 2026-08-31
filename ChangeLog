@@ -4,7 +4,7 @@ Objective: Fixes before foundation for value meta labels (Phase 2)
 
 Known Issues
 
-Ubuntu 26.04: PCRE2 is not supported.
+-
 
 CHANGES SINCE 3.0
 
@@ -14,7 +14,7 @@ CHANGES SINCE 3.0
 
 3. Change: when a hash-able command (e.g. "foo") is not found but a file exists without executable permission, an error message describes this condition rather than describing it as not found. When a command path (e.g. "/bin/foo") cannot be run when the file exists without executable permission, an error describes this condition rather than describing it as not found.
 
-4. pragma annotate( generator ) for automation generated source code as per Linux kernel standards.
+4. New: pragma annotate( generator ) for automation generated source code as per Linux kernel standards.
 
 5. Fix: certain edge cases in subprogram parameter names like names already in use, duplicate parameter names, a parameter with the name of the subprogram should now work correctly.
 
