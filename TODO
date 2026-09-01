@@ -11,9 +11,6 @@ These are new issues identified but not entered into the outstanding bug list
 Long term Ongoing Work
 ----------------------
 
-- Ubuntu 26.04
-  - c_pcre.c must be entirely rewritten for PCRE2
-
 - to catch 2>;, I need "redirectFileNumber" the way I have redirectAmpersand
   but maybe I will have to push it up to the parser to avoid adding more states
   flags to the compiler.
@@ -30,6 +27,8 @@ Long term Ongoing Work
 
 - gethostbyname (deprecated) -> getaddrinfo with new parameters and
   structure
+  - challenge here is we need to have C null pointers but this is
+    difficult in Ada.  There is a Interfaces.C.Pointers library.
 - if a command line starts with a space, c_rc.c counts the leading
   space as ending a word and, thus, breaks second word auto-complete
   such as (" git com" doesn't complete commit)
@@ -452,6 +451,8 @@ Priority Issues (Fix These First)
 Annoyances / Bugs with Workarounds / Updates
 --------------------------------------------
 
+- logs package message categories to filter for different teams (e.g.
+  security related messages)
 - in addition to server profile and personal profile, a project or
   team profile would be useful.  A team profile is the team-wide
   defaults and so would take priority over user settings.
