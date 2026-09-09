@@ -1,5 +1,7 @@
 # SparForte README File
 
+[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/sparforte.json)](https://alire.ada.dev/crates/sparforte.html)
+
 Ken O. Burtch is the author of "Linux Shell Scripting with Bash" and
 former IT Architect with the "Webkinz" brand websites. With nearly 20
 years experience in the IT business, including many years with
