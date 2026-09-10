@@ -12,6 +12,9 @@ licenses = "GPL-2.0-only"
 
 executables = ["spar"]
 
+[environment]
+TERM.set = "xterm-256color"
+
 [[actions]]
 type = "post-fetch"
 command = ["sh", "configure", "--without-bdb", "--without-mysql", "--without-opengl",
