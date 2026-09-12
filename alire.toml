@@ -15,6 +15,11 @@ executables = ["spar"]
 [environment]
 TERM.set = "xterm-256color"
 
+[available."case(os)"]
+"linux" = true
+"macos" = true
+"..." = false
+
 [[actions]]
 type = "post-fetch"
 command = ["sh", "configure", "--without-bdb", "--without-mysql", "--without-opengl",
