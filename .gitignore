@@ -8,6 +8,7 @@
 *.out
 *.swp
 *.tmp
+.clang-format
 sloccount.txt
 sloccount.xml
 cloc.xml
@@ -24,6 +25,7 @@ t2.tmpl
 spar
 user_io-getline.adb
 src/world.ads
+src/world-deps.ads
 bdb_constants.ads
 src/bdb/db
 gen_constants
