@@ -1,6 +1,6 @@
 name = "sparforte"
-description = "An open source scripting lanquage for high integrity tasks"
-version = "2.5.0"
+description = "An open source scripting language for high integrity tasks"
+version = "3.0.1"
 tags = ["scripting", "language"]
 
 authors = ["Ken Burtch <ken@pegasoft.ca>"]
@@ -12,11 +12,16 @@ licenses = "GPL-2.0-only"
 
 executables = ["spar"]
 
+[environment]
+TERM.set = "xterm-256color"
+
+[available."case(os)"]
+"linux" = true
+"macos" = true
+"..." = false
+
 [[actions]]
 type = "post-fetch"
 command = ["sh", "configure", "--without-bdb", "--without-mysql", "--without-opengl",
                               "--without-postgres", "--without-readline", "--without-sound",
                               "--without-pcre", "--without-sdl", "--arch=native"]
-
-[gpr-set-externals.'case(os)']
-macos   = { SPAR_LINKER_FLAGS = "-Wl,-no_pie" } # needed for symbolic exception traceback 

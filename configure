@@ -887,11 +887,13 @@ if [ -z "$TMP" ] ; then
            else
                echo "no"
                echo
-               echo "If you have libssl, it may be version specific"
+               echo "If you have libssl, it may be version specific."
                echo "Please make a general symbol link libssl.so to the "
                echo "correct version and run ldconfig to update the"
                echo "shared library list."
-               exit 1
+               # exit 1
+               # as libssl may be needed for only some databases, it
+               # may be considered just as a warning
            fi
        fi
    fi
