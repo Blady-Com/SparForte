@@ -761,7 +761,7 @@ fi
 cd ../test  # src to test
 cp "../src/c_scanner.c" "c_scanner.c"
 echo -n "compiling c calendar linkage function..."
-(exec gcc -c c_scanner.c > /dev/null 2>/dev/null )
+(exec gcc -c c_scanner.c )
 if [ $? -ne 0 ] ; then
    echo "no"
    echo
@@ -775,7 +775,8 @@ SCANNER_VERSION="scanner-calendar-latest"
 echo -n "trying calendar $SCANNER_VERSION ..."
 cp "../src/$SCANNER_VERSION.ads" "scanner-calendar.ads"
 cp "../src/$SCANNER_VERSION.adb" "scanner-calendar.adb"
-(exec gnatmake -f scanner_test.adb -largs c_scanner.o > /dev/null 2>/dev/null )
+(exec gnatmake -f scanner_test.adb -largs c_scanner.o )
+exit 1
 if [ $? -ne 0 ] ; then
    echo "no"
    SCANNER_VERSION="scanner-calendar-pre441"
